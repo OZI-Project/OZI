@@ -1,0 +1,222 @@
+# Copyright 2023 Ross J. Duff MSc
+# The copyright holder licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+
+#   http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+[project]
+authors = [{name = "Ross J. Duff MSc", email = "rjdbcm@github.com"}]
+dynamic = ["version"]
+license = {file = "LICENSE.txt"}
+readme  = "README.rst"
+
+[project.optional_dependencies] # also meson test suite names
+# Bootstrapping Dependencies
+boot = ["mesonpep517", "ninja", "[dist,util,pypa]"]
+# Default meson test setup
+dev  = ["[dist,docs,lint,test]"]
+## Packaging Setup
+dist = ["pyc_wheel", "python-semantic-release", "sigstore"]
+## Documentation Setup
+docs = ["doc8", "pydocstyle[toml]", "Pygments", "pyparsing", "sphinx",
+        "sphinx-design", "sphinxawesome-codelinter", "sphinxawesome-theme ~= 5.0.0b2"]
+## Linting and Formatting Setup
+lint = ["bandit[toml]", "black", "flake8", "Flake8-pyproject", "isort", "pylint", "pyright",
+        "restructuredtext-lint"]
+## Testing Setup
+test = ["coverage[toml]", "hypothesis[all]", "pytest", "pytest-asyncio", "pytest-cov", 
+        "pytest-tcpclient", "pytest-randomly", "pytest-xdist"]
+
+# Semantic Web Stack
+swx = ["[asgi,i18n,saas,srch]"]
+## Asynchronous Server Gateway Interfaces
+asgi = ["asgiref", "blacksheep", "fastapi", "litestar", "piccolo[all]"]
+## Search and Indexing
+srch = ["PyStemmer", "Whoosh"]
+## Internationalization
+i18n = ["Babel", "chardet", "charset-normalizer", "python-dateutil", "sphinx-intl"]
+## Software as a Service standards
+saas = ["bleach", "certifi", "dotty-dict", "grpclib", "h2", "hpack", "hyperframe", "id",
+        "idna", "keyring", "rfc3986", "oauthlib", "requests", "tuf", "twisted", "urllib3",
+        "webencodings"]
+
+# Neural Network Stack
+nnx = ["[cvor,data,nlpx]"]
+## Computer Vision and Object Recognition
+cvor = ["python-opencv", "Pillow >= 9.3", ]
+## Data Science utilities
+data = ["tensorflow", "sqlite3-to-mysql"]
+
+## Graphical User Interface
+guix = ["kivy"]
+## Textual User Interface
+tuix = ["click", "emoji", "pyfiglet", "tqdm"]
+## Language cross-compilation utilities
+lang = ["astroid", "benigets", "Cython", "gast", "lark", "libcst", "pycparser", "sqlglot",
+        "xdsl"]
+## NLP
+nlpx = ["nltk", "textblob"]
+## Utility functionality that does not fit with another namespace
+util = ["appdirs", "attrs", "atpublic", "bitarray", "imagesize", "iniconfig", "invoke",
+        "Faker", "fakeredis", "jmespath", "lazy-object-proxy", "msgspec", "multidict",
+        "python-benedict", "PyYAML", "redis", "semver", "sortedcontainers", "tomli",
+        "tomlkit", "wrapt"]
+## Utility functionality with trove-classifier "Beta" 
+beta = ["pathspec", "docutils", ]
+
+gitx = ["gitpython", "gitdb", "gitlab-python",]
+
+muse = ["softsynth", "mingus-blakey", "mingus-paganini", "improviser", "mingus"]
+
+c10y = ["pyca", "securesystemslib"]
+# Python blessed distributions
+thon = ["[port,pyca,pypa,pyqa]"]
+## PSF Portability support packages
+port = ["importlib_metadata", "importlib_resources", "mypy", "typing-extensions", "tzdata"]
+## Python Cryptography Authority
+pyca = ["cryptography", "pynacl", "PyOpenSSL", "service-identity"]
+## Python Packaging Authority
+pypa = ["auditwheel", "bandersnatch", "build", "cibuildwheel", "hatch", "flit", "packaging", 
+        "pip-audit", "pipfile", "pipx", "pyproject-hooks", "readme-renderer", "scripttest",
+        "setuptools", "setuptools_scm", "trove-classifiers", "twine", "wheel"]
+## Python Code Quality Authority 
+pyqa = ["autoflake", "bandit", "doc8", "docformatter", "flake8", "flake8-bugbear", 
+        "flake8-commas", "flake8-docstrings", "flake8-import-order", "flake8-json", 
+        "flake8-polyfill", "flake8-pyi", "isort", "mccabe", "mccabe-console-script", 
+        "pep8-naming", "pycodestyle", "pydocstyle", "pyflakes", "pylint", "pylint-celery", 
+        "pylint-django", "pylint-pytest"]
+
+[tool.mesonpep517.metadata]
+requires-python = "~=3.9"
+summary         = "Packaged with OZI."
+classifiers     = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Natural Language :: English",
+    "Intended Audience :: Developers",
+    "Environment :: MacOS X",
+    "Environment :: Win32 (MS Windows)",
+    "Environment :: X11 Applications",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Interpreters",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[build-system]
+requires      = ["mesonpep517","ninja","setuptools>=64","setuptools_scm[toml]>=6.2","tomli"]
+build-backend = "mesonpep517.buildapi"
+
+[tool.bandit]
+exclude_dirs = ["venv", "build-env-*"]
+verbose = true
+format = "txt"
+
+[tool.black]
+line-length = 93
+
+[tool.coverage.report]
+exclude_lines = [
+    "#\\s*(pragma|PRAGMA)[:\\s]?\\s*(no|NO)\\s*(cover|COVER)",
+    "#\\s*(pragma|PRAGMA)[:\\s]?\\s*(defer|DEFER)\\s*(to|TO)\\s*[a-zA-Z0-9_]*",
+    "def __repr__",
+    "def __wrapper", # functools.wraps decorated functions
+    "(\\.\\.\\.)",
+    "@(abc\\.)?abstractmethod",
+    "class .*\\bProtocol\\):",
+    "if __name__ == .__main__.:",
+    ]
+fail_under    = 100.0
+show_missing  = true
+skip_covered  = true
+skip_empty    = true
+
+[tool.coverage.run]
+branch         = true
+relative_files = true
+
+[tool.doc8]
+ignore = ["D000", "D002"]
+
+[tool.flake8]
+max-line-length = 93
+extend-exclude = ["build-env-*", "venv", "build"]
+
+[tool.isort]
+line_length = 93
+profile = "black"
+verbose = true
+
+[tool.mesonpep517.dynamic]
+version = {attr = "_scm_version.__version__"}
+
+[tool.pydocstyle]
+match = "\\*\\.py"
+
+[tool.pylint.MASTER]
+ignore = "_scm_version.py"
+
+[tool.pyright]
+reportMissingTypeStubs = false
+
+[tool.pytest.ini_options] #[tool.pytest] # This will be used by pytest in the future
+filterwarnings      = [
+"error",
+"ignore:The --rsyncdir command line argument and rsyncdirs config variable are deprecated.:DeprecationWarning",
+]
+asyncio_mode        = "auto"
+log_cli             = true
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+log_cli_format      = "%(asctime)s [%(levelname)8s] %(name)s: %(message)s (%(filename)s:%(lineno)s)"
+log_cli_level       = "INFO"
+
+[tool.semantic_release]
+# hvcs_api_domain       = ""
+# hvcs_domain           = ""
+branch                = "master"
+build_command         = "python -m build -w . && python -m pyc_wheel build/*.whl && sigstore sign build/*.whl"
+changelog_file        = "CHANGELOG.md"
+changelog_placeholder = "<!--next-version-placeholder-->"
+commit_parser         = "semantic_release.history.emoji_parser"
+dist_glob_patterns    = "*"
+dist_path             = "build/"
+hvcs                  = "github"
+major_on_zero         = false
+patch_without_tag     = false
+prerelease_tag        = "beta"
+remove_dist           = true
+tag_format            = "{version}"
+upload_to_release     = false
+upload_to_repository  = false
+version_source        = "tag"
+version_variable      = "_scm_version.py:__version__"
+
+[tool.setuptools_scm]
+write_to = "_scm_version.py"
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = {py39,py310}-toml,py311
+
+[testenv]
+deps = 
+     meson >= 1.1.0
+     toml: tomli >= 2.0.0
+commands =
+     meson setup build -Ddev=enabled
+     meson test -C build --suite=dev
+"""

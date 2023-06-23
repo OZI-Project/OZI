@@ -1,0 +1,160 @@
+# Copyright 2023 Ross J. Duff MSc 
+# The copyright holder licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+
+#   http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+option('dev'            , type: 'feature', value: 'auto')
+option('source-to-build', type: 'feature', value: 'auto')
+option('build-dir'      , type: 'feature', value: 'auto')
+option('project-name'   , type: 'feature', value: 'auto')
+option('docs-source'    , type: 'feature', value: 'auto')
+option('test-source'    , type: 'feature', value: 'auto')
+option('dist'           , type: 'feature', value: 'auto')
+option('docs'           , type: 'feature', value: 'auto')
+option('lint'           , type: 'feature', value: 'auto')
+option('test'           , type: 'feature', value: 'auto')
+option('python-dependencies', type: 'array', description: 'sanity check module dependencies',
+value: ['setuptools_scm', 'tomli'])
+
+option('namespace', type: 'array', description: '--setup=dev',
+value: ['dist', 'docs', 'lint', 'test'], yield: false)
+
+option('variables', type: 'array', description: 'variables to set',
+value: ['python', 'pytest-plugins', 'no-version', 'module-only', 'source-to-build', 
+        'docs-source', 'test-source', 'dist-exclude-suites', 'docs-exclude-suites',
+        'lint-exclude-suites', 'test-exclude-suites'])
+
+option('unhashable', type: 'array', 
+value: ['source-to-build'])
+
+option('dist-exclude-suites', type: 'array',
+value: ['docs', 'lint', 'test'])
+option('docs-exclude-suites', type: 'array',
+value: ['dist', 'lint', 'test'])
+option('lint-exclude-suites', type: 'array',
+value: ['docs', 'dist', 'test'])
+option('test-exclude-suites', type: 'array',
+value: ['dist', 'docs', 'lint'])
+option('dist-suite', type: 'array', description: '--setup=dist',
+value: ['pyc_wheel', 'semantic-release', 'sigstore'])
+option('docs-suite', type: 'array', description: '--setup=docs',
+value: ['doc8', 'pydocstyle', 'sphinx-build', 'sphinxawesome-codelinter', 
+        'sphinxawesome-theme'])
+option('lint-suite', type: 'array', description: '--setup=lint',
+value: ['bandit', 'black', 'isort', 'pylint', 'pyright', 'flake8p', 'Flake8-pyproject',
+        'restructuredtext-lint'])
+option('test-suite', type: 'array', description: '--setup=test',
+value: ['coverage', 'hypothesis', 'pytest'])
+
+option('should-fail', type: 'array', description: 'tests that return non-zero',
+value: [])
+
+option('pytest-plugins', type: 'array', description: 'pytest11 namespace plugins',
+value: ['pytest-asyncio',
+        'pytest-cov',
+        'pytest-xdist',
+        'pytest-tcpclient',
+        'pytest-randomly'])
+
+option('no-version', type: 'array', description: 'no packaged version metadata',
+value: ['Flake8-pyproject',
+        'pyc_wheel',
+        'pytest-asyncio',
+        'pytest-tcpclient',
+        'pytest-randomly',
+        'pytest-xdist',
+        'semantic-release',
+        'sphinxawesome-codelinter',
+        'sphinxawesome-theme'])
+
+option('module-only', type: 'array', description: 'install only - no application',
+value: ['pyc_wheel',
+        'sphinxawesome-codelinter', 
+        'sphinxawesome-theme',
+        'Flake8-pyproject'])
+# test application arguments
+option('args-sigstore', type: 'array', 
+value: ['--version'], yield: false)
+
+option('args-semantic-release' , type: 'array', 
+value: ['--noop', 'version', '--verbosity=debug'], yield: false)
+
+option('args-pyc_wheel', type: 'array',
+value: ['-h'], yield: false)
+
+option('args-doc8', type: 'array',
+value: ['--config', 'pyproject.toml', '@docs_source@'], yield: false)
+
+option('args-pydocstyle', type: 'array',
+value: ['-v', '-d', '--config=pyproject.toml', '@docs_source@'], yield: false)
+
+option('args-sphinx-build', type: 'array',
+value: ['--version'], yield: false)
+
+option('args-sphinxawesome-codelinter', type: 'array',
+value: [], yield: false)
+
+option('args-sphinxawesome-theme', type: 'array',
+value: [], yield: false)
+
+option('args-bandit'  , type: 'array', value: ['-r', '@project_name@'],
+        yield: false)
+option('args-black'   , type: 'array', value: ['-v', '--check', '--diff', '@project_name@'],
+        yield: false)
+option('args-isort'   , type: 'array', value: ['@project_name@'],
+        yield: false)
+option('args-pylint'  , type: 'array', value: ['@project_name@'],
+        yield: false)
+option('args-pyright' , type: 'array', value: ['@project_name@'],
+        yield: false)
+option('args-coverage', type: 'array', value: ['debug', 'config'],
+        yield: false)
+option('args-restructuredtext-lint',
+                        type: 'array', value: ['--level=debug', '@project_name@'],
+        yield: false)
+option('args-flake8p'  , type: 'array', value: [],
+        yield: false)
+option('args-Flake8-pyproject', type: 'array', value: [],
+        yield: false)
+option('args-hypothesis'    , type: 'array', value: ['codemod', '@test_source@'],
+        yield: false)
+option('args-pytest'        , type: 'array', value: ['--cov-config=pyproject.toml', '@opt_cov_eq_project_name@', '-n', 'auto', '-d', '@test_source@'],
+        yield: false)
+option('args-pytest-asyncio', type: 'array', value: [],
+        yield: false)
+option('args-pytest-cov'    , type: 'array', value: [],
+        yield: false)
+option('args-pytest-xdist'  , type: 'array', value: [],
+        yield: false)
+
+option('python-readline-snip', type: 'string',
+value: 'f=open("@0@","r");[print(line,sep=";",end="") for line in f.readlines()];f.close();')
+option('scm-version-snip', type: 'string', value: 'scm_version_snip.py')
+# value: 'from setuptools_scm import get_version;print(get_version(normalize=False))')
+option('version-metadata-template', type: 'string', value: 'version_metadata_template.py')
+# value:'from importlib.metadata import version; print(version("@0@"))')
+option('core-metadata-template', type: 'string', value: 'core_metadata_template.py')
+# value:'import tomli; import pathlib; import os;'
+# +'source = pathlib.Path(os.environ.get("MESON_SOURCE_ROOT"));'
+# +'f = open(source/"pyproject.toml", "rb");'
+# +'pyproject_toml = tomli.load(f);'
+# +'f.close();'
+# +'core_metadata = pyproject_toml.get("project");'
+# +'print(set(core_metadata.get("optional_dependencies").get("@0@")))')
+option('emoji-metadata-version', type: 'string', value: '📦')
+option('emoji-no-version',       type: 'string', value: '📡')
+option('emoji-directory',        type: 'string', value: '📁')
+option('emoji-setup',            type: 'string', value: '🧪')
+option('emoji-docs',             type: 'string', value: '📝')
+option('emoji-dist',             type: 'string', value: '🚀')
+option('emoji-lint',             type: 'string', value: '🚨')
+option('emoji-test',             type: 'string', value: '✅')
