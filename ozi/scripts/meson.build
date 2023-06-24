@@ -12,10 +12,13 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-[wrap-git]
-url = https://github.com/rjdbcm/ozi.git
-revision = @version@
-depth = 1
-
-[provide]
-dependency_names = ozi-@version@
+config_files += [
+ 'core_metadata_template.py',
+ 'scm_version_snip.py',
+ 'version_metadata_template.py'
+]
+subdir('ci')
+subdir('ide')
+foreach name : namespace
+ subdir(name)
+endforeach

@@ -12,13 +12,17 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-project('OZI', version: '0.0.2', default_options: ['warning_level=3'],
+project('OZI', version: run_command(
+  'python3', # scm_version_snip
+  ['-c', 'from setuptools_scm import get_version;print(get_version(normalize=False))'], 
+  check:true
+ ).stdout().strip(), default_options: ['warning_level=3'],
         license: 'Apache-2.0', license_files: 'LICENSE.txt', meson_version: '>=1.1.0')
 meson.override_find_program('ozi')
 pkg_info = {
         '@PYTHON_MAJOR@'       : '3',
-        '@PYTHON_SECURITY_NEW@': '3.9',
-        '@PYTHON_SECURITY_OLD@': '3.10',
+        '@PYTHON_SECURITY_OLD@': '3.9',
+        '@PYTHON_SECURITY_NEW@': '3.10',
         '@PYTHON_BUGFIX@'      : '3.11',
 }
 env   = environment()
@@ -80,6 +84,9 @@ install = ['install']
 build_commands = {'dev': []}
 test_app_args = {}
 pip_repr = pip.full_path()
+if get_option('ozi-bootstrap').is_enabled()
+ subdir('ozi')
+endif
 foreach name: namespace
  command_names = get_option(name+'-suite')
  summary({get_variable('emoji_'+name)+' @0@=auto'.format(name): '[auto|enabled|disabled]'}, 

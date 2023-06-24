@@ -12,6 +12,7 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
+option('ozi-bootstrap'  , type: 'feature', value: 'disabled', description: 'bootstrap OZI package')
 option('dev'            , type: 'feature', value: 'auto')
 option('source-to-build', type: 'feature', value: 'auto')
 option('build-dir'      , type: 'feature', value: 'auto')

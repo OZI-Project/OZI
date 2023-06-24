@@ -12,10 +12,7 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-[wrap-git]
-url = https://github.com/rjdbcm/ozi.git
-revision = @version@
-depth = 1
-
-[provide]
-dependency_names = ozi-@version@
+config_files = ['workflow.yml']
+foreach file : config_files
+ fs.copyfile(config_files)
+endforeach
