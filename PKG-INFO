@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: OZI
-Version: 0.0.3alpha
+Version: 0.0.5
 Summary: Packaged with OZI.
 Classifier: Development Status :: 2 - Pre-Alpha
 Classifier: Natural Language :: English
@@ -185,3 +185,4 @@ source software.
 .. _pre-commit: https://pre-commit.com/
 .. _tox: https://tox.wiki/en/latest/
 .. _Meson: https://mesonbuild.com/
+
