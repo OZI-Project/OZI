@@ -95,8 +95,9 @@ pyqa = ["autoflake", "bandit", "doc8", "docformatter", "flake8", "flake8-bugbear
         "pylint-django", "pylint-pytest"]
 
 
-[tool.mesonpep517]
+[tool.mesonpep517.metadata]
 pkg-info-file = 'PKG-INFO'
+summary = 'Packaged with OZI.'
 
 [build-system]
 requires      = ["mesonpep517","ninja","setuptools>=64","setuptools_scm[toml]>=6.2","tomli"]
