@@ -16,6 +16,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.18 (2023-06-24)
+### Other
+* 🔨 turn back on repo build. ([`4137e1e`](https://github.com/rjdbcm/ozi/commit/4137e1e2822dfce5eb0d47ac23519515422181db))
+
 ## v0.0.17 (2023-06-24)
 ### Other
 * 🔊 Add changes for 0.0.16. ([`62e9641`](https://github.com/rjdbcm/ozi/commit/62e9641e4e0505e664449110d0a46b5e3a1f794f))
