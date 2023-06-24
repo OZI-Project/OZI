@@ -95,7 +95,7 @@ pyqa = ["autoflake", "bandit", "doc8", "docformatter", "flake8", "flake8-bugbear
         "pylint-django", "pylint-pytest"]
 
 
-[tool.mesonpep517.metadata]
+[tool.mesonpep517]
 pkg-info-file = 'PKG-INFO'
 
 [build-system]
