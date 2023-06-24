@@ -16,6 +16,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.17 (2023-06-24)
+### Other
+* 🔊 Add changes for 0.0.16. ([`62e9641`](https://github.com/rjdbcm/ozi/commit/62e9641e4e0505e664449110d0a46b5e3a1f794f))
+
 ## v0.0.16 (2023-06-24)
 ### Other
 * 🔊 add 0.0.16 changes. ([`c765e65`](https://github.com/rjdbcm/ozi/commit/c765e6545bbdacde2a76021e9311f3cf334e7065))
