@@ -209,7 +209,7 @@ pre_commit_command       = """
                         meson test -C build-dist-checkpoint --setup=lint && \
                         git stash"""
 remove_dist              = false
-repository               = "OZI"
+repository               = "pypi"
 tag_format               = "{version}"
 upload_to_release        = true
 upload_to_repository     = true
