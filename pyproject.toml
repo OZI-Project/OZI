@@ -215,8 +215,10 @@ major_on_zero            = false
 patch_without_tag        = false
 prerelease_tag           = "beta"
 pre_commit_command       = """
-                        meson setup build-dist-checkpoint --reconfigure -Ddev=enabled && \
-                        meson test -C build-dist-checkpoint --setup=test --setup=lint && \
+                        meson setup build-dist-checkpoint --reconfigure\
+                         -Ddev=enabled\
+                         -Dozi-bootstrap=enabled && \
+                        meson test -C build-dist-checkpoint --setup=lint && \
                         git stash"""
 remove_dist              = false
 repository               = "testpypi"
