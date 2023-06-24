@@ -12,11 +12,14 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-config_files += [
+config_files = [
  'core_metadata_template.py',
  'scm_version_snip.py',
  'version_metadata_template.py'
 ]
+foreach file: config_files
+ fs.copyfile(file)
+endforeach
 subdir('ci')
 subdir('ide')
 foreach name : namespace
