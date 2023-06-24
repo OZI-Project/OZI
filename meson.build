@@ -110,7 +110,7 @@ if get_option('ozi-bootstrap').enabled()
   'PROJECT_NAME' : project_name,
   'MESON_DIST_FALLBACK_VERSION' : '.'.join(maj_version, min_version, pat_version),
  }))
- foreach source : ['README.rst', 'CHANGELOG.md', 'NOTICE.md', 'LICENSE.txt']
+ foreach source : ['README.rst', 'CHANGELOG.md', 'LICENSE.txt']
   fs.copyfile(source)
  endforeach
  python_files = []
