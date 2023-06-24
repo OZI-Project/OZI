@@ -96,22 +96,7 @@ pyqa = ["autoflake", "bandit", "doc8", "docformatter", "flake8", "flake8-bugbear
 
 
 [tool.mesonpep517.metadata]
-requires-python = "~=3.9"
-summary         = "Packaged with OZI."
-classifiers     = [
-    "Development Status :: 2 - Pre-Alpha",
-    "Natural Language :: English",
-    "Intended Audience :: Developers",
-    "Operating System :: MacOS :: MacOS X",
-    "Operating System :: Microsoft :: Windows",
-    "Operating System :: POSIX :: Linux",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: Implementation :: CPython",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-]
+pkg-info-file = 'PKG-INFO'
 
 [build-system]
 requires      = ["mesonpep517","ninja","setuptools>=64","setuptools_scm[toml]>=6.2","tomli"]
@@ -185,32 +170,33 @@ log_cli_level       = "INFO"
 # hvcs_domain              = ""
 branch                   = "main"
 build_command            = """
-                        git stash && \
+                        git stash clear && \
                         python -m build -w && \
+                        git add CHANGELOG.md && \
                         git stash && \
                         python -m pyc_wheel dist/*.whl && \
-                        meson setup build && \
+                        meson setup dist/build && \
                         git add PKG-INFO && \
                         git commit PKG-INFO -m \"PKG-INFO Updated\" && \
-                        meson dist -C build --formats gztar --no-tests --allow-dirty && \
-                        sigstore sign dist/*.whl && \
+                        meson dist -C dist/build --formats gztar --no-tests --allow-dirty && \
+                        sigstore sign dist/*.whl build/meson-dist/*.tar.gz && \
                         git stash clear"""
 changelog_file           = "CHANGELOG.md"
 changelog_placeholder    = "<!--next-version-placeholder-->"
 commit_parser            = "semantic_release.history.emoji_parser"
 commit_version_number    = true
-dist_glob_patterns       = "*.dist-info,*.whl,*.tar.gz"
+dist_glob_patterns       = "*.dist-info,*.whl,build/meson-dist/*.tar.gz"
 dist_path                = "dist/"
 hvcs                     = "github"
-include_additional_files = """
-                        dist/*.sig,\
-                        dist/*.crt,\
-                        dist/*.sigstore,\
-                        build/meson-dist/*.tar.gz,\
-                        build/meson-dist/*.sha256sum,\
-                        build/meson-dist/*.sig,\
-                        build/meson-dist/*.crt,\
-                        build/meson-dist/*.sigstore"""
+# include_additional_files = """
+#                         dist/*.sig,\
+#                         dist/*.crt,\
+#                         dist/*.sigstore,\
+#                         build/meson-dist/*.tar.gz,\
+#                         build/meson-dist/*.sha256sum,\
+#                         build/meson-dist/*.sig,\
+#                         build/meson-dist/*.crt,\
+#                         build/meson-dist/*.sigstore"""
 major_on_zero            = false
 patch_without_tag        = false
 prerelease_tag           = "beta"
@@ -221,12 +207,12 @@ pre_commit_command       = """
                         meson test -C build-dist-checkpoint --setup=lint && \
                         git stash"""
 remove_dist              = false
-repository               = "testpypi"
+repository               = "OZI"
 tag_format               = "{version}"
 upload_to_release        = true
-upload_to_repository     = false
+upload_to_repository     = true
 version_source           = "tag_only"
-version_variable         = "_scm_version.py:__version__"
+version_variable         = "PKG-INFO:Version: {version}"
 
 [tool.setuptools_scm]
 write_to_template = """
@@ -246,6 +232,8 @@ Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
 Classifier: Programming Language :: Python :: Implementation :: CPython
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Project-URL: Homepage, https://github.com/rjdbcm/ozi
+Project-URL: Download, https://github.com/rjdbcm/ozi/archive/refs/heads/main.zip
 Description-Content-Type: text/x-rst
 
 .. Copyright 2023 Ross J. Duff MSc 

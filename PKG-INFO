@@ -14,6 +14,8 @@ Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
 Classifier: Programming Language :: Python :: Implementation :: CPython
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Project-URL: Homepage, https://github.com/rjdbcm/ozi
+Project-URL: Download, https://github.com/rjdbcm/ozi/archive/refs/heads/main.zip
 Description-Content-Type: text/x-rst
 
 .. Copyright 2023 Ross J. Duff MSc 
