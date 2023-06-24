@@ -116,7 +116,7 @@ if get_option('ozi-bootstrap').enabled()
  python_files = []
  stub_files = []
  foreach dir : [project_name]
-  subdir(dir)
+  subdir(dir.lower())
  endforeach
  foreach file : python_files
   python.install_sources(file)
