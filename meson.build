@@ -18,7 +18,6 @@ project('OZI', version: run_command(
   check:true
  ).stdout().strip(), default_options: ['warning_level=3'],
         license: 'Apache-2.0', license_files: 'LICENSE.txt', meson_version: '>=1.1.0')
-meson.override_find_program('ozi')
 pkg_info = {
         '@PYTHON_MAJOR@'       : '3',
         '@PYTHON_SECURITY_OLD@': '3.9',
