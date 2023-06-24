@@ -83,7 +83,7 @@ install = ['install']
 build_commands = {'dev': []}
 test_app_args = {}
 pip_repr = pip.full_path()
-if get_option('ozi-bootstrap').is_enabled()
+if get_option('ozi-bootstrap').enabled()
  subdir('ozi')
 endif
 foreach name: namespace
