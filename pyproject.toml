@@ -179,7 +179,7 @@ build_command            = """
                         git add PKG-INFO && \
                         git commit PKG-INFO -m \"PKG-INFO Updated\" && \
                         meson dist -C dist/build --formats gztar --no-tests --allow-dirty && \
-                        sigstore sign dist/*.whl build/meson-dist/*.tar.gz && \
+                        sigstore sign dist/*.whl dist/build/meson-dist/*.tar.gz && \
                         git stash pop && \
                         git add CHANGELOG.md && \
                         git stash clear"""
@@ -187,7 +187,7 @@ changelog_file           = "CHANGELOG.md"
 changelog_placeholder    = "<!--next-version-placeholder-->"
 commit_parser            = "semantic_release.history.emoji_parser"
 commit_version_number    = true
-dist_glob_patterns       = "*.dist-info,*.whl"
+dist_glob_patterns       = "*.dist-info,*.whl,build/meson-dist/*.tar.gz"
 dist_path                = "dist/"
 hvcs                     = "github"
 # include_additional_files = """
