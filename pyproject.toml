@@ -171,9 +171,8 @@ log_cli_level       = "INFO"
 # hvcs_domain              = ""
 branch                   = "main"
 build_command            = """
-                        git stash && \
                         python -m build -w && \
-                        git stash && \
+                        git stash -- PKG-INFO && \
                         python -m pyc_wheel dist/*.whl && \
                         meson setup dist/build && \
                         git add PKG-INFO && \
@@ -207,12 +206,12 @@ pre_commit_command       = """
                          -Ddev=enabled \
                          -Dozi-bootstrap=enabled && \
                         meson test -C build-dist-checkpoint --setup=lint && \
-                        git stash"""
+                        git stash -- PKG-INFO"""
 remove_dist              = false
 repository               = "pypi"
 tag_format               = "{version}"
-upload_to_release        = true
-upload_to_repository     = true
+upload_to_release        = false
+upload_to_repository     = false
 version_source           = "tag_only"
 version_variable         = "PKG-INFO:Version: {version}"
 
