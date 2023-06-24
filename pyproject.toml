@@ -173,7 +173,6 @@ branch                   = "main"
 build_command            = """
                         git stash clear && \
                         python -m build -w && \
-                        git add CHANGELOG.md && \
                         git stash && \
                         python -m pyc_wheel dist/*.whl && \
                         meson setup dist/build && \
@@ -181,6 +180,8 @@ build_command            = """
                         git commit PKG-INFO -m \"PKG-INFO Updated\" && \
                         meson dist -C dist/build --formats gztar --no-tests --allow-dirty && \
                         sigstore sign dist/*.whl build/meson-dist/*.tar.gz && \
+                        git stash pop && \
+                        git add CHANGELOG.md && \
                         git stash clear"""
 changelog_file           = "CHANGELOG.md"
 changelog_placeholder    = "<!--next-version-placeholder-->"
