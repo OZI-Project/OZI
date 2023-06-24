@@ -171,7 +171,7 @@ log_cli_level       = "INFO"
 # hvcs_domain              = ""
 branch                   = "main"
 build_command            = """
-                        git stash clear && \
+                        git stash && \
                         python -m build -w && \
                         git stash && \
                         python -m pyc_wheel dist/*.whl && \
