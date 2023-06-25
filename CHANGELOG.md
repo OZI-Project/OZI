@@ -16,6 +16,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.20 (2023-06-24)
+### Other
+* 🔨 drop PKG-INFO from pre_commit. ([`39a908d`](https://github.com/rjdbcm/ozi/commit/39a908d39cc747a5c33082bddf833e9fe2b9075b))
+* 🔨 fix stash strategy.. ([`a20807e`](https://github.com/rjdbcm/ozi/commit/a20807e23f3555b8306523cc3da8ebf84ef575f2))
+* PKG-INFO Updated ([`5de6296`](https://github.com/rjdbcm/ozi/commit/5de6296f33c58f751c97551b9b69f1f786c04409))
+
 ## v0.0.19 (2023-06-24)
 ### Other
 * 🔨 stash after push release. ([`4169813`](https://github.com/rjdbcm/ozi/commit/4169813270f1e6783da08a914904b53776b3b49c))
