@@ -208,7 +208,8 @@ pre_commit_command       = """
                          -Ddev=enabled \
                          -Dozi-bootstrap=enabled && \
                         meson test -C build-dist-checkpoint --setup=lint && \
-                        git stash -- PKG-INFO"""
+                        git stash -- PKG-INFO && \
+                        git stash drop"""
 remove_dist              = false
 repository               = "pypi"
 tag_format               = "{version}"
