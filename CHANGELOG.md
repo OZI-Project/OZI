@@ -16,6 +16,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.19 (2023-06-24)
+### Other
+* 🔨 stash after push release. ([`4169813`](https://github.com/rjdbcm/ozi/commit/4169813270f1e6783da08a914904b53776b3b49c))
+
 ## v0.0.18 (2023-06-24)
 ### Other
 * 🔨 turn back on repo build. ([`4137e1e`](https://github.com/rjdbcm/ozi/commit/4137e1e2822dfce5eb0d47ac23519515422181db))

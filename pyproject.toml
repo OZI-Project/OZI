@@ -171,11 +171,12 @@ log_cli_level       = "INFO"
 # hvcs_domain              = ""
 branch                   = "main"
 build_command            = """
-                        git stash -- PKG-INFO && \
+                        git stash && \
                         python -m build -w && \
                         git stash -- PKG-INFO && \
                         python -m pyc_wheel dist/*.whl && \
                         meson setup dist/build && \
+                        git stash drop && \
                         git add PKG-INFO && \
                         git commit PKG-INFO -m \"PKG-INFO Updated\" && \
                         meson dist -C dist/build --formats gztar --no-tests --allow-dirty && \
