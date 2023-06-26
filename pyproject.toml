@@ -204,6 +204,7 @@ major_on_zero            = false
 patch_without_tag        = false
 prerelease_tag           = "beta"
 pre_commit_command       = """
+                        git clean -dfX && \
                         meson setup build-dist-checkpoint --reconfigure \
                          -Ddev=enabled \
                          -Dozi-bootstrap=enabled && \
