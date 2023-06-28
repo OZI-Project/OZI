@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frjdbcm%2Fozi.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Frjdbcm%2Fozi?ref=badge_shield)
+
 .. Copyright 2023 Ross J. Duff MSc 
    The copyright holder licenses this file
    to you under the Apache License, Version 2.0 (the
@@ -167,3 +169,6 @@ source software.
 .. _pre-commit: https://pre-commit.com/
 .. _tox: https://tox.wiki/en/latest/
 .. _Meson: https://mesonbuild.com/
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frjdbcm%2Fozi.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Frjdbcm%2Fozi?ref=badge_large)
