@@ -1,4 +1,3 @@
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frjdbcm%2Fozi.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Frjdbcm%2Fozi?ref=badge_shield)
 
 .. Copyright 2023 Ross J. Duff MSc 
    The copyright holder licenses this file
@@ -18,7 +17,7 @@
 OZI
 ===
 
-|py-version-badge| |slsa-level3-badge| |semantic-release-badge|
+|py-version-badge| |slsa-level3-badge| |fossa-badge| |semantic-release-badge|
 |coverage-badge| |pytest-plugins-badge| 
 |bandit-badge| |black-badge| |isort-badge| |flake8-badge| |pyright-badge| |pylint-ckpt-badge| |rst-lint-badge|
 
@@ -118,6 +117,9 @@ source software.
 .. |py-version-badge| image:: https://img.shields.io/badge/Python%20Version-3.9%20%7C%203.10%20%7C%203.11-blue
 
 .. |pylint-ckpt-badge| image:: https://img.shields.io/badge/linting-%E2%9C%94%20Pylint%3A%2010.00%2F10-informational
+.. |fossa-badge| image:: https://app.fossa.com/api/projects/git%2Bgithub.com%2Frjdbcm%2Fozi.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Frjdbcm%2Fozi?ref=badge_shield)
+    :target: https://app.fossa.com/projects/git%2Bgithub.com%2Frjdbcm%2Fozi?ref=badge_large
+    :alt: License Compliance
 
 .. |slsa-level3-badge| image:: https://slsa.dev/images/gh-badge-level3.svg
 
