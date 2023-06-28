@@ -171,6 +171,3 @@ source software.
 .. _pre-commit: https://pre-commit.com/
 .. _tox: https://tox.wiki/en/latest/
 .. _Meson: https://mesonbuild.com/
-
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frjdbcm%2Fozi.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Frjdbcm%2Fozi?ref=badge_large)
