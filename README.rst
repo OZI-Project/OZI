@@ -18,7 +18,7 @@
 OZI
 ===
 
-|py-version-badge| |slsa-level3-badge| |fossa-badge| |semantic-release-badge|
+|py-version-badge| |openssf-badge| |slsa-level3-badge| |fossa-badge| |semantic-release-badge|
 |coverage-badge| |pytest-plugins-badge| 
 |bandit-badge| |black-badge| |isort-badge| |flake8-badge| |pyright-badge| |pylint-ckpt-badge| |rst-lint-badge|
 
@@ -139,7 +139,9 @@ source software.
     :alt: License Compliance
 
 .. |slsa-level3-badge| image:: https://slsa.dev/images/gh-badge-level3.svg
-
+.. |openssf-badge| image:: https://bestpractices.coreinfrastructure.org/projects/7515/badge
+    :target: https://bestpractices.coreinfrastructure.org/projects/7515
+    :alt: Open Source Security Foundation self-certification status
 .. |semantic-release-badge| image:: https://img.shields.io/badge/semantic--release-gitmoji-e10079?logo=semantic-release
     :target: https://github.com/python-semantic-release/python-semantic-release
     :alt: Automatic Semantic Versioning for Python projects
