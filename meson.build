@@ -19,10 +19,10 @@ project('OZI', version: run_command(
  ).stdout().strip(), default_options: ['warning_level=3'],
         license: 'Apache-2.0', license_files: 'LICENSE.txt', meson_version: '>=1.1.0')
 pkg_info = {
-        '@PYTHON_MAJOR@'       : '3',
-        '@PYTHON_SECURITY_OLD@': '3.9',
-        '@PYTHON_SECURITY_NEW@': '3.10',
-        '@PYTHON_BUGFIX@'      : '3.11',
+        '@PYTHON_MAJOR@'       : get_option('python-major'),
+        '@PYTHON_SECURITY_OLD@': get_option('python-security-old'),
+        '@PYTHON_SECURITY_NEW@': get_option('python-security-new'),
+        '@PYTHON_BUGFIX@'      : get_option('python-bugfix'),
 }
 env   = environment()
 fs    = import('fs')
