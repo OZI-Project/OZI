@@ -107,6 +107,25 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (``git push origin feature/AmazingFeature``)
 5. Open a Pull Request
 
+Bug Reports
+^^^^^^^^^^^
+
+1. Create an issue with the tag "bug" with a descriptive title stating the issue succinctly.
+2. Fill out the issue template with the information requested.
+
+If you have any proposed changes related to a bug, if an Issue has not been created please
+complete the above instructions.
+The next steps are similar to the steps needed to create a feature pull request.
+
+Submitting a Fix
+################
+
+1. Fork the repository
+2. Create your Bugfix Branch (``git checkout -b bugfix/Issue#``)
+3. Commit your Changes (``git commit -m '🐛: Fix Issue#'``)
+4. Push to the Branch (``git push origin bugfix/Issue#``)
+5. Open a Pull Request
+
 License
 ^^^^^^^
 
@@ -129,6 +148,10 @@ source software.
    The FSF logo trademark is the trademark of the Free Software Foundation.
    The OZI project is not affiliated with or endorsed by the Free Software Foundation.
 
+Contact
+-------
+
+Ross J. Duff MSc - `@rossdabass <https://twitter.com/rossdabass>`_
 
 
 .. |py-version-badge| image:: https://img.shields.io/badge/Python%20Version-3.9%20%7C%203.10%20%7C%203.11-blue
