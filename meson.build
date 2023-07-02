@@ -31,6 +31,7 @@ pymod = import('python')
 emoji_no_version       = get_option('emoji-no-version')    
 emoji_metadata_version = get_option('emoji-metadata-version')
 emoji_directory        = get_option('emoji-directory')
+emoji_generic          = get_option('emoji-generic')
 emoji_setup            = get_option('emoji-setup')
 emoji_dist             = get_option('emoji-dist')
 emoji_docs             = get_option('emoji-docs')
@@ -144,9 +145,10 @@ endif
 foreach name: namespace
  command_names = get_option(name+'-suite')
  summary({get_variable('emoji_'+name)+' @0@=auto'.format(name): '[auto|enabled|disabled]'}, 
-  section: '🧪 meson setup --reconfigure -D[option]')
+  section: ' '.join(emoji_setup, 'meson setup --reconfigure -D[option]'))
  foreach command: command_names
-  flag = command in module_only? disabler() : find_program(command, required: false, disabler: true)
+  flag = command in module_only? disabler() : find_program(command, required: false, 
+  disabler: true)
   set_variable(command.replace('-', '_'), flag)
   if not flag.found() and command not in module_only
    requirements = ['-vvv', '-r', 'scripts'/name/command/'requirements.txt']
@@ -196,12 +198,15 @@ foreach name : namespace
    header = [emoji, 'meson', 'test', '--setup=@0@'.format(suite)]
    feature = get_variable(suite)
    if app not in no_version
-    summary({'📦 '+app: get_variable(app.replace('-', '_')).version()}, section: ' '.join(header))
+    summary({
+     ' '.join(emoji_metadata_version, app): get_variable(app.replace('-', '_')).version()},
+     section: ' '.join(header))
    endif
    packaged_version = run_command(python, ['-c', metadata_version.format(app)], 
    kwargs: no_check).stdout().strip()
    if app == 'semantic-release'  # HACK: we should take care of python- and pytest- names here
-    fallback_version = run_command(pip, ['show', 'python-'+app], kwargs: no_check).stdout().split('\n')
+    fallback_version = run_command(pip, ['show', 'python-'+app], kwargs: no_check).stdout(
+    ).split('\n')
    else
     fallback_version = run_command(pip, ['show', app], kwargs: no_check).stdout().split('\n')
    endif
@@ -209,10 +214,10 @@ foreach name : namespace
    ) : 'unknown'
    if app in no_version
     if packaged_version == ''
-     app = '📡 '+app
+     app = ' '.join(emoji_no_version, app)
      version = fallback_version
     else
-     app = '📦 '+app
+     app = ' '.join(emoji_metadata_version, app)
      version = packaged_version
     endif
     if app not in done
@@ -231,10 +236,11 @@ foreach pytest_plugin : pytest_plugins
  fallback_version = fallback_version.length() > 2? fallback_version[1].split(':')[1].strip():\
  'unknown'
  if pytest_plugin in no_version
-  summary({emoji_metadata_version+' '+pytest_plugin: fallback_version}, 
-          section: '✅ meson test --setup=test')
+  summary({' '.join(emoji_metadata_version, pytest_plugin): fallback_version}, 
+          section: ' '.join(emoji_test, 'meson test --setup=test'))
  else
-  summary({'📡 '+pytest_plugin: packaged_version}, section: '✅ meson test --setup=test')
+  summary({' '.join(emoji_metadata_version, pytest_plugin): packaged_version}, 
+          section: ' '.join(emoji_test, 'meson test --setup=test'))
  endif
 endforeach
 summary({
@@ -246,4 +252,4 @@ summary({
  emoji_docs             : 'documentation              (docs)',
  emoji_lint             : 'linting & typechecking     (lint)',
  emoji_test             : 'testing & checkpointing    (test)',
-}, section: '〽️ Configuration Legend')
+}, section: ' '.join(emoji_generic, 'Configuration Legend'))
