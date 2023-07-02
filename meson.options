@@ -158,6 +158,7 @@ option('core-metadata-template', type: 'string', value: 'core_metadata_template.
 option('emoji-metadata-version', type: 'string', value: '📦')
 option('emoji-no-version',       type: 'string', value: '📡')
 option('emoji-directory',        type: 'string', value: '📁')
+option('emoji-generic',          type: 'string', value: '〽️')
 option('emoji-setup',            type: 'string', value: '🧪')
 option('emoji-docs',             type: 'string', value: '📝')
 option('emoji-dist',             type: 'string', value: '🚀')
