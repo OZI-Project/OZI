@@ -12,4 +12,4 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-sphinxawesome-codelinter == 2.0.0 # --hash=sha256:60ab1933c45322fc5507db0e085bc33b7a39b49fdfb717d110499f92e98cb4ff
+sphinxawesome-codelinter == 2.0.0 --hash=sha256:60ab1933c45322fc5507db0e085bc33b7a39b49fdfb717d110499f92e98cb4ff

@@ -150,12 +150,14 @@ foreach name: namespace
   flag = command in module_only? disabler() : find_program(command, required: false, 
   disabler: true)
   set_variable(command.replace('-', '_'), flag)
+  set_variable(name, get_option(name).enable_auto_if(get_option('dev').enabled()))
   if command not in module_only
    requirements = ['-vvv', '-r', 'ozi'/'scripts'/name/command/'requirements.txt']
    install += requirements
-   build_commands += {name: ['install'] + requirements}
+   if get_option('dev').enabled() or get_option(name).enabled()
+    debug(run_command(pip, ['install'] + requirements, check: true).stdout())
+   endif
   endif
-  set_variable(name, get_option(name).enable_auto_if(get_option('dev').enabled()))
   set_variable(name+'_kwargs', {'suite': name, 'env': env})
   _args = get_option('args-'+command)
   command_args = []
@@ -174,15 +176,6 @@ endforeach
 if install == ['install']
  install = ['--help']
 endif
-build_commands += {'dev': install}
-foreach suite, command_arr : build_commands
- if get_option('dev').auto() or get_option(suite).enabled()
-  debug(run_command(pip, command_arr, check: true).stdout())
- endif
- if suite in 'dev'
-  break
- endif
-endforeach
 foreach pytest_plugin : pytest_plugins
  plugin_found = run_command(pip, 'check', pytest_plugin, kwargs: no_check).returncode() == 0
  plugin_found? true : warning('missing plugin @0@'.format(pytest_plugin))
