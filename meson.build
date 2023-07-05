@@ -176,10 +176,10 @@ endforeach
 if install == ['install']
  install = ['--help']
 endif
-foreach pytest_plugin : pytest_plugins
- plugin_found = run_command(pip, 'check', pytest_plugin, kwargs: no_check).returncode() == 0
- plugin_found? true : warning('missing plugin @0@'.format(pytest_plugin))
-endforeach
+# foreach pytest_plugin : pytest_plugins
+#  plugin_found = run_command(pip, 'check', pytest_plugin, kwargs: no_check).returncode() == 0
+#  plugin_found? true : warning('missing plugin @0@'.format(pytest_plugin))
+# endforeach
 done = []
 foreach name : namespace
  foreach suite : get_option(name+'-exclude-suites')
