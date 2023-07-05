@@ -150,8 +150,8 @@ foreach name: namespace
   flag = command in module_only? disabler() : find_program(command, required: false, 
   disabler: true)
   set_variable(command.replace('-', '_'), flag)
-  if not flag.found() and command not in module_only
-   requirements = ['-vvv', '-r', 'scripts'/name/command/'requirements.txt']
+  if command not in module_only
+   requirements = ['-vvv', '-r', 'ozi'/'scripts'/name/command/'requirements.txt']
    install += requirements
    build_commands += {name: ['install'] + requirements}
   endif
