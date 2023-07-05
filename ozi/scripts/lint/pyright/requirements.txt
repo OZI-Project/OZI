@@ -12,4 +12,4 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-pyright == 1.1.316 --hash=sha256:7259d73287c882f933d8cd88c238ef02336e172171ae95117a963a962a1fed4a
+pyright == 1.1.316 # --hash=sha256:7259d73287c882f933d8cd88c238ef02336e172171ae95117a963a962a1fed4a
