@@ -12,4 +12,5 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-black                 >= 22.0.0
+black == 23.3.0 --hash=sha256:1c7b8d606e728a41ea1ccbd7264677e494e87cf630e399262ced92d4a8dac940
+
