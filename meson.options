@@ -12,7 +12,7 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-option('ozi-bootstrap'  , type: 'feature', value: 'disabled', description: 'bootstrap OZI package')
+option('ozi-blastpipe', type: 'feature', value: 'disabled', description: 'blastpipe integration tests package')
 option('python-major'       , type: 'string', value: '3')
 option('python-bugfix'      , type: 'string', value: '3.11')
 option('python-security-new', type: 'string', value: '3.10')

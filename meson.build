@@ -84,62 +84,9 @@ install = ['install']
 build_commands = {'dev': []}
 test_app_args = {}
 pip_repr = pip.full_path()
-if get_option('ozi-bootstrap').enabled()
+if get_option('ozi-blastpipe').enabled()
  # BEGIN BOOTSTRAP SCRIPT
- env             = environment()
- source_root     = meson.current_source_dir()
- build_root      = meson.current_build_dir()
- fs              = import('fs')
- pymod           = import('python')
- project_name    = get_option('project-name'   ).auto()? meson.project_name() : 'todo'
- build_dir       = get_option('build-dir'      ).auto()? fs.stem(build_root)  : 'todo'
- source_to_build = get_option('source-to-build').auto()? configuration_data() : 'todo'
- docs_source     = get_option('docs-source'    ).auto()? 'subprojects/docs'   : 'todo'
- test_source     = get_option('test-source'    ).auto()? 'tests'              : 'todo'
- dev  = subproject('dev')
- foreach var : get_option('variables')
- name = var.replace('-', '_')
- set_variable(name, dev.get_variable(name))
- endforeach
- scm_version = run_command(python, ['-c', scm_version_snip], check:true).stdout().strip()
- semantic_version = meson.project_version().split('.')
- maj_version = semantic_version.get(0)
- min_version = semantic_version.get(1)
- pat_version = semantic_version.get(2)
- configure_file(input: 'pyproject.toml', output: 'pyproject.toml', 
- configuration: configuration_data({
-  'PROJECT_NAME' : project_name,
-  'MESON_DIST_FALLBACK_VERSION' : '.'.join(maj_version, min_version, pat_version),
- }))
- foreach source : ['README.rst', 'CHANGELOG.md', 'LICENSE.txt']
-  fs.copyfile(source)
- endforeach
- python_files = []
- stub_files = []
- foreach dir : [project_name]
-  subdir(dir.to_lower())
- endforeach
- foreach file : python_files
-  python.install_sources(file)
- endforeach
- # TODO: documentation build imports are broken for dist
- # docs = subproject('docs')
- # TODO: stub build imports are broken for dist
- # stubs = custom_target('stubs', install: true, install_dir: get_option('prefix'),
- #  output: stub_files,
- #  command: [find_program('pyright', required: true), '--createstub', project_name])
- foreach dir : [
-  'prefix',
-  'bindir',
-  'libdir',
-  'datadir',
-  'localedir',
-  'python.install_env', 
-  'python.platlibdir', 
-  'python.purelibdir'
- ]
-  summary({'📁 '+dir : get_option(dir)}, section: '〽️ meson install -C @0@'.format(build_dir))
- endforeach
+ subproject('blastpipe')
  # END BOOTSTRAP SCRIPT
 endif
 foreach name: namespace

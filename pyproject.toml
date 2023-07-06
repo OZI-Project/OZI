@@ -198,7 +198,7 @@ pre_commit_command             = """
   git clean -dfX && \
   meson setup build-dist-checkpoint --reconfigure \
     -Ddev=enabled \
-    -Dozi-bootstrap=enabled && \
+    -Dozi-blastpipe=enabled && \
   meson test -C build-dist-checkpoint --setup=lint && \
   git stash -- PKG-INFO && \
   git stash drop"""
@@ -475,6 +475,6 @@ deps =
      setuptools_scm[toml]>=6.2
      toml: tomli >= 2.0.0
 commands =
-     meson setup build-{envname} -Ddev=enabled -Dozi-bootstrap=enabled
+     meson setup build-{envname} -Ddev=enabled -Dozi-blastpipe=enabled
      meson test -C build-{envname} {posargs}
 """
