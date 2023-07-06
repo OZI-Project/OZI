@@ -16,6 +16,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.23 (2023-07-05)
+
+### Fix
+
+* :pencil2: blastpipe.wrap provides blastpipe. ([`68f1897`](https://github.com/rjdbcm/ozi/commit/68f1897671398b9a52ca42f3df6a15192950eba1))
+* :pencil2: ozi-bootstrap becomes ozi-blastpipe
+
 ## v0.0.21 (2023-07-01)
 ### Fix
 * 🚑️(tox): correct meson build options. Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/ozi/commit/30712f5204cadbb5c218bccba47d44cd34af02ac))
