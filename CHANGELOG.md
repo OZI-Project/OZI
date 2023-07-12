@@ -16,6 +16,27 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.24 (2023-07-12)
+
+### Fix
+
+* 🔧(project.optional-dependencies): add lint plugins. ([`7453005`](https://github.com/rjdbcm/ozi/commit/7453005e9732d8d8cbb201005f402b12c89e9907))
+* 🔧(black): add ``-S`` to skip string normalization. ([`76d6358`](https://github.com/rjdbcm/ozi/commit/76d6358f07f221659cca7ac6b86028f168baa2bd))
+* 🔧(flake8): tidy-imports ban relative beyond sibling. ([`7dbde5e`](https://github.com/rjdbcm/ozi/commit/7dbde5e2c441a37b6ba9ede37a7196aad4de2ca7))
+* 📌(project): Set pins. ([`347ed85`](https://github.com/rjdbcm/ozi/commit/347ed854011570c2c0633b9564e023d964201a99))
+* 🚑️(Safety): Mitigation for CVE-2022-40898. ([`380e6c0`](https://github.com/rjdbcm/ozi/commit/380e6c07ecf8efe98ae2d315d2ee9fb316292db6))
+* 🚑️(Safety): mitigation for CVE-2022-40897. ([`7d3d50f`](https://github.com/rjdbcm/ozi/commit/7d3d50f54cf3e157886f813adf58c4ff38060534))
+
+### Other
+
+* 🙈: add blastpipe to gitignore ([`d0130ba`](https://github.com/rjdbcm/ozi/commit/d0130ba81d10161cb6f4e4749402b3281e0f43f5))
+* 🙈: add subprojects/dev.wrap. ([`1225f5b`](https://github.com/rjdbcm/ozi/commit/1225f5b5023d1fe7ac18d34de7c35d42a55c7e74))
+* Merge branch 'main' of https://github.com/rjdbcm/ozi ([`2375cb4`](https://github.com/rjdbcm/ozi/commit/2375cb40d666c775c3bca411e1d75d0cb6a1b974))
+* 📝(lint): update list of flake8 plugins. ([`f27ba85`](https://github.com/rjdbcm/ozi/commit/f27ba8551f6239bc44017c16f0ac74924cac3871))
+* Update README.rst ([`8d7d0a6`](https://github.com/rjdbcm/ozi/commit/8d7d0a638a13e89ebfec7aefbf64a6623228188a))
+* Add changes. ([`991d09a`](https://github.com/rjdbcm/ozi/commit/991d09ad41e568318b4532f97e79ad83438660d2))
+* PKG-INFO Updated ([`e4feee9`](https://github.com/rjdbcm/ozi/commit/e4feee97a6e7c6ce0eebd879c4770bbe9267ccaf))
+
 ## v0.0.23 (2023-07-05)
 
 ### Fix
