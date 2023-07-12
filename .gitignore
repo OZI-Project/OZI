@@ -24,6 +24,7 @@ __pycache__/
 _scm_version.py
 .Python
 /subprojects/dev/
+/subprojects/dev.wrap
 build*/
 develop-eggs/
 /dist/
