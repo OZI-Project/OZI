@@ -113,7 +113,7 @@ value: [], yield: false)
 
 option('args-bandit'  , type: 'array', value: ['-r', '@project_name@'],
         yield: false)
-option('args-black'   , type: 'array', value: ['-v', '--check', '--diff', '@project_name@'],
+option('args-black'   , type: 'array', value: ['-S', '-v', '--check', '--diff', '@project_name@'],
         yield: false)
 option('args-isort'   , type: 'array', value: ['@project_name@'],
         yield: false)
