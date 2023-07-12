@@ -135,6 +135,7 @@ relative_files = true
 ignore = ["D000", "D002"]
 
 [tool.flake8]
+ban-relative-imports = "parents"
 max-line-length = 93
 extend-exclude = ["build-env-*", "venv", "build*"]
 
@@ -475,6 +476,6 @@ deps =
      setuptools_scm[toml]>=6.2
      toml: tomli >= 2.0.0
 commands =
-     meson setup build-{envname} -Ddev=enabled -Dozi-blastpipe=enabled
+     meson setup build-{envname} -Dblastpipe:dev=enabled -Dozi-blastpipe=enabled
      meson test -C build-{envname} {posargs}
 """
