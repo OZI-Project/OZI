@@ -57,6 +57,13 @@ Python packaging management plane tool.
   * documentation linting, build, and doctests
   * code linting and formatting
 
+Message from the Maintainer
+###########################
+
+For years I just wanted packaging to work without my having to reorient myself to current best practices every time. 
+This is a solution I have developed to help me package python modules with Meson.
+OZI can also help to synchronize packaging practices across packages using it, helping to reduce maintainance time.
+
 Limitations
 ^^^^^^^^^^^
 
