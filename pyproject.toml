@@ -29,8 +29,12 @@ dist = ["pyc_wheel", "python-semantic-release", "sigstore"]
 docs = ["doc8", "pydocstyle[toml]", "Pygments", "pyparsing", "sphinx",
         "sphinx-design", "sphinxawesome-codelinter", "sphinxawesome-theme ~= 5.0.0b2"]
 ## Linting and Formatting Setup
-lint = ["bandit[toml]", "black", "flake8", "Flake8-pyproject", "isort", "pylint", "pyright",
-        "restructuredtext-lint"]
+lint = ["bandit[toml]", "black", "flake8", "flake8-quotes", "flake8-docstring-checker",
+        "flake8-pytest-style", "flake8-type-checking", "flake8-annotations",
+        "flake8-broken-line", "flake8-eradicate", "flake8-fixme", "flake8-bugbear",
+        "flake8-datetimez", "flake8-no-pep420", "flake8-comprehensions",
+        "flake8-leading-blank-lines", "flake8-tidy-imports", "flake8-pyi",
+        "Flake8-pyproject", "isort", "pylint", "pyright", "restructuredtext-lint"]
 ## Testing Setup
 test = ["coverage[toml]", "hypothesis[all]", "pytest", "pytest-asyncio", "pytest-cov", 
         "pytest-tcpclient", "pytest-randomly", "pytest-xdist"]
