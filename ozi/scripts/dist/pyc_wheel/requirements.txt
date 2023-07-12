@@ -12,5 +12,5 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-pyc_wheel == 1.2.7 --hash=sha256:21417f93eeb3b5b1b32da2f08cc47d1b69f44902cb491c15a659198fbfd4863a
+pyc_wheel == 1.2.7 # --hash=sha256:21417f93eeb3b5b1b32da2f08cc47d1b69f44902cb491c15a659198fbfd4863a
 
