@@ -110,12 +110,12 @@ value: [], yield: false)
 
 option('args-sphinxawesome-theme', type: 'array',
 value: [], yield: false)
-
+option('args-mypy', type: 'array', value: ['@project_name@', '@test_source@'])
 option('args-bandit'  , type: 'array', value: ['-r', '@project_name@'],
         yield: false)
 option('args-black'   , type: 'array', value: ['-S', '-v', '--check', '--diff', '@project_name@'],
         yield: false)
-option('args-isort'   , type: 'array', value: ['@project_name@'],
+option('args-isort'   , type: 'array', value: ['-c', '--skip-glob', '*.pyi', '@project_name@'],
         yield: false)
 option('args-pylint'  , type: 'array', value: ['@project_name@'],
         yield: false)
@@ -144,17 +144,9 @@ option('args-pytest-xdist'  , type: 'array', value: [],
 option('python-readline-snip', type: 'string',
 value: 'f=open("@0@","r");[print(line,sep=";",end="") for line in f.readlines()];f.close();')
 option('scm-version-snip', type: 'string', value: 'scm_version_snip.py')
-# value: 'from setuptools_scm import get_version;print(get_version(normalize=False))')
 option('version-metadata-template', type: 'string', value: 'version_metadata_template.py')
-# value:'from importlib.metadata import version; print(version("@0@"))')
+option('sync-pkg-readme', type: 'string', value: 'sync_pkg_readme.py')
 option('core-metadata-template', type: 'string', value: 'core_metadata_template.py')
-# value:'import tomli; import pathlib; import os;'
-# +'source = pathlib.Path(os.environ.get("MESON_SOURCE_ROOT"));'
-# +'f = open(source/"pyproject.toml", "rb");'
-# +'pyproject_toml = tomli.load(f);'
-# +'f.close();'
-# +'core_metadata = pyproject_toml.get("project");'
-# +'print(set(core_metadata.get("optional_dependencies").get("@0@")))')
 option('emoji-metadata-version', type: 'string', value: '📦')
 option('emoji-no-version',       type: 'string', value: '📡')
 option('emoji-directory',        type: 'string', value: '📁')
