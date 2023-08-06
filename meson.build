@@ -75,6 +75,10 @@ check: true).stdout()
 scm_version_snip       = run_command(python,
 ['-c', python_readlines.format('ozi'/'scripts'/get_option('scm-version-snip'))],
 check: true).stdout()
+sync_pkg_readme       = run_command(python,
+['-c', python_readlines.format('ozi'/'scripts'/get_option('sync-pkg-readme'))],
+check: true).stdout()
+run_command(python, ['-c', sync_pkg_readme], check: true).stdout()
 pip = find_program('pip', required: true, disabler: true)
 source_to_build.enable_auto_if(source_to_build.auto())
 docs_source.enable_auto_if(docs_source.auto())

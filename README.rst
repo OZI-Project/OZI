@@ -1,4 +1,3 @@
-
 .. Copyright 2023 Ross J. Duff MSc 
    The copyright holder licenses this file
    to you under the Apache License, Version 2.0 (the
@@ -33,7 +32,6 @@ Project Information
 -------------------
 
 OZI,
-`IPA pronunciation <http://ipa-reader.xyz/?text=o%CA%8Az%C9%9Bd%CB%88a%C9%AA&voice=Salli>`_ /oʊzɛdˈaɪ/,
 is a packaging management plane for Python packages
 built with Meson_. This allows you to create a versioned and traceable
 system of development practices.
@@ -62,7 +60,7 @@ Message from the Maintainer
 
 For years I just wanted packaging to work without my having to reorient myself to current best practices every time. 
 This is a solution I have developed to help me package python modules with Meson.
-OZI can also help to synchronize packaging practices across packages using it, helping to reduce maintainance time.
+OZI can also help to synchronize packaging practices across packages using it, helping to reduce maintenance time.
 
 Limitations
 ^^^^^^^^^^^
@@ -75,28 +73,6 @@ However, we are open to contributions or comments in this regard.
 As a convention, we will only support 
 the 3 most recent `Python versions <https://devguide.python.org/versions/#versions>`_
 that are not ``end-of-life``, ``prerelease``, or ``feature`` status.
-
-Backend Toolchain
-^^^^^^^^^^^^^^^^^
-
-These are the build-system packages and their dependencies
-
-* build_:
-  A simple, correct Python build frontend.
-* Meson_ (only Meson versions > 1.1.0):
-  Next-generation build system that organizes the toolchain described here.
-* mesonpep517_:
-  Implements PEP517_ for the meson build system.
-* Ninja_:
-  A small build system with a focus on speed.
-* setuptools_:
-  Python's packaging standard reference implementation.
-* setuptools_scm_:
-  Extracts Python package versions from git or hg metadata.
-* Tomli_:
-  Library for parsing TOML_ (pre-Python 3.11).  
-* wheel_:
-  Python's binary packaging standard reference implementation.
 
 Contributing
 ^^^^^^^^^^^^
