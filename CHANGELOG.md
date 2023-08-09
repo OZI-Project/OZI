@@ -16,6 +16,19 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.25 (2023-08-05)
+
+### Fix
+
+* 🍱(ozi/assets): Restructured assets folder. ([`7a09768`](https://github.com/rjdbcm/ozi/commit/7a097680f940c4190b705c590ce08125f13a1c99))
+
+### Other
+
+* 👷(meson.build): Check PKG-INFO synced to pyproject. ([`515d4e8`](https://github.com/rjdbcm/ozi/commit/515d4e835395695400b1d3e358502eec53d8e550))
+* 🔥 Migrate docs to [OZI.docs](https://github.com/rjdbcm/ozi.docs). ([`b3ff172`](https://github.com/rjdbcm/ozi/commit/b3ff172fc79b942344c498c1a7c6bdf34b44df81))
+* 🔊(v0.0.24) ([`19c20f6`](https://github.com/rjdbcm/ozi/commit/19c20f6d4e3b4f6708c1b1bd9cb7dea3d567d1a4))
+* PKG-INFO Updated ([`167694d`](https://github.com/rjdbcm/ozi/commit/167694d1d78f9b40a3b65f57466e389a84c040d0))
+
 ## v0.0.24 (2023-07-12)
 
 ### Fix
