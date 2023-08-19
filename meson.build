@@ -287,9 +287,9 @@ display_dirs = [
     'python.platlibdir',
     'python.purelibdir',
 ]
-foreach dir : display_dirs
-    summary(
-        {'📁 ' + dir: get_option(dir)},
-        section: '〽️ meson install -C @0@'.format(build_dir),
-    )
-endforeach
+# foreach dir : display_dirs
+#     summary(
+#         {'📁 ' + dir: get_option(dir)},
+#         section: '〽️ meson install -C @0@'.format(build_dir),
+#     )
+# endforeach
