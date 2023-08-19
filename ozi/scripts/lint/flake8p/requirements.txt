@@ -1,17 +1,4 @@
-# Copyright 2023 Ross J. Duff MSc
-# The copyright holder licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
 
-#   http://www.apache.org/licenses/LICENSE-2.0
-
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-# KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
 flake8 == 6.0.0 # --hash=sha256:3833794e27ff64ea4e9cf5d410082a8b97ff1a06c16aa3d2027339cd0f1195c7
 flake8-quotes == 3.3.2 # --hash=sha256:6e26892b632dacba517bf27219c459a8396dcfac0f5e8204904c5a4ba9b480e1
 flake8-docstring-checker == 1.2 # --hash=sha256:ad527dabfa09818c0cb3cea2ae98aedbd90f62fda87f2185ed67850c3a120cb1
