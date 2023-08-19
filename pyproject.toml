@@ -34,7 +34,7 @@ lint = ["bandit[toml]", "black", "flake8", "flake8-quotes", "flake8-docstring-ch
         "flake8-broken-line", "flake8-eradicate", "flake8-fixme", "flake8-bugbear",
         "flake8-datetimez", "flake8-no-pep420", "flake8-comprehensions",
         "flake8-leading-blank-lines", "flake8-tidy-imports", "flake8-pyi",
-        "Flake8-pyproject", "isort", "pylint", "pyright", "restructuredtext-lint"]
+        "Flake8-pyproject", "isort", "mypy", "pylint", "pyright", "restructuredtext-lint"]
 ## Testing Setup
 test = ["coverage[toml]", "hypothesis[all]", "pytest", "pytest-asyncio", "pytest-cov", 
         "pytest-tcpclient", "pytest-randomly", "pytest-xdist"]
