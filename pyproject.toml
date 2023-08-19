@@ -139,7 +139,6 @@ build_command                  = """
   sigstore sign dist/*.whl dist/build/meson-dist/*.tar.gz && \
   git stash pop && \
   git add CHANGELOG.md && \
-  git commit --amend --no-verify && \
   git stash clear"""
 changelog_file                 = "CHANGELOG.md"
 changelog_placeholder          = "<!--next-version-placeholder-->"
