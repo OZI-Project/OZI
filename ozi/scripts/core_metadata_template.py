@@ -1,3 +1,4 @@
+# noqa: INP001
 # Copyright 2023 Ross J. Duff MSc
 # The copyright holder licenses this file
 # to you under the Apache License, Version 2.0 (the
@@ -18,9 +19,9 @@ import os
 #
 import tomli
 # pylint: disable=consider-using-with
-source = pathlib.Path(os.environ.get("MESON_SOURCE_ROOT", ".."))
-project_file = open(source/"pyproject.toml", "rb")
+source = pathlib.Path(os.environ.get('MESON_SOURCE_ROOT', os.path.realpath('..')))
+project_file = open(source/'pyproject.toml', 'rb')
 pyproject_toml = tomli.load(project_file)
 project_file.close()
-core_metadata = pyproject_toml.get("project", {"optional_dependencies": {}})
-print(core_metadata.get("optional_dependencies", {"todo": []}).get("@0@", "fail"))
+core_metadata = pyproject_toml.get('project', {'optional_dependencies': {}})
+print(core_metadata.get('optional_dependencies', {'todo': []}).get('@0@', 'fail'))
