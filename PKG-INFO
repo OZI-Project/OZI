@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: OZI
-Version: 0.0.25
+Version: 0.0.26
 Summary: Packaged with OZI.
 Classifier: License :: OSI Approved :: Apache Software License
 Classifier: Development Status :: 2 - Pre-Alpha
@@ -60,9 +60,8 @@ system of development practices.
 Purpose
 ^^^^^^^
 
-Originally, OZI was created to fullfill the maintainers desire to put all packaging configuration
-into a single ``pyproject.toml`` file. This is still the case but the focus of OZI is now to be a
-Python packaging management plane tool. 
+OZI is meant for Python developers as a standardized and flexible but opinionated
+Python packaging style guide and checkpointing API using the Meson build system.
 
 * What OZI is **not**:
 
@@ -83,8 +82,8 @@ The following checkpointed environments:
 Message from the Maintainer
 ###########################
 
-For years I just wanted packaging to work without my having to reorient myself to current best practices every time. 
-This is a solution I have developed to help me package python modules with Meson.
+I just wanted packaging to work without having to reorient myself to best practices every time. 
+This is a solution to help me package Python modules with Meson.
 OZI can also help to synchronize packaging practices across packages using it, helping to reduce maintenance time.
 
 Limitations
