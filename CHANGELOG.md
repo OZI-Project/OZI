@@ -16,6 +16,32 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.26 (2023-08-19)
+
+### Fix
+
+* 🔧: Added mypy to optional-dependencies and requirements. ([`ba78c65`](https://github.com/rjdbcm/ozi/commit/ba78c65ae0b2b9444973d3485d6d24f53314ebc5))
+* 🔧(ozi/scripts/meson.build): Add sync_pkg_readme.py. ([`d32bac9`](https://github.com/rjdbcm/ozi/commit/d32bac9718502e8218302a3e962ee5dae249c065))
+* 🔧🎨(meson.build): Move code out of blastpipe and format. ([`6f4a0d2`](https://github.com/rjdbcm/ozi/commit/6f4a0d2765350008882fd6fbd88935e73efd5885))
+* 🔧(pyproject.toml:tool.semantic_release): Update to target standard 0.1 milestone. ([`06286da`](https://github.com/rjdbcm/ozi/commit/06286dad75f3d0c3ef0cd196acd827b50f2e4e55))
+
+### Other
+
+* :pencil: Revert Version. ([`8d37ca7`](https://github.com/rjdbcm/ozi/commit/8d37ca7ab25614bca8fe6f68763e1980ed07ce89))
+* :pencil: commit changelog during release. ([`e646d0b`](https://github.com/rjdbcm/ozi/commit/e646d0bc8377635520eddc23bb46e4da2583c540))
+* :loud_sound: Added release changes and updated PKG-INFO. ([`bbfd15a`](https://github.com/rjdbcm/ozi/commit/bbfd15a39704c2934a3ee86bd44d98866801adb0))
+* :pencil: fix version. ([`7ef2a05`](https://github.com/rjdbcm/ozi/commit/7ef2a05cfd70f74d33418d706b5a1e0df518da0b))
+* :pencil: remove commit ammend. ([`083284e`](https://github.com/rjdbcm/ozi/commit/083284e09ec6feabd5213b631233b0260ca93325))
+* :pencil:(pyproject.toml): --noedit should be --no-verify. ([`d002a1f`](https://github.com/rjdbcm/ozi/commit/d002a1f2a312e644822b7030887d50aa819cf7c6))
+* :loud_sound: Added release changes and updated PKG-INFO. ([`6a5d7bb`](https://github.com/rjdbcm/ozi/commit/6a5d7bbdef9ac149dbe3098c766d2e1d615f2b7f))
+* 🚧(meson.build): Commented out migrated install summary. ([`54d31c9`](https://github.com/rjdbcm/ozi/commit/54d31c99156019b4e408587a8978b5b0a6832ad0))
+* Remove unecessary license header ([`4b09e8b`](https://github.com/rjdbcm/ozi/commit/4b09e8bd097c4005b07c22796e82069412ed9458))
+* 🔨(meson.options): add mypy to lint utilities. ([`bee2247`](https://github.com/rjdbcm/ozi/commit/bee2247ae33974885faa57db4a10550686ff9d0f))
+* FIX: potential CWE-23. ([`620ef68`](https://github.com/rjdbcm/ozi/commit/620ef68907b5d7a00bdcc8613e161fcc70ed9514))
+* FIX: CWE-23 ([`d0036fc`](https://github.com/rjdbcm/ozi/commit/d0036fc4c91336fca41e9275e0ae1b3c6a8f7e67))
+* 🔊: Add 0.0.25 changes. ([`10c0096`](https://github.com/rjdbcm/ozi/commit/10c0096d00a5743cfa036f79f94c2c8b6ead5d13))
+* PKG-INFO Updated ([`e8b8e71`](https://github.com/rjdbcm/ozi/commit/e8b8e71fdb4df3c2f6c9f0cf896fc6145eb4b5e1))
+
 ## v0.0.25 (2023-08-05)
 
 ### Fix
