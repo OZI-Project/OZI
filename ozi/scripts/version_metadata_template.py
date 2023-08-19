@@ -1,3 +1,4 @@
+# noqa: INP001
 # Copyright 2023 Ross J. Duff MSc
 # The copyright holder licenses this file
 # to you under the Apache License, Version 2.0 (the
@@ -14,4 +15,4 @@
 # under the License.
 """python template: check package version"""
 from importlib.metadata import version
-print(version("@0@"))
+print(version('@0@'))

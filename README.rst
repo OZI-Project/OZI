@@ -39,16 +39,19 @@ system of development practices.
 Purpose
 ^^^^^^^
 
-Originally, OZI was created to fullfill the maintainers desire to put all packaging configuration
-into a single ``pyproject.toml`` file. This is still the case but the focus of OZI is now to be a
-Python packaging management plane tool. 
+OZI is meant for Python developers as a standardized and flexible but opinionated
+Python packaging style guide and checkpointing API using the Meson build system.
 
 * What OZI is **not**:
 
   * A replacement for test environment managers like tox_, as a matter of fact OZI uses ``tox``.
   * A replacement for git hook package management tools like pre-commit_
 
-* What OZI is: A Python packaging management plane tool for...
+* What OZI is:
+
+Checkpointed Python packaging for Meson projects focused on Python sources.
+
+The following checkpointed environments:
 
   * code testing and coverage
   * distributing Python packages with Meson_
@@ -58,8 +61,8 @@ Python packaging management plane tool.
 Message from the Maintainer
 ###########################
 
-For years I just wanted packaging to work without my having to reorient myself to current best practices every time. 
-This is a solution I have developed to help me package python modules with Meson.
+I just wanted packaging to work without having to reorient myself to best practices every time. 
+This is a solution to help me package Python modules with Meson.
 OZI can also help to synchronize packaging practices across packages using it, helping to reduce maintenance time.
 
 Limitations
@@ -68,11 +71,6 @@ Limitations
 Due to reliance on features introduced in
 `Meson version 1.1.0 <https://mesonbuild.com/Release-notes-for-1-1-0.html>`_
 that is our minimum supported version, we do not currently plan support for prior releases. 
-However, we are open to contributions or comments in this regard. 
-
-As a convention, we will only support 
-the 3 most recent `Python versions <https://devguide.python.org/versions/#versions>`_
-that are not ``end-of-life``, ``prerelease``, or ``feature`` status.
 
 Contributing
 ^^^^^^^^^^^^
@@ -137,8 +135,8 @@ Contact
 Ross J. Duff MSc - `@rossdabass <https://twitter.com/rossdabass>`_
 
 
-.. |py-version-badge| image:: https://img.shields.io/badge/Python%20Version-3.9%20%7C%203.10%20%7C%203.11-blue
-
+.. |py-version-badge| image:: https://img.shields.io/pypi/pyversions/ozi
+    :alt: PyPI - Python Version
 .. |pylint-ckpt-badge| image:: https://img.shields.io/badge/linting-%E2%9C%94%20Pylint%3A%2010.00%2F10-informational
 .. |fossa-badge| image:: https://app.fossa.com/api/projects/git%2Bgithub.com%2Frjdbcm%2Fozi.svg?type=shield
     :target: https://app.fossa.com/projects/git%2Bgithub.com%2Frjdbcm%2Fozi?ref=badge_large

@@ -15,6 +15,7 @@
 config_files = [
  'core_metadata_template.py',
  'scm_version_snip.py',
+ 'sync_pkg_readme.py',
  'version_metadata_template.py'
 ]
 foreach file: config_files
