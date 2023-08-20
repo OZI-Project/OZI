@@ -19,7 +19,12 @@ import os
 #
 import tomli
 # pylint: disable=consider-using-with
-source = pathlib.Path(os.environ.get('MESON_SOURCE_ROOT', os.path.realpath('..')))
+source = pathlib.Path(
+    os.path.relpath(
+        os.path.join('/', os.environ.get('MESON_SOURCE_ROOT', os.path.relpath('..'))),
+        '/'
+    )
+)
 project_file = open(source/'pyproject.toml', 'rb')
 pyproject_toml = tomli.load(project_file)
 project_file.close()

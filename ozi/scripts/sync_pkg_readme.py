@@ -25,7 +25,12 @@ try:
 except ImportError:
     import tomli as toml  # noqa: F401
 # pylint: disable=consider-using-with
-source = pathlib.Path(os.environ.get('MESON_SOURCE_ROOT', os.path.realpath('..')))
+source = pathlib.Path(
+    os.path.relpath(
+        os.path.join('/', os.environ.get('MESON_SOURCE_ROOT', os.path.relpath('..'))),
+        '/'
+    )
+)
 pkg_info_file = open('PKG-INFO', 'r', encoding='utf-8')
 pkg_info = email.message_from_file(pkg_info_file).get_payload()
 pkg_info_file.close()
