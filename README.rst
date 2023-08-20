@@ -49,14 +49,14 @@ Python packaging style guide and checkpointing API using the Meson build system.
 
 * What OZI is:
 
-Checkpointed Python packaging for Meson projects focused on Python sources.
+  * Checkpointed Python packaging for Meson projects focused on Python sources.
 
 The following checkpointed environments:
 
-  * code testing and coverage
-  * distributing Python packages with Meson_
-  * documentation linting, build, and doctests
-  * code linting and formatting
+* code testing and coverage
+* distributing Python packages with Meson_
+* documentation linting, build, and doctests
+* code linting and formatting
 
 Message from the Maintainer
 ###########################
