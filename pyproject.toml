@@ -365,7 +365,7 @@ Ross J. Duff MSc - `@rossdabass <https://twitter.com/rossdabass>`_
 """
 write_to = "PKG-INFO"
 # meson writes during configuration so that meson dist can have a valid version.
-fallback_version = "@MESON_DIST_FALLBACK_VERSION@"
+fallback_version = "0.0.26"
 # meson writes during configuration so that github tarballs can have a valid version.
 parentdir_prefix_version = "@PROJECT_NAME@-"
 tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"

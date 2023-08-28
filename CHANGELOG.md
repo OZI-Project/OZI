@@ -1,9 +1,50 @@
 # CHANGELOG
 
 
-## Unreleased
+
+## v0.0.26 (2023-08-28)
+
+### Fix
+
+* :pencil:: fix path root on build check. ([`914bb5d`](https://github.com/rjdbcm/ozi/commit/914bb5d98f831372831c65599d836423806d1692))
+
+* :pencil: fix version. ([`7ef2a05`](https://github.com/rjdbcm/ozi/commit/7ef2a05cfd70f74d33418d706b5a1e0df518da0b))
 
 ### Other
+
+* 👷: Fix gh-actions permissions. ([`750b208`](https://github.com/rjdbcm/ozi/commit/750b208903b00141fc333e0b8da6102118c2340c))
+
+* 🏗️: release then build. ([`12b14db`](https://github.com/rjdbcm/ozi/commit/12b14db94b61b60754cc7a0b604e5a503bacc242))
+
+* 👷: Add CI/CD user name &#34;OZI Packaging&#34;. ([`c1430b8`](https://github.com/rjdbcm/ozi/commit/c1430b86ed8de6c1352faa03f62af9ff030abcae))
+
+* 👷: add noreply git user. ([`e960a9d`](https://github.com/rjdbcm/ozi/commit/e960a9d809ebe2af702d0054baf4e28198669424))
+
+* :pencil: Fix unnecessary escaping. ([`b5803e4`](https://github.com/rjdbcm/ozi/commit/b5803e4f52afa5e30d41317db759d2b9f439880a))
+
+* 🏗️: bind semantic_release.version_toml to setuptools_scm.fallback_version. ([`9f275ad`](https://github.com/rjdbcm/ozi/commit/9f275ad7378ad9553ccda638f69cc66b967625c7))
+
+* :pencil: should have kept setuptools_scm. ([`931f1c0`](https://github.com/rjdbcm/ozi/commit/931f1c00b8a0721a4970053b0061d7b59be04059))
+
+* 👷: pip install --user --upgrade ninja ([`9662564`](https://github.com/rjdbcm/ozi/commit/966256423aa3ddb68726c21d78b779ea77dfb0cd))
+
+* 👷: Fix missing setuptools_scm. ([`c301871`](https://github.com/rjdbcm/ozi/commit/c3018716ceb0efa799ca20c6f30a89591d80ed3e))
+
+* move all of CI build out of semantic-release. ([`5ff06a7`](https://github.com/rjdbcm/ozi/commit/5ff06a74c00282f507861182f169c0d59abc0328))
+
+* 👷: move pyc_wheel out of semantic-release build cmd. ([`2715570`](https://github.com/rjdbcm/ozi/commit/2715570469c066ad1145d17e07d1b8ce2a2023f0))
+
+* add ci build requirements. ([`69672f5`](https://github.com/rjdbcm/ozi/commit/69672f5e703a80bfbcb2e3aea9172dcdbbc76352))
+
+* :pencil:: Should have built -w (wheel) ([`d4180ea`](https://github.com/rjdbcm/ozi/commit/d4180ea1b39c01ebb40703512da6a1a3062db9ff))
+
+* 🔧Do our own build during release CI. ([`e7c6a58`](https://github.com/rjdbcm/ozi/commit/e7c6a58ecd621901c9445f23ba8646ae28ffa4b7))
+
+* update CI actions. ([`8f7ba72`](https://github.com/rjdbcm/ozi/commit/8f7ba72f8d0959cf6de7ef4155ee74358e91e211))
+
+* 🔧: install build during CI. ([`b23c529`](https://github.com/rjdbcm/ozi/commit/b23c529e296fb8c2dafe5f096f65ba6b9ee10bba))
+
+* ⬆️(python-semantic-release): Bump version to 8.0.8. ([`9c2bc45`](https://github.com/rjdbcm/ozi/commit/9c2bc45a364f76695fee4f12f42a21d3dc9f6448))
 
 * update semantic release version. ([`4ba7161`](https://github.com/rjdbcm/ozi/commit/4ba71618fc3220ab80c3e8dbcc718b057ee901e5))
 
@@ -18,16 +59,6 @@
 * :loud_sound: Added release changes. ([`b479657`](https://github.com/rjdbcm/ozi/commit/b479657fc6dbf60012090391551b7b38fa2f4265))
 
 * Updated PKG-INFO Version. ([`01ba8d5`](https://github.com/rjdbcm/ozi/commit/01ba8d57ffe0927737675a57365a5860e610e9cc))
-
-
-
-## v0.0.26 (2023-08-20)
-
-### Fix
-
-* :pencil: fix version. ([`7ef2a05`](https://github.com/rjdbcm/ozi/commit/7ef2a05cfd70f74d33418d706b5a1e0df518da0b))
-
-### Other
 
 * :pencil: Revert Version. ([`8d37ca7`](https://github.com/rjdbcm/ozi/commit/8d37ca7ab25614bca8fe6f68763e1980ed07ce89))
 
