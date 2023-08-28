@@ -126,7 +126,7 @@ log_cli_level       = "INFO"
 commit_parser                  = "emoji"
 major_on_zero                  = false
 tag_format                     = "{version}"
-version_variables              = ["PKG-INFO:Version: {version}"]
+version_toml                   = ["pyproject.toml:tool.setuptools_scm.fallback_version"]
 
 [tool.semantic_release.branches.main]
 match = "(main|master)"
