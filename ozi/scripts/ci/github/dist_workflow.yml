@@ -40,6 +40,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install --user --upgrade build
+        python -m pip install --user --upgrade pyc_wheel
+        python -m pip install --user --upgrade sigstore
+        python -m pip install --user --upgrade meson
         python -m build -w
 
     - name: Python Semantic Release
