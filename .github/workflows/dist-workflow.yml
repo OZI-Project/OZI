@@ -43,7 +43,13 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.11
-
+    
+    - name: Python Semantic Release
+      id: release
+      uses: python-semantic-release/python-semantic-release@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+  
     - name: Build wheel
       run: |
         git config --global user.email "noreply@oziproject.dev"
@@ -64,16 +70,6 @@ jobs:
         git commit PKG-INFO -m "Updated PKG-INFO Version."
         meson dist -C dist/build --formats gztar --no-tests --allow-dirty
         sigstore sign dist/*.whl dist/build/meson-dist/*.tar.gz
-        git stash pop
-        git add CHANGELOG.md
-        git commit CHANGELOG.md -m ":loud_sound: Added release changes."
-        git stash clear
-    
-    - name: Python Semantic Release
-      id: release
-      uses: python-semantic-release/python-semantic-release@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
