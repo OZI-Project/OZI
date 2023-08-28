@@ -46,6 +46,7 @@ jobs:
 
     - name: Build wheel
       run: |
+        git config --global user.email "noreply@oziproject.dev"
         python -m pip install --upgrade pip
         python -m pip install --user --upgrade build
         python -m pip install --user --upgrade pyc_wheel
