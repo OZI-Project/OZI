@@ -12,6 +12,10 @@
 
 ### Other
 
+* 👷: May still need to stash PKG-INFO. ([`1104ff6`](https://github.com/rjdbcm/ozi/commit/1104ff65f97b813c22b2adae419790773b4a2a2b))
+
+* 🏗️👷: remove git invocation during wheel build. ([`8b53863`](https://github.com/rjdbcm/ozi/commit/8b53863c573269760b44250e9d2c6165cb4e82d9))
+
 * 👷: Fix gh-actions permissions. ([`750b208`](https://github.com/rjdbcm/ozi/commit/750b208903b00141fc333e0b8da6102118c2340c))
 
 * 🏗️: release then build. ([`12b14db`](https://github.com/rjdbcm/ozi/commit/12b14db94b61b60754cc7a0b604e5a503bacc242))
