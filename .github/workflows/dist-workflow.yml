@@ -51,6 +51,7 @@ jobs:
         python -m pip install --user --upgrade pyc_wheel
         python -m pip install --user --upgrade sigstore
         python -m pip install --user --upgrade meson
+        python -m pip install --user --upgrade setuptools_scm
         python -m build -w
         git stash -- PKG-INFO
         python -m pyc_wheel dist/*.whl
