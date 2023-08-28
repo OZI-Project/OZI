@@ -58,7 +58,7 @@ jobs:
         python -m pyc_wheel dist/*.whl
         meson setup build
         meson dist -C build --formats gztar --no-tests --allow-dirty
-        mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz 
+        mv build/meson-dist/OZI-${{ steps.release.outputs.version }}.tar.gz dist/OZI-${{ steps.release.outputs.version }}.tar.gz 
         sigstore sign dist/*.whl build/meson-dist/*.tar.gz
 
     - name: Publish package distributions to PyPI
