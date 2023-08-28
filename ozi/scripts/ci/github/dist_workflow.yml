@@ -59,7 +59,7 @@ jobs:
         meson setup build
         meson dist -C build --formats gztar --no-tests --allow-dirty
         mv build/meson-dist/OZI-${{ steps.release.outputs.version }}.tar.gz dist/OZI-${{ steps.release.outputs.version }}.tar.gz 
-        sigstore sign dist/*.whl build/meson-dist/*.tar.gz
+        sigstore sign --output-directory sig/ dist/*.whl dist/*.tar.gz
 
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
