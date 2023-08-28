@@ -140,7 +140,7 @@ changelog_file                 = "CHANGELOG.md"
 token = { env = "GH_TOKEN" }
 
 [tool.semantic_release.publish]
-dist_glob_patterns             = ["*.dist-info","*.whl","build/meson-dist/*.tar.gz"]
+dist_glob_patterns             = ["*.dist-info","*.whl","*.tar.gz", "sig/*"]
 upload_to_vcs_release          = true
 
 [tool.setuptools_scm]
