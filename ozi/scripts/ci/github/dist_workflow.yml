@@ -39,17 +39,25 @@ jobs:
     - name: Build wheel
       run: |
         python -m pip install --upgrade pip
-        python -m pip install --user --upgrade build
-        python -m build -w
-        git stash -- PKG-INFO
-        python -m pyc_wheel dist/*.whl
-
-    - name: Python Semantic Release
-      id: release
-      run: |
         python -m pip install --user --upgrade pyc_wheel
         python -m pip install --user --upgrade sigstore
         python -m pip install --user --upgrade meson
+        python -m build -w
+        git stash -- PKG-INFO
+        python -m pyc_wheel dist/*.whl
+        meson setup dist/build && \
+        git stash drop && \
+        git add PKG-INFO && \
+        git commit PKG-INFO -m \"Updated PKG-INFO Version.\" && \
+        meson dist -C dist/build --formats gztar --no-tests --allow-dirty && \
+        sigstore sign dist/*.whl dist/build/meson-dist/*.tar.gz && \
+        git stash pop && \
+        git add CHANGELOG.md && \
+        git commit CHANGELOG.md -m \":loud_sound: Added release changes.\" && \
+        git stash clear
+
+    - name: Python Semantic Release
+      id: release
       uses: python-semantic-release/python-semantic-release@v8.0.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}

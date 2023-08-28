@@ -123,17 +123,6 @@ log_cli_format      = "%(asctime)s [%(levelname)8s] %(name)s: %(message)s (%(fil
 log_cli_level       = "INFO"
 
 [tool.semantic_release]
-build_command                  = """
-  meson setup dist/build && \
-  git stash drop && \
-  git add PKG-INFO && \
-  git commit PKG-INFO -m \"Updated PKG-INFO Version.\" && \
-  meson dist -C dist/build --formats gztar --no-tests --allow-dirty && \
-  sigstore sign dist/*.whl dist/build/meson-dist/*.tar.gz && \
-  git stash pop && \
-  git add CHANGELOG.md && \
-  git commit CHANGELOG.md -m \":loud_sound: Added release changes.\" && \
-  git stash clear"""
 commit_parser                  = "emoji"
 major_on_zero                  = false
 tag_format                     = "{version}"
