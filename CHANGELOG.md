@@ -12,6 +12,12 @@
 
 ### Other
 
+* 👷:update maintainer email. ([`b905956`](https://github.com/rjdbcm/ozi/commit/b905956d6acc550b0c568e05296d175731bc84d6))
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`9806965`](https://github.com/rjdbcm/ozi/commit/9806965a5b5e8ea43b3679fc214ab5f20ab6f1c2))
+
+* 👷: No longer attempting to upload signatures to PyPI. ([`c9c630e`](https://github.com/rjdbcm/ozi/commit/c9c630e5d1a2007bd29d2b59d895d5d131378161))
+
 * 👷: May still need to stash PKG-INFO. ([`1104ff6`](https://github.com/rjdbcm/ozi/commit/1104ff65f97b813c22b2adae419790773b4a2a2b))
 
 * 🏗️👷: remove git invocation during wheel build. ([`8b53863`](https://github.com/rjdbcm/ozi/commit/8b53863c573269760b44250e9d2c6165cb4e82d9))
