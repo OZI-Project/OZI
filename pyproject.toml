@@ -13,7 +13,7 @@
 # specific language governing permissions and limitations
 # under the License.
 [project]
-authors = [{name = "Ross J. Duff MSc", email = "ozi.project@outlook.com"}]
+authors = [{name = "Ross J. Duff MSc", email = "help@oziproject.dev"}]
 dynamic = ["version"]
 license = {file = "LICENSE.txt"}
 readme  = "README.rst"
