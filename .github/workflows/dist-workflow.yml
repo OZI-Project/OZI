@@ -56,15 +56,15 @@ jobs:
         python -m build -w
         git stash -- PKG-INFO
         python -m pyc_wheel dist/*.whl
-        meson setup dist/build && \
-        git stash drop && \
-        git add PKG-INFO && \
-        git commit PKG-INFO -m \"Updated PKG-INFO Version.\" && \
-        meson dist -C dist/build --formats gztar --no-tests --allow-dirty && \
-        sigstore sign dist/*.whl dist/build/meson-dist/*.tar.gz && \
-        git stash pop && \
-        git add CHANGELOG.md && \
-        git commit CHANGELOG.md -m \":loud_sound: Added release changes.\" && \
+        meson setup dist/build
+        git stash drop
+        git add PKG-INFO
+        git commit PKG-INFO -m "Updated PKG-INFO Version."
+        meson dist -C dist/build --formats gztar --no-tests --allow-dirty
+        sigstore sign dist/*.whl dist/build/meson-dist/*.tar.gz
+        git stash pop
+        git add CHANGELOG.md
+        git commit CHANGELOG.md -m ":loud_sound: Added release changes."
         git stash clear
     
     - name: Python Semantic Release
