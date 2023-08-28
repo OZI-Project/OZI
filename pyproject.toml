@@ -124,8 +124,6 @@ log_cli_level       = "INFO"
 
 [tool.semantic_release]
 build_command                  = """
-  git stash -- PKG-INFO && \
-  python -m pyc_wheel dist/*.whl && \
   meson setup dist/build && \
   git stash drop && \
   git add PKG-INFO && \
