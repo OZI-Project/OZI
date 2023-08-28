@@ -63,6 +63,7 @@ jobs:
         python -m pip install --user --upgrade setuptools_scm
         python -m pip install --user --upgrade ninja
         python -m build -w
+        git stash -- PKG-INFO
         python -m pyc_wheel dist/*.whl
         meson setup dist/build
         meson dist -C dist/build --formats gztar --no-tests --allow-dirty
