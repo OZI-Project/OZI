@@ -4,6 +4,10 @@
 
 ## v0.0.29 (2023-08-29)
 
+### Fix
+
+* :bug:(dist-workflow): fix permissions for commit. ([`f3e7929`](https://github.com/rjdbcm/ozi/commit/f3e79293f5882936b7d984f8fe921722cd60347a))
+
 ### Other
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`fd1212e`](https://github.com/rjdbcm/ozi/commit/fd1212ef4b88d2d26b9bb8be7e383864e8f5f573))
