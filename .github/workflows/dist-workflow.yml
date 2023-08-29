@@ -49,6 +49,7 @@ jobs:
       id: release
       uses: python-semantic-release/python-semantic-release@master
       with:
+        force: patch
         github_token: ${{ secrets.GITHUB_TOKEN }}
   
     - name: Build wheel
