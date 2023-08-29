@@ -2,6 +2,15 @@
 
 
 
+## v0.0.29 (2023-08-29)
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`ae5657d`](https://github.com/rjdbcm/ozi/commit/ae5657de16cf194fc1d91550b9a0afc40e748f69))
+
+* :bug:(CI): don&#39;t stash mesons source of version info. ([`9f3d311`](https://github.com/rjdbcm/ozi/commit/9f3d3113881b5e5bd714d9ac4622cfc4ead0e486))
+
+
 ## v0.0.28 (2023-08-29)
 
 ### Other
