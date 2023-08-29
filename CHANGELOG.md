@@ -6,11 +6,15 @@
 
 ### Fix
 
+* 👷: add hardcoded prefixes for now -py3-none-any. ([`9654dc1`](https://github.com/rjdbcm/ozi/commit/9654dc1e37e809c8f21c4fecf8db9afb025872ba))
+
 * :pencil:: fix path root on build check. ([`914bb5d`](https://github.com/rjdbcm/ozi/commit/914bb5d98f831372831c65599d836423806d1692))
 
 * :pencil: fix version. ([`7ef2a05`](https://github.com/rjdbcm/ozi/commit/7ef2a05cfd70f74d33418d706b5a1e0df518da0b))
 
 ### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`39839f3`](https://github.com/rjdbcm/ozi/commit/39839f31938642cc552eaac95778cef9b8652967))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`3f523cd`](https://github.com/rjdbcm/ozi/commit/3f523cd43b9eae54d78ca98e5a4d7a3f091b2c9c))
 
