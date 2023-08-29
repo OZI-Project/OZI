@@ -73,9 +73,9 @@ jobs:
         mv dist/OZI-${{ steps.release.outputs.version }}.tar.gz.sig sig/OZI-${{ steps.release.outputs.version }}.tar.gz.sig
         mv dist/OZI-${{ steps.release.outputs.version }}.tar.gz.crt sig/OZI-${{ steps.release.outputs.version }}.tar.gz.crt
         mv dist/OZI-${{ steps.release.outputs.version }}.tar.gz.sigstore sig/OZI-${{ steps.release.outputs.version }}.tar.gz.sigstore
-        mv dist/OZI-${{ steps.release.outputs.version }}.whl.sig sig/OZI-${{ steps.release.outputs.version }}.whl.sig
-        mv dist/OZI-${{ steps.release.outputs.version }}.whl.crt sig/OZI-${{ steps.release.outputs.version }}.whl.crt
-        mv dist/OZI-${{ steps.release.outputs.version }}.whl.sigstore sig/OZI-${{ steps.release.outputs.version }}.whl.sigstore
+        mv dist/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.sig sig/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.sig
+        mv dist/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.crt sig/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.crt
+        mv dist/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.sigstore sig/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.sigstore
 
 
     - name: Publish package distributions to PyPI
