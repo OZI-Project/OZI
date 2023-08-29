@@ -76,7 +76,7 @@ jobs:
         mv dist/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.sig sig/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.sig
         mv dist/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.crt sig/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.crt
         mv dist/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.sigstore sig/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.sigstore
-
+        mv dist/OZI-${{ steps.release.outputs.version }}.dist-info sig/OZI-${{ steps.release.outputs.version }}.dist-info
 
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
