@@ -6,6 +6,10 @@
 
 ### Other
 
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`fd1212e`](https://github.com/rjdbcm/ozi/commit/fd1212ef4b88d2d26b9bb8be7e383864e8f5f573))
+
+* :bug:(PKG-INFO): Ensure that PKG-INFO is updated at release. ([`23aa8e6`](https://github.com/rjdbcm/ozi/commit/23aa8e6367ce9d47ae130972f4a6ae563fcb6e13))
+
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`ae5657d`](https://github.com/rjdbcm/ozi/commit/ae5657de16cf194fc1d91550b9a0afc40e748f69))
 
 * :bug:(CI): don&#39;t stash mesons source of version info. ([`9f3d311`](https://github.com/rjdbcm/ozi/commit/9f3d3113881b5e5bd714d9ac4622cfc4ead0e486))
