@@ -1,6 +1,30 @@
 # CHANGELOG
 
 
+
+## v0.0.27 (2023-08-29)
+
+### Other
+
+* :bug:(CI): forcing a patch. ([`799789c`](https://github.com/rjdbcm/ozi/commit/799789c805d310b4273c9c807dfbedfe1c8f8963))
+
+* :construction_worker:(build): revert manual bump. ([`6f612c9`](https://github.com/rjdbcm/ozi/commit/6f612c9ec2f3f21db6f797fa7bd27ea34f1685d5))
+
+* :bug:(version): Attempting direct version bump. ([`40440ed`](https://github.com/rjdbcm/ozi/commit/40440ed43b5b8951dae8097c52c005cce6913e63))
+
+* :bug:(project): Patch release trigger. ([`0c0796d`](https://github.com/rjdbcm/ozi/commit/0c0796d329403652a3e1250b5bc71818980800b4))
+
+* 🐛(pyproject.toml): Fix fallback version blocking release trigger. ([`75b68d4`](https://github.com/rjdbcm/ozi/commit/75b68d4f0aefd68b32dbfa6e6b2dd1b856b0b365))
+
+* 🐛(CI/gh-actions): This should trigger a semantic-release. ([`7ea080a`](https://github.com/rjdbcm/ozi/commit/7ea080a0e35858656ff80020682673a9a6b27fdf))
+
+* 🐛: Release should trigger. Deleted unused key. ([`e1899e9`](https://github.com/rjdbcm/ozi/commit/e1899e9f01b4230f8f63ea558c5c85d65b1ba593))
+
+* 🚑️: Only build wheel on successful release. ([`000953f`](https://github.com/rjdbcm/ozi/commit/000953f4259a0f0d08c5487984240b4af2687ef1))
+
+* Remove Windows Classifier. ([`92d424c`](https://github.com/rjdbcm/ozi/commit/92d424ccdc918367cd01c7865436f55c29b3ea45))
+
+
 ## v0.0.26 (2023-08-29)
 
 ### Fix
