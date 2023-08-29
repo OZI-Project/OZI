@@ -6,9 +6,13 @@
 
 ### Fix
 
+* :bug: Attempt to force a version by fixing permissions. ([`718e36d`](https://github.com/rjdbcm/ozi/commit/718e36d859019153276c2a1b239fc9dc788b2ec0))
+
 * :bug:(dist-workflow): fix permissions for commit. ([`f3e7929`](https://github.com/rjdbcm/ozi/commit/f3e79293f5882936b7d984f8fe921722cd60347a))
 
 ### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`14994e0`](https://github.com/rjdbcm/ozi/commit/14994e0286f7d1c4f8af6157253272eb79a51a0d))
 
 * :bug: Attempting to force COMMIT_MSG permissions. ([`a3af65f`](https://github.com/rjdbcm/ozi/commit/a3af65ffe215d84e749281f192f58180ef3e471d))
 
