@@ -2,6 +2,15 @@
 
 
 
+## v0.0.28 (2023-08-29)
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`3d88d26`](https://github.com/rjdbcm/ozi/commit/3d88d2601c93c9dc30106a4ba431efce90681954))
+
+* 🚑️(pyproject.toml:tool.semantic_release): No hardcoded version. ([`f2cad32`](https://github.com/rjdbcm/ozi/commit/f2cad323e928c8dbe12eb2f9d70dc136a11b340b))
+
+
 ## v0.0.27 (2023-08-29)
 
 ### Other
