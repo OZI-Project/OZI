@@ -12,6 +12,8 @@
 
 ### Other
 
+* :bug: try remove .git/COMMIT_EDITMSG during build. ([`8ea37ef`](https://github.com/rjdbcm/ozi/commit/8ea37ef48cb525675c87152a5921ea00d235d88f))
+
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`14994e0`](https://github.com/rjdbcm/ozi/commit/14994e0286f7d1c4f8af6157253272eb79a51a0d))
 
 * :bug: Attempting to force COMMIT_MSG permissions. ([`a3af65f`](https://github.com/rjdbcm/ozi/commit/a3af65ffe215d84e749281f192f58180ef3e471d))
