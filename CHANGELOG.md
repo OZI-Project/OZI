@@ -10,6 +10,8 @@
 
 ### Other
 
+* :bug: empty commit message during release. ([`8375f5a`](https://github.com/rjdbcm/ozi/commit/8375f5a716ce704cbafaea070619673e129532c6))
+
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`fd1212e`](https://github.com/rjdbcm/ozi/commit/fd1212ef4b88d2d26b9bb8be7e383864e8f5f573))
 
 * :bug:(PKG-INFO): Ensure that PKG-INFO is updated at release. ([`23aa8e6`](https://github.com/rjdbcm/ozi/commit/23aa8e6367ce9d47ae130972f4a6ae563fcb6e13))
