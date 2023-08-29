@@ -12,6 +12,10 @@
 
 ### Other
 
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`3f523cd`](https://github.com/rjdbcm/ozi/commit/3f523cd43b9eae54d78ca98e5a4d7a3f091b2c9c))
+
+* :pencil: rekor should have been sigstore. ([`66d5571`](https://github.com/rjdbcm/ozi/commit/66d557191946721999a26164c6a88817d883bd92))
+
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`4b7bdb4`](https://github.com/rjdbcm/ozi/commit/4b7bdb4212a1c3cf06fc04c23e7695d94a24ddd4))
 
 * 🏗️: move signatures out of dist after build. ([`9310b36`](https://github.com/rjdbcm/ozi/commit/9310b369a0d673767b8bbd13b6c81fe74ba1c471))
