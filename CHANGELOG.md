@@ -2,7 +2,7 @@
 
 
 
-## v0.0.26 (2023-08-28)
+## v0.0.26 (2023-08-29)
 
 ### Fix
 
@@ -11,6 +11,8 @@
 * :pencil: fix version. ([`7ef2a05`](https://github.com/rjdbcm/ozi/commit/7ef2a05cfd70f74d33418d706b5a1e0df518da0b))
 
 ### Other
+
+* 🏗️: Move CI build out of dist. ([`b3d7dba`](https://github.com/rjdbcm/ozi/commit/b3d7dbaf721c414c5fe55f0913729f34815dfb48))
 
 * 👷: Fix OZI case by hard-coding for now. ([`513612d`](https://github.com/rjdbcm/ozi/commit/513612d9d5c5e4fd2f0eae7dc400b18bb2945d96))
 
