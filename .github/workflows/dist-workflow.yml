@@ -72,10 +72,10 @@ jobs:
         mkdir sig
         mv dist/OZI-${{ steps.release.outputs.version }}.tar.gz.sig sig/OZI-${{ steps.release.outputs.version }}.tar.gz.sig
         mv dist/OZI-${{ steps.release.outputs.version }}.tar.gz.crt sig/OZI-${{ steps.release.outputs.version }}.tar.gz.crt
-        mv dist/OZI-${{ steps.release.outputs.version }}.tar.gz.rekor sig/OZI-${{ steps.release.outputs.version }}.tar.gz.rekor
+        mv dist/OZI-${{ steps.release.outputs.version }}.tar.gz.sigstore sig/OZI-${{ steps.release.outputs.version }}.tar.gz.sigstore
         mv dist/OZI-${{ steps.release.outputs.version }}.whl.sig sig/OZI-${{ steps.release.outputs.version }}.whl.sig
         mv dist/OZI-${{ steps.release.outputs.version }}.whl.crt sig/OZI-${{ steps.release.outputs.version }}.whl.crt
-        mv dist/OZI-${{ steps.release.outputs.version }}.whl.rekor sig/OZI-${{ steps.release.outputs.version }}.whl.rekor
+        mv dist/OZI-${{ steps.release.outputs.version }}.whl.sigstore sig/OZI-${{ steps.release.outputs.version }}.whl.sigstore
 
 
     - name: Publish package distributions to PyPI
