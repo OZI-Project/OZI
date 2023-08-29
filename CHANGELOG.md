@@ -14,6 +14,12 @@
 
 ### Other
 
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`4fb7a08`](https://github.com/rjdbcm/ozi/commit/4fb7a0814d501baaf539787e91f5b38888c3237d))
+
+* 👷: remove dist-info glob. ([`8d89d33`](https://github.com/rjdbcm/ozi/commit/8d89d332e06d9f298ecb49aa824da4551dddcb45))
+
+* 👷: move dist-info to sig. ([`78bb99e`](https://github.com/rjdbcm/ozi/commit/78bb99e61502d514bdd0ac2d3025d88997e6aaee))
+
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`39839f3`](https://github.com/rjdbcm/ozi/commit/39839f31938642cc552eaac95778cef9b8652967))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`3f523cd`](https://github.com/rjdbcm/ozi/commit/3f523cd43b9eae54d78ca98e5a4d7a3f091b2c9c))
