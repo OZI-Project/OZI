@@ -12,6 +12,10 @@
 
 ### Other
 
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`4b7bdb4`](https://github.com/rjdbcm/ozi/commit/4b7bdb4212a1c3cf06fc04c23e7695d94a24ddd4))
+
+* 🏗️: move signatures out of dist after build. ([`9310b36`](https://github.com/rjdbcm/ozi/commit/9310b369a0d673767b8bbd13b6c81fe74ba1c471))
+
 * 🏗️: Move CI build out of dist. ([`b3d7dba`](https://github.com/rjdbcm/ozi/commit/b3d7dbaf721c414c5fe55f0913729f34815dfb48))
 
 * 👷: Fix OZI case by hard-coding for now. ([`513612d`](https://github.com/rjdbcm/ozi/commit/513612d9d5c5e4fd2f0eae7dc400b18bb2945d96))
