@@ -72,6 +72,7 @@ jobs:
         python -m pyc_wheel dist/*.whl
         meson setup build
         git add PKG-INFO
+        rm -rf .git/COMMIT_EDITMSG
         git commit --allow-empty-message PKG-INFO -m ""
         meson dist -C build --formats gztar --no-tests --allow-dirty
         mv build/meson-dist/OZI-${{ steps.release.outputs.version }}.tar.gz dist/OZI-${{ steps.release.outputs.version }}.tar.gz 
