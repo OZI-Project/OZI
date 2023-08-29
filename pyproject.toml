@@ -92,7 +92,6 @@ line_length = 93
 profile = "black"
 verbose = true
 
-
 [tool.mypy]
 implicit_reexport = true
 strict = true
