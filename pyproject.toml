@@ -92,8 +92,6 @@ line_length = 93
 profile = "black"
 verbose = true
 
-[tool.mesonpep517.dynamic]
-version = {attr = "_scm_version.__version__"}
 
 [tool.mypy]
 implicit_reexport = true
