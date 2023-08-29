@@ -10,6 +10,8 @@
 
 ### Other
 
+* :bug: Attempting to force COMMIT_MSG permissions. ([`a3af65f`](https://github.com/rjdbcm/ozi/commit/a3af65ffe215d84e749281f192f58180ef3e471d))
+
 * :bug: empty commit message during release. ([`8375f5a`](https://github.com/rjdbcm/ozi/commit/8375f5a716ce704cbafaea070619673e129532c6))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`fd1212e`](https://github.com/rjdbcm/ozi/commit/fd1212ef4b88d2d26b9bb8be7e383864e8f5f573))
