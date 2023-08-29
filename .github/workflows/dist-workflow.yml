@@ -75,7 +75,6 @@ jobs:
         git commit --allow-empty-message PKG-INFO -m ""
         meson dist -C build --formats gztar --no-tests --allow-dirty
         mv build/meson-dist/OZI-${{ steps.release.outputs.version }}.tar.gz dist/OZI-${{ steps.release.outputs.version }}.tar.gz 
-        
         sigstore sign dist/*.whl dist/*.tar.gz
         mkdir sig
         mv dist/OZI-${{ steps.release.outputs.version }}.tar.gz.sig sig/OZI-${{ steps.release.outputs.version }}.tar.gz.sig
