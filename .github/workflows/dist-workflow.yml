@@ -35,8 +35,6 @@ jobs:
       matrix:
         ozi:
           - dist
-          - lint
-          - test
         os:
           - ubuntu-latest
           - macos-latest
@@ -76,6 +74,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -84,9 +83,11 @@ jobs:
       id: release
       uses: python-semantic-release/python-semantic-release@master
       with:
+        force: patch
         github_token: ${{ secrets.GITHUB_TOKEN }}
   
-    - name: Install Python dependencies
+    - name: Install Python build dependencies
+      if: steps.release.outputs.released == 'true'
       run: |
           python -m pip install --upgrade pip
           python -m pip install --user --upgrade build
@@ -111,13 +112,14 @@ jobs:
         python -m pyc_wheel dist/*.whl
         meson setup build
         git add PKG-INFO
-        git commit --allow-empty-message PKG-INFO -m ""
+        git commit PKG-INFO -m ":construction_worker:(PKG-INFO): Bump Version."
+        git push origin main
         meson dist -C build --formats gztar --no-tests --allow-dirty
 
     - name: Move meson dist files
       if: steps.release.outputs.released == 'true'
       run: |
-        mv build/meson-dist/OZI-${{ steps.release.outputs.version }}.tar.gz dist/OZI-${{ steps.release.outputs.version }}.tar.gz
+        mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz
 
     - name: Sign wheel and sdist
       if: steps.release.outputs.released == 'true'
@@ -128,13 +130,13 @@ jobs:
     - name: Move sigstore signing files
       if: steps.release.outputs.released == 'true'
       run: |
-        mv dist/OZI-${{ steps.release.outputs.version }}.tar.gz.sig sig/OZI-${{ steps.release.outputs.version }}.tar.gz.sig
-        mv dist/OZI-${{ steps.release.outputs.version }}.tar.gz.crt sig/OZI-${{ steps.release.outputs.version }}.tar.gz.crt
-        mv dist/OZI-${{ steps.release.outputs.version }}.tar.gz.sigstore sig/OZI-${{ steps.release.outputs.version }}.tar.gz.sigstore
-        mv dist/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.sig sig/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.sig
-        mv dist/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.crt sig/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.crt
-        mv dist/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.sigstore sig/OZI-${{ steps.release.outputs.version }}-py3-none-any.whl.sigstore
-        mv dist/OZI-${{ steps.release.outputs.version }}.dist-info sig/OZI-${{ steps.release.outputs.version }}.dist-info
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sig sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sig
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.crt sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.crt
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sigstore sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sigstore
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sig sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sig
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.crt sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.crt
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sigstore sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sigstore
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.dist-info
 
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
