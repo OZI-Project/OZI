@@ -55,8 +55,7 @@ option('docs-suite', type: 'array', description: '--setup=docs',
 value: ['doc8', 'pydocstyle', 'sphinx-build', 'sphinxawesome-codelinter', 
         'sphinxawesome-theme'])
 option('lint-suite', type: 'array', description: '--setup=lint',
-value: ['bandit', 'black', 'isort', 'mypy', 'pylint', 'pyright', 'flake8p', 'Flake8-pyproject',
-        'restructuredtext-lint'])
+value: ['bandit', 'black', 'isort', 'mypy', 'pylint', 'pyright', 'flake8p', 'Flake8-pyproject'])
 option('test-suite', type: 'array', description: '--setup=test',
 value: ['coverage', 'hypothesis', 'pytest'])
 
