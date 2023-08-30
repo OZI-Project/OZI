@@ -14,18 +14,19 @@
 # specific language governing permissions and limitations
 # under the License.
 """python template: check core metadata"""
-import pathlib
 import os
+import pathlib
+
 #
 import tomli
+
 # pylint: disable=consider-using-with
 source = pathlib.Path(
     os.path.relpath(
-        os.path.join('/', os.environ.get('MESON_SOURCE_ROOT', os.path.relpath('..'))),
-        '/'
+        os.path.join('/', os.environ.get('MESON_SOURCE_ROOT', os.path.relpath('..'))), '/'
     )
 )
-project_file = open(source/'pyproject.toml', 'rb')
+project_file = open(source / 'pyproject.toml', 'rb')
 pyproject_toml = tomli.load(project_file)
 project_file.close()
 core_metadata = pyproject_toml.get('project', {'optional_dependencies': {}})
