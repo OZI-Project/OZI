@@ -129,6 +129,42 @@ match = "(main|master)"
 prerelease_token = "beta"
 prerelease = false
 
+[tool.semantic_release.commit_parser_options]
+major_tags = [":boom:"]
+minor_tags = [
+    ":sparkles:",
+    ":rocket:",
+]
+patch_tags = [
+    ":children_crossing:",
+    ":ambulance:",
+    ":lock:",
+    ":bug:",
+    ":zap:",
+    ":goal_net:",
+    ":alien:",
+    ":wheelchair:",
+    ":arrow_down:",
+    ":pushpin:",
+    ":arrow_up:",
+    ":speech_balloon:",
+    ":mag:",
+    ":apple:",
+    ":penguin:",
+    ":checkered_flag:",
+    ":robot:",
+    ":green_heart:",
+    ":green_apple:",
+    ":recycle:",
+    ":wrench:",
+    ":hammer:",
+    ":pencil2:",
+    ":bento:",
+    ":bulb:",
+    ":label:",
+    ":fire:",
+]
+
 [tool.semantic_release.changelog]
 changelog_file                 = "CHANGELOG.md"
 
