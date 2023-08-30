@@ -373,7 +373,7 @@ envlist = py{39,310-type,311}-toml
 
 [gh]
 python =
-     3.11 = py311
+     3.11 = py311, toml
      3.10 = py310, toml, type
      3.9 = py39, toml
 
