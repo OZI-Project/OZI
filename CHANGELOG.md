@@ -2,13 +2,32 @@
 
 
 
+## v0.0.31 (2023-08-30)
+
+### :children_crossing:
+
+* :children_crossing:(semantic-release): Fix commit parsing. ([`e6d349d`](https://github.com/rjdbcm/OZI/commit/e6d349d58d8a6d8c36e3778217c8a5cf7c6f1c00))
+
+### Other
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`b16af53`](https://github.com/rjdbcm/OZI/commit/b16af531534be46e98bb5f04ddf4ec46f9501cbf))
+
+
 ## v0.0.30 (2023-08-30)
 
-### Fix
+### :ambulance:
+
+* :ambulance: Fix SCM tracked version. ([`9a5a7cb`](https://github.com/rjdbcm/OZI/commit/9a5a7cbbafc8ef561e1785442c66ec1bb7c3cddf))
+
+* :wrench::ambulance:(semantic-release): Fix args for major version bump 7 to 8. ([`501d387`](https://github.com/rjdbcm/OZI/commit/501d3873291958249ed6561688ec7ad34c55ec39))
+
+### :wrench:
+
+* :wrench:(meson): drop rst-lint for now. ([`7b35036`](https://github.com/rjdbcm/OZI/commit/7b35036b6d27b613b40fe8ecd30f05c21ac4d59b))
 
 * :wrench:(tox): fix tox-gh env names. ([`81e1ebf`](https://github.com/rjdbcm/OZI/commit/81e1ebf6ba28d1acf7eab9b36d0a33b66528f186))
 
-* 🚑️👷(tox-gh): fix 3.11 build and delete Windows testing. ([`95c5f4f`](https://github.com/rjdbcm/OZI/commit/95c5f4fc55ffabd8e3a6a08756464d47e68230ad))
+* :construction_worker::wrench:: Move test workflow into dist-workflow.yml ([`c2f16a1`](https://github.com/rjdbcm/OZI/commit/c2f16a14fb315e9d9225a76b93593a6863a72cbb))
 
 ### Other
 
@@ -20,52 +39,46 @@
 
 * :construction_worker:(gh-actions): Parity with blastpipe. ([`8bb5ebe`](https://github.com/rjdbcm/OZI/commit/8bb5ebe856eee7a43d01d45ea422c131d94b2777))
 
-* :wrench:(meson): drop rst-lint for now. ([`7b35036`](https://github.com/rjdbcm/OZI/commit/7b35036b6d27b613b40fe8ecd30f05c21ac4d59b))
-
-* :ambulance: Fix SCM tracked version. ([`9a5a7cb`](https://github.com/rjdbcm/OZI/commit/9a5a7cbbafc8ef561e1785442c66ec1bb7c3cddf))
-
 * 🎨: Blacken script files. ([`6b5cc15`](https://github.com/rjdbcm/OZI/commit/6b5cc15b1d14cdbe3399a59f94c874cbce1282f3))
 
 * 🔥: remove the file setuptools_tools.py for now. ([`e66738d`](https://github.com/rjdbcm/OZI/commit/e66738d830632483a1817d59d654879835e4a9de))
 
 * :construction_worker:: Drop docs from workflow. ([`8981a12`](https://github.com/rjdbcm/OZI/commit/8981a12650217a2f13af9cfde7db90c57d71d100))
 
-* :wrench::ambulance:(semantic-release): Fix args for major version bump 7 to 8. ([`501d387`](https://github.com/rjdbcm/OZI/commit/501d3873291958249ed6561688ec7ad34c55ec39))
-
 * 👷: add all deps to tox. ([`b013818`](https://github.com/rjdbcm/OZI/commit/b013818bdfb5f155cdcba539f480944a146efb83))
+
+* 🚑️👷(tox-gh): fix 3.11 build and delete Windows testing. ([`95c5f4f`](https://github.com/rjdbcm/OZI/commit/95c5f4fc55ffabd8e3a6a08756464d47e68230ad))
 
 * 🐛(tox): delete --skip-pkg-install argument in CI. ([`d2d0cda`](https://github.com/rjdbcm/OZI/commit/d2d0cda2d2b729d7dc743fca980a967c07c54f2e))
 
 * 🔨🚑️: FIX: sync_pkg_readme should use meson.source_root(). ([`ed99470`](https://github.com/rjdbcm/OZI/commit/ed994701df37ff0ceda6dca96cd501c2fcf08749))
 
-* :construction_worker::wrench:: Move test workflow into dist-workflow.yml ([`c2f16a1`](https://github.com/rjdbcm/OZI/commit/c2f16a14fb315e9d9225a76b93593a6863a72cbb))
-
 
 ## v0.0.29 (2023-08-29)
 
-### Fix
-
-* :bug: Attempt to force a version by fixing permissions. ([`718e36d`](https://github.com/rjdbcm/OZI/commit/718e36d859019153276c2a1b239fc9dc788b2ec0))
-
-* :bug:(dist-workflow): fix permissions for commit. ([`f3e7929`](https://github.com/rjdbcm/OZI/commit/f3e79293f5882936b7d984f8fe921722cd60347a))
-
-### Other
+### :bug:
 
 * :bug: try remove .git/COMMIT_EDITMSG during build. ([`8ea37ef`](https://github.com/rjdbcm/OZI/commit/8ea37ef48cb525675c87152a5921ea00d235d88f))
 
-* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`14994e0`](https://github.com/rjdbcm/OZI/commit/14994e0286f7d1c4f8af6157253272eb79a51a0d))
+* :bug: Attempt to force a version by fixing permissions. ([`718e36d`](https://github.com/rjdbcm/OZI/commit/718e36d859019153276c2a1b239fc9dc788b2ec0))
 
 * :bug: Attempting to force COMMIT_MSG permissions. ([`a3af65f`](https://github.com/rjdbcm/OZI/commit/a3af65ffe215d84e749281f192f58180ef3e471d))
 
 * :bug: empty commit message during release. ([`8375f5a`](https://github.com/rjdbcm/OZI/commit/8375f5a716ce704cbafaea070619673e129532c6))
 
-* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`fd1212e`](https://github.com/rjdbcm/OZI/commit/fd1212ef4b88d2d26b9bb8be7e383864e8f5f573))
+* :bug:(dist-workflow): fix permissions for commit. ([`f3e7929`](https://github.com/rjdbcm/OZI/commit/f3e79293f5882936b7d984f8fe921722cd60347a))
 
 * :bug:(PKG-INFO): Ensure that PKG-INFO is updated at release. ([`23aa8e6`](https://github.com/rjdbcm/OZI/commit/23aa8e6367ce9d47ae130972f4a6ae563fcb6e13))
 
-* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`ae5657d`](https://github.com/rjdbcm/OZI/commit/ae5657de16cf194fc1d91550b9a0afc40e748f69))
-
 * :bug:(CI): don&#39;t stash mesons source of version info. ([`9f3d311`](https://github.com/rjdbcm/OZI/commit/9f3d3113881b5e5bd714d9ac4622cfc4ead0e486))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`14994e0`](https://github.com/rjdbcm/OZI/commit/14994e0286f7d1c4f8af6157253272eb79a51a0d))
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`fd1212e`](https://github.com/rjdbcm/OZI/commit/fd1212ef4b88d2d26b9bb8be7e383864e8f5f573))
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`ae5657d`](https://github.com/rjdbcm/OZI/commit/ae5657de16cf194fc1d91550b9a0afc40e748f69))
 
 
 ## v0.0.28 (2023-08-29)
@@ -79,15 +92,17 @@
 
 ## v0.0.27 (2023-08-29)
 
-### Other
+### :bug:
 
 * :bug:(CI): forcing a patch. ([`799789c`](https://github.com/rjdbcm/OZI/commit/799789c805d310b4273c9c807dfbedfe1c8f8963))
-
-* :construction_worker:(build): revert manual bump. ([`6f612c9`](https://github.com/rjdbcm/OZI/commit/6f612c9ec2f3f21db6f797fa7bd27ea34f1685d5))
 
 * :bug:(version): Attempting direct version bump. ([`40440ed`](https://github.com/rjdbcm/OZI/commit/40440ed43b5b8951dae8097c52c005cce6913e63))
 
 * :bug:(project): Patch release trigger. ([`0c0796d`](https://github.com/rjdbcm/OZI/commit/0c0796d329403652a3e1250b5bc71818980800b4))
+
+### Other
+
+* :construction_worker:(build): revert manual bump. ([`6f612c9`](https://github.com/rjdbcm/OZI/commit/6f612c9ec2f3f21db6f797fa7bd27ea34f1685d5))
 
 * 🐛(pyproject.toml): Fix fallback version blocking release trigger. ([`75b68d4`](https://github.com/rjdbcm/OZI/commit/75b68d4f0aefd68b32dbfa6e6b2dd1b856b0b365))
 
@@ -102,14 +117,6 @@
 
 ## v0.0.26 (2023-08-29)
 
-### Fix
-
-* 👷: add hardcoded prefixes for now -py3-none-any. ([`9654dc1`](https://github.com/rjdbcm/OZI/commit/9654dc1e37e809c8f21c4fecf8db9afb025872ba))
-
-* :pencil:: fix path root on build check. ([`914bb5d`](https://github.com/rjdbcm/OZI/commit/914bb5d98f831372831c65599d836423806d1692))
-
-* :pencil: fix version. ([`7ef2a05`](https://github.com/rjdbcm/OZI/commit/7ef2a05cfd70f74d33418d706b5a1e0df518da0b))
-
 ### Other
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`4fb7a08`](https://github.com/rjdbcm/OZI/commit/4fb7a0814d501baaf539787e91f5b38888c3237d))
@@ -119,6 +126,8 @@
 * 👷: move dist-info to sig. ([`78bb99e`](https://github.com/rjdbcm/OZI/commit/78bb99e61502d514bdd0ac2d3025d88997e6aaee))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`39839f3`](https://github.com/rjdbcm/OZI/commit/39839f31938642cc552eaac95778cef9b8652967))
+
+* 👷: add hardcoded prefixes for now -py3-none-any. ([`9654dc1`](https://github.com/rjdbcm/OZI/commit/9654dc1e37e809c8f21c4fecf8db9afb025872ba))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`3f523cd`](https://github.com/rjdbcm/OZI/commit/3f523cd43b9eae54d78ca98e5a4d7a3f091b2c9c))
 
@@ -166,6 +175,8 @@
 
 * add ci build requirements. ([`69672f5`](https://github.com/rjdbcm/OZI/commit/69672f5e703a80bfbcb2e3aea9172dcdbbc76352))
 
+* :pencil:: fix path root on build check. ([`914bb5d`](https://github.com/rjdbcm/OZI/commit/914bb5d98f831372831c65599d836423806d1692))
+
 * :pencil:: Should have built -w (wheel) ([`d4180ea`](https://github.com/rjdbcm/OZI/commit/d4180ea1b39c01ebb40703512da6a1a3062db9ff))
 
 * 🔧Do our own build during release CI. ([`e7c6a58`](https://github.com/rjdbcm/OZI/commit/e7c6a58ecd621901c9445f23ba8646ae28ffa4b7))
@@ -195,6 +206,8 @@
 * :pencil: commit changelog during release. ([`e646d0b`](https://github.com/rjdbcm/OZI/commit/e646d0bc8377635520eddc23bb46e4da2583c540))
 
 * :loud_sound: Added release changes and updated PKG-INFO. ([`bbfd15a`](https://github.com/rjdbcm/OZI/commit/bbfd15a39704c2934a3ee86bd44d98866801adb0))
+
+* :pencil: fix version. ([`7ef2a05`](https://github.com/rjdbcm/OZI/commit/7ef2a05cfd70f74d33418d706b5a1e0df518da0b))
 
 * :pencil: remove commit ammend. ([`083284e`](https://github.com/rjdbcm/OZI/commit/083284e09ec6feabd5213b631233b0260ca93325))
 
@@ -275,7 +288,7 @@ Added human-centered messaging. ([`8d7d0a6`](https://github.com/rjdbcm/OZI/commi
 
 ## v0.0.23 (2023-07-06)
 
-### Other
+### :pencil2:
 
 * :pencil2: blastpipe provides blastpipe. ([`68f1897`](https://github.com/rjdbcm/OZI/commit/68f1897671398b9a52ca42f3df6a15192950eba1))
 
@@ -337,16 +350,12 @@ This allows support of hashed version pins. ([`baaf291`](https://github.com/rjdb
 
 ## v0.0.21 (2023-07-02)
 
-### Fix
-
-* :technologist:(README.rst): Added bugfix section. ([`d522338`](https://github.com/rjdbcm/OZI/commit/d522338daf72bea127a3636a4bc61bcd13b04f49))
-
-* 📝README.rst: fix FOSSA badge. ([`b054f57`](https://github.com/rjdbcm/OZI/commit/b054f5757dbac829b0e5d49e4488665d5b7c9367))
-
 ### Other
 
 * 🔨(meson.options): Added python version options.
 Formerly these were hardcoded. ([`98dc031`](https://github.com/rjdbcm/OZI/commit/98dc03107c9ea202d92ba599a9516b58e5c76496))
+
+* :technologist:(README.rst): Added bugfix section. ([`d522338`](https://github.com/rjdbcm/OZI/commit/d522338daf72bea127a3636a4bc61bcd13b04f49))
 
 * 🧑‍💻: Update issue templates
 
@@ -359,6 +368,8 @@ Add feature request and bug report templates. ([`24a9834`](https://github.com/rj
 * 📝 README.rst: Remove hanging markdown. ([`e49d3a0`](https://github.com/rjdbcm/OZI/commit/e49d3a0b2462d3ba83c38397774d8e137a14489c))
 
 * 📝 README.rst: Fix FOSSA badge. ([`08b31f7`](https://github.com/rjdbcm/OZI/commit/08b31f731306aaad06f771ea433b9738d968ec23))
+
+* 📝README.rst: fix FOSSA badge. ([`b054f57`](https://github.com/rjdbcm/OZI/commit/b054f5757dbac829b0e5d49e4488665d5b7c9367))
 
 * Merge pull request #1 from fossabot/add-license-scan-badge
 
@@ -382,13 +393,11 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 ## v0.0.20 (2023-06-25)
 
-### Fix
-
-* 🔨 fix stash strategy.. ([`a20807e`](https://github.com/rjdbcm/OZI/commit/a20807e23f3555b8306523cc3da8ebf84ef575f2))
-
 ### Other
 
 * 🔨 drop PKG-INFO from pre_commit. ([`39a908d`](https://github.com/rjdbcm/OZI/commit/39a908d39cc747a5c33082bddf833e9fe2b9075b))
+
+* 🔨 fix stash strategy.. ([`a20807e`](https://github.com/rjdbcm/OZI/commit/a20807e23f3555b8306523cc3da8ebf84ef575f2))
 
 * PKG-INFO Updated ([`5de6296`](https://github.com/rjdbcm/OZI/commit/5de6296f33c58f751c97551b9b69f1f786c04409))
 
@@ -447,22 +456,18 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 ## v0.0.13 (2023-06-24)
 
-### Fix
+### Other
 
 * 🔨 fix must be a file: build/meson-dist/*.tar.gz foreals. ([`ce2e8f0`](https://github.com/rjdbcm/OZI/commit/ce2e8f0e6ccb4160e128de2759c921839ca413db))
-
-### Other
 
 * PKG-INFO Updated ([`382ed8a`](https://github.com/rjdbcm/OZI/commit/382ed8a40a26b47c7451b632a33ecc43b1cc1dd0))
 
 
 ## v0.0.12 (2023-06-24)
 
-### Fix
+### Other
 
 * 🔨 fix must be a file: build/meson-dist/*.tar.gz. ([`03de6fc`](https://github.com/rjdbcm/OZI/commit/03de6fcca53c6f0edcce3e6d3a0f44c62ab60c87))
-
-### Other
 
 * PKG-INFO Updated ([`7ed30a3`](https://github.com/rjdbcm/OZI/commit/7ed30a3f486f9bf1011d849b4f910dbc2d1a24fc))
 
@@ -485,16 +490,12 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 ## v0.0.9 (2023-06-24)
 
-### Other
+### :pencil2:
 
 * :pencil2: git add CHANGELOG.md. ([`6575895`](https://github.com/rjdbcm/OZI/commit/65758958a899629f680b37b930ac34377dfd0b59))
 
 
 ## v0.0.8 (2023-06-24)
-
-### Fix
-
-* 👷 fix CI changelog commit. ([`3b8288b`](https://github.com/rjdbcm/OZI/commit/3b8288b15b9a8a46e6a9c3866942262508e98530))
 
 ### Other
 
@@ -502,23 +503,27 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 * 👷 use pkg-info. ([`b0cd371`](https://github.com/rjdbcm/OZI/commit/b0cd371fdbafc1ecce4274722586fa07181e351e))
 
+* 👷 fix CI changelog commit. ([`3b8288b`](https://github.com/rjdbcm/OZI/commit/3b8288b15b9a8a46e6a9c3866942262508e98530))
+
 * PKG-INFO Updated ([`1db763d`](https://github.com/rjdbcm/OZI/commit/1db763d5e978742e1848b0cf83b773e39a9efe98))
 
 
 ## v0.0.7 (2023-06-24)
 
-### Fix
+### Other
 
 * 🍱 fix readme rendering. ([`d27ffc9`](https://github.com/rjdbcm/OZI/commit/d27ffc925a80e910b6cf6d2aa3f18e51d3cdad24))
-
-### Other
 
 * PKG-INFO Updated ([`88d8722`](https://github.com/rjdbcm/OZI/commit/88d87224d4e8b5c734ef0791c5707df0f3441dd1))
 
 
 ## v0.0.6 (2023-06-24)
 
-### Fix
+### :pencil2:
+
+* :pencil2: to_lower ([`5c48087`](https://github.com/rjdbcm/OZI/commit/5c48087f08373aeeabd18b1e2899280a242f0a51))
+
+* :pencil2: lower case folder. ([`dfaaaba`](https://github.com/rjdbcm/OZI/commit/dfaaababe369809efce86a14aba13684751bc345))
 
 * :pencil2: fix wrap file usage. ([`b4157b1`](https://github.com/rjdbcm/OZI/commit/b4157b19fa86d2f11f1ba97cdb8799556244cbd4))
 
@@ -529,10 +534,6 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 * 📌 Add requirements to build. ([`fd83e88`](https://github.com/rjdbcm/OZI/commit/fd83e88c51a0396b91e776b64f11692ed83d96d5))
 
 * ✏️ add config files to build. ([`f732ed1`](https://github.com/rjdbcm/OZI/commit/f732ed190d46e4c53d7c87c0f9aa2427c1479b0e))
-
-* :pencil2: to_lower ([`5c48087`](https://github.com/rjdbcm/OZI/commit/5c48087f08373aeeabd18b1e2899280a242f0a51))
-
-* :pencil2: lower case folder. ([`dfaaaba`](https://github.com/rjdbcm/OZI/commit/dfaaababe369809efce86a14aba13684751bc345))
 
 * ⚰️ No Notice required. ([`ca50d4f`](https://github.com/rjdbcm/OZI/commit/ca50d4f89b3f6c905bae26928b0a24d5c7f7a39c))
 
@@ -547,7 +548,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 ## v0.0.5 (2023-06-24)
 
-### Fix
+### :pencil2:
 
 * :pencil2: fix typo is_enabled. ([`a966905`](https://github.com/rjdbcm/OZI/commit/a966905031826b9cfa78edcb8713831431a9676b))
 
