@@ -28,14 +28,13 @@ on:
       - main
 
 jobs:
-  test:
-    name: ${{ matrix.ozi }} with ${{ matrix.py }} on ${{ matrix.os }}
+  checkpoint:
+    name: OZI ${{ matrix.ozi }} with ${{ matrix.py }} on ${{ matrix.os }}
     runs-on: '${{ matrix.os }}'
     strategy:
       matrix:
         ozi:
           - dist
-          - docs
           - lint
           - test
         os:
@@ -66,7 +65,7 @@ jobs:
           tox -- --setup=${{ matrix.ozi }}
 
   release:
-    needs: test
+    needs: checkpoint
     runs-on: ubuntu-latest
     concurrency: release
     permissions:
