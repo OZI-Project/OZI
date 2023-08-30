@@ -91,7 +91,7 @@ option('args-sigstore', type: 'array',
 value: ['--version'], yield: false)
 
 option('args-semantic-release' , type: 'array', 
-value: ['--noop', 'version', '--verbosity=debug'], yield: false)
+value: ['version', '--print'], yield: false)
 
 option('args-pyc_wheel', type: 'array',
 value: ['-h'], yield: false)
