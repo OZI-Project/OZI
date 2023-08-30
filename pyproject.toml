@@ -181,7 +181,7 @@ OZI
 ===
 
 |py-version-badge| |openssf-badge| |slsa-level3-badge| |fossa-badge| |semantic-release-badge|
-|coverage-badge| 
+|coverage-badge|
 |bandit-badge| |black-badge| |isort-badge| |flake8-badge| |pyright-badge| |pylint-ckpt-badge| |rst-lint-badge|
 
 OZI, an end-to-end Python packager for the Meson build system.
