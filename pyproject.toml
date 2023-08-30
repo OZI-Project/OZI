@@ -181,7 +181,7 @@ OZI
 ===
 
 |py-version-badge| |openssf-badge| |slsa-level3-badge| |fossa-badge| |semantic-release-badge|
-|coverage-badge| |pytest-plugins-badge| 
+|coverage-badge| 
 |bandit-badge| |black-badge| |isort-badge| |flake8-badge| |pyright-badge| |pylint-ckpt-badge| |rst-lint-badge|
 
 OZI, an end-to-end Python packager for the Meson build system.
@@ -315,8 +315,6 @@ Ross J. Duff MSc - `@rossdabass <https://twitter.com/rossdabass>`_
 .. |bandit-badge| image:: https://img.shields.io/badge/security-%E2%9C%94%20bandit-yellow.svg
     :target: https://github.com/PyCQA/bandit
     :alt: Security Status
-
-.. |pytest-plugins-badge| image:: https://img.shields.io/badge/Pytest-asyncio%20cov%20%20hypothesis%20mock%20randomly%20tcpclient-informational
 
 .. |black-badge| image:: https://img.shields.io/badge/code%20style-%E2%9C%94%20black-000000.svg
     :target: https://github.com/psf/black
