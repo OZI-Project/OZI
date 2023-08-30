@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   test:
-    name: ${{ matrix.dev-namespace }} with ${{ matrix.py }} on ${{ matrix.os }}
+    name: ${{ matrix.ozi }} with ${{ matrix.py }} on ${{ matrix.os }}
     runs-on: '${{ matrix.os }}'
     strategy:
       matrix:
