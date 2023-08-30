@@ -12,6 +12,10 @@
 
 ### Other
 
+* :pencil: remove trailing newline PKG-INFO template. ([`0304af0`](https://github.com/rjdbcm/OZI/commit/0304af0be29deecc8b8c0d9fa6f4200b5a11e8bd))
+
+* :memo:: remove pytest badge. ([`1d1acde`](https://github.com/rjdbcm/OZI/commit/1d1acdedd1fefb6b1e4bd240c9ed9b9a8991a430))
+
 * :pencil: delete symlink. ([`38076dd`](https://github.com/rjdbcm/OZI/commit/38076ddb4173b9a0261a3b0d34155facf2113dd5))
 
 * :construction_worker:(gh-actions): Parity with blastpipe. ([`8bb5ebe`](https://github.com/rjdbcm/OZI/commit/8bb5ebe856eee7a43d01d45ea422c131d94b2777))
