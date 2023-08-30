@@ -64,7 +64,7 @@ jobs:
           tox -vv --notest
       - name: '${{ matrix.ozi }}'
         run: |
-          tox --skip-pkg-install -- --setup=${{ matrix.ozi }}
+          tox -- --setup=${{ matrix.ozi }}
 
   release:
     needs: test

@@ -380,6 +380,7 @@ python =
 [testenv]
 package = wheel
 deps =
+     ninja >= 1.8.2
      meson >= 1.1.0
      setuptools_scm[toml]>=6.2
      toml: tomli >= 2.0.0
