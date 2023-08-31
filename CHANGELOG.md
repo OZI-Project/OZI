@@ -2,6 +2,23 @@
 
 
 
+## v0.0.32 (2023-08-31)
+
+### :bento:
+
+* :fire::bento:: Delete ``assets/structure`` ([`c7da0ec`](https://github.com/rjdbcm/OZI/commit/c7da0ec0c710593aa4ab14fb2cdbd5b7070a54dd))
+
+### :wrench:
+
+* :wrench::truck:(project): Move core templates and assets from OZI.docs. ([`959f38d`](https://github.com/rjdbcm/OZI/commit/959f38d46214c80671c0af2df252b7196b65e9cd))
+
+### Other
+
+* :busts_in_silhouette:: Add CODE_OF_CONDUCT.md ([`1f944ff`](https://github.com/rjdbcm/OZI/commit/1f944ff53c3be973fa6e0fcca04d398607c846ce))
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`7be3c2b`](https://github.com/rjdbcm/OZI/commit/7be3c2b672341b6226f8267cc3045e753ba4a870))
+
+
 ## v0.0.31 (2023-08-30)
 
 ### :children_crossing:
