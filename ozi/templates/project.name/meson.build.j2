@@ -1,0 +1,15 @@
+{% for line in project.copyright_head.split('\n') %}
+{{ '#' }} {{ line }}
+{% endfor %}
+config_files = [
+    '__init__.py',
+]
+foreach file: config_files
+ config_files += file+'i'
+endforeach
+config_files += ['py.typed']
+python_files += files(config_files)
+if get_option('dev').enabled()
+foreach file: config_files
+fs.copyfile(file)
+endforeach endif

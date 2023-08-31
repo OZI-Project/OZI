@@ -1,0 +1,22 @@
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+skipsdist = True
+envlist = py{39,310-type,311}-toml
+
+[gh]
+python =
+   3.11 = py311
+   3.10 = py310, toml, type
+   3.9 = py39, toml
+
+[testenv]
+package = wheel
+deps =
+   meson >= 1.1.0
+   setuptools_scm[toml]>=6.2
+   toml: tomli >= 2.0.0
+commands =
+   meson setup build-{envname} -Ddev=enabled --reconfigure
+   meson test --maxfail=1 -C build-{envname} {posargs}
+"""

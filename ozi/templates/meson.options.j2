@@ -1,0 +1,12 @@
+{% for line in project.copyright_head.split('\n') %}
+{{ '#' }} {{ line }}
+{% endfor %}
+{% include api/required/project.array.meson.options %}
+{% include api/required/project.feature.meson.options %}
+{% include api/required/project.integer.meson.options %}
+{% include api/required/pyright.meson.options %}
+{% include api/required/mypy.meson.options %}
+{% include api/required/isort.meson.options %}
+{% include api/required/flake8.meson.options %}
+{% include api/required/black.meson.options %}
+{% include api/required/bandit.meson.options %}

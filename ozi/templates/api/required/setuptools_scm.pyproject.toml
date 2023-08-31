@@ -1,0 +1,4 @@
+write_to_template = """{%  include PKG-INFO %}"""
+fallback_version = "@MESON_DIST_FALLBACK_VERSION@"
+parentdir_prefix_version = "@PROJECT_NAME@-"
+tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"

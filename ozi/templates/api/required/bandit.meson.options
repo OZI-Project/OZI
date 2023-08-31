@@ -1,0 +1,9 @@
+option(
+   'args-bandit',
+   description: 'application', type: 'array',
+   value: [
+      '--configfile', 'pyproject.toml',
+      '--ignore-nosec',
+      '-r', '@project_name@'
+   ]
+)

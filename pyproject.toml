@@ -17,6 +17,15 @@ authors = [{name = "Ross J. Duff MSc", email = "help@oziproject.dev"}]
 dynamic = ["version"]
 license = {file = "LICENSE.txt"}
 readme  = "README.rst"
+dependencies = [
+    "email-validator==2.0.0.post2",
+    "jinja2==3.1.2",
+    "spdx-license-list==3.21",
+    "pyparsing == 3.0.9",
+]
+
+[project.scripts]
+ozi.new = "ozi.new:main"
 
 [project.optional_dependencies] # also meson test suite names
 # Bootstrapping Dependencies

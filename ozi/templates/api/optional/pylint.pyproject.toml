@@ -1,0 +1,6 @@
+[tool.pylint.MASTER]
+check-quote-consistency = true
+expected-line-ending-format = "LF"
+max-nested-blocks = 4
+max-line-length = 93
+disable = "C0301"

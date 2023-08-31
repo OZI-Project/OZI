@@ -1,0 +1,5 @@
+[tool.flake8]
+max-line-length = 93
+extend-exclude  = ["build-env-*", "venv", "build*", "*.pyi"]
+extend-ignore   = "E501"
+extend-select   = "B950"

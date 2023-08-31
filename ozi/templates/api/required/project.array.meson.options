@@ -1,0 +1,93 @@
+
+option(
+    'namespace',
+    type: 'array',
+    value: [
+        'dist',
+        'docs',
+        'lint',
+        'test'
+    ]
+)
+option(
+    'python-dependencies', 
+    type: 'array',
+    value: [
+        'ensurepip',
+        'setuptools_scm',
+        'tomli'
+    ]
+)
+option(
+    'variables',
+    type: 'array',
+    value: [
+        'scm-version-snip', 
+        'core-metadata',
+        'python',
+        'metadata-version',
+        'namespace',
+        'should-fail',
+        'unhashable',
+        'pytest-plugins',
+        'no-version',
+        'emoji-dist',
+        'emoji-docs',
+        'emoji-lint',
+        'emoji-test',
+        'emoji-no-version',
+        'emoji-metadata-version',
+        'dist-exclude-suites',
+        'docs-exclude-suites',
+        'lint-exclude-suites',
+        'test-exclude-suites'
+    ]
+)
+option(
+    'dist-suite',
+    type: 'array',
+    value: [
+        'pyc_wheel',
+        'semantic-release',
+        'sigstore'
+    ]
+)
+option(
+    'docs-suite',
+    type: 'array',
+    value: [
+        'doc8',
+        'pydocstyle',
+        'sphinx-build',
+        'sphinxawesome-codelinter', 
+        'sphinxawesome-theme'
+    ]
+)
+option(
+    'lint-suite',
+    type: 'array',
+    value: [
+        'bandit', 
+        'black', 
+        'isort',
+        'mypy',
+        'pyright',
+        'restructuredtext-lint',
+        'flake8p',
+        'Flake8-pyproject'
+    ]
+)
+option(
+    'test-suite',
+    type: 'array',
+    value: [
+        'coverage',
+        'hypothesis',
+        'pytest',
+        'pytest-asyncio',
+        'pytest-cov',
+        'pytest-randomly',
+        'pytest-tcpclient',
+        'pytest-xdist'
+    ]
+)

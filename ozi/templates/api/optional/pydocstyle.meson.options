@@ -1,0 +1,10 @@
+option(
+    'args-pydocstyle',
+    type: 'array', 
+    value: [
+        '-v',
+        '-d',
+        '--config=pyproject.toml',
+        '@docs_source@'
+    ]
+)

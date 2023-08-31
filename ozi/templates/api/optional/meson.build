@@ -12,9 +12,12 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-python_files += files('__init__.py', 'new.py')
-subdir('api/required')
-subdir('api/optional')
-subdir('assets')
-subdir('templates')
-subdir('scripts')
+optional_forms = [
+    'doc8.meson.options',
+    'doc8.pyproject.toml',
+    'pydocstyle.meson.options',
+    'pylint.pyproject.toml',
+]
+foreach form in optional_forms
+    fs.copyfile(form)
+endforeach

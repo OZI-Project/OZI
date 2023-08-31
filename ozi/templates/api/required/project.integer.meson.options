@@ -1,0 +1,4 @@
+option('dist-priority', type: 'integer', value: 1)
+option('test-priority', type: 'integer', value: 2)
+option('docs-priority', type: 'integer', value: 3)
+option('lint-priority', type: 'integer', value: 4)

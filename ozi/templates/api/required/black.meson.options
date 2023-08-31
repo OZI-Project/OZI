@@ -1,0 +1,12 @@
+option(
+   'args-black',
+   type: 'array', 
+   value: [
+      '-S',
+      '--verbose',
+      '--check',
+      '--diff',
+      '--exclude','.gitignore',
+      '@project_name@'
+   ]
+)

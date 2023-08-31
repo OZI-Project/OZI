@@ -1,0 +1,133 @@
+name: Semantic Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  checkpoint:
+    name: OZI ${{ matrix.ozi }} with ${{ matrix.py }} on ${{ matrix.os }}
+    runs-on: '${{ matrix.os }}'
+    strategy:
+      matrix:
+        ozi:
+          - dist
+          - lint
+          - test
+        os:
+          - ubuntu-latest
+          - macos-latest
+        py:
+          - '3.9'
+          - '3.10'
+          - '3.11'
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: 'Set up Python ${{ matrix.py }}'
+        uses: actions/setup-python@v4
+        with:
+          python-version: '${{ matrix.py }}'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install tox-gh>=1.2
+      - name: Meson setup build
+        run: |
+          tox -vv --notest
+      - name: '${{ matrix.ozi }}'
+        run: |
+          tox -- --setup=${{ matrix.ozi }}
+
+  release:
+    needs: checkpoint
+    runs-on: ubuntu-latest
+    concurrency: release
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11
+    - name: Python Semantic Release
+      id: release
+      uses: python-semantic-release/python-semantic-release@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+  
+    - name: Install Python build dependencies
+      if: steps.release.outputs.released == 'true'
+      run: |
+          python -m pip install --upgrade pip
+          python -m pip install --user --upgrade build
+          python -m pip install --user --upgrade pyc_wheel
+          python -m pip install --user --upgrade sigstore
+          python -m pip install --user --upgrade meson
+          python -m pip install --user --upgrade setuptools_scm
+          python -m pip install --user --upgrade ninja
+
+    - name: Configure git repository
+      if: steps.release.outputs.released == 'true'
+      run: |
+        git config --global user.email "noreply@oziproject.dev"
+        git config --global user.name "OZI Packaging"
+        rm -rf .git/COMMIT_EDITMSG
+
+    - name: Build wheel and sdist
+      if: steps.release.outputs.released == 'true'
+      run: |
+        python -m build -w
+        git stash -- PKG-INFO
+        python -m pyc_wheel dist/*.whl
+        meson setup build
+        git add PKG-INFO
+        git commit PKG-INFO -m ":construction_worker:(PKG-INFO): Bump Version."
+        git push origin main
+        meson dist -C build --formats gztar --no-tests --allow-dirty
+
+    - name: Move meson dist files
+      if: steps.release.outputs.released == 'true'
+      run: |
+        mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz
+
+    - name: Sign wheel and sdist
+      if: steps.release.outputs.released == 'true'
+      run: |
+        sigstore sign dist/*.whl dist/*.tar.gz
+        mkdir sig
+
+    - name: Move sigstore signing files
+      if: steps.release.outputs.released == 'true'
+      run: |
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sig sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sig
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.crt sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.crt
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sigstore sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sigstore
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sig sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sig
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.crt sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.crt
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sigstore sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sigstore
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.dist-info
+
+    - name: Publish package distributions to PyPI
+      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+      # NOTE: DO NOT wrap the conditional in ${{ }} as it will always evaluate to true.
+      # See https://github.com/actions/runner/issues/1173
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_API_TOKEN }}
+      if: steps.release.outputs.released == 'true'
+
+    - name: Publish package distributions to GitHub Releases
+      uses: python-semantic-release/upload-to-gh-release@main
+      if: steps.release.outputs.released == 'true'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}

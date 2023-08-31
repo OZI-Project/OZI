@@ -1,0 +1,58 @@
+{% for line in project.copyright_head.split('\n') %}
+{{ '#' }} {{ line }}
+{% endfor %}
+
+[project]
+authors = [{name = "{{ project.author }}", email = "{{ project.email }}"}]
+dynamic = ["version"]
+license = {file = "LICENSE.txt"}
+readme  = "README.rst"
+
+[project.optional_dependencies] # also meson test suite names
+# Bootstrapping Dependencies
+boot = ["mesonpep517", "ninja", "[dist,util,pypa]"]
+# Default meson test setup
+dev  = ["[dist,docs,lint,test]"]
+## Packaging Setup
+dist = ["pyc_wheel", "python-semantic-release", "sigstore"]
+## Documentation Setup
+docs = ["doc8", "pydocstyle[toml]", "Pygments", "pyparsing", "sphinx",
+        "sphinx-design", "sphinxawesome-codelinter", "sphinxawesome-theme"]
+## Linting and Formatting Setup
+lint = ["bandit[toml]", "black", "flake8", "flake8-quotes", "flake8-docstring-checker",
+        "flake8-pytest-style", "flake8-type-checking", "flake8-annotations",
+        "flake8-broken-line", "flake8-eradicate", "flake8-fixme", "flake8-bugbear",
+        "flake8-datetimez", "flake8-no-pep420", "flake8-comprehensions",
+        "flake8-leading-blank-lines", "flake8-tidy-imports", "flake8-pyi",
+        "Flake8-pyproject", "isort", "mypy", "pylint", "pyright", "restructuredtext-lint"]
+## Testing Setup
+test = ["coverage[toml]", "hypothesis[all]", "pytest", "pytest-asyncio", "pytest-cov", 
+        "pytest-tcpclient", "pytest-randomly", "pytest-xdist"]
+
+[tool.mesonpep517.metadata]
+pkg-info-file = 'PKG-INFO'
+summary = "{{ project.summary }}"
+
+[build-system]
+requires      = ["mesonpep517","ninja","setuptools>=64","setuptools_scm[toml]>=6.2","tomli"]
+build-backend = "mesonpep517.buildapi"
+
+{% include api/required/bandit.pyproject.toml %}
+
+{% include api/required/black.pyproject.toml %}
+
+{% include api/required/flake8.pyproject.toml %}
+
+{% include api/required/isort.pyproject.toml %}
+
+{% include api/required/mypy.pyproject.toml %}
+
+{% include api/required/pypright.pyproject.toml %}
+
+{% include api/required/pytest.pyproject.toml %}
+
+{% include api/required/semantic_release.pyproject.toml %}
+
+{% include api/required/setuptools_scm.pyproject.toml %}
+
+{% include api/required/tox.pyproject.toml %}

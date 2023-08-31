@@ -12,9 +12,11 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-python_files += files('__init__.py', 'new.py')
-subdir('api/required')
-subdir('api/optional')
-subdir('assets')
-subdir('templates')
-subdir('scripts')
+source_templates = [
+    '__init__.py.j2',
+    '__init__.pyi.j2',
+    'meson.build.j2',
+]
+foreach file: source_templates
+    fs.copyfile(file)
+endforeach
