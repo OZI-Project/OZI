@@ -2,6 +2,17 @@
 
 
 
+## v0.0.36 (2023-09-01)
+
+### :ambulance:
+
+* :ambulance::hammer:: Fix meson entry point finding. ([`30c3eb0`](https://github.com/rjdbcm/OZI/commit/30c3eb09f59b80887f43cb2cede5cc66135a8d91))
+
+### Other
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`87e5573`](https://github.com/rjdbcm/OZI/commit/87e5573ff78dbdb01b64328715dc70774c40f7b6))
+
+
 ## v0.0.35 (2023-09-01)
 
 ### :ambulance:
