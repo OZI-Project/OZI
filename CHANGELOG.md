@@ -2,6 +2,19 @@
 
 
 
+## v0.0.34 (2023-09-01)
+
+### :ambulance:
+
+* :ambulance:: Fix script location. ([`5c82b2b`](https://github.com/rjdbcm/OZI/commit/5c82b2bfa4f6fe1a8d67453ca5a00771fdf4e017))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`994435f`](https://github.com/rjdbcm/OZI/commit/994435f2fff6eabc7e157a54534784569ed988a1))
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`f426f8b`](https://github.com/rjdbcm/OZI/commit/f426f8b778ff4234213abaddcd72a4881004f3b2))
+
+
 ## v0.0.33 (2023-09-01)
 
 ### :children_crossing:
