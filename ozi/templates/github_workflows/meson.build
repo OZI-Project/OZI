@@ -13,7 +13,7 @@
 # specific language governing permissions and limitations
 # under the License.
 workflows = [
-    ozi.yml
+    'ozi.yml',
 ]
 foreach file: workflows
     fs.copyfile(file)
