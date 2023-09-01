@@ -24,9 +24,6 @@ dependencies = [
     "pyparsing == 3.0.9",
 ]
 
-[project.scripts]
-ozi-new = "ozi.new:main"
-
 [project.optional_dependencies] # also meson test suite names
 # Bootstrapping Dependencies
 boot = ["mesonpep517", "ninja", "[dist,util,pypa]"]
@@ -51,6 +48,11 @@ test = ["coverage[toml]", "hypothesis[all]", "pytest", "pytest-asyncio", "pytest
 [tool.mesonpep517.metadata]
 pkg-info-file = 'PKG-INFO'
 summary = 'Packaged with OZI.'
+
+[tool.mesonpep517.entry-points]
+console_scripts = [
+    "ozi-new = ozi.new:main",
+]
 
 [build-system]
 requires      = ["mesonpep517","ninja","setuptools>=64","setuptools_scm[toml]>=6.2","tomli"]
