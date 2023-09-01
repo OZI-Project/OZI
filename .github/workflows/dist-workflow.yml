@@ -102,6 +102,7 @@ jobs:
         git config --global user.email "noreply@oziproject.dev"
         git config --global user.name "OZI Packaging"
         rm -rf .git/COMMIT_EDITMSG
+        chmod -Rc +rw .git
 
     - name: Build wheel and sdist
       if: steps.release.outputs.released == 'true'
