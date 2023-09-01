@@ -6,9 +6,13 @@
 
 ### :ambulance:
 
+* :ambulance:: Ensure that we have privileges in the .git directory during build. ([`112e7b8`](https://github.com/rjdbcm/OZI/commit/112e7b878bcd366a7ffca87464319100e0a3ac7a))
+
 * :hammer::ambulance:: Fix relative module import. ([`d159122`](https://github.com/rjdbcm/OZI/commit/d15912294f6d52802e8fe49c0503666c040c33c6))
 
 ### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`bb1077c`](https://github.com/rjdbcm/OZI/commit/bb1077c6504486432d3451cb82f915194349f357))
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`4dad555`](https://github.com/rjdbcm/OZI/commit/4dad55587b5ce6ec26f6fed7d1b3f1948d2ce272))
 
