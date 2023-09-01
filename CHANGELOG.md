@@ -2,6 +2,17 @@
 
 
 
+## v0.0.40 (2023-09-01)
+
+### :pencil2:
+
+* :pencil2:: Add missed template from move. ([`a366872`](https://github.com/rjdbcm/OZI/commit/a366872e2120a79d19c89aa5047950b1046022de))
+
+### Other
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`3339932`](https://github.com/rjdbcm/OZI/commit/3339932f9b5753de03f39691d9685c0ce270c302))
+
+
 ## v0.0.39 (2023-09-01)
 
 ### :ambulance:
