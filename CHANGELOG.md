@@ -2,6 +2,31 @@
 
 
 
+## v0.0.35 (2023-09-01)
+
+### :ambulance:
+
+* :ambulance:: Fix python install sources for meson. ([`5c47a59`](https://github.com/rjdbcm/OZI/commit/5c47a59f1312eac75c53cb9693081920d77a95fc))
+
+* :ambulance:(CI): Properly invoke release build with meson. ([`3ff7d07`](https://github.com/rjdbcm/OZI/commit/3ff7d0751888d102af24165ac5f1e9fd2e958828))
+
+* :ambulance:: Fix implementation of python.install_sources(). ([`d50200b`](https://github.com/rjdbcm/OZI/commit/d50200be2ace24e5162ed5c12ce930a87617b22d))
+
+### :fire:
+
+* :fire:: remove duplicate workflow scripts folder. ([`239ef1a`](https://github.com/rjdbcm/OZI/commit/239ef1a110fb2766cc5b0c8ec14c203ab5edacca))
+
+### :wrench:
+
+* :pencil2::wrench:: Fix unquoted string in build. ([`5a9feb4`](https://github.com/rjdbcm/OZI/commit/5a9feb4842bba3b5b1efd653b833b3d9c5922ddf))
+
+* :pencil2::wrench:: Fix missing commas in build. ([`0a5febd`](https://github.com/rjdbcm/OZI/commit/0a5febdc030eb68e7b3fb5c49020f3746f150a7b))
+
+### Other
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`dc0e174`](https://github.com/rjdbcm/OZI/commit/dc0e174330a07b10028bba864cecf10350923509))
+
+
 ## v0.0.34 (2023-09-01)
 
 ### :ambulance:
