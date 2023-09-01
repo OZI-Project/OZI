@@ -22,7 +22,6 @@ foreach file: config_files
     python.install_sources(file)
     fs.copyfile(file)
 endforeach
-subdir('ci')
 subdir('ide')
 foreach name : namespace
     subdir(name)
