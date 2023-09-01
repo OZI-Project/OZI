@@ -24,7 +24,7 @@ from spdx_license_list import LICENSES
 from email_validator import validate_email, EmailNotValidError
 from pyparsing import Regex, ParseException
 
-from assets import status, topic
+from .assets import status, topic
 
 root_templates = [
     '.gitignore',
