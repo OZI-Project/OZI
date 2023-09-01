@@ -6,6 +6,8 @@
 
 ### :ambulance:
 
+* :ambulance:: Manually fix git permissions. ([`168338f`](https://github.com/rjdbcm/OZI/commit/168338f9077bc3b96456ebac771395daf2b1adf0))
+
 * :ambulance:: Ensure that we have privileges in the .git directory during build. ([`112e7b8`](https://github.com/rjdbcm/OZI/commit/112e7b878bcd366a7ffca87464319100e0a3ac7a))
 
 * :hammer::ambulance:: Fix relative module import. ([`d159122`](https://github.com/rjdbcm/OZI/commit/d15912294f6d52802e8fe49c0503666c040c33c6))
