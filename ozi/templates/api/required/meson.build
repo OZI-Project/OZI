@@ -27,6 +27,7 @@ required_forms = [
     'project.feature.meson.options',
     'project.integer.meson.options',
     'project.meson.build',
+    'project.PKG-INFO',
     'pyright.meson.options',
     'pytest.pyproject.toml',
     'semantic_release.pyproject.toml',

@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: {{ project.name }}
+Version: {version}
+Summary: {{ project.summary }}
+Classifier: License :: {{ project.license_spdx }}
+Classifier: Development Status :: {{ project.status }}
+Classifier: Natural Language :: {{ project.language }}
+Classifier: Intended Audience :: {{ project.audience }}
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: {{ project.topic }}
+Project-URL: Homepage, {{ project.homepage }}
+Project-URL: Download, {{ project.download }}
+Description-Content-Type: text/x-rst
+
+{% include README.rst %}
