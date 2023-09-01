@@ -2,6 +2,19 @@
 
 
 
+## v0.0.33 (2023-09-01)
+
+### :children_crossing:
+
+* :children_crossing:: Add project script ``ozi-new``. ([`5a91afc`](https://github.com/rjdbcm/OZI/commit/5a91afc310ef26eb3401c3f39280f948dfcff77a))
+
+### Other
+
+* 🚑️: Fix script entrypoint name. ([`7ab1b06`](https://github.com/rjdbcm/OZI/commit/7ab1b067feb58f8440955ecace0c87bd6bb87334))
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`66d1b0a`](https://github.com/rjdbcm/OZI/commit/66d1b0aa7f31c401e617164c034cf04334d5bff0))
+
+
 ## v0.0.32 (2023-08-31)
 
 ### :bento:
