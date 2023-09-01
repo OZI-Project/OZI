@@ -129,10 +129,10 @@ install = ['install']
 build_commands = {'dev': []}
 test_app_args = {}
 pip_repr = pip.full_path()
-subdir('ozi')
 if get_option('ozi-blastpipe').enabled()
     # BEGIN BOOTSTRAP SCRIPT
     subproject('blastpipe')
+    subdir('ozi')
     # END BOOTSTRAP SCRIPT
 endif
 foreach name : namespace

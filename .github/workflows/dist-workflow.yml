@@ -109,7 +109,7 @@ jobs:
         python -m build -w
         git stash -- PKG-INFO
         python -m pyc_wheel dist/*.whl
-        meson setup build
+        meson setup build -Dozi-blastpipe=enabled
         git add PKG-INFO
         git commit PKG-INFO -m ":construction_worker:(PKG-INFO): Bump Version."
         git push origin main
