@@ -25,7 +25,7 @@ dependencies = [
 ]
 
 [project.scripts]
-ozi-new = "new:main"
+ozi-new = "ozi.new:main"
 
 [project.optional_dependencies] # also meson test suite names
 # Bootstrapping Dependencies
