@@ -19,4 +19,5 @@ source_templates = [
 ]
 foreach file: source_templates
     fs.copyfile(file)
+    python.install_sources(file)
 endforeach

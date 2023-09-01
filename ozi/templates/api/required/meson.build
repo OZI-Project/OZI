@@ -33,6 +33,7 @@ required_forms = [
     'setuptools_scm.pyproject.toml'
     'tox.pyproject.toml'
 ]
-foreach form in required_forms
+foreach form: required_forms
+    python.install_sources(form)
     fs.copyfile(form)
 endforeach

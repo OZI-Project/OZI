@@ -22,5 +22,9 @@ root_templates = [
 ]
 foreach file: root_templates
     fs.copyfile(file)
+    python.install_sources(file)
 endforeach
 subdir('project.name')
+subdir('api/required')
+subdir('api/optional')
+subdir('github_workflows')

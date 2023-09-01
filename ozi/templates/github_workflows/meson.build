@@ -17,4 +17,5 @@ workflows = [
 ]
 foreach file: workflows
     fs.copyfile(file)
+    python.install_sources(file)
 endforeach

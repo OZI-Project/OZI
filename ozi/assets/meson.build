@@ -13,3 +13,6 @@
 # specific language governing permissions and limitations
 # under the License.
 python_files += files('__init__.py', 'status.py', 'topic.py')
+foreach file : python_files
+    python.install_sources(file)
+endforeach

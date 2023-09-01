@@ -13,8 +13,9 @@
 # specific language governing permissions and limitations
 # under the License.
 python_files += files('__init__.py', 'new.py')
-subdir('api/required')
-subdir('api/optional')
+foreach file : python_files
+    python.install_sources(file)
+endforeach
 subdir('assets')
 subdir('templates')
 subdir('scripts')

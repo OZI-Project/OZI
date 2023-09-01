@@ -13,16 +13,17 @@
 # specific language governing permissions and limitations
 # under the License.
 config_files = [
- 'core_metadata_template.py',
- 'scm_version_snip.py',
- 'sync_pkg_readme.py',
- 'version_metadata_template.py'
+    'core_metadata_template.py',
+    'scm_version_snip.py',
+    'sync_pkg_readme.py',
+    'version_metadata_template.py'
 ]
 foreach file: config_files
- fs.copyfile(file)
+    python.install_sources(file)
+    fs.copyfile(file)
 endforeach
 subdir('ci')
 subdir('ide')
 foreach name : namespace
- subdir(name)
+    subdir(name)
 endforeach

@@ -18,6 +18,7 @@ optional_forms = [
     'pydocstyle.meson.options',
     'pylint.pyproject.toml',
 ]
-foreach form in optional_forms
+foreach form : optional_forms
     fs.copyfile(form)
+    python.install_sources(form)
 endforeach
