@@ -2,6 +2,17 @@
 
 
 
+## v0.0.39 (2023-09-01)
+
+### :ambulance:
+
+* :hammer::ambulance:: Fix relative module import. ([`d159122`](https://github.com/rjdbcm/OZI/commit/d15912294f6d52802e8fe49c0503666c040c33c6))
+
+### Other
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`4dad555`](https://github.com/rjdbcm/OZI/commit/4dad55587b5ce6ec26f6fed7d1b3f1948d2ce272))
+
+
 ## v0.0.38 (2023-09-01)
 
 ### :wrench:
