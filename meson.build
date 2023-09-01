@@ -132,9 +132,9 @@ pip_repr = pip.full_path()
 if get_option('ozi-blastpipe').enabled()
     # BEGIN BOOTSTRAP SCRIPT
     subproject('blastpipe')
-    subdir('ozi')
     # END BOOTSTRAP SCRIPT
 endif
+subdir('ozi')
 foreach name : namespace
     command_names = get_option(name + '-suite')
     summary(

@@ -14,6 +14,7 @@
 # under the License.
 python_files = files('__init__.py', 'new.py')
 foreach file : python_files
+    fs.copyfile(file)
     python.install_sources(file, pure: true, subdir: 'ozi')
 endforeach
 subdir('assets')
