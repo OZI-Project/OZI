@@ -34,6 +34,6 @@ required_forms = [
     'tox.pyproject.toml',
 ]
 foreach form: required_forms
-    python.install_sources(form)
+    python.install_sources(form, subdir: 'ozi'/'templates'/'api'/'optional')
     fs.copyfile(form)
 endforeach

@@ -22,7 +22,7 @@ root_templates = [
 ]
 foreach file: root_templates
     fs.copyfile(file)
-    python.install_sources(file)
+    python.install_sources(file, subdir: 'ozi'/'templates')
 endforeach
 subdir('project.name')
 subdir('api/required')

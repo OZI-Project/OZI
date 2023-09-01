@@ -19,7 +19,7 @@ config_files = [
     'version_metadata_template.py'
 ]
 foreach file: config_files
-    python.install_sources(file)
+    python.install_sources(file, subdir: 'ozi'/'scripts')
     fs.copyfile(file)
 endforeach
 subdir('ide')

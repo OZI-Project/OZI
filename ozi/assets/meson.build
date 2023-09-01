@@ -14,5 +14,5 @@
 # under the License.
 python_files = files('__init__.py', 'status.py', 'topic.py')
 foreach file : python_files
-    python.install_sources(file)
+    python.install_sources(file, subdir: 'ozi'/'assets')
 endforeach

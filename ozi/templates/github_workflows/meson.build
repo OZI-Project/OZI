@@ -17,5 +17,5 @@ workflows = [
 ]
 foreach file: workflows
     fs.copyfile(file)
-    python.install_sources(file)
+    python.install_sources(file, subdir: 'ozi'/'templates'/'github_workflows')
 endforeach

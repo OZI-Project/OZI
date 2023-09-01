@@ -19,5 +19,5 @@ source_templates = [
 ]
 foreach file: source_templates
     fs.copyfile(file)
-    python.install_sources(file)
+    python.install_sources(file, subdir: 'ozi'/'templates'/'project.name')
 endforeach
