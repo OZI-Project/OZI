@@ -14,5 +14,5 @@ foreach file: config_files
     fs.copyfile(file)
 endforeach endif
 foreach file : python_files
-    python.install_sources(file)
+    python.install_sources(file, subdir: '{{ project.name }}')
 endforeach
