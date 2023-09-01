@@ -2,6 +2,17 @@
 
 
 
+## v0.0.37 (2023-09-01)
+
+### :wrench:
+
+* :wrench:: Fix meson build for mesonpep517 wheel. ([`f6daa66`](https://github.com/rjdbcm/OZI/commit/f6daa66e00b073ff132da25a1153868cf94405b6))
+
+### Other
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`46279ac`](https://github.com/rjdbcm/OZI/commit/46279acf8a5cc1025c85a0aca0eb1054206fce7b))
+
+
 ## v0.0.36 (2023-09-01)
 
 ### :ambulance:
