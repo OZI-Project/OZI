@@ -6,9 +6,13 @@
 
 ### :wrench:
 
+* :wrench:: Add subdir to install_sources template. ([`105cd73`](https://github.com/rjdbcm/OZI/commit/105cd73b01eec634997b40106c8a4d9296b30776))
+
 * :wrench:: Fix meson build for mesonpep517 wheel. ([`f6daa66`](https://github.com/rjdbcm/OZI/commit/f6daa66e00b073ff132da25a1153868cf94405b6))
 
 ### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`c47aebb`](https://github.com/rjdbcm/OZI/commit/c47aebb51f23f49652c651df3e925d4f14917ce8))
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`46279ac`](https://github.com/rjdbcm/OZI/commit/46279acf8a5cc1025c85a0aca0eb1054206fce7b))
 
