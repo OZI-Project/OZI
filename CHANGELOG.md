@@ -2,6 +2,19 @@
 
 
 
+## v0.0.38 (2023-09-01)
+
+### :wrench:
+
+* :pencil2::wrench:: Fix wheel build. ([`a335272`](https://github.com/rjdbcm/OZI/commit/a3352728a55f875f6cbd569b6340dac06dec8d5d))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`8a19823`](https://github.com/rjdbcm/OZI/commit/8a1982350976533437522d306266e238cadfa8c5))
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`11818bb`](https://github.com/rjdbcm/OZI/commit/11818bbedad7f7e329d34b75debdf7cc5c2c09d7))
+
+
 ## v0.0.37 (2023-09-01)
 
 ### :wrench:
