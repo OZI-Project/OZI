@@ -12,7 +12,7 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-python_files += files('__init__.py', 'new.py')
+python_files = files('__init__.py', 'new.py')
 foreach file : python_files
     python.install_sources(file)
 endforeach
