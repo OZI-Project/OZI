@@ -2,6 +2,17 @@
 
 
 
+## v0.0.42 (2023-09-02)
+
+### :hammer:
+
+* :hammer:: Fix relative import in ``ozi-fix``. ([`a23d78d`](https://github.com/rjdbcm/OZI/commit/a23d78decda22cc9b36c05905e0cbfde2d6f172d))
+
+### Other
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`baa497e`](https://github.com/rjdbcm/OZI/commit/baa497e47225b5d51596f0f6409283f849a43b16))
+
+
 ## v0.0.41 (2023-09-02)
 
 ### :bento:
