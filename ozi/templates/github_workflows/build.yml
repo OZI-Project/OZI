@@ -1,0 +1,35 @@
+    - name: Install Python build dependencies
+      if: steps.release.outputs.released == 'true'
+      run: |
+          python -m pip install --upgrade pip
+          python -m pip install --user --upgrade build
+          python -m pip install --user --upgrade pyc_wheel
+          python -m pip install --user --upgrade sigstore
+          python -m pip install --user --upgrade meson
+          python -m pip install --user --upgrade setuptools_scm
+          python -m pip install --user --upgrade ninja
+
+    - name: Configure git repository
+      if: steps.release.outputs.released == 'true'
+      run: |
+        git config --global user.email "noreply@oziproject.dev"
+        git config --global user.name "OZI Packaging"
+        rm -rf .git/COMMIT_EDITMSG
+
+{% include pyc_wheel.yml %}
+
+    - name: Build sdist
+      if: steps.release.outputs.released == 'true'
+      run: |
+        meson setup build
+        git add PKG-INFO
+        git commit PKG-INFO -m ":construction_worker:(PKG-INFO): Bump Version."
+        git push origin main
+        meson dist -C build --formats gztar --no-tests --allow-dirty
+
+    - name: Move meson dist files
+      if: steps.release.outputs.released == 'true'
+      run: |
+{% raw %}
+        mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz
+{% endraw %}

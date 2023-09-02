@@ -1,0 +1,14 @@
+    - name: Python Semantic Release
+      id: release
+      uses: python-semantic-release/python-semantic-release@v8.0.8
+      with:
+{% raw %}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+{% endraw %}
+    - name: Publish package distributions to GitHub Releases
+      uses: python-semantic-release/upload-to-gh-release@main
+      if: steps.release.outputs.released == 'true'
+      with:
+{% raw %}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+{% endraw %}

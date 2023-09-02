@@ -1,0 +1,6 @@
+    - name: Build wheel
+      if: steps.release.outputs.released == 'true'
+      run: |
+        python -m build -w
+        git stash -- PKG-INFO
+        python -m pyc_wheel dist/*.whl

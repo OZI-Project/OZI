@@ -1,0 +1,37 @@
+  release:
+    needs: checkpoint
+    runs-on: ubuntu-latest
+    concurrency: release
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+    - uses: actions/checkout@v3
+      with:
+{% raw %}
+        token: ${{ secrets.GITHUB_TOKEN }}
+{% endraw %}
+        fetch-depth: 0
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11
+
+{% include build.yml %}
+
+{% include sigstore.yml %}
+
+    - name: Publish package distributions to PyPI
+      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+{% raw %}      
+      # NOTE: DO NOT wrap the conditional in '${{ }}' as it will always evaluate to true.
+      # See https://github.com/actions/runner/issues/1173
+{% endraw %}
+      with:
+        user: __token__
+{% raw %}
+        password: ${{ secrets.PYPI_API_TOKEN }}
+{% endraw %}
+      if: steps.release.outputs.released == 'true'
+
+{% include semantic_release.yml %}

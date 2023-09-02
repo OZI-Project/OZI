@@ -1,0 +1,18 @@
+    - name: Sign wheel and sdist
+      if: steps.release.outputs.released == 'true'
+      run: |
+        sigstore sign dist/*.whl dist/*.tar.gz
+        mkdir sig
+
+    - name: Move sigstore signing files
+      if: steps.release.outputs.released == 'true'
+      run: |
+{% raw %}
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sig sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sig
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.crt sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.crt
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sigstore sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sigstore
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sig sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sig
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.crt sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.crt
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sigstore sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sigstore
+        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.dist-info
+{% endraw %}

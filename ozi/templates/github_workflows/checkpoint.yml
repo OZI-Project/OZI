@@ -1,0 +1,45 @@
+{% raw %}
+  checkpoint:
+    name: OZI ${{ matrix.ozi }} with ${{ matrix.py }} on ${{ matrix.os }}
+    runs-on: '${{ matrix.os }}'
+{% endraw %}
+    strategy:
+      matrix:
+        ozi:
+          - dist
+          - lint
+          - test
+        os:
+          - ubuntu-latest
+          - macos-latest
+        py:
+          - '3.9'
+          - '3.10'
+          - '3.11'
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+{% raw %}
+      - name: 'Set up Python ${{ matrix.py }}'
+{% endraw %}
+        uses: actions/setup-python@v4
+        with:
+{% raw %}
+          python-version: '${{ matrix.py }}'
+{% endraw %}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install tox-gh>=1.2
+      - name: Meson setup build
+        run: |
+          tox -vv --notest
+{% raw %}
+      - name: '${{ matrix.ozi }}'
+{% endraw %}
+        run: |
+{% raw %}
+          tox -- --setup=${{ matrix.ozi }}
+{% endraw %}
