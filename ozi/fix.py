@@ -9,7 +9,7 @@ from typing import NoReturn, Union
 from pyparsing import Regex
 
 
-from assets.structure import root_files, source_files
+from .assets.structure import root_files, source_files
 
 parser = argparse.ArgumentParser(description=sys.modules[__name__].__doc__)
 parser.add_argument('target', type=str, help='target project directory')

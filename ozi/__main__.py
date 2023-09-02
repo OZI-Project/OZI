@@ -19,3 +19,6 @@ parser.add_argument('-v', '--version', action='store_true')
 def main() -> Union[NoReturn, None]:
     """Main ozi entrypoint."""
     parser.parse_args()
+
+if __name__ == '__main__':
+    main()
