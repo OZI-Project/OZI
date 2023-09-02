@@ -1,21 +1,9 @@
-"""OZI Standard API project creation script.
-Required-only:
-    project.author
-
-Validated:
-    project.name
-    project.email
-    project.summary
-    project.license_spdx
-    project.license
-    project.topic
-    project.status
-
-"""
+"""ozi-new: quick-start project creation script."""
 import argparse
 from datetime import datetime, timezone
 from pathlib import Path
 import re
+import sys
 from typing import NoReturn, Union
 from urllib.parse import urlparse
 
@@ -44,7 +32,10 @@ env = Environment(
     autoescape=select_autoescape(),
     enable_async=True,
 )
-parser = argparse.ArgumentParser(description='OZI Python Project Packaging Quick-start')
+parser = argparse.ArgumentParser(description=sys.modules[__name__].__doc__)
+parser.add_argument(
+    '--no-verify-email', action='store_true', help='skip email domain deliverability check'
+)
 parser.add_argument('--name', type=str, help='name of project', required=True)
 parser.add_argument('--author', type=str, help='author of project', required=True)
 parser.add_argument('--email', type=str, help='valid author email', required=True)
@@ -105,7 +96,7 @@ def main() -> Union[NoReturn, None]:
         raise ValueError('Project summary exceeds 512 characters in length.')
 
     try:
-        emailinfo = validate_email(project.email, check_deliverability=True)
+        emailinfo = validate_email(project.email, check_deliverability=(~project.no_verify_email))
     except EmailNotValidError as e:
         raise ValueError(str(e), 'Invalid maintainer email format or domain unreachable.')
 
