@@ -2,6 +2,23 @@
 
 
 
+## v0.0.43 (2023-09-02)
+
+### :bento:
+
+* :bento:: fix missing asset listing for ``structure.py``. ([`be3bc6f`](https://github.com/rjdbcm/OZI/commit/be3bc6fb2923e03ea7a06ddc4969552a86bc77c6))
+
+### :hammer:
+
+* :hammer:: Fix ``ozi`` entrypoint. ([`5628c02`](https://github.com/rjdbcm/OZI/commit/5628c02dc835d30b2ea66adb1cfd9c55396f38f9))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`9d247ff`](https://github.com/rjdbcm/OZI/commit/9d247ffedcb4593e428c1488f492b9e4ec5ad1fe))
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`5c10473`](https://github.com/rjdbcm/OZI/commit/5c1047327f7f673d1868bbf934e5d4f2ca2cf6c5))
+
+
 ## v0.0.42 (2023-09-02)
 
 ### :hammer:
