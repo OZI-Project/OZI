@@ -2,6 +2,35 @@
 
 
 
+## v0.0.41 (2023-09-02)
+
+### :bento:
+
+* :bento::memo:: Cleanup README and PKG-INFO. ([`20a2766`](https://github.com/rjdbcm/OZI/commit/20a2766b07c1d1121f3ae060e1f540292032e59e))
+
+### :hammer:
+
+* :hammer: update github workflow templates. ([`e7babd1`](https://github.com/rjdbcm/OZI/commit/e7babd1b78a9501808e387e25707e165fcfc388b))
+
+* :hammer:: Add ``ozi`` script entrypoint. ([`dfc96a8`](https://github.com/rjdbcm/OZI/commit/dfc96a80a551c91867aaa6427a01b16f32931324))
+
+* :hammer:: Add ``ozi-fix`` script for making rewrites. ([`ce4222e`](https://github.com/rjdbcm/OZI/commit/ce4222e507577dec2be8349fd5c6fde55fd82d07))
+
+* :hammer:: Add --no-verify-email to ``ozi-new`` script. ([`4d0030a`](https://github.com/rjdbcm/OZI/commit/4d0030a586756b71065445bf076a5ef9c31a6eff))
+
+### :pushpin:
+
+* :pushpin:: Pin action versions with hash. ([`3fdaa02`](https://github.com/rjdbcm/OZI/commit/3fdaa02d88a6be0dde46d9bb365a8f5233f01a61))
+
+### :wrench:
+
+* :wrench:: Add pseudo-targets root_files and source_files. ([`e14ea88`](https://github.com/rjdbcm/OZI/commit/e14ea889aa8a1f16fb05bdb263756feb2a84b51a))
+
+### Other
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`470d40e`](https://github.com/rjdbcm/OZI/commit/470d40e0cfd6ae82afe1f7c537cf5011e710d775))
+
+
 ## v0.0.40 (2023-09-01)
 
 ### :pencil2:
