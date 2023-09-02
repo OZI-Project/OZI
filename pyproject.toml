@@ -51,7 +51,7 @@ summary = 'Packaged with OZI.'
 
 [tool.mesonpep517.entry-points]
 console_scripts = [
-    "ozi = __main__:main",
+    "ozi = ozi.__main__:main",
     "ozi-new = ozi.new:main",
     "ozi-fix = ozi.fix:main",
 ]
