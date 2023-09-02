@@ -19,9 +19,7 @@ OZI
 
 |py-version-badge| |openssf-badge| |slsa-level3-badge| |fossa-badge| |semantic-release-badge|
 |coverage-badge|
-|bandit-badge| |black-badge| |isort-badge| |flake8-badge| |pyright-badge| |pylint-ckpt-badge| |rst-lint-badge|
-
-OZI, an end-to-end Python packager for the Meson build system.
+|bandit-badge| |black-badge| |isort-badge| |flake8-badge| |pyright-badge| |rst-lint-badge|
 
 .. image:: https://raw.githubusercontent.com/sigstore/community/main/artwork/badge/sigstore_codesigned_purple.png
  :align: right
@@ -39,17 +37,17 @@ system of development practices.
 Purpose
 ^^^^^^^
 
-OZI is meant for Python developers as a standardized and flexible but opinionated
-Python packaging style guide and checkpointing API using the Meson build system.
+* What OZI is:
+
+  * Checkpointed Python packaging for Meson projects focused on Python sources.
 
 * What OZI is **not**:
 
   * A replacement for test environment managers like tox_, as a matter of fact OZI uses ``tox``.
   * A replacement for git hook package management tools like pre-commit_
 
-* What OZI is:
-
-  * Checkpointed Python packaging for Meson projects focused on Python sources.
+OZI is meant for Python developers as a standardized and flexible but opinionated
+Python packaging style guide and checkpointing API using the Meson build system.
 
 The following checkpointed environments:
 
