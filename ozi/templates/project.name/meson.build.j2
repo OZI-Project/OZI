@@ -4,15 +4,17 @@
 config_files = [
     '__init__.py',
 ]
+python_files = config_files
 foreach file: config_files
-    config_files += file+'i'
+    python_files += file+'i'
 endforeach
-config_files += ['py.typed']
-python_files += files(config_files)
+python_files += ['py.typed']
 if get_option('dev').enabled()
-foreach file: config_files
-    fs.copyfile(file)
-endforeach endif
-foreach file : python_files
-    python.install_sources(file, subdir: '{{ project.name }}')
-endforeach
+    foreach file: python_files
+        fs.copyfile(file)
+        python.install_sources(file, subdir: '{{ project.name }}')
+    endforeach
+endif
+if false
+    executable('source_files', config_files)
+endif

@@ -60,6 +60,9 @@ root_files = ['README.rst', 'CHANGELOG.md', 'LICENSE.txt']
 foreach source : root_files
     fs.copyfile(source)
 endforeach
+if false
+    executable('root_files', root_files)
+endif
 python_files = []
 stub_files = []
 subdir(project_name)
