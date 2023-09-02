@@ -48,7 +48,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: 'Set up Python ${{ matrix.py }}'
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
         with:
           python-version: '${{ matrix.py }}'
       - name: Install dependencies
@@ -70,18 +70,19 @@ jobs:
       contents: write
       id-token: write
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         python-version: 3.11
+
     - name: Python Semantic Release
       id: release
-      uses: python-semantic-release/python-semantic-release@master
+      uses: python-semantic-release/python-semantic-release@3abfb7ac216b9ad439de24fda60eca84038e850e
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
   
@@ -147,7 +148,7 @@ jobs:
       if: steps.release.outputs.released == 'true'
 
     - name: Publish package distributions to GitHub Releases
-      uses: python-semantic-release/upload-to-gh-release@main
+      uses: python-semantic-release/upload-to-gh-release@0f96c02a48278aff14251e9f1a0d73122a8c638b
       if: steps.release.outputs.released == 'true'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
