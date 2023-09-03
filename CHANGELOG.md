@@ -30,6 +30,10 @@
 
 ### Other
 
+* :construction_worker:: Use actions/download-artifact to get repo for wheel builds. ([`37ad739`](https://github.com/rjdbcm/OZI/commit/37ad739c365653ceb4f7616fe195d9578b75d50b))
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`e03b527`](https://github.com/rjdbcm/OZI/commit/e03b52768db0157d3490a5d26e0ee8aa0aa17d48))
+
 * :construction_worker:: Only run git checkout once per release. ([`acfe7c2`](https://github.com/rjdbcm/OZI/commit/acfe7c2e832c58e3cf8dbf041de33881b2a69e40))
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`6a48956`](https://github.com/rjdbcm/OZI/commit/6a4895634585f86820b9d328d98ae92d3b61e423))
