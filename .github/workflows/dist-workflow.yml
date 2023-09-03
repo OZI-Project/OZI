@@ -159,6 +159,8 @@ jobs:
     - name: Build sdist
       if: matrix.py == 'py311'
       run: |
+        git config --global user.email "noreply@oziproject.dev"
+        git config --global user.name "OZI Packaging"
         meson setup build -Dozi-blastpipe=enabled
         git add PKG-INFO
         git commit PKG-INFO -m ":construction_worker:(PKG-INFO): Bump Version."
