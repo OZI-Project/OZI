@@ -84,14 +84,6 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
 
-    - name: Configure git repository
-      if: matrix.py == 'py311'
-      run: |
-          git config --global user.email "noreply@oziproject.dev"
-          git config --global user.name "OZI Packaging"
-          rm -rf .git/COMMIT_EDITMSG
-          mkdir sig
-
     - name: Python Semantic Release
       id: release
       if: matrix.py == 'py311'
@@ -127,6 +119,14 @@ jobs:
           python -m pip install --user --upgrade meson
           python -m pip install --user --upgrade setuptools_scm
           python -m pip install --user --upgrade ninja
+
+    - name: Configure git repository
+      if: matrix.py == 'py311'
+      run: |
+          git config --global user.email "noreply@oziproject.dev"
+          git config --global user.name "OZI Packaging"
+          rm -rf .git/COMMIT_EDITMSG
+          mkdir sig
 
     - name: Build ${{ matrix.py }} wheel
       id: wheel
