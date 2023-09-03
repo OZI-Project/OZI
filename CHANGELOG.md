@@ -6,6 +6,8 @@
 
 ### :ambulance:
 
+* :ambulance:: Fix CI workflow release versioning. ([`5b2fb2e`](https://github.com/rjdbcm/OZI/commit/5b2fb2e03b1481090333832f4816ba3487f39cb6))
+
 * :ambulance:: Checkout released tag for publish. ([`9754cd1`](https://github.com/rjdbcm/OZI/commit/9754cd13040c61386f5f098540b78c93da82a2cc))
 
 * :ambulance::construction_worker:: Second retry of 0.0.45, fixed some conditionals. ([`f558a13`](https://github.com/rjdbcm/OZI/commit/f558a13b34e33123d28383fd6e1d1eb815a1702f))
@@ -15,6 +17,8 @@
 * :ambulance:: Attempt a more hermetic release with indv. versioned wheels we need. ([`7d2e4d9`](https://github.com/rjdbcm/OZI/commit/7d2e4d9d1b7af60a7cdda3b0e528b0909b89634d))
 
 ### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`f350eb3`](https://github.com/rjdbcm/OZI/commit/f350eb37576cfd47acaac9aeaef0755c45dcb68d))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`ee50603`](https://github.com/rjdbcm/OZI/commit/ee506039f97c57ab390d1130fb96399bb4156bcc))
 
