@@ -126,6 +126,7 @@ jobs:
         mkdir sig
 
     - name: Build ${{ matrix.py }} wheel
+      id: wheel
       if: steps.release.outputs.released == 'true'
       run: |
         python -m build -w
@@ -154,6 +155,7 @@ jobs:
         meson dist -C build --formats gztar --no-tests --allow-dirty
 
     - name: Move meson dist files
+      id: sdist
       if: matrix.py == 'py311' && steps.release.outputs.released == 'true'
       run: |
         mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz
@@ -171,6 +173,7 @@ jobs:
         mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.dist-info
 
     - name: Publish package distributions to PyPI
+      if: steps.release.outputs.released == 'true' && steps.wheel.outcome == 'success' && steps.sdist.outcome == 'success'
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       # NOTE: DO NOT wrap the conditional in ${{ }} as it will always evaluate to true.
       # See https://github.com/actions/runner/issues/1173
@@ -179,6 +182,7 @@ jobs:
         password: ${{ secrets.PYPI_API_TOKEN }}
 
     - name: Publish package distributions to GitHub Releases
+      if: steps.release.outputs.released == 'true' && steps.wheel.outcome == 'success' && steps.sdist.outcome == 'success'
       uses: python-semantic-release/upload-to-gh-release@0f96c02a48278aff14251e9f1a0d73122a8c638b
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
