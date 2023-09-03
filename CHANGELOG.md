@@ -24,6 +24,10 @@
 
 * :ambulance:: Attempt a more hermetic release with indv. versioned wheels we need. ([`7d2e4d9`](https://github.com/rjdbcm/OZI/commit/7d2e4d9d1b7af60a7cdda3b0e528b0909b89634d))
 
+### :pencil2:
+
+* :pencil2:: Fix PKG-INFO version overreach. ([`3a97d37`](https://github.com/rjdbcm/OZI/commit/3a97d372d1b9653e5f63ee64c954ca95f67278e5))
+
 ### Other
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`e556184`](https://github.com/rjdbcm/OZI/commit/e556184a8868b4a99e46fd959eb3277951bf73a4))
