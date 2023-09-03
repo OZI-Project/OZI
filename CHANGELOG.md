@@ -2,6 +2,17 @@
 
 
 
+## v0.0.45 (2023-09-03)
+
+### :ambulance:
+
+* :ambulance:: Attempt a more hermetic release with indv. versioned wheels we need. ([`7d2e4d9`](https://github.com/rjdbcm/OZI/commit/7d2e4d9d1b7af60a7cdda3b0e528b0909b89634d))
+
+### Other
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`4e4cbb2`](https://github.com/rjdbcm/OZI/commit/4e4cbb2dc6a8b690dac1142b09bc6167448c9330))
+
+
 ## v0.0.44 (2023-09-03)
 
 ### :hammer:
