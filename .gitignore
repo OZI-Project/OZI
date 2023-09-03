@@ -20,15 +20,18 @@ __pycache__/
 # C extensions
 *.so
 
+# OZI packaging
+/subprojects/blastpipe/
+sig/
+subprojects/ozi.wrap
+subprojects/ozi/
+build*/
+/dist/
+
 # Distribution / packaging
 _scm_version.py
 .Python
-/subprojects/dev/
-/subprojects/blastpipe/
-/subprojects/dev.wrap
-build*/
 develop-eggs/
-/dist/
 downloads/
 eggs/
 .eggs/
