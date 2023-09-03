@@ -36,6 +36,8 @@
 
 ### Other
 
+* :construction_worker:: Fix sdist git credentials. ([`39f4259`](https://github.com/rjdbcm/OZI/commit/39f425996c4f0be8ccf3d06a0a7cc89ad9f3e66b))
+
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`e46b6ef`](https://github.com/rjdbcm/OZI/commit/e46b6ef36e3c5f0b4bd827ad837a6bebb9b825a7))
 
 * :construction_worker:(pyc_wheel): Only strip the built wheel not finished wheels.
