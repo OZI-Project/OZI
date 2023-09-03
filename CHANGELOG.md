@@ -6,6 +6,8 @@
 
 ### :ambulance:
 
+* :ambulance:: Fix release tag output ([`369881a`](https://github.com/rjdbcm/OZI/commit/369881a9d9d7512270999cd14dc7892ec792530f))
+
 * :ambulance: move artifact to CWD. ([`cad344f`](https://github.com/rjdbcm/OZI/commit/cad344fdf26c21396c58798e01c7e2a9ddb7807f))
 
 * :ambulance:: update gitignore template and gitignore. ([`6de3068`](https://github.com/rjdbcm/OZI/commit/6de306822ac4ea2740ae58157b6601c0dc8f372c))
