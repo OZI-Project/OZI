@@ -6,6 +6,8 @@
 
 ### :ambulance:
 
+* :ambulance::construction_worker:: Separate release and publish with artifacting. ([`e1ae4fd`](https://github.com/rjdbcm/OZI/commit/e1ae4fd56424504f3add9d7d2a30ce76276e0a3e))
+
 * :ambulance::construction_worker:: Switch to sequential matrix action. ([`a2eb098`](https://github.com/rjdbcm/OZI/commit/a2eb098f60f5dda67e425023db152f153f8782ec))
 
 * :ambulance::construction_worker:: Wait until builds complete to release. ([`8ac8c93`](https://github.com/rjdbcm/OZI/commit/8ac8c93d3adfca319b386f63cffc6e0573e5154b))
@@ -21,6 +23,8 @@
 * :ambulance:: Attempt a more hermetic release with indv. versioned wheels we need. ([`7d2e4d9`](https://github.com/rjdbcm/OZI/commit/7d2e4d9d1b7af60a7cdda3b0e528b0909b89634d))
 
 ### Other
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`e556184`](https://github.com/rjdbcm/OZI/commit/e556184a8868b4a99e46fd959eb3277951bf73a4))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`7613e2e`](https://github.com/rjdbcm/OZI/commit/7613e2ec2260e5320300b02e952410ed90a0f784))
 
