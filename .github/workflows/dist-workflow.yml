@@ -69,9 +69,9 @@ jobs:
     strategy:
       matrix:
         py:
-          - 'py311'
-          - 'py310'
           - 'py39'
+          - 'py310'
+          - 'py311'
       fail-fast: true
       max-parallel: 1
     permissions:
