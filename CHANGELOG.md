@@ -6,6 +6,10 @@
 
 ### :ambulance:
 
+* :ambulance::construction_worker:: Switch to sequential matrix action. ([`a2eb098`](https://github.com/rjdbcm/OZI/commit/a2eb098f60f5dda67e425023db152f153f8782ec))
+
+* :ambulance::construction_worker:: Wait until builds complete to release. ([`8ac8c93`](https://github.com/rjdbcm/OZI/commit/8ac8c93d3adfca319b386f63cffc6e0573e5154b))
+
 * :ambulance:: Fix CI workflow release versioning. ([`5b2fb2e`](https://github.com/rjdbcm/OZI/commit/5b2fb2e03b1481090333832f4816ba3487f39cb6))
 
 * :ambulance:: Checkout released tag for publish. ([`9754cd1`](https://github.com/rjdbcm/OZI/commit/9754cd13040c61386f5f098540b78c93da82a2cc))
@@ -17,6 +21,8 @@
 * :ambulance:: Attempt a more hermetic release with indv. versioned wheels we need. ([`7d2e4d9`](https://github.com/rjdbcm/OZI/commit/7d2e4d9d1b7af60a7cdda3b0e528b0909b89634d))
 
 ### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`7351c4a`](https://github.com/rjdbcm/OZI/commit/7351c4a3d25836bf0843a414db4b716ee1e77e79))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`f350eb3`](https://github.com/rjdbcm/OZI/commit/f350eb37576cfd47acaac9aeaef0755c45dcb68d))
 
