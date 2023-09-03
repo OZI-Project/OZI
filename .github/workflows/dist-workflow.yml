@@ -91,6 +91,9 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
+    - uses: actions/download-artifact@v3
+      if: matrix.py == 'py310' || matrix.py == 'py39'
+
     - name: Set up Python 3.9
       if: matrix.py == 'py39'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
@@ -173,13 +176,7 @@ jobs:
   
     - uses: actions/upload-artifact@master
       with:
-        path: |
-          dist/*.tar.gz
-          dist/*.whl
-          sig/*.dist-info
-          sig/*.sig
-          sig/*.sigstore
-          sig/*.crt
+        path: ./
 
   publish:
     runs-on: ubuntu-latest
@@ -191,7 +188,6 @@ jobs:
     - uses: actions/download-artifact@v3
 
     - name: Publish package distributions to PyPI
-      if: steps.release.outputs.released == 'true' && matrix.py == 'py39'
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       # NOTE: DO NOT wrap the conditional in ${{ }} as it will always evaluate to true.
       # See https://github.com/actions/runner/issues/1173
@@ -200,7 +196,6 @@ jobs:
         password: ${{ secrets.PYPI_API_TOKEN }}
 
     - name: Publish package distributions to GitHub Releases
-      if: steps.release.outputs.released == 'true' && matrix.py == 'py39'
       uses: python-semantic-release/upload-to-gh-release@0f96c02a48278aff14251e9f1a0d73122a8c638b
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
