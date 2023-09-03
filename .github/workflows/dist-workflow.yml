@@ -101,6 +101,7 @@ jobs:
     steps:
     - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
       with:
+        ref: ${{ steps.release.outputs.version }}
         token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
 
@@ -171,7 +172,13 @@ jobs:
   publish-sdist:
     needs: publish-wheel
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
     steps:
+    - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
+      with:
+        ref: ${{ steps.release.outputs.version }}
 
     - name: Configure git repository
       run: |
