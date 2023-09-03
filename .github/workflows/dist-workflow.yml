@@ -139,7 +139,7 @@ jobs:
       run: |
         python -m build -w
         git stash -- PKG-INFO
-        python -m pyc_wheel dist/*.whl
+        python -m pyc_wheel dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-${{ matrix.py }}-none-any.whl
         mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-${{ matrix.py }}-none-any.whl
 
     - name: Sign ${{ matrix.py }} wheel
