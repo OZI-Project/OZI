@@ -94,6 +94,10 @@ jobs:
     - uses: actions/download-artifact@v3
       if: matrix.py == 'py310' || matrix.py == 'py311'
 
+    - name: Move artifact
+      if: matrix.py == 'py310' || matrix.py == 'py311'
+      run: cp -a artifact/. ./
+
     - name: Set up Python 3.9
       if: matrix.py == 'py39'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
