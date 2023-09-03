@@ -18,15 +18,16 @@ dynamic = ["version"]
 license = {file = "LICENSE.txt"}
 readme  = "README.rst"
 dependencies = [
-    "email-validator==2.0.0.post2",
-    "jinja2==3.1.2",
-    "spdx-license-list==3.21",
+    "email-validator == 2.0.0.post2",
+    "jinja2 == 3.1.2",
+    "spdx-license-list == 3.21",
     "pyparsing == 3.0.9",
+    "trove-classifiers == 2023.8.7",
 ]
 
 [project.optional_dependencies] # also meson test suite names
 # Bootstrapping Dependencies
-boot = ["mesonpep517", "ninja", "[dist,util,pypa]"]
+boot = ["mesonpep517", "ninja", "dist"]
 # Default meson test setup
 dev  = ["[dist,docs,lint,test]"]
 ## Packaging Setup
