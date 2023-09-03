@@ -6,6 +6,8 @@
 
 ### :ambulance:
 
+* :ambulance:: update gitignore template and gitignore. ([`6de3068`](https://github.com/rjdbcm/OZI/commit/6de306822ac4ea2740ae58157b6601c0dc8f372c))
+
 * :ambulance::construction_worker:: Separate release and publish with artifacting. ([`e1ae4fd`](https://github.com/rjdbcm/OZI/commit/e1ae4fd56424504f3add9d7d2a30ce76276e0a3e))
 
 * :ambulance::construction_worker:: Switch to sequential matrix action. ([`a2eb098`](https://github.com/rjdbcm/OZI/commit/a2eb098f60f5dda67e425023db152f153f8782ec))
