@@ -6,11 +6,15 @@
 
 ### :ambulance:
 
+* :ambulance::construction_worker:: Second retry of 0.0.45, fixed some conditionals. ([`f558a13`](https://github.com/rjdbcm/OZI/commit/f558a13b34e33123d28383fd6e1d1eb815a1702f))
+
 * :ambulance::pencil2:: Retry 0.0.45 with version as strings. ([`702e6d2`](https://github.com/rjdbcm/OZI/commit/702e6d211e5a2578aa923e81329819d297b4ff1c))
 
 * :ambulance:: Attempt a more hermetic release with indv. versioned wheels we need. ([`7d2e4d9`](https://github.com/rjdbcm/OZI/commit/7d2e4d9d1b7af60a7cdda3b0e528b0909b89634d))
 
 ### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`083af92`](https://github.com/rjdbcm/OZI/commit/083af920398f740259f51b3de915dec22b50f48c))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`3f15bec`](https://github.com/rjdbcm/OZI/commit/3f15becaea9684a2af2c34323bdeb44c50c3b428))
 
