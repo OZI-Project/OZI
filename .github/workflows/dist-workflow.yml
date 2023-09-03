@@ -90,10 +90,6 @@ jobs:
       uses: python-semantic-release/python-semantic-release@3abfb7ac216b9ad439de24fda60eca84038e850e
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-    
-    - name: Set version
-      id: version
-      run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
 
     - uses: actions/download-artifact@v3
       if: matrix.py == 'py310' || matrix.py == 'py311'
@@ -101,6 +97,10 @@ jobs:
     - name: Move artifact
       if: matrix.py == 'py310' || matrix.py == 'py311'
       run: cp -a artifact/. ./
+
+    - name: Set version
+      id: version
+      run: echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
 
     - name: Set up Python 3.9
       if: matrix.py == 'py39'
