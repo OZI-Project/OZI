@@ -22,6 +22,8 @@
 
 ### Other
 
+* :construction_worker:: correctly name wheel files. ([`617c065`](https://github.com/rjdbcm/OZI/commit/617c065498d5d679d947887ff5bb2c884e6e6df6))
+
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`7351c4a`](https://github.com/rjdbcm/OZI/commit/7351c4a3d25836bf0843a414db4b716ee1e77e79))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`f350eb3`](https://github.com/rjdbcm/OZI/commit/f350eb37576cfd47acaac9aeaef0755c45dcb68d))
