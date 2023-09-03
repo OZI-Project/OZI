@@ -6,6 +6,8 @@
 
 ### :ambulance:
 
+* :ambulance: move artifact to CWD. ([`cad344f`](https://github.com/rjdbcm/OZI/commit/cad344fdf26c21396c58798e01c7e2a9ddb7807f))
+
 * :ambulance:: update gitignore template and gitignore. ([`6de3068`](https://github.com/rjdbcm/OZI/commit/6de306822ac4ea2740ae58157b6601c0dc8f372c))
 
 * :ambulance::construction_worker:: Separate release and publish with artifacting. ([`e1ae4fd`](https://github.com/rjdbcm/OZI/commit/e1ae4fd56424504f3add9d7d2a30ce76276e0a3e))
@@ -31,6 +33,8 @@
 * :pencil2:: Fix PKG-INFO version overreach. ([`3a97d37`](https://github.com/rjdbcm/OZI/commit/3a97d372d1b9653e5f63ee64c954ca95f67278e5))
 
 ### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`1a156e3`](https://github.com/rjdbcm/OZI/commit/1a156e356e540c53fc1051a3402c38fbc33d154d))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`5f7dcca`](https://github.com/rjdbcm/OZI/commit/5f7dccabde45da4002a102d6b4a9179d7af45cca))
 
