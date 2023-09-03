@@ -30,6 +30,10 @@
 
 ### Other
 
+* :construction_worker:: Only run git checkout once per release. ([`acfe7c2`](https://github.com/rjdbcm/OZI/commit/acfe7c2e832c58e3cf8dbf041de33881b2a69e40))
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`6a48956`](https://github.com/rjdbcm/OZI/commit/6a4895634585f86820b9d328d98ae92d3b61e423))
+
 * :construction_worker:(PKG-INFO): Bump Version. ([`e556184`](https://github.com/rjdbcm/OZI/commit/e556184a8868b4a99e46fd959eb3277951bf73a4))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`7613e2e`](https://github.com/rjdbcm/OZI/commit/7613e2ec2260e5320300b02e952410ed90a0f784))
