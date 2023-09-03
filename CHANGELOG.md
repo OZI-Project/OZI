@@ -6,9 +6,13 @@
 
 ### :ambulance:
 
+* :ambulance::pencil2:: Retry 0.0.45 with version as strings. ([`702e6d2`](https://github.com/rjdbcm/OZI/commit/702e6d211e5a2578aa923e81329819d297b4ff1c))
+
 * :ambulance:: Attempt a more hermetic release with indv. versioned wheels we need. ([`7d2e4d9`](https://github.com/rjdbcm/OZI/commit/7d2e4d9d1b7af60a7cdda3b0e528b0909b89634d))
 
 ### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`3f15bec`](https://github.com/rjdbcm/OZI/commit/3f15becaea9684a2af2c34323bdeb44c50c3b428))
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`4e4cbb2`](https://github.com/rjdbcm/OZI/commit/4e4cbb2dc6a8b690dac1142b09bc6167448c9330))
 
