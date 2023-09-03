@@ -2,6 +2,17 @@
 
 
 
+## v0.0.44 (2023-09-03)
+
+### :hammer:
+
+* :hammer:: Update ``ozi-new`` and ``ozi-fix`` scripts. ([`2a2a131`](https://github.com/rjdbcm/OZI/commit/2a2a131b83c19d3e70a9b72147c506aaff6294cc))
+
+### Other
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`e8897da`](https://github.com/rjdbcm/OZI/commit/e8897da27fbb1e14a4d3e33611d026937232ebfd))
+
+
 ## v0.0.43 (2023-09-02)
 
 ### :bento:
