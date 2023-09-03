@@ -105,25 +105,24 @@ jobs:
         fetch-depth: 0
 
     - name: Set up Python ${{ matrix.py }}
-      if: ${{ matrix.py }} == 'py39'
+      if: matrix.py == 'py39'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         python-version: '3.9'
     
     - name: Set up Python ${{ matrix.py }}
-      if: ${{ matrix.py }} == 'py310'
+      if: matrix.py == 'py310'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         python-version: '3.10'
     
     - name: Set up Python ${{ matrix.py }}
-      if: ${{ matrix.py }} == 'py311'
+      if: matrix.py == 'py311'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         python-version: '3.11'
 
     - name: Install ${{ matrix.py }} build dependencies
-      if: steps.release.outputs.released == 'true'
       run: |
           python -m pip install --upgrade pip
           python -m pip install --user --upgrade build
@@ -134,7 +133,6 @@ jobs:
           python -m pip install --user --upgrade ninja
 
     - name: Configure git repository ${{ matrix.py }}
-      if: steps.release.outputs.released == 'true'
       run: |
         git config --global user.email "noreply@oziproject.dev"
         git config --global user.name "OZI Packaging"
@@ -142,19 +140,16 @@ jobs:
         mkdir sig
 
     - name: Build ${{ matrix.py }} wheel
-      if: steps.release.outputs.released == 'true'
       run: |
         python -m build -w
         git stash -- PKG-INFO
         python -m pyc_wheel dist/*.whl
 
     - name: Sign ${{ matrix.py }} wheel
-      if: steps.release.outputs.released == 'true'
       run: |
         sigstore sign dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-${{ matrix.py }}-none-any.whl
 
     - name: Move sigstore signing files
-      if: steps.release.outputs.released == 'true'
       run: |
         mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-${{ matrix.py }}-none-any.whl.sig sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-${{ matrix.py }}-none-any.whl.sig
         mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-${{ matrix.py }}-none-any.whl.crt sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-${{ matrix.py }}-none-any.whl.crt
@@ -167,11 +162,9 @@ jobs:
       with:
         user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
-      if: steps.release.outputs.released == 'true'
   
     - name: Publish package distributions to GitHub Releases
       uses: python-semantic-release/upload-to-gh-release@0f96c02a48278aff14251e9f1a0d73122a8c638b
-      if: steps.release.outputs.released == 'true'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -181,7 +174,6 @@ jobs:
     steps:
 
     - name: Configure git repository
-      if: steps.release.outputs.released == 'true'
       run: |
         git config --global user.email "noreply@oziproject.dev"
         git config --global user.name "OZI Packaging"
@@ -189,7 +181,6 @@ jobs:
         mkdir sig
 
     - name: Build sdist
-      if: steps.release.outputs.released == 'true'
       run: |
         meson setup build -Dozi-blastpipe=enabled
         git add PKG-INFO
@@ -198,16 +189,13 @@ jobs:
         meson dist -C build --formats gztar --no-tests --allow-dirty
 
     - name: Move meson dist files
-      if: steps.release.outputs.released == 'true'
       run: |
         mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz
     
     - name: Sign sdist
-      if: steps.release.outputs.released == 'true'
       run: sigstore sign dist/*.tar.gz
 
     - name: Move sigstore signing files
-      if: steps.release.outputs.released == 'true'
       run: |
         mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sig sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sig
         mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.crt sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.crt
@@ -221,10 +209,8 @@ jobs:
       with:
         user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
-      if: steps.release.outputs.released == 'true'
 
     - name: Publish package distributions to GitHub Releases
       uses: python-semantic-release/upload-to-gh-release@0f96c02a48278aff14251e9f1a0d73122a8c638b
-      if: steps.release.outputs.released == 'true'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
