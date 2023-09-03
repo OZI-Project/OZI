@@ -22,6 +22,10 @@
 
 ### Other
 
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`7613e2e`](https://github.com/rjdbcm/OZI/commit/7613e2ec2260e5320300b02e952410ed90a0f784))
+
+* :construction_worker:: relocate git repo setup. ([`72c648c`](https://github.com/rjdbcm/OZI/commit/72c648cd2a9292b79316c7a1381041c635510f5f))
+
 * :construction_worker:: correctly name wheel files. ([`617c065`](https://github.com/rjdbcm/OZI/commit/617c065498d5d679d947887ff5bb2c884e6e6df6))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`7351c4a`](https://github.com/rjdbcm/OZI/commit/7351c4a3d25836bf0843a414db4b716ee1e77e79))
