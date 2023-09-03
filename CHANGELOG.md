@@ -34,6 +34,12 @@
 
 ### Other
 
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`e46b6ef`](https://github.com/rjdbcm/OZI/commit/e46b6ef36e3c5f0b4bd827ad837a6bebb9b825a7))
+
+* :construction_worker:(pyc_wheel): Only strip the built wheel not finished wheels.
+
+Add version detection from tag. ([`44a7f05`](https://github.com/rjdbcm/OZI/commit/44a7f05be277ae280dce272f181fceda87f42962))
+
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`7dd4bf2`](https://github.com/rjdbcm/OZI/commit/7dd4bf253827e8d409011b5a267f97436f143a80))
 
 * :construction_worker:(pyc_wheel): strip correct wheel version. ([`9ea0c93`](https://github.com/rjdbcm/OZI/commit/9ea0c9375e1a48562933beadf1731e387bdd6711))
