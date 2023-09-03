@@ -34,6 +34,10 @@
 
 ### Other
 
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`1aa6744`](https://github.com/rjdbcm/OZI/commit/1aa6744a4de3f165def9476fd5ba2b57af012553))
+
+* :construction_worker:: Only configure git repo the first time. ([`c528ac6`](https://github.com/rjdbcm/OZI/commit/c528ac645b7ccf43350d1d875c6ed1fd6761810d))
+
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`1a156e3`](https://github.com/rjdbcm/OZI/commit/1a156e356e540c53fc1051a3402c38fbc33d154d))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`5f7dcca`](https://github.com/rjdbcm/OZI/commit/5f7dccabde45da4002a102d6b4a9179d7af45cca))
