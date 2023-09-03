@@ -26,9 +26,17 @@
 
 ### :pencil2:
 
+* :pencil2:: Fix version used for checkout and download. ([`2d5fdcd`](https://github.com/rjdbcm/OZI/commit/2d5fdcd9d07c0bfa6e2af4b68f499e6959b55159))
+
 * :pencil2:: Fix PKG-INFO version overreach. ([`3a97d37`](https://github.com/rjdbcm/OZI/commit/3a97d372d1b9653e5f63ee64c954ca95f67278e5))
 
 ### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`5f7dcca`](https://github.com/rjdbcm/OZI/commit/5f7dccabde45da4002a102d6b4a9179d7af45cca))
+
+* :construction_worker:: Reverse python version build order.
+sdist (py311) runs last.
+this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/OZI/commit/14d6edc658c8cd7daf802310f45411e18f6ad481))
 
 * :construction_worker:: Use actions/download-artifact to get repo for wheel builds. ([`37ad739`](https://github.com/rjdbcm/OZI/commit/37ad739c365653ceb4f7616fe195d9578b75d50b))
 
