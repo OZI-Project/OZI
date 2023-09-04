@@ -2,7 +2,7 @@
 
 
 
-## v0.0.45 (2023-09-03)
+## v0.0.45 (2023-09-04)
 
 ### :ambulance:
 
@@ -35,6 +35,8 @@
 * :pencil2:: Fix PKG-INFO version overreach. ([`3a97d37`](https://github.com/rjdbcm/OZI/commit/3a97d372d1b9653e5f63ee64c954ca95f67278e5))
 
 ### Other
+
+* :construction_worker:: Add phony checkout for ambient credentials. ([`98c2670`](https://github.com/rjdbcm/OZI/commit/98c2670f1a0859673f93b9ebe13a5ccf0000bf2c))
 
 * :construction_worker:: Fix sdist git credentials. ([`39f4259`](https://github.com/rjdbcm/OZI/commit/39f425996c4f0be8ccf3d06a0a7cc89ad9f3e66b))
 
