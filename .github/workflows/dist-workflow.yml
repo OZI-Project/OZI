@@ -84,13 +84,6 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
 
-    - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
-      if: matrix.py == 'py311'
-      with:
-        path: build-secrets
-        token: ${{ secrets.GITHUB_TOKEN }}
-        fetch-depth: 0
-
     - name: Python Semantic Release
       id: release
       if: matrix.py == 'py39'
@@ -168,6 +161,7 @@ jobs:
       run: |
         git config --global user.email "noreply@oziproject.dev"
         git config --global user.name "OZI Packaging"
+        git remote set-url origin https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.event.repository.owner }}/${{ github.event.repository.name }}.git/
         meson setup build -Dozi-blastpipe=enabled
         git add PKG-INFO
         git commit PKG-INFO -m ":construction_worker:(PKG-INFO): Bump Version."
