@@ -36,6 +36,8 @@
 
 ### Other
 
+* :memo:: Remove extraneous workflow file header. ([`ba1a5af`](https://github.com/rjdbcm/OZI/commit/ba1a5af352b32313c609f121dc9c9fc2659c4a88))
+
 * :construction_worker:: merge before pushing PKG-INFO. ([`c08266c`](https://github.com/rjdbcm/OZI/commit/c08266cbc8f3da8034373d2354d679b765563114))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`09ab46f`](https://github.com/rjdbcm/OZI/commit/09ab46fc58c726d45cb622f7df91fc00aadf8d2b))
