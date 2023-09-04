@@ -1,6 +1,7 @@
 {% raw %}
     - name: Sign ${{ matrix.py }} wheel
 {% endraw %}
+      if: job.status.drafted == 'true'
       run: |
 {% raw %}
         sigstore sign dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl

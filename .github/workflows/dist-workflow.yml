@@ -70,6 +70,8 @@ jobs:
           - 'py311'
       fail-fast: true
       max-parallel: 1
+    outputs:
+      drafted: ${{ steps.draft.outputs.created }}
     permissions:
       contents: write
       id-token: write
@@ -87,36 +89,43 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Pass release draft status to job
+      if: matrix.py == 'py39'
+      id: draft
+      run: echo "created=${{ steps.release.outputs.released }}" >> $GITHUB_OUTPUT
+
     - uses: actions/download-artifact@v3
-      if: matrix.py == 'py310' || matrix.py == 'py311'
+      if: job.status.drafted == 'true' && matrix.py == 'py310' || matrix.py == 'py311'
 
     - name: Move artifact
-      if: matrix.py == 'py310' || matrix.py == 'py311'
+      if: job.status.drafted == 'true' && matrix.py == 'py310' || matrix.py == 'py311'
       run: cp -a artifact/. ./
 
     - name: Set version
+      if: job.status.drafted == 'true'
       id: version
       run: echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
 
     - name: Set up Python 3.9
-      if: matrix.py == 'py39'
+      if: matrix.py == 'py39' && job.status.drafted == 'true'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         python-version: '3.9'
 
     - name: Set up Python 3.10
-      if: matrix.py == 'py310'
+      if: matrix.py == 'py310' && job.status.drafted == 'true'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         python-version: '3.10'
 
-    - name: Set up Python 3.11
-      if: matrix.py == 'py311'
+    - name: Set up Python 3.11 
+      if: matrix.py == 'py311' && job.status.drafted == 'true'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         python-version: '3.11'
 
     - name: Install ${{ matrix.py }} build dependencies
+      if: job.status.drafted == 'true'
       run: |
           python -m pip install --upgrade pip
           python -m pip install --user --upgrade build
@@ -127,7 +136,7 @@ jobs:
           python -m pip install --user --upgrade ninja
 
     - name: Configure git repository
-      if: matrix.py == 'py39'
+      if: matrix.py == 'py39' && job.status.drafted == 'true'
       run: |
           git config --global user.email "noreply@oziproject.dev"
           git config --global user.name "OZI Packaging"
@@ -135,6 +144,7 @@ jobs:
           mkdir sig
 
     - name: Build ${{ matrix.py }} wheel
+      if: job.status.drafted == 'true'
       id: wheel
       run: |
         python -m build -w
@@ -143,19 +153,23 @@ jobs:
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
 
     - name: Sign ${{ matrix.py }} wheel
+      if: job.status.drafted == 'true'
       run: |
         sigstore sign dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
 
     - name: Move sigstore signing files
+      if: job.status.drafted == 'true'
       run: |
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sig sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sig
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.crt sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.crt
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore
 
     - name: Move dist-info file
+      if: job.status.drafted == 'true'
       run: mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}.dist-info
 
     - uses: actions/upload-artifact@master
+      if: job.status.drafted == 'true'
       with:
         path: |
           ./
@@ -164,6 +178,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     needs: release
+    if: needs.release.outputs.drafted == 'true'
     permissions:
       contents: write
       id-token: write
