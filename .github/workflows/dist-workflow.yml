@@ -148,42 +148,42 @@ jobs:
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.crt sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.crt
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore
 
-    - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
-      if: matrix.py == 'py311'
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        fetch-depth: 0  
+    # - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
+    #   if: matrix.py == 'py311'
+    #   with:
+    #     token: ${{ secrets.GITHUB_TOKEN }}
+    #     fetch-depth: 0  
 
-    - name: Build sdist
-      if: matrix.py == 'py311'
-      run: |
-        git config --global user.email "noreply@oziproject.dev"
-        git config --global user.name "OZI Packaging"
-        git config pull.rebase false
-        meson setup build -Dozi-blastpipe=enabled
-        git add PKG-INFO
-        git commit PKG-INFO -m ":construction_worker:(PKG-INFO): Bump Version."
-        git pull origin main
-        git push origin main
-        meson dist -C build --formats gztar --no-tests --allow-dirty
+    # - name: Build sdist
+    #   if: matrix.py == 'py311'
+    #   run: |
+    #     git config --global user.email "noreply@oziproject.dev"
+    #     git config --global user.name "OZI Packaging"
+    #     git config pull.rebase false
+    #     meson setup build -Dozi-blastpipe=enabled
+    #     git add PKG-INFO
+    #     git commit PKG-INFO -m ":construction_worker:(PKG-INFO): Bump Version."
+    #     git pull origin main
+    #     git push origin main
+    #     meson dist -C build --formats gztar --no-tests --allow-dirty
 
-    - name: Move meson dist files
-      id: sdist
-      if: matrix.py == 'py311'
-      run: |
-        mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz
+    # - name: Move meson dist files
+    #   id: sdist
+    #   if: matrix.py == 'py311'
+    #   run: |
+    #     mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz
     
-    - name: Sign sdist
-      if: matrix.py == 'py311'
-      run: sigstore sign dist/*.tar.gz
+    # - name: Sign sdist
+    #   if: matrix.py == 'py311'
+    #   run: sigstore sign dist/*.tar.gz
 
-    - name: Move sigstore signing files
-      if: matrix.py == 'py311'
-      run: |
-        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sig sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sig
-        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.crt sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.crt
-        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore
-        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info
+    # - name: Move sigstore signing files
+    #   if: matrix.py == 'py311'
+    #   run: |
+    #     mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sig sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sig
+    #     mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.crt sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.crt
+    #     mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore
+    #     mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info
   
     - uses: actions/upload-artifact@master
       with:
