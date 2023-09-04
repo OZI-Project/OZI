@@ -6,6 +6,8 @@
 
 ### :ambulance:
 
+* :ambulance:: Move dist-info before release. ([`ca4d90d`](https://github.com/rjdbcm/OZI/commit/ca4d90d1e88944b9b8886671c64379f13206dd4d))
+
 * :ambulance:: Fix release tag output ([`369881a`](https://github.com/rjdbcm/OZI/commit/369881a9d9d7512270999cd14dc7892ec792530f))
 
 * :ambulance: move artifact to CWD. ([`cad344f`](https://github.com/rjdbcm/OZI/commit/cad344fdf26c21396c58798e01c7e2a9ddb7807f))
