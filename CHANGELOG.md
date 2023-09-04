@@ -2,6 +2,13 @@
 
 
 
+## v0.0.46 (2023-09-04)
+
+### :pencil2:
+
+* :pencil2::construction_worker:: Update workflow name to OZI. ([`d59200f`](https://github.com/rjdbcm/OZI/commit/d59200f8cd64bb9727c7fe77fdd9ab7f69e81d3f))
+
+
 ## v0.0.45 (2023-09-04)
 
 ### :ambulance:
