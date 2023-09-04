@@ -186,7 +186,7 @@ jobs:
     #     mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info
 
     - name: Move dist-info file
-      run: mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info
+      run: mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}.dist-info
   
     - uses: actions/upload-artifact@master
       with:
