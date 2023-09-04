@@ -38,6 +38,8 @@
 
 ### Other
 
+* :construction_worker:: Rename dist-info to match wheels. ([`81be710`](https://github.com/rjdbcm/OZI/commit/81be710209ed70c7caf0ae360374ba55a79a04a4))
+
 * :construction_worker:: Move dist-info for all wheel releases. ([`ebc5e2f`](https://github.com/rjdbcm/OZI/commit/ebc5e2f504eaa15172644061aa499ac7bc5d59d0))
 
 * :construction_worker:: Drop sdist for now. ([`e1a4628`](https://github.com/rjdbcm/OZI/commit/e1a46286348e11e0afa0f24883fd86f9f4663498))
