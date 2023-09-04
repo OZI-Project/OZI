@@ -36,6 +36,10 @@
 
 ### Other
 
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`cae8bf7`](https://github.com/rjdbcm/OZI/commit/cae8bf765b2df2825d68409dc535e753cc4296b4))
+
+* :construction_worker:: Fixing sdsist. ([`26e6c5e`](https://github.com/rjdbcm/OZI/commit/26e6c5eba95e2fea44efa66f765d039555607ea3))
+
 * :construction_worker:: Get correct ambient credentials for sdist. ([`239f3c5`](https://github.com/rjdbcm/OZI/commit/239f3c5121465e92e5f98e690a35c0854ca95eb4))
 
 * :construction_worker:: Add phony checkout for ambient credentials. ([`98c2670`](https://github.com/rjdbcm/OZI/commit/98c2670f1a0859673f93b9ebe13a5ccf0000bf2c))
