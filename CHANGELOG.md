@@ -36,6 +36,8 @@
 
 ### Other
 
+* :construction_worker:: Get correct ambient credentials for sdist. ([`239f3c5`](https://github.com/rjdbcm/OZI/commit/239f3c5121465e92e5f98e690a35c0854ca95eb4))
+
 * :construction_worker:: Add phony checkout for ambient credentials. ([`98c2670`](https://github.com/rjdbcm/OZI/commit/98c2670f1a0859673f93b9ebe13a5ccf0000bf2c))
 
 * :construction_worker:: Fix sdist git credentials. ([`39f4259`](https://github.com/rjdbcm/OZI/commit/39f425996c4f0be8ccf3d06a0a7cc89ad9f3e66b))
