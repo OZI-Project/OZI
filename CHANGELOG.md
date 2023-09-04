@@ -36,6 +36,12 @@
 
 ### Other
 
+* :construction_worker:: Drop sdist for now. ([`e1a4628`](https://github.com/rjdbcm/OZI/commit/e1a46286348e11e0afa0f24883fd86f9f4663498))
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/OZI ([`27dc9f6`](https://github.com/rjdbcm/OZI/commit/27dc9f630e4a0cb8fccbe9c1029113ca869d3471))
+
+* :construction_worker:(PKG-INFO): Bump Version. ([`dbfb676`](https://github.com/rjdbcm/OZI/commit/dbfb676e6b2236dfc92124c352b60b8f0dbc3f89))
+
 * :memo:: Remove extraneous workflow file header. ([`ba1a5af`](https://github.com/rjdbcm/OZI/commit/ba1a5af352b32313c609f121dc9c9fc2659c4a88))
 
 * :construction_worker:: merge before pushing PKG-INFO. ([`c08266c`](https://github.com/rjdbcm/OZI/commit/c08266cbc8f3da8034373d2354d679b765563114))
