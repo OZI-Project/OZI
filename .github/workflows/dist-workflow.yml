@@ -156,12 +156,17 @@ jobs:
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.crt sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.crt
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore
 
+    - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
+      if: matrix.py == 'py311'
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0  
+
     - name: Build sdist
       if: matrix.py == 'py311'
       run: |
         git config --global user.email "noreply@oziproject.dev"
         git config --global user.name "OZI Packaging"
-        git remote set-url origin https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.event.repository.owner }}/${{ github.event.repository.name }}.git/
         meson setup build -Dozi-blastpipe=enabled
         git add PKG-INFO
         git commit PKG-INFO -m ":construction_worker:(PKG-INFO): Bump Version."
@@ -198,6 +203,9 @@ jobs:
       id-token: write
     steps:
     - uses: actions/download-artifact@v3
+
+    - name: Move artifact
+      run: cp -a artifact/. ./
 
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
