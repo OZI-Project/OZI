@@ -184,6 +184,10 @@ jobs:
     #     mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.crt sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.crt
     #     mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore
     #     mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info
+
+    - name: Move dist-info file
+      if: matrix.py == 'py311'
+      run: mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info
   
     - uses: actions/upload-artifact@master
       with:
