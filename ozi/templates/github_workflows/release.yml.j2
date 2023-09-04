@@ -1,0 +1,96 @@
+  release:
+    needs: checkpoint
+    runs-on: ubuntu-latest
+    concurrency: release
+    strategy:
+      matrix:
+        py:
+          - 'py39'
+          - 'py310'
+          - 'py311'
+      fail-fast: true
+      max-parallel: 1
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+    - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
+      if: matrix.py == 'py39'
+      with:
+{% raw %}
+        token: ${{ secrets.GITHUB_TOKEN }}
+{% endraw %}
+        fetch-depth: 0
+
+{% include semantic_release.yml %}
+
+    - uses: actions/download-artifact@v3
+      if: matrix.py == 'py310' || matrix.py == 'py311'
+
+    - name: Move artifact
+      if: matrix.py == 'py310' || matrix.py == 'py311'
+      run: cp -a artifact/. ./
+
+    - name: Set version
+      id: version
+      run: echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
+
+    - name: Set up Python 3.9
+      if: matrix.py == 'py39'
+      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
+      with:
+        python-version: '3.9'
+
+    - name: Set up Python 3.10
+      if: matrix.py == 'py310'
+      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
+      with:
+        python-version: '3.10'
+
+    - name: Set up Python 3.11
+      if: matrix.py == 'py311'
+      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
+      with:
+        python-version: '3.11'
+{% raw %}
+    - name: Install ${{ matrix.py }} build dependencies
+{% endraw %}
+      run: |
+          python -m pip install --upgrade pip
+          python -m pip install --user --upgrade build
+          python -m pip install --user --upgrade pyc_wheel
+          python -m pip install --user --upgrade sigstore
+          python -m pip install --user --upgrade meson
+          python -m pip install --user --upgrade setuptools_scm
+          python -m pip install --user --upgrade ninja
+
+    - name: Configure git repository
+      if: matrix.py == 'py39'
+      run: |
+          git config --global user.email "noreply@oziproject.dev"
+          git config --global user.name "OZI Packaging"
+          rm -rf .git/COMMIT_EDITMSG
+          mkdir sig
+
+{% raw %}
+    - name: Build ${{ matrix.py }} wheel
+{% endraw %}
+      id: wheel
+      run: |
+        python -m build -w
+        git stash -- PKG-INFO
+{% raw %}
+        python -m pyc_wheel dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl
+        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
+{% endraw %}
+
+{% include sigstore.yml %}
+
+    - name: Move dist-info file
+      run: mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}.dist-info
+
+    - uses: actions/upload-artifact@master
+      with:
+        path: |
+          ./
+          !artifact/

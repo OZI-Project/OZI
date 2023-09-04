@@ -1,4 +1,4 @@
-name: Semantic Release
+name: OZI
 
 on:
   push:
@@ -27,17 +27,21 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
       - name: 'Set up Python ${{ matrix.py }}'
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
         with:
           python-version: '${{ matrix.py }}'
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install tox-gh>=1.2
+
       - name: Meson setup build
         run: |
           tox -vv --notest
+
       - name: '${{ matrix.ozi }}'
         run: |
           tox -- --setup=${{ matrix.ozi }}
@@ -46,27 +50,61 @@ jobs:
     needs: checkpoint
     runs-on: ubuntu-latest
     concurrency: release
+    strategy:
+      matrix:
+        py:
+          - 'py39'
+          - 'py310'
+          - 'py311'
+      fail-fast: true
+      max-parallel: 1
     permissions:
       contents: write
       id-token: write
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
+      if: matrix.py == 'py39'
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.11
     - name: Python Semantic Release
       id: release
-      uses: python-semantic-release/python-semantic-release@master
+      if: matrix.py == 'py39'
+      uses: python-semantic-release/python-semantic-release@3abfb7ac216b9ad439de24fda60eca84038e850e
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-  
-    - name: Install Python build dependencies
-      if: steps.release.outputs.released == 'true'
+
+    - uses: actions/download-artifact@v3
+      if: matrix.py == 'py310' || matrix.py == 'py311'
+
+    - name: Move artifact
+      if: matrix.py == 'py310' || matrix.py == 'py311'
+      run: cp -a artifact/. ./
+
+    - name: Set version
+      id: version
+      run: echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
+
+    - name: Set up Python 3.9
+      if: matrix.py == 'py39'
+      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
+      with:
+        python-version: '3.9'
+
+    - name: Set up Python 3.10
+      if: matrix.py == 'py310'
+      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
+      with:
+        python-version: '3.10'
+
+    - name: Set up Python 3.11
+      if: matrix.py == 'py311'
+      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
+      with:
+        python-version: '3.11'
+
+    - name: Install ${{ matrix.py }} build dependencies
       run: |
           python -m pip install --upgrade pip
           python -m pip install --user --upgrade build
@@ -77,45 +115,51 @@ jobs:
           python -m pip install --user --upgrade ninja
 
     - name: Configure git repository
-      if: steps.release.outputs.released == 'true'
+      if: matrix.py == 'py39'
       run: |
-        git config --global user.email "noreply@oziproject.dev"
-        git config --global user.name "OZI Packaging"
-        rm -rf .git/COMMIT_EDITMSG
+          git config --global user.email "noreply@oziproject.dev"
+          git config --global user.name "OZI Packaging"
+          rm -rf .git/COMMIT_EDITMSG
+          mkdir sig
 
-    - name: Build wheel and sdist
-      if: steps.release.outputs.released == 'true'
+    - name: Build ${{ matrix.py }} wheel
+      id: wheel
       run: |
         python -m build -w
         git stash -- PKG-INFO
-        python -m pyc_wheel dist/*.whl
-        meson setup build
-        git add PKG-INFO
-        git commit PKG-INFO -m ":construction_worker:(PKG-INFO): Bump Version."
-        git push origin main
-        meson dist -C build --formats gztar --no-tests --allow-dirty
+        python -m pyc_wheel dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl
+        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
 
-    - name: Move meson dist files
-      if: steps.release.outputs.released == 'true'
+    - name: Sign ${{ matrix.py }} wheel
       run: |
-        mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz
-
-    - name: Sign wheel and sdist
-      if: steps.release.outputs.released == 'true'
-      run: |
-        sigstore sign dist/*.whl dist/*.tar.gz
-        mkdir sig
+        sigstore sign dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
 
     - name: Move sigstore signing files
-      if: steps.release.outputs.released == 'true'
       run: |
-        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sig sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sig
-        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.crt sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.crt
-        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sigstore sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.tar.gz.sigstore
-        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sig sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sig
-        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.crt sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.crt
-        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sigstore sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}-py3-none-any.whl.sigstore
-        mv dist/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.release.outputs.version }}.dist-info
+        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sig sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sig
+        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.crt sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.crt
+        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore
+
+    - name: Move dist-info file
+      run: mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}.dist-info
+
+    - uses: actions/upload-artifact@master
+      with:
+        path: |
+          ./
+          !artifact/
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: release
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+    - uses: actions/download-artifact@v3
+
+    - name: Move artifact
+      run: cp -a artifact/. ./
 
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
@@ -124,10 +168,8 @@ jobs:
       with:
         user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
-      if: steps.release.outputs.released == 'true'
 
     - name: Publish package distributions to GitHub Releases
-      uses: python-semantic-release/upload-to-gh-release@main
-      if: steps.release.outputs.released == 'true'
+      uses: python-semantic-release/upload-to-gh-release@0f96c02a48278aff14251e9f1a0d73122a8c638b
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}

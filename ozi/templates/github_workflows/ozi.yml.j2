@@ -7,6 +7,8 @@ on:
 
 jobs:
 
-{% include checkpoint.yml %}
+{% include checkpoint.yml.j2 %}
 
-{% include release.yml %}
+{% include release.yml.j2 %}
+
+{% include publish.yml.j2 %}
