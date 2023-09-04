@@ -38,6 +38,8 @@
 
 ### Other
 
+* :construction_worker:: Move dist-info for all wheel releases. ([`ebc5e2f`](https://github.com/rjdbcm/OZI/commit/ebc5e2f504eaa15172644061aa499ac7bc5d59d0))
+
 * :construction_worker:: Drop sdist for now. ([`e1a4628`](https://github.com/rjdbcm/OZI/commit/e1a46286348e11e0afa0f24883fd86f9f4663498))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/OZI ([`27dc9f6`](https://github.com/rjdbcm/OZI/commit/27dc9f630e4a0cb8fccbe9c1029113ca869d3471))
