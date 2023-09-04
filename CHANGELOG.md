@@ -36,6 +36,8 @@
 
 ### Other
 
+* :construction_worker:: merge before pushing PKG-INFO. ([`c08266c`](https://github.com/rjdbcm/OZI/commit/c08266cbc8f3da8034373d2354d679b765563114))
+
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`09ab46f`](https://github.com/rjdbcm/OZI/commit/09ab46fc58c726d45cb622f7df91fc00aadf8d2b))
 
 * :construction_worker:: Merge PKG-INFO during release. ([`7df4e56`](https://github.com/rjdbcm/OZI/commit/7df4e56e128aa629e10683fd944ae28b880a3666))
