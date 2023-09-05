@@ -2,6 +2,17 @@
 
 
 
+## v0.0.51 (2023-09-05)
+
+### :bento:
+
+* :memo::bento:: Update readme for clarity. ([`172c1b5`](https://github.com/rjdbcm/OZI/commit/172c1b532613e41006a859a4b44e6aec90cc45c1))
+
+### Other
+
+* :memo:: Resychronize README.rst. ([`8a57e39`](https://github.com/rjdbcm/OZI/commit/8a57e3906f5456e8180ff0c7a01eeb0ee5beacf3))
+
+
 ## v0.0.50 (2023-09-05)
 
 ### :ambulance:
