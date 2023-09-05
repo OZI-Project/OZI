@@ -6,6 +6,8 @@
 
 ### :ambulance:
 
+* :ambulance:: Fix release workflow. ([`476246b`](https://github.com/rjdbcm/OZI/commit/476246be55082d821669a00ffac2c9494ebf9313))
+
 * :ambulance:: Fix release trigger checks. ([`7ac2795`](https://github.com/rjdbcm/OZI/commit/7ac2795555b353082b6c3d9fb7585935414781b9))
 
 * :ambulance:: Fix CI Build. ([`0abe8b4`](https://github.com/rjdbcm/OZI/commit/0abe8b46ef6b80b418edcafbfa8c9220b1ef34de))
@@ -17,6 +19,8 @@
 We now should only do a full release workflow if semantic-release triggers one. ([`61b1141`](https://github.com/rjdbcm/OZI/commit/61b1141d0c57e2d526fd6fd7d9128f8d9907015a))
 
 ### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`886ce7c`](https://github.com/rjdbcm/OZI/commit/886ce7c9a03705b58c95e0b554fc61c7ad67228f))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`c7ec522`](https://github.com/rjdbcm/OZI/commit/c7ec5225c7b30642e8e5111ae16756a7603c8309))
 
