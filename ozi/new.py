@@ -39,6 +39,7 @@ top4 = [
     'GNU General Public License v3',
     'Apache Software License',
 ]
+audience_prefix = 'Intended Audience :: '
 status_prefix = 'Development Status :: '
 license_prefix = 'License :: '
 topic_prefix = 'Topic :: '
@@ -52,34 +53,34 @@ root_templates = [
 ]
 source_templates = [
     'project.name/__init__.py',
-    'project.name/__init__.pyi',
     'project.name/meson.build',
 ]
-status = [
-    i[len(status_prefix) :].lstrip()
-    for i in classifiers
-    if i.startswith(status_prefix)
-]
-licenses = [
-    i[len(license_prefix) :].lstrip()
-    for i in classifiers
-    if i.startswith(license_prefix)
-]
-topic = [
-    i[len(topic_prefix) :].lstrip()
-    for i in classifiers
-    if i.startswith(topic_prefix)
-]
-license_spdx = [k for k, v in LICENSES.items() if v.deprecated_id is False]
 
 
 class CloseMatch(argparse.Action):
     """Special choices action. Warn the user if a close match could not be found."""
 
-    license = licenses
-    status = status
-    topic = topic
-    license_spdx = license_spdx
+    audience = [
+        i[len(audience_prefix) :].lstrip()
+        for i in classifiers
+        if i.startswith(audience_prefix)
+    ]
+    license = [
+        i[len(license_prefix) :].lstrip()
+        for i in classifiers
+        if i.startswith(license_prefix)
+    ]
+    license_spdx = [k for k, v in LICENSES.items() if v.deprecated_id is False]
+    status = [
+        i[len(status_prefix) :].lstrip()
+        for i in classifiers
+        if i.startswith(status_prefix)
+    ]
+    topic = [
+        i[len(topic_prefix) :].lstrip()
+        for i in classifiers
+        if i.startswith(topic_prefix)
+    ]
 
     def __init__(
         self: argparse.Action,
@@ -179,18 +180,25 @@ project_output = project_parser.add_mutually_exclusive_group()
 project_output.add_argument(
     '-h', '--help', action='help', help='show this help message and exit'
 )
-
+defaults.add_argument(
+    '--audience',
+    type=str,
+    metavar='AUDIENCE e.g. Developers, End Users/Desktop',
+    default='Other Audience',
+    help='audience for the project',
+    action=CloseMatch,
+)
 defaults.add_argument(
     '--topic',
-    choices=topic,
     default='Utilities',
     help='Python package topic',
     metavar='TOPIC="Utilities"',
+    action=CloseMatch,
     type=str,
 )
 defaults.add_argument(
     '--status',
-    choices=status,
+    action=CloseMatch,
     default='1 - Planning',
     help='Python package status',
     metavar='STATUS="1 - Planning"',
@@ -202,7 +210,7 @@ output.add_argument(
     '-l',
     '--list',
     type=str,
-    choices=['license', 'license-spdx', 'status', 'topic'],
+    choices=['audience', 'license', 'license-spdx', 'status', 'topic'],
     help='list valid option settings and exit',
 )
 
@@ -211,7 +219,7 @@ def main() -> Union[NoReturn, None]:
     """Main ozi.new entrypoint."""
     project = parser.parse_args()
     if project.list == 'license':
-        print(*sorted((i for i in licenses)), sep='\n')
+        print(*sorted((i for i in CloseMatch.license)), sep='\n')
         exit(0)
     if project.list == 'license-spdx':
         print(
@@ -219,10 +227,13 @@ def main() -> Union[NoReturn, None]:
         )
         exit(0)
     if project.list == 'status':
-        print(*sorted((i for i in status)), sep='\n')
+        print(*sorted((i for i in CloseMatch.status)), sep='\n')
         exit(0)
     if project.list == 'topic':
-        print(*sorted(i for i in topic), sep='\n')
+        print(*sorted(i for i in CloseMatch.topic), sep='\n')
+        exit(0)
+    if project.list == 'audience':
+        print(*sorted(i for i in CloseMatch.audience), sep='\n')
         exit(0)
 
     if 'project' not in project:
