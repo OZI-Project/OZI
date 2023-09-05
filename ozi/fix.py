@@ -2,14 +2,13 @@
 
 import argparse
 import json
-from pathlib import Path
 import re
 import sys
+from pathlib import Path
 from typing import NoReturn, Union
 from warnings import warn
 
 from pyparsing import Regex
-
 
 from .assets.structure import root_files, source_files
 
@@ -69,8 +68,9 @@ def main() -> Union[NoReturn, None]:
         if not project.target.joinpath(file).exists():
             print(f'Missing REQUIRED OZI project file: {file}')
             miss_count += 1
-    with project.target.joinpath('PKG-INFO').open() as f:
-        line = [next(f) for _ in range(2)][1]
+    if project.target.joinpath('PKG-INFO').exists():
+        with project.target.joinpath('PKG-INFO').open() as f:
+            line = [next(f) for _ in range(2)][1]
         name = Regex(
             '^(Name: )([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9._-]*[A-Za-z0-9])$',
             as_match=True,
