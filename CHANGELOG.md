@@ -2,6 +2,15 @@
 
 
 
+## v0.0.50 (2023-09-05)
+
+### :hammer:
+
+* :hammer:: Add ``--audience`` to ``ozi/new.py``.
+
+Also fixed PKG-INFO template. ([`d9bf177`](https://github.com/rjdbcm/OZI/commit/d9bf177d22215b20356ba9ac7c7c34958cb3638a))
+
+
 ## v0.0.49 (2023-09-05)
 
 ### :hammer:
