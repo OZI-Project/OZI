@@ -14,7 +14,6 @@
 # under the License.
 source_templates = [
     '__init__.py.j2',
-    '__init__.pyi.j2',
     'meson.build.j2',
 ]
 foreach file: source_templates
