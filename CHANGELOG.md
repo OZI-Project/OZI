@@ -2,6 +2,15 @@
 
 
 
+## v0.0.47 (2023-09-04)
+
+### :ambulance:
+
+* :construction_worker::ambulance:: Fix release workflow being completed for any push.
+
+We now should only do a full release workflow if semantic-release triggers one. ([`61b1141`](https://github.com/rjdbcm/OZI/commit/61b1141d0c57e2d526fd6fd7d9128f8d9907015a))
+
+
 ## v0.0.46 (2023-09-04)
 
 ### :pencil2:
