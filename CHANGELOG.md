@@ -2,13 +2,19 @@
 
 
 
-## v0.0.47 (2023-09-04)
+## v0.0.47 (2023-09-05)
 
 ### :ambulance:
+
+* :ambulance::construction_worker:: Fix release step outputs. ([`50c8a94`](https://github.com/rjdbcm/OZI/commit/50c8a943df4650a2ae6b63366b6f470a8d8f66c8))
 
 * :construction_worker::ambulance:: Fix release workflow being completed for any push.
 
 We now should only do a full release workflow if semantic-release triggers one. ([`61b1141`](https://github.com/rjdbcm/OZI/commit/61b1141d0c57e2d526fd6fd7d9128f8d9907015a))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`19736ab`](https://github.com/rjdbcm/OZI/commit/19736ab7e3068fb3f7d5b5f0d62e64c81b79db38))
 
 
 ## v0.0.46 (2023-09-04)
