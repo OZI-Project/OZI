@@ -2,19 +2,19 @@
 # PYTHON_ARGCOMPLETE_OK
 """quick-start OZI project creation script."""
 import argparse
+import re
+import sys
 from datetime import datetime, timezone
 from difflib import get_close_matches
 from pathlib import Path
-import re
-import sys
 from typing import NoReturn, Union
 from urllib.parse import urlparse
 from warnings import warn
 
+from email_validator import EmailNotValidError, validate_email
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from pyparsing import ParseException, Regex
 from spdx_license_list import LICENSES
-from email_validator import validate_email, EmailNotValidError
-from pyparsing import Regex, ParseException
 from trove_classifiers import classifiers
 
 ambiguous_licenses = [
@@ -56,12 +56,20 @@ source_templates = [
     'project.name/meson.build',
 ]
 status = [
-    i[len(status_prefix):].lstrip() for i in classifiers if i.startswith(status_prefix)
+    i[len(status_prefix) :].lstrip()
+    for i in classifiers
+    if i.startswith(status_prefix)
 ]
 licenses = [
-    i[len(license_prefix):].lstrip() for i in classifiers if i.startswith(license_prefix)
+    i[len(license_prefix) :].lstrip()
+    for i in classifiers
+    if i.startswith(license_prefix)
 ]
-topic = [i[len(topic_prefix):].lstrip() for i in classifiers if i.startswith(topic_prefix)]
+topic = [
+    i[len(topic_prefix) :].lstrip()
+    for i in classifiers
+    if i.startswith(topic_prefix)
+]
 license_spdx = [k for k, v in LICENSES.items() if v.deprecated_id is False]
 
 
@@ -207,8 +215,7 @@ def main() -> Union[NoReturn, None]:
         exit(0)
     if project.list == 'license-spdx':
         print(
-            *sorted((k for k, v in LICENSES.items() if v.deprecated_id is False)),
-            sep='\n'
+            *sorted((k for k, v in LICENSES.items() if v.deprecated_id is False)), sep='\n'
         )
         exit(0)
     if project.list == 'status':
@@ -252,7 +259,10 @@ def main() -> Union[NoReturn, None]:
         )
         project.email = emailinfo.normalized
     except EmailNotValidError as e:
-        warn(f'{str(e)}\nInvalid maintainer email format or domain unreachable.', RuntimeWarning)
+        warn(
+            f'{str(e)}\nInvalid maintainer email format or domain unreachable.',
+            RuntimeWarning,
+        )
 
     try:
         Regex('^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$', re.IGNORECASE).parse_string(
