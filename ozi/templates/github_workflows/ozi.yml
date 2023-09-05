@@ -94,19 +94,19 @@ jobs:
       run: echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
 
     - name: Set up Python 3.9
-      if: matrix.py == 'py39' && steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
+      if: matrix.py == 'py39'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         python-version: '3.9'
 
     - name: Set up Python 3.10
-      if: matrix.py == 'py310' && steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
+      if: matrix.py == 'py310'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         python-version: '3.10'
 
     - name: Set up Python 3.11 
-      if: matrix.py == 'py311' && steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
+      if: matrix.py == 'py311'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         python-version: '3.11'
