@@ -18,7 +18,6 @@ OZI
 ===
 
 |py-version-badge| |openssf-badge| |slsa-level3-badge| |fossa-badge| |semantic-release-badge|
-|coverage-badge|
 |bandit-badge| |black-badge| |isort-badge| |flake8-badge| |pyright-badge| |rst-lint-badge|
 
 .. image:: https://raw.githubusercontent.com/sigstore/community/main/artwork/badge/sigstore_codesigned_purple.png
@@ -31,8 +30,11 @@ Project Information
 
 OZI,
 is a packaging management plane for Python packages
-built with Meson_. This allows you to create a versioned and traceable
-system of development practices.
+built with Meson_. OZI helps create a version controlled
+system of packaging practices.
+
+See the `documentation <https://docs.oziproject.dev/>`_ for the project roadmap,
+API specification, and Meson version support information.
 
 Purpose
 ^^^^^^^
@@ -53,8 +55,8 @@ The following checkpointed environments:
 
 * code testing and coverage
 * distributing Python packages with Meson_
-* documentation linting, build, and doctests
 * code linting and formatting
+* documentation linting, build, and doctests 🚧 Work in Progress 🚧
 
 Message from the Maintainer
 ###########################
@@ -62,13 +64,6 @@ Message from the Maintainer
 I just wanted packaging to work without having to reorient myself to best practices every time. 
 This is a solution to help me package Python modules with Meson.
 OZI can also help to synchronize packaging practices across packages using it, helping to reduce maintenance time.
-
-Limitations
-^^^^^^^^^^^
-
-Due to reliance on features introduced in
-`Meson version 1.1.0 <https://mesonbuild.com/Release-notes-for-1-1-0.html>`_
-that is our minimum supported version, we do not currently plan support for prior releases. 
 
 Contributing
 ^^^^^^^^^^^^
@@ -130,7 +125,7 @@ source software.
 Contact
 -------
 
-Ross J. Duff MSc - `@rossdabass <https://twitter.com/rossdabass>`_
+Ross J. Duff MSc - help@oziproject.dev
 
 
 .. |py-version-badge| image:: https://img.shields.io/pypi/pyversions/ozi
@@ -159,8 +154,6 @@ Ross J. Duff MSc - `@rossdabass <https://twitter.com/rossdabass>`_
     :target: https://pycqa.github.io/isort/
 .. |pyright-badge| image:: https://img.shields.io/badge/typing-%E2%9C%94%20Pyright%3A%200%20e%2C%200%20w%2C%200%20i-informational
 .. |rst-lint-badge| image:: https://img.shields.io/badge/rst--lint-%E2%9C%94%20README.rst-informational
-
-.. |coverage-badge| image:: https://img.shields.io/badge/Coverage.py-%E2%9C%94%20100%25-success
 
 .. |osi-logo| image:: https://149753425.v2.pressablecdn.com/wp-content/uploads/2009/06/OSIApproved_100X125.png
  :height: 100
