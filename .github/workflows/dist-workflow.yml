@@ -95,10 +95,10 @@ jobs:
       run: echo "created=${{ steps.release.outputs.released }}" >> $GITHUB_OUTPUT
 
     - uses: actions/download-artifact@v3
-      if: steps.release.outputs.released == 'true' || job.status.drafted == 'true' && matrix.py == 'py310' || matrix.py == 'py311'
+      if: job.status.drafted == 'true' && matrix.py == 'py310' || matrix.py == 'py311'
 
     - name: Move artifact
-      if: steps.release.outputs.released == 'true' || job.status.drafted == 'true' && matrix.py == 'py310' || matrix.py == 'py311'
+      if: job.status.drafted == 'true' && matrix.py == 'py310' || matrix.py == 'py311'
       run: cp -a artifact/. ./
 
     - name: Set version
