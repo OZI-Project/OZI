@@ -4,11 +4,25 @@
 
 ## v0.0.50 (2023-09-05)
 
+### :ambulance:
+
+* :hammer::ambulance:: Fixed ``ozi/new.py`` PKG-INFO. |
+
+Also added environment, framework, language and typing to PKG-INFO. ([`5e53d4d`](https://github.com/rjdbcm/OZI/commit/5e53d4dfa77dec79185cf2439728fce378f6a421))
+
 ### :hammer:
 
 * :hammer:: Add ``--audience`` to ``ozi/new.py``.
 
 Also fixed PKG-INFO template. ([`d9bf177`](https://github.com/rjdbcm/OZI/commit/d9bf177d22215b20356ba9ac7c7c34958cb3638a))
+
+### :pencil2:
+
+* :pencil2:: Remove ``__init__.pyi``from meson.build. ([`5e5e583`](https://github.com/rjdbcm/OZI/commit/5e5e583cdf323c6b1913e7d6a73311e928bcf9fb))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`35a07e2`](https://github.com/rjdbcm/OZI/commit/35a07e2006913f89d5de6323c9664e12aac1ceb2))
 
 
 ## v0.0.49 (2023-09-05)
