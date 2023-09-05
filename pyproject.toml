@@ -98,7 +98,7 @@ ignore = ["D000", "D002"]
 ban-relative-imports = "parents"
 max-line-length = 93
 extend-exclude = ["build-env-*", "venv", "build*", "*.pyi"]
-extend-ignore = "E501"
+extend-ignore = "E203,E501"
 extend-select = "B950"
 
 [tool.isort]
