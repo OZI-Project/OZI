@@ -7,15 +7,15 @@ import sys
 from datetime import datetime, timezone
 from difflib import get_close_matches
 from pathlib import Path
-from typing import NoReturn, Union
+from typing import Any, NoReturn, Sequence, Union
 from urllib.parse import urlparse
 from warnings import warn
 
 from email_validator import EmailNotValidError, validate_email
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from pyparsing import ParseException, Regex
-from spdx_license_list import LICENSES
-from trove_classifiers import classifiers
+from spdx_license_list import LICENSES  # type: ignore
+from trove_classifiers import classifiers  # type: ignore
 
 ambiguous_licenses = [
     'OSI Approved :: Academic Free License (AFL)',
@@ -39,8 +39,11 @@ top4 = [
     'GNU General Public License v3',
     'Apache Software License',
 ]
+framework_prefix = 'Framework :: '
+environment_prefix = 'Environment :: '
 audience_prefix = 'Intended Audience :: '
 status_prefix = 'Development Status :: '
+language_prefix = 'Natural Language :: '
 license_prefix = 'License :: '
 topic_prefix = 'Topic :: '
 root_templates = [
@@ -64,6 +67,21 @@ class CloseMatch(argparse.Action):
         i[len(audience_prefix) :].lstrip()
         for i in classifiers
         if i.startswith(audience_prefix)
+    ]
+    language = [
+        i[len(language_prefix) :].lstrip()
+        for i in classifiers
+        if i.startswith(language_prefix)
+    ]
+    framework = [
+        i[len(framework_prefix) :].lstrip()
+        for i in classifiers
+        if i.startswith(framework_prefix)
+    ]
+    environment = [
+        i[len(environment_prefix) :].lstrip()
+        for i in classifiers
+        if i.startswith(environment_prefix)
     ]
     license = [
         i[len(license_prefix) :].lstrip()
@@ -99,11 +117,16 @@ class CloseMatch(argparse.Action):
         self: argparse.Action,
         parser: argparse.ArgumentParser,
         namespace: argparse.Namespace,
-        values: str,
-        option_string: str,
+        values: Union[str, Sequence[Any], None],
+        option_string: Union[str, None] = None,
     ) -> None:
         """Action business logic."""
-        key = option_string.lstrip('-').replace('-', '_')
+        if option_string is not None:
+            key = option_string.lstrip('-').replace('-', '_')
+        else:
+            key = ''
+        if values is None:
+            values = ''
         try:
             values = get_close_matches(values, self.__getattribute__(key), cutoff=0.40)[0]
         except IndexError:
@@ -189,6 +212,38 @@ defaults.add_argument(
     action=CloseMatch,
 )
 defaults.add_argument(
+    '--typing',
+    type=str,
+    metavar='TYPING e.g. Typed, Stubs Only',
+    default='Typed',
+    help='typing for the project (OZI specifies Typed packages).'
+)
+optional = project_parser.add_argument_group('optional')
+optional.add_argument(
+    '--environment',
+    default='English',
+    help='primary environment for project use case',
+    metavar='ENV e.g. Console, Plugins, etc',
+    action=CloseMatch,
+    type=str,
+)
+optional.add_argument(
+    '--framework',
+    default='English',
+    help='primary project framework',
+    metavar='FRMWK e.g. tox, Flake8, etc',
+    action=CloseMatch,
+    type=str,
+)
+defaults.add_argument(
+    '--language',
+    default='English',
+    help='primary natural language',
+    metavar='LANG eg. English, Chinese (Simplified), French etc.',
+    action=CloseMatch,
+    type=str,
+)
+defaults.add_argument(
     '--topic',
     default='Utilities',
     help='Python package topic',
@@ -210,7 +265,16 @@ output.add_argument(
     '-l',
     '--list',
     type=str,
-    choices=['audience', 'license', 'license-spdx', 'status', 'topic'],
+    choices=[
+        'audience',
+        'environment',
+        'framework',
+        'language',
+        'license',
+        'license-spdx',
+        'status',
+        'topic',
+    ],
     help='list valid option settings and exit',
 )
 
@@ -220,6 +284,15 @@ def main() -> Union[NoReturn, None]:
     project = parser.parse_args()
     if project.list == 'license':
         print(*sorted((i for i in CloseMatch.license)), sep='\n')
+        exit(0)
+    if project.list == 'language':
+        print(*sorted((i for i in CloseMatch.language)), sep='\n')
+        exit(0)
+    if project.list == 'framework':
+        print(*sorted((i for i in CloseMatch.framework)), sep='\n')
+        exit(0)
+    if project.list == 'environment':
+        print(*sorted((i for i in CloseMatch.environment)), sep='\n')
         exit(0)
     if project.list == 'license-spdx':
         print(
@@ -266,7 +339,7 @@ def main() -> Union[NoReturn, None]:
 
     try:
         emailinfo = validate_email(
-            project.email, check_deliverability=(~project.no_verify_email)
+            project.email, check_deliverability=project.verify_email
         )
         project.email = emailinfo.normalized
     except EmailNotValidError as e:
