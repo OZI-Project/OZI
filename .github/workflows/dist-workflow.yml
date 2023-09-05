@@ -137,7 +137,7 @@ jobs:
           python -m pip install --user --upgrade ninja
 
     - name: Configure git repository
-      if: matrix.py == 'py39' && steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
+      if: matrix.py == 'py39'
       run: |
           git config --global user.email "noreply@oziproject.dev"
           git config --global user.name "OZI Packaging"
