@@ -127,7 +127,6 @@ Contact
 
 Ross J. Duff MSc - help@oziproject.dev
 
-
 .. |py-version-badge| image:: https://img.shields.io/pypi/pyversions/ozi
     :alt: PyPI - Python Version
 .. |pylint-ckpt-badge| image:: https://img.shields.io/badge/linting-%E2%9C%94%20Pylint%3A%2010.00%2F10-informational
