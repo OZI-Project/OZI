@@ -2,6 +2,13 @@
 
 
 
+## v0.0.48 (2023-09-05)
+
+### :ambulance:
+
+* :ambulance::construction_worker:: Fix wheel versions. Was building all on 3.11. ([`0ccfa1e`](https://github.com/rjdbcm/OZI/commit/0ccfa1e2f6c2aaa6198b5d0152031f1e61ccb4fd))
+
+
 ## v0.0.47 (2023-09-05)
 
 ### :ambulance:
