@@ -2,6 +2,19 @@
 
 
 
+## v0.0.49 (2023-09-05)
+
+### :hammer:
+
+* :hammer:: Fix ``ozi-fix`` crash if PKG-INFO is missing. ([`79048c0`](https://github.com/rjdbcm/OZI/commit/79048c0da7af5eed72ceb595177b9078173af18d))
+
+### Other
+
+* :art:: Blacken and isort ``ozi/new.py``. ([`e1fabc6`](https://github.com/rjdbcm/OZI/commit/e1fabc6a6658d3536185dbb71911c93d0b5dddd9))
+
+* :art: Add E203 to Flake8 ignore to allow for black slice style. ([`e11fef2`](https://github.com/rjdbcm/OZI/commit/e11fef2581a804bd090273e266ad24c1a571c0bc))
+
+
 ## v0.0.48 (2023-09-05)
 
 ### :ambulance:
