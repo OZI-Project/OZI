@@ -34,38 +34,38 @@
 {% endraw %}
 
     - uses: actions/download-artifact@v3
-      if: job.status.drafted == 'true' && matrix.py == 'py310' || matrix.py == 'py311'
+      if: steps.release.outputs.released == 'true' || job.status.drafted == 'true' && matrix.py == 'py310' || matrix.py == 'py311'
 
     - name: Move artifact
-      if: job.status.drafted == 'true' && matrix.py == 'py310' || matrix.py == 'py311'
+      if: steps.release.outputs.released == 'true' || job.status.drafted == 'true' && matrix.py == 'py310' || matrix.py == 'py311'
       run: cp -a artifact/. ./
 
     - name: Set version
-      if: job.status.drafted == 'true'
+      if: steps.release.outputs.released == 'true' || job.status.drafted == 'true'
       id: version
       run: echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
 
     - name: Set up Python 3.9
-      if: matrix.py == 'py39' && job.status.drafted == 'true'
+      if: matrix.py == 'py39' && steps.release.outputs.released == 'true' || job.status.drafted == 'true'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         python-version: '3.9'
 
     - name: Set up Python 3.10
-      if: matrix.py == 'py310' && job.status.drafted == 'true'
+      if: matrix.py == 'py310' && steps.release.outputs.released == 'true' || job.status.drafted == 'true'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         python-version: '3.10'
 
     - name: Set up Python 3.11 
-      if: matrix.py == 'py311' && job.status.drafted == 'true'
+      if: matrix.py == 'py311' && steps.release.outputs.released == 'true' || job.status.drafted == 'true'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         python-version: '3.11'
 {% raw %}
     - name: Install ${{ matrix.py }} build dependencies
 {% endraw %}
-      if: job.status.drafted == 'true'
+      if: steps.release.outputs.released == 'true' || job.status.drafted == 'true'
       run: |
           python -m pip install --upgrade pip
           python -m pip install --user --upgrade build
@@ -76,7 +76,7 @@
           python -m pip install --user --upgrade ninja
 
     - name: Configure git repository
-      if: matrix.py == 'py39' && job.status.drafted == 'true'
+      if: matrix.py == 'py39' && steps.release.outputs.released == 'true' || job.status.drafted == 'true'
       run: |
           git config --global user.email "noreply@oziproject.dev"
           git config --global user.name "OZI Packaging"
@@ -87,7 +87,7 @@
     - name: Build ${{ matrix.py }} wheel
 {% endraw %}
       id: wheel
-      if: job.status.drafted == 'true'
+      if: steps.release.outputs.released == 'true' || job.status.drafted == 'true'
       run: |
         python -m build -w
         git stash -- PKG-INFO
@@ -99,13 +99,13 @@
 {% include sigstore.yml %}
 
     - name: Move dist-info file
-      if: job.status.drafted == 'true'
+      if: steps.release.outputs.released == 'true' || job.status.drafted == 'true'
 {% raw %}
       run: mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}.dist-info
 {% endraw %}
 
     - uses: actions/upload-artifact@master
-      if: job.status.drafted == 'true'
+      if: steps.release.outputs.released == 'true' || job.status.drafted == 'true'
       with:
         path: |
           ./
