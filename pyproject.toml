@@ -201,12 +201,13 @@ Classifier: Natural Language :: English
 Classifier: Intended Audience :: Developers
 Classifier: Operating System :: MacOS :: MacOS X
 Classifier: Operating System :: POSIX :: Linux
-Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
 Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
 Classifier: Programming Language :: Python :: Implementation :: CPython
-Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Quality Assurance 
+Classifier: Topic :: Software Development :: Build Tools
 Classifier: Environment :: Console
 Project-URL: Homepage, https://oziproject.dev/
 Project-URL: Download, https://github.com/rjdbcm/ozi/archive/refs/heads/main.zip
