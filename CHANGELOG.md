@@ -2,6 +2,21 @@
 
 
 
+## v0.0.52 (2023-09-06)
+
+### :children_crossing:
+
+* :children_crossing::memo:: Update Topics and Clarify Python 3 Only. ([`cfbabcf`](https://github.com/rjdbcm/OZI/commit/cfbabcf008d7ec3d8e32b0e54c073d99c4147475))
+
+* :children_crossing:: Improve help string for main script. ([`716085b`](https://github.com/rjdbcm/OZI/commit/716085b6a7c6ae94f2b10926dbba95d0f38c4613))
+
+### :hammer:
+
+* :hammer:: Improve main entrypoint help.
+
+Also made ``--version`` work. ([`d804b32`](https://github.com/rjdbcm/OZI/commit/d804b320d7d074f9085b8b31631c2f614b8695c0))
+
+
 ## v0.0.51 (2023-09-05)
 
 ### :bento:
