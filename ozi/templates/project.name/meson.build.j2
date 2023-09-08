@@ -18,3 +18,10 @@ endif
 if false
     executable('source_files', config_files)
 endif
+children = []
+foreach child: children
+    subdir(child)
+endforeach
+if false
+    executable('source_children', children)
+endif

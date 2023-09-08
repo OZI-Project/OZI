@@ -1,0 +1,18 @@
+{% for line in project.copyright_head.split('\n') %}
+{{ '#' }} {{ line }}
+{% endfor %}
+config_files = []
+foreach file: config_files
+  fs.copyfile(file)
+  python.install_sources(file, subdir: '{{ project.name }}'/'tests')
+endforeach
+if false
+  executable('test_files', config_files)
+endif
+children = []
+foreach child: children
+    subdir(child)
+endforeach
+if false
+    executable('test_children', children)
+endif
