@@ -2,6 +2,21 @@
 
 
 
+## v0.0.54 (2023-09-08)
+
+### :children_crossing:
+
+* :hammer::children_crossing:: Update templates - add test and module templates. ([`3ab9892`](https://github.com/rjdbcm/OZI/commit/3ab9892b160a6f163bb9d5741b7cf7944f59e589))
+
+### :hammer:
+
+* :hammer:: Added LICENSE.txt template and license selection disambiguation. ([`f4e52d0`](https://github.com/rjdbcm/OZI/commit/f4e52d01a8164a5384f655529657eee69f4d461b))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`ca661f2`](https://github.com/rjdbcm/OZI/commit/ca661f2fbbf6be4335d457deebe7f3ae625e33e4))
+
+
 ## v0.0.53 (2023-09-06)
 
 ### :ambulance:
