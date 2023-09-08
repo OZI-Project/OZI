@@ -1,0 +1,3 @@
+{% set license_template = project.license.split('::')|map('underscorify')|join('/') %}
+{% set path = ['license', license_template, project.license_spdx|lower ~ '.txt']|join('/') %}
+{% include path %}

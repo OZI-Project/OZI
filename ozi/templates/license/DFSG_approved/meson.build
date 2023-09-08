@@ -12,18 +12,30 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-python_files = ['__init__.py', '__main__.py', 'fix.py', 'new.py']
-foreach file : files(python_files)
+files = [
+    'agpl-3.0-only.txt',
+    'agpl-3.0-or-later.txt',
+    'apache-2.0.txt',
+    'artistic-2.0.txt',
+    'cc-by-4.0.txt',
+    'cc-by-sa-4.0.txt',
+    'epl-1.0.txt',
+    'gpl-2.0-only.txt',
+    'gpl-2.0-or-later.txt',
+    'gpl-3.0-only.txt',
+    'gpl-3.0-or-later.txt',
+    'isc.txt',
+    'lgpl-2.1-or-later.txt',
+    'lgpl-3.0-only.txt',
+    'lgpl-3.0-or-later.txt',
+    'mit.txt',
+    'ofl-1.1.txt',
+    'wtfpl.txt',
+    'zlib.txt',
+]
+foreach file: files
     fs.copyfile(file)
-    python.install_sources(file, pure: true, subdir: 'ozi')
+    python.install_sources(
+        file, 
+        subdir: 'ozi'/'templates'/'license'/fs.name(meson.current_source_dir()))
 endforeach
-if false
-    executable('source_files', python_files)
-endif
-children = ['assets', 'templates', 'scripts']
-foreach child: children
-    subdir(child)
-endforeach
-if false
-    executable('source_children', children)
-endif

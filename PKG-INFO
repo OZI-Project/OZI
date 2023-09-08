@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: OZI
-Version: 0.0.51
+Version: 0.0.53
 Summary: Packaged with OZI.
 Classifier: License :: OSI Approved :: Apache Software License
 Classifier: Development Status :: 2 - Pre-Alpha
@@ -13,7 +13,7 @@ Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
 Classifier: Programming Language :: Python :: Implementation :: CPython
-Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Software Development :: Quality Assurance 
 Classifier: Topic :: Software Development :: Build Tools
 Classifier: Environment :: Console
 Project-URL: Homepage, https://oziproject.dev/

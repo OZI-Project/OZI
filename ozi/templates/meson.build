@@ -14,17 +14,29 @@
 # under the License.
 root_templates = [
     '.gitignore.j2',
+    'LICENSE.txt.j2',
+    'NOTICE.j2',
+    'PKG-INFO.j2',
+    'README.rst.j2',
     'meson.build.j2',
     'meson.options.j2',
-    'PKG-INFO.j2',
     'pyproject.toml.j2',
-    'README.rst.j2',
 ]
 foreach file: root_templates
     fs.copyfile(file)
     python.install_sources(file, subdir: 'ozi'/'templates')
 endforeach
-subdir('project.name')
-subdir('api/required')
-subdir('api/optional')
-subdir('github_workflows')
+children = [
+    'project.name',
+    'api/required',
+    'api/optional',
+    'github_workflows',
+    'license',
+    'tests',
+]
+foreach child: children
+    subdir(child)
+endforeach
+if false
+    executable('templates_children', children)
+endif

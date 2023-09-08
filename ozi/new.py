@@ -5,142 +5,24 @@ import argparse
 import re
 import sys
 from datetime import datetime, timezone
-from difflib import get_close_matches
 from pathlib import Path
-from typing import Any, NoReturn, Sequence, Union
+from typing import NoReturn, Union
 from urllib.parse import urlparse
 from warnings import warn
 
 from email_validator import EmailNotValidError, validate_email
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from pyparsing import ParseException, Regex
-from spdx_license_list import LICENSES  # type: ignore
-from trove_classifiers import classifiers  # type: ignore
 
-ambiguous_licenses = [
-    'OSI Approved :: Academic Free License (AFL)',
-    'OSI Approved :: Apache Software License',
-    'OSI Approved :: Apple Public Source License',
-    'OSI Approved :: Artistic License',
-    'OSI Approved :: BSD License',
-    'OSI Approved :: GNU Affero General Public License v3',
-    'OSI Approved :: GNU Free Documentation License (FDL)',
-    'OSI Approved :: GNU General Public License (GPL)',
-    'OSI Approved :: GNU General Public License v2 (GPLv2)',
-    'OSI Approved :: GNU General Public License v3 (GPLv3)',
-    'OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)',
-    'OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)',
-    'OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
-    'OSI Approved :: GNU Library or Lesser General Public License (LGPL)',
-]
-top4 = [
-    'MIT License',
-    'BSD License',
-    'GNU General Public License v3',
-    'Apache Software License',
-]
-framework_prefix = 'Framework :: '
-environment_prefix = 'Environment :: '
-audience_prefix = 'Intended Audience :: '
-status_prefix = 'Development Status :: '
-language_prefix = 'Natural Language :: '
-license_prefix = 'License :: '
-topic_prefix = 'Topic :: '
-root_templates = [
-    '.gitignore',
-    'meson.build',
-    'meson.options',
-    'PKG-INFO',
-    'pyproject.toml',
-    'README.rst',
-]
-source_templates = [
-    'project.name/__init__.py',
-    'project.name/meson.build',
-]
-
-
-class CloseMatch(argparse.Action):
-    """Special choices action. Warn the user if a close match could not be found."""
-
-    audience = [
-        i[len(audience_prefix) :].lstrip()
-        for i in classifiers
-        if i.startswith(audience_prefix)
-    ]
-    language = [
-        i[len(language_prefix) :].lstrip()
-        for i in classifiers
-        if i.startswith(language_prefix)
-    ]
-    framework = [
-        i[len(framework_prefix) :].lstrip()
-        for i in classifiers
-        if i.startswith(framework_prefix)
-    ]
-    environment = [
-        i[len(environment_prefix) :].lstrip()
-        for i in classifiers
-        if i.startswith(environment_prefix)
-    ]
-    license = [
-        i[len(license_prefix) :].lstrip()
-        for i in classifiers
-        if i.startswith(license_prefix)
-    ]
-    license_spdx = [k for k, v in LICENSES.items() if v.deprecated_id is False]
-    status = [
-        i[len(status_prefix) :].lstrip()
-        for i in classifiers
-        if i.startswith(status_prefix)
-    ]
-    topic = [
-        i[len(topic_prefix) :].lstrip()
-        for i in classifiers
-        if i.startswith(topic_prefix)
-    ]
-
-    def __init__(
-        self: argparse.Action,
-        option_strings,  # noqa: ANN001
-        dest,  # noqa: ANN001
-        nargs=None,  # noqa: ANN001
-        **kwargs,  # noqa: ANN003
-    ) -> None:
-        """argparse init"""
-        if nargs is not None:
-            raise ValueError('nargs not allowed')
-
-        super().__init__(option_strings, dest, **kwargs)
-
-    def __call__(
-        self: argparse.Action,
-        parser: argparse.ArgumentParser,
-        namespace: argparse.Namespace,
-        values: Union[str, Sequence[Any], None],
-        option_string: Union[str, None] = None,
-    ) -> None:
-        """Action business logic."""
-        if option_string is not None:
-            key = option_string.lstrip('-').replace('-', '_')
-        else:
-            key = ''
-        if values is None:
-            values = ''
-        try:
-            values = get_close_matches(values, self.__getattribute__(key), cutoff=0.40)[0]
-        except IndexError:
-            warn(
-                '\n'.join(
-                    [
-                        f'No {key} choice matching "{values}" available.',
-                        'To list available options:',
-                        f'$ ozi-new -l {key}',
-                    ]
-                ),
-                RuntimeWarning,
-            )
-        setattr(namespace, self.dest, values)
+from .assets import (
+    CloseMatch,
+    LICENSES,
+    ambiguous_licenses,
+    root_templates,
+    source_templates,
+    spdx_options,
+    top4,
+)
 
 
 env = Environment(
@@ -148,22 +30,35 @@ env = Environment(
     autoescape=select_autoescape(),
     enable_async=True,
 )
+
+
+def underscorify(s: str) -> str:
+    """Filter to replace non-alphanumerics with underscores."""
+    return re.sub('[^0-9a-zA-Z]', '_', s)
+
+
+env.filters['underscorify'] = underscorify
+
 parser = argparse.ArgumentParser(
     prog='ozi-new', description=sys.modules[__name__].__doc__, add_help=False
 )
 subparser = parser.add_subparsers(help='project help')
-project_parser = subparser.add_parser('project', add_help=False)
+project_parser = subparser.add_parser(
+    'project',
+    description='Create a new Python project with OZI.',
+    add_help=False)
 required = project_parser.add_argument_group('required')
 required.add_argument('--name', type=str, help='name of project')
 required.add_argument('--author', type=str, help='author of project')
 required.add_argument('--email', type=str, help='valid author email')
 required.add_argument('--summary', type=str, help='short summary')
 required.add_argument('--homepage', type=str, help='homepage URL')
-required.add_argument(
+license = project_parser.add_argument_group('license options')
+license.add_argument(
     '--license-spdx',
     type=str,
     metavar='ID e.g. MIT, BSD-2-Clause, GPL-3.0-or-later, Apache-2.0',
-    help='SPDX short ID',
+    help='SPDX short ID for license disambiguation',
 )
 required.add_argument(
     '--license',
@@ -180,7 +75,7 @@ required.add_argument(
 email = project_parser.add_argument_group('email options')
 email.add_argument(
     '--verify-email',
-    default='--verify-email',
+    default='--no-verify-email',
     action=argparse.BooleanOptionalAction,
     help='email domain deliverability check',
 )
@@ -190,13 +85,14 @@ defaults.add_argument(
     type=str,
     default='',
     help='copyright header string',
-    metavar='COPYRIGHT_HEAD="Copyright {year}, {author}\\nSee LICENSE..."',
+    metavar='"Copyright {year}, {author}\\nSee LICENSE..."',
 )
 defaults.add_argument(
     '--ci-provider',
     type=str,
     default='github',
     choices=('github',),
+    metavar='"github"',
     help='continuous integration and release provider',
 )
 project_output = project_parser.add_mutually_exclusive_group()
@@ -206,7 +102,7 @@ project_output.add_argument(
 defaults.add_argument(
     '--audience',
     type=str,
-    metavar='AUDIENCE e.g. Developers, End Users/Desktop',
+    metavar='"Other Audience"',
     default='Other Audience',
     help='audience for the project',
     action=CloseMatch,
@@ -214,24 +110,24 @@ defaults.add_argument(
 defaults.add_argument(
     '--typing',
     type=str,
-    metavar='TYPING e.g. Typed, Stubs Only',
+    metavar='"Typed"',
     default='Typed',
     help='typing for the project (OZI specifies Typed packages).'
 )
-optional = project_parser.add_argument_group('optional')
-optional.add_argument(
+defaults.add_argument(
     '--environment',
-    default='English',
+    default='Other Environment',
     help='primary environment for project use case',
-    metavar='ENV e.g. Console, Plugins, etc',
+    metavar='"Other Environment"',
     action=CloseMatch,
     type=str,
 )
+optional = project_parser.add_argument_group('optional')
 optional.add_argument(
     '--framework',
-    default='English',
+    default='',
     help='primary project framework',
-    metavar='FRMWK e.g. tox, Flake8, etc',
+    metavar='FRAMEWORK e.g. tox, Flake8, etc',
     action=CloseMatch,
     type=str,
 )
@@ -239,7 +135,7 @@ defaults.add_argument(
     '--language',
     default='English',
     help='primary natural language',
-    metavar='LANG eg. English, Chinese (Simplified), French etc.',
+    metavar='"English"',
     action=CloseMatch,
     type=str,
 )
@@ -247,7 +143,7 @@ defaults.add_argument(
     '--topic',
     default='Utilities',
     help='Python package topic',
-    metavar='TOPIC="Utilities"',
+    metavar='"Utilities"',
     action=CloseMatch,
     type=str,
 )
@@ -256,7 +152,7 @@ defaults.add_argument(
     action=CloseMatch,
     default='1 - Planning',
     help='Python package status',
-    metavar='STATUS="1 - Planning"',
+    metavar='"1 - Planning"',
     type=str,
 )
 output = parser.add_mutually_exclusive_group()
@@ -281,6 +177,7 @@ output.add_argument(
 
 def main() -> Union[NoReturn, None]:
     """Main ozi.new entrypoint."""
+    ambiguous_license_classifier = True
     project = parser.parse_args()
     if project.list == 'license':
         print(*sorted((i for i in CloseMatch.license)), sep='\n')
@@ -313,17 +210,17 @@ def main() -> Union[NoReturn, None]:
         parser.print_help()
         exit(0)
 
-    year = datetime.now(tz=datetime.now(timezone.utc).astimezone().tzinfo).year
+    project.copyright_year = datetime.now(tz=datetime.now(timezone.utc).astimezone().tzinfo).year
     if len(project.copyright_head) == 0:
         project.copyright_head = '\n'.join(
             [
-                f'Copyright {year}, {project.author}',
+                f'Copyright {project.copyright_year}, {project.author}',
                 'See LICENSE.txt in the project root for details.',
             ]
         )
     else:
         project.copyright_head = project.copyright_head.format(
-            year=year, author=project.author
+            year=project.copyright_year, author=project.author
         )
 
     if project.license in ambiguous_licenses:
@@ -333,6 +230,17 @@ def main() -> Union[NoReturn, None]:
             'This will need updated when PEP 639 is implemented.',
         ]
         warn('\n'.join(msg), PendingDeprecationWarning)
+    else:
+        ambiguous_license_classifier = False
+
+    possible_spdx = spdx_options.get(project.license, [])
+    if ambiguous_license_classifier and project.license_spdx not in possible_spdx:
+        msg = [
+            'Cannot disambiguate license automatically.',
+            'Please set --spdx-license',
+            f'to one of: {", ".join(possible_spdx)}'
+        ]
+        warn('\n'.join(msg), RuntimeWarning)
 
     if len(project.summary) > 512:
         warn('Project summary exceeds 512 characters (PyPI limit).', RuntimeWarning)

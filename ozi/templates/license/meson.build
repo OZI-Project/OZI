@@ -12,18 +12,16 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-python_files = ['__init__.py', '__main__.py', 'fix.py', 'new.py']
-foreach file : files(python_files)
-    fs.copyfile(file)
-    python.install_sources(file, pure: true, subdir: 'ozi')
-endforeach
-if false
-    executable('source_files', python_files)
-endif
-children = ['assets', 'templates', 'scripts']
+children = [
+    'CC0 1.0 Universal (CC0 1.0) Public Domain Dedication',
+    'DFSG approved',
+    'Free To Use But Restricted',
+    'OSI Approved',
+    'Public Domain',
+]
 foreach child: children
-    subdir(child)
+    subdir(child.underscorify())
 endforeach
 if false
-    executable('source_children', children)
+    executable('templates_license_children', children)
 endif
