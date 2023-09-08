@@ -2,6 +2,13 @@
 
 
 
+## v0.0.53 (2023-09-06)
+
+### :ambulance:
+
+* :ambulance:: Fix entrypoint version arg. ([`e098e8c`](https://github.com/rjdbcm/OZI/commit/e098e8c43e8fbf07d5e76b8ac851ac4175903c27))
+
+
 ## v0.0.52 (2023-09-06)
 
 ### :children_crossing:
