@@ -2,6 +2,13 @@
 
 
 
+## v0.0.63 (2023-09-09)
+
+### :bug:
+
+* :bug:: Fix for loop over numeric range in Jinja templates. ([`940efbb`](https://github.com/rjdbcm/OZI/commit/940efbbf0464bca6fd8c60e92304e3e39ea06c78))
+
+
 ## v0.0.62 (2023-09-09)
 
 ### :bug:
