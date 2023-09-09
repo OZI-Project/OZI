@@ -23,4 +23,4 @@ Project-URL: Homepage, {{ project.homepage }}
 Project-URL: Download, {{ project.download }}
 Description-Content-Type: text/x-rst
 
-{% include README.rst %}
+{% include 'README.rst.j2' %}
