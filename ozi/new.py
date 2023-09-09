@@ -11,7 +11,7 @@ from urllib.parse import urlparse
 from warnings import warn
 
 from email_validator import EmailNotValidError, validate_email
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+from jinja2 import Environment, PackageLoader, select_autoescape
 from pyparsing import ParseException, Regex
 
 from .assets import (
@@ -26,7 +26,7 @@ from .assets import (
 
 
 env = Environment(
-    loader=FileSystemLoader(['templates', 'templates/project.name']),
+    loader=PackageLoader('ozi'),
     autoescape=select_autoescape(),
     enable_async=True,
 )
