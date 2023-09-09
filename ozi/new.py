@@ -221,7 +221,7 @@ def main() -> Union[NoReturn, None]:
 
     if project.license in ambiguous_licenses:
         msg = [
-            f'Ambiguous License string per PEP 639: {project.licenses}',
+            f'Ambiguous License string per PEP 639: {project.license}',
             'See also: https://github.com/pypa/trove-classifiers/issues/17',
             'This will need updated when PEP 639 is implemented.',
         ]
