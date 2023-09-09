@@ -2,6 +2,13 @@
 
 
 
+## v0.0.65 (2023-09-09)
+
+### :bug:
+
+* :hammer::bug:: Add split filter to template globals. ([`935c1a2`](https://github.com/rjdbcm/OZI/commit/935c1a25dad5e2502a5f25203f888e2431f82d14))
+
+
 ## v0.0.64 (2023-09-09)
 
 ### :bug:
