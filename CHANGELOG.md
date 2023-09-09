@@ -2,6 +2,19 @@
 
 
 
+## v0.0.61 (2023-09-09)
+
+### :hammer:
+
+* :hammer:: ``ozi-new`` exit(1) for non-empty directory. ([`091d88e`](https://github.com/rjdbcm/OZI/commit/091d88e88ce62a35b5597eee21cc6355010f7518))
+
+* :hammer::truck:: Move templates. ([`199bea2`](https://github.com/rjdbcm/OZI/commit/199bea2f339c98a648cb44878a0e9dfe5f1ad691))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`301e338`](https://github.com/rjdbcm/OZI/commit/301e3382cd3c69478ea76c3a60940b842c5c4f48))
+
+
 ## v0.0.60 (2023-09-09)
 
 ### :ambulance:
