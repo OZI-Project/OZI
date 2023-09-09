@@ -259,7 +259,7 @@ def main() -> Union[NoReturn, None]:
     except ParseException as e:
         warn(f'{str(e)}\nInvalid project name.', RuntimeWarning)
 
-    home_url = urlparse(project.homepage).geturl
+    home_url = urlparse(project.homepage).geturl()
     if home_url.scheme != 'https':
         warn('Homepage url scheme unsupported.', RuntimeWarning)
 
