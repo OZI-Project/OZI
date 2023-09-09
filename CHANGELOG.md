@@ -2,6 +2,13 @@
 
 
 
+## v0.0.64 (2023-09-09)
+
+### :bug:
+
+* :bug::hammer:: Unite default Jinja Namespace with ours. ([`7b0d394`](https://github.com/rjdbcm/OZI/commit/7b0d394161e1f6d2eaa3d7ce30689c03cc9e04ad))
+
+
 ## v0.0.63 (2023-09-09)
 
 ### :bug:
