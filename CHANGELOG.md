@@ -2,6 +2,13 @@
 
 
 
+## v0.0.60 (2023-09-09)
+
+### :ambulance:
+
+* :ambulance:: Fix Jinja includes to use a quoted string. ([`a675068`](https://github.com/rjdbcm/OZI/commit/a675068ae2dc1d985613fcfb87d2e2f7f999ba22))
+
+
 ## v0.0.59 (2023-09-09)
 
 ### :ambulance:
