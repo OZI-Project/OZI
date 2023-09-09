@@ -37,6 +37,7 @@ root_templates = [
     'project.meson.build',
     'project.PKG-INFO',
     'pyright.meson.options',
+    'pyright.pyproject.toml',
     'pytest.pyproject.toml',
     'semantic_release.pyproject.toml',
     'setuptools_scm.pyproject.toml',
