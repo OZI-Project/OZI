@@ -269,6 +269,9 @@ def main() -> Union[NoReturn, None]:
     project.name = re.sub(r'[-_.]+', '-', project.name).lower()
     project.target = Path(project.target)
 
+    if any(project.target.iterdir()):
+        raise FileExistsError('Directory not empty.')
+
     env.globals = {'project': vars(project)}
     Path(project.target, project.name).mkdir()
     Path(project.target, '.github', 'workflows').mkdir(parents=True)
