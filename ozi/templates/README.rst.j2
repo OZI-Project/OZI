@@ -1,9 +1,9 @@
 {% set numchar = project.name|length%}
-{% for c in numchar %}
+{% for c in range(numchar) %}
 *
 {% endfor %}
 {{ project.name }}
-{% for c in numchar %}
+{% for c in range(numchar) %}
 *
 {% endfor %}
 
