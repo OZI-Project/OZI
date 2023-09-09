@@ -2,6 +2,13 @@
 
 
 
+## v0.0.62 (2023-09-09)
+
+### :bug:
+
+* :hammer::bug:: Fix improper filter invocation in Jinja templates. ([`df1fe8d`](https://github.com/rjdbcm/OZI/commit/df1fe8d56f272599941de823272eeab725d9800f))
+
+
 ## v0.0.61 (2023-09-09)
 
 ### :hammer:
