@@ -2,6 +2,13 @@
 
 
 
+## v0.0.66 (2023-09-09)
+
+### :bug:
+
+* :bug::hammer:: Fix incorrect use of split function. ([`b6362b4`](https://github.com/rjdbcm/OZI/commit/b6362b454858aeb04dc2930a5c06a42088c6bc3a))
+
+
 ## v0.0.65 (2023-09-09)
 
 ### :bug:
