@@ -2,6 +2,13 @@
 
 
 
+## v0.0.58 (2023-09-09)
+
+### :hammer:
+
+* :hammer::pencil2:: Fix uneeded call to geturl(). ([`a0d6f35`](https://github.com/rjdbcm/OZI/commit/a0d6f3597740ecac4d8fd48a87cee3c4097a6f3e))
+
+
 ## v0.0.57 (2023-09-09)
 
 ### :hammer:
