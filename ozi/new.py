@@ -272,7 +272,7 @@ def main() -> Union[NoReturn, None]:
     if any(project.target.iterdir()):
         raise FileExistsError('Directory not empty.')
 
-    env.globals = env.globals | {'project': vars(project), 'split': str.split}
+    env.globals = env.globals | {'project': vars(project)}
     Path(project.target, project.name).mkdir()
     Path(project.target, '.github', 'workflows').mkdir(parents=True)
     Path(project.target, 'subprojects').mkdir()
