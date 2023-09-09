@@ -2,6 +2,13 @@
 
 
 
+## v0.0.56 (2023-09-09)
+
+### :hammer:
+
+* :hammer::pencil2:: Fix minor typo and bump the PKG-INFO. ([`165730b`](https://github.com/rjdbcm/OZI/commit/165730b5aeb4ce27be834a1a7801c23ffc4e31ad))
+
+
 ## v0.0.55 (2023-09-09)
 
 ### :ambulance:
