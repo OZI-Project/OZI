@@ -2,6 +2,13 @@
 
 
 
+## v0.0.68 (2023-09-09)
+
+### :bug:
+
+* :bug:: FIX: Add missing pyright pyproject.toml template. ([`dc1b22f`](https://github.com/rjdbcm/OZI/commit/dc1b22fcdd17a657eaa6e1ddc4e16c9c95fad648))
+
+
 ## v0.0.67 (2023-09-09)
 
 ### :pencil2:
