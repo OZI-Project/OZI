@@ -206,10 +206,6 @@ def main() -> Union[NoReturn, None]:
         print(*sorted(i for i in CloseMatch.audience), sep='\n')
         exit(0)
 
-    if 'project' not in project:
-        parser.print_help()
-        exit(0)
-
     project.copyright_year = datetime.now(tz=datetime.now(timezone.utc).astimezone().tzinfo).year
     if len(project.copyright_head) == 0:
         project.copyright_head = '\n'.join(
