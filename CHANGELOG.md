@@ -2,6 +2,17 @@
 
 
 
+## v0.0.57 (2023-09-09)
+
+### :hammer:
+
+* :pencil2::hammer:: Fix geturl() call. ([`b9a770a`](https://github.com/rjdbcm/OZI/commit/b9a770af4c2c4af2812699ca4ea293fccd649956))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`3c755c8`](https://github.com/rjdbcm/OZI/commit/3c755c828d0ab741e7d552002f7960ff65c81c65))
+
+
 ## v0.0.56 (2023-09-09)
 
 ### :hammer:
