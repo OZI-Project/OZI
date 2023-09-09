@@ -2,6 +2,13 @@
 
 
 
+## v0.0.67 (2023-09-09)
+
+### :pencil2:
+
+* :pencil2:: Fix template typo. ([`291bdf8`](https://github.com/rjdbcm/OZI/commit/291bdf889b333af2a20b8ebe2a9c0acfc073b735))
+
+
 ## v0.0.66 (2023-09-09)
 
 ### :bug:
