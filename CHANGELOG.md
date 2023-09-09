@@ -2,6 +2,13 @@
 
 
 
+## v0.0.59 (2023-09-09)
+
+### :ambulance:
+
+* :ambulance:: FIX: Ensure that templates are loaded properly. ([`537e2c1`](https://github.com/rjdbcm/OZI/commit/537e2c1f0f3f67267fd0fd2de502c6fa476d05c7))
+
+
 ## v0.0.58 (2023-09-09)
 
 ### :hammer:
