@@ -2,6 +2,13 @@
 
 
 
+## v0.0.55 (2023-09-09)
+
+### :ambulance:
+
+* :hammer::ambulance:: Fix ``ozi-new`` bug that caused early exit. ([`f56f93b`](https://github.com/rjdbcm/OZI/commit/f56f93be9096e837fa2c3fdf9498f6bbb0f16f49))
+
+
 ## v0.0.54 (2023-09-08)
 
 ### :children_crossing:
