@@ -2,6 +2,17 @@
 
 
 
+## v0.0.69 (2023-09-10)
+
+### :bug:
+
+* :bug:: Fix missing resource pyright.pyproject.toml. ([`e9f2363`](https://github.com/rjdbcm/OZI/commit/e9f236386f2f431ea8906ad478d50e0a6d3199f1))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`65fe0a7`](https://github.com/rjdbcm/OZI/commit/65fe0a75343bc2c08be310739fbf10fb90d6bdc4))
+
+
 ## v0.0.68 (2023-09-09)
 
 ### :bug:
