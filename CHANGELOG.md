@@ -2,6 +2,17 @@
 
 
 
+## v0.0.75 (2023-09-10)
+
+### :bug:
+
+* :hammer::bug:: Fix source subdirectory naming. ([`74f7b7e`](https://github.com/rjdbcm/OZI/commit/74f7b7e46d7fba18f5fb65f74cfe756f39c15bd8))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`2309d7b`](https://github.com/rjdbcm/OZI/commit/2309d7ba2111766249164e7b0b0cb11fd6312029))
+
+
 ## v0.0.74 (2023-09-10)
 
 ### :bug:
