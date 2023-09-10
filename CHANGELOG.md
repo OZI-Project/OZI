@@ -2,6 +2,13 @@
 
 
 
+## v0.0.76 (2023-09-10)
+
+### :bug:
+
+* :bug:: Fix untrimmed whitespace in ``ozi-new project`` output. ([`60e0d10`](https://github.com/rjdbcm/OZI/commit/60e0d1074cbc970cecb15ace97d6c974a83d0de1))
+
+
 ## v0.0.75 (2023-09-10)
 
 ### :bug:
