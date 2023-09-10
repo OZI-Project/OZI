@@ -14,6 +14,12 @@
 # under the License.
 workflows = [
     'ozi.yml',
+    'sigstore.yml',
+    'semantic_release.yml',
+    'release.yml.j2',
+    'publish.yml.j2',
+    'ozi.yml.j2',
+    'checkpoint.yml.j2',
 ]
 foreach file: workflows
     fs.copyfile(file)

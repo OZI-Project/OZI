@@ -20,6 +20,7 @@ from .assets import (
     ambiguous_licenses,
     root_templates,
     source_templates,
+    test_templates,
     spdx_options,
     top4,
 )
@@ -289,6 +290,16 @@ def main() -> Union[NoReturn, None]:
         template = env.get_template(f'{filename}.j2')
         filename = filename.replace('project.name', underscorify(project.name).lower())
         with open(project.target / filename, 'w') as f:
+            f.write(template.render())
+
+    for filename in test_templates:
+        template = env.get_template(f'{filename}.j2')
+        with open(project.target / filename, 'w') as f:
+            f.write(template.render())
+
+    if project.ci_provider == 'github':
+        template = env.get_template('github_workflows/ozi.yml.j2')
+        with open(Path(project.target, '.github', 'workflows', 'ozi.yml'), 'w') as f:
             f.write(template.render())
 
 
