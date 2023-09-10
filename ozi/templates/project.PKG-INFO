@@ -15,7 +15,8 @@ Classifier: Programming Language :: Python :: Implementation :: CPython
 {% endfor %}
 Classifier: Typing :: {{ project.typing }}
 {%- if project.framework != '' -%}Classifier: Framework :: {{ project.framework }}{% endif %}
-{%- if project.environment != '' -%}Classifier: Environment :: {{ project.environment }}{% endif %}
+{%- if project.environment != '' -%}Classifier: Environment :: {{ project.environment }}
+{%- endif -%}
 Project-URL: Homepage, {{ project.homepage }}
 Project-URL: Download, {{ project.download }}
 Description-Content-Type: text/x-rst

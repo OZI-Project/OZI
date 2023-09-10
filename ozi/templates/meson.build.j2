@@ -1,4 +1,5 @@
-{% for line in project.copyright_head.split('\n') %}{{ '# ' ~ line }}
+{%- for line in project.copyright_head.split('\n') -%}
+{{ '# ' ~ line }}
 {% endfor %}
 {{ '# Additional copyright and license terms apply, see NOTICE for details.' }}
 {{ '# DO NOT EDIT BY HAND - This file was generated for use with OZI tools.' }}
