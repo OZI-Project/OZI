@@ -2,6 +2,21 @@
 
 
 
+## v0.0.78 (2023-09-10)
+
+### :bug:
+
+* :bug:: Fix comment newlines. ([`ae54609`](https://github.com/rjdbcm/OZI/commit/ae5460982405889eac5074c6b2148b6efa2b1176))
+
+### :children_crossing:
+
+* :children_crossing:: Allow multiple topic classifiers. ([`4b8ef90`](https://github.com/rjdbcm/OZI/commit/4b8ef9014593c36f6aa44cf10093d59c58abfd1e))
+
+### :hammer:
+
+* :hammer:: add ci_provider_templates and test_templates. ([`5518bb8`](https://github.com/rjdbcm/OZI/commit/5518bb8233781682114b662e43f2a8812a75e558))
+
+
 ## v0.0.77 (2023-09-10)
 
 ### :bug:
