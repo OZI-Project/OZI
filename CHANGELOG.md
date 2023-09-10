@@ -2,6 +2,17 @@
 
 
 
+## v0.0.73 (2023-09-10)
+
+### :bug:
+
+* :bug::pencil2:: Fix trim filter should be map(&#39;trim&#39;) ([`a2a2099`](https://github.com/rjdbcm/OZI/commit/a2a2099a6c2a1ead538d905100e78001fef5a35d))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`215ae0e`](https://github.com/rjdbcm/OZI/commit/215ae0e16db795bc39612bf1bbe5d9882cb6127a))
+
+
 ## v0.0.72 (2023-09-10)
 
 ### :bug:
