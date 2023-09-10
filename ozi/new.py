@@ -142,9 +142,10 @@ defaults.add_argument(
 defaults.add_argument(
     '--topic',
     default='Utilities',
-    help='Python package topic',
+    help='Python package topic (this option may be used multiple times)',
     metavar='"Utilities"',
-    action=CloseMatch,
+    nargs='?',
+    action='append',
     type=str,
 )
 defaults.add_argument(
@@ -268,6 +269,7 @@ def main() -> Union[NoReturn, None]:
 
     project.name = re.sub(r'[-_.]+', '-', project.name).lower()
     project.target = Path(project.target)
+    project.topic = list(set(project.topic))
 
     if any(project.target.iterdir()):
         raise FileExistsError('Directory not empty.')
@@ -285,7 +287,7 @@ def main() -> Union[NoReturn, None]:
 
     for filename in source_templates:
         template = env.get_template(f'{filename}.j2')
-        filename = filename.replace('project.name', underscorify(project.name))
+        filename = filename.replace('project.name', underscorify(project.name).lower())
         with open(project.target / filename, 'w') as f:
             f.write(template.render())
 
