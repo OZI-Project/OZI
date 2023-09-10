@@ -2,6 +2,13 @@
 
 
 
+## v0.0.72 (2023-09-10)
+
+### :bug:
+
+* :bug:: Fix: trim whitespace from template includes. ([`09e54dd`](https://github.com/rjdbcm/OZI/commit/09e54dd41fda430ca7edf5d1b8093939d1a2e864))
+
+
 ## v0.0.71 (2023-09-10)
 
 ### :pencil2:
