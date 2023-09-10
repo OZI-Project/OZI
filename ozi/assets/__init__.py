@@ -92,6 +92,12 @@ source_templates = [
     'project.name/__init__.py',
     'project.name/meson.build',
 ]
+test_templates = [
+    'tests/meson.build',
+]
+ci_provider_templates = [
+    'github_workflows/ozi.yml'
+]
 
 
 class CloseMatch(argparse.Action):
