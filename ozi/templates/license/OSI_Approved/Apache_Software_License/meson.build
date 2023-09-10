@@ -19,5 +19,5 @@ foreach file: files
     fs.copyfile(file)
     python.install_sources(
         file, 
-        subdir: 'ozi'/'templates'/'license'/'OSI Approved'/fs.name(meson.current_source_dir()))
+        subdir: 'ozi'/'templates'/'license'/'OSI_Approved'/fs.name(meson.current_source_dir()))
 endforeach
