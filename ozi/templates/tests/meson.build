@@ -4,5 +4,5 @@ tests_templates = [
 ]
 foreach file: tests_templates
     fs.copyfile(file)
-    python.install_sources(file, subdir: 'ozi'/'templates')
+    python.install_sources(file, subdir: 'ozi'/'templates'/'tests')
 endforeach

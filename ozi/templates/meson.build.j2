@@ -1,11 +1,7 @@
-{%- for line in project.copyright_head.split('\n') -%}
-# {{ line }}
-{%- endfor -%}
-{%- raw -%}
-# Additional copyright and license terms apply, see NOTICE for details.
-# DO NOT EDIT BY HAND - This file was generated for use with OZI tools.
-# ozi-fix -> meson rewrite is the standard editing pipeline.
-{%- endraw -%}
+{% for line in project.copyright_head.split('\n') %}{{ '# ' ~ line }}{% endfor %}
+{{ '# Additional copyright and license terms apply, see NOTICE for details.' }}
+{{ '# DO NOT EDIT BY HAND - This file was generated for use with OZI tools.' }}
+{{ '# ozi-fix -> meson rewrite is the standard editing pipeline.' }}
 project(
     '{{ project.name }}',
     default_options: ['warning_level=3'],

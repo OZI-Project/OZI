@@ -13,12 +13,8 @@ Classifier: Programming Language :: Python :: 3.11
 Classifier: Programming Language :: Python :: Implementation :: CPython
 Classifier: Topic :: {{ project.topic }}
 Classifier: Typing :: {{ project.typing }}
-{% if project.framework != '' %}
-Classifier: Framework :: {{ project.framework }}
-{% endif %}
-{% if project.environment != '' %}
-Classifier: Framework :: {{ project.environment }}
-{% endif %}
+{% if project.framework != '' %}Classifier: Framework :: {{ project.framework }}{% endif %}
+{% if project.environment != '' %}Classifier: Framework :: {{ project.environment }}{% endif %}
 Project-URL: Homepage, {{ project.homepage }}
 Project-URL: Download, {{ project.download }}
 Description-Content-Type: text/x-rst
