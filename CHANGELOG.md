@@ -2,6 +2,13 @@
 
 
 
+## v0.0.74 (2023-09-10)
+
+### :bug:
+
+* :bug:: Fix wrong subdir install location for OSI Approved licenses. ([`64d547b`](https://github.com/rjdbcm/OZI/commit/64d547bb3d4c18ec4a6b523bb16215e7a50f551a))
+
+
 ## v0.0.73 (2023-09-10)
 
 ### :bug:
