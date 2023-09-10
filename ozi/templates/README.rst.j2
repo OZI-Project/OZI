@@ -1,11 +1,11 @@
-{% set numchar = project.name|length%}
-{% for c in range(numchar) %}
+{%- set numchar = project.name|length -%}
+{%- for c in range(numchar) -%}
 *
-{% endfor %}
+{%- endfor -%}
 {{ project.name }}
-{% for c in range(numchar) %}
+{%- for c in range(numchar) -%}
 *
-{% endfor %}
+{%- endfor -%}
 
 .. image:: https://raw.githubusercontent.com/sigstore/community/main/artwork/badge/sigstore_codesigned_purple.png
  :align: right

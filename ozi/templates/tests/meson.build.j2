@@ -1,6 +1,6 @@
-{% for line in project.copyright_head.split('\n') %}
+{%- for line in project.copyright_head.split('\n') -%}
 {{ '#' }} {{ line }}
-{% endfor %}
+{%- endfor -%}
 config_files = []
 foreach file: config_files
   fs.copyfile(file)

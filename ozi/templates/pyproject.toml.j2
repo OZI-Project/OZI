@@ -1,6 +1,6 @@
-{% for line in project.copyright_head.split('\n') %}
+{%- for line in project.copyright_head.split('\n') -%}
 {{ '#' }} {{ line }}
-{% endfor %}
+{%- endfor -%}
 
 [project]
 authors = [{name = "{{ project.author }}", email = "{{ project.email }}"}]

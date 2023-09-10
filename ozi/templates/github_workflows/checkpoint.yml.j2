@@ -1,8 +1,8 @@
-{% raw %}
+{%- raw -%}
   checkpoint:
     name: OZI ${{ matrix.ozi }} with ${{ matrix.py }} on ${{ matrix.os }}
     runs-on: '${{ matrix.os }}'
-{% endraw %}
+{%- endraw -%}
     strategy:
       matrix:
         ozi:
@@ -21,14 +21,14 @@
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-{% raw %}
+{%- raw -%}
       - name: 'Set up Python ${{ matrix.py }}'
-{% endraw %}
+{%- endraw -%}
         uses: actions/setup-python@v4
         with:
-{% raw %}
+{%- raw -%}
           python-version: '${{ matrix.py }}'
-{% endraw %}
+{%- endraw -%}
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -36,10 +36,10 @@
       - name: Meson setup build
         run: |
           tox -vv --notest
-{% raw %}
+{%- raw -%}
       - name: '${{ matrix.ozi }}'
-{% endraw %}
+{%- endraw -%}
         run: |
-{% raw %}
+{%- raw -%}
           tox -- --setup=${{ matrix.ozi }}
-{% endraw %}
+{%- endraw -%}

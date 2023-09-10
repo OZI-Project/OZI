@@ -1,6 +1,6 @@
-{% for line in project.copyright_head.split('\n') %}
+{%- for line in project.copyright_head.split('\n') -%}
 {{ '#' }} {{ line }}
-{% endfor %}
+{%- endfor -%}
 config_files = [
     '__init__.py',
 ]

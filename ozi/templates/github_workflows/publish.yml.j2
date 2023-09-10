@@ -17,13 +17,13 @@
       # See https://github.com/actions/runner/issues/1173
       with:
         user: __token__
-{% raw %}
+{%- raw -%}
         password: ${{ secrets.PYPI_API_TOKEN }}
-{% endraw %}
+{%- endraw -%}
 
     - name: Publish package distributions to GitHub Releases
       uses: python-semantic-release/upload-to-gh-release@0f96c02a48278aff14251e9f1a0d73122a8c638b
       with:
-{% raw %}
+{%- raw -%}
         github_token: ${{ secrets.GITHUB_TOKEN }}
-{% endraw %}
+{%- endraw -%}
