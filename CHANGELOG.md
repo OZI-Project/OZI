@@ -2,6 +2,13 @@
 
 
 
+## v0.0.70 (2023-09-10)
+
+### :pencil2:
+
+* :pencil2:: Fix unquoted template include path. ([`3fe0d91`](https://github.com/rjdbcm/OZI/commit/3fe0d91c0a0d748cc67d716d84eaf088b0f843ab))
+
+
 ## v0.0.69 (2023-09-10)
 
 ### :bug:
