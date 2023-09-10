@@ -273,7 +273,7 @@ def main() -> Union[NoReturn, None]:
         raise FileExistsError('Directory not empty.')
 
     env.globals = env.globals | {'project': vars(project)}
-    Path(project.target, project.name).mkdir()
+    Path(project.target, underscorify(project.name)).mkdir()
     Path(project.target, '.github', 'workflows').mkdir(parents=True)
     Path(project.target, 'subprojects').mkdir()
     Path(project.target, 'tests').mkdir()
@@ -285,6 +285,7 @@ def main() -> Union[NoReturn, None]:
 
     for filename in source_templates:
         template = env.get_template(f'{filename}.j2')
+        filename = filename.replace('project.name', underscorify(project.name))
         with open(project.target / filename, 'w') as f:
             f.write(template.render())
 
