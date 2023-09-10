@@ -2,6 +2,13 @@
 
 
 
+## v0.0.71 (2023-09-10)
+
+### :pencil2:
+
+* :pencil2:: Fix include of project.PKG-INFO. ([`332d1c1`](https://github.com/rjdbcm/OZI/commit/332d1c1b3f7ee8f431bd059476bbb426d8489c7c))
+
+
 ## v0.0.70 (2023-09-10)
 
 ### :pencil2:
