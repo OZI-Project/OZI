@@ -2,6 +2,17 @@
 
 
 
+## v0.0.77 (2023-09-10)
+
+### :bug:
+
+* :bug:: Fix template path for tests. Fix template line trimming. ([`04ea00b`](https://github.com/rjdbcm/OZI/commit/04ea00bba9525986a0ad81c5592d2eb0692a7ae3))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`44ce220`](https://github.com/rjdbcm/OZI/commit/44ce2204f61ab92a8178aa6a10246cb2ef422d5d))
+
+
 ## v0.0.76 (2023-09-10)
 
 ### :bug:
