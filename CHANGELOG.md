@@ -2,6 +2,15 @@
 
 
 
+## v0.0.85 (2023-09-11)
+
+### :bug:
+
+* :lipstick::bug:: Fix meson file header whitespace. ([`d07be48`](https://github.com/rjdbcm/OZI/commit/d07be4845bc4f83519566878367f014cc0a10319))
+
+* :bug:: Fix PKG-INFO whitespace. ([`2ee8841`](https://github.com/rjdbcm/OZI/commit/2ee88414351a0a13e84271a00e9409cee0073fd8))
+
+
 ## v0.0.84 (2023-09-11)
 
 ### :bug:
