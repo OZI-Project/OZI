@@ -142,7 +142,7 @@ defaults.add_argument(
 )
 defaults.add_argument(
     '--topic',
-    default='Utilities',
+    default=['Utilities'],
     help='Python package topic (this option may be used multiple times)',
     metavar='"Utilities"',
     nargs='?',
