@@ -2,6 +2,13 @@
 
 
 
+## v0.0.83 (2023-09-11)
+
+### :bug:
+
+* :bug::pencil2:: Fix another unescaped false positive for Jinja2. ([`076cdbb`](https://github.com/rjdbcm/OZI/commit/076cdbb2ae6e43c92bfdb65f1c16e29c0555d5bb))
+
+
 ## v0.0.82 (2023-09-11)
 
 ### :bug:
