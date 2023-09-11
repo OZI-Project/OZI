@@ -2,6 +2,13 @@
 
 
 
+## v0.0.89 (2023-09-11)
+
+### :hammer:
+
+* :hammer:: Add strict flag to ``ozi-new project`` and ``ozi-fix``. ([`3f8c4db`](https://github.com/rjdbcm/OZI/commit/3f8c4db094cad91c3dfdbcce7594720c63c6b0bd))
+
+
 ## v0.0.88 (2023-09-11)
 
 ### :pencil2:
