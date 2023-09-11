@@ -2,6 +2,19 @@
 
 
 
+## v0.0.84 (2023-09-11)
+
+### :bug:
+
+* :bug:: Default topic should be a List[str]. ([`8ab11e6`](https://github.com/rjdbcm/OZI/commit/8ab11e65837720ea8c42e5cd900908887f556083))
+
+* :bug:: Fix PKG-INFO whitespace. ([`eabd4cc`](https://github.com/rjdbcm/OZI/commit/eabd4cccdc594df90e818b48fb9f2c03b50a8496))
+
+### Other
+
+* :lipstick:: Fix jinja header comment rendering. ([`b5db826`](https://github.com/rjdbcm/OZI/commit/b5db826e3f56a9c17ecd906e8bc32fc2edfc500e))
+
+
 ## v0.0.83 (2023-09-11)
 
 ### :bug:
