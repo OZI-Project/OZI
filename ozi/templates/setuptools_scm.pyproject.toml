@@ -1,3 +1,5 @@
+{#- 'OZI 0.1' -#}
+[tool.setuptools_scm]
 write_to_template = """{% include 'project.PKG-INFO' %}"""
 fallback_version = "@MESON_DIST_FALLBACK_VERSION@"
 parentdir_prefix_version = "@PROJECT_NAME@-"

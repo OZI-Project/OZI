@@ -1,2 +1,3 @@
+{#- 'OZI 0.1' -#}
 [tool.pyright]
 reportMissingTypeStubs = false

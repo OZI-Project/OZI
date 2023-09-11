@@ -1,3 +1,4 @@
+{#- 'OZI 0.1' -#}
 option('source-to-build', type: 'feature', value: 'auto')
 option('build-dir', type: 'feature',  value: 'auto')
 option('project-name', type: 'feature', value: 'auto')

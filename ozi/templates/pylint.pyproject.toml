@@ -1,3 +1,4 @@
+{#- 'OZI 0.1' -#}
 [tool.pylint.MASTER]
 check-quote-consistency = true
 expected-line-ending-format = "LF"

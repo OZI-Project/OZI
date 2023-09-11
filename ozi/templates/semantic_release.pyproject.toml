@@ -1,3 +1,4 @@
+{#- 'OZI 0.1' -#}
 [tool.semantic_release]
 commit_parser                  = "emoji"
 major_on_zero                  = false

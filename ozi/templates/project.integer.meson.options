@@ -1,3 +1,4 @@
+{#- 'OZI 0.1' -#}
 option('dist-priority', type: 'integer', value: 1)
 option('test-priority', type: 'integer', value: 2)
 option('docs-priority', type: 'integer', value: 3)

@@ -1,3 +1,4 @@
+{#- 'OZI 0.1' -#}
 option(
    'args-pyright',
    type: 'array', 
