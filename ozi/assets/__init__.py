@@ -92,12 +92,19 @@ root_templates = [
 source_templates = [
     'project.name/__init__.py',
     'project.name/meson.build',
+    'project.name/py.typed',
 ]
 test_templates = [
     'tests/meson.build',
 ]
 ci_provider_templates = [
     'github_workflows/ozi.yml'
+]
+new_module_templates = [
+    'project.name/new_module.py'
+]
+new_test_templates = [
+    'tests/new_test.py'
 ]
 
 
@@ -194,4 +201,4 @@ def strict_warn(msg: str, category: type[Warning], strict: bool) -> Union[None, 
     if strict:
         raise category(msg)
     else:
-        warn('\n'.join(msg), category)
+        warn(msg, category)
