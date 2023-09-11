@@ -2,6 +2,13 @@
 
 
 
+## v0.0.81 (2023-09-11)
+
+### :bug:
+
+* :bug:: Fix unescaped jinja directive false positive. ([`2e074be`](https://github.com/rjdbcm/OZI/commit/2e074beba320179d14166e6bc9c92600b0772e62))
+
+
 ## v0.0.80 (2023-09-11)
 
 ### :bug:
