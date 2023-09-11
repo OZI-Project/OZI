@@ -5,6 +5,7 @@ import argparse
 import re
 import sys
 from datetime import datetime, timezone
+from importlib_metadata import version
 from pathlib import Path
 from typing import NoReturn, Union
 from urllib.parse import urlparse
@@ -275,7 +276,13 @@ def main() -> Union[NoReturn, None]:
     if any(project.target.iterdir()):
         raise FileExistsError('Directory not empty.')
 
-    env.globals = env.globals | {'project': vars(project)}
+    env.globals = env.globals | {
+        'project': vars(project),
+        'ozi': {
+            'version': version('OZI'),
+            'spec': '0.1',
+        }
+    }
     Path(project.target, underscorify(project.name)).mkdir()
     Path(project.target, '.github', 'workflows').mkdir(parents=True)
     Path(project.target, 'subprojects').mkdir()
