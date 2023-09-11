@@ -26,7 +26,7 @@
 {%- endraw -%}
         fetch-depth: 0
 
-{% include 'semantic_release.yml' %}
+{% include 'github_workflows/semantic_release.yml' %}
 
     - name: Pass release draft status to job
       if: matrix.py == 'py39'
@@ -98,7 +98,7 @@
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
 {%- endraw -%}
 
-{% include 'sigstore.yml' %}
+{% include 'github_workflows/sigstore.yml' %}
 
     - name: Move dist-info file
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
