@@ -2,6 +2,13 @@
 
 
 
+## v0.0.86 (2023-09-11)
+
+### :bug:
+
+* :bug:: Fix comment and loop whitespace trimming. ([`5c5040e`](https://github.com/rjdbcm/OZI/commit/5c5040eb1581a02e40620157b8263f871221eeaf))
+
+
 ## v0.0.85 (2023-09-11)
 
 ### :bug:
