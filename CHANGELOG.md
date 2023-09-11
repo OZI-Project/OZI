@@ -2,6 +2,15 @@
 
 
 
+## v0.0.79 (2023-09-10)
+
+### :bug:
+
+* :bug:: Fix missing ci workflow and test builf files. ([`0ff5d3b`](https://github.com/rjdbcm/OZI/commit/0ff5d3b2fcb0331bed338aee65f7e1d0e8bc4fc0))
+
+* :bug:: Fix whitespace in templates. ([`d345443`](https://github.com/rjdbcm/OZI/commit/d34544374af83f0b3bc5a44ded71548d09fddbd2))
+
+
 ## v0.0.78 (2023-09-10)
 
 ### :bug:
