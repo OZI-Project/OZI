@@ -11,7 +11,9 @@
       fail-fast: true
       max-parallel: 1
     outputs:
+{%- raw -%}
       drafted: ${{ steps.draft.outputs.created }}
+{%- endraw -%}
     permissions:
       contents: write
       id-token: write
