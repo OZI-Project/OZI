@@ -2,6 +2,17 @@
 
 
 
+## v0.0.80 (2023-09-11)
+
+### :bug:
+
+* :bug:: Fix missing github templates. ([`78068f8`](https://github.com/rjdbcm/OZI/commit/78068f8ab5e44eeaa460d30825e5073576562061))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`0829a90`](https://github.com/rjdbcm/OZI/commit/0829a9071f73184b482417d5b1e760c8a9976eff))
+
+
 ## v0.0.79 (2023-09-10)
 
 ### :bug:
