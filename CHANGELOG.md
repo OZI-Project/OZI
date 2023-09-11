@@ -2,6 +2,13 @@
 
 
 
+## v0.0.88 (2023-09-11)
+
+### :pencil2:
+
+* :pencil2:: Fix jinja2 include directive. ([`43101e3`](https://github.com/rjdbcm/OZI/commit/43101e3a07d5838b2fd27e5b195669ebf5498732))
+
+
 ## v0.0.87 (2023-09-11)
 
 ### :children_crossing:
