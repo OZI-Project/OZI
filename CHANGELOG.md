@@ -2,6 +2,13 @@
 
 
 
+## v0.0.82 (2023-09-11)
+
+### :bug:
+
+* :bug::pencil2:: Fix template paths. ([`84363da`](https://github.com/rjdbcm/OZI/commit/84363da70e038896f02d416cd6434e5dd3f2e0b9))
+
+
 ## v0.0.81 (2023-09-11)
 
 ### :bug:
