@@ -2,6 +2,13 @@
 
 
 
+## v0.0.87 (2023-09-11)
+
+### :children_crossing:
+
+* :children_crossing: Add ``ozi.spec`` versioned header for meson templates. ([`fa27b03`](https://github.com/rjdbcm/OZI/commit/fa27b031f34b127e4a0bf3ff8e6b8bcb2bfff21a))
+
+
 ## v0.0.86 (2023-09-11)
 
 ### :bug:
