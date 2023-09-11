@@ -1,4 +1,8 @@
-name: Semantic Release
+{%- for line in project.copyright_head.split('\n') %}
+{{ '# ' ~ line }}
+{%- endfor %}
+{{ '# Additional copyright and license terms apply, see NOTICE for details.' }}
+name: OZI
 
 on:
   push:

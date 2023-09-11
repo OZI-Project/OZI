@@ -1,4 +1,4 @@
-# noqa: INP001
-{%- for line in project.copyright_head.split('\n') -%}
-{{ '#' }} {{ line }}
-{%- endfor -%}
+{{ '# noqa: INP001' }}
+{%- for line in project.copyright_head.split('\n') %}
+{{ '# ' ~ line }}
+{%- endfor %}
