@@ -6,10 +6,10 @@ import re
 import sys
 from pathlib import Path
 from typing import NoReturn, Union
-from warnings import warn
 
 from pyparsing import Regex
 
+from .assets import strict_warn, underscorify
 from .assets.structure import root_files, source_files
 
 parser = argparse.ArgumentParser(description=sys.modules[__name__].__doc__, add_help=False)
@@ -31,6 +31,12 @@ parser.add_argument(
     help='remove file or dir/ from project',
 )
 output = parser.add_argument_group('output')
+output.add_argument(
+    '--strict',
+    default='--no-strict',
+    action=argparse.BooleanOptionalAction,
+    help='strict mode raises warnings to errors.'
+)
 output.add_argument('-p', '--pretty', action='store_true', help='pretty print JSON output')
 helpers = parser.add_mutually_exclusive_group()
 helpers.add_argument('-h', '--help', action='help', help='show this help message and exit')
@@ -59,14 +65,18 @@ def main() -> Union[NoReturn, None]:
     if not project.target.exists():
         raise ValueError(f'target: {project.target}\ntarget does not exist.')
     if not project.target.is_dir():
-        raise ValueError(f'target: {project.target}\ntarget is a file.')
+        raise ValueError(f'target: {project.target}\ntarget is not a directory.')
     project.add.remove('ozi.phony')
     project.add = list(set(project.add))
     project.remove.remove('ozi.phony')
     project.remove = list(set(project.remove))
     for file in root_files:
         if not project.target.joinpath(file).exists():
-            print(f'Missing REQUIRED OZI project file: {file}')
+            strict_warn(
+                f'Missing REQUIRED OZI project file: {file}',
+                RuntimeWarning,
+                project.strict,
+            )
             miss_count += 1
     if project.target.joinpath('PKG-INFO').exists():
         with project.target.joinpath('PKG-INFO').open() as f:
@@ -90,7 +100,7 @@ def main() -> Union[NoReturn, None]:
 
     found_source_files = []
     for file in source_files:
-        if not project.target.joinpath(project.name, file).exists():
+        if not project.target.joinpath(underscorify(project.name), file).exists():
             if project.missing:
                 print(Path(project.name, file))
             miss_count += 1
@@ -98,9 +108,17 @@ def main() -> Union[NoReturn, None]:
         found_source_files.append(project.target.joinpath(project.name, file))
     if project.missing:
         if any(project.add):
-            warn('--missing is set: Ignoring -a/--add arguments', SyntaxWarning)
+            strict_warn(
+                '--missing is set: Ignoring -a/--add arguments',
+                SyntaxWarning,
+                project.strict,
+            )
         if any(project.remove):
-            warn('--missing is set: Ignoring -r/--remove arguments', SyntaxWarning)
+            strict_warn(
+                '--missing is set: Ignoring -r/--remove arguments',
+                SyntaxWarning,
+                project.strict,
+            )
         exit(miss_count)
     extra_source_files = [
         x for x in (project.target / project.name).glob('./*') if x.is_file()

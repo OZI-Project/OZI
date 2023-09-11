@@ -1,7 +1,8 @@
 """Asset files for python packaging."""
 import argparse
 from difflib import get_close_matches
-from typing import Any, Sequence, Union
+import re
+from typing import Any, NoReturn, Sequence, Union
 from warnings import warn
 
 from trove_classifiers import classifiers  # type: ignore
@@ -181,3 +182,16 @@ class CloseMatch(argparse.Action):
                 RuntimeWarning,
             )
         setattr(namespace, self.dest, values)
+
+
+def underscorify(s: str) -> str:
+    """Filter to replace non-alphanumerics with underscores."""
+    return re.sub('[^0-9a-zA-Z]', '_', s)
+
+
+def strict_warn(msg: str, category: type[Warning], strict: bool) -> Union[None, NoReturn]:
+    """Warn or raise with a flag argument."""
+    if strict:
+        raise category(msg)
+    else:
+        warn('\n'.join(msg), category)

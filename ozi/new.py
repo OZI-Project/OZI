@@ -9,7 +9,6 @@ from importlib_metadata import version
 from pathlib import Path
 from typing import NoReturn, Union
 from urllib.parse import urlparse
-from warnings import warn
 
 from email_validator import EmailNotValidError, validate_email
 from jinja2 import Environment, PackageLoader, select_autoescape
@@ -21,9 +20,11 @@ from .assets import (
     ambiguous_licenses,
     root_templates,
     source_templates,
+    strict_warn,
     test_templates,
     spdx_options,
     top4,
+    underscorify,
 )
 
 
@@ -34,21 +35,24 @@ env = Environment(
 )
 
 
-def underscorify(s: str) -> str:
-    """Filter to replace non-alphanumerics with underscores."""
-    return re.sub('[^0-9a-zA-Z]', '_', s)
-
-
 env.filters['underscorify'] = underscorify
 
 parser = argparse.ArgumentParser(
     prog='ozi-new', description=sys.modules[__name__].__doc__, add_help=False
 )
-subparser = parser.add_subparsers(help='project help')
+subparser = parser.add_subparsers(help='create new projects, modules, & tests')
 project_parser = subparser.add_parser(
     'project',
     description='Create a new Python project with OZI.',
     add_help=False)
+module_parser = subparser.add_parser(
+    'module',
+    description='Create a new Python module in an OZI project.',
+    add_help=False)
+test_parser = subparser.add_parser(
+    'test',
+    description='Create a new Python test in an OZI project.',
+)
 required = project_parser.add_argument_group('required')
 required.add_argument('--name', type=str, help='name of project')
 required.add_argument('--author', type=str, help='author of project')
@@ -80,6 +84,13 @@ email.add_argument(
     default='--no-verify-email',
     action=argparse.BooleanOptionalAction,
     help='email domain deliverability check',
+)
+output = project_parser.add_argument_group('output options')
+output.add_argument(
+    '--strict',
+    default='--no-strict',
+    action=argparse.BooleanOptionalAction,
+    help='strict mode raises warnings to errors.'
 )
 defaults = project_parser.add_argument_group('defaults')
 defaults.add_argument(
@@ -228,7 +239,7 @@ def main() -> Union[NoReturn, None]:
             'See also: https://github.com/pypa/trove-classifiers/issues/17',
             'This will need updated when PEP 639 is implemented.',
         ]
-        warn('\n'.join(msg), PendingDeprecationWarning)
+        strict_warn('\n'.join(msg), RuntimeWarning, project.strict)
     else:
         ambiguous_license_classifier = False
 
@@ -239,10 +250,14 @@ def main() -> Union[NoReturn, None]:
             'Please set --spdx-license',
             f'to one of: {", ".join(possible_spdx)}'
         ]
-        warn('\n'.join(msg), RuntimeWarning)
+        strict_warn('\n'.join(msg), RuntimeWarning, project.strict)
 
     if len(project.summary) > 512:
-        warn('Project summary exceeds 512 characters (PyPI limit).', RuntimeWarning)
+        strict_warn(
+            'Project summary exceeds 512 characters (PyPI limit).',
+            RuntimeWarning,
+            project.strict
+        )
 
     try:
         emailinfo = validate_email(
@@ -250,9 +265,10 @@ def main() -> Union[NoReturn, None]:
         )
         project.email = emailinfo.normalized
     except EmailNotValidError as e:
-        warn(
+        strict_warn(
             f'{str(e)}\nInvalid maintainer email format or domain unreachable.',
             RuntimeWarning,
+            project.strict,
         )
 
     try:
@@ -260,14 +276,18 @@ def main() -> Union[NoReturn, None]:
             project.name
         )
     except ParseException as e:
-        warn(f'{str(e)}\nInvalid project name.', RuntimeWarning)
+        strict_warn(f'{str(e)}\nInvalid project name.', RuntimeWarning, project.strict)
 
     home_url = urlparse(project.homepage)
     if home_url.scheme != 'https':
-        warn('Homepage url scheme unsupported.', RuntimeWarning)
+        strict_warn('Homepage url scheme unsupported.', RuntimeWarning, project.strict)
 
     if home_url.netloc == '':
-        warn('Homepage url netloc cound not be parsed.', RuntimeWarning)
+        strict_warn(
+            'Homepage url netloc cound not be parsed.',
+            RuntimeWarning,
+            project.strict
+        )
 
     project.name = re.sub(r'[-_.]+', '-', project.name).lower()
     project.target = Path(project.target)
