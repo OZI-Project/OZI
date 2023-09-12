@@ -2,6 +2,25 @@
 
 
 
+## v0.0.90 (2023-09-12)
+
+### :children_crossing:
+
+* :children_crossing::construction_worker:: Add OZI spec version to workflow templates for docs. ([`de50238`](https://github.com/rjdbcm/OZI/commit/de50238a74107c12043479bc4a702a96326185b0))
+
+* :children_crossing:: Add OZI spec version comments for Documentation.
+
+Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm/OZI/commit/faf6ddb0c397a1b1105d2594fb93c5d64398b5bd))
+
+### :hammer:
+
+* :hammer::pencil2:: new_module.py.j2 added to install. ([`39ac634`](https://github.com/rjdbcm/OZI/commit/39ac6342a2f9b9141f3f21451a2179957bd125d7))
+
+* :hammer:: Source and test creation with ``ozi-new``. ([`55071ba`](https://github.com/rjdbcm/OZI/commit/55071bac9509ecfe5513881282aba0317dab076c))
+
+* :hammer:: Add py.typed to source_templates. ([`0b2e730`](https://github.com/rjdbcm/OZI/commit/0b2e730d708cf872eb8c508f6a0e9c9f1dba1c82))
+
+
 ## v0.0.89 (2023-09-11)
 
 ### :hammer:
