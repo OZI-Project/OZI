@@ -16,7 +16,7 @@ source_templates = [
     '__init__.py.j2',
     'meson.build.j2',
     'py.typed.j2',
-    'new_module.j2',
+    'new_module.py.j2',
 ]
 foreach file: source_templates
     fs.copyfile(file)
