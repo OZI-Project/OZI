@@ -2,6 +2,17 @@
 
 
 
+## v0.0.91 (2023-09-12)
+
+### :bug:
+
+* :bug:: Fix ``ozi-new`` source and test report_missing. ([`0ad2897`](https://github.com/rjdbcm/OZI/commit/0ad2897b65593c5442171c2ed793bd821925e00c))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`49c8b0d`](https://github.com/rjdbcm/OZI/commit/49c8b0d3c57cc5392402b7995400ed5ce4100e8f))
+
+
 ## v0.0.90 (2023-09-12)
 
 ### :children_crossing:
