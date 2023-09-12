@@ -5,12 +5,12 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import NoReturn, Union
+from typing import List, NoReturn, Tuple, Union
 
 from pyparsing import Regex
 
 from .assets import strict_warn, underscorify
-from .assets.structure import root_files, source_files
+from .assets.structure import root_files, source_files, test_files
 
 parser = argparse.ArgumentParser(description=sys.modules[__name__].__doc__, add_help=False)
 parser.add_argument('target', type=str, help='target OZI project directory')
@@ -48,6 +48,65 @@ helpers.add_argument(
 )
 
 
+def report_missing(
+    target: Path,
+    strict: bool,
+    no_return: bool
+) -> Union[Tuple[str, List[str], List[str], List[str]], NoReturn]:
+    """Report missing OZI project files"""
+    miss_count = 0
+    for file in root_files:
+        if not target.joinpath(file).exists():
+            strict_warn(
+                f'Missing REQUIRED OZI project file: {file}',
+                RuntimeWarning,
+                strict,
+            )
+            miss_count += 1
+    if target.joinpath('PKG-INFO').exists():
+        with target.joinpath('PKG-INFO').open() as f:
+            line = [next(f) for _ in range(2)][1]
+        name_match = Regex(
+            '^(Name: )([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9._-]*[A-Za-z0-9])$',
+            as_match=True,
+        ).parse_string(line)[0][2]
+        name = re.sub(r'[-_.]+', '-', name_match).lower()  # type: ignore
+    else:
+        raise FileNotFoundError('No PKG-INFO found in target directory')
+
+    found_root_files = []
+    for file in root_files:
+        if not target.joinpath(file).exists():
+            if no_return:
+                print(Path(file))
+            miss_count += 1
+            continue
+        found_root_files.append(target.joinpath(name, file))
+    extra_root_files = [x for x in target.glob('./*') if x.is_file()]
+    extra_root_files = list(set(extra_root_files + found_root_files))
+
+    found_test_files = []
+    for file in test_files:
+        if not target.joinpath('tests', file).exists():
+            if no_return:
+                print(Path(file))
+            miss_count += 1
+            continue
+        found_test_files.append(target.joinpath(name, file))
+
+    found_source_files = []
+    for file in source_files:
+        if not target.joinpath(underscorify(name), file).exists():
+            if no_return:
+                print(Path(underscorify(name), file))
+            miss_count += 1
+            continue
+        found_source_files.append(target.joinpath(name, file))
+    if no_return:
+        exit(miss_count)
+    return name, found_root_files, found_source_files, found_test_files
+
+
 def main() -> Union[NoReturn, None]:
     """Main ozi.fix entrypoint."""
     project = parser.parse_args()
@@ -61,7 +120,6 @@ def main() -> Union[NoReturn, None]:
         'subdir': '',
         'target_type': '',
     }
-    miss_count = 0
     if not project.target.exists():
         raise ValueError(f'target: {project.target}\ntarget does not exist.')
     if not project.target.is_dir():
@@ -70,61 +128,13 @@ def main() -> Union[NoReturn, None]:
     project.add = list(set(project.add))
     project.remove.remove('ozi.phony')
     project.remove = list(set(project.remove))
-    for file in root_files:
-        if not project.target.joinpath(file).exists():
-            strict_warn(
-                f'Missing REQUIRED OZI project file: {file}',
-                RuntimeWarning,
-                project.strict,
-            )
-            miss_count += 1
-    if project.target.joinpath('PKG-INFO').exists():
-        with project.target.joinpath('PKG-INFO').open() as f:
-            line = [next(f) for _ in range(2)][1]
-        name = Regex(
-            '^(Name: )([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9._-]*[A-Za-z0-9])$',
-            as_match=True,
-        ).parse_string(line)[0][2]
-        project.name = re.sub(r'[-_.]+', '-', name).lower()  # type: ignore
-
-    found_root_files = []
-    for file in root_files:
-        if not project.target.joinpath(file).exists():
-            if project.missing:
-                print(Path(file))
-            miss_count += 1
-            continue
-        found_root_files.append(project.target.joinpath(project.name, file))
-    extra_root_files = [x for x in project.target.glob('./*') if x.is_file()]
-    extra_root_files = list(set(extra_root_files + found_root_files))
-
-    found_source_files = []
-    for file in source_files:
-        if not project.target.joinpath(underscorify(project.name), file).exists():
-            if project.missing:
-                print(Path(project.name, file))
-            miss_count += 1
-            continue
-        found_source_files.append(project.target.joinpath(project.name, file))
-    if project.missing:
-        if any(project.add):
-            strict_warn(
-                '--missing is set: Ignoring -a/--add arguments',
-                SyntaxWarning,
-                project.strict,
-            )
-        if any(project.remove):
-            strict_warn(
-                '--missing is set: Ignoring -r/--remove arguments',
-                SyntaxWarning,
-                project.strict,
-            )
-        exit(miss_count)
+    name, found_root_files, found_source_files, found_test_files = report_missing(
+        project.target, project.strict, project.missing
+    )
     extra_source_files = [
         x for x in (project.target / project.name).glob('./*') if x.is_file()
     ]
     extra_source_files = list(set(extra_source_files + found_source_files))
-
     add_source_files = []
     for file in project.add:
         if file.is_dir():

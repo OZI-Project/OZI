@@ -26,6 +26,7 @@ from .assets import (
     top4,
     underscorify,
 )
+from .fix import report_missing
 
 
 env = Environment(
@@ -40,15 +41,18 @@ env.filters['underscorify'] = underscorify
 parser = argparse.ArgumentParser(
     prog='ozi-new', description=sys.modules[__name__].__doc__, add_help=False
 )
-subparser = parser.add_subparsers(help='create new projects, modules, & tests')
+subparser = parser.add_subparsers(
+    help='create new projects, sources, & tests',
+    dest='new'
+)
 project_parser = subparser.add_parser(
     'project',
     description='Create a new Python project with OZI.',
     add_help=False)
-module_parser = subparser.add_parser(
-    'module',
-    description='Create a new Python module in an OZI project.',
-    add_help=False)
+source_parser = subparser.add_parser(
+    'source',
+    description='Create a new Python source in an OZI project.'
+)
 test_parser = subparser.add_parser(
     'test',
     description='Create a new Python test in an OZI project.',
@@ -81,14 +85,14 @@ required.add_argument(
 email = project_parser.add_argument_group('email options')
 email.add_argument(
     '--verify-email',
-    default='--no-verify-email',
+    default=False,
     action=argparse.BooleanOptionalAction,
     help='email domain deliverability check',
 )
 output = project_parser.add_argument_group('output options')
 output.add_argument(
     '--strict',
-    default='--no-strict',
+    default=False,
     action=argparse.BooleanOptionalAction,
     help='strict mode raises warnings to errors.'
 )
@@ -187,6 +191,12 @@ output.add_argument(
     ],
     help='list valid option settings and exit',
 )
+source_required = source_parser.add_argument_group('required')
+source_required.add_argument('target', type=str, help='path to directory containing an OZI project')
+source_required.add_argument('name', type=str, help='name of the Python source file')
+test_required = test_parser.add_argument_group('required')
+test_required.add_argument('target', type=str, help='path to directory containing an OZI project')
+test_required.add_argument('name', type=str, help='name of the Python test file')
 
 
 def main() -> Union[NoReturn, None]:
@@ -220,113 +230,126 @@ def main() -> Union[NoReturn, None]:
         print(*sorted(i for i in CloseMatch.audience), sep='\n')
         exit(0)
 
-    project.copyright_year = datetime.now(tz=datetime.now(timezone.utc).astimezone().tzinfo).year
-    if len(project.copyright_head) == 0:
-        project.copyright_head = '\n'.join(
-            [
-                f'Copyright {project.copyright_year}, {project.author}',
-                'See LICENSE.txt in the project root for details.',
+    if project.new == 'project':
+        project.copyright_year = datetime.now(
+            tz=datetime.now(timezone.utc).astimezone().tzinfo
+            ).year
+        if len(project.copyright_head) == 0:
+            project.copyright_head = '\n'.join(
+                [
+                    f'Copyright {project.copyright_year}, {project.author}',
+                    'See LICENSE.txt in the project root for details.',
+                ]
+            )
+        else:
+            project.copyright_head = project.copyright_head.format(
+                year=project.copyright_year, author=project.author
+            )
+
+        if project.license in ambiguous_licenses:
+            msg = [
+                f'Ambiguous License string per PEP 639: {project.license}',
+                'See also: https://github.com/pypa/trove-classifiers/issues/17',
+                'This will need updated when PEP 639 is implemented.',
             ]
-        )
-    else:
-        project.copyright_head = project.copyright_head.format(
-            year=project.copyright_year, author=project.author
-        )
+            strict_warn('\n'.join(msg), RuntimeWarning, project.strict)
+        else:
+            ambiguous_license_classifier = False
 
-    if project.license in ambiguous_licenses:
-        msg = [
-            f'Ambiguous License string per PEP 639: {project.license}',
-            'See also: https://github.com/pypa/trove-classifiers/issues/17',
-            'This will need updated when PEP 639 is implemented.',
-        ]
-        strict_warn('\n'.join(msg), RuntimeWarning, project.strict)
-    else:
-        ambiguous_license_classifier = False
+        possible_spdx = spdx_options.get(project.license, [])
+        if ambiguous_license_classifier and project.license_spdx not in possible_spdx:
+            msg = [
+                'Cannot disambiguate license automatically.',
+                'Please set --spdx-license',
+                f'to one of: {", ".join(possible_spdx)}'
+            ]
+            strict_warn('\n'.join(msg), RuntimeWarning, project.strict)
 
-    possible_spdx = spdx_options.get(project.license, [])
-    if ambiguous_license_classifier and project.license_spdx not in possible_spdx:
-        msg = [
-            'Cannot disambiguate license automatically.',
-            'Please set --spdx-license',
-            f'to one of: {", ".join(possible_spdx)}'
-        ]
-        strict_warn('\n'.join(msg), RuntimeWarning, project.strict)
+        if len(project.summary) > 512:
+            strict_warn(
+                'Project summary exceeds 512 characters (PyPI limit).',
+                RuntimeWarning,
+                project.strict
+            )
 
-    if len(project.summary) > 512:
-        strict_warn(
-            'Project summary exceeds 512 characters (PyPI limit).',
-            RuntimeWarning,
-            project.strict
-        )
+        try:
+            emailinfo = validate_email(
+                project.email, check_deliverability=project.verify_email
+            )
+            project.email = emailinfo.normalized
+        except EmailNotValidError as e:
+            strict_warn(
+                f'{str(e)}\nInvalid maintainer email format or domain unreachable.',
+                RuntimeWarning,
+                project.strict,
+            )
 
-    try:
-        emailinfo = validate_email(
-            project.email, check_deliverability=project.verify_email
-        )
-        project.email = emailinfo.normalized
-    except EmailNotValidError as e:
-        strict_warn(
-            f'{str(e)}\nInvalid maintainer email format or domain unreachable.',
-            RuntimeWarning,
-            project.strict,
-        )
+        try:
+            Regex('^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$', re.IGNORECASE).parse_string(
+                project.name
+            )
+        except ParseException as e:
+            strict_warn(f'{str(e)}\nInvalid project name.', RuntimeWarning, project.strict)
 
-    try:
-        Regex('^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$', re.IGNORECASE).parse_string(
-            project.name
-        )
-    except ParseException as e:
-        strict_warn(f'{str(e)}\nInvalid project name.', RuntimeWarning, project.strict)
+        home_url = urlparse(project.homepage)
+        if home_url.scheme != 'https':
+            strict_warn('Homepage url scheme unsupported.', RuntimeWarning, project.strict)
 
-    home_url = urlparse(project.homepage)
-    if home_url.scheme != 'https':
-        strict_warn('Homepage url scheme unsupported.', RuntimeWarning, project.strict)
+        if home_url.netloc == '':
+            strict_warn(
+                'Homepage url netloc cound not be parsed.',
+                RuntimeWarning,
+                project.strict
+            )
 
-    if home_url.netloc == '':
-        strict_warn(
-            'Homepage url netloc cound not be parsed.',
-            RuntimeWarning,
-            project.strict
-        )
+        project.name = re.sub(r'[-_.]+', '-', project.name).lower()
+        project.target = Path(project.target)
+        project.topic = list(set(project.topic))
 
-    project.name = re.sub(r'[-_.]+', '-', project.name).lower()
-    project.target = Path(project.target)
-    project.topic = list(set(project.topic))
+        if any(project.target.iterdir()):
+            raise FileExistsError('Directory not empty.')
 
-    if any(project.target.iterdir()):
-        raise FileExistsError('Directory not empty.')
-
-    env.globals = env.globals | {
-        'project': vars(project),
-        'ozi': {
-            'version': version('OZI'),
-            'spec': '0.1',
+        env.globals = env.globals | {
+            'project': vars(project),
+            'ozi': {
+                'version': version('OZI'),
+                'spec': '0.1',
+            }
         }
-    }
-    Path(project.target, underscorify(project.name)).mkdir()
-    Path(project.target, '.github', 'workflows').mkdir(parents=True)
-    Path(project.target, 'subprojects').mkdir()
-    Path(project.target, 'tests').mkdir()
+        Path(project.target, underscorify(project.name)).mkdir()
+        Path(project.target, '.github', 'workflows').mkdir(parents=True)
+        Path(project.target, 'subprojects').mkdir()
+        Path(project.target, 'tests').mkdir()
 
-    for filename in root_templates:
-        template = env.get_template(f'{filename}.j2')
-        with open(project.target / filename, 'w') as f:
+        for filename in root_templates:
+            template = env.get_template(f'{filename}.j2')
+            with open(project.target / filename, 'w') as f:
+                f.write(template.render())
+
+        for filename in source_templates:
+            template = env.get_template(f'{filename}.j2')
+            filename = filename.replace('project.name', underscorify(project.name).lower())
+            with open(project.target / filename, 'w') as f:
+                f.write(template.render())
+
+        for filename in test_templates:
+            template = env.get_template(f'{filename}.j2')
+            with open(project.target / filename, 'w') as f:
+                f.write(template.render())
+
+        if project.ci_provider == 'github':
+            template = env.get_template('github_workflows/ozi.yml.j2')
+            with open(Path(project.target, '.github', 'workflows', 'ozi.yml'), 'w') as f:
+                f.write(template.render())
+    elif project.new == 'source':
+        template = env.get_template('project.name/new_module.py.j2')
+        name, *_ = report_missing(project.target, True, False)
+        with open(Path(project.target, name, project.name), 'w') as f:
             f.write(template.render())
-
-    for filename in source_templates:
-        template = env.get_template(f'{filename}.j2')
-        filename = filename.replace('project.name', underscorify(project.name).lower())
-        with open(project.target / filename, 'w') as f:
-            f.write(template.render())
-
-    for filename in test_templates:
-        template = env.get_template(f'{filename}.j2')
-        with open(project.target / filename, 'w') as f:
-            f.write(template.render())
-
-    if project.ci_provider == 'github':
-        template = env.get_template('github_workflows/ozi.yml.j2')
-        with open(Path(project.target, '.github', 'workflows', 'ozi.yml'), 'w') as f:
+    elif project.new == 'test':
+        template = env.get_template('tests/new_test.py.j2')
+        report_missing(project.target, True, False)
+        with open(Path(project.target, 'tests', project.name), 'w') as f:
             f.write(template.render())
 
 
