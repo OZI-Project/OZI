@@ -54,6 +54,7 @@ def report_missing(
     no_return: bool
 ) -> Union[Tuple[str, List[str], List[str], List[str]], NoReturn]:
     """Report missing OZI project files"""
+    target = Path(target)
     miss_count = 0
     for file in root_files:
         if not target.joinpath(file).exists():

@@ -344,7 +344,7 @@ def main() -> Union[NoReturn, None]:
     elif project.new == 'source':
         template = env.get_template('project.name/new_module.py.j2')
         name, *_ = report_missing(project.target, True, False)
-        with open(Path(project.target, name, project.name), 'w') as f:
+        with open(Path(project.target, underscorify(name), project.name), 'w') as f:
             f.write(template.render())
     elif project.new == 'test':
         template = env.get_template('tests/new_test.py.j2')
