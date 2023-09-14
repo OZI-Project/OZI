@@ -1,3 +1,7 @@
+.. OZI
+  Classifier: License-Expression :: Apache-2.0
+  Classifier: License-File :: LICENSE.txt
+
 .. Copyright 2023 Ross J. Duff MSc 
    The copyright holder licenses this file
    to you under the Apache License, Version 2.0 (the

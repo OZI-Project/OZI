@@ -213,6 +213,10 @@ Project-URL: Homepage, https://oziproject.dev/
 Project-URL: Download, https://github.com/rjdbcm/ozi/archive/refs/heads/main.zip
 Description-Content-Type: text/x-rst
 
+.. OZI
+  Classifier: License-Expression :: Apache-2.0
+  Classifier: License-File :: LICENSE.txt
+
 .. Copyright 2023 Ross J. Duff MSc 
    The copyright holder licenses this file
    to you under the Apache License, Version 2.0 (the
