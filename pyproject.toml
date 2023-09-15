@@ -204,7 +204,7 @@ Project-URL: Download, https://github.com/rjdbcm/ozi/archive/refs/heads/main.zip
 Description-Content-Type: text/x-rst
 
 .. OZI
-  Classifier: License-Expression :: Apache-2.0-with-LLVM-exceptions
+  Classifier: License-Expression :: Apache-2.0 WITH LLVM-exceptions
   Classifier: License-File :: LICENSE.txt
 
 .. README.rst
