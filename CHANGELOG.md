@@ -2,6 +2,38 @@
 
 
 
+## v0.0.92 (2023-09-14)
+
+### :children_crossing:
+
+* :children_crossing:: Add OZI PKG-DATA payload preamble.
+
+PEP-639 keys:
+* License-Expression
+* License-File ([`19d194c`](https://github.com/rjdbcm/OZI/commit/19d194c00d861adfc23f495a6ee05a809b5d4a8a))
+
+### Other
+
+* :page_facing_up: Relicense codebase to LLVM-exception.
+
+This adds the following to ``LICENSE.txt``:
+---- LLVM Exceptions to the Apache 2.0 License ----
+
+As an exception, if, as a result of your compiling your source code, portions
+of this Software are embedded into an Object form of such source code, you
+may redistribute such embedded portions in such Object form without complying
+with the conditions of Sections 4(a), 4(b) and 4(d) of the License.
+
+In addition, if you combine or link compiled forms of this Software with
+software that is licensed under the GPLv2 (&#34;Combined Software&#34;) and if a
+court of competent jurisdiction determines that the patent provision (Section
+3), the indemnity provision (Section 9) or other Section of the License
+conflicts with the conditions of the GPLv2, you may retroactively and
+prospectively choose to deem waived or otherwise exclude such Section(s) of
+the License, but only in their entirety and only with respect to the Combined
+Software. ([`0ede284`](https://github.com/rjdbcm/OZI/commit/0ede284551bee0a6c6f17c0ecd27d9d43cfd2be0))
+
+
 ## v0.0.91 (2023-09-12)
 
 ### :bug:
