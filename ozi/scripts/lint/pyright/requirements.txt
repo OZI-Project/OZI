@@ -1,3 +1,0 @@
-
-pyright == 1.1.317  # 74da4d3e2dcfe66a2d1d1001e16431ec17aac0ad35b03c0410f7379c2cb5c7f0
-setuptools >= 65.5.1 # CVE-2022-40897

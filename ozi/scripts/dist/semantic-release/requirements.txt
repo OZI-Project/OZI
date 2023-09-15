@@ -1,3 +1,0 @@
-
-python-semantic-release == 8.0.8 # --hash=sha256:7e3969ba4663d9b2087b02bf3ac140e202551377bf045c34e09bfe19753e19ab
-wheel >= 0.38.1 # CVE-2022-40898

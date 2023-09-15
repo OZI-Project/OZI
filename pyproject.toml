@@ -4,16 +4,12 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 [project]
 authors = [{name = "Ross J. Duff MSc", email = "help@oziproject.dev"}]
-dynamic = ["version"]
+dynamic = ["dependencies", "version"]
 license = {file = "LICENSE.txt"}
 readme  = "README.rst"
-dependencies = [
-    "email-validator == 2.0.0.post2",
-    "jinja2 == 3.1.2",
-    "spdx-license-list == 3.21",
-    "pyparsing == 3.0.9",
-    "trove-classifiers == 2023.8.7",
-]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.in"] }
 
 [project.optional_dependencies] # also meson test suite names
 # Bootstrapping Dependencies
@@ -26,7 +22,7 @@ dist = ["pyc_wheel", "python-semantic-release", "sigstore"]
 docs = ["doc8", "pydocstyle[toml]", "Pygments", "pyparsing", "sphinx",
         "sphinx-design", "sphinxawesome-codelinter", "sphinxawesome-theme ~= 5.0.0b2"]
 ## Linting and Formatting Setup
-lint = ["bandit[toml]", "black", "flake8", "flake8-quotes", "flake8-docstring-checker",
+lint = ["bandit[toml]", "black", "flake8", "flake8-quotes",
         "flake8-pytest-style", "flake8-type-checking", "flake8-annotations",
         "flake8-broken-line", "flake8-eradicate", "flake8-fixme", "flake8-bugbear",
         "flake8-datetimez", "flake8-no-pep420", "flake8-comprehensions",
@@ -48,7 +44,9 @@ console_scripts = [
 ]
 
 [build-system]
-requires      = ["mesonpep517","ninja","setuptools>=64","setuptools_scm[toml]>=6.2","tomli"]
+requires      = [
+    "mesonpep517", "ninja", "pip-tools", "setuptools>=64", "setuptools_scm[toml]>=6.2", "tomli"
+]
 build-backend = "mesonpep517.buildapi"
 
 [tool.bandit]
@@ -204,7 +202,7 @@ Project-URL: Download, https://github.com/rjdbcm/ozi/archive/refs/heads/main.zip
 Description-Content-Type: text/x-rst
 
 .. OZI
-  Classifier: License-Expression :: Apache-2.0 WITH LLVM-exceptions
+  Classifier: License-Expression :: Apache-2.0 WITH LLVM-exception
   Classifier: License-File :: LICENSE.txt
 
 .. README.rst

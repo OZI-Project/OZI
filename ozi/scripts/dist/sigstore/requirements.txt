@@ -1,3 +1,0 @@
-
-sigstore == 1.1.2 # --hash=sha256:1f5d74006073a4bc1572290fb133418c25ff76c5a02fcb567c3feb238d425ab3
-

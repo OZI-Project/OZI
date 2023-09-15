@@ -13,7 +13,7 @@ project(
         check: true,
     ).stdout().strip(),
     default_options: ['warning_level=3'],
-    license: 'Apache-2.0',
+    license: 'Apache-2.0 WITH LLVM-exception',
     license_files: 'LICENSE.txt',
     meson_version: '>=1.1.0',
 )
@@ -111,6 +111,15 @@ sync_pkg_readme = run_command(
 ).stdout()
 run_command(python, ['-c', sync_pkg_readme], check: true).stdout()
 pip = find_program('pip', required: true, disabler: true)
+pip_compile = find_program('pip-compile', required: true)
+custom_target(
+    'requirements-ozi',
+    input: 'requirements.in',
+    output: 'requirements.txt',
+    build_always_stale: true,
+    build_by_default: true,
+    command: ['pip-compile',  '--generate-hashes', '-o', '@OUTPUT@', '@INPUT@']
+)
 source_to_build.enable_auto_if(source_to_build.auto())
 docs_source.enable_auto_if(docs_source.auto())
 test_source.enable_auto_if(test_source.auto())

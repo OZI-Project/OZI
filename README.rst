@@ -1,5 +1,5 @@
 .. OZI
-  Classifier: License-Expression :: Apache-2.0 WITH LLVM-exceptions
+  Classifier: License-Expression :: Apache-2.0 WITH LLVM-exception
   Classifier: License-File :: LICENSE.txt
 
 .. README.rst

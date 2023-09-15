@@ -1,3 +1,0 @@
-
---pre
-sphinxawesome-theme == 5.0.0b2 # --hash=sha256:a80ebd59861cbfed6d93f803fbe73ad6fe0c3507c2552654aff64c6032b021a2

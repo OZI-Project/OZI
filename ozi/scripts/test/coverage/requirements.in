@@ -1,4 +1,4 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
-hypothesis[all]  == 6.80.0 # --hash=sha256:63dc6b094b52da6180ca50edd63bf08184bc96810f8624fdbe66578aaf377993
+coverage[toml]

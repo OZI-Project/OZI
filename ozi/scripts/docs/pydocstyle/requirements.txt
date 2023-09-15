@@ -1,2 +1,0 @@
-
-pydocstyle[toml] == 6.3.0 # --hash=sha256:118762d452a49d6b05e194ef344a55822987a462831ade91ec5c06fd2169d019

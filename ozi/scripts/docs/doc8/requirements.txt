@@ -1,2 +1,0 @@
-
-doc8 == 1.1.1 # --hash=sha256:e493aa3f36820197c49f407583521bb76a0fde4fffbcd0e092be946ff95931ac

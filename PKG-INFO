@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: OZI
-Version: 0.0.93
+Version: 0.0.93.dev6+g3c4fd77.d20230915
 Summary: Packaged with OZI.
 Classifier: License :: OSI Approved :: Apache Software License
 Classifier: Development Status :: 2 - Pre-Alpha
@@ -21,7 +21,7 @@ Project-URL: Download, https://github.com/rjdbcm/ozi/archive/refs/heads/main.zip
 Description-Content-Type: text/x-rst
 
 .. OZI
-  Classifier: License-Expression :: Apache-2.0 WITH LLVM-exceptions
+  Classifier: License-Expression :: Apache-2.0 WITH LLVM-exception
   Classifier: License-File :: LICENSE.txt
 
 .. README.rst
