@@ -2,6 +2,33 @@
 
 
 
+## v0.0.93 (2023-09-15)
+
+### :ambulance:
+
+* :ambulance: Fix mismatched PKG-INFO. ([`3c4fd77`](https://github.com/rjdbcm/OZI/commit/3c4fd773c167041fe95cb476fa7b700d8bda20e9))
+
+### :children_crossing:
+
+* :memo::children_crossing:: Update README license info. ([`04811c2`](https://github.com/rjdbcm/OZI/commit/04811c2e03584c387e5a54a4cdc50e97fee24760))
+
+### :hammer:
+
+* :hammer:: Improved strict mode using warning filters.
+
+Also improved license disambiguation for PEP 639 preparedness. ([`7774b02`](https://github.com/rjdbcm/OZI/commit/7774b02043fdf633ce6e5e542cd1c5324df8cc95))
+
+* :hammer:: Add report_missing TAP fixture and SPDX expression parser. ([`4902150`](https://github.com/rjdbcm/OZI/commit/490215052385f676e216dd67b940c2a9748765c5))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`acd0eb8`](https://github.com/rjdbcm/OZI/commit/acd0eb8e545e9822b7351a54acac27e1c9084ead))
+
+* :memo: Update licensing header format.
+
+Loosely follows the style of LLVM. ([`f80f7eb`](https://github.com/rjdbcm/OZI/commit/f80f7eba7fb862db443494c2e01869424afdbd31))
+
+
 ## v0.0.92 (2023-09-14)
 
 ### :children_crossing:
