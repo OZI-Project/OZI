@@ -1,4 +1,10 @@
 {#- 'OZI 0.1' -#}
+{#-
+# ozi/templates/project.integer.meson.options
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+-#}
 option('dist-priority', type: 'integer', value: 1)
 option('test-priority', type: 'integer', value: 2)
 option('docs-priority', type: 'integer', value: 3)

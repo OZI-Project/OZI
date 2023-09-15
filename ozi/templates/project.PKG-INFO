@@ -1,16 +1,21 @@
-{#- 'OZI 0.1' -#}
+{#-
+# ozi/templates/project.PKG-INFO
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+-#}
 Metadata-Version: 2.1
 Name: {{ project.name }}
 Version: {version}
 Summary: {{ project.summary }}
-Classifier: License :: {{ project.license }}
 Classifier: Development Status :: {{ project.status }}
-Classifier: Natural Language :: {{ project.language }}
 Classifier: Intended Audience :: {{ project.audience }}
+Classifier: License :: {{ project.license }}
+Classifier: Natural Language :: {{ project.language }}
 Classifier: Programming Language :: Python :: 3
-Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: Implementation :: CPython
 {%- for topic in project.topic %}
 Classifier: Topic :: {{ topic }}
@@ -23,7 +28,9 @@ Classifier: Framework :: {{ project.framework }}
 Classifier: Environment :: {{ project.environment }}
 {%- endif %}
 Project-URL: Homepage, {{ project.homepage }}
-Project-URL: Download, {{ project.download }}
 Description-Content-Type: text/x-rst
 
+.. OZI
+  License-Expression: {{ project.license_expression }}
+  License-File: {{ project.license_file }}
 {% include 'README.rst.j2' %}

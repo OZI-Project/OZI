@@ -1,9 +1,15 @@
 {#- 'OZI 0.1' -#}
+{#- 
+# ozi/templates/project.meson.build
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+-#}
 project(
     '{{ project.name }}',
     default_options: ['warning_level=3'],
-    license: '{{ project.spdx }}',
-    license_files: ['LICENSE.txt'],
+    license: '{{ project.license_expression }}',
+    license_files: ['{{ project.license_file }}'],
     meson_version: '>=1.1.0',
     version: run_command(
         'python3',
@@ -54,7 +60,7 @@ configure_file(
         },
     ),
 )
-root_files = ['README.rst', 'CHANGELOG.md', 'LICENSE.txt', 'NOTICE']
+root_files = ['README.rst', 'CHANGELOG.md', '{{ project.license_file }}', 'NOTICE']
 foreach source : root_files
     fs.copyfile(source)
 endforeach

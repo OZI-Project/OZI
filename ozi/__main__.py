@@ -1,3 +1,7 @@
+# ozi/__main__.py
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """OZI - Python Project Packaging
 This is the main OZI console application.
 OZI also comes with two additional console applications:
@@ -32,11 +36,12 @@ helpers.add_argument(
 )
 
 
-def main() -> Union[NoReturn, None]:
+def main() -> Union[NoReturn, str]:
     """Main ozi entrypoint."""
     ozi = parser.parse_args()
     ozi.version()
     parser.print_help()
+    return 'ok'
 
 
 if __name__ == '__main__':
