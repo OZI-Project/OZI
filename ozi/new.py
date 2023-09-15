@@ -1,33 +1,35 @@
-#!/usr/bin/env python
-# PYTHON_ARGCOMPLETE_OK
+# ozi/new.py
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """quick-start OZI project creation script."""
 import argparse
 import re
 import sys
 from datetime import datetime, timezone
-from importlib_metadata import version
 from pathlib import Path
-from typing import NoReturn, Union
+from typing import NoReturn, Tuple, Union
 from urllib.parse import urlparse
+from warnings import warn
 
 from email_validator import EmailNotValidError, validate_email
+from importlib_metadata import version
 from jinja2 import Environment, PackageLoader, select_autoescape
-from pyparsing import ParseException, Regex
+from pyparsing import Combine, ParseException, Regex
+from spdx_license_list import LICENSES  # type: ignore
 
 from .assets import (
     CloseMatch,
-    LICENSES,
     ambiguous_licenses,
+    spdx_license_expression,
     root_templates,
     source_templates,
-    strict_warn,
-    test_templates,
     spdx_options,
+    test_templates,
     top4,
     underscorify,
 )
 from .fix import report_missing
-
 
 env = Environment(
     loader=PackageLoader('ozi'),
@@ -41,20 +43,19 @@ env.filters['underscorify'] = underscorify
 parser = argparse.ArgumentParser(
     prog='ozi-new', description=sys.modules[__name__].__doc__, add_help=False
 )
-subparser = parser.add_subparsers(
-    help='create new projects, sources, & tests',
-    dest='new'
-)
+subparser = parser.add_subparsers(help='create new projects, sources, & tests', dest='new')
 project_parser = subparser.add_parser(
     'project',
+    aliases=['p'],
     description='Create a new Python project with OZI.',
-    add_help=False)
+    add_help=False,
+)
 source_parser = subparser.add_parser(
-    'source',
-    description='Create a new Python source in an OZI project.'
+    'source', aliases=['s'], description='Create a new Python source in an OZI project.'
 )
 test_parser = subparser.add_parser(
     'test',
+    aliases=['t'],
     description='Create a new Python test in an OZI project.',
 )
 required = project_parser.add_argument_group('required')
@@ -65,10 +66,10 @@ required.add_argument('--summary', type=str, help='short summary')
 required.add_argument('--homepage', type=str, help='homepage URL')
 license = project_parser.add_argument_group('license options')
 license.add_argument(
-    '--license-spdx',
+    '--license-expression',
     type=str,
     metavar='ID e.g. MIT, BSD-2-Clause, GPL-3.0-or-later, Apache-2.0',
-    help='SPDX short ID for license disambiguation',
+    help='SPDX short ID or composite license for license disambiguation',
 )
 required.add_argument(
     '--license',
@@ -94,7 +95,7 @@ output.add_argument(
     '--strict',
     default=False,
     action=argparse.BooleanOptionalAction,
-    help='strict mode raises warnings to errors.'
+    help='strict mode raises warnings to errors.',
 )
 defaults = project_parser.add_argument_group('defaults')
 defaults.add_argument(
@@ -118,6 +119,7 @@ project_output.add_argument(
 )
 defaults.add_argument(
     '--audience',
+    '--intended-audience',
     type=str,
     metavar='"Other Audience"',
     default='Other Audience',
@@ -129,7 +131,7 @@ defaults.add_argument(
     type=str,
     metavar='"Typed"',
     default='Typed',
-    help='typing for the project (OZI specifies Typed packages).'
+    help='typing for the project (OZI specifies Typed packages).',
 )
 defaults.add_argument(
     '--environment',
@@ -150,6 +152,7 @@ optional.add_argument(
 )
 defaults.add_argument(
     '--language',
+    '--natural-language',
     default='English',
     help='primary natural language',
     metavar='"English"',
@@ -167,6 +170,7 @@ defaults.add_argument(
 )
 defaults.add_argument(
     '--status',
+    '--development-status',
     action=CloseMatch,
     default='1 - Planning',
     help='Python package status',
@@ -185,92 +189,123 @@ output.add_argument(
         'framework',
         'language',
         'license',
-        'license-spdx',
+        'license-expression',
         'status',
         'topic',
     ],
     help='list valid option settings and exit',
 )
 source_required = source_parser.add_argument_group('required')
-source_required.add_argument('target', type=str, help='path to directory containing an OZI project')
+source_required.add_argument(
+    'target', type=str, help='path to directory containing an OZI project'
+)
 source_required.add_argument('name', type=str, help='name of the Python source file')
+source_required.add_argument('--author', type=str, help='author of file')
+source_defaults = source_parser.add_argument_group('defaults')
+source_defaults.add_argument(
+    '--copyright-head',
+    type=str,
+    default='',
+    help='copyright header string',
+    metavar='"Copyright {year}, {author}\\nSee LICENSE..."',
+)
 test_required = test_parser.add_argument_group('required')
-test_required.add_argument('target', type=str, help='path to directory containing an OZI project')
+test_required.add_argument(
+    'target', type=str, help='path to directory containing an OZI project'
+)
 test_required.add_argument('name', type=str, help='name of the Python test file')
+test_required.add_argument('--author', type=str, help='author of file')
+test_defaults = test_parser.add_argument_group('defaults')
+test_defaults.add_argument(
+    '--copyright-head',
+    type=str,
+    default='',
+    help='copyright header string',
+    metavar='"Copyright {year}, {author}\\nSee LICENSE..."',
+)
 
 
-def main() -> Union[NoReturn, None]:
+def main() -> Union[NoReturn, str]:
     """Main ozi.new entrypoint."""
     ambiguous_license_classifier = True
     project = parser.parse_args()
-    if project.list == 'license':
+    if project.list == '':
+        pass
+    elif project.list == 'license':
         print(*sorted((i for i in CloseMatch.license)), sep='\n')
         exit(0)
-    if project.list == 'language':
+    elif project.list == 'language':
         print(*sorted((i for i in CloseMatch.language)), sep='\n')
         exit(0)
-    if project.list == 'framework':
+    elif project.list == 'framework':
         print(*sorted((i for i in CloseMatch.framework)), sep='\n')
         exit(0)
-    if project.list == 'environment':
+    elif project.list == 'environment':
         print(*sorted((i for i in CloseMatch.environment)), sep='\n')
         exit(0)
-    if project.list == 'license-spdx':
+    elif project.list == 'license-expression':
         print(
             *sorted((k for k, v in LICENSES.items() if v.deprecated_id is False)), sep='\n'
         )
         exit(0)
-    if project.list == 'status':
+    elif project.list == 'status':
         print(*sorted((i for i in CloseMatch.status)), sep='\n')
         exit(0)
-    if project.list == 'topic':
+    elif project.list == 'topic':
         print(*sorted(i for i in CloseMatch.topic), sep='\n')
         exit(0)
-    if project.list == 'audience':
+    elif project.list == 'audience':
         print(*sorted(i for i in CloseMatch.audience), sep='\n')
         exit(0)
 
-    if project.new == 'project':
-        project.copyright_year = datetime.now(
-            tz=datetime.now(timezone.utc).astimezone().tzinfo
-            ).year
-        if len(project.copyright_head) == 0:
-            project.copyright_head = '\n'.join(
-                [
-                    f'Copyright {project.copyright_year}, {project.author}',
-                    'See LICENSE.txt in the project root for details.',
-                ]
-            )
-        else:
-            project.copyright_head = project.copyright_head.format(
-                year=project.copyright_year, author=project.author
-            )
+    if project.strict:
+        import warnings
 
+        warnings.simplefilter('error', RuntimeWarning, append=True)
+    local_tz = datetime.now(timezone.utc).astimezone().tzinfo
+    project.copyright_year = datetime.now(tz=local_tz).year
+    if len(project.copyright_head) == 0:
+        project.copyright_head = '\n'.join(
+            [
+                f'Copyright {project.copyright_year}, {project.author}',
+                'See LICENSE.txt in the project root for details.',
+            ]
+        )
+    else:
+        project.copyright_head = project.copyright_head.format(
+            year=project.copyright_year, author=project.author
+        )
+
+    if project.new == 'project':
         if project.license in ambiguous_licenses:
             msg = [
                 f'Ambiguous License string per PEP 639: {project.license}',
                 'See also: https://github.com/pypa/trove-classifiers/issues/17',
-                'This will need updated when PEP 639 is implemented.',
             ]
-            strict_warn('\n'.join(msg), RuntimeWarning, project.strict)
+            warn('\n'.join(msg), RuntimeWarning)
         else:
             ambiguous_license_classifier = False
 
-        possible_spdx = spdx_options.get(project.license, [])
-        if ambiguous_license_classifier and project.license_spdx not in possible_spdx:
+        possible_spdx: Tuple[str, ...] = spdx_options.get(project.license, ())
+        if (
+            ambiguous_license_classifier
+            and project.license_expression.split(' ')[0] not in possible_spdx
+        ):
             msg = [
                 'Cannot disambiguate license automatically.',
-                'Please set --spdx-license',
-                f'to one of: {", ".join(possible_spdx)}'
+                'Please set --license-expression',
+                f'to one of: {", ".join(possible_spdx)}',
+                'OR',
+                'to a compound license expression based on one of those listed above.',
             ]
-            strict_warn('\n'.join(msg), RuntimeWarning, project.strict)
+            warn('\n'.join(msg), RuntimeWarning)
+
+        project.license_expression = Combine(
+            spdx_license_expression, join_string=' '
+        ).parse_string(project.license_expression)
 
         if len(project.summary) > 512:
-            strict_warn(
-                'Project summary exceeds 512 characters (PyPI limit).',
-                RuntimeWarning,
-                project.strict
-            )
+            warn('Project summary exceeds 512 characters (PyPI limit).', RuntimeWarning)
 
         try:
             emailinfo = validate_email(
@@ -278,10 +313,9 @@ def main() -> Union[NoReturn, None]:
             )
             project.email = emailinfo.normalized
         except EmailNotValidError as e:
-            strict_warn(
+            warn(
                 f'{str(e)}\nInvalid maintainer email format or domain unreachable.',
                 RuntimeWarning,
-                project.strict,
             )
 
         try:
@@ -289,18 +323,14 @@ def main() -> Union[NoReturn, None]:
                 project.name
             )
         except ParseException as e:
-            strict_warn(f'{str(e)}\nInvalid project name.', RuntimeWarning, project.strict)
+            warn(f'{str(e)}\nInvalid project name.', RuntimeWarning)
 
         home_url = urlparse(project.homepage)
         if home_url.scheme != 'https':
-            strict_warn('Homepage url scheme unsupported.', RuntimeWarning, project.strict)
+            warn('Homepage url scheme unsupported.', RuntimeWarning)
 
         if home_url.netloc == '':
-            strict_warn(
-                'Homepage url netloc cound not be parsed.',
-                RuntimeWarning,
-                project.strict
-            )
+            warn('Homepage url netloc cound not be parsed.', RuntimeWarning)
 
         project.name = re.sub(r'[-_.]+', '-', project.name).lower()
         project.target = Path(project.target)
@@ -314,7 +344,7 @@ def main() -> Union[NoReturn, None]:
             'ozi': {
                 'version': version('OZI'),
                 'spec': '0.1',
-            }
+            },
         }
         Path(project.target, underscorify(project.name)).mkdir()
         Path(project.target, '.github', 'workflows').mkdir(parents=True)
@@ -341,16 +371,22 @@ def main() -> Union[NoReturn, None]:
             template = env.get_template('github_workflows/ozi.yml.j2')
             with open(Path(project.target, '.github', 'workflows', 'ozi.yml'), 'w') as f:
                 f.write(template.render())
+
     elif project.new == 'source':
         template = env.get_template('project.name/new_module.py.j2')
-        name, *_ = report_missing(project.target, True, False)
-        with open(Path(project.target, underscorify(name), project.name), 'w') as f:
+        normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
+        with open(
+            Path(project.target, underscorify(normalized_name), project.name), 'w'
+        ) as f:
             f.write(template.render())
+
     elif project.new == 'test':
         template = env.get_template('tests/new_test.py.j2')
-        report_missing(project.target, True, False)
+        normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
         with open(Path(project.target, 'tests', project.name), 'w') as f:
             f.write(template.render())
+
+    return 'ok'
 
 
 if __name__ == '__main__':
