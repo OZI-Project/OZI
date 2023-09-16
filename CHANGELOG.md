@@ -2,6 +2,17 @@
 
 
 
+## v0.0.100 (2023-09-16)
+
+### :ambulance:
+
+* :ambulance:: Fix missing ozi.wrap template. ([`2aff6fd`](https://github.com/rjdbcm/OZI/commit/2aff6fd7f6955d07de6563b3c88cbbc8e71dcfee))
+
+### :pencil2:
+
+* :pencil2:: Fix wrapfile template filename. ([`46d1bd0`](https://github.com/rjdbcm/OZI/commit/46d1bd0709235417358294a1d103724b93396959))
+
+
 ## v0.0.99 (2023-09-16)
 
 ### :hammer:
