@@ -1,8 +1,9 @@
+{%- set source_url='https://github.com/rjdbcm/OZI/archive/refs/tags/' -%}
 [wrap-file]
 directory = ozi-{{ ozi.version }}
-source_url = https://github.com/rjdbcm/OZI/archive/refs/tags/{{ ozi.version }}.tar.gz
+source_url = {{ source_url }}{{ ozi.version }}.tar.gz
 source_filename = ozi-{{ ozi.version }}.tar.gz
-source_hash = {{ project.hash }}
+source_hash = {{ source_url ~ ozi.version ~ '.tar.gz' | sha256sum }}
 patch_directory = ozi
 
 [provide]

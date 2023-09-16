@@ -4,10 +4,12 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """quick-start OZI project creation script."""
 import argparse
+import hashlib
 import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+import tempfile
 from typing import NoReturn, Tuple, Union
 from urllib.parse import urlparse
 from warnings import warn
@@ -16,6 +18,7 @@ from email_validator import EmailNotValidError, validate_email
 from importlib_metadata import version
 from jinja2 import Environment, PackageLoader, select_autoescape
 from pyparsing import Combine, ParseException, Regex
+import requests
 from spdx_license_list import LICENSES  # type: ignore
 
 from .assets import (
@@ -31,6 +34,19 @@ from .assets import (
 )
 from .fix import report_missing
 
+
+def sha256sum(url: str) -> str:
+    """Checksum filter"""
+    checksum = hashlib.sha256()
+    mv = memoryview(bytearray(128*1024))
+    response = requests.get(url, allow_redirects=True)
+    with tempfile.TemporaryFile() as fp:
+        fp.write(response.content)
+        while n := fp.readinto(mv):
+            checksum.update(mv[:n])
+    return checksum.hexdigest()
+
+
 env = Environment(
     loader=PackageLoader('ozi'),
     autoescape=select_autoescape(),
@@ -39,6 +55,7 @@ env = Environment(
 
 
 env.filters['underscorify'] = underscorify
+env.filters['sha256sum'] = sha256sum
 
 parser = argparse.ArgumentParser(
     prog='ozi-new', description=sys.modules[__name__].__doc__, add_help=False
@@ -234,10 +251,6 @@ test_defaults.add_argument(
     default='',
     help='copyright header string',
     metavar='"Copyright {year}, {author}\\nSee LICENSE..."',
-)
-wrap_required = wrap_parser.add_argument_group('required')
-wrap_required.add_argument(
-    'hash', type=str, help='hash(sha256) for the current version tarball'
 )
 
 
