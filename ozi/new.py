@@ -274,10 +274,6 @@ def main() -> Union[NoReturn, str]:
         print(*sorted(i for i in CloseMatch.audience), sep='\n')
         exit(0)
 
-    if project.strict:
-        import warnings
-
-        warnings.simplefilter('error', RuntimeWarning, append=True)
     local_tz = datetime.now(timezone.utc).astimezone().tzinfo
     project.copyright_year = datetime.now(tz=local_tz).year
     if len(project.copyright_head) == 0:
@@ -293,6 +289,11 @@ def main() -> Union[NoReturn, str]:
         )
 
     if project.new == 'project':
+
+        if project.strict:
+            import warnings
+            warnings.simplefilter('error', RuntimeWarning, append=True)
+
         if project.license in ambiguous_licenses:
             msg = [
                 f'Ambiguous License string per PEP 639: {project.license}',
