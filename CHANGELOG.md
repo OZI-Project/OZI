@@ -2,6 +2,17 @@
 
 
 
+## v0.0.104 (2023-09-16)
+
+### :hammer:
+
+* :hammer:: Use a streaming request to generate hashes for wrapfile. ([`e27546d`](https://github.com/rjdbcm/OZI/commit/e27546d17183ab85e5e8af9bd6416cac01328594))
+
+### Other
+
+* :heavy_plus_sign:: Add ``requests`` to dependencies. ([`5e65e34`](https://github.com/rjdbcm/OZI/commit/5e65e340617f04e4b16985c6218edfa51f2a3056))
+
+
 ## v0.0.103 (2023-09-16)
 
 ### :ambulance:
