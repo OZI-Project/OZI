@@ -274,21 +274,21 @@ def main() -> Union[NoReturn, str]:
         print(*sorted(i for i in CloseMatch.audience), sep='\n')
         exit(0)
 
-    local_tz = datetime.now(timezone.utc).astimezone().tzinfo
-    project.copyright_year = datetime.now(tz=local_tz).year
-    if len(project.copyright_head) == 0:
-        project.copyright_head = '\n'.join(
-            [
-                f'Copyright {project.copyright_year}, {project.author}',
-                'See LICENSE.txt in the project root for details.',
-            ]
-        )
-    else:
-        project.copyright_head = project.copyright_head.format(
-            year=project.copyright_year, author=project.author
-        )
-
     if project.new == 'project':
+
+        local_tz = datetime.now(timezone.utc).astimezone().tzinfo
+        project.copyright_year = datetime.now(tz=local_tz).year
+        if len(project.copyright_head) == 0:
+            project.copyright_head = '\n'.join(
+                [
+                    f'Copyright {project.copyright_year}, {project.author}',
+                    'See LICENSE.txt in the project root for details.',
+                ]
+            )
+        else:
+            project.copyright_head = project.copyright_head.format(
+                year=project.copyright_year, author=project.author
+            )
 
         if project.strict:
             import warnings
@@ -390,6 +390,19 @@ def main() -> Union[NoReturn, str]:
                 f.write(template.render())
 
     elif project.new == 'source':
+        local_tz = datetime.now(timezone.utc).astimezone().tzinfo
+        project.copyright_year = datetime.now(tz=local_tz).year
+        if len(project.copyright_head) == 0:
+            project.copyright_head = '\n'.join(
+                [
+                    f'Copyright {project.copyright_year}, {project.author}',
+                    'See LICENSE.txt in the project root for details.',
+                ]
+            )
+        else:
+            project.copyright_head = project.copyright_head.format(
+                year=project.copyright_year, author=project.author
+            )
         env.globals = env.globals | {
             'project': vars(project),
             'ozi': {
@@ -405,6 +418,19 @@ def main() -> Union[NoReturn, str]:
             f.write(template.render())
 
     elif project.new == 'test':
+        local_tz = datetime.now(timezone.utc).astimezone().tzinfo
+        project.copyright_year = datetime.now(tz=local_tz).year
+        if len(project.copyright_head) == 0:
+            project.copyright_head = '\n'.join(
+                [
+                    f'Copyright {project.copyright_year}, {project.author}',
+                    'See LICENSE.txt in the project root for details.',
+                ]
+            )
+        else:
+            project.copyright_head = project.copyright_head.format(
+                year=project.copyright_year, author=project.author
+            )
         env.globals = env.globals | {
             'project': vars(project),
             'ozi': {
