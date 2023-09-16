@@ -9,7 +9,6 @@ import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-import tempfile
 from typing import NoReturn, Tuple, Union
 from urllib.parse import urlparse
 from warnings import warn
@@ -38,14 +37,10 @@ from .fix import report_missing
 def sha256sum(url: str) -> str:
     """Checksum filter"""
     checksum = hashlib.sha256()
-    chunksize = 128*1024
-    mv = memoryview(bytearray(chunksize))
+    chunksize = 128*512
     response = requests.get(url, allow_redirects=True, stream=True)
-    with tempfile.TemporaryFile() as fp:
-        for chunk in response.iter_content(chunksize):
-            fp.write(chunk)
-            while n := fp.readinto(mv):
-                checksum.update(mv[:n])
+    for chunk in response.iter_content(chunksize):
+        checksum.update(chunk)
     return checksum.hexdigest()
 
 
