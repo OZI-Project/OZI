@@ -2,6 +2,13 @@
 
 
 
+## v0.0.99 (2023-09-16)
+
+### :hammer:
+
+* :hammer:: Update only need copyright_head for source generation. ([`174c1ac`](https://github.com/rjdbcm/OZI/commit/174c1acb3bad3392c0f467970b12f51f871b6ea7))
+
+
 ## v0.0.98 (2023-09-16)
 
 ### :pencil2:
