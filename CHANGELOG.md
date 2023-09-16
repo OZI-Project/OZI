@@ -2,6 +2,13 @@
 
 
 
+## v0.0.102 (2023-09-16)
+
+### :children_crossing:
+
+* :hammer::children_crossing:: Generate sha256sum for wrapfile. ([`c9f8fd0`](https://github.com/rjdbcm/OZI/commit/c9f8fd0b6b9cc4228747fc6bcce95bc88c41727b))
+
+
 ## v0.0.101 (2023-09-16)
 
 ### :pencil2:
