@@ -2,6 +2,23 @@
 
 
 
+## v0.0.96 (2023-09-16)
+
+### :children_crossing:
+
+* :children_crossing:: Add ``pip-tools`` to ``pyproject.toml`` template. ([`b6346a2`](https://github.com/rjdbcm/OZI/commit/b6346a2208ef24c1cba5cc9cc07dfc73d1dddb3e))
+
+### :hammer:
+
+* :hammer:: Add missing ``--license-file`` arg to ``ozi-new p``. ([`ff64224`](https://github.com/rjdbcm/OZI/commit/ff64224372600ef452468c6564789956a09a5dd6))
+
+* :hammer:: Add pip-tools to tox template. ([`5838fb7`](https://github.com/rjdbcm/OZI/commit/5838fb7d7aafd4e63bab241a7f427c08443af606))
+
+### :pencil2:
+
+* :pencil2:: Remove uneeded NOTICE header. ([`062e116`](https://github.com/rjdbcm/OZI/commit/062e1162152cc22f347639766a652b60e9ffecd0))
+
+
 ## v0.0.95 (2023-09-16)
 
 ### :ambulance:
