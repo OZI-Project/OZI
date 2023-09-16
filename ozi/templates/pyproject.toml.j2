@@ -33,7 +33,7 @@ pkg-info-file = 'PKG-INFO'
 summary = "{{ project.summary }}"
 
 [build-system]
-requires      = ["mesonpep517","ninja","setuptools>=64","setuptools_scm[toml]>=6.2","tomli"]
+requires      = ["mesonpep517","ninja", "pip-tools", "setuptools>=64","setuptools_scm[toml]>=6.2","tomli"]
 build-backend = "mesonpep517.buildapi"
 
 {% include 'bandit.pyproject.toml' %}
