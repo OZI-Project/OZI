@@ -2,6 +2,17 @@
 
 
 
+## v0.0.94 (2023-09-16)
+
+### :ambulance:
+
+* :ambulance:: Fix missing pip-compile in tox. ([`d8dbfff`](https://github.com/rjdbcm/OZI/commit/d8dbfff7fc22d6ef25455a97c50c936ad2da072f))
+
+### :children_crossing:
+
+* :children_crossing: Restructure dependencies around pip-tools. ([`9c21588`](https://github.com/rjdbcm/OZI/commit/9c21588db1935d7c70a2f071a9d5d6b2fe8faef6))
+
+
 ## v0.0.93 (2023-09-15)
 
 ### :ambulance:
