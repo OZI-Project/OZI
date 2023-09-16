@@ -8,6 +8,10 @@
 
 * :hammer:: Use a streaming request to generate hashes for wrapfile. ([`e27546d`](https://github.com/rjdbcm/OZI/commit/e27546d17183ab85e5e8af9bd6416cac01328594))
 
+### :pencil2:
+
+* :pencil2:: Fix file permissions. ([`a6d033a`](https://github.com/rjdbcm/OZI/commit/a6d033afc8edb60477d9f9d7aa8e6f9e4b6575bc))
+
 ### Other
 
 * :heavy_plus_sign:: Add ``requests`` to dependencies. ([`5e65e34`](https://github.com/rjdbcm/OZI/commit/5e65e340617f04e4b16985c6218edfa51f2a3056))
