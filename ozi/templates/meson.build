@@ -33,6 +33,7 @@ root_templates = [
     'tox.pyproject.toml',
     'doc8.meson.options',
     'doc8.pyproject.toml',
+    'ozi.wrap',
     'pydocstyle.meson.options',
     'pylint.pyproject.toml',
 ]
