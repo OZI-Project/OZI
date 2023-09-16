@@ -2,6 +2,17 @@
 
 
 
+## v0.0.98 (2023-09-16)
+
+### :pencil2:
+
+* :pencil2:: Fix more whitespace. ([`dc2eb53`](https://github.com/rjdbcm/OZI/commit/dc2eb53d19012fa52e88725b5ebba2ff3e7a4385))
+
+* :pencil2:: Fix missing whitespace in template. ([`58bc4f4`](https://github.com/rjdbcm/OZI/commit/58bc4f47b20c45921bdecd5e9a0138271bb82b17))
+
+* :pencil2:: Move strict warning filter into ``ozi-new`` into project block. ([`b70ae67`](https://github.com/rjdbcm/OZI/commit/b70ae671c0211c59dde745bfe40cd98329cd4c31))
+
+
 ## v0.0.97 (2023-09-16)
 
 ### :children_crossing:
