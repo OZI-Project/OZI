@@ -2,6 +2,17 @@
 
 
 
+## v0.0.97 (2023-09-16)
+
+### :children_crossing:
+
+* :children_crossing:: add ozi.wrap creation tool. ([`64700a6`](https://github.com/rjdbcm/OZI/commit/64700a667c82eabf322f40e2986e4a370967293b))
+
+### Other
+
+* Updated disclaimers. ([`78f1bd0`](https://github.com/rjdbcm/OZI/commit/78f1bd09dd2152d893b3b5595a4d27b3bfed8ae2))
+
+
 ## v0.0.96 (2023-09-16)
 
 ### :children_crossing:
