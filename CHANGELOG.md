@@ -2,6 +2,13 @@
 
 
 
+## v0.0.101 (2023-09-16)
+
+### :pencil2:
+
+* :pencil2:: Fix variable reference in ``ozi.wrap.j2`` ([`3d7ffa1`](https://github.com/rjdbcm/OZI/commit/3d7ffa1774a8e9f0113cddd1e2df5d4f098c040a))
+
+
 ## v0.0.100 (2023-09-16)
 
 ### :ambulance:
