@@ -2,6 +2,13 @@
 
 
 
+## v0.0.105 (2023-09-16)
+
+### :ambulance:
+
+* :ambulance:: Fix incorrect remote file checksumming. ([`99a3ea0`](https://github.com/rjdbcm/OZI/commit/99a3ea078e992c4fda660b19dbef5a84ae3ef39d))
+
+
 ## v0.0.104 (2023-09-16)
 
 ### :hammer:
