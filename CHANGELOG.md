@@ -2,6 +2,17 @@
 
 
 
+## v0.0.95 (2023-09-16)
+
+### :ambulance:
+
+* :ambulance:: Fix LICENSE.txt template lookup. ([`58ce5ee`](https://github.com/rjdbcm/OZI/commit/58ce5ee509bbeada0b0ad87f4b9e27530ef81c80))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`c491dbc`](https://github.com/rjdbcm/OZI/commit/c491dbc50eb716084c9d4354891ead05b951edc6))
+
+
 ## v0.0.94 (2023-09-16)
 
 ### :ambulance:
