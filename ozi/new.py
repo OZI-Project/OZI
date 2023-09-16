@@ -141,6 +141,13 @@ defaults.add_argument(
     action=CloseMatch,
     type=str,
 )
+defaults.add_argument(
+    '--license-file',
+    default='LICENSE.txt',
+    help='license text file path',
+    metavar='PATH',
+    type=str,
+)
 optional = project_parser.add_argument_group('optional')
 optional.add_argument(
     '--framework',
