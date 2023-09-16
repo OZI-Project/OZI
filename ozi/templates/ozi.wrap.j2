@@ -1,0 +1,9 @@
+[wrap-file]
+directory = ozi-{{ ozi.version }}
+source_url = https://github.com/rjdbcm/OZI/archive/refs/tags/{{ ozi.version }}.tar.gz
+source_filename = ozi-{{ ozi.version }}.tar.gz
+source_hash = {{ project.source_hash }}
+patch_directory = ozi
+
+[provide]
+ozi = ozi_dep

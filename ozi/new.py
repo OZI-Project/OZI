@@ -58,6 +58,11 @@ test_parser = subparser.add_parser(
     aliases=['t'],
     description='Create a new Python test in an OZI project.',
 )
+wrap_parser = subparser.add_parser(
+    'wrap',
+    aliases=['w'],
+    description='Create a new OZI wrapdb file.',
+)
 required = project_parser.add_argument_group('required')
 required.add_argument('--name', type=str, help='name of project')
 required.add_argument('--author', type=str, help='author of project')
@@ -230,6 +235,10 @@ test_defaults.add_argument(
     help='copyright header string',
     metavar='"Copyright {year}, {author}\\nSee LICENSE..."',
 )
+wrap_required = wrap_parser.add_argument_group('required')
+wrap_required.add_argument(
+    'hash', type=str, help='hash(sha256) for the current version tarball'
+)
 
 
 def main() -> Union[NoReturn, str]:
@@ -380,6 +389,13 @@ def main() -> Union[NoReturn, str]:
                 f.write(template.render())
 
     elif project.new == 'source':
+        env.globals = env.globals | {
+            'project': vars(project),
+            'ozi': {
+                'version': version('OZI'),
+                'spec': '0.1',
+            },
+        }
         template = env.get_template('project.name/new_module.py.j2')
         normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
         with open(
@@ -388,9 +404,28 @@ def main() -> Union[NoReturn, str]:
             f.write(template.render())
 
     elif project.new == 'test':
+        env.globals = env.globals | {
+            'project': vars(project),
+            'ozi': {
+                'version': version('OZI'),
+                'spec': '0.1',
+            },
+        }
         template = env.get_template('tests/new_test.py.j2')
         normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
         with open(Path(project.target, 'tests', project.name), 'w') as f:
+            f.write(template.render())
+
+    elif project.new == 'wrap':
+        env.globals = env.globals | {
+            'project': vars(project),
+            'ozi': {
+                'version': version('OZI'),
+                'spec': '0.1',
+            },
+        }
+        template = env.get_template('ozi.wrap.j2')
+        with open('ozi.wrap', 'w') as f:
             f.write(template.render())
 
     return 'ok'
