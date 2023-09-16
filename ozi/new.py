@@ -302,7 +302,7 @@ def main() -> Union[NoReturn, str]:
 
         project.license_expression = Combine(
             spdx_license_expression, join_string=' '
-        ).parse_string(project.license_expression)
+        ).parse_string(project.license_expression)[0]
 
         if len(project.summary) > 512:
             warn('Project summary exceeds 512 characters (PyPI limit).', RuntimeWarning)
