@@ -38,12 +38,14 @@ from .fix import report_missing
 def sha256sum(url: str) -> str:
     """Checksum filter"""
     checksum = hashlib.sha256()
-    mv = memoryview(bytearray(128*1024))
-    response = requests.get(url, allow_redirects=True)
+    chunksize = 128*1024
+    mv = memoryview(bytearray(chunksize))
+    response = requests.get(url, allow_redirects=True, stream=True)
     with tempfile.TemporaryFile() as fp:
-        fp.write(response.content)
-        while n := fp.readinto(mv):
-            checksum.update(mv[:n])
+        for chunk in response.iter_content(chunksize):
+            fp.write(chunk)
+            while n := fp.readinto(mv):
+                checksum.update(mv[:n])
     return checksum.hexdigest()
 
 
