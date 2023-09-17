@@ -210,7 +210,7 @@ def report_missing(
             extra_source_files,
             extra_test_files,
         )
-        expected = f'{sum(map(len, all_files))}'
+        expected = f'{sum(map(len, all_files))+miss_count}'
         print(f'1..{expected}')
         exit(miss_count)
     return name, pkg_info, found_root_files, found_source_files, found_test_files
