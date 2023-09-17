@@ -31,6 +31,7 @@ Project-URL: Homepage, {{ project.homepage }}
 Description-Content-Type: text/x-rst
 
 .. OZI
-  License-Expression: {{ project.license_expression }}
-  License-File: {{ project.license_file }}
+  Classifier: License-Expression :: {{ project.license_expression }}
+  Classifier: License-File :: {{ project.license_file }}
+
 {% include 'README.rst.j2' %}
