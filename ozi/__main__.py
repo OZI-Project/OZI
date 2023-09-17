@@ -13,7 +13,7 @@ from importlib_metadata import version
 from typing import NoReturn, Union
 
 
-def print_version() -> None:
+def print_version() -> NoReturn:
     """print current version string"""
     print(version('ozi'))
     exit(0)
