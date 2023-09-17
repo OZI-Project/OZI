@@ -2,6 +2,18 @@
 
 
 
+## v0.0.109 (2023-09-17)
+
+### :hammer:
+
+* :hammer:: FIX ``ozi-fix``.
+
+```
+File &#34;&lt;OZI-0.0.108&gt;/ozi/fix.py&#34;, line 250, in main
+AttributeError: &#39;str&#39; object has no attribute &#39;is_dir&#39;
+``` ([`8721bb0`](https://github.com/rjdbcm/OZI/commit/8721bb0235f12633352cb2afe705352c942f8323))
+
+
 ## v0.0.108 (2023-09-17)
 
 ### :ambulance:
