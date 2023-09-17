@@ -1,3 +1,10 @@
+{#- OZI 0.1
+# ozi/templates/LICENSE.txt.j2
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+-#}
 {% set license_template = project.license.split('::')|map('trim')|map('underscorify')|join('/') %}
-{% set path = ['license', license_template, project.license_expression.split(' ')[0]|lower ~ '.txt']|join('/') %}
+{% set filename = project.license_expression.split(' ')[0]|lower ~ '.txt'%}
+{% set path = ['license', license_template, filename]|join('/') %}
 {% include path %}
