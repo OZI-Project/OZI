@@ -247,9 +247,9 @@ def main() -> Union[NoReturn, str]:
     extra_source_files = list(set(extra_source_files + found_source_files))
     add_source_files = []
     for file in project.add:
-        if file.is_dir():
+        if Path(file).is_dir():
             (project.target / file).mkdir()
-        elif file.is_file():
+        elif Path(file).is_file():
             add_source_files += [file]
     if len(add_source_files) > 0:
         args = src_add.copy()
