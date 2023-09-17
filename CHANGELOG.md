@@ -2,6 +2,23 @@
 
 
 
+## v0.0.106 (2023-09-17)
+
+### :ambulance:
+
+* :ambulance:: Fix incorrect OZI PKG-INFO extras. ([`ecdc241`](https://github.com/rjdbcm/OZI/commit/ecdc2419c6fdc14a9de4cd07c2f4774d0119bdfe))
+
+### :pencil2:
+
+* :pencil2: fix template README.rst whitespace. ([`014b862`](https://github.com/rjdbcm/OZI/commit/014b86228705ad15ffc2747ebee17649a48518dd))
+
+* :pencil2: Fix incorrect TAP test count. ([`23a7efc`](https://github.com/rjdbcm/OZI/commit/23a7efc59cfd9ec2eb0be75fd20f319be05c09fa))
+
+### Other
+
+* :memo:: Bump PKG-INFO. ([`a4f6d59`](https://github.com/rjdbcm/OZI/commit/a4f6d59ea6501fcb0ab83bdfd625d59939754e91))
+
+
 ## v0.0.105 (2023-09-16)
 
 ### :ambulance:
