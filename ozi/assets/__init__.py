@@ -15,6 +15,8 @@ from spdx_license_list import LICENSES  # type: ignore
 # pyright: reportMissingImports = false
 from trove_classifiers import classifiers
 
+OZI_SPEC = '0.1'
+
 pep639_spdx = [
     'LicenseRef-Public-Domain',
     'LicenseRef-Proprietary',

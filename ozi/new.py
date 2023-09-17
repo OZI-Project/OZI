@@ -22,10 +22,11 @@ from spdx_license_list import LICENSES  # type: ignore
 
 from .assets import (
     CloseMatch,
+    OZI_SPEC,
     ambiguous_licenses,
-    spdx_license_expression,
     root_templates,
     source_templates,
+    spdx_license_expression,
     spdx_options,
     test_templates,
     top4,
@@ -35,10 +36,10 @@ from .fix import report_missing
 
 
 def sha256sum(url: str) -> str:
-    """Checksum filter"""
+    """Checksum filter for URL content."""
     checksum = hashlib.sha256()
     chunksize = 128*512
-    response = requests.get(url, allow_redirects=True, stream=True)
+    response = requests.get(url, allow_redirects=True, stream=True, timeout=30)
     for chunk in response.iter_content(chunksize):
         checksum.update(chunk)
     return checksum.hexdigest()
@@ -49,8 +50,6 @@ env = Environment(
     autoescape=select_autoescape(),
     enable_async=True,
 )
-
-
 env.filters['underscorify'] = underscorify
 env.filters['sha256sum'] = sha256sum
 
@@ -417,7 +416,7 @@ def main() -> Union[NoReturn, str]:
             'project': vars(project),
             'ozi': {
                 'version': version('OZI'),
-                'spec': '0.1',
+                'spec': OZI_SPEC,
             },
         }
         template = env.get_template('project.name/new_module.py.j2')
@@ -445,7 +444,7 @@ def main() -> Union[NoReturn, str]:
             'project': vars(project),
             'ozi': {
                 'version': version('OZI'),
-                'spec': '0.1',
+                'spec': OZI_SPEC,
             },
         }
         template = env.get_template('tests/new_test.py.j2')
@@ -458,7 +457,7 @@ def main() -> Union[NoReturn, str]:
             'project': vars(project),
             'ozi': {
                 'version': version('OZI'),
-                'spec': '0.1',
+                'spec': OZI_SPEC,
             },
         }
         template = env.get_template('ozi.wrap.j2')
