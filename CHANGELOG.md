@@ -2,6 +2,30 @@
 
 
 
+## v0.0.108 (2023-09-17)
+
+### :ambulance:
+
+* :ambulance:: FIX ``ozi-fix``
+
+```
+File &#34;&lt;OZI-0.0.107&gt;/ozi/fix.py&#34;, line 244, in main
+AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
+``` ([`1368035`](https://github.com/rjdbcm/OZI/commit/13680352ef22520d748eab5a4a9966e63b65b2cc))
+
+### :children_crossing:
+
+* :pencil2::children_crossing:: Fix NoReturn annotation. ([`f5299ac`](https://github.com/rjdbcm/OZI/commit/f5299ace198182fc010ad0fd1ab42c0437daabdd))
+
+* :children_crossing:: Add OZI_SPEC version variable. ([`4188f2d`](https://github.com/rjdbcm/OZI/commit/4188f2d529846ed97fa315761fca582040f5a677))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`fe4bf98`](https://github.com/rjdbcm/OZI/commit/fe4bf98ccedbb0c10c0ed2ac173a76f44a42a5b6))
+
+* :memo:: Update template header. ([`f1c0f7d`](https://github.com/rjdbcm/OZI/commit/f1c0f7de109be93205affe7475f0d9f7ea5ce0dd))
+
+
 ## v0.0.107 (2023-09-17)
 
 ### :pencil2:
