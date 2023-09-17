@@ -240,6 +240,7 @@ def main() -> Union[NoReturn, str]:
     name, pkg_info, found_root_files, found_source_files, found_test_files = report_missing(
         project.target, project.strict, project.missing
     )
+    project.name = underscorify(name)
     extra_source_files = [
         x for x in (project.target / project.name).glob('./*') if x.is_file()
     ]
