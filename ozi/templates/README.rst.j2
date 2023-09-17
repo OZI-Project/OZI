@@ -7,8 +7,8 @@
 .. {%- for line in project.copyright_head.split('\n') %}
   {{ line }}
 {%- endfor %}
-
 {%- set numchar = project.name|length -%}
+
 {% for c in range(numchar) %}={% endfor %}
 {{ project.name }}
 {% for c in range(numchar) %}={% endfor %}
