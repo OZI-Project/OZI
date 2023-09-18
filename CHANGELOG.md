@@ -2,6 +2,13 @@
 
 
 
+## v0.0.114 (2023-09-18)
+
+### :children_crossing:
+
+* :children_crossing:: Update list functionality. ([`c681cd1`](https://github.com/rjdbcm/OZI/commit/c681cd132758cfe530b1e24791531e3d5ef97e12))
+
+
 ## v0.0.113 (2023-09-18)
 
 ### :pencil2:
