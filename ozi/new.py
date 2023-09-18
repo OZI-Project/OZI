@@ -12,9 +12,9 @@ from pathlib import Path
 from typing import NoReturn, Tuple, Union
 from urllib.parse import urlparse
 from warnings import warn
+from importlib.metadata import version
 
 from email_validator import EmailNotValidError, validate_email
-from importlib_metadata import version
 from jinja2 import Environment, PackageLoader, select_autoescape
 from pyparsing import Combine, ParseException, Regex
 import requests
