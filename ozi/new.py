@@ -7,23 +7,23 @@ import argparse
 import hashlib
 import re
 import sys
+import warnings
 from datetime import datetime, timezone
+from importlib.metadata import version
 from pathlib import Path
-from typing import NoReturn, Optional, Tuple, Union
+from typing import NoReturn, Optional, Sequence, Union
 from urllib.parse import urlparse
 from warnings import warn
-from importlib.metadata import version
-import warnings
 
+import requests
 from email_validator import EmailNotValidError, validate_email
 from jinja2 import Environment, PackageLoader, select_autoescape
 from pyparsing import Combine, ParseException, Regex
-import requests
 from spdx_license_list import LICENSES  # type: ignore
 
 from .assets import (
-    CloseMatch,
     OZI_SPEC,
+    CloseMatch,
     ambiguous_licenses,
     root_templates,
     source_templates,
@@ -38,13 +38,13 @@ from .fix import report_missing
 
 
 def tap_warning_format(
-    msg: str, category: Warning, filename: str, lineno: int, line: Optional[str] = None
+    msg: str, category: type[Warning], filename: str, lineno: int, line: Optional[str] = None
 ) -> str:
     """Test Anything Protocol formatted warnings."""
-    return f'# {filename}:{lineno}: {category.__class__.__name__}\nnot ok - {msg}\n'
+    return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {msg}\n'
 
 
-warnings.formatwarning = tap_warning_format
+warnings.formatwarning = tap_warning_format  # type: ignore
 
 
 def sha256sum(url: str) -> str:
@@ -333,7 +333,7 @@ def main() -> Union[NoReturn, int]:
             ambiguous_license_classifier = False
         count += 1
 
-        possible_spdx: Tuple[str, ...] = spdx_options.get(project.license, ())
+        possible_spdx: Sequence[str] = spdx_options.get(project.license, ())
         if (
             ambiguous_license_classifier
             and project.license_expression.split(' ')[0] not in possible_spdx
@@ -375,7 +375,8 @@ def main() -> Union[NoReturn, int]:
 
         try:
             Regex('^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$', re.IGNORECASE).set_name(
-                'Package-Index-Name').parse_string(project.name)
+                'Package-Index-Name'
+            ).parse_string(project.name)
             print('ok', '-', 'Name')
         except ParseException as e:
             warn(str(e), RuntimeWarning)

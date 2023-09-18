@@ -4,10 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Directory structure expected files"""
 
-root_dirs = [
-    'tests'
-    'subprojects'
-]
+root_dirs = ['tests' 'subprojects']
 root_files = [
     'README.rst',
     '.gitignore',
@@ -15,7 +12,7 @@ root_files = [
     'meson.build',
     'meson.options',
     'LICENSE.txt',
-    'PKG-INFO'
+    'PKG-INFO',
 ]
 source_files = [
     'meson.build',

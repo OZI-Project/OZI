@@ -19,10 +19,13 @@ from pyparsing import (
     Keyword,
     OneOrMore,
     ParseException,
+    ParseResults,
+    Suppress,
+    White,
+    oneOf,
 )
-from pyparsing import ParseResults, Suppress, White, oneOf
 
-from .assets import underscorify, spdx_license_expression
+from .assets import spdx_license_expression, underscorify
 from .assets.structure import root_files, source_files, test_files
 
 parser = argparse.ArgumentParser(description=sys.modules[__name__].__doc__, add_help=False)
@@ -94,7 +97,7 @@ def pkg_info_extra(payload: str, as_message: bool = True) -> Union[Dict[str, str
 
 def report_missing(
     target: Path, strict: bool, use_tap: bool
-) -> Union[Tuple[str, Message, List[Path], List[Path], List[Path]], NoReturn]:
+) -> Tuple[str, Message, List[str], List[str], List[str]]:
     """Report missing OZI project files
 
     :param target: Relative path to target directory.
@@ -120,7 +123,7 @@ def report_missing(
     except ParseException:
         count += 1
         print('not', 'ok', count, '-', 'PKG-INFO', 'OZI', 'Extra-Content', 'MISSING')
-        extra_pkg_info = {}
+        extra_pkg_info = {}  # type: ignore
     for k, v in extra_pkg_info:
         count += 1
         if use_tap:
@@ -210,7 +213,7 @@ def report_missing(
             extra_source_files,
             extra_test_files,
         )
-        expected = f'{sum(map(len, all_files))+miss_count}'
+        expected = f'{sum(map(len, all_files))+miss_count}'  # type: ignore
         print(f'1..{expected}')
         exit(miss_count)
     return name, pkg_info, found_root_files, found_source_files, found_test_files
@@ -244,7 +247,7 @@ def main() -> Union[NoReturn, str]:
     extra_source_files = [
         x for x in (project.target / project.name).glob('./*') if x.is_file()
     ]
-    extra_source_files = list(set(extra_source_files + found_source_files))
+    extra_source_files = list(set(extra_source_files + list(map(Path, found_source_files))))
     add_source_files = []
     for file in project.add:
         if Path(file).is_dir():

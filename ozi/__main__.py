@@ -9,7 +9,7 @@ ozi-new project quick-start and ozi-fix editing.
 """
 import argparse
 import sys
-from importlib_metadata import version
+from importlib.metadata import version
 from typing import NoReturn, Union
 
 
