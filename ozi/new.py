@@ -41,7 +41,7 @@ def tap_warning_format(
     msg: str, category: Warning, filename: str, lineno: int, line: Optional[str] = None
 ) -> str:
     """Test Anything Protocol formatted warnings."""
-    return f'# {filename}:{lineno}: {category.__class__.__name__}\nnot ok - {msg}'
+    return f'# {filename}:{lineno}: {category.__class__.__name__}\nnot ok - {msg}\n'
 
 
 warnings.formatwarning = tap_warning_format
