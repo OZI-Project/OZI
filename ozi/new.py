@@ -9,10 +9,11 @@ import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import NoReturn, Tuple, Union
+from typing import NoReturn, Optional, Tuple, Union
 from urllib.parse import urlparse
 from warnings import warn
 from importlib.metadata import version
+import warnings
 
 from email_validator import EmailNotValidError, validate_email
 from jinja2 import Environment, PackageLoader, select_autoescape
@@ -26,6 +27,7 @@ from .assets import (
     ambiguous_licenses,
     root_templates,
     source_templates,
+    spdx_exceptions,
     spdx_license_expression,
     spdx_options,
     test_templates,
@@ -35,10 +37,20 @@ from .assets import (
 from .fix import report_missing
 
 
+def tap_warning_format(
+    msg: str, category: Warning, filename: str, lineno: int, line: Optional[str] = None
+) -> str:
+    """Test Anything Protocol formatted warnings."""
+    return f'# {filename}:{lineno}: {category.__class__.__name__}\nnot ok - {msg}'
+
+
+warnings.formatwarning = tap_warning_format
+
+
 def sha256sum(url: str) -> str:
     """Checksum filter for URL content."""
     checksum = hashlib.sha256()
-    chunksize = 128*512
+    chunksize = 128 * 512
     response = requests.get(url, allow_redirects=True, stream=True, timeout=30)
     for chunk in response.iter_content(chunksize):
         checksum.update(chunk)
@@ -246,12 +258,13 @@ test_defaults.add_argument(
     type=str,
     default='',
     help='copyright header string',
-    metavar='"Copyright {year}, {author}\\nSee LICENSE..."',
+    metavar='"Part of the NAME project.\\nSee LICENSE..."',
 )
 
 
-def main() -> Union[NoReturn, str]:
+def main() -> Union[NoReturn, int]:
     """Main ozi.new entrypoint."""
+    count = 0
     ambiguous_license_classifier = True
     project = parser.parse_args()
     if project.list == '':
@@ -268,10 +281,13 @@ def main() -> Union[NoReturn, str]:
     elif project.list == 'environment':
         print(*sorted((i for i in CloseMatch.environment)), sep='\n')
         exit(0)
-    elif project.list == 'license-expression':
+    elif project.list == 'license-id':
         print(
             *sorted((k for k, v in LICENSES.items() if v.deprecated_id is False)), sep='\n'
         )
+        exit(0)
+    elif project.list == 'license-exception-id':
+        print(*sorted(spdx_exceptions), sep='\n')
         exit(0)
     elif project.list == 'status':
         print(*sorted((i for i in CloseMatch.status)), sep='\n')
@@ -284,86 +300,108 @@ def main() -> Union[NoReturn, str]:
         exit(0)
 
     if project.new == 'project':
-
         local_tz = datetime.now(timezone.utc).astimezone().tzinfo
         project.copyright_year = datetime.now(tz=local_tz).year
         if len(project.copyright_head) == 0:
             project.copyright_head = '\n'.join(
                 [
-                    f'Copyright {project.copyright_year}, {project.author}',
+                    f'Part of {project.name}',
                     'See LICENSE.txt in the project root for details.',
                 ]
             )
+            print('ok', '-', 'Default-Copyright-Header')
         else:
             project.copyright_head = project.copyright_head.format(
                 year=project.copyright_year, author=project.author
             )
+            print('ok', '-', 'Custom-Copyright-Header')
+        count += 1
 
         if project.strict:
             import warnings
+
             warnings.simplefilter('error', RuntimeWarning, append=True)
 
         if project.license in ambiguous_licenses:
-            msg = [
-                f'Ambiguous License string per PEP 639: {project.license}',
-                'See also: https://github.com/pypa/trove-classifiers/issues/17',
-            ]
-            warn('\n'.join(msg), RuntimeWarning)
+            msg = (
+                f'Ambiguous License string per PEP 639: {project.license}; '
+                'See also: https://github.com/pypa/trove-classifiers/issues/17'
+            )
+            warn(msg, RuntimeWarning)
         else:
+            print('ok', '-', 'License')
             ambiguous_license_classifier = False
+        count += 1
 
         possible_spdx: Tuple[str, ...] = spdx_options.get(project.license, ())
         if (
             ambiguous_license_classifier
             and project.license_expression.split(' ')[0] not in possible_spdx
         ):
-            msg = [
-                'Cannot disambiguate license automatically.',
-                'Please set --license-expression',
-                f'to one of: {", ".join(possible_spdx)}',
-                'OR',
-                'to a compound license expression based on one of those listed above.',
-            ]
-            warn('\n'.join(msg), RuntimeWarning)
+            msg = (
+                'Cannot disambiguate license, set --license-expression'
+                f'to one of: {", ".join(possible_spdx)} OR'
+                'to a license expression based on one of these.'
+            )
+            warn(msg, RuntimeWarning)
+        else:
+            print('ok', '-', 'License-Disambiguates')
+        count += 1
 
-        project.license_expression = Combine(
-            spdx_license_expression, join_string=' '
-        ).parse_string(project.license_expression)[0]
+        try:
+            project.license_expression = Combine(
+                spdx_license_expression, join_string=' '
+            ).parse_string(project.license_expression)[0]
+            print('ok', '-', 'License-Expression')
+        except ParseException as e:
+            warn(str(e), RuntimeWarning)
+        count += 1
 
         if len(project.summary) > 512:
             warn('Project summary exceeds 512 characters (PyPI limit).', RuntimeWarning)
+        else:
+            print('ok', '-', 'Summary')
+        count += 1
 
         try:
             emailinfo = validate_email(
                 project.email, check_deliverability=project.verify_email
             )
             project.email = emailinfo.normalized
+            print('ok', '-', 'Author-Email')
         except EmailNotValidError as e:
-            warn(
-                f'{str(e)}\nInvalid maintainer email format or domain unreachable.',
-                RuntimeWarning,
-            )
+            warn(str(e), RuntimeWarning)
+        count += 1
 
         try:
-            Regex('^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$', re.IGNORECASE).parse_string(
-                project.name
-            )
+            Regex('^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$', re.IGNORECASE).set_name(
+                'Package-Index-Name').parse_string(project.name)
+            print('ok', '-', 'Name')
         except ParseException as e:
-            warn(f'{str(e)}\nInvalid project name.', RuntimeWarning)
+            warn(str(e), RuntimeWarning)
+        count += 1
 
         home_url = urlparse(project.homepage)
         if home_url.scheme != 'https':
             warn('Homepage url scheme unsupported.', RuntimeWarning)
+        else:
+            print('ok', '-', 'Homepage-Scheme')
+        count += 1
 
         if home_url.netloc == '':
             warn('Homepage url netloc cound not be parsed.', RuntimeWarning)
+        else:
+            print('ok', '-', 'Homepage-Netloc')
+        count += 1
 
         project.name = re.sub(r'[-_.]+', '-', project.name).lower()
         project.target = Path(project.target)
         project.topic = list(set(project.topic))
 
         if any(project.target.iterdir()):
-            raise FileExistsError('Directory not empty.')
+            warn('Directory not empty. No files will be created. Exiting.', RuntimeWarning)
+            count += 1
+            return count
 
         env.globals = env.globals | {
             'project': vars(project),
@@ -464,8 +502,8 @@ def main() -> Union[NoReturn, str]:
         with open('ozi.wrap', 'w') as f:
             f.write(template.render())
 
-    return 'ok'
+    return count
 
 
 if __name__ == '__main__':
-    main()
+    print(f'1..{main()}')
