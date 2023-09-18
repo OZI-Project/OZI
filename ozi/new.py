@@ -46,6 +46,18 @@ def tap_warning_format(
 
 warnings.formatwarning = tap_warning_format  # type: ignore
 
+list_available = {
+    'audience': sorted((i for i in CloseMatch.audience)),
+    'environment': sorted((i for i in CloseMatch.environment)),
+    'framework': sorted((i for i in CloseMatch.framework)),
+    'language': sorted((i for i in CloseMatch.language)),
+    'license': sorted((i for i in CloseMatch.license)),
+    'license-id': sorted((k for k, v in LICENSES.items() if v.deprecated_id is False)),
+    'license-exception-id': sorted(spdx_exceptions),
+    'status': sorted(CloseMatch.status),
+    'topic': sorted(CloseMatch.topic),
+}
+
 
 def sha256sum(url: str) -> str:
     """Checksum filter for URL content."""
@@ -220,16 +232,7 @@ output.add_argument(
     '-l',
     '--list',
     type=str,
-    choices=[
-        'audience',
-        'environment',
-        'framework',
-        'language',
-        'license',
-        'license-expression',
-        'status',
-        'topic',
-    ],
+    choices=list_available.keys(),
     help='list valid option settings and exit',
 )
 source_required = source_parser.add_argument_group('required')
@@ -269,34 +272,8 @@ def main() -> Union[NoReturn, int]:
     project = parser.parse_args()
     if project.list == '':
         pass
-    elif project.list == 'license':
-        print(*sorted((i for i in CloseMatch.license)), sep='\n')
-        exit(0)
-    elif project.list == 'language':
-        print(*sorted((i for i in CloseMatch.language)), sep='\n')
-        exit(0)
-    elif project.list == 'framework':
-        print(*sorted((i for i in CloseMatch.framework)), sep='\n')
-        exit(0)
-    elif project.list == 'environment':
-        print(*sorted((i for i in CloseMatch.environment)), sep='\n')
-        exit(0)
-    elif project.list == 'license-id':
-        print(
-            *sorted((k for k, v in LICENSES.items() if v.deprecated_id is False)), sep='\n'
-        )
-        exit(0)
-    elif project.list == 'license-exception-id':
-        print(*sorted(spdx_exceptions), sep='\n')
-        exit(0)
-    elif project.list == 'status':
-        print(*sorted((i for i in CloseMatch.status)), sep='\n')
-        exit(0)
-    elif project.list == 'topic':
-        print(*sorted(i for i in CloseMatch.topic), sep='\n')
-        exit(0)
-    elif project.list == 'audience':
-        print(*sorted(i for i in CloseMatch.audience), sep='\n')
+    elif project.list in list_available.keys():
+        print(*list_available.get(project.list), sep='\n')
         exit(0)
 
     if project.new == 'project':
