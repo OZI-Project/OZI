@@ -2,6 +2,13 @@
 
 
 
+## v0.0.112 (2023-09-18)
+
+### :pencil2:
+
+* :pencil2: Fix TAP output newlines. ([`cb37731`](https://github.com/rjdbcm/OZI/commit/cb377310ebb6fe75493ed83766cb58db5f21a41a))
+
+
 ## v0.0.111 (2023-09-18)
 
 ### :hammer:
