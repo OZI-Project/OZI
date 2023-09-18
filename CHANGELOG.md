@@ -2,6 +2,13 @@
 
 
 
+## v0.0.110 (2023-09-18)
+
+### :ambulance:
+
+* :ambulance::pencil2:: Fix incorrect importlib.metadata import. ([`c0cf9b9`](https://github.com/rjdbcm/OZI/commit/c0cf9b9d0ccb8cf1f258c2f4f2d396969c434789))
+
+
 ## v0.0.109 (2023-09-17)
 
 ### :hammer:
