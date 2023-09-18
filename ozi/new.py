@@ -282,7 +282,7 @@ def main() -> Union[NoReturn, None]:
         if len(project.copyright_head) == 0:
             project.copyright_head = '\n'.join(
                 [
-                    f'Part of {project.name}',
+                    f'Part of {project.name}.',
                     'See LICENSE.txt in the project root for details.',
                 ]
             )
@@ -415,12 +415,13 @@ def main() -> Union[NoReturn, None]:
                 f.write(template.render())
 
     elif project.new == 'source':
+        normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
         local_tz = datetime.now(timezone.utc).astimezone().tzinfo
         project.copyright_year = datetime.now(tz=local_tz).year
         if len(project.copyright_head) == 0:
             project.copyright_head = '\n'.join(
                 [
-                    f'Copyright {project.copyright_year}, {project.author}',
+                    f'Part of {normalized_name}.',
                     'See LICENSE.txt in the project root for details.',
                 ]
             )
@@ -436,19 +437,19 @@ def main() -> Union[NoReturn, None]:
             },
         }
         template = env.get_template('project.name/new_module.py.j2')
-        normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
         with open(
             Path(project.target, underscorify(normalized_name), project.name), 'w'
         ) as f:
             f.write(template.render())
 
     elif project.new == 'test':
+        normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
         local_tz = datetime.now(timezone.utc).astimezone().tzinfo
         project.copyright_year = datetime.now(tz=local_tz).year
         if len(project.copyright_head) == 0:
             project.copyright_head = '\n'.join(
                 [
-                    f'Copyright {project.copyright_year}, {project.author}',
+                    f'Part of {normalized_name}.',
                     'See LICENSE.txt in the project root for details.',
                 ]
             )
@@ -464,7 +465,6 @@ def main() -> Union[NoReturn, None]:
             },
         }
         template = env.get_template('tests/new_test.py.j2')
-        normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
         with open(Path(project.target, 'tests', project.name), 'w') as f:
             f.write(template.render())
 
