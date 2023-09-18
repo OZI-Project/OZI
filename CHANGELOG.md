@@ -2,6 +2,15 @@
 
 
 
+## v0.0.111 (2023-09-18)
+
+### :hammer:
+
+* :hammer:: Update ``ozi-new``.
+
+Should use TAP output throughout now. ([`1cf2cee`](https://github.com/rjdbcm/OZI/commit/1cf2cee123be53551d6b377069492be0dee13e22))
+
+
 ## v0.0.110 (2023-09-18)
 
 ### :ambulance:
