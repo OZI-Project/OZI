@@ -265,7 +265,7 @@ test_defaults.add_argument(
 )
 
 
-def main() -> Union[NoReturn, int]:
+def main() -> Union[NoReturn, None]:
     """Main ozi.new entrypoint."""
     count = 0
     ambiguous_license_classifier = True
@@ -379,7 +379,7 @@ def main() -> Union[NoReturn, int]:
         if any(project.target.iterdir()):
             warn('Directory not empty. No files will be created. Exiting.', RuntimeWarning)
             count += 1
-            return count
+            return print(f'1..{count}')
 
         env.globals = env.globals | {
             'project': vars(project),
@@ -480,8 +480,8 @@ def main() -> Union[NoReturn, int]:
         with open('ozi.wrap', 'w') as f:
             f.write(template.render())
 
-    return count
+    return print(f'1..{count}')
 
 
 if __name__ == '__main__':
-    print(f'1..{main()}')
+    main()
