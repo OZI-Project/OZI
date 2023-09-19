@@ -2,6 +2,15 @@
 
 
 
+## v0.0.115 (2023-09-19)
+
+### :pencil2:
+
+* :pencil2:: Fix copyright head between different subparsers. ([`d86bedd`](https://github.com/rjdbcm/OZI/commit/d86beddb487df36cf5ecb4bef2291846938aaac2))
+
+* :pencil2:: Correct test count print for ``ozi-new``. ([`80eeda5`](https://github.com/rjdbcm/OZI/commit/80eeda53990dda6f7c775bda14822f5071b9a7b0))
+
+
 ## v0.0.114 (2023-09-18)
 
 ### :children_crossing:
