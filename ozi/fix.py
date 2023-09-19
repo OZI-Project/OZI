@@ -258,7 +258,6 @@ def main() -> Union[NoReturn, str]:
         args = src_add.copy()
         args.update({'target': 'source_files', 'sources': add_source_files})
         rewriter.append(args)
-    print(extra_source_files)
     print(json.dumps(rewriter, indent=4))
     return 'ok'
 

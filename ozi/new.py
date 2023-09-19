@@ -8,7 +8,6 @@ import hashlib
 import re
 import sys
 import warnings
-from datetime import datetime, timezone
 from importlib.metadata import version
 from pathlib import Path
 from typing import NoReturn, Optional, Sequence, Union
@@ -145,7 +144,7 @@ defaults.add_argument(
     type=str,
     default='',
     help='copyright header string',
-    metavar='"Copyright {year}, {author}\\nSee LICENSE..."',
+    metavar='"Part of the NAME project.\\nSee LICENSE..."',
 )
 defaults.add_argument(
     '--ci-provider',
@@ -236,25 +235,23 @@ output.add_argument(
     help='list valid option settings and exit',
 )
 source_required = source_parser.add_argument_group('required')
+source_required.add_argument('name', type=str, help='name of the Python source file')
 source_required.add_argument(
     'target', type=str, help='path to directory containing an OZI project'
 )
-source_required.add_argument('name', type=str, help='name of the Python source file')
-source_required.add_argument('--author', type=str, help='author of file')
 source_defaults = source_parser.add_argument_group('defaults')
 source_defaults.add_argument(
     '--copyright-head',
     type=str,
     default='',
     help='copyright header string',
-    metavar='"Copyright {year}, {author}\\nSee LICENSE..."',
+    metavar='"Part of the NAME project.\\nSee LICENSE..."',
 )
 test_required = test_parser.add_argument_group('required')
+test_required.add_argument('name', type=str, help='name of the Python test file')
 test_required.add_argument(
     'target', type=str, help='path to directory containing an OZI project'
 )
-test_required.add_argument('name', type=str, help='name of the Python test file')
-test_required.add_argument('--author', type=str, help='author of file')
 test_defaults = test_parser.add_argument_group('defaults')
 test_defaults.add_argument(
     '--copyright-head',
@@ -277,8 +274,6 @@ def main() -> Union[NoReturn, None]:
         exit(0)
 
     if project.new == 'project':
-        local_tz = datetime.now(timezone.utc).astimezone().tzinfo
-        project.copyright_year = datetime.now(tz=local_tz).year
         if len(project.copyright_head) == 0:
             project.copyright_head = '\n'.join(
                 [
@@ -287,11 +282,6 @@ def main() -> Union[NoReturn, None]:
                 ]
             )
             print('ok', '-', 'Default-Copyright-Header')
-        else:
-            project.copyright_head = project.copyright_head.format(
-                year=project.copyright_year, author=project.author
-            )
-            print('ok', '-', 'Custom-Copyright-Header')
         count += 1
 
         if project.strict:
@@ -416,18 +406,12 @@ def main() -> Union[NoReturn, None]:
 
     elif project.new == 'source':
         normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
-        local_tz = datetime.now(timezone.utc).astimezone().tzinfo
-        project.copyright_year = datetime.now(tz=local_tz).year
         if len(project.copyright_head) == 0:
             project.copyright_head = '\n'.join(
                 [
                     f'Part of {normalized_name}.',
                     'See LICENSE.txt in the project root for details.',
                 ]
-            )
-        else:
-            project.copyright_head = project.copyright_head.format(
-                year=project.copyright_year, author=project.author
             )
         env.globals = env.globals | {
             'project': vars(project),
@@ -444,18 +428,12 @@ def main() -> Union[NoReturn, None]:
 
     elif project.new == 'test':
         normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
-        local_tz = datetime.now(timezone.utc).astimezone().tzinfo
-        project.copyright_year = datetime.now(tz=local_tz).year
         if len(project.copyright_head) == 0:
             project.copyright_head = '\n'.join(
                 [
                     f'Part of {normalized_name}.',
                     'See LICENSE.txt in the project root for details.',
                 ]
-            )
-        else:
-            project.copyright_head = project.copyright_head.format(
-                year=project.copyright_year, author=project.author
             )
         env.globals = env.globals | {
             'project': vars(project),
