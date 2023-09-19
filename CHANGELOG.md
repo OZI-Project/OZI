@@ -2,6 +2,13 @@
 
 
 
+## v0.0.116 (2023-09-19)
+
+### :children_crossing:
+
+* :children_crossing:: ``ozi-fix`` arg order matches ``ozi-new`` ([`c776a0e`](https://github.com/rjdbcm/OZI/commit/c776a0e33a45adcec3fb6e351e62b8e206497c17))
+
+
 ## v0.0.115 (2023-09-19)
 
 ### :pencil2:
