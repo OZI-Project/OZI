@@ -2,6 +2,17 @@
 
 
 
+## v0.0.124 (2023-09-23)
+
+### :bug:
+
+* :bug:(ozi-fix): Add missing new_child template. ([`4f406ad`](https://github.com/rjdbcm/OZI/commit/4f406adc6c94fae5dddd8da59e52d04695d05772))
+
+### Other
+
+* :memo:(PKG-INFO): Bump version. ([`fca526b`](https://github.com/rjdbcm/OZI/commit/fca526b6aa5b59dad27b8a47c89d02e1e9f5d3e6))
+
+
 ## v0.0.123 (2023-09-23)
 
 ### :bug:
