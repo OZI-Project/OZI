@@ -336,7 +336,7 @@ class RewriteCommand:
 def main() -> NoReturn:
     """Main ozi.fix entrypoint."""
     project = parser.parse_args()
-    project.fix = project.fix == 'missing'
+    project.missing = project.fix == 'missing'
     project.target = Path(project.target).absolute()
     rewriter = []
     if not project.target.exists():
