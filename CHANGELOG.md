@@ -2,6 +2,15 @@
 
 
 
+## v0.0.118 (2023-09-23)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix RewriteCommand repr to dict. ([`a1dfcbb`](https://github.com/rjdbcm/OZI/commit/a1dfcbb6ef5144c5ee57ad0aa6aaf7b5c766e33c))
+
+* :bug:(ozi-fix): Fix incorrect annotation of self. ([`d3417ae`](https://github.com/rjdbcm/OZI/commit/d3417ae6ad60d9e87e26cb7b246c225b79537a22))
+
+
 ## v0.0.117 (2023-09-23)
 
 ### :hammer:
