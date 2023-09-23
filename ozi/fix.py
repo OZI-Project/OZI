@@ -119,11 +119,10 @@ test_output.add_argument(
 
 helpers = parser.add_mutually_exclusive_group()
 helpers.add_argument('-h', '--help', action='help', help='show this help message and exit')
-helpers.add_argument(
-    '-m',
-    '--missing',
-    action='store_true',
-    help='print missing files and exit with code set to miss count',
+missing_parser = subparser.add_parser(
+    'missing',
+    aliases=['m'],
+    description='Create a new Python test in an OZI project.',
 )
 
 
@@ -293,7 +292,7 @@ class RewriteCommand:
     subdir: str = ''
     target_type: str = ''
 
-    def add_sources(self: RewriteCommand, mode: str, source: str) -> RewriteCommand:
+    def add_sources(self: RewriteCommand, mode: str, source: str) -> Dict:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
         self.operation = 'src_add'
@@ -301,9 +300,9 @@ class RewriteCommand:
             self.target = 'source_files'
         elif mode == 'test':
             self.target = 'test_files'
-        return self
+        return asdict(self)
 
-    def add_children(self: RewriteCommand, mode: str, source: str) -> RewriteCommand:
+    def add_children(self: RewriteCommand, mode: str, source: str) -> Dict:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
         self.operation = 'src_add'
@@ -311,9 +310,9 @@ class RewriteCommand:
             self.target = 'source_children'
         elif mode == 'test':
             self.target = 'test_children'
-        return self
+        return asdict(self)
 
-    def rem_sources(self: RewriteCommand, mode: str, source: str) -> RewriteCommand:
+    def rem_sources(self: RewriteCommand, mode: str, source: str) -> Dict:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
         self.operation = 'src_rem'
@@ -321,9 +320,9 @@ class RewriteCommand:
             self.target = 'source_files'
         elif mode == 'test':
             self.target = 'test_files'
-        return self
+        return asdict(self)
 
-    def rem_children(self: RewriteCommand, mode: str, source: str) -> RewriteCommand:
+    def rem_children(self: RewriteCommand, mode: str, source: str) -> Dict:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
         self.operation = 'src_rem'
@@ -331,12 +330,13 @@ class RewriteCommand:
             self.target = 'source_children'
         elif mode == 'test':
             self.target = 'test_children'
-        return self
+        return asdict(self)
 
 
 def main() -> NoReturn:
     """Main ozi.fix entrypoint."""
     project = parser.parse_args()
+    project.fix = project.fix == 'missing'
     project.target = Path(project.target).absolute()
     rewriter = []
     if not project.target.exists():
@@ -375,11 +375,11 @@ def main() -> NoReturn:
             with open((child / 'meson.build'), 'w') as f:
                 f.write(template.render())
             rewriter.append(
-                asdict(RewriteCommand().add_children(project.fix, str(child / 'meson.build')))
+                RewriteCommand().add_children(project.fix, str(child / 'meson.build'))
             )
         elif Path(file).is_file():
             rewriter.append(
-                asdict(RewriteCommand().add_sources(project.fix, str(Path(file))))
+                RewriteCommand().add_sources(project.fix, str(Path(file)))
             )
     for file in project.remove:
         child = Path(project.target)
@@ -402,11 +402,11 @@ def main() -> NoReturn:
                         'not ok - Could not remove non-empty test directory.', RuntimeWarning
                     )
             rewriter.append(
-                asdict(RewriteCommand().add_children(project.fix, str(child / 'meson.build')))
+                RewriteCommand().add_children(project.fix, str(child / 'meson.build'))
             )
         elif Path(file).is_file():
             rewriter.append(
-                asdict(RewriteCommand().rem_sources(project.fix, str(Path(file))))
+                RewriteCommand().rem_sources(project.fix, str(Path(file)))
             )
     print(json.dumps(rewriter, indent=4))
     exit(0)
