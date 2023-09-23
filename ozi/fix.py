@@ -363,13 +363,13 @@ def main() -> NoReturn:
         )
     extra_source_files = list(set(extra_source_files + list(map(Path, found_source_files))))
     for file in project.add:
-        if Path(file).is_dir():
-            template = env.get_template('new_child.j2')
-            child = Path(project.target)
-            if project.fix == 'source':
-                child = Path(project.target, project.name, file)
-            elif project.fix == 'test':
-                child = Path(project.target, 'tests', file)
+        template = env.get_template('new_child.j2')
+        child = Path(project.target)
+        if project.fix == 'source':
+            child = Path(project.target, project.name, file)
+        elif project.fix == 'test':
+            child = Path(project.target, 'tests', file)
+        if child.is_dir():
             child.mkdir()
             (child / 'meson.build').touch()
             with open((child / 'meson.build'), 'w') as f:
@@ -377,34 +377,34 @@ def main() -> NoReturn:
             rewriter.append(
                 RewriteCommand().add_children(project.fix, str(child / 'meson.build'))
             )
-        elif Path(file).is_file():
+        elif child.is_file():
             rewriter.append(
                 RewriteCommand().add_sources(project.fix, str(Path(file)))
             )
     for file in project.remove:
         child = Path(project.target)
-        if Path(file).is_dir():
-            if project.fix == 'source':
-                child = Path(project.target, project.name, file)
-                try:
-                    Path(project.target, project.name, file).rmdir()
-                except OSError:
-                    warn(
-                        'not ok - Could not remove non-empty source directory.',
-                        RuntimeWarning,
-                    )
-            elif project.fix == 'test':
-                child = Path(project.target, 'tests', file)
-                try:
-                    Path(project.target, project.name, file).rmdir()
-                except OSError:
-                    warn(
-                        'not ok - Could not remove non-empty test directory.', RuntimeWarning
-                    )
+        if project.fix == 'source':
+            child = Path(project.target, project.name, file)
+            try:
+                Path(project.target, project.name, file).rmdir()
+            except OSError:
+                warn(
+                    'not ok - Could not remove non-empty source directory.',
+                    RuntimeWarning,
+                )
+        elif project.fix == 'test':
+            child = Path(project.target, 'tests', file)
+            try:
+                Path(project.target, project.name, file).rmdir()
+            except OSError:
+                warn(
+                    'not ok - Could not remove non-empty test directory.', RuntimeWarning
+                )
+        if child.is_dir():
             rewriter.append(
                 RewriteCommand().add_children(project.fix, str(child / 'meson.build'))
             )
-        elif Path(file).is_file():
+        elif child.is_file():
             rewriter.append(
                 RewriteCommand().rem_sources(project.fix, str(Path(file)))
             )
