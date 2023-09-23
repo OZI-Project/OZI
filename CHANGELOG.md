@@ -2,6 +2,13 @@
 
 
 
+## v0.0.122 (2023-09-23)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix &#39;Namespace has no attribute missing&#39;. ([`238ba81`](https://github.com/rjdbcm/OZI/commit/238ba81c18f0ad81c6b6f266639984ce8c7c5500))
+
+
 ## v0.0.121 (2023-09-23)
 
 ### :children_crossing:
