@@ -5,7 +5,7 @@
 """ozi-fix: Project fix script that outputs a meson rewriter JSON array."""
 from __future__ import annotations
 import argparse
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import json
 import os
 import re
@@ -289,7 +289,7 @@ class RewriteCommand:
     type: str = 'target'
     target: str = ''
     operation: str = ''
-    sources: List[str] = ['']
+    sources: List[str] = field(default_factory=list)
     subdir: str = ''
     target_type: str = ''
 
