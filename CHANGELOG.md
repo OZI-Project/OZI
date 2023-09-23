@@ -2,6 +2,13 @@
 
 
 
+## v0.0.117 (2023-09-23)
+
+### :hammer:
+
+* :hammer:: Improved ``ozi-fix`` implementation. ([`c4b2cf4`](https://github.com/rjdbcm/OZI/commit/c4b2cf48baf0dfd361e7729a44fb033b55f94b2f))
+
+
 ## v0.0.116 (2023-09-19)
 
 ### :children_crossing:
