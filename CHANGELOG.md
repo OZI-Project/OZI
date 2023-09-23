@@ -2,6 +2,15 @@
 
 
 
+## v0.0.120 (2023-09-23)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix dictionary cast of RewriteCommand.
+
+Using dataclasses.asdict(). ([`32fad26`](https://github.com/rjdbcm/OZI/commit/32fad263589ef9555f3f03fccb0ca147295e7a8d))
+
+
 ## v0.0.119 (2023-09-23)
 
 ### :bug:
