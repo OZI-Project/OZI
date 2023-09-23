@@ -21,6 +21,7 @@ root_templates = [
     'meson.options.j2',
     'mypy.meson.options',
     'mypy.pyproject.toml',
+    'new_child.j2',
     'ozi.wrap.j2',
     'project.PKG-INFO',
     'project.array.meson.options',
