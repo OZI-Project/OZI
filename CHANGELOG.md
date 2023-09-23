@@ -2,6 +2,17 @@
 
 
 
+## v0.0.119 (2023-09-23)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix mutable default in dataclass. ([`198bf28`](https://github.com/rjdbcm/OZI/commit/198bf287cc7f9723ce66d767d78714b54a7e6d0e))
+
+### Other
+
+* :memo:(PKG-INFO): Bump version. ([`ed08b45`](https://github.com/rjdbcm/OZI/commit/ed08b45eb9e3aa9b76fdd659233dff5c33fb5cff))
+
+
 ## v0.0.118 (2023-09-23)
 
 ### :bug:
