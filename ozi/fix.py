@@ -5,7 +5,7 @@
 """ozi-fix: Project fix script that outputs a meson rewriter JSON array."""
 from __future__ import annotations
 import argparse
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 import json
 import os
 import re
@@ -293,10 +293,6 @@ class RewriteCommand:
     subdir: str = ''
     target_type: str = ''
 
-    def __repr__(self: RewriteCommand) -> Dict:
-        """Representation as a dict"""
-        return self.__dict__
-
     def add_sources(self: RewriteCommand, mode: str, source: str) -> RewriteCommand:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
@@ -379,10 +375,12 @@ def main() -> NoReturn:
             with open((child / 'meson.build'), 'w') as f:
                 f.write(template.render())
             rewriter.append(
-                RewriteCommand().add_children(project.fix, str(child / 'meson.build'))
+                asdict(RewriteCommand().add_children(project.fix, str(child / 'meson.build')))
             )
         elif Path(file).is_file():
-            rewriter.append(RewriteCommand().add_sources(project.fix, str(Path(file))))
+            rewriter.append(
+                asdict(RewriteCommand().add_sources(project.fix, str(Path(file))))
+            )
     for file in project.remove:
         child = Path(project.target)
         if Path(file).is_dir():
@@ -404,10 +402,12 @@ def main() -> NoReturn:
                         'not ok - Could not remove non-empty test directory.', RuntimeWarning
                     )
             rewriter.append(
-                RewriteCommand().add_children(project.fix, str(child / 'meson.build'))
+                asdict(RewriteCommand().add_children(project.fix, str(child / 'meson.build')))
             )
         elif Path(file).is_file():
-            rewriter.append(RewriteCommand().rem_sources(project.fix, str(Path(file))))
+            rewriter.append(
+                asdict(RewriteCommand().rem_sources(project.fix, str(Path(file))))
+            )
     print(json.dumps(rewriter, indent=4))
     exit(0)
 
