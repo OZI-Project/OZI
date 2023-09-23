@@ -293,6 +293,10 @@ class RewriteCommand:
     subdir: str = ''
     target_type: str = ''
 
+    def __repr__(self: RewriteCommand) -> Dict:
+        """Representation as a dict"""
+        return self.__dict__
+
     def add_sources(self: RewriteCommand, mode: str, source: str) -> RewriteCommand:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
