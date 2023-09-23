@@ -2,6 +2,13 @@
 
 
 
+## v0.0.123 (2023-09-23)
+
+### :bug:
+
+* :bug:(ozi-fix): proper detection of target paths. ([`09806e0`](https://github.com/rjdbcm/OZI/commit/09806e07386d7c12a40e5e6d409e8a58624f9fd4))
+
+
 ## v0.0.122 (2023-09-23)
 
 ### :bug:
