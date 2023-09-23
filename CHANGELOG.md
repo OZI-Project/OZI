@@ -2,6 +2,17 @@
 
 
 
+## v0.0.121 (2023-09-23)
+
+### :children_crossing:
+
+* :children_crossing:(ozi-fix): Changed ``missing`` from a flag to a subparser. ([`526665d`](https://github.com/rjdbcm/OZI/commit/526665de9049dd4b5e897c7e509dfe7cc42f503c))
+
+### Other
+
+* :memo:(PKG-INFO): Bump version. ([`18c112a`](https://github.com/rjdbcm/OZI/commit/18c112ac9cb4f80851bf2fcdea5480319239c1b0))
+
+
 ## v0.0.120 (2023-09-23)
 
 ### :bug:
