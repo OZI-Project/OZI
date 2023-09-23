@@ -3,6 +3,7 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """ozi-fix: Project fix script that outputs a meson rewriter JSON array."""
+from __future__ import annotations
 import argparse
 from dataclasses import dataclass
 import json
@@ -12,7 +13,7 @@ import sys
 from email import message_from_file
 from email.message import Message
 from pathlib import Path
-from typing import Dict, List, NoReturn, Self, Tuple, Union
+from typing import Dict, List, NoReturn, Tuple, Union
 from warnings import warn
 from jinja2 import Environment, PackageLoader, select_autoescape
 
@@ -292,7 +293,7 @@ class RewriteCommand:
     subdir: str = ''
     target_type: str = ''
 
-    def add_sources(self: Self, mode: str, source: str) -> Self:
+    def add_sources(self: RewriteCommand, mode: str, source: str) -> RewriteCommand:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
         self.operation = 'src_add'
@@ -302,7 +303,7 @@ class RewriteCommand:
             self.target = 'test_files'
         return self
 
-    def add_children(self: Self, mode: str, source: str) -> Self:
+    def add_children(self: RewriteCommand, mode: str, source: str) -> RewriteCommand:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
         self.operation = 'src_add'
@@ -312,7 +313,7 @@ class RewriteCommand:
             self.target = 'test_children'
         return self
 
-    def rem_sources(self: Self, mode: str, source: str) -> Self:
+    def rem_sources(self: RewriteCommand, mode: str, source: str) -> RewriteCommand:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
         self.operation = 'src_rem'
@@ -322,7 +323,7 @@ class RewriteCommand:
             self.target = 'test_files'
         return self
 
-    def rem_children(self: Self, mode: str, source: str) -> Self:
+    def rem_children(self: RewriteCommand, mode: str, source: str) -> RewriteCommand:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
         self.operation = 'src_rem'
