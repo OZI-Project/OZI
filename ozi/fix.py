@@ -4,6 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """ozi-fix: Project fix script that outputs a meson rewriter JSON array."""
 import argparse
+from dataclasses import dataclass
 import json
 import os
 import re
@@ -11,7 +12,9 @@ import sys
 from email import message_from_file
 from email.message import Message
 from pathlib import Path
-from typing import Dict, List, NoReturn, Tuple, Union
+from typing import Dict, List, NoReturn, Self, Tuple, Union
+from warnings import warn
+from jinja2 import Environment, PackageLoader, select_autoescape
 
 from pyparsing import (
     CaselessKeyword,
@@ -28,9 +31,25 @@ from pyparsing import (
 from .assets import spdx_license_expression, underscorify
 from .assets.structure import root_files, source_files, test_files
 
+env = Environment(
+    loader=PackageLoader('ozi'),
+    autoescape=select_autoescape(),
+    enable_async=True,
+)
+env.filters['underscorify'] = underscorify
+
 parser = argparse.ArgumentParser(description=sys.modules[__name__].__doc__, add_help=False)
+subparser = parser.add_subparsers(help='source & test fix', dest='fix')
 parser.add_argument('target', type=str, help='target OZI project directory')
-parser.add_argument(
+source_parser = subparser.add_parser(
+    'source', aliases=['s'], description='Create a new Python source in an OZI project.'
+)
+test_parser = subparser.add_parser(
+    'test',
+    aliases=['t'],
+    description='Create a new Python test in an OZI project.',
+)
+source_parser.add_argument(
     '-a',
     '--add',
     nargs='?',
@@ -38,7 +57,7 @@ parser.add_argument(
     default=['ozi.phony'],
     help='add file or dir/ to project',
 )
-parser.add_argument(
+source_parser.add_argument(
     '-r',
     '--remove',
     nargs='?',
@@ -46,14 +65,57 @@ parser.add_argument(
     default=['ozi.phony'],
     help='remove file or dir/ from project',
 )
-output = parser.add_argument_group('output')
-output.add_argument(
+source_parser.add_argument(
+    '--copyright-head',
+    type=str,
+    default='',
+    help='copyright header string',
+    metavar='"Part of the NAME project.\\nSee LICENSE..."',
+)
+source_output = source_parser.add_argument_group('output')
+source_output.add_argument(
     '--strict',
     default='--no-strict',
     action=argparse.BooleanOptionalAction,
     help='strict mode raises warnings to errors.',
 )
-output.add_argument('-p', '--pretty', action='store_true', help='pretty print JSON output')
+source_output.add_argument(
+    '-p', '--pretty', action='store_true', help='pretty print JSON output'
+)
+test_parser.add_argument(
+    '-a',
+    '--add',
+    nargs='?',
+    action='append',
+    default=['ozi.phony'],
+    help='add file or dir/ to project',
+)
+test_parser.add_argument(
+    '-r',
+    '--remove',
+    nargs='?',
+    action='append',
+    default=['ozi.phony'],
+    help='remove file or dir/ from project',
+)
+test_parser.add_argument(
+    '--copyright-head',
+    type=str,
+    default='',
+    help='copyright header string',
+    metavar='"Part of the NAME project.\\nSee LICENSE..."',
+)
+test_output = test_parser.add_argument_group('output')
+test_output.add_argument(
+    '--strict',
+    default='--no-strict',
+    action=argparse.BooleanOptionalAction,
+    help='strict mode raises warnings to errors.',
+)
+test_output.add_argument(
+    '-p', '--pretty', action='store_true', help='pretty print JSON output'
+)
+
 helpers = parser.add_mutually_exclusive_group()
 helpers.add_argument('-h', '--help', action='help', help='show this help message and exit')
 helpers.add_argument(
@@ -219,23 +281,67 @@ def report_missing(
     return name, pkg_info, found_root_files, found_source_files, found_test_files
 
 
-def main() -> Union[NoReturn, str]:
+@dataclass
+class RewriteCommand:
+    """Meson rewriter command input"""
+
+    type: str = 'target'
+    target: str = ''
+    operation: str = ''
+    sources: List[str] = ['']
+    subdir: str = ''
+    target_type: str = ''
+
+    def add_sources(self: Self, mode: str, source: str) -> Self:
+        """Add sources and tests to an OZI project."""
+        self.sources += [source]
+        self.operation = 'src_add'
+        if mode == 'source':
+            self.target = 'source_files'
+        elif mode == 'test':
+            self.target = 'test_files'
+        return self
+
+    def add_children(self: Self, mode: str, source: str) -> Self:
+        """Add sources and tests to an OZI project."""
+        self.sources += [source]
+        self.operation = 'src_add'
+        if mode == 'source':
+            self.target = 'source_children'
+        elif mode == 'test':
+            self.target = 'test_children'
+        return self
+
+    def rem_sources(self: Self, mode: str, source: str) -> Self:
+        """Add sources and tests to an OZI project."""
+        self.sources += [source]
+        self.operation = 'src_rem'
+        if mode == 'source':
+            self.target = 'source_files'
+        elif mode == 'test':
+            self.target = 'test_files'
+        return self
+
+    def rem_children(self: Self, mode: str, source: str) -> Self:
+        """Add sources and tests to an OZI project."""
+        self.sources += [source]
+        self.operation = 'src_rem'
+        if mode == 'source':
+            self.target = 'source_children'
+        elif mode == 'test':
+            self.target = 'test_children'
+        return self
+
+
+def main() -> NoReturn:
     """Main ozi.fix entrypoint."""
     project = parser.parse_args()
     project.target = Path(project.target).absolute()
     rewriter = []
-    src_add = {
-        'type': 'target',
-        'target': '',
-        'operation': 'src_add',
-        'sources': [''],
-        'subdir': '',
-        'target_type': '',
-    }
     if not project.target.exists():
-        raise ValueError(f'target: {project.target}\ntarget does not exist.')
-    if not project.target.is_dir():
-        raise ValueError(f'target: {project.target}\ntarget is not a directory.')
+        warn(f'Bail out! target: {project.target}\ntarget does not exist.', RuntimeWarning)
+    elif not project.target.is_dir():
+        warn(f'Bail out! target: {project.target}\ntarget is not a directory.', RuntimeWarning)
     project.add.remove('ozi.phony')
     project.add = list(set(project.add))
     project.remove.remove('ozi.phony')
@@ -247,19 +353,58 @@ def main() -> Union[NoReturn, str]:
     extra_source_files = [
         x for x in (project.target / project.name).glob('./*') if x.is_file()
     ]
+    if len(project.copyright_head) == 0:
+        project.copyright_head = '\n'.join(
+            [
+                f'Part of {name}.',
+                'See LICENSE.txt in the project root for details.',
+            ]
+        )
     extra_source_files = list(set(extra_source_files + list(map(Path, found_source_files))))
-    add_source_files = []
     for file in project.add:
         if Path(file).is_dir():
-            (project.target / file).mkdir()
+            template = env.get_template('new_child.j2')
+            child = Path(project.target)
+            if project.fix == 'source':
+                child = Path(project.target, project.name, file)
+            elif project.fix == 'test':
+                child = Path(project.target, 'tests', file)
+            child.mkdir()
+            (child / 'meson.build').touch()
+            with open((child / 'meson.build'), 'w') as f:
+                f.write(template.render())
+            rewriter.append(
+                RewriteCommand().add_children(project.fix, str(child / 'meson.build'))
+            )
         elif Path(file).is_file():
-            add_source_files += [file]
-    if len(add_source_files) > 0:
-        args = src_add.copy()
-        args.update({'target': 'source_files', 'sources': add_source_files})
-        rewriter.append(args)
+            rewriter.append(RewriteCommand().add_sources(project.fix, str(Path(file))))
+    for file in project.remove:
+        child = Path(project.target)
+        if Path(file).is_dir():
+            if project.fix == 'source':
+                child = Path(project.target, project.name, file)
+                try:
+                    Path(project.target, project.name, file).rmdir()
+                except OSError:
+                    warn(
+                        'not ok - Could not remove non-empty source directory.',
+                        RuntimeWarning,
+                    )
+            elif project.fix == 'test':
+                child = Path(project.target, 'tests', file)
+                try:
+                    Path(project.target, project.name, file).rmdir()
+                except OSError:
+                    warn(
+                        'not ok - Could not remove non-empty test directory.', RuntimeWarning
+                    )
+            rewriter.append(
+                RewriteCommand().add_children(project.fix, str(child / 'meson.build'))
+            )
+        elif Path(file).is_file():
+            rewriter.append(RewriteCommand().rem_sources(project.fix, str(Path(file))))
     print(json.dumps(rewriter, indent=4))
-    return 'ok'
+    exit(0)
 
 
 if __name__ == '__main__':

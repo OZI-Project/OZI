@@ -1,0 +1,28 @@
+{#- OZI 0.1
+# ozi/templates/new_child.j2
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+-#}
+{{ '# OZI ' ~ ozi.spec }} meson.build:{{ project.name }}_files,{{ project.name }}_children
+{%- for line in project.copyright_head.split('\n') %}
+{{ '# ' ~ line }}
+{%- endfor %}
+{{ '# Additional copyright and license terms apply, see NOTICE for details.' }}
+{{ '# DO NOT EDIT BY HAND - This file was generated for use with OZI tools.' }}
+{{ '# ozi-fix -> meson rewrite is the standard editing pipeline.' }}
+config_files = []
+foreach file: config_files
+  fs.copyfile(file)
+  python.install_sources(file, subdir: '{{ project.name }}')
+endforeach
+if false
+  executable('{{ project.name }}_files', config_files)
+endif
+children = []
+foreach child: children
+    subdir(child)
+endforeach
+if false
+    executable('{{ project.name }}_children', children)
+endif
