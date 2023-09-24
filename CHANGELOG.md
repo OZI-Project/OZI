@@ -2,6 +2,15 @@
 
 
 
+## v0.0.127 (2023-09-24)
+
+### :children_crossing:
+
+* :children_crossing:: Drop run of blastpipe for now.
+
+I do plan to implement a test suite but blastpipe&#39;s invocation from OZI during continuous integration is currently suffering from broken arguments. ([`2461151`](https://github.com/rjdbcm/OZI/commit/24611518eb2fb656698532248b80c9eee3edce0d))
+
+
 ## v0.0.126 (2023-09-24)
 
 ### :bug:
