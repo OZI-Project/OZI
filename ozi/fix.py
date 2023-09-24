@@ -124,6 +124,12 @@ missing_parser = subparser.add_parser(
     aliases=['m'],
     description='Create a new Python test in an OZI project.',
 )
+missing_parser.add_argument(
+    '--strict',
+    default='--no-strict',
+    action=argparse.BooleanOptionalAction,
+    help='strict mode raises warnings to errors.',
+)
 
 
 def _str_dict_union(toks: ParseResults) -> Dict[str, str]:
@@ -342,7 +348,9 @@ def main() -> NoReturn:
     if not project.target.exists():
         warn(f'Bail out! target: {project.target}\ntarget does not exist.', RuntimeWarning)
     elif not project.target.is_dir():
-        warn(f'Bail out! target: {project.target}\ntarget is not a directory.', RuntimeWarning)
+        warn(
+            f'Bail out! target: {project.target}\ntarget is not a directory.', RuntimeWarning
+        )
     name, pkg_info, found_root_files, found_source_files, found_test_files = report_missing(
         project.target, project.strict, project.missing
     )
@@ -378,9 +386,7 @@ def main() -> NoReturn:
                 RewriteCommand().add_children(project.fix, str(child / 'meson.build'))
             )
         elif child.is_file():
-            rewriter.append(
-                RewriteCommand().add_sources(project.fix, str(Path(file)))
-            )
+            rewriter.append(RewriteCommand().add_sources(project.fix, str(Path(file))))
     for file in project.remove:
         child = Path(project.target)
         if project.fix == 'source':
@@ -397,17 +403,13 @@ def main() -> NoReturn:
             try:
                 Path(project.target, project.name, file).rmdir()
             except OSError:
-                warn(
-                    'not ok - Could not remove non-empty test directory.', RuntimeWarning
-                )
+                warn('not ok - Could not remove non-empty test directory.', RuntimeWarning)
         if child.is_dir():
             rewriter.append(
                 RewriteCommand().add_children(project.fix, str(child / 'meson.build'))
             )
         elif child.is_file():
-            rewriter.append(
-                RewriteCommand().rem_sources(project.fix, str(Path(file)))
-            )
+            rewriter.append(RewriteCommand().rem_sources(project.fix, str(Path(file))))
     print(json.dumps(rewriter, indent=4))
     exit(0)
 
