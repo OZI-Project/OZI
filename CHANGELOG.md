@@ -2,6 +2,13 @@
 
 
 
+## v0.0.125 (2023-09-24)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix &#39;Namespace&#39; object has no attribute &#39;add&#39;. ([`af35c7e`](https://github.com/rjdbcm/OZI/commit/af35c7e5f8e4322a9e26b54e712540b16946db0c))
+
+
 ## v0.0.124 (2023-09-23)
 
 ### :bug:
