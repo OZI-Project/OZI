@@ -20,9 +20,7 @@ def print_version() -> NoReturn:
 
 
 parser = argparse.ArgumentParser(
-    prog='ozi',
-    description=sys.modules[__name__].__doc__,
-    add_help=False
+    prog='ozi', description=sys.modules[__name__].__doc__, add_help=False
 )
 helpers = parser.add_mutually_exclusive_group()
 helpers.add_argument('-h', '--help', action='help', help='show this help message and exit')

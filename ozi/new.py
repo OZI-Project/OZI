@@ -270,7 +270,7 @@ def main() -> Union[NoReturn, None]:
     if project.list == '':
         pass
     elif project.list in list_available.keys():
-        print(*list_available.get(project.list), sep='\n')
+        print(*list_available.get(project.list, []), sep='\n')
         exit(0)
 
     if project.new == 'project':

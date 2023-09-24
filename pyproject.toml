@@ -454,6 +454,7 @@ deps =
      setuptools_scm[toml]>=6.2
      toml: tomli >= 2.0.0
 commands =
-     meson setup build-{envname} -Dblastpipe:dev=enabled -Dozi-blastpipe=enabled
+     meson setup build-{envname}
      meson test --maxfail=1 -C build-{envname} {posargs}
 """
+# -Dblastpipe:dev=enabled -Dozi-blastpipe=enabled

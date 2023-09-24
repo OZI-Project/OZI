@@ -27,6 +27,8 @@ jobs:
       matrix:
         ozi:
           - dist
+          - lint
+          - test
         os:
           - ubuntu-latest
           - macos-latest
