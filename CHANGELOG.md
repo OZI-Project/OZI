@@ -2,6 +2,13 @@
 
 
 
+## v0.0.126 (2023-09-24)
+
+### :bug:
+
+* :bug:(ozi-fix):  &#39;Namespace&#39; object has no attribute &#39;strict&#39; ([`f7bbdaf`](https://github.com/rjdbcm/OZI/commit/f7bbdafb132be919311458487fe2834612dedc42))
+
+
 ## v0.0.125 (2023-09-24)
 
 ### :bug:
