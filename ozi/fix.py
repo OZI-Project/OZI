@@ -343,13 +343,13 @@ def main() -> NoReturn:
         warn(f'Bail out! target: {project.target}\ntarget does not exist.', RuntimeWarning)
     elif not project.target.is_dir():
         warn(f'Bail out! target: {project.target}\ntarget is not a directory.', RuntimeWarning)
+    name, pkg_info, found_root_files, found_source_files, found_test_files = report_missing(
+        project.target, project.strict, project.missing
+    )
     project.add.remove('ozi.phony')
     project.add = list(set(project.add))
     project.remove.remove('ozi.phony')
     project.remove = list(set(project.remove))
-    name, pkg_info, found_root_files, found_source_files, found_test_files = report_missing(
-        project.target, project.strict, project.missing
-    )
     project.name = underscorify(name)
     extra_source_files = [
         x for x in (project.target / project.name).glob('./*') if x.is_file()
