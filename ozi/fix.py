@@ -126,14 +126,14 @@ missing_parser = subparser.add_parser(
     description='Create a new Python test in an OZI project.',
 )
 missing_parser.add_argument(
-    'add',
+    '--add',
     nargs='?',
     action='append',
     default=['ozi.phony'],
     help=argparse.SUPPRESS,
 )
 missing_parser.add_argument(
-    'remove',
+    '--remove',
     nargs='?',
     action='append',
     default=['ozi.phony'],
@@ -377,8 +377,10 @@ class Rewriter:
                 cmd_children.add(self.fix, 'children', str(child / 'meson.build'))
             elif child.is_file():
                 cmd_files.add(self.fix, 'files', str(Path(file)))
-        self.commands += [cmd_files] if cmd_files.active else []
-        self.commands += [cmd_children] if cmd_children.active else []
+        if cmd_files.active:
+            self.commands += [cmd_files]
+        if cmd_children.active:
+            self.commands += [cmd_children]
         return self
 
     def __isub__(self: Rewriter, other: List[str]) -> Rewriter:
@@ -408,8 +410,10 @@ class Rewriter:
                 cmd_children.rem(self.fix, 'children', str(child / 'meson.build'))
             elif child.is_file():
                 cmd_files.rem(self.fix, 'files', str(Path(file)))
-        self.commands += [cmd_files] if cmd_files.active else []
-        self.commands += [cmd_children] if cmd_children.active else []
+        if cmd_files.active:
+            self.commands += [cmd_files]
+        if cmd_children.active:
+            self.commands += [cmd_children]
         return self
 
 
@@ -423,6 +427,7 @@ def preprocess(project: argparse.Namespace) -> argparse.Namespace:
         warn(
             f'Bail out! target: {project.target}\ntarget is not a directory.', RuntimeWarning
         )
+    print(project.add)
     project.add.remove('ozi.phony')
     project.add = list(set(project.add))
     project.remove.remove('ozi.phony')
