@@ -2,6 +2,15 @@
 
 
 
+## v0.0.129 (2023-09-26)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix missing args.
+
+&#39;Namespace&#39; object has no attribute &#39;add&#39; ([`17e1d79`](https://github.com/rjdbcm/OZI/commit/17e1d794dc17a0bfb90ca4e98d7775daae1dd8d2))
+
+
 ## v0.0.128 (2023-09-26)
 
 ### :hammer:
