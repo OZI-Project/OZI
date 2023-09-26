@@ -186,12 +186,17 @@ def report_missing(
         count += 1
         if use_tap:
             print('ok', count, '-', f'{k}:', v)
-    name = re.sub(r'[-_.]+', '-', pkg_info['Name']).lower()
+    try:
+        name = re.sub(r'[-_.]+', '-', pkg_info['Name']).lower()
+    except TypeError:
+        print('Bail out!', 'PKG-INFO', 'Name', 'MISSING')
+        exit(1)
     try:
         extra_pkg_info = pkg_info_extra(pkg_info.get_payload()).items()
     except ParseException:
         count += 1
-        print('not', 'ok', count, '-', 'PKG-INFO', 'OZI', 'Extra-Content', 'MISSING')
+        if use_tap:
+            print('not', 'ok', count, '-', 'PKG-INFO', 'OZI', 'Extra-Content', 'MISSING')
         extra_pkg_info = {}  # type: ignore
     for k, v in extra_pkg_info:
         count += 1
@@ -292,6 +297,7 @@ def report_missing(
 class RewriteCommand:
     """Meson rewriter command input"""
 
+    active: bool = field(repr=False, default_factory=bool)
     type: str = 'target'
     target: str = ''
     operation: str = ''
@@ -299,78 +305,122 @@ class RewriteCommand:
     subdir: str = ''
     target_type: str = ''
 
-    def add_sources(
-        self: RewriteCommand, mode: str, source: str
+    def add(
+        self: RewriteCommand, mode: str, kind: str, source: str
     ) -> Dict[str, Union[str, List[str]]]:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
         self.operation = 'src_add'
-        if mode == 'source':
-            self.target = 'source_files'
-        elif mode == 'test':
-            self.target = 'test_files'
-        return asdict(self)
+        return self._body(mode, kind)
 
-    def add_children(
-        self: RewriteCommand, mode: str, source: str
-    ) -> Dict[str, Union[str, List[str]]]:
-        """Add sources and tests to an OZI project."""
-        self.sources += [source]
-        self.operation = 'src_add'
-        if mode == 'source':
-            self.target = 'source_children'
-        elif mode == 'test':
-            self.target = 'test_children'
-        return asdict(self)
-
-    def rem_sources(
-        self: RewriteCommand, mode: str, source: str
+    def rem(
+        self: RewriteCommand, mode: str, kind: str, source: str
     ) -> Dict[str, Union[str, List[str]]]:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
         self.operation = 'src_rem'
-        if mode == 'source':
-            self.target = 'source_files'
-        elif mode == 'test':
-            self.target = 'test_files'
-        return asdict(self)
+        return self._body(mode, kind)
 
-    def rem_children(
-        self: RewriteCommand, mode: str, source: str
+    def _body(
+        self: RewriteCommand, mode: str, kind: str
     ) -> Dict[str, Union[str, List[str]]]:
-        """Add sources and tests to an OZI project."""
-        self.sources += [source]
-        self.operation = 'src_rem'
-        if mode == 'source':
-            self.target = 'source_children'
-        elif mode == 'test':
-            self.target = 'test_children'
+        """The body of the add/rem functions"""
+        self.active = True
+        target = mode + '_' + kind
+        mode_set = self.target == target or self.target == ''
+        if mode_set:
+            self.target = target
+        else:
+            raise ValueError(f'target already set to {self.target}')
         return asdict(self)
 
 
-def main() -> NoReturn:
-    """Main ozi.fix entrypoint."""
-    project = parser.parse_args()
+@dataclass
+class Rewriter:
+    """Container for Meson rewriter commands."""
+
+    target: str
+    name: str
+    fix: str
+    commands: List[RewriteCommand] = field(default_factory=list)
+
+    def __iadd__(self: Rewriter, other: List[str]) -> Rewriter:
+        """Add a list of paths"""
+        cmd_files = RewriteCommand()
+        cmd_children = RewriteCommand()
+        for file in other:
+            template = env.get_template('new_child.j2')
+            child = Path(self.target, file)
+            if self.fix == 'source':
+                child = Path(self.target, self.name, file)
+            elif self.fix == 'test':
+                child = Path(self.target, 'tests', file)
+            if child.is_dir():
+                child.mkdir()
+                (child / 'meson.build').touch()
+                with open((child / 'meson.build'), 'w') as f:
+                    f.write(template.render())
+                cmd_children.add(self.fix, 'children', str(child / 'meson.build'))
+            elif child.is_file():
+                cmd_files.add(self.fix, 'files', str(Path(file)))
+        self.commands += [cmd_files] if cmd_files.active else []
+        self.commands += [cmd_children] if cmd_children.active else []
+        return self
+
+    def __isub__(self: Rewriter, other: List[str]) -> Rewriter:
+        """Remove a list of paths"""
+        cmd_files = RewriteCommand()
+        cmd_children = RewriteCommand()
+        for file in other:
+            child = Path(self.target, file)
+            if self.fix == 'source':
+                child = Path(self.target, self.name, file)
+                try:
+                    Path(self.target, self.name, file).rmdir()
+                except OSError:
+                    warn(
+                        'not ok - Could not remove non-empty source directory.',
+                        RuntimeWarning,
+                    )
+            elif self.fix == 'test':
+                child = Path(self.target, 'tests', file)
+                try:
+                    Path(self.target, self.name, file).rmdir()
+                except OSError:
+                    warn(
+                        'not ok - Could not remove non-empty test directory.', RuntimeWarning
+                    )
+            if child.is_dir():
+                cmd_children.rem(self.fix, 'children', str(child / 'meson.build'))
+            elif child.is_file():
+                cmd_files.rem(self.fix, 'files', str(Path(file)))
+        self.commands += [cmd_files] if cmd_files.active else []
+        self.commands += [cmd_children] if cmd_children.active else []
+        return self
+
+
+def preprocess(project: argparse.Namespace) -> argparse.Namespace:
+    """Remove phony arguments, check target exists and is a directory, set missing flag."""
     project.missing = project.fix == 'missing'
     project.target = Path(project.target).absolute()
-    rewriter = []
     if not project.target.exists():
         warn(f'Bail out! target: {project.target}\ntarget does not exist.', RuntimeWarning)
     elif not project.target.is_dir():
         warn(
             f'Bail out! target: {project.target}\ntarget is not a directory.', RuntimeWarning
         )
-    name, pkg_info, found_root_files, found_source_files, found_test_files = report_missing(
-        project.target, project.strict, project.missing
-    )
     project.add.remove('ozi.phony')
     project.add = list(set(project.add))
     project.remove.remove('ozi.phony')
     project.remove = list(set(project.remove))
+    return project
+
+
+def main() -> NoReturn:
+    """Main ozi.fix entrypoint."""
+    project = preprocess(parser.parse_args())
+    name, *_ = report_missing(project.target, project.strict, project.missing)
     project.name = underscorify(name)
-    extra_source_files = [
-        x for x in (project.target / project.name).glob('./*') if x.is_file()
-    ]
     if len(project.copyright_head) == 0:
         project.copyright_head = '\n'.join(
             [
@@ -378,48 +428,10 @@ def main() -> NoReturn:
                 'See LICENSE.txt in the project root for details.',
             ]
         )
-    extra_source_files = list(set(extra_source_files + list(map(Path, found_source_files))))
-    for file in project.add:
-        template = env.get_template('new_child.j2')
-        child = Path(project.target)
-        if project.fix == 'source':
-            child = Path(project.target, project.name, file)
-        elif project.fix == 'test':
-            child = Path(project.target, 'tests', file)
-        if child.is_dir():
-            child.mkdir()
-            (child / 'meson.build').touch()
-            with open((child / 'meson.build'), 'w') as f:
-                f.write(template.render())
-            rewriter.append(
-                RewriteCommand().add_children(project.fix, str(child / 'meson.build'))
-            )
-        elif child.is_file():
-            rewriter.append(RewriteCommand().add_sources(project.fix, str(Path(file))))
-    for file in project.remove:
-        child = Path(project.target)
-        if project.fix == 'source':
-            child = Path(project.target, project.name, file)
-            try:
-                Path(project.target, project.name, file).rmdir()
-            except OSError:
-                warn(
-                    'not ok - Could not remove non-empty source directory.',
-                    RuntimeWarning,
-                )
-        elif project.fix == 'test':
-            child = Path(project.target, 'tests', file)
-            try:
-                Path(project.target, project.name, file).rmdir()
-            except OSError:
-                warn('not ok - Could not remove non-empty test directory.', RuntimeWarning)
-        if child.is_dir():
-            rewriter.append(
-                RewriteCommand().add_children(project.fix, str(child / 'meson.build'))
-            )
-        elif child.is_file():
-            rewriter.append(RewriteCommand().rem_sources(project.fix, str(Path(file))))
-    print(json.dumps(rewriter, indent=4))
+    rewriter = Rewriter(project.target, project.name, project.fix)
+    rewriter += project.add
+    rewriter -= project.remove
+    print(json.dumps(rewriter.commands, indent=4 if project.pretty else None))
     exit(0)
 
 
