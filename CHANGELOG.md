@@ -2,6 +2,19 @@
 
 
 
+## v0.0.128 (2023-09-26)
+
+### :hammer:
+
+* :hammer:(ozi-fix): major refactoring.
+
+Add Rewriter class. ([`8410fcc`](https://github.com/rjdbcm/OZI/commit/8410fcc93cf507f31071abead6c7dc6504d2b4c0))
+
+### Other
+
+* :memo:: Add security policy. ([`ba1b1ba`](https://github.com/rjdbcm/OZI/commit/ba1b1bab2f6f4a052282a37bf5cc262e9b17a63d))
+
+
 ## v0.0.127 (2023-09-24)
 
 ### :children_crossing:
