@@ -126,6 +126,20 @@ missing_parser = subparser.add_parser(
     description='Create a new Python test in an OZI project.',
 )
 missing_parser.add_argument(
+    'add',
+    nargs='?',
+    action='append',
+    default=['ozi.phony'],
+    help=argparse.SUPPRESS,
+)
+missing_parser.add_argument(
+    'remove',
+    nargs='?',
+    action='append',
+    default=['ozi.phony'],
+    help=argparse.SUPPRESS,
+)
+missing_parser.add_argument(
     '--strict',
     default='--no-strict',
     action=argparse.BooleanOptionalAction,
