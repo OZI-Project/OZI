@@ -2,6 +2,23 @@
 
 
 
+## v0.0.130 (2023-09-26)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix namespace.
+
+```
+File &#34;&lt;OZI-0.0.129&gt;/ozi/fix.py&#34;, line 435, in main
+File &#34;&lt;OZI-0.0.129&gt;/ozi/fix.py&#34;, line 427, in preprocess
+TypeError: unhashable type: &#39;list&#39;
+``` ([`5ec84bb`](https://github.com/rjdbcm/OZI/commit/5ec84bb1c4640fd3d98ba70f5f412f52452c961e))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`7254cd6`](https://github.com/rjdbcm/OZI/commit/7254cd6e9a3894c7a4c90993be881fce32d4ad91))
+
+
 ## v0.0.129 (2023-09-26)
 
 ### :bug:
