@@ -356,7 +356,7 @@ class Rewriter:
     target: str
     name: str
     fix: str
-    commands: List[RewriteCommand] = field(default_factory=list)
+    commands: List[Dict[str, str]] = field(default_factory=list)
 
     def __iadd__(self: Rewriter, other: List[str]) -> Rewriter:
         """Add a list of paths"""
@@ -378,9 +378,9 @@ class Rewriter:
             elif child.is_file():
                 cmd_files.add(self.fix, 'files', str(Path(file)))
         if cmd_files.active:
-            self.commands += [cmd_files]
+            self.commands += [asdict(cmd_files)]
         if cmd_children.active:
-            self.commands += [cmd_children]
+            self.commands += [asdict(cmd_children)]
         return self
 
     def __isub__(self: Rewriter, other: List[str]) -> Rewriter:
@@ -411,9 +411,9 @@ class Rewriter:
             elif child.is_file():
                 cmd_files.rem(self.fix, 'files', str(Path(file)))
         if cmd_files.active:
-            self.commands += [cmd_files]
+            self.commands += [asdict(cmd_files)]
         if cmd_children.active:
-            self.commands += [cmd_children]
+            self.commands += [asdict(cmd_children)]
         return self
 
 
