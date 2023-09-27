@@ -427,7 +427,6 @@ def preprocess(project: argparse.Namespace) -> argparse.Namespace:
         warn(
             f'Bail out! target: {project.target}\ntarget is not a directory.', RuntimeWarning
         )
-    print(project.add)
     project.add.remove('ozi.phony')
     project.add = list(set(project.add))
     project.remove.remove('ozi.phony')
