@@ -2,6 +2,15 @@
 
 
 
+## v0.0.131 (2023-09-27)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix RewriteCommand.
+
+TypeError: Object of type RewriteCommand is not JSON serializable ([`a9344cd`](https://github.com/rjdbcm/OZI/commit/a9344cd69fcfc3671ecff8278213aaacaadfc6fb))
+
+
 ## v0.0.130 (2023-09-26)
 
 ### :bug:
