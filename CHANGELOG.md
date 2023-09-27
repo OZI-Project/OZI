@@ -2,6 +2,13 @@
 
 
 
+## v0.0.132 (2023-09-27)
+
+### :pencil2:
+
+* :pencil2:(ozi-fix): Remove unnecessary print statement. ([`20d509f`](https://github.com/rjdbcm/OZI/commit/20d509ff8ebbf94f03b3d67f4038bb4c1d39c943))
+
+
 ## v0.0.131 (2023-09-27)
 
 ### :bug:
