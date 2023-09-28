@@ -216,7 +216,8 @@ class CloseMatch(argparse.Action):
         for i in classifiers
         if i.startswith(license_prefix)
     ]
-    license_expression = [k for k, v in LICENSES.items() if v.deprecated_id is False]
+    license_id = [k for k, v in LICENSES.items() if v.deprecated_id is False]
+    license_exception_id = spdx_exceptions
     status = [
         i[len(status_prefix) :].lstrip() for i in classifiers if i.startswith(status_prefix)
     ]
@@ -253,7 +254,7 @@ class CloseMatch(argparse.Action):
             values = ''
         try:
             values = get_close_matches(values, self.__getattribute__(key), cutoff=0.40)[0]
-        except IndexError:
+        except (IndexError, AttributeError):
             warn(
                 '\n'.join(
                     [

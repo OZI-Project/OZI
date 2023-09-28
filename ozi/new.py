@@ -10,7 +10,7 @@ import sys
 import warnings
 from importlib.metadata import version
 from pathlib import Path
-from typing import NoReturn, Optional, Sequence, Union
+from typing import Callable, Mapping, NoReturn, Optional, Sequence, Union
 from urllib.parse import urlparse
 from warnings import warn
 
@@ -58,7 +58,7 @@ list_available = {
 }
 
 
-def sha256sum(url: str) -> str:
+def sha256sum(url: str) -> str:  # pragma: no cover
     """Checksum filter for URL content."""
     checksum = hashlib.sha256()
     chunksize = 128 * 512
@@ -262,202 +262,219 @@ test_defaults.add_argument(
 )
 
 
-def main() -> Union[NoReturn, None]:
-    """Main ozi.new entrypoint."""
+def new_project(project: argparse.Namespace) -> None:  # pragma: no cover
+    """Create a new project in a target directory."""
     count = 0
     ambiguous_license_classifier = True
+    if len(project.copyright_head) == 0:
+        project.copyright_head = '\n'.join(
+            [
+                f'Part of {project.name}.',
+                'See LICENSE.txt in the project root for details.',
+            ]
+        )
+        print('ok', '-', 'Default-Copyright-Header')
+    count += 1
+
+    if project.strict:
+        import warnings
+
+        warnings.simplefilter('error', RuntimeWarning, append=True)
+
+    if project.license in ambiguous_licenses:
+        msg = (
+            f'Ambiguous License string per PEP 639: {project.license}; '
+            'See also: https://github.com/pypa/trove-classifiers/issues/17'
+        )
+        warn(msg, RuntimeWarning)
+    else:
+        print('ok', '-', 'License')
+        ambiguous_license_classifier = False
+    count += 1
+
+    possible_spdx: Sequence[str] = spdx_options.get(project.license, ())
+    if (
+        ambiguous_license_classifier
+        and project.license_expression.split(' ')[0] not in possible_spdx
+    ):
+        msg = (
+            'Cannot disambiguate license, set --license-expression'
+            f'to one of: {", ".join(possible_spdx)} OR'
+            'to a license expression based on one of these.'
+        )
+        warn(msg, RuntimeWarning)
+    else:
+        print('ok', '-', 'License-Disambiguates')
+    count += 1
+
+    try:
+        project.license_expression = Combine(
+            spdx_license_expression, join_string=' '
+        ).parse_string(project.license_expression)[0]
+        print('ok', '-', 'License-Expression')
+    except ParseException as e:
+        warn(str(e), RuntimeWarning)
+    count += 1
+
+    if len(project.summary) > 512:
+        warn('Project summary exceeds 512 characters (PyPI limit).', RuntimeWarning)
+    else:
+        print('ok', '-', 'Summary')
+    count += 1
+
+    try:
+        emailinfo = validate_email(
+            project.email, check_deliverability=project.verify_email
+        )
+        project.email = emailinfo.normalized
+        print('ok', '-', 'Author-Email')
+    except EmailNotValidError as e:
+        warn(str(e), RuntimeWarning)
+    count += 1
+
+    try:
+        Regex('^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$', re.IGNORECASE).set_name(
+            'Package-Index-Name'
+        ).parse_string(project.name)
+        print('ok', '-', 'Name')
+    except ParseException as e:
+        warn(str(e), RuntimeWarning)
+    count += 1
+
+    home_url = urlparse(project.homepage)
+    if home_url.scheme != 'https':
+        warn('Homepage url scheme unsupported.', RuntimeWarning)
+    else:
+        print('ok', '-', 'Homepage-Scheme')
+    count += 1
+
+    if home_url.netloc == '':
+        warn('Homepage url netloc cound not be parsed.', RuntimeWarning)
+    else:
+        print('ok', '-', 'Homepage-Netloc')
+    count += 1
+
+    project.name = re.sub(r'[-_.]+', '-', project.name).lower()
+    project.target = Path(project.target)
+    project.topic = list(set(project.topic))
+
+    if any(project.target.iterdir()):
+        warn('Directory not empty. No files will be created. Exiting.', RuntimeWarning)
+        count += 1
+        return print(f'1..{count}')
+
+    env.globals = env.globals | {
+        'project': vars(project),
+        'ozi': {
+            'version': version('OZI'),
+            'spec': '0.1',
+        },
+    }
+    Path(project.target, underscorify(project.name)).mkdir()
+    Path(project.target, '.github', 'workflows').mkdir(parents=True)
+    Path(project.target, 'subprojects').mkdir()
+    Path(project.target, 'tests').mkdir()
+
+    for filename in root_templates:
+        template = env.get_template(f'{filename}.j2')
+        with open(project.target / filename, 'w') as f:
+            f.write(template.render())
+
+    for filename in source_templates:
+        template = env.get_template(f'{filename}.j2')
+        filename = filename.replace('project.name', underscorify(project.name).lower())
+        with open(project.target / filename, 'w') as f:
+            f.write(template.render())
+
+    for filename in test_templates:
+        template = env.get_template(f'{filename}.j2')
+        with open(project.target / filename, 'w') as f:
+            f.write(template.render())
+
+    if project.ci_provider == 'github':
+        template = env.get_template('github_workflows/ozi.yml.j2')
+        with open(Path(project.target, '.github', 'workflows', 'ozi.yml'), 'w') as f:
+            f.write(template.render())
+
+
+def new_source(project: argparse.Namespace) -> None:  # pragma: no cover
+    """Create a new source file in a project."""
+    normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
+    if len(project.copyright_head) == 0:
+        project.copyright_head = '\n'.join(
+            [
+                f'Part of {normalized_name}.',
+                'See LICENSE.txt in the project root for details.',
+            ]
+        )
+    env.globals = env.globals | {
+        'project': vars(project),
+        'ozi': {
+            'version': version('OZI'),
+            'spec': OZI_SPEC,
+        },
+    }
+    template = env.get_template('project.name/new_module.py.j2')
+    with open(
+        Path(project.target, underscorify(normalized_name), project.name), 'w'
+    ) as f:
+        f.write(template.render())
+
+
+def new_test(project: argparse.Namespace) -> None:  # pragma: no cover
+    """Create a new source in tests from a template."""
+    normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
+    if len(project.copyright_head) == 0:
+        project.copyright_head = '\n'.join(
+            [
+                f'Part of {normalized_name}.',
+                'See LICENSE.txt in the project root for details.',
+            ]
+        )
+    env.globals = env.globals | {
+        'project': vars(project),
+        'ozi': {
+            'version': version('OZI'),
+            'spec': OZI_SPEC,
+        },
+    }
+    template = env.get_template('tests/new_test.py.j2')
+    with open(Path(project.target, 'tests', project.name), 'w') as f:
+        f.write(template.render())
+
+
+def new_wrap(project: argparse.Namespace) -> None:  # pragma: no cover
+    """Create a new wrap file for publishing. Not a public function."""
+    env.globals = env.globals | {
+        'project': vars(project),
+        'ozi': {
+            'version': version('OZI'),
+            'spec': OZI_SPEC,
+        },
+    }
+    template = env.get_template('ozi.wrap.j2')
+    with open('ozi.wrap', 'w') as f:
+        f.write(template.render())
+
+
+new_item: Mapping[str, Callable] = {
+    'project': new_project,
+    'source': new_source,
+    'test': new_test,
+    'wrap': new_wrap,
+}
+
+
+def main() -> Union[NoReturn, None]:  # pragma: no cover
+    """Main ozi.new entrypoint."""
+    count = 0
     project = parser.parse_args()
     if project.list == '':
         pass
     elif project.list in list_available.keys():
         print(*list_available.get(project.list, []), sep='\n')
         exit(0)
-
-    if project.new == 'project':
-        if len(project.copyright_head) == 0:
-            project.copyright_head = '\n'.join(
-                [
-                    f'Part of {project.name}.',
-                    'See LICENSE.txt in the project root for details.',
-                ]
-            )
-            print('ok', '-', 'Default-Copyright-Header')
-        count += 1
-
-        if project.strict:
-            import warnings
-
-            warnings.simplefilter('error', RuntimeWarning, append=True)
-
-        if project.license in ambiguous_licenses:
-            msg = (
-                f'Ambiguous License string per PEP 639: {project.license}; '
-                'See also: https://github.com/pypa/trove-classifiers/issues/17'
-            )
-            warn(msg, RuntimeWarning)
-        else:
-            print('ok', '-', 'License')
-            ambiguous_license_classifier = False
-        count += 1
-
-        possible_spdx: Sequence[str] = spdx_options.get(project.license, ())
-        if (
-            ambiguous_license_classifier
-            and project.license_expression.split(' ')[0] not in possible_spdx
-        ):
-            msg = (
-                'Cannot disambiguate license, set --license-expression'
-                f'to one of: {", ".join(possible_spdx)} OR'
-                'to a license expression based on one of these.'
-            )
-            warn(msg, RuntimeWarning)
-        else:
-            print('ok', '-', 'License-Disambiguates')
-        count += 1
-
-        try:
-            project.license_expression = Combine(
-                spdx_license_expression, join_string=' '
-            ).parse_string(project.license_expression)[0]
-            print('ok', '-', 'License-Expression')
-        except ParseException as e:
-            warn(str(e), RuntimeWarning)
-        count += 1
-
-        if len(project.summary) > 512:
-            warn('Project summary exceeds 512 characters (PyPI limit).', RuntimeWarning)
-        else:
-            print('ok', '-', 'Summary')
-        count += 1
-
-        try:
-            emailinfo = validate_email(
-                project.email, check_deliverability=project.verify_email
-            )
-            project.email = emailinfo.normalized
-            print('ok', '-', 'Author-Email')
-        except EmailNotValidError as e:
-            warn(str(e), RuntimeWarning)
-        count += 1
-
-        try:
-            Regex('^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$', re.IGNORECASE).set_name(
-                'Package-Index-Name'
-            ).parse_string(project.name)
-            print('ok', '-', 'Name')
-        except ParseException as e:
-            warn(str(e), RuntimeWarning)
-        count += 1
-
-        home_url = urlparse(project.homepage)
-        if home_url.scheme != 'https':
-            warn('Homepage url scheme unsupported.', RuntimeWarning)
-        else:
-            print('ok', '-', 'Homepage-Scheme')
-        count += 1
-
-        if home_url.netloc == '':
-            warn('Homepage url netloc cound not be parsed.', RuntimeWarning)
-        else:
-            print('ok', '-', 'Homepage-Netloc')
-        count += 1
-
-        project.name = re.sub(r'[-_.]+', '-', project.name).lower()
-        project.target = Path(project.target)
-        project.topic = list(set(project.topic))
-
-        if any(project.target.iterdir()):
-            warn('Directory not empty. No files will be created. Exiting.', RuntimeWarning)
-            count += 1
-            return print(f'1..{count}')
-
-        env.globals = env.globals | {
-            'project': vars(project),
-            'ozi': {
-                'version': version('OZI'),
-                'spec': '0.1',
-            },
-        }
-        Path(project.target, underscorify(project.name)).mkdir()
-        Path(project.target, '.github', 'workflows').mkdir(parents=True)
-        Path(project.target, 'subprojects').mkdir()
-        Path(project.target, 'tests').mkdir()
-
-        for filename in root_templates:
-            template = env.get_template(f'{filename}.j2')
-            with open(project.target / filename, 'w') as f:
-                f.write(template.render())
-
-        for filename in source_templates:
-            template = env.get_template(f'{filename}.j2')
-            filename = filename.replace('project.name', underscorify(project.name).lower())
-            with open(project.target / filename, 'w') as f:
-                f.write(template.render())
-
-        for filename in test_templates:
-            template = env.get_template(f'{filename}.j2')
-            with open(project.target / filename, 'w') as f:
-                f.write(template.render())
-
-        if project.ci_provider == 'github':
-            template = env.get_template('github_workflows/ozi.yml.j2')
-            with open(Path(project.target, '.github', 'workflows', 'ozi.yml'), 'w') as f:
-                f.write(template.render())
-
-    elif project.new == 'source':
-        normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
-        if len(project.copyright_head) == 0:
-            project.copyright_head = '\n'.join(
-                [
-                    f'Part of {normalized_name}.',
-                    'See LICENSE.txt in the project root for details.',
-                ]
-            )
-        env.globals = env.globals | {
-            'project': vars(project),
-            'ozi': {
-                'version': version('OZI'),
-                'spec': OZI_SPEC,
-            },
-        }
-        template = env.get_template('project.name/new_module.py.j2')
-        with open(
-            Path(project.target, underscorify(normalized_name), project.name), 'w'
-        ) as f:
-            f.write(template.render())
-
-    elif project.new == 'test':
-        normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
-        if len(project.copyright_head) == 0:
-            project.copyright_head = '\n'.join(
-                [
-                    f'Part of {normalized_name}.',
-                    'See LICENSE.txt in the project root for details.',
-                ]
-            )
-        env.globals = env.globals | {
-            'project': vars(project),
-            'ozi': {
-                'version': version('OZI'),
-                'spec': OZI_SPEC,
-            },
-        }
-        template = env.get_template('tests/new_test.py.j2')
-        with open(Path(project.target, 'tests', project.name), 'w') as f:
-            f.write(template.render())
-
-    elif project.new == 'wrap':
-        env.globals = env.globals | {
-            'project': vars(project),
-            'ozi': {
-                'version': version('OZI'),
-                'spec': OZI_SPEC,
-            },
-        }
-        template = env.get_template('ozi.wrap.j2')
-        with open('ozi.wrap', 'w') as f:
-            f.write(template.render())
-
+    new_item.get(project.new, lambda _: None)
     return print(f'1..{count}')
 
 

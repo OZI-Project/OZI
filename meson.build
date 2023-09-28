@@ -134,6 +134,7 @@ if get_option('ozi-blastpipe').enabled()
     # END BOOTSTRAP SCRIPT
 endif
 subdir('ozi')
+subdir('tests')
 foreach name : namespace
     command_names = get_option(name + '-suite')
     summary(

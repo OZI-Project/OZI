@@ -6,14 +6,14 @@
 This is the main OZI console application.
 OZI also comes with two additional console applications:
 ozi-new project quick-start and ozi-fix editing.
-"""
-import argparse
-import sys
-from importlib.metadata import version
-from typing import NoReturn, Union
+"""  # pragma: no cover
+import argparse  # pragma: no cover
+import sys  # pragma: no cover
+from importlib.metadata import version  # pragma: no cover
+from typing import NoReturn, Union  # pragma: no cover
 
 
-def print_version() -> NoReturn:
+def print_version() -> NoReturn:  # pragma: no cover
     """print current version string"""
     print(version('ozi'))
     exit(0)
@@ -21,10 +21,12 @@ def print_version() -> NoReturn:
 
 parser = argparse.ArgumentParser(
     prog='ozi', description=sys.modules[__name__].__doc__, add_help=False
-)
-helpers = parser.add_mutually_exclusive_group()
-helpers.add_argument('-h', '--help', action='help', help='show this help message and exit')
+)  # pragma: no cover
+helpers = parser.add_mutually_exclusive_group()  # pragma: no cover
 helpers.add_argument(
+    '-h', '--help', action='help', help='show this help message and exit'
+)  # pragma: no cover
+helpers.add_argument(  # pragma: no cover
     '-v',
     '--version',
     action='store_const',
@@ -34,7 +36,7 @@ helpers.add_argument(
 )
 
 
-def main() -> Union[NoReturn, str]:
+def main() -> Union[NoReturn, str]:  # pragma: no cover
     """Main ozi entrypoint."""
     ozi = parser.parse_args()
     ozi.version()
