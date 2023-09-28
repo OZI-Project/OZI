@@ -2,6 +2,21 @@
 
 
 
+## v0.0.133 (2023-09-28)
+
+### :hammer:
+
+* :hammer::test_tube:(ozi-fix,ozi-new): Add the beginning of our test suite.
+
+Hypothesis test writing must be done from a release so failing tests are using
+```
+# pragma: no cover
+```
+This also fixes some minor UX bugs:
+* Missing ``ozi-new --list`` keys
+* Incorrect names ([`748b730`](https://github.com/rjdbcm/OZI/commit/748b730f393f4b7facc8060a2745dc0f31a8f638))
+
+
 ## v0.0.132 (2023-09-27)
 
 ### :pencil2:
