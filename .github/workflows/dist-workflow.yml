@@ -73,6 +73,10 @@ jobs:
         run: |
           tox -- --setup=${{ matrix.ozi }}
 
+      - name: set PYTHONPATH
+        run: |
+          echo "PYTHONPATH=./" >> $GITHUB_ENV
+
       - name: Pytest with ${{ matrix.py }} ${{ matrix.os }}
         if: matrix.ozi == 'test'
         run: |
@@ -80,7 +84,7 @@ jobs:
           python -m pip install pip-tools
           pip-compile --generate-hashes -o requirements.txt
           python -m pip install -r requirements.txt
-          python -m coverage run -p -m pytest --basetemp=temp --cov-config=pyproject.toml --cov=${{ steps.setup-python.env.pythonLocation }}/ozi -n auto -d tests/*.py
+          pytest --basetemp=temp --cov-config=pyproject.toml --cov=ozi -n auto -d tests/*.py
 
   release:
     needs: checkpoint
