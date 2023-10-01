@@ -20,7 +20,9 @@ Classifier: Programming Language :: Python :: Implementation :: CPython
 {%- for topic in project.topic %}
 Classifier: Topic :: {{ topic }}
 {%- endfor %}
+{%- if project.typing != '' %}
 Classifier: Typing :: {{ project.typing }}
+{%- endif %}
 {%- if project.framework != '' %}
 Classifier: Framework :: {{ project.framework }}
 {%- endif %}
