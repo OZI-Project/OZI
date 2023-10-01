@@ -154,6 +154,12 @@ missing_parser.add_argument(
     action=argparse.BooleanOptionalAction,
     help='strict mode raises warnings to errors.',
 )
+missing_parser.add_argument(
+    '--pretty',
+    default='--no-pretty',
+    action=argparse.BooleanOptionalAction,
+    help='strict mode raises warnings to errors.',
+)
 
 
 def _str_dict_union(toks: ParseResults) -> Dict[str, str]:
