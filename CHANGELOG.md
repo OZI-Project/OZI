@@ -32,6 +32,10 @@ It was unclear until this point where pytest would be invoked. Now it is clearly
 
 ### Other
 
+* :construction_worker:: Bump PKG-INFO. ([`1dddfd7`](https://github.com/rjdbcm/OZI/commit/1dddfd72a43b343aef91b8c18f337569527a5652))
+
+* :construction_worker:: Bump for sigstore 2.0. ([`668c389`](https://github.com/rjdbcm/OZI/commit/668c389e2d3719084167150f9e31d803eeb1249a))
+
 * :construction_worker:: Add builtin pytest invocation. ([`88b335e`](https://github.com/rjdbcm/OZI/commit/88b335e78aa3506ddae56eb72aee5a745c618240))
 
 
