@@ -62,7 +62,7 @@ jobs:
           python -m pip install pytest-cov 
           python -m pip install pytest-randomly 
           python -m pip install pytest-tcpclient 
-          python -m pip install pytest-xdist 
+          python -m pip install pytest-xdist
 
       - name: Meson setup build
         run: |
@@ -76,6 +76,9 @@ jobs:
         if: matrix.ozi == 'test'
         run: |
           python -m pip install .
+          python -m pip install pip-tools
+          pip-compile --generate-hashes -O requirements.txt
+          python -m pip install -r requirements.txt
           pytest --cov-config=pyproject.toml --cov=ozi -n auto -d tests/*.py --basetemp=temp
 
   release:
