@@ -2,6 +2,13 @@
 
 
 
+## v0.0.140 (2023-10-01)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix ``--missing`` output. ([`36fa838`](https://github.com/rjdbcm/OZI/commit/36fa838b93d36f8ffe41f787b890ed6665981b38))
+
+
 ## v0.0.139 (2023-10-01)
 
 ### :hammer:
