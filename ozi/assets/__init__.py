@@ -6,7 +6,7 @@
 import argparse
 import re
 from difflib import get_close_matches
-from typing import Any, List, Sequence, Union
+from typing import Any, List, Optional, Sequence, Union
 from warnings import warn
 
 from pyparsing import Forward, Keyword, Literal, ZeroOrMore, oneOf
@@ -271,3 +271,10 @@ class CloseMatch(argparse.Action):
 def underscorify(s: str) -> str:
     """Filter to replace non-alphanumerics with underscores."""
     return re.sub('[^0-9a-zA-Z]', '_', s)
+
+
+def tap_warning_format(
+    msg: str, category: type[Warning], filename: str, lineno: int, line: Optional[str] = None
+) -> str:
+    """Test Anything Protocol formatted warnings."""
+    return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {msg}\n'

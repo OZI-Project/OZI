@@ -3,7 +3,12 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Directory structure expected files"""
-
+required_pkg_info = (
+    'Name',
+    'Version',
+    'Metadata-Version',
+    'Summary',
+)
 root_dirs = ['tests' 'subprojects']
 root_files = [
     'README.rst',

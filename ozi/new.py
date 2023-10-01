@@ -10,13 +10,13 @@ import sys
 import warnings
 from importlib.metadata import version
 from pathlib import Path
-from typing import Callable, Mapping, NoReturn, Optional, Sequence, Union
+from typing import Callable, Mapping, NoReturn, Sequence, Union
 from urllib.parse import urlparse
 from warnings import warn
 
 import requests
 from email_validator import EmailNotValidError, validate_email
-from jinja2 import Environment, PackageLoader, select_autoescape
+from jinja2 import Environment, PackageLoader, TemplateNotFound, select_autoescape
 from pyparsing import Combine, ParseException, Regex
 from spdx_license_list import LICENSES  # type: ignore
 
@@ -29,19 +29,12 @@ from .assets import (
     spdx_exceptions,
     spdx_license_expression,
     spdx_options,
+    tap_warning_format,
     test_templates,
     top4,
     underscorify,
 )
 from .fix import report_missing
-
-
-def tap_warning_format(
-    msg: str, category: type[Warning], filename: str, lineno: int, line: Optional[str] = None
-) -> str:
-    """Test Anything Protocol formatted warnings."""
-    return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {msg}\n'
-
 
 warnings.formatwarning = tap_warning_format  # type: ignore
 
@@ -262,7 +255,7 @@ test_defaults.add_argument(
 )
 
 
-def new_project(project: argparse.Namespace) -> None:  # pragma: no cover
+def new_project(project: argparse.Namespace) -> None:
     """Create a new project in a target directory."""
     count = 0
     ambiguous_license_classifier = True
@@ -276,7 +269,7 @@ def new_project(project: argparse.Namespace) -> None:  # pragma: no cover
         print('ok', '-', 'Default-Copyright-Header')
     count += 1
 
-    if project.strict:
+    if project.strict:  # pragma: defer to python
         import warnings
 
         warnings.simplefilter('error', RuntimeWarning, append=True)
@@ -296,7 +289,7 @@ def new_project(project: argparse.Namespace) -> None:  # pragma: no cover
     if (
         ambiguous_license_classifier
         and project.license_expression.split(' ')[0] not in possible_spdx
-    ):
+    ):  # pragma: defer to good-first-issue
         msg = (
             'Cannot disambiguate license, set --license-expression'
             f'to one of: {", ".join(possible_spdx)} OR'
@@ -313,7 +306,7 @@ def new_project(project: argparse.Namespace) -> None:  # pragma: no cover
         ).parse_string(project.license_expression)[0]
         print('ok', '-', 'License-Expression')
     except ParseException as e:
-        warn(str(e), RuntimeWarning)
+        warn(str(e).strip('\n'), RuntimeWarning)
     count += 1
 
     if len(project.summary) > 512:
@@ -323,9 +316,7 @@ def new_project(project: argparse.Namespace) -> None:  # pragma: no cover
     count += 1
 
     try:
-        emailinfo = validate_email(
-            project.email, check_deliverability=project.verify_email
-        )
+        emailinfo = validate_email(project.email, check_deliverability=project.verify_email)
         project.email = emailinfo.normalized
         print('ok', '-', 'Author-Email')
     except EmailNotValidError as e:
@@ -348,8 +339,8 @@ def new_project(project: argparse.Namespace) -> None:  # pragma: no cover
         print('ok', '-', 'Homepage-Scheme')
     count += 1
 
-    if home_url.netloc == '':
-        warn('Homepage url netloc cound not be parsed.', RuntimeWarning)
+    if home_url.netloc == '':  # pragma: defer to good-first-issue
+        warn('Homepage url netloc could not be parsed.', RuntimeWarning)
     else:
         print('ok', '-', 'Homepage-Netloc')
     count += 1
@@ -358,11 +349,6 @@ def new_project(project: argparse.Namespace) -> None:  # pragma: no cover
     project.target = Path(project.target)
     project.topic = list(set(project.topic))
 
-    if any(project.target.iterdir()):
-        warn('Directory not empty. No files will be created. Exiting.', RuntimeWarning)
-        count += 1
-        return print(f'1..{count}')
-
     env.globals = env.globals | {
         'project': vars(project),
         'ozi': {
@@ -370,28 +356,37 @@ def new_project(project: argparse.Namespace) -> None:  # pragma: no cover
             'spec': '0.1',
         },
     }
-    Path(project.target, underscorify(project.name)).mkdir()
-    Path(project.target, '.github', 'workflows').mkdir(parents=True)
-    Path(project.target, 'subprojects').mkdir()
-    Path(project.target, 'tests').mkdir()
 
-    for filename in root_templates:
+    if any(project.target.iterdir()):
+        return print('Bail out! Directory not empty. No files will be created. Exiting.')
+
+    Path(project.target, underscorify(project.name)).mkdir()  # pragma: no cover
+    Path(project.target, '.github', 'workflows').mkdir(parents=True)  # pragma: no cover
+    Path(project.target, 'subprojects').mkdir()  # pragma: no cover
+    Path(project.target, 'tests').mkdir()  # pragma: no cover
+
+    for filename in root_templates:  # pragma: no cover
         template = env.get_template(f'{filename}.j2')
+        try:
+            content = template.render()
+        except TemplateNotFound:
+            content = f'template "{filename}" failed to render.'
+            warn(content, RuntimeWarning)
         with open(project.target / filename, 'w') as f:
-            f.write(template.render())
+            f.write(content)
 
-    for filename in source_templates:
+    for filename in source_templates:  # pragma: no cover
         template = env.get_template(f'{filename}.j2')
         filename = filename.replace('project.name', underscorify(project.name).lower())
         with open(project.target / filename, 'w') as f:
             f.write(template.render())
 
-    for filename in test_templates:
+    for filename in test_templates:  # pragma: no cover
         template = env.get_template(f'{filename}.j2')
         with open(project.target / filename, 'w') as f:
             f.write(template.render())
 
-    if project.ci_provider == 'github':
+    if project.ci_provider == 'github':  # pragma: no cover
         template = env.get_template('github_workflows/ozi.yml.j2')
         with open(Path(project.target, '.github', 'workflows', 'ozi.yml'), 'w') as f:
             f.write(template.render())
@@ -399,7 +394,7 @@ def new_project(project: argparse.Namespace) -> None:  # pragma: no cover
 
 def new_source(project: argparse.Namespace) -> None:  # pragma: no cover
     """Create a new source file in a project."""
-    normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
+    normalized_name, pkg_info, *_ = report_missing(project.target)
     if len(project.copyright_head) == 0:
         project.copyright_head = '\n'.join(
             [
@@ -415,15 +410,13 @@ def new_source(project: argparse.Namespace) -> None:  # pragma: no cover
         },
     }
     template = env.get_template('project.name/new_module.py.j2')
-    with open(
-        Path(project.target, underscorify(normalized_name), project.name), 'w'
-    ) as f:
+    with open(Path(project.target, underscorify(normalized_name), project.name), 'w') as f:
         f.write(template.render())
 
 
 def new_test(project: argparse.Namespace) -> None:  # pragma: no cover
     """Create a new source in tests from a template."""
-    normalized_name, pkg_info, *_ = report_missing(project.target, True, False)
+    normalized_name, pkg_info, *_ = report_missing(project.target)
     if len(project.copyright_head) == 0:
         project.copyright_head = '\n'.join(
             [

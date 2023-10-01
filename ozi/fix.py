@@ -10,9 +10,11 @@ import json
 import os
 import re
 import sys
+import warnings
 from dataclasses import asdict, dataclass, field
 from email import message_from_file
 from email.message import Message
+from importlib.metadata import version
 from pathlib import Path
 from typing import Dict, List, NoReturn, Tuple, Union
 from warnings import warn
@@ -30,8 +32,10 @@ from pyparsing import (
     oneOf,
 )
 
-from .assets import spdx_license_expression, underscorify
-from .assets.structure import root_files, source_files, test_files
+from .assets import spdx_license_expression, tap_warning_format, underscorify
+from .assets.structure import required_pkg_info, root_files, source_files, test_files
+
+warnings.formatwarning = tap_warning_format  # type: ignore
 
 env = Environment(
     loader=PackageLoader('ozi'),
@@ -39,7 +43,12 @@ env = Environment(
     enable_async=True,
 )
 env.filters['underscorify'] = underscorify
-
+env.globals = env.globals | {
+    'ozi': {
+        'version': version('OZI'),
+        'spec': '0.1',
+    },
+}
 parser = argparse.ArgumentParser(description=sys.modules[__name__].__doc__, add_help=False)
 subparser = parser.add_subparsers(help='source & test fix', dest='fix')
 parser.add_argument('target', type=str, help='target OZI project directory')
@@ -149,7 +158,10 @@ missing_parser.add_argument(
 
 def _str_dict_union(toks: ParseResults) -> Dict[str, str]:
     """Parse-time union of Dict[str, str]."""
-    return toks[0] | toks[1]  # type: ignore
+    if len(toks) >= 2:
+        return toks[0] | toks[1]  # type: ignore
+    else:
+        return toks[0]  # type: ignore
 
 
 dcolon = Suppress(Keyword('::'))
@@ -178,9 +190,7 @@ def pkg_info_extra(payload: str, as_message: bool = True) -> Union[Dict[str, str
         return pep639  # type: ignore
 
 
-def report_missing(
-    target: Path, strict: bool, use_tap: bool
-) -> Tuple[str, Message, List[str], List[str], List[str]]:
+def report_missing(target: Path) -> Tuple[str, Message, List[str], List[str], List[str]]:
     """Report missing OZI project files
 
     :param target: Relative path to target directory.
@@ -191,40 +201,69 @@ def report_missing(
     target = Path(target)
     miss_count = 0
     count = 0
-    with target.joinpath('PKG-INFO').open() as f:
-        pkg_info = message_from_file(f)
-        count += 1
-        if use_tap:
+    name = None
+    pkg_info = None
+    extra_pkg_info = None
+    extra_source_files = None
+    try:
+        with target.joinpath('PKG-INFO').open() as f:
+            pkg_info = message_from_file(f)
+            count += 1
             print('ok', count, '-', 'Parse PKG-INFO')
-    for k, v in pkg_info.items():
-        count += 1
-        if use_tap:
+        for i in required_pkg_info:
+            count += 1
+            v = pkg_info.get(i, None)
+            if v is not None:
+                print('ok', count, '-', f'{i}:', v)
+            elif v is None:  # pragma: no cover
+                warn(f'{count} - {i} MISSING', RuntimeWarning)
+        remaining_pkg_info = {
+            k: v for k, v in pkg_info.items() if k not in required_pkg_info
+        }
+        for k, v in remaining_pkg_info.items():
+            count += 1
             print('ok', count, '-', f'{k}:', v)
-    try:
-        name = re.sub(r'[-_.]+', '-', pkg_info['Name']).lower()
-    except TypeError:  # pragma: no cover
-        print('Bail out!', 'PKG-INFO', 'Name', 'MISSING')
-        exit(1)
-    try:
-        extra_pkg_info = pkg_info_extra(pkg_info.get_payload()).items()
-    except ParseException:  # pragma: no cover
-        count += 1
-        if use_tap:
-            print('not', 'ok', count, '-', 'PKG-INFO', 'OZI', 'Extra-Content', 'MISSING')
-        extra_pkg_info = {}  # type: ignore
-    for k, v in extra_pkg_info:
-        count += 1
-        if use_tap:
+        name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', str())).lower()
+        try:
+            extra_pkg_info = pkg_info_extra(pkg_info.get_payload()).items()
+        except ParseException:
+            count += 1
+            warn(f'{count} - PKG-INFO OZI-Extra MISSING', RuntimeWarning)
+            extra_pkg_info = {}
+        for k, v in extra_pkg_info:
+            count += 1
             print('ok', count, '-', f'{k}:', v)
+        found_source_files = []
+        for file in source_files:
+            count += 1
+            if not target.joinpath(underscorify(name), file).exists():
+                warn(f'{count} - {Path(underscorify(name)) / file} MISSING', RuntimeWarning)
+                miss_count += 1
+                continue
+            else:
+                print('ok', count, '-', Path(underscorify(name), file))
+            found_source_files.append(file)
+        extra_source_files = [
+            file
+            for file in os.listdir(target / underscorify(name))
+            if os.path.isfile(os.path.join(target, underscorify(name), file))
+        ]
+        extra_source_files = list(
+            set(extra_source_files).symmetric_difference(set(found_source_files))
+        )
+        for file in extra_source_files:
+            count += 1
+            print('ok', count, '#', 'SKIP', Path(underscorify(name)) / file)
+    except FileNotFoundError:
+        warn(f'{count} - PKG-INFO MISSING', RuntimeWarning)
     found_root_files = []
     for file in root_files:
         count += 1
-        if not target.joinpath(file).exists():  # pragma: no cover
-            if use_tap:
-                print('not', 'ok', count, '-', Path(file))
+        if not target.joinpath(file).exists():
+            warn(f'{count} - {Path(file)} MISSING', RuntimeWarning)
             miss_count += 1
             continue
-        elif use_tap:
+        else:
             print('ok', count, '-', Path(file))
         found_root_files.append(file)
     extra_root_files = [
@@ -235,80 +274,51 @@ def report_missing(
     )
     for file in extra_root_files:
         count += 1
-        if use_tap:
-            print('ok', count, '#', 'SKIP', file)
-
-    found_source_files = []
-    for file in source_files:
-        count += 1
-        if not target.joinpath(underscorify(name), file).exists():  # pragma: no cover
-            if use_tap:
-                print('not', 'ok', count, Path(underscorify(name), file), 'MISSING')
-            miss_count += 1
-            continue
-        elif use_tap:
-            print('ok', count, '-', Path(underscorify(name), file))
-        found_source_files.append(file)
-    extra_source_files = [
-        file
-        for file in os.listdir(target / underscorify(name))
-        if os.path.isfile(os.path.join(target, underscorify(name), file))
-    ]
-    extra_source_files = list(
-        set(extra_source_files).symmetric_difference(set(found_source_files))
-    )
-    for file in extra_source_files:
-        count += 1
-        if use_tap:
-            print('ok', count, '#', 'SKIP', Path(underscorify(name)) / file)
+        print('ok', count, '#', 'SKIP', file)
 
     found_test_files = []
     for file in test_files:
         count += 1
-        if not target.joinpath('tests', file).exists():  # pragma: no cover
-            if use_tap:
-                print('not', 'ok', count, '-', Path('tests', file), 'MISSING')
+        if not target.joinpath('tests', file).exists():
+            warn(f"{count} - {Path('tests', file)} MISSING", RuntimeWarning)
             miss_count += 1
             continue
         else:
-            if use_tap:
-                print('ok', count, '-', Path('tests', file))
+            print('ok', count, '-', Path('tests', file))
         found_test_files.append(file)
-    try:
-        extra_test_files = [
-            file
-            for file in os.listdir(target / 'tests')
-            if os.path.isfile(os.path.join(target, 'tests', file))
-        ]
-    except FileNotFoundError:  # pragma: no cover
-        extra_test_files = []
+    extra_test_files = [
+        file
+        for file in os.listdir(target / 'tests')
+        if os.path.isfile(os.path.join(target, 'tests', file))
+    ]
     extra_test_files = list(
         set(extra_test_files).symmetric_difference(set(found_test_files))
     )
     for file in extra_test_files:
         count += 1
-        if use_tap:
-            print('ok', count, '#', 'SKIP', Path('tests', file))
-    if use_tap:
-        all_files = (
-            ['PKG-INFO'],
-            pkg_info,
-            extra_pkg_info,
-            root_files,
-            source_files,
-            test_files,
-            extra_root_files,
-            extra_source_files,
-            extra_test_files,
-        )
+        print('ok', count, '#', 'SKIP', Path('tests', file))
+    all_files = (
+        ['PKG-INFO'],
+        pkg_info,
+        extra_pkg_info,
+        root_files,
+        source_files,
+        test_files,
+        extra_root_files,
+        extra_source_files,
+        extra_test_files,
+    )
+    try:
         expected = f'{sum(map(len, all_files))+miss_count}'  # type: ignore
-        print(f'1..{expected}')
+    except TypeError:  # pragma: no cover
+        print('Bail out! MISSING required files or metadata.')
         exit(miss_count)
-    return name, pkg_info, found_root_files, found_source_files, found_test_files
+    print(f'1..{expected}')
+    return name, pkg_info, found_root_files, found_source_files, found_test_files  # type: ignore
 
 
 @dataclass
-class RewriteCommand:
+class RewriteCommand:  # pragma: defer to meson
     """Meson rewriter command input"""
 
     active: bool = field(repr=False, default_factory=bool, init=False)
@@ -321,7 +331,7 @@ class RewriteCommand:
 
     def add(
         self: RewriteCommand, mode: str, kind: str, source: str
-    ) -> Dict[str, Union[str, List[str]]]:  # pragma: no cover
+    ) -> Dict[str, Union[str, List[str]]]:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
         self.operation = 'src_add'
@@ -329,7 +339,7 @@ class RewriteCommand:
 
     def rem(
         self: RewriteCommand, mode: str, kind: str, source: str
-    ) -> Dict[str, Union[str, List[str]]]:  # pragma: no cover
+    ) -> Dict[str, Union[str, List[str]]]:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
         self.operation = 'src_rem'
@@ -337,7 +347,7 @@ class RewriteCommand:
 
     def _body(
         self: RewriteCommand, mode: str, kind: str
-    ) -> Dict[str, Union[str, List[str]]]:  # pragma: no cover
+    ) -> Dict[str, Union[str, List[str]]]:
         """The body of the add/rem functions"""
         self.active = True
         target = mode + '_' + kind
@@ -358,34 +368,79 @@ class Rewriter:
     fix: str
     commands: List[Dict[str, str]] = field(default_factory=list)
 
-    def __iadd__(self: Rewriter, other: List[str]) -> Rewriter:  # pragma: no cover
+    def _add(
+        self: Rewriter,
+        child: Path,
+        file: str,
+        cmd_files: RewriteCommand,
+        cmd_children: RewriteCommand,
+    ) -> Tuple[RewriteCommand, RewriteCommand]:
+        """Add items to OZI Rewriter"""
+        templates = {
+            'root': env.get_template('project.name/new_module.py.j2'),
+            'source': env.get_template('project.name/new_module.py.j2'),
+            'test': env.get_template('tests/new_test.py.j2'),
+        }
+        if self.fix not in ['source', 'test', 'root']:
+            warn('Invalid fix mode nothing will be added.', RuntimeWarning)
+        else:
+            if file.endswith('/'):
+                child.mkdir()
+                (child / 'meson.build').touch()
+                with open((child / 'meson.build'), 'w') as f:
+                    f.write(env.get_template('new_child.j2').render())
+                cmd_children.add(self.fix, 'children', str(child / 'meson.build'))
+            elif file.endswith('.py'):
+                child.write_text(
+                    templates.get(
+                        self.fix,
+                        templates.setdefault(
+                            self.fix, env.get_template('project.name/new_module.py.j2')
+                        ),
+                    ).render()
+                )
+            else:
+                child.touch()
+                cmd_files.add(self.fix, 'files', str(Path(file)))
+        return cmd_files, cmd_children
+
+    def __iadd__(self: Rewriter, other: List[str]) -> Rewriter:
         """Add a list of paths"""
         cmd_files = RewriteCommand()
         cmd_children = RewriteCommand()
+
         for file in other:
-            template = env.get_template('new_child.j2')
-            child = Path(self.target, file)
             if self.fix == 'source':
                 child = Path(self.target, self.name, file)
             elif self.fix == 'test':
                 child = Path(self.target, 'tests', file)
-            if child.is_dir():
-                child.mkdir()
-                (child / 'meson.build').touch()
-                with open((child / 'meson.build'), 'w') as f:
-                    f.write(template.render())
-                cmd_children.add(self.fix, 'children', str(child / 'meson.build'))
-            elif child.is_file():
-                cmd_files.add(self.fix, 'files', str(Path(file)))
-        if cmd_files.active:
-            self.commands += [{k: v for k, v in asdict(cmd_files).items() if k != 'active'}]
-        if cmd_children.active:
-            self.commands += [
-                {k: v for k, v in asdict(cmd_children).items() if k != 'active'}
-            ]
+            elif self.fix == 'root':
+                child = Path(self.target, file)
+            else:
+                child = Path()
+            cmd_files, cmd_children = self._add(child, file, cmd_files, cmd_children)
+
+        self.commands += [{k: v for k, v in asdict(cmd_files).items() if k != 'active'}]
+        self.commands += [{k: v for k, v in asdict(cmd_children).items() if k != 'active'}]
         return self
 
-    def __isub__(self: Rewriter, other: List[str]) -> Rewriter:  # pragma: no cover
+    def _sub(
+        self: Rewriter,
+        child: Path,
+        file: str,
+        cmd_files: RewriteCommand,
+        cmd_children: RewriteCommand,
+    ) -> Tuple[RewriteCommand, RewriteCommand]:
+        """Remove items from OZI Rewriter"""
+        if file.endswith('/'):
+            cmd_children.rem(self.fix, 'children', str(child / 'meson.build'))
+        elif file.endswith('.py'):
+            cmd_files.rem(self.fix, 'files', str(Path(file)))
+        else:
+            cmd_files.rem(self.fix, 'files', str(Path(file)))
+        return cmd_files, cmd_children
+
+    def __isub__(self: Rewriter, other: List[str]) -> Rewriter:
         """Remove a list of paths"""
         cmd_files = RewriteCommand()
         cmd_children = RewriteCommand()
@@ -393,35 +448,27 @@ class Rewriter:
             child = Path(self.target, file)
             if self.fix == 'source':
                 child = Path(self.target, self.name, file)
-                try:
-                    Path(self.target, self.name, file).rmdir()
-                except OSError:
-                    warn(
-                        'not ok - Could not remove non-empty source directory.',
-                        RuntimeWarning,
-                    )
+            elif self.fix == 'root':
+                child = Path(self.target, file)
             elif self.fix == 'test':
                 child = Path(self.target, 'tests', file)
+            else:
+                child = Path()
+            cmd_files, cmd_children = self._sub(child, file, cmd_files, cmd_children)
+            if file.endswith('/'):
                 try:
-                    Path(self.target, self.name, file).rmdir()
+                    child.rmdir()
                 except OSError:
                     warn(
-                        'not ok - Could not remove non-empty test directory.', RuntimeWarning
+                        f'Could not remove non-empty or non-existing {self.fix} child.',
+                        RuntimeWarning,
                     )
-            if child.is_dir():
-                cmd_children.rem(self.fix, 'children', str(child / 'meson.build'))
-            elif child.is_file():
-                cmd_files.rem(self.fix, 'files', str(Path(file)))
-        if cmd_files.active:
-            self.commands += [{k: v for k, v in asdict(cmd_files).items() if k != 'active'}]
-        if cmd_children.active:
-            self.commands += [
-                {k: v for k, v in asdict(cmd_children).items() if k != 'active'}
-            ]
+        self.commands += [{k: v for k, v in asdict(cmd_files).items() if k != 'active'}]
+        self.commands += [{k: v for k, v in asdict(cmd_children).items() if k != 'active'}]
         return self
 
 
-def preprocess(project: argparse.Namespace) -> argparse.Namespace:  # pragma: no cover
+def preprocess(project: argparse.Namespace) -> argparse.Namespace:
     """Remove phony arguments, check target exists and is a directory, set missing flag."""
     project.missing = project.fix == 'missing'
     project.target = Path(project.target).absolute()
@@ -441,7 +488,10 @@ def preprocess(project: argparse.Namespace) -> argparse.Namespace:  # pragma: no
 def main() -> NoReturn:  # pragma: no cover
     """Main ozi.fix entrypoint."""
     project = preprocess(parser.parse_args())
-    name, *_ = report_missing(project.target, project.strict, project.missing)
+    env.globals = env.globals | {
+        'project': vars(project),
+    }
+    name, *_ = report_missing(project.target)
     project.name = underscorify(name)
     if len(project.copyright_head) == 0:
         project.copyright_head = '\n'.join(

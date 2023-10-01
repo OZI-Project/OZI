@@ -13,6 +13,7 @@ subprojects/ozi.wrap
 subprojects/ozi/
 build*/
 /dist/
+temp/
 
 # Distribution / packaging
 _scm_version.py
