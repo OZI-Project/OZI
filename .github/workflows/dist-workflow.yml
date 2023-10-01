@@ -44,6 +44,7 @@ jobs:
 
       - name: 'Set up Python ${{ matrix.py }}'
         uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
+        id: setup-python
         with:
           python-version: '${{ matrix.py }}'
 
@@ -79,7 +80,7 @@ jobs:
           python -m pip install pip-tools
           pip-compile --generate-hashes -o requirements.txt
           python -m pip install -r requirements.txt
-          pytest --basetemp=temp --cov-config=pyproject.toml --cov=./ozi -n auto -d tests/*.py
+          python -m coverage run -p -m pytest --basetemp=temp --cov-config=pyproject.toml --cov=${{ steps.setup-python.env.pythonLocation }}/ozi -n auto -d tests/*.py
 
   release:
     needs: checkpoint
