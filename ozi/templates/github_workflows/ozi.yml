@@ -52,6 +52,7 @@ jobs:
       - name: Pytest with ${{ matrix.py }} ${{ matrix.os }}
         if: matrix.ozi == 'test'
         run: |
+          python -m pip install .
           pytest --cov-config=pyproject.toml --cov=ozi -n auto -d tests/*.py --basetemp=temp
 
   release:
