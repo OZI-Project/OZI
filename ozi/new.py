@@ -467,7 +467,7 @@ def main() -> Union[NoReturn, None]:  # pragma: no cover
     elif project.list in list_available.keys():
         print(*list_available.get(project.list, []), sep='\n')
         exit(0)
-    new_item.get(project.new, lambda _: None)
+    new_item.get(project.new, lambda _: None)(project)
     return print(f'1..{count}')
 
 
