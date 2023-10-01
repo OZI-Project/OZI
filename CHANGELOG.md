@@ -2,6 +2,15 @@
 
 
 
+## v0.0.138 (2023-10-01)
+
+### :hammer:
+
+* :hammer:(ozi-new;ozi-fix): ``ozi-new`` just for project creation.
+
+Decoupled utility functionality. Also corrected some output. ([`99ffe02`](https://github.com/rjdbcm/OZI/commit/99ffe022d802806559568f8da0800db9536141f7))
+
+
 ## v0.0.137 (2023-10-01)
 
 ### :bug:
