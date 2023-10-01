@@ -34,7 +34,6 @@ from .assets import (
     top4,
     underscorify,
 )
-from .fix import report_missing
 
 warnings.formatwarning = tap_warning_format  # type: ignore
 
@@ -78,14 +77,6 @@ project_parser = subparser.add_parser(
     aliases=['p'],
     description='Create a new Python project with OZI.',
     add_help=False,
-)
-source_parser = subparser.add_parser(
-    'source', aliases=['s'], description='Create a new Python source in an OZI project.'
-)
-test_parser = subparser.add_parser(
-    'test',
-    aliases=['t'],
-    description='Create a new Python test in an OZI project.',
 )
 wrap_parser = subparser.add_parser(
     'wrap',
@@ -227,35 +218,9 @@ output.add_argument(
     choices=list_available.keys(),
     help='list valid option settings and exit',
 )
-source_required = source_parser.add_argument_group('required')
-source_required.add_argument('name', type=str, help='name of the Python source file')
-source_required.add_argument(
-    'target', type=str, help='path to directory containing an OZI project'
-)
-source_defaults = source_parser.add_argument_group('defaults')
-source_defaults.add_argument(
-    '--copyright-head',
-    type=str,
-    default='',
-    help='copyright header string',
-    metavar='"Part of the NAME project.\\nSee LICENSE..."',
-)
-test_required = test_parser.add_argument_group('required')
-test_required.add_argument('name', type=str, help='name of the Python test file')
-test_required.add_argument(
-    'target', type=str, help='path to directory containing an OZI project'
-)
-test_defaults = test_parser.add_argument_group('defaults')
-test_defaults.add_argument(
-    '--copyright-head',
-    type=str,
-    default='',
-    help='copyright header string',
-    metavar='"Part of the NAME project.\\nSee LICENSE..."',
-)
 
 
-def new_project(project: argparse.Namespace) -> None:
+def new_project(project: argparse.Namespace) -> int:
     """Create a new project in a target directory."""
     count = 0
     ambiguous_license_classifier = True
@@ -390,53 +355,10 @@ def new_project(project: argparse.Namespace) -> None:
         template = env.get_template('github_workflows/ozi.yml.j2')
         with open(Path(project.target, '.github', 'workflows', 'ozi.yml'), 'w') as f:
             f.write(template.render())
+    return count
 
 
-def new_source(project: argparse.Namespace) -> None:  # pragma: no cover
-    """Create a new source file in a project."""
-    normalized_name, pkg_info, *_ = report_missing(project.target)
-    if len(project.copyright_head) == 0:
-        project.copyright_head = '\n'.join(
-            [
-                f'Part of {normalized_name}.',
-                'See LICENSE.txt in the project root for details.',
-            ]
-        )
-    env.globals = env.globals | {
-        'project': vars(project),
-        'ozi': {
-            'version': version('OZI'),
-            'spec': OZI_SPEC,
-        },
-    }
-    template = env.get_template('project.name/new_module.py.j2')
-    with open(Path(project.target, underscorify(normalized_name), project.name), 'w') as f:
-        f.write(template.render())
-
-
-def new_test(project: argparse.Namespace) -> None:  # pragma: no cover
-    """Create a new source in tests from a template."""
-    normalized_name, pkg_info, *_ = report_missing(project.target)
-    if len(project.copyright_head) == 0:
-        project.copyright_head = '\n'.join(
-            [
-                f'Part of {normalized_name}.',
-                'See LICENSE.txt in the project root for details.',
-            ]
-        )
-    env.globals = env.globals | {
-        'project': vars(project),
-        'ozi': {
-            'version': version('OZI'),
-            'spec': OZI_SPEC,
-        },
-    }
-    template = env.get_template('tests/new_test.py.j2')
-    with open(Path(project.target, 'tests', project.name), 'w') as f:
-        f.write(template.render())
-
-
-def new_wrap(project: argparse.Namespace) -> None:  # pragma: no cover
+def new_wrap(project: argparse.Namespace) -> int:  # pragma: no cover
     """Create a new wrap file for publishing. Not a public function."""
     env.globals = env.globals | {
         'project': vars(project),
@@ -448,27 +370,24 @@ def new_wrap(project: argparse.Namespace) -> None:  # pragma: no cover
     template = env.get_template('ozi.wrap.j2')
     with open('ozi.wrap', 'w') as f:
         f.write(template.render())
+    return 1
 
 
 new_item: Mapping[str, Callable] = {
     'project': new_project,
-    'source': new_source,
-    'test': new_test,
     'wrap': new_wrap,
 }
 
 
 def main() -> Union[NoReturn, None]:  # pragma: no cover
     """Main ozi.new entrypoint."""
-    count = 0
     project = parser.parse_args()
     if project.list == '':
         pass
     elif project.list in list_available.keys():
         print(*list_available.get(project.list, []), sep='\n')
         exit(0)
-    new_item.get(project.new, lambda _: None)(project)
-    return print(f'1..{count}')
+    return print(f'1..{new_item.get(project.new, lambda _: None)(project)}')
 
 
 if __name__ == '__main__':

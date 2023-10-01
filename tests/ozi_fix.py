@@ -134,6 +134,7 @@ def test_Rewriter_bad_project__iadd__dir(  # noqa: DC102
     env.globals = env.globals | {'project': vars(bad_namespace)}
     rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     rewriter += ['foo/']
+    assert len(rewriter.commands) == 2
 
 
 def test_Rewriter_bad_project__iadd__bad_fix(  # noqa: DC102
@@ -143,6 +144,7 @@ def test_Rewriter_bad_project__iadd__bad_fix(  # noqa: DC102
     rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix='')
     with pytest.warns(RuntimeWarning):
         rewriter += ['foo/']
+    assert len(rewriter.commands) == 0
 
 
 def test_Rewriter_bad_project__isub__bad_fix(  # noqa: DC102
@@ -151,6 +153,7 @@ def test_Rewriter_bad_project__isub__bad_fix(  # noqa: DC102
     env.globals = env.globals | {'project': vars(bad_namespace)}
     rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix='')
     rewriter -= ['foo.py']
+    assert len(rewriter.commands) == 1
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
@@ -161,6 +164,7 @@ def test_Rewriter_bad_project__isub__non_existing_child(  # noqa: DC102
     rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     with pytest.raises(RuntimeWarning):
         rewriter -= ['foo/']
+    assert len(rewriter.commands) == 0
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
@@ -176,6 +180,7 @@ def test_Rewriter_bad_project__isub__child(  # noqa: DC102
     elif fix == 'test':
         pathlib.Path(str(bad_project), 'tests', 'foo').mkdir()
     rewriter -= ['foo/']
+    assert len(rewriter.commands) == 1
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
@@ -191,6 +196,7 @@ def test_Rewriter_bad_project__isub__python_file(  # noqa: DC102
     elif fix == 'test':
         pathlib.Path(str(bad_project), 'tests', 'foo.py').touch()
     rewriter -= ['foo.py']
+    assert len(rewriter.commands) == 1
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
@@ -206,6 +212,7 @@ def test_Rewriter_bad_project__isub__file(  # noqa: DC102
     elif fix == 'test':
         pathlib.Path(str(bad_project), 'tests', 'foo').touch()
     rewriter -= ['foo']
+    assert len(rewriter.commands) == 1
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
@@ -215,6 +222,7 @@ def test_Rewriter_bad_project__iadd__file(  # noqa: DC102
     env.globals.update({'project': vars(bad_namespace)})
     rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     rewriter += ['foo.py']
+    assert len(rewriter.commands) == 1
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
@@ -224,6 +232,7 @@ def test_Rewriter_bad_project__iadd__non_python_file(  # noqa: DC102
     env.globals.update({'project': vars(bad_namespace)})
     rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     rewriter += ['foo']
+    assert len(rewriter.commands) == 1
 
 
 header = """.. OZI

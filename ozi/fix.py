@@ -16,7 +16,7 @@ from email import message_from_file
 from email.message import Message
 from importlib.metadata import version
 from pathlib import Path
-from typing import Dict, List, NoReturn, Tuple, Union
+from typing import Callable, Dict, List, NoReturn, Tuple, Union
 from warnings import warn
 
 from jinja2 import Environment, PackageLoader, select_autoescape
@@ -190,12 +190,11 @@ def pkg_info_extra(payload: str, as_message: bool = True) -> Union[Dict[str, str
         return pep639  # type: ignore
 
 
-def report_missing(target: Path) -> Tuple[str, Message, List[str], List[str], List[str]]:
+def report_missing(
+    target: Path, stdout: Callable = print
+) -> Tuple[str, Message, List[str], List[str], List[str]]:
     """Report missing OZI project files
-
     :param target: Relative path to target directory.
-    :param strict: Whether to treat warnings as errors.
-    :param use_tap: print using Test Anything Protocol and exit.
     :return: Normalized Name, PKG-INFO, found_root, found_sources, found_tests
     """
     target = Path(target)
@@ -209,12 +208,12 @@ def report_missing(target: Path) -> Tuple[str, Message, List[str], List[str], Li
         with target.joinpath('PKG-INFO').open() as f:
             pkg_info = message_from_file(f)
             count += 1
-            print('ok', count, '-', 'Parse PKG-INFO')
+            stdout('ok', count, '-', 'Parse PKG-INFO')
         for i in required_pkg_info:
             count += 1
             v = pkg_info.get(i, None)
             if v is not None:
-                print('ok', count, '-', f'{i}:', v)
+                stdout('ok', count, '-', f'{i}:', v)
             elif v is None:  # pragma: no cover
                 warn(f'{count} - {i} MISSING', RuntimeWarning)
         remaining_pkg_info = {
@@ -222,7 +221,7 @@ def report_missing(target: Path) -> Tuple[str, Message, List[str], List[str], Li
         }
         for k, v in remaining_pkg_info.items():
             count += 1
-            print('ok', count, '-', f'{k}:', v)
+            stdout('ok', count, '-', f'{k}:', v)
         name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', str())).lower()
         try:
             extra_pkg_info = pkg_info_extra(pkg_info.get_payload()).items()
@@ -232,7 +231,7 @@ def report_missing(target: Path) -> Tuple[str, Message, List[str], List[str], Li
             extra_pkg_info = {}
         for k, v in extra_pkg_info:
             count += 1
-            print('ok', count, '-', f'{k}:', v)
+            stdout('ok', count, '-', f'{k}:', v)
         found_source_files = []
         for file in source_files:
             count += 1
@@ -241,7 +240,7 @@ def report_missing(target: Path) -> Tuple[str, Message, List[str], List[str], Li
                 miss_count += 1
                 continue
             else:
-                print('ok', count, '-', Path(underscorify(name), file))
+                stdout('ok', count, '-', Path(underscorify(name), file))
             found_source_files.append(file)
         extra_source_files = [
             file
@@ -253,7 +252,7 @@ def report_missing(target: Path) -> Tuple[str, Message, List[str], List[str], Li
         )
         for file in extra_source_files:
             count += 1
-            print('ok', count, '#', 'SKIP', Path(underscorify(name)) / file)
+            stdout('ok', count, '#', 'SKIP', Path(underscorify(name)) / file)
     except FileNotFoundError:
         warn(f'{count} - PKG-INFO MISSING', RuntimeWarning)
     found_root_files = []
@@ -264,7 +263,7 @@ def report_missing(target: Path) -> Tuple[str, Message, List[str], List[str], Li
             miss_count += 1
             continue
         else:
-            print('ok', count, '-', Path(file))
+            stdout('ok', count, '-', Path(file))
         found_root_files.append(file)
     extra_root_files = [
         file for file in os.listdir(target) if os.path.isfile(os.path.join(target, file))
@@ -274,7 +273,7 @@ def report_missing(target: Path) -> Tuple[str, Message, List[str], List[str], Li
     )
     for file in extra_root_files:
         count += 1
-        print('ok', count, '#', 'SKIP', file)
+        stdout('ok', count, '#', 'SKIP', file)
 
     found_test_files = []
     for file in test_files:
@@ -284,7 +283,7 @@ def report_missing(target: Path) -> Tuple[str, Message, List[str], List[str], Li
             miss_count += 1
             continue
         else:
-            print('ok', count, '-', Path('tests', file))
+            stdout('ok', count, '-', Path('tests', file))
         found_test_files.append(file)
     extra_test_files = [
         file
@@ -296,7 +295,7 @@ def report_missing(target: Path) -> Tuple[str, Message, List[str], List[str], Li
     )
     for file in extra_test_files:
         count += 1
-        print('ok', count, '#', 'SKIP', Path('tests', file))
+        stdout('ok', count, '#', 'SKIP', Path('tests', file))
     all_files = (
         ['PKG-INFO'],
         pkg_info,
@@ -311,9 +310,9 @@ def report_missing(target: Path) -> Tuple[str, Message, List[str], List[str], Li
     try:
         expected = f'{sum(map(len, all_files))+miss_count}'  # type: ignore
     except TypeError:  # pragma: no cover
-        print('Bail out! MISSING required files or metadata.')
+        stdout('Bail out! MISSING required files or metadata.')
         exit(miss_count)
-    print(f'1..{expected}')
+    stdout(f'1..{expected}')
     return name, pkg_info, found_root_files, found_source_files, found_test_files  # type: ignore
 
 
@@ -389,7 +388,7 @@ class Rewriter:
                 (child / 'meson.build').touch()
                 with open((child / 'meson.build'), 'w') as f:
                     f.write(env.get_template('new_child.j2').render())
-                cmd_children.add(self.fix, 'children', str(child / 'meson.build'))
+                cmd_children.add(self.fix, 'children', 'meson.build')
             elif file.endswith('.py'):
                 child.write_text(
                     templates.get(
@@ -401,7 +400,7 @@ class Rewriter:
                 )
             else:
                 child.touch()
-                cmd_files.add(self.fix, 'files', str(Path(file)))
+            cmd_files.add(self.fix, 'files', str(Path(file)))
         return cmd_files, cmd_children
 
     def __iadd__(self: Rewriter, other: List[str]) -> Rewriter:
@@ -419,9 +418,12 @@ class Rewriter:
             else:
                 child = Path()
             cmd_files, cmd_children = self._add(child, file, cmd_files, cmd_children)
-
-        self.commands += [{k: v for k, v in asdict(cmd_files).items() if k != 'active'}]
-        self.commands += [{k: v for k, v in asdict(cmd_children).items() if k != 'active'}]
+        if cmd_files.active:
+            self.commands += [{k: v for k, v in asdict(cmd_files).items() if k != 'active'}]
+        if cmd_children.active:
+            self.commands += [
+                {k: v for k, v in asdict(cmd_children).items() if k != 'active'}
+            ]
         return self
 
     def _sub(
@@ -463,8 +465,12 @@ class Rewriter:
                         f'Could not remove non-empty or non-existing {self.fix} child.',
                         RuntimeWarning,
                     )
-        self.commands += [{k: v for k, v in asdict(cmd_files).items() if k != 'active'}]
-        self.commands += [{k: v for k, v in asdict(cmd_children).items() if k != 'active'}]
+        if cmd_files.active:
+            self.commands += [{k: v for k, v in asdict(cmd_files).items() if k != 'active'}]
+        if cmd_children.active:
+            self.commands += [
+                {k: v for k, v in asdict(cmd_children).items() if k != 'active'}
+            ]
         return self
 
 
@@ -491,15 +497,14 @@ def main() -> NoReturn:  # pragma: no cover
     env.globals = env.globals | {
         'project': vars(project),
     }
-    name, *_ = report_missing(project.target)
+    name, *_ = report_missing(project.target, stdout=lambda *_: None)
     project.name = underscorify(name)
-    if len(project.copyright_head) == 0:
-        project.copyright_head = '\n'.join(
-            [
-                f'Part of {name}.',
-                'See LICENSE.txt in the project root for details.',
-            ]
-        )
+    project.copyright_head = '\n'.join(
+        [
+            f'Part of {name}.',
+            'See LICENSE.txt in the project root for details.',
+        ]
+    )
     rewriter = Rewriter(project.target, project.name, project.fix)
     rewriter += project.add
     rewriter -= project.remove
