@@ -2,6 +2,13 @@
 
 
 
+## v0.0.139 (2023-10-01)
+
+### :hammer:
+
+* :hammer:(ozi-fix): Fix missing pretty print arg. ([`7e5a9bb`](https://github.com/rjdbcm/OZI/commit/7e5a9bb9200eac98e12a762eac3eb815c52dda60))
+
+
 ## v0.0.138 (2023-10-01)
 
 ### :hammer:
