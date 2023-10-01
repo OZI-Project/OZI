@@ -63,17 +63,17 @@ jobs:
       - name: Pytest ${{ matrix.os }}-py39
         if: matrix.ozi == 'test' && matrix.py == '3.9'
         run: |
-          .tox/py39-toml/bin/python -m pytest --cov-config=pyproject.toml --cov=ozi -n auto -d tests --basetemp=temp
+          .tox/py39-toml/bin/pytest --cov-config=pyproject.toml --cov=ozi -n auto -d tests --basetemp=temp
 
       - name: Pytest ${{ matrix.os }}-py310
         if: matrix.ozi == 'test' && matrix.py == '3.10'
         run: |
-          .tox/py310-type-toml/bin/python -m pytest --cov-config=pyproject.toml --cov=ozi -n auto -d tests --basetemp=temp
+          .tox/py310-type-toml/bin/pytest --cov-config=pyproject.toml --cov=ozi -n auto -d tests --basetemp=temp
 
       - name: Pytest ${{ matrix.os }}-py311
         if: matrix.ozi == 'test' && matrix.py == '3.11'
         run: |
-          .tox/py311-toml/bin/python -m pytest --cov-config=pyproject.toml --cov=ozi -n auto -d tests --basetemp=temp
+          .tox/py311-toml/bin/pytest --cov-config=pyproject.toml --cov=ozi -n auto -d tests --basetemp=temp
   
   release:
     needs: checkpoint
