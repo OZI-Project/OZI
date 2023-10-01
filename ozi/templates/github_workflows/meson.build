@@ -3,13 +3,14 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 workflows = [
-    'ozi.yml',
-    'sigstore.yml',
-    'semantic_release.yml',
-    'release.yml.j2',
-    'publish.yml.j2',
-    'ozi.yml.j2',
     'checkpoint.yml.j2',
+    'ozi.yml',
+    'ozi.yml.j2',
+    'publish.yml.j2',
+    'pyc_wheel.yml.j2',
+    'release.yml.j2',
+    'semantic_release.yml.j2',
+    'sigstore.yml.j2',
 ]
 foreach file: workflows
     fs.copyfile(file)

@@ -32,7 +32,7 @@
 {%- endraw -%}
         fetch-depth: 0
 
-{% include 'github_workflows/semantic_release.yml' %}
+{% include 'github_workflows/semantic_release.yml.j2' %}
 
     - name: Pass release draft status to job
       if: matrix.py == 'py39'
@@ -99,12 +99,12 @@
       run: |
         python -m build -w
         git stash -- PKG-INFO
+{% include 'github_workflows/pyc_wheel.yml.j2' %}
 {%- raw -%}
-        python -m pyc_wheel dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
 {%- endraw -%}
 
-{% include 'github_workflows/sigstore.yml' %}
+{% include 'github_workflows/sigstore.yml.j2' %}
 
     - name: Move dist-info file
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
