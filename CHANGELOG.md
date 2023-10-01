@@ -2,6 +2,19 @@
 
 
 
+## v0.0.134 (2023-10-01)
+
+### :hammer:
+
+* :hammer::white_check_mark:: Add a test suite.
+
+Most nearly 100% coverage. ([`68e6dbb`](https://github.com/rjdbcm/OZI/commit/68e6dbbf6355afdf092978bc6a1a0ed6ee1fb271))
+
+### Other
+
+* Add basetemp for testing. ([`d92fa25`](https://github.com/rjdbcm/OZI/commit/d92fa2503dc205a664afdf25892ab2bc37cb5786))
+
+
 ## v0.0.133 (2023-09-28)
 
 ### :hammer:
