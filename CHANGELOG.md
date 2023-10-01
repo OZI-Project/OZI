@@ -2,6 +2,39 @@
 
 
 
+## v0.0.135 (2023-10-01)
+
+### :bug:
+
+* :bug:: Try setting PYTHONPATH to get pytest-cov working. ([`a260409`](https://github.com/rjdbcm/OZI/commit/a2604094b9646ed694ed3c5db6dc3579796e6798))
+
+* :bug:: Get correct dist-packages coverage location. ([`054c900`](https://github.com/rjdbcm/OZI/commit/054c900b81fe8dfc1baa0b29ca207a957d35d35c))
+
+* :bug:: Try to fix coverage path. ([`b710223`](https://github.com/rjdbcm/OZI/commit/b710223e900161e30c4567a4e4c646f701e25c98))
+
+* :bug::pencil2:: Fix option typo. ([`348152d`](https://github.com/rjdbcm/OZI/commit/348152de6dbb61dde68594a13285e0ef08d9a95c))
+
+* :bug:: Install requirements in addition to building clone for pytest. ([`fc79ce3`](https://github.com/rjdbcm/OZI/commit/fc79ce34f660aecf63cf0a85add55c1d5b6bf042))
+
+* :bug:: Install from clone for pytest. ([`9f821b3`](https://github.com/rjdbcm/OZI/commit/9f821b3d4aa27cad2b3d7e8dece17bb997630027))
+
+* :bug:: Correct tests folder path. ([`28f2f93`](https://github.com/rjdbcm/OZI/commit/28f2f936e1ebb0d0cf3a40020f0fedadd9af3e59))
+
+* :bug:: Just do a fresh test suite environment for Pytest. ([`d0efb7c`](https://github.com/rjdbcm/OZI/commit/d0efb7cc582e51a212a52b128c24a2b163e6c086))
+
+* :bug:: Fix call binary pytest not module. ([`35500f2`](https://github.com/rjdbcm/OZI/commit/35500f238010d64b7feee9c8a85f2462819ad88e))
+
+* :bug:: Pytest invocation should be python version specific. ([`72cf38d`](https://github.com/rjdbcm/OZI/commit/72cf38d067b8a49d4f474ab9b6e2c2b885a18a55))
+
+* :hammer::bug:: Fix invocation of Pytest.
+
+It was unclear until this point where pytest would be invoked. Now it is clearly invoked during the CI checkpoint step for ``--setup=test`` only. ([`018f703`](https://github.com/rjdbcm/OZI/commit/018f70316cb5d06b6609b838ca06897c50bf3966))
+
+### Other
+
+* :construction_worker:: Add builtin pytest invocation. ([`88b335e`](https://github.com/rjdbcm/OZI/commit/88b335e78aa3506ddae56eb72aee5a745c618240))
+
+
 ## v0.0.134 (2023-10-01)
 
 ### :hammer:
