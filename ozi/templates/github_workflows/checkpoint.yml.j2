@@ -49,3 +49,7 @@
 {%- raw -%}
           tox -- --setup=${{ matrix.ozi }}
 {%- endraw -%}
+      - name: Pytest
+        if: matrix.ozi == 'test'
+        run: |
+          python -m pytest --cov-config=pyproject.toml --cov={{ project.name }} -n auto -d tests --basetemp=temp

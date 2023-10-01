@@ -135,7 +135,6 @@ if get_option('ozi-blastpipe').enabled()
 endif
 subdir('ozi')
 subdir('tests')
-test('unit', python, args: ['-m', 'pytest']) 
 foreach name : namespace
     command_names = get_option(name + '-suite')
     summary(

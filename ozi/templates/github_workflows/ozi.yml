@@ -49,6 +49,11 @@ jobs:
         run: |
           tox -- --setup=${{ matrix.ozi }}
 
+      - name: Pytest
+        if: matrix.ozi == 'test'
+        run: |
+          python -m pytest --cov-config=pyproject.toml --cov=ozi -n auto -d tests --basetemp=temp
+
   release:
     needs: checkpoint
     runs-on: ubuntu-latest
