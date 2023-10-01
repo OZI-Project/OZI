@@ -121,7 +121,7 @@ option('args-Flake8-pyproject', type: 'array', value: [],
         yield: false)
 option('args-hypothesis'    , type: 'array', value: ['codemod', '@test_source@'],
         yield: false)
-option('args-pytest'        , type: 'array', value: ['--cov-config=pyproject.toml', '@opt_cov_eq_project_name@', '-n', 'auto', '-d', '@test_source@'],
+option('args-pytest'        , type: 'array', value: ['--cov-config=pyproject.toml', '@opt_cov_eq_project_name@', '-n', 'auto', '-d', '@test_source@', '--basetemp=temp'],
         yield: false)
 option('args-pytest-asyncio', type: 'array', value: [],
         yield: false)
