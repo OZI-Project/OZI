@@ -79,7 +79,7 @@ jobs:
           python -m pip install pip-tools
           pip-compile --generate-hashes -o requirements.txt
           python -m pip install -r requirements.txt
-          pytest --cov-config=pyproject.toml --cov=ozi -n auto -d tests/*.py --basetemp=temp
+          pytest --basetemp=temp --cov-config=pyproject.toml --cov=./ozi -n auto -d tests/*.py
 
   release:
     needs: checkpoint
