@@ -72,3 +72,7 @@
           pip-compile --generate-hashes -o requirements.txt
           python -m pip install -r requirements.txt
           pytest --cov-config=pyproject.toml --cov=ozi -n auto -d tests/*.py --basetemp=temp
+
+      - name: set PYTHONPATH
+        run: |
+          echo "PYTHONPATH=./" >> $GITHUB_ENV

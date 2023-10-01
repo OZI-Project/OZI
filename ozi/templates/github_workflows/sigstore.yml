@@ -16,7 +16,5 @@
     - name: Move sigstore signing files
       run: |
 {%- raw -%}
-        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sig sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sig
-        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.crt sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.crt
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore
 {%- endraw -%}
