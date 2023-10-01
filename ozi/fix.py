@@ -503,7 +503,9 @@ def main() -> NoReturn:  # pragma: no cover
     env.globals = env.globals | {
         'project': vars(project),
     }
-    name, *_ = report_missing(project.target, stdout=lambda *_: None)
+    name, *_ = report_missing(
+        project.target, stdout=print if project.missing else lambda *_: None
+    )
     project.name = underscorify(name)
     project.copyright_head = '\n'.join(
         [
@@ -514,7 +516,8 @@ def main() -> NoReturn:  # pragma: no cover
     rewriter = Rewriter(project.target, project.name, project.fix)
     rewriter += project.add
     rewriter -= project.remove
-    print(json.dumps(rewriter.commands, indent=4 if project.pretty else None))
+    if not project.missing:
+        print(json.dumps(rewriter.commands, indent=4 if project.pretty else None))
     exit(0)
 
 
