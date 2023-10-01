@@ -2,6 +2,13 @@
 
 
 
+## v0.0.137 (2023-10-01)
+
+### :bug:
+
+* :bug:(ozi-new): Fix skipping of new item creation. ([`93b1e70`](https://github.com/rjdbcm/OZI/commit/93b1e701d0d3ef7dda817cd8451f80c35a51b625))
+
+
 ## v0.0.136 (2023-10-01)
 
 ### :hammer:
