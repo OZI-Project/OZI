@@ -2,6 +2,19 @@
 
 
 
+## v0.0.136 (2023-10-01)
+
+### :hammer:
+
+* :hammer:: Add check for missing typing arg in PKG-INFO template. ([`bb48d07`](https://github.com/rjdbcm/OZI/commit/bb48d076f073e7029630f2e943d2762eb8a9f7ab))
+
+### Other
+
+* :construction_worker:(PKG-INFO): Bump version. ([`1d3cf17`](https://github.com/rjdbcm/OZI/commit/1d3cf1752b78262d0a5398d9f1e3fcb86709c69b))
+
+* :memo:: Update tempates for documentation. ([`6cb97e7`](https://github.com/rjdbcm/OZI/commit/6cb97e79d1a425e0684b5d45116766bc78fd0c76))
+
+
 ## v0.0.135 (2023-10-01)
 
 ### :bug:
