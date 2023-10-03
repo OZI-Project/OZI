@@ -289,7 +289,7 @@ def new_project(project: argparse.Namespace) -> int:
     count += 1
 
     try:
-        Regex('^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$', re.IGNORECASE).set_name(
+        Regex('^([A-Z]|[A-Z][A-Z0-9._-]*[A-Z0-9])$', re.IGNORECASE).set_name(
             'Package-Index-Name'
         ).parse_string(project.name)
         print('ok', '-', 'Name')

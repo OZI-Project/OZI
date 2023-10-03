@@ -21,7 +21,7 @@ import ozi.new
             'strict': st.just(False),
             'target': st.data(),
             'ci_provider': st.just('github'),
-            'name': st.from_regex(r'^([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9._-]*[A-Za-z0-9])$'),
+            'name': st.from_regex(r'^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9])$'),
             'author': st.text(max_size=248),
             'email': st.emails(),
             'homepage': st.one_of(st.just('https://oziproject.dev/')),
@@ -65,7 +65,7 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
         )
     )
     project['license_id'] = license_id.draw(
-        st.one_of(map(st.just, ozi.assets.spdx_options.get(project['license'])))
+        st.one_of(map(st.just, ozi.assets.spdx_options.get(project['license'])))  # type: ignore
     )
     project['license_expression'] = license_expression.draw(st.just(project['license_id']))
     namespace = argparse.Namespace(**project)
