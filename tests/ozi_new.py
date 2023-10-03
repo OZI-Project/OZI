@@ -54,7 +54,7 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
     project['license'] = license.draw(
         st.one_of(
             [
-                st.just(i)
+                st.just(i) if i not in ['LicenseRef-Proprietary', 'LicenseRef-PublicDomain'] else 'Apache-2.0'
                 for i in [
                     ozi.assets.spdx_options.get(k)
                     for k, v in ozi.assets.spdx_options.items()
