@@ -27,14 +27,6 @@ import ozi.new
             'homepage': st.one_of(st.just('https://oziproject.dev/')),
             'summary': st.text(max_size=512),
             'copyright_head': st.text(),
-            'license_expression': st.shared(
-                st.one_of(list(map(st.just, ozi.new.CloseMatch.license_id))),
-                key='license-id',
-            ),
-            'license_id': st.shared(
-                st.one_of(list(map(st.just, ozi.new.CloseMatch.license_id))),
-                key='license-id',
-            ),
             'license_exception_id': st.one_of(
                 list(map(st.just, ozi.new.CloseMatch.license_exception_id))
             ),
@@ -46,15 +38,28 @@ import ozi.new
         },
     ),
     license=st.data(),
+    license_expression=st.data(),
+    license_id=st.data(),
 )
 def test_fuzz_new_project_good_namespace(  # noqa: DC102
-    tmp_path_factory: pytest.TempPathFactory, project: typing.Dict, license: typing.Any
+    tmp_path_factory: pytest.TempPathFactory,
+    project: typing.Dict,
+    license: typing.Any,
+    license_id,
+    license_expression,
 ) -> None:
     project['target'] = tmp_path_factory.mktemp('new_project_')
     project['license'] = license.draw(
         st.one_of(
             [
-                st.just(i) if i not in ['LicenseRef-Proprietary', 'LicenseRef-PublicDomain'] else 'DFSG approved'
+                st.just(i)
+                if i
+                not in [
+                    'LicenseRef-Proprietary',
+                    'OSI Approved :: Apple Public Source License',
+                    'OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)',
+                ]
+                else None
                 for i in [
                     ozi.assets.spdx_options.get(k)
                     for k, v in ozi.assets.spdx_options.items()
@@ -62,6 +67,15 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
             ]
         )
     )
+    project['license_id'] = license_id.draw(
+        st.one_of(
+            map(
+                st.just,
+                ozi.assets.spdx_options.get(project['license'], ('CC0-1.0', ))
+            )
+        )
+    )
+    project['license_expression'] = license_expression.draw(st.just(project['license_id']))
     namespace = argparse.Namespace(**project)
     ozi.new.new_project(project=namespace)
 
@@ -109,7 +123,6 @@ def test_new_project_bad_args(  # noqa: DC102
     namespace = argparse.Namespace(**project_dict)
     with pytest.warns(RuntimeWarning):
         ozi.new.new_project(project=namespace)
-
 
 
 def test_new_project_bad_target_not_empty(  # noqa: DC102
