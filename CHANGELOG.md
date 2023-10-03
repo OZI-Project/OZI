@@ -2,6 +2,39 @@
 
 
 
+## v0.0.141 (2023-10-03)
+
+### :bug:
+
+* :bug:(ozi-fix): Correct warning for missing. ([`f474efd`](https://github.com/rjdbcm/OZI/commit/f474efdef3d918a423684614016bc9608612eb24))
+
+* :bug:: Coverage fixed. ([`fe03224`](https://github.com/rjdbcm/OZI/commit/fe03224ebfdac2f99c522eeb58fc944c00abb7fe))
+
+* :bug:: Defer some flaky tests to issues. ([`9f9fbc9`](https://github.com/rjdbcm/OZI/commit/9f9fbc98dd554c47760c6cc32d0fe430cb226a59))
+
+* :bug:: Flaky license test. ([`1c2eba0`](https://github.com/rjdbcm/OZI/commit/1c2eba0806f0d66a5a03df1e00a217ad7ed5de01))
+
+* :bug:: Fix flaky test caused by PEP-639 proposed keys. ([`fee17df`](https://github.com/rjdbcm/OZI/commit/fee17dfd4db81b8a3d87d9f5f4e1412b5fe01ff8))
+
+### :hammer:
+
+* :hammer:(ozi-new): Name test strategy changes.
+
+```python
+r&#39;^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9])$&#39;
+``` ([`9f5d2b8`](https://github.com/rjdbcm/OZI/commit/9f5d2b840834f4b5390ffc732950470494a7756e))
+
+### Other
+
+* :white_check_mark:(ozi-new): Modified test draw strategy for licenses.
+
+We mainly want to test that ``ozi-new project`` does not complain about licenses that we have templates for. ([`d99b144`](https://github.com/rjdbcm/OZI/commit/d99b144af8c975f96a0d034057b78cb9696a6795))
+
+* :white_check_mark:(ozi-new): Coverage improved.
+
+A handful of defer to good-first-issue like ``project.homepage.netloc`` ([`4f0339a`](https://github.com/rjdbcm/OZI/commit/4f0339a2a9a8f80b31eadc78c5ea1b54b08d004b))
+
+
 ## v0.0.140 (2023-10-01)
 
 ### :bug:
