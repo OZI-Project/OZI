@@ -61,7 +61,7 @@ def test_report_missing_required(bad_project: pathlib.Path, key: str) -> None:
     with bad_project.joinpath('PKG-INFO').open('w') as f:
         content = content.replace(key, '')
         f.write(content)
-    with pytest.warns(RuntimeWarning):
+    with pytest.raises(RuntimeWarning):
         ozi.fix.report_missing(bad_project)
 
 

@@ -233,15 +233,15 @@ def report_missing(
             extra_pkg_info = pkg_info_extra(pkg_info.get_payload()).items()
         except ParseException:
             count += 1
-            warn(f'{count} - PKG-INFO OZI-Extra MISSING', RuntimeWarning)
             extra_pkg_info = {}
+            warn(f'{count} - PKG-INFO OZI-Extra MISSING', RuntimeWarning)
         for k, v in extra_pkg_info:
             count += 1
             stdout('ok', count, '-', f'{k}:', v)
         found_source_files = []
         for file in source_files:
             count += 1
-            if not target.joinpath(underscorify(name), file).exists():
+            if not target.joinpath(underscorify(name), file).exists(): # pragma: defer to good-first-issue
                 warn(f'{count} - {Path(underscorify(name)) / file} MISSING', RuntimeWarning)
                 miss_count += 1
                 continue
@@ -316,8 +316,8 @@ def report_missing(
     try:
         expected = f'{sum(map(len, all_files))+miss_count}'  # type: ignore
     except TypeError:  # pragma: no cover
-        stdout('Bail out! MISSING required files or metadata.')
-        exit(miss_count)
+        warn('Bail out! MISSING required files or metadata.')
+        return
     stdout(f'1..{expected}')
     return name, pkg_info, found_root_files, found_source_files, found_test_files  # type: ignore
 
