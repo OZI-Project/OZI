@@ -99,7 +99,7 @@ ambiguous_licenses = [
     'Public Domain',
 ]
 spdx_disambiguation = [
-    'LicenseRef-Proprietary',
+    ('LicenseRef-Proprietary',),
     (
         'AGPL-3.0-only',
         'AGPL-3.0-or-later',

@@ -6,9 +6,10 @@ import argparse
 import typing
 
 import pytest
-from hypothesis import given
+from hypothesis import given, assume
 from hypothesis import strategies as st
 
+import ozi.assets
 import ozi.fix
 import ozi.new
 
@@ -18,20 +19,22 @@ import ozi.new
         {
             'verify_email': st.just(False),
             'strict': st.just(False),
-            'target': st.just('.'),
-            'name': st.from_regex(r'^([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9._-]*[A-Za-z0-9])$')
-            | st.just('OZI~phony'),
-            'author': st.text(max_size=128),
-            'email': st.emails() | st.just('OZI.phony'),
-            'homepage': st.one_of(
-                st.just('https://oziproject.dev/'),
-                st.just('http://oziproject.dev/'),
-            ),
-            'summary': st.text(max_size=512) | st.text(min_size=512),
+            'target': st.data(),
+            'ci_provider': st.just('github'),
+            'name': st.from_regex(r'^([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9._-]*[A-Za-z0-9])$'),
+            'author': st.text(max_size=248),
+            'email': st.emails(),
+            'homepage': st.one_of(st.just('https://oziproject.dev/')),
+            'summary': st.text(max_size=512),
             'copyright_head': st.text(),
-            'license_expression': st.data(),
-            'license': st.one_of(list(map(st.just, ozi.new.CloseMatch.license))),
-            'license_id': st.one_of(list(map(st.just, ozi.new.CloseMatch.license_id))),
+            'license_expression': st.shared(
+                st.one_of(list(map(st.just, ozi.new.CloseMatch.license_id))),
+                key='license-id',
+            ),
+            'license_id': st.shared(
+                st.one_of(list(map(st.just, ozi.new.CloseMatch.license_id))),
+                key='license-id',
+            ),
             'license_exception_id': st.one_of(
                 list(map(st.just, ozi.new.CloseMatch.license_exception_id))
             ),
@@ -40,26 +43,103 @@ import ozi.new
             'framework': st.one_of(list(map(st.just, ozi.new.CloseMatch.framework))),
             'environment': st.one_of(list(map(st.just, ozi.new.CloseMatch.environment))),
             'status': st.one_of(list(map(st.just, ozi.new.CloseMatch.status))),
-        }
-    ).map(lambda d: argparse.Namespace(**d))
+        },
+    ),
+    license=st.data(),
 )
-def test_fuzz_new_project(project: argparse.Namespace) -> None:
-    """Fuzz new project creation function."""
-    project.license_expression = project.license_expression.draw(
-        st.just(f'{project.license_id} WITH {project.license_exception_id}') | st.text()
+def test_fuzz_new_project_good_namespace(  # noqa: DC102
+    tmp_path_factory: pytest.TempPathFactory, project: typing.Dict, license: typing.Any
+) -> None:
+    project['target'] = tmp_path_factory.mktemp('new_project_')
+    project['license'] = license.draw(
+        st.one_of(
+            [
+                st.just(i)
+                for i in [
+                    ozi.assets.spdx_options.get(k)
+                    for k, v in ozi.assets.spdx_options.items()
+                ]
+            ]
+        )
     )
-    if (
-        project.license in ozi.new.ambiguous_licenses
-        or len(project.summary) > 512
-        or project.name == 'OZI~phony'
-        or project.email == 'OZI.phony'
-        or 'WITH' not in project.license_expression
-        or project.homepage.startswith('http://')
-    ):
-        with pytest.warns(RuntimeWarning):
-            ozi.new.new_project(project=project)
-    else:
-        ozi.new.new_project(project=project)
+    namespace = argparse.Namespace(**project)
+    ozi.new.new_project(project=namespace)
+
+
+@pytest.mark.parametrize(
+    'item',
+    [
+        {'ci_provider': ''},
+        {'summary': 'A' * 513},
+        {'name': '➿'},
+        {
+            'license': 'DFSG approved',
+            'license_expression': 'Private',
+            'license_id': 'Private',
+        },
+        {'email': 'foobarbademail'},
+    ],
+)
+def test_new_project_bad_args(  # noqa: DC102
+    item: dict,
+    tmp_path_factory: pytest.TempPathFactory,
+) -> None:
+    project_dict = {
+        'verify_email': False,
+        'strict': False,
+        'target': tmp_path_factory.mktemp('new_project_bad_args'),
+        'ci_provider': 'github',
+        'name': 'ozi.phony',
+        'license': '',
+        'author': 'Ross J. Duff',
+        'email': 'noreply@oziproject.dev',
+        'homepage': 'https://oziproject.dev/',
+        'summary': '',
+        'copyright_head': '',
+        'license_expression': 'CC0-1.0',
+        'license_id': 'CC0-1.0',
+        'license_exception_id': '',
+        'topic': 'Utilities',
+        'audience': 'Developers',
+        'framework': 'Pytest',
+        'environment': 'No Input/Output (Daemon)',
+        'status': '1 - Planning',
+    }
+    project_dict.update(item)
+    namespace = argparse.Namespace(**project_dict)
+    with pytest.warns(RuntimeWarning):
+        ozi.new.new_project(project=namespace)
+
+
+
+def test_new_project_bad_target_not_empty(  # noqa: DC102
+    tmp_path_factory: pytest.TempPathFactory,
+) -> None:
+    project_dict = {
+        'verify_email': False,
+        'strict': False,
+        'target': tmp_path_factory.mktemp('new_project_target_not_empty'),
+        'ci_provider': 'github',
+        'name': 'ozi.phony',
+        'license': '',
+        'author': 'Ross J. Duff',
+        'email': 'noreply@oziproject.dev',
+        'homepage': 'https://oziproject.dev/',
+        'summary': '',
+        'copyright_head': '',
+        'license_expression': 'CC0-1.0',
+        'license_id': 'CC0-1.0',
+        'license_exception_id': '',
+        'topic': 'Utilities',
+        'audience': 'Developers',
+        'framework': 'Pytest',
+        'environment': 'No Input/Output (Daemon)',
+        'status': '1 - Planning',
+    }
+    (project_dict['target'] / 'foobar').touch()
+    namespace = argparse.Namespace(**project_dict)
+    with pytest.warns(RuntimeWarning):
+        ozi.new.new_project(project=namespace)
 
 
 @given(

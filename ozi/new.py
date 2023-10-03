@@ -50,7 +50,7 @@ list_available = {
 }
 
 
-def sha256sum(url: str) -> str:  # pragma: no cover
+def __sha256sum(url: str) -> str:  # pragma: no cover
     """Checksum filter for URL content."""
     checksum = hashlib.sha256()
     chunksize = 128 * 512
@@ -66,7 +66,7 @@ env = Environment(
     enable_async=True,
 )
 env.filters['underscorify'] = underscorify
-env.filters['sha256sum'] = sha256sum
+env.filters['sha256sum'] = __sha256sum
 
 parser = argparse.ArgumentParser(
     prog='ozi-new', description=sys.modules[__name__].__doc__, add_help=False
@@ -234,7 +234,7 @@ def new_project(project: argparse.Namespace) -> int:
         print('ok', '-', 'Default-Copyright-Header')
     count += 1
 
-    if project.strict:  # pragma: defer to python
+    if project.strict:  # pragma: defer to pytest
         import warnings
 
         warnings.simplefilter('error', RuntimeWarning, append=True)
@@ -254,7 +254,7 @@ def new_project(project: argparse.Namespace) -> int:
     if (
         ambiguous_license_classifier
         and project.license_expression.split(' ')[0] not in possible_spdx
-    ):  # pragma: defer to good-first-issue
+    ):
         msg = (
             'Cannot disambiguate license, set --license-expression'
             f'to one of: {", ".join(possible_spdx)} OR'
@@ -304,7 +304,7 @@ def new_project(project: argparse.Namespace) -> int:
         print('ok', '-', 'Homepage-Scheme')
     count += 1
 
-    if home_url.netloc == '':  # pragma: defer to good-first-issue
+    if home_url.netloc == '':
         warn('Homepage url netloc could not be parsed.', RuntimeWarning)
     else:
         print('ok', '-', 'Homepage-Netloc')
@@ -323,42 +323,53 @@ def new_project(project: argparse.Namespace) -> int:
     }
 
     if any(project.target.iterdir()):
-        return print('Bail out! Directory not empty. No files will be created. Exiting.')
+        warn(
+            'Bail out! target directory not empty. No files will be created. Exiting.',
+            RuntimeWarning,
+        )
+        return 0
 
-    Path(project.target, underscorify(project.name)).mkdir()  # pragma: no cover
-    Path(project.target, '.github', 'workflows').mkdir(parents=True)  # pragma: no cover
-    Path(project.target, 'subprojects').mkdir()  # pragma: no cover
-    Path(project.target, 'tests').mkdir()  # pragma: no cover
+    if project.ci_provider == 'github':
+        Path(project.target, '.github', 'workflows').mkdir(parents=True)
+        template = env.get_template('github_workflows/ozi.yml.j2')
+        with open(Path(project.target, '.github', 'workflows', 'ozi.yml'), 'w') as f:
+            f.write(template.render())
+    else:
+        warn(
+            f'Bail out! --ci-provider {project.ci_provider} unrecognized. No files will be created. Exiting',
+            RuntimeWarning,
+        )
+        return 0
 
-    for filename in root_templates:  # pragma: no cover
+    Path(project.target, underscorify(project.name)).mkdir()
+    Path(project.target, 'subprojects').mkdir()
+    Path(project.target, 'tests').mkdir()
+
+    for filename in root_templates:
         template = env.get_template(f'{filename}.j2')
         try:
             content = template.render()
-        except TemplateNotFound:
+        except TemplateNotFound:  # pragma: defer to good-first-issue
             content = f'template "{filename}" failed to render.'
             warn(content, RuntimeWarning)
         with open(project.target / filename, 'w') as f:
             f.write(content)
 
-    for filename in source_templates:  # pragma: no cover
+    for filename in source_templates:
         template = env.get_template(f'{filename}.j2')
         filename = filename.replace('project.name', underscorify(project.name).lower())
         with open(project.target / filename, 'w') as f:
             f.write(template.render())
 
-    for filename in test_templates:  # pragma: no cover
+    for filename in test_templates:
         template = env.get_template(f'{filename}.j2')
         with open(project.target / filename, 'w') as f:
             f.write(template.render())
 
-    if project.ci_provider == 'github':  # pragma: no cover
-        template = env.get_template('github_workflows/ozi.yml.j2')
-        with open(Path(project.target, '.github', 'workflows', 'ozi.yml'), 'w') as f:
-            f.write(template.render())
     return count
 
 
-def new_wrap(project: argparse.Namespace) -> int:  # pragma: no cover
+def __new_wrap(project: argparse.Namespace) -> int:  # pragma: no cover
     """Create a new wrap file for publishing. Not a public function."""
     env.globals = env.globals | {
         'project': vars(project),
@@ -373,9 +384,9 @@ def new_wrap(project: argparse.Namespace) -> int:  # pragma: no cover
     return 1
 
 
-new_item: Mapping[str, Callable] = {
+__new_item: Mapping[str, Callable] = {
     'project': new_project,
-    'wrap': new_wrap,
+    'wrap': __new_wrap,
 }
 
 
@@ -387,7 +398,7 @@ def main() -> Union[NoReturn, None]:  # pragma: no cover
     elif project.list in list_available.keys():
         print(*list_available.get(project.list, []), sep='\n')
         exit(0)
-    return print(f'1..{new_item.get(project.new, lambda _: None)(project)}')
+    return print(f'1..{__new_item.get(project.new, lambda _: None)(project)}')
 
 
 if __name__ == '__main__':
