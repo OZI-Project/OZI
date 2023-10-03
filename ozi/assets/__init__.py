@@ -249,9 +249,9 @@ class CloseMatch(argparse.Action):
         if option_string is not None:
             key = option_string.lstrip('-').replace('-', '_')
         else:
-            key = ''
+            key = ''  # pragma: defer to good-first-issue
         if values is None:
-            values = ''
+            values = ''  # pragma: defer to good-first-issue
         try:
             values = get_close_matches(values, self.__getattribute__(key), cutoff=0.40)[0]
         except (IndexError, AttributeError):
