@@ -52,32 +52,25 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
     project['license'] = license.draw(
         st.one_of(
             [
-                st.just(i)
-                if i
+                st.just(k)
+                for k, v in ozi.assets.spdx_options.items()
+                if len(v) != 0
+                and k
                 not in [
-                    'LicenseRef-Proprietary',
+                    'Private',
                     'OSI Approved :: Apple Public Source License',
                     'OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)',
-                ]
-                else None
-                for i in [
-                    ozi.assets.spdx_options.get(k)
-                    for k, v in ozi.assets.spdx_options.items()
                 ]
             ]
         )
     )
     project['license_id'] = license_id.draw(
-        st.one_of(
-            map(
-                st.just,
-                ozi.assets.spdx_options.get(project['license'], ('CC0-1.0', ))
-            )
-        )
+        st.one_of(map(st.just, ozi.assets.spdx_options.get(project['license'])))
     )
     project['license_expression'] = license_expression.draw(st.just(project['license_id']))
     namespace = argparse.Namespace(**project)
-    ozi.new.new_project(project=namespace)
+    with pytest.warns(RuntimeWarning):
+        ozi.new.new_project(project=namespace)
 
 
 @pytest.mark.parametrize(
