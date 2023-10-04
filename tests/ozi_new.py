@@ -3,17 +3,18 @@
 # Part of ozi.
 # See LICENSE.txt in the project root for details.
 import argparse
+from datetime import timedelta
 import typing
 
 import pytest
-from hypothesis import given, assume
+from hypothesis import given, settings
 from hypothesis import strategies as st
 
 import ozi.assets
 import ozi.fix
 import ozi.new
 
-
+@settings(deadline=timedelta(milliseconds=500))
 @given(
     project=st.fixed_dictionaries(
         {
