@@ -5,11 +5,26 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
 # OZI packaging
-/subprojects/blastpipe/
 sig/
-subprojects/ozi.wrap
 subprojects/ozi/
 build*/
 /dist/
 temp/
+
+# Utility environments
 .hypothesis/
+.pytest_cache/
+.tox/
+
+# coverage files
+.coverage
+coverage.xml
+.coverage.*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
