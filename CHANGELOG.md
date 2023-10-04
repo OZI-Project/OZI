@@ -2,6 +2,30 @@
 
 
 
+## v0.0.142 (2023-10-04)
+
+### :bug:
+
+* :bug:: 500ms deadline for hypothesis.
+
+Should fix:
+Unreliable test timings! On an initial run, this test took 357.72ms, which exceeded the deadline of 200.00ms, but on a subsequent run it took 24.28 ms, which did not. If you expect this sort of variability in your test timings, consider turning deadlines off for this test by setting deadline=None. ([`2005bb3`](https://github.com/rjdbcm/OZI/commit/2005bb30040bc700af9d6fd857f0e69394b747b0))
+
+### :hammer:
+
+* :hammer:: Remove unnecessary references to NOTICE. ([`b146b78`](https://github.com/rjdbcm/OZI/commit/b146b78ee302d5d6d56ea5d1dc8248f7416e2226))
+
+### Other
+
+* :see_no_evil:: Update gitignore template.
+
+Added ignored-by-default patterns for:
+* Utility environments
+* coverage files
+* Byte-compiled / optimized / DLL files
+*  C extensions ([`cfdd5d7`](https://github.com/rjdbcm/OZI/commit/cfdd5d72a660e39f923b7574efe107634e3ebc0f))
+
+
 ## v0.0.141 (2023-10-03)
 
 ### :bug:
