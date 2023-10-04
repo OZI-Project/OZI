@@ -8,13 +8,13 @@
 legacy_tox_ini = """
 [tox]
 skipsdist = True
-envlist = py{39,310-type,311}-toml
+envlist = py{310-type,311,312}-toml
 
 [gh]
 python =
-   3.11 = py311
-   3.10 = py310, toml, type
-   3.9 = py39, toml
+   3.12 = py312
+   3.12 = py312
+   3.12 = py312, toml, type
 
 [testenv]
 package = wheel

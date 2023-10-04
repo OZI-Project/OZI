@@ -22,9 +22,9 @@ jobs:
           - ubuntu-latest
           - macos-latest
         py:
-          - '3.9'
-          - '3.10'
-          - '3.11'
+          - '3.12'
+          - '3.12'
+          - '3.12'
       fail-fast: false
     steps:
       - uses: actions/checkout@v3
@@ -81,9 +81,9 @@ jobs:
     strategy:
       matrix:
         py:
-          - 'py39'
-          - 'py310'
-          - 'py311'
+          - 'py312'
+          - 'py312'
+          - 'py312'
       fail-fast: true
       max-parallel: 1
     outputs:
@@ -93,14 +93,14 @@ jobs:
       id-token: write
     steps:
     - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
-      if: matrix.py == 'py39'
+      if: matrix.py == 'py312'
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
 
     - name: Python Semantic Release
       id: release
-      if: matrix.py == 'py39'
+      if: matrix.py == 'py312'
       uses: python-semantic-release/python-semantic-release@3abfb7ac216b9ad439de24fda60eca84038e850e
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -108,14 +108,14 @@ jobs:
     - name: Pass release draft status to job
       id: draft
       env:
-        check: ${{ (steps.release.outputs.released && matrix.py == 'py39') || matrix.py != 'py39' }}
+        check: ${{ (steps.release.outputs.released && matrix.py == 'py312') || matrix.py != 'py312' }}
       run: echo "created=${{ env.check }}" >> $GITHUB_OUTPUT
 
     - uses: actions/download-artifact@v3
-      if: steps.draft.outputs.created == 'true' && matrix.py == 'py310' || matrix.py == 'py311'
+      if: steps.draft.outputs.created == 'true' && matrix.py == 'py312' || matrix.py == 'py312'
 
     - name: Move artifact
-      if: steps.draft.outputs.created == 'true' && matrix.py == 'py310' || matrix.py == 'py311'
+      if: steps.draft.outputs.created == 'true' && matrix.py == 'py312' || matrix.py == 'py312'
       run: cp -a artifact/. ./
 
     - name: Set version
@@ -123,23 +123,23 @@ jobs:
       id: version
       run: echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
 
-    - name: Set up Python 3.9
-      if: matrix.py == 'py39'
+    - name: Set up Python 3.12
+      if: matrix.py == 'py312'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
-        python-version: '3.9'
+        python-version: '3.12'
 
-    - name: Set up Python 3.10
-      if: matrix.py == 'py310'
+    - name: Set up Python 3.12
+      if: matrix.py == 'py312'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
-        python-version: '3.10'
+        python-version: '3.12'
 
-    - name: Set up Python 3.11 
-      if: matrix.py == 'py311'
+    - name: Set up Python 3.12 
+      if: matrix.py == 'py312'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
-        python-version: '3.11'
+        python-version: '3.12'
 
     - name: Install ${{ matrix.py }} build dependencies
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
@@ -153,7 +153,7 @@ jobs:
           python -m pip install --user --upgrade ninja
 
     - name: Configure git repository
-      if: matrix.py == 'py39'
+      if: matrix.py == 'py312'
       run: |
           git config --global user.email "noreply@oziproject.dev"
           git config --global user.name "OZI Packaging"
