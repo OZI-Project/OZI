@@ -190,9 +190,9 @@ Classifier: Intended Audience :: Developers
 Classifier: Operating System :: MacOS :: MacOS X
 Classifier: Operating System :: POSIX :: Linux
 Classifier: Programming Language :: Python :: 3 :: Only
-Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
 Classifier: Programming Language :: Python :: Implementation :: CPython
 Classifier: Topic :: Software Development :: Quality Assurance 
 Classifier: Topic :: Software Development :: Build Tools
@@ -401,9 +401,9 @@ envlist = py{39,310-type,311}-toml
 
 [gh]
 python =
-     3.11 = py311-toml
-     3.10 = py310-toml-type
-     3.9 = py39-toml
+     3.12 = py312-toml
+     3.11 = py311-toml-type
+     3.10 = py310-toml
 
 [testenv]
 package = wheel
