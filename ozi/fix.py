@@ -222,10 +222,10 @@ def report_missing(
                 stdout('ok', count, '-', f'{i}:', v)
             elif v is None:  # pragma: no cover
                 warn(f'{count} - {i} MISSING', RuntimeWarning)
-        remaining_pkg_info = {
-            k: v for k, v in pkg_info.items() if k not in required_pkg_info
-        }
-        for k, v in remaining_pkg_info.items():
+        remaining_pkg_info = set(
+            (k, v) for k, v in pkg_info.items() if k not in required_pkg_info
+        )
+        for k, v in iter(remaining_pkg_info):
             count += 1
             stdout('ok', count, '-', f'{k}:', v)
         name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', str())).lower()
