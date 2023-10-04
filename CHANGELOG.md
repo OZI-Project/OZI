@@ -2,6 +2,25 @@
 
 
 
+## v0.0.143 (2023-10-04)
+
+### :pushpin:
+
+* :pushpin::pencil2:: Forgot to bump Python for OZI&#39;s distribution. ([`c0e07d4`](https://github.com/rjdbcm/OZI/commit/c0e07d41c8ee1c21d2f7bc395322b493cbb6c7a3))
+
+* :pushpin:: Deprecate Python version 3.9
+
+Add support for Python 3.12 ([`0668309`](https://github.com/rjdbcm/OZI/commit/0668309d7219029fbc0dc483ec39b9cc701076a2))
+
+* :pushpin:: Deprecate Python version 3.9
+
+Add support for Python 3.12 ([`706191e`](https://github.com/rjdbcm/OZI/commit/706191e80fc0ad344a0dbb66ca07b7569b4f5c91))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`eff6b85`](https://github.com/rjdbcm/OZI/commit/eff6b85697cf7c862707493293d8e7cf436da151))
+
+
 ## v0.0.142 (2023-10-04)
 
 ### :bug:
