@@ -2,6 +2,15 @@
 
 
 
+## v0.0.144 (2023-10-05)
+
+### :hammer:
+
+* :hammer:(ozi-fix): Add Python version checking. ([`f33d754`](https://github.com/rjdbcm/OZI/commit/f33d7542b7577288d9c4cd6e607f9d986bb5fcc9))
+
+* :hammer:(ozi-fix): Added reporting of all PKG-INFO headers present. ([`dee27f7`](https://github.com/rjdbcm/OZI/commit/dee27f7b779d33fa8e75c4c78a4b1dda09938991))
+
+
 ## v0.0.143 (2023-10-04)
 
 ### :pushpin:
