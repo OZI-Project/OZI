@@ -2,6 +2,20 @@
 
 
 
+## v0.0.145 (2023-10-05)
+
+### :hammer:
+
+* :hammer:(ozi-fix): Improved coverage.
+
+Still deferring to good first issue for the extra PKG-INFO parser.
+It is likely I will move it to it&#39;s own module as well. ([`a796bd3`](https://github.com/rjdbcm/OZI/commit/a796bd392e30119e2e84d33dcdad0338e6ed2071))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`d604dbc`](https://github.com/rjdbcm/OZI/commit/d604dbc357dc7a69c39ea232d9956ff46cc0cab8))
+
+
 ## v0.0.144 (2023-10-05)
 
 ### :hammer:
