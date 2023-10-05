@@ -4,9 +4,11 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Asset files for python packaging."""
 import argparse
+from datetime import date, datetime, timezone
+import platform
 import re
 from difflib import get_close_matches
-from typing import Any, List, Optional, Sequence, Union
+from typing import Any, Final, List, Optional, Sequence, Union
 from warnings import warn
 
 from pyparsing import Forward, Keyword, Literal, ZeroOrMore, oneOf
@@ -16,6 +18,37 @@ from spdx_license_list import LICENSES  # type: ignore
 from trove_classifiers import classifiers
 
 OZI_SPEC = '0.1'
+__pymajor, __pyminor, __pypatch = map(int, platform.python_version_tuple())
+
+PYMAJOR: Final[int] = __pymajor
+PYMINOR: Final[int] = __pyminor
+PYPATCH: Final[int] = __pypatch
+
+minor_deprecation = {
+    9: date(2025, 10, 1),
+    10: date(2026, 10, 1),
+    11: date(2027, 10, 1),
+    12: date(2028, 10, 1),
+}
+python3_eol = minor_deprecation.get(PYMINOR, date(2008, 12, 3))
+
+if datetime.now(tz=timezone.utc).date() > python3_eol:  # pragma: no cover
+    warn(
+        f'Python {PYMAJOR}.{PYMINOR}.{PYPATCH} is not supported as of {python3_eol}.',
+        RuntimeWarning,
+    )
+
+py_major = 3
+py_bugfix1 = 12
+py_bugfix2 = 11
+py_security = 10
+
+python_support_required = {
+    ('Classifier', f'Programming Language :: Python :: {str(py_major)} :: Only'),
+    ('Classifier', f'Programming Language :: Python :: {str(py_major)}.{str(py_security)}'),
+    ('Classifier', f'Programming Language :: Python :: {str(py_major)}.{str(py_bugfix2)}'),
+    ('Classifier', f'Programming Language :: Python :: {str(py_major)}.{str(py_bugfix1)}'),
+}
 
 pep639_spdx = [
     'LicenseRef-Public-Domain',

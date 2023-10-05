@@ -32,7 +32,12 @@ from pyparsing import (
     oneOf,
 )
 
-from .assets import spdx_license_expression, tap_warning_format, underscorify
+from .assets import (
+    python_support_required,
+    spdx_license_expression,
+    tap_warning_format, 
+    underscorify,
+)
 from .assets.structure import required_pkg_info, root_files, source_files, test_files
 
 warnings.formatwarning = tap_warning_format  # type: ignore
@@ -225,13 +230,19 @@ def report_missing(
         remaining_pkg_info = set(
             (k, v) for k, v in pkg_info.items() if k not in required_pkg_info
         )
+        for k,v in iter(python_support_required):
+            if (k, v) in remaining_pkg_info:
+                count += 1
+                stdout('ok', count, '-', f'{k}:', v)
+            else:
+                warn(f'{count} - "{v}" MISSING', RuntimeWarning)
         for k, v in iter(remaining_pkg_info):
             count += 1
             stdout('ok', count, '-', f'{k}:', v)
         name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', str())).lower()
         try:
             extra_pkg_info = pkg_info_extra(pkg_info.get_payload()).items()
-        except ParseException:
+        except ParseException:  # pragma: defer to good-first-issue
             count += 1
             extra_pkg_info = {}
             warn(f'{count} - PKG-INFO OZI-Extra MISSING', RuntimeWarning)
