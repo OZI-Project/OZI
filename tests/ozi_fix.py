@@ -14,7 +14,7 @@ from hypothesis import strategies as st
 
 import ozi.fix
 import ozi.new
-from ozi.assets.structure import root_files, test_files
+from ozi.assets.structure import root_files, test_files, source_files
 from ozi.fix import env
 
 bad_namespace = argparse.Namespace(
@@ -53,7 +53,10 @@ def bad_project(tmp_path_factory: pytest.TempPathFactory) -> pathlib.Path:
     return fn
 
 
-@pytest.mark.parametrize('key', ['Name', 'Version', 'Metadata-Version', 'Summary', '.. OZI'])
+@pytest.mark.parametrize(
+    'key',
+    ['Name', 'Version', 'Metadata-Version', 'Summary', 'License-Expression', 'License-File'],
+)
 def test_report_missing_required(bad_project: pathlib.Path, key: str) -> None:
     """Check that we warn on missing requirements"""
     with bad_project.joinpath('PKG-INFO').open() as f:
@@ -85,6 +88,14 @@ def test_report_missing_required_pkg_info_file(bad_project: pathlib.Path, key: s
 def test_report_missing_required_test_file(bad_project: pathlib.Path, key: str) -> None:
     """Check that we warn on missing files"""
     os.remove(bad_project.joinpath('tests') / key)
+    with pytest.warns(RuntimeWarning):
+        ozi.fix.report_missing(bad_project)
+
+
+@pytest.mark.parametrize('key', source_files)
+def test_report_missing_required_source_file(bad_project: pathlib.Path, key: str) -> None:
+    """Check that we warn on missing files"""
+    os.remove(bad_project.joinpath('ozi_phony') / key)
     with pytest.warns(RuntimeWarning):
         ozi.fix.report_missing(bad_project)
 

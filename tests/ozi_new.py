@@ -14,6 +14,7 @@ import ozi.assets
 import ozi.fix
 import ozi.new
 
+
 @settings(deadline=timedelta(milliseconds=500))
 @given(
     project=st.fixed_dictionaries(
