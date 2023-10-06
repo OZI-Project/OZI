@@ -6,12 +6,12 @@
 import argparse
 import platform
 import re
+from dataclasses import dataclass
 from datetime import date, datetime, timedelta, timezone
 from difflib import get_close_matches
 from typing import Any, List, Optional, Sequence, Union
 from warnings import warn
 
-from attr import dataclass
 from pyparsing import Forward, Keyword, Literal, ZeroOrMore, oneOf
 from spdx_license_list import LICENSES  # type: ignore
 
@@ -19,14 +19,14 @@ from spdx_license_list import LICENSES  # type: ignore
 from trove_classifiers import classifiers
 
 required_pkg_info_patterns = (
-        'Name',
-        'Version',
-        'Metadata-Version',
-        'Summary',
-        'License-Expression',
-        'License-File',
-        'Programming Language :: Python',
-        'Description-Content-Type',
+    'Name',
+    'Version',
+    'Metadata-Version',
+    'Summary',
+    'License-Expression',
+    'License-File',
+    'Programming Language :: Python',
+    'Description-Content-Type',
 )
 implementation_support = ('CPython',)
 specification_version = '0.1'
