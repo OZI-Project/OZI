@@ -2,6 +2,13 @@
 
 
 
+## v0.0.149 (2023-10-06)
+
+### :bug:
+
+* :bug:(CI): Fix Python versioning to follow an automated policy for CI templates. ([`7ae853b`](https://github.com/rjdbcm/OZI/commit/7ae853b66203f2ecf0ab4d6dacc860d5884be3ff))
+
+
 ## v0.0.148 (2023-10-06)
 
 ### :children_crossing:
