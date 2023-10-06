@@ -237,6 +237,7 @@ def report_missing(
                 stdout('ok', count, '-', f'{k}:', v)
             else:
                 warn(f'{count} - "{v}" MISSING', RuntimeWarning)
+        remaining_pkg_info.difference_update(set(iter(python_support_required)))
         for k, v in iter(remaining_pkg_info):
             count += 1
             stdout('ok', count, '-', f'{k}:', v)

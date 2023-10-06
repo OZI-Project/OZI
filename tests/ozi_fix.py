@@ -56,7 +56,15 @@ def bad_project(tmp_path_factory: pytest.TempPathFactory) -> pathlib.Path:
 
 @pytest.mark.parametrize(
     'key',
-    ['Name', 'Version', 'Metadata-Version', 'Summary', 'License-Expression', 'License-File'],
+    [
+        'Name',
+        'Version',
+        'Metadata-Version',
+        'Summary',
+        'License-Expression',
+        'License-File',
+        'Programming Language :: Python',
+    ],
 )
 def test_report_missing_required(bad_project: pathlib.Path, key: str) -> None:
     """Check that we warn on missing requirements"""
