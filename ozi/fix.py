@@ -173,19 +173,27 @@ def _str_dict_union(toks: ParseResults) -> Dict[str, str]:
     """Parse-time union of Dict[str, str]."""
     if len(toks) >= 2:
         return toks[0] | toks[1]  # type: ignore
-    else: # pragma: no cover
+    else:  # pragma: no cover
         return  # type: ignore
 
 
-sspace = Suppress(White(' ', exact=1)) 
+sspace = Suppress(White(' ', exact=1))
 dcolon = sspace + Suppress(Literal('::')) + sspace
 classifier = Suppress(White(' ', min=2)) + Suppress(Literal('Classifier:')) + sspace
 pep639_headers = Forward()
-license_expression =  classifier + (Keyword('License-Expression') + dcolon + Combine(spdx_license_expression, join_string=' ')).set_parse_action(lambda t: {str(t[0]): str(t[1])})
-license_file = classifier + (Keyword('License-File') + dcolon + oneOf(['LICENSE', 'LICENSE.txt'])).set_parse_action(lambda t: {str(t[0]): str(t[1])})
-pep639_headers <<= (license_expression + license_file)
+license_expression = classifier + (
+    Keyword('License-Expression')
+    + dcolon
+    + Combine(spdx_license_expression, join_string=' ')
+).set_parse_action(lambda t: {str(t[0]): str(t[1])})
+license_file = classifier + (
+    Keyword('License-File') + dcolon + oneOf(['LICENSE', 'LICENSE.txt'])
+).set_parse_action(lambda t: {str(t[0]): str(t[1])})
+pep639_headers <<= license_expression + license_file
 
-pep639_parse = Suppress(Keyword('..') + CaselessKeyword('ozi')) + pep639_headers.set_parse_action(_str_dict_union).set_name('pep639')
+pep639_parse = Suppress(
+    Keyword('..') + CaselessKeyword('ozi')
+) + pep639_headers.set_parse_action(_str_dict_union).set_name('pep639')
 
 
 def pkg_info_extra(payload: str, as_message: bool = True) -> Union[Dict[str, str], Message]:

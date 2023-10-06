@@ -21,14 +21,16 @@ from pyparsing import Combine, ParseException, Regex
 from spdx_license_list import LICENSES  # type: ignore
 
 from .assets import (
-    OZI_SPEC,
     CloseMatch,
     ambiguous_licenses,
+    implementation_support,
+    python_support,
     root_templates,
     source_templates,
     spdx_exceptions,
     spdx_license_expression,
     spdx_options,
+    specification_version,
     tap_warning_format,
     test_templates,
     top4,
@@ -371,11 +373,17 @@ def new_project(project: argparse.Namespace) -> int:
 
 def __new_wrap(project: argparse.Namespace) -> int:  # pragma: no cover
     """Create a new wrap file for publishing. Not a public function."""
+
     env.globals = env.globals | {
         'project': vars(project),
         'ozi': {
             'version': version('OZI'),
-            'spec': OZI_SPEC,
+            'spec': specification_version,
+            'py_major': python_support.major,
+            'py_security': python_support.security,
+            'py_bugfix2': python_support.bugfix2,
+            'py_bugfix1': python_support.bugfix1,
+            'py_implementations': implementation_support,
         },
     }
     template = env.get_template('ozi.wrap.j2')

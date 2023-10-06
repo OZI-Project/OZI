@@ -3,8 +3,8 @@
 # Part of ozi.
 # See LICENSE.txt in the project root for details.
 import argparse
-from datetime import timedelta
 import typing
+from datetime import timedelta
 
 import pytest
 from hypothesis import given, settings
