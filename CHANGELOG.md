@@ -2,6 +2,25 @@
 
 
 
+## v0.0.150 (2023-10-06)
+
+### :bug:
+
+* :bug:: Fix improper import of dataclass from attr. ([`5714c66`](https://github.com/rjdbcm/OZI/commit/5714c66fc8d4a0b17419ff93b8c7aa5e27f7ac50))
+
+### :children_crossing:
+
+* :children_crossing:: Use Home-page header in PKG-INFO template. ([`6d4a96a`](https://github.com/rjdbcm/OZI/commit/6d4a96ac631a6b7a259d439b9c6c6ccbb558ed86))
+
+* :children_crossing:(PKG-INFO): Use Home-page and Download-URL.
+
+Also add requirements to PKG-INFO, including git. ([`2fda90e`](https://github.com/rjdbcm/OZI/commit/2fda90e3f1d9a405567a2a312833b481cb2ac5b4))
+
+### Other
+
+* :construction_worker:(PKG-INFO): Patch bump. ([`3ead502`](https://github.com/rjdbcm/OZI/commit/3ead50241c5068ff0a9137c5201b674a4b8d2f5b))
+
+
 ## v0.0.149 (2023-10-06)
 
 ### :bug:
