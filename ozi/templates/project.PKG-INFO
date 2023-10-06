@@ -31,7 +31,7 @@ Classifier: Framework :: {{ project.framework }}
 {%- if project.environment != '' %}
 Classifier: Environment :: {{ project.environment }}
 {%- endif %}
-Project-URL: Homepage, {{ project.homepage }}
+Home-page: {{ project.homepage }}
 Description-Content-Type: text/x-rst
 
 .. OZI

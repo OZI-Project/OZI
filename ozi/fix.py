@@ -26,7 +26,6 @@ from pyparsing import (
     Forward,
     Keyword,
     Literal,
-    OneOrMore,
     ParseException,
     ParseResults,
     Suppress,

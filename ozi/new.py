@@ -323,7 +323,9 @@ def new_project(project: argparse.Namespace) -> int:
         'ozi': {
             'version': version('OZI'),
             'spec': specification_version,
-            'py_security': '.'.join(map(str, (python_support.major, python_support.security))),
+            'py_security': '.'.join(
+                map(str, (python_support.major, python_support.security))
+            ),
             'py_bugfix2': '.'.join(map(str, (python_support.major, python_support.bugfix2))),
             'py_bugfix1': '.'.join(map(str, (python_support.major, python_support.bugfix1))),
             'py_implementations': implementation_support,
@@ -385,7 +387,9 @@ def __new_wrap(project: argparse.Namespace) -> int:  # pragma: no cover
         'ozi': {
             'version': version('OZI'),
             'spec': specification_version,
-            'py_security': '.'.join(map(str, (python_support.major, python_support.security))),
+            'py_security': '.'.join(
+                map(str, (python_support.major, python_support.security))
+            ),
             'py_bugfix2': '.'.join(map(str, (python_support.major, python_support.bugfix2))),
             'py_bugfix1': '.'.join(map(str, (python_support.major, python_support.bugfix1))),
             'py_implementations': implementation_support,
