@@ -2,6 +2,20 @@
 
 
 
+## v0.0.146 (2023-10-06)
+
+### :bug:
+
+* :bug::construction_worker:(ozi-fix):  Fix flaky CI.
+
+``tests/ozi_fix.py::test_fuzz_report_missing - hypothesis.errors.Flaky: Hypothesis ``
+Unreliable test timings! On an initial run, this test took 359.85ms, which exceeded the deadline of 200.00ms, but on a subsequent run it took 10.32 ms, which did not. Deadline raised for this test by setting deadline=500ms. ([`7356c9a`](https://github.com/rjdbcm/OZI/commit/7356c9a697fc04279733bdeb81dec058e9f40f21))
+
+### :hammer:
+
+* :hammer:(ozi-fix): Coverage complete for pep-639 extra classifiers. ([`6c65619`](https://github.com/rjdbcm/OZI/commit/6c65619597f73bf7a296ccf283f6e3e653a19362))
+
+
 ## v0.0.145 (2023-10-05)
 
 ### :hammer:
