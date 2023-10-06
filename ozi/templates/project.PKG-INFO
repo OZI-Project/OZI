@@ -12,7 +12,7 @@ Classifier: Development Status :: {{ project.status }}
 Classifier: Intended Audience :: {{ project.audience }}
 Classifier: License :: {{ project.license }}
 Classifier: Natural Language :: {{ project.language }}
-Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
 Classifier: Programming Language :: Python :: 3.11
 Classifier: Programming Language :: Python :: 3.12
 Classifier: Programming Language :: Python :: 3.10
