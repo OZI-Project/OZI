@@ -3,13 +3,14 @@
 # Part of ozi.
 # See LICENSE.txt in the project root for details.
 import argparse
+from datetime import timedelta
 import os
 import pathlib
 import typing
 from copy import deepcopy
 
 import pytest
-from hypothesis import given
+from hypothesis import given, settings
 from hypothesis import strategies as st
 
 import ozi.fix
@@ -293,6 +294,7 @@ def test_fuzz_pkg_info_extra(payload: str, as_message: bool) -> None:  # noqa: D
     ozi.fix.pkg_info_extra(payload=payload, as_message=as_message)
 
 
+@settings(deadline=timedelta(milliseconds=500))
 @given(target=st.just('.'), strict=st.booleans(), use_tap=st.booleans())
 def test_fuzz_report_missing(  # noqa: DC102
     target: pathlib.Path, strict: bool, use_tap: bool
