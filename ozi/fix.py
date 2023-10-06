@@ -23,7 +23,9 @@ from jinja2 import Environment, PackageLoader, select_autoescape
 from pyparsing import (
     CaselessKeyword,
     Combine,
+    Forward,
     Keyword,
+    Literal,
     OneOrMore,
     ParseException,
     ParseResults,
@@ -171,21 +173,19 @@ def _str_dict_union(toks: ParseResults) -> Dict[str, str]:
     """Parse-time union of Dict[str, str]."""
     if len(toks) >= 2:
         return toks[0] | toks[1]  # type: ignore
-    else:
+    else: # pragma: no cover
         return  # type: ignore
 
 
-dcolon = Suppress(Keyword('::'))
-pep639_parse = Suppress(Keyword('..') + CaselessKeyword('ozi')) + OneOrMore(
-    Suppress(White(' ', min=2))
-    + Suppress(Keyword('Classifier:'))
-    + Suppress(White(' ', exact=1))
-    + (
-        Keyword('License-Expression') + dcolon 
-        + Combine(spdx_license_expression, join_string=' ')
-        | Keyword('License-File') + dcolon + oneOf(['LICENSE', 'LICENSE.txt'])
-    ).set_parse_action(lambda t: {str(t[0]): str(t[1])})
-).set_parse_action(_str_dict_union).set_name('pep639')
+sspace = Suppress(White(' ', exact=1)) 
+dcolon = sspace + Suppress(Literal('::')) + sspace
+classifier = Suppress(White(' ', min=2)) + Suppress(Literal('Classifier:')) + sspace
+pep639_headers = Forward()
+license_expression =  classifier + (Keyword('License-Expression') + dcolon + Combine(spdx_license_expression, join_string=' ')).set_parse_action(lambda t: {str(t[0]): str(t[1])})
+license_file = classifier + (Keyword('License-File') + dcolon + oneOf(['LICENSE', 'LICENSE.txt'])).set_parse_action(lambda t: {str(t[0]): str(t[1])})
+pep639_headers <<= (license_expression + license_file)
+
+pep639_parse = Suppress(Keyword('..') + CaselessKeyword('ozi')) + pep639_headers.set_parse_action(_str_dict_union).set_name('pep639')
 
 
 def pkg_info_extra(payload: str, as_message: bool = True) -> Union[Dict[str, str], Message]:
@@ -243,7 +243,7 @@ def report_missing(
         name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', str())).lower()
         try:
             extra_pkg_info = pkg_info_extra(pkg_info.get_payload()).items()
-        except ParseException:  # pragma: defer to good first issue
+        except ParseException:
             extra_pkg_info = {}
             warn(f'{count} - PKG-INFO Extra MISSING', RuntimeWarning)
         for k, v in extra_pkg_info:
