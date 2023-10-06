@@ -2,6 +2,24 @@
 
 
 
+## v0.0.147 (2023-10-06)
+
+### :bug:
+
+* :bug::construction_worker:(tests/ozi_fix.py): Fix flaky CI due to exceeded deadline. ([`ae446ae`](https://github.com/rjdbcm/OZI/commit/ae446aeb5045e54583e27d1bee8f596b713c723e))
+
+* :bug:(ozi/templates/project.PKG-INFO):  Fix template not specifying Python 3 Only.
+
+```
+# &lt;OZI-0.0.146&gt;/ozi/fix.py:239: RuntimeWarning
+not ok - 8 - &#34;Programming Language :: Python :: 3 :: Only&#34; MISSING
+``` ([`9e8b6c0`](https://github.com/rjdbcm/OZI/commit/9e8b6c0d8cfe70973ff094ff1455960dccb7334f))
+
+### :hammer:
+
+* :hammer::white_check_mark:(ozi-fix): Add coverage for Python version PKG-INFO. ([`39422a5`](https://github.com/rjdbcm/OZI/commit/39422a5b4052dae92c1f13c85926c32da08c237a))
+
+
 ## v0.0.146 (2023-10-06)
 
 ### :bug:
