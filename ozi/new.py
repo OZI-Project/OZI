@@ -35,6 +35,7 @@ from .assets import (
     test_templates,
     top4,
     underscorify,
+    wheel_repr,
 )
 
 warnings.formatwarning = tap_warning_format  # type: ignore
@@ -69,6 +70,7 @@ env = Environment(
 )
 env.filters['underscorify'] = underscorify
 env.filters['sha256sum'] = __sha256sum
+env.filters['wheel_repr'] = wheel_repr
 
 parser = argparse.ArgumentParser(
     prog='ozi-new', description=sys.modules[__name__].__doc__, add_help=False
@@ -320,7 +322,11 @@ def new_project(project: argparse.Namespace) -> int:
         'project': vars(project),
         'ozi': {
             'version': version('OZI'),
-            'spec': '0.1',
+            'spec': specification_version,
+            'py_security': '.'.join(map(str, (python_support.major, python_support.security))),
+            'py_bugfix2': '.'.join(map(str, (python_support.major, python_support.bugfix2))),
+            'py_bugfix1': '.'.join(map(str, (python_support.major, python_support.bugfix1))),
+            'py_implementations': implementation_support,
         },
     }
 
@@ -379,10 +385,9 @@ def __new_wrap(project: argparse.Namespace) -> int:  # pragma: no cover
         'ozi': {
             'version': version('OZI'),
             'spec': specification_version,
-            'py_major': python_support.major,
-            'py_security': python_support.security,
-            'py_bugfix2': python_support.bugfix2,
-            'py_bugfix1': python_support.bugfix1,
+            'py_security': '.'.join(map(str, (python_support.major, python_support.security))),
+            'py_bugfix2': '.'.join(map(str, (python_support.major, python_support.bugfix2))),
+            'py_bugfix1': '.'.join(map(str, (python_support.major, python_support.bugfix1))),
             'py_implementations': implementation_support,
         },
     }

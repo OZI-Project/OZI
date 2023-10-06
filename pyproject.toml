@@ -397,12 +397,12 @@ tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
 legacy_tox_ini = """
 [tox]
 skipsdist = True
-envlist = py{39,310-type,311}-toml
+envlist = py3{10-toml,11,12}
 
 [gh]
 python =
-     3.12 = py312-toml
-     3.11 = py311-toml-type
+     3.12 = py312
+     3.11 = py311
      3.10 = py310-toml
 
 [testenv]

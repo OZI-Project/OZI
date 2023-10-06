@@ -344,6 +344,11 @@ def underscorify(s: str) -> str:
     return re.sub('[^0-9a-zA-Z]', '_', s)
 
 
+def wheel_repr(version: str) -> str:
+    major, minor = version.split('.')
+    return f'py{major}{minor}'
+
+
 def tap_warning_format(
     msg: str, category: type[Warning], filename: str, lineno: int, line: Optional[str] = None
 ) -> str:
