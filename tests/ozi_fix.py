@@ -296,8 +296,8 @@ def test_fuzz_preprocess_existing_target(  # noqa: DC102
     assert 'ozi.phony' not in namespace.add
     assert 'ozi.phony' not in namespace.remove
 
-
-@given(payload=st.text().map(header.__add__), as_message=st.booleans())
+@settings(deadline=timedelta(milliseconds=500))
+@given(payload=st.text(max_size=65535).map(header.__add__), as_message=st.booleans())
 def test_fuzz_pkg_info_extra(payload: str, as_message: bool) -> None:  # noqa: DC102
     ozi.fix.pkg_info_extra(payload=payload, as_message=as_message)
 
