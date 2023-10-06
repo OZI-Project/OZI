@@ -2,6 +2,17 @@
 
 
 
+## v0.0.148 (2023-10-06)
+
+### :children_crossing:
+
+* :children_crossing:: Add bug tracker URL. ([`957fc15`](https://github.com/rjdbcm/OZI/commit/957fc1541461d3f362f228349b0168f927edf5a1))
+
+### :hammer:
+
+* :hammer:: Add automation and checking of Python implementation and version metadata. ([`7315896`](https://github.com/rjdbcm/OZI/commit/7315896021a07f9cac43b003af189d22b31c0df6))
+
+
 ## v0.0.147 (2023-10-06)
 
 ### :bug:
