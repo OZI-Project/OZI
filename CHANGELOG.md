@@ -2,6 +2,13 @@
 
 
 
+## v0.0.151 (2023-10-07)
+
+### :bug:
+
+* :bug::pencil2:: PKG-INFO template python version typo fix. ([`11ec7d9`](https://github.com/rjdbcm/OZI/commit/11ec7d9d4eee89fd74b44f2f4459c37a5972f06a))
+
+
 ## v0.0.150 (2023-10-06)
 
 ### :bug:
