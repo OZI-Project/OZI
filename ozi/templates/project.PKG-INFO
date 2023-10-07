@@ -13,9 +13,9 @@ Classifier: Intended Audience :: {{ project.audience }}
 Classifier: License :: {{ project.license }}
 Classifier: Natural Language :: {{ project.language }}
 Classifier: Programming Language :: Python :: {{ ozi.py_major }} :: Only
-Classifier: Programming Language :: Python :: {{ ozi.py_major }}.{{ ozi.py_security }}
-Classifier: Programming Language :: Python :: {{ ozi.py_major }}.{{ ozi.py_bugfix2 }}
-Classifier: Programming Language :: Python :: {{ ozi.py_major }}.{{ ozi.py_bugfix1 }}
+Classifier: Programming Language :: Python :: {{ ozi.py_security }}
+Classifier: Programming Language :: Python :: {{ ozi.py_bugfix2 }}
+Classifier: Programming Language :: Python :: {{ ozi.py_bugfix1 }}
 {%- for implementation in ozi.py_implementations %}
 Classifier: Programming Language :: Python :: Implementation :: {{ implementation }}
 {%- endfor %}

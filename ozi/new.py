@@ -323,6 +323,7 @@ def new_project(project: argparse.Namespace) -> int:
         'ozi': {
             'version': version('OZI'),
             'spec': specification_version,
+            'py_major': python_support.major,
             'py_security': '.'.join(
                 map(str, (python_support.major, python_support.security))
             ),
@@ -387,6 +388,7 @@ def __new_wrap(project: argparse.Namespace) -> int:  # pragma: no cover
         'ozi': {
             'version': version('OZI'),
             'spec': specification_version,
+            'py_major': python_support.major,
             'py_security': '.'.join(
                 map(str, (python_support.major, python_support.security))
             ),
