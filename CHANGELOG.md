@@ -2,6 +2,17 @@
 
 
 
+## v0.0.152 (2023-10-08)
+
+### :hammer:
+
+* :memo::hammer:(ozi-new): Add coverage and pytest templates ([`3504ee1`](https://github.com/rjdbcm/OZI/commit/3504ee1888b8b1d7a52a25db2a3b595a9561e51d))
+
+* :hammer:: ``pytest_plugins`` option becomes ``plugin_only``. ([`72cf109`](https://github.com/rjdbcm/OZI/commit/72cf1095aa77cffaba7578978f40821743b61696))
+
+* :hammer:: Make ``Home-page`` a REQUIRED PKG-INFO key. ([`a92191c`](https://github.com/rjdbcm/OZI/commit/a92191c98697e9957a91a4553df8b57cef90b6cc))
+
+
 ## v0.0.151 (2023-10-07)
 
 ### :bug:
