@@ -97,7 +97,7 @@ if get_option('dev').enabled()
                 endif
                 command_args += arg
             endforeach
-        if command not in pytest_plugins
+        if command not in plugin_only
             foreach app, args : {command: command_args}
                 args = {
                     'args': args,

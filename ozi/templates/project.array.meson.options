@@ -34,7 +34,7 @@ option(
         'namespace',
         'should-fail',
         'unhashable',
-        'pytest-plugins',
+        'plugin-only',
         'no-version',
         'emoji-dist',
         'emoji-docs',

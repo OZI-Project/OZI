@@ -17,12 +17,6 @@ project(
     license_files: 'LICENSE.txt',
     meson_version: '>=1.1.0',
 )
-pkg_info = {
-    '@PYTHON_MAJOR@': get_option('python-major'),
-    '@PYTHON_SECURITY_OLD@': get_option('python-security-old'),
-    '@PYTHON_SECURITY_NEW@': get_option('python-security-new'),
-    '@PYTHON_BUGFIX@': get_option('python-bugfix'),
-}
 env = environment()
 fs = import('fs')
 pymod = import('python')
@@ -51,7 +45,7 @@ lint_exclude_suites = get_option('lint-exclude-suites')
 test_exclude_suites = get_option('test-exclude-suites')
 # descript arrays   
 namespace = get_option('namespace')
-pytest_plugins = get_option('pytest-plugins')
+plugin_only = get_option('plugin-only')
 python_dependencies = get_option('python-dependencies')
 # features   
 dev = get_option('dev')
@@ -175,7 +169,7 @@ foreach name : namespace
             endif
             command_args += arg
         endforeach
-        if command not in pytest_plugins
+        if command not in plugin_only
             test_app_args += {command: command_args}
         endif
     endforeach
@@ -239,28 +233,28 @@ foreach name : namespace
         endforeach
     endforeach
 endforeach
-foreach pytest_plugin : pytest_plugins
+foreach plugin : plugin_only
     packaged_version = run_command(
         python,
-        ['-c', metadata_version.format(pytest_plugin)],
+        ['-c', metadata_version.format(plugin)],
         kwargs: no_check,
     ).stdout().strip()
     fallback_version = run_command(
         pip,
-        ['show', pytest_plugin],
+        ['show', plugin],
         kwargs: no_check,
     ).stdout().split('\n')
     fallback_version = (
         fallback_version.length() > 2 ? fallback_version[1].split(':')[1].strip() : 'unknown'
     )
-    if pytest_plugin in no_version
+    if plugin in no_version
         summary(
-            {' '.join(emoji_metadata_version, pytest_plugin): fallback_version},
+            {' '.join(emoji_metadata_version, plugin): fallback_version},
             section: ' '.join(emoji_test, 'meson test --setup=test'),
         )
     else
         summary(
-            {' '.join(emoji_metadata_version, pytest_plugin): packaged_version},
+            {' '.join(emoji_metadata_version, plugin): packaged_version},
             section: ' '.join(emoji_test, 'meson test --setup=test'),
         )
     endif
