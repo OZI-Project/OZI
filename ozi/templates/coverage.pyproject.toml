@@ -1,0 +1,25 @@
+{#- OZI 0.1
+# ozi/templates/coverage.pyproject.toml
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+-#}
+[tool.coverage.report]
+exclude_lines = [
+    "#\\s*(pragma|PRAGMA)[:\\s]?\\s*(no|NO)\\s*(cover|COVER)",
+    "#\\s*(pragma|PRAGMA)[:\\s]?\\s*(defer|DEFER)\\s*(to|TO)\\s*[a-zA-Z0-9_]*",
+    "def __repr__",
+    "def __wrapper", # functools.wraps decorated functions
+    "(\\.\\.\\.)",
+    "@(abc\\.)?abstractmethod",
+    "class .*\\bProtocol\\):",
+    "if __name__ == .__main__.:",
+    ]
+fail_under    = 100.0
+show_missing  = true
+skip_covered  = true
+skip_empty    = true
+
+[tool.coverage.run]
+branch         = true
+relative_files = true
