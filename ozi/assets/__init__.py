@@ -23,6 +23,7 @@ required_pkg_info_patterns = (
     'Version',
     'Metadata-Version',
     'Summary',
+    'Home-page',
     'License-Expression',
     'License-File',
     'Programming Language :: Python',
