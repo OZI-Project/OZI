@@ -42,7 +42,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 'Set up Python ${{ matrix.py }}'
+      - name: Set up Python
         uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
         id: setup-python
         with:
@@ -52,18 +52,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install tox-gh>=1.2
-
-      - name: Install test dependencies
-        if: matrix.ozi == 'test'
-        run: |
-          python -m pip install coverage[toml]
-          python -m pip install hypothesis[all] 
-          python -m pip install pytest 
-          python -m pip install pytest-asyncio 
-          python -m pip install pytest-cov 
-          python -m pip install pytest-randomly 
-          python -m pip install pytest-tcpclient 
-          python -m pip install pytest-xdist
 
       - name: Meson setup build
         run: |
@@ -77,7 +65,19 @@ jobs:
         run: |
           echo "PYTHONPATH=./" >> $GITHUB_ENV
 
-      - name: Pytest with ${{ matrix.py }} ${{ matrix.os }}
+      - name: Install test dependencies
+        if: matrix.ozi == 'test'
+        run: |
+          python -m pip install coverage[toml]
+          python -m pip install hypothesis[all] 
+          python -m pip install pytest 
+          python -m pip install pytest-asyncio 
+          python -m pip install pytest-cov 
+          python -m pip install pytest-randomly 
+          python -m pip install pytest-tcpclient 
+          python -m pip install pytest-xdist
+  
+      - name: Pytest
         if: matrix.ozi == 'test'
         run: |
           python -m pip install .
