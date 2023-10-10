@@ -2,6 +2,24 @@
 
 
 
+## v0.0.153 (2023-10-10)
+
+### :hammer:
+
+* :hammer:: add requirements.in to root_templates. ([`16f1124`](https://github.com/rjdbcm/OZI/commit/16f1124bff821a87101fad7853c5edb630f119a7))
+
+* :hammer::construction_worker:: Update CI templates and CI build process. ([`a12607c`](https://github.com/rjdbcm/OZI/commit/a12607c954be007fd05f60a8d3da7394fcb0dba9))
+
+* :hammer:: Add requirements.in to required file templates.
+
+Also add metadata_version to PKG-INFO template.
+Also add requirements as Requires-Dist in PKG-INFO template. ([`f18a8d8`](https://github.com/rjdbcm/OZI/commit/f18a8d8048d242f34b928509e1d6bbf9d13b8a52))
+
+* :hammer:: Pytest entrypoint has a workflow template of its own.
+
+This is mainly so we can document it in the specification. ([`c4fb826`](https://github.com/rjdbcm/OZI/commit/c4fb8261f1aebd7ffd74ce478d863f11b7803b50))
+
+
 ## v0.0.152 (2023-10-08)
 
 ### :hammer:
