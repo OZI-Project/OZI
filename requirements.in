@@ -4,3 +4,4 @@ pyparsing
 requests
 spdx-license-list
 trove-classifiers
+pip-tools

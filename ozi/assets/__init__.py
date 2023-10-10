@@ -29,6 +29,7 @@ required_pkg_info_patterns = (
     'Programming Language :: Python',
     'Description-Content-Type',
 )
+metadata_version = '2.1'
 implementation_support = ('CPython',)
 specification_version = '0.1'
 __pymajor, __pyminor, __pypatch = map(int, platform.python_version_tuple())

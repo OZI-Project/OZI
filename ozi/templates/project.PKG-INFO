@@ -4,7 +4,7 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
-Metadata-Version: 2.1
+Metadata-Version: {{ ozi.metadata_version }}
 Name: {{ project.name }}
 Version: {version}
 Summary: {{ project.summary }}
@@ -32,6 +32,9 @@ Classifier: Framework :: {{ project.framework }}
 Classifier: Environment :: {{ project.environment }}
 {%- endif %}
 Home-page: {{ project.homepage }}
+{%- for req in project.requirements %}
+Requires-Dist: {{ req }}
+{%- endfor %}
 Description-Content-Type: text/x-rst
 
 .. OZI
