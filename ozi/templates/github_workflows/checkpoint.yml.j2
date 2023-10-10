@@ -38,7 +38,7 @@
           python -m pip install --upgrade pip
           python -m pip install tox-gh>=1.2
 
-      - name: Meson setup build
+      - name: OZI build
         run: |
           tox -vv --notest
       - name: OZI utility setup
@@ -47,8 +47,10 @@
           tox -- --setup=${{ matrix.ozi }}
 {%- endraw -%}
 
-{% include 'github_workflows/pytest.yml.j2' %}
-
       - name: set PYTHONPATH
         run: |
           echo "PYTHONPATH=./" >> $GITHUB_ENV
+
+{% include 'github_workflows/pip-compile.yml.j2' %}
+
+{% include 'github_workflows/pytest.yml.j2' %}

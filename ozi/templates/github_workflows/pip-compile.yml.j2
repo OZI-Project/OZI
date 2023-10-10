@@ -1,0 +1,10 @@
+{#- OZI 0.1
+# ozi/templates/github_workflows/release.yml
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+-#}
+      - name: Compile requirements
+        if: matrix.ozi == 'test'
+          python -m pip install pip-tools
+          pip-compile --generate-hashes -o requirements.txt
