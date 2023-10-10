@@ -247,6 +247,7 @@ root_templates = [
     'pyproject.toml',
     'README.rst',
     'LICENSE.txt',
+    'requirements.in'
 ]
 source_templates = [
     'project.name/__init__.py',
