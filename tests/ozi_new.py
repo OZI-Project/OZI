@@ -3,11 +3,13 @@
 # Part of ozi.
 # See LICENSE.txt in the project root for details.
 import argparse
+from itertools import zip_longest
+import operator
 import typing
 from datetime import timedelta
 
 import pytest
-from hypothesis import given, settings
+from hypothesis import assume, given, settings
 from hypothesis import strategies as st
 
 import ozi.assets
@@ -22,10 +24,13 @@ import ozi.new
             'verify_email': st.just(False),
             'strict': st.just(False),
             'target': st.data(),
+            'keywords': st.from_regex(r'^([a-z_]*[a-z0-9],)*$'),
             'ci_provider': st.just('github'),
             'name': st.from_regex(r'^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9])$'),
-            'author': st.text(max_size=248),
-            'email': st.emails(),
+            'author': st.text(min_size=1, max_size=248),
+            'author_email': st.lists(st.emails()),
+            'maintainer': st.text(min_size=1, max_size=248),
+            'maintainer_email': st.lists(st.emails()),
             'homepage': st.one_of(st.just('https://oziproject.dev/')),
             'summary': st.text(max_size=512),
             'copyright_head': st.text(),
@@ -56,13 +61,7 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
             [
                 st.just(k)
                 for k, v in ozi.assets.spdx_options.items()
-                if len(v) != 0
-                and k
-                not in [
-                    'Private',
-                    'OSI Approved :: Apple Public Source License',
-                    'OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)',
-                ]
+                if len(v) != 0 and k not in ['Private']
             ]
         )
     )
@@ -70,9 +69,21 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
         st.one_of(map(st.just, ozi.assets.spdx_options.get(project['license'])))  # type: ignore
     )
     project['license_expression'] = license_expression.draw(st.just(project['license_id']))
+    assume(project['author_email'] != project['maintainer_email'])
+    assume(len(project['author_email']))
+    assume(
+        map(
+            operator.ne,
+            *[
+                i
+                for i in zip_longest(project['author_email'], project['maintainer_email'])
+                if any(i)
+            ],
+        )
+    )
+    assume(project['author'] != project['maintainer'])
     namespace = argparse.Namespace(**project)
-    with pytest.warns(RuntimeWarning):
-        ozi.new.new_project(project=namespace)
+    ozi.new.new_project(project=namespace)
 
 
 @pytest.mark.parametrize(
@@ -86,7 +97,25 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
             'license_expression': 'Private',
             'license_id': 'Private',
         },
-        {'email': 'foobarbademail'},
+        {'author_email': ['foobarbademail']},
+        {
+            'author_email': ['noreply@oziproject.dev'],
+            'maintainer_email': ['noreply@oziproject.dev'],
+        },
+        {
+            'author_email': [],
+            'maintainer_email': ['noreply@oziproject.dev'],
+        },
+        {
+            'author': '',
+            'maintainer': 'foo',
+        },
+        {
+            'author': 'Zaphod Beeblebrox',
+            'maintainer': '',
+            'author_email': ['noreply@oziproject.dev'],
+            'maintainer_email': ['user@example.com'],
+        },
     ],
 )
 def test_new_project_bad_args(  # noqa: DC102
@@ -99,9 +128,12 @@ def test_new_project_bad_args(  # noqa: DC102
         'target': tmp_path_factory.mktemp('new_project_bad_args'),
         'ci_provider': 'github',
         'name': 'ozi.phony',
-        'license': '',
+        'license': 'CC0 1.0 Universal (CC0 1.0) Public Domain Dedication',
         'author': 'Ross J. Duff',
-        'email': 'noreply@oziproject.dev',
+        'author_email': ['noreply@oziproject.dev'],
+        'keywords': '',
+        'maintainer': '',
+        'maintainer_email': [],
         'homepage': 'https://oziproject.dev/',
         'summary': '',
         'copyright_head': '',
@@ -130,8 +162,11 @@ def test_new_project_bad_target_not_empty(  # noqa: DC102
         'ci_provider': 'github',
         'name': 'ozi.phony',
         'license': '',
+        'keywords': '',
         'author': 'Ross J. Duff',
-        'email': 'noreply@oziproject.dev',
+        'author_email': ['noreply@oziproject.dev'],
+        'maintainer': '',
+        'maintainer_email': [],
         'homepage': 'https://oziproject.dev/',
         'summary': '',
         'copyright_head': '',

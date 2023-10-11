@@ -14,6 +14,8 @@ files = [
     'gpl-3.0-only.txt',
     'gpl-3.0-or-later.txt',
     'isc.txt',
+    'lgpl-2.0-only.txt',
+    'lgpl-2.0-or-later.txt',
     'lgpl-2.1-or-later.txt',
     'lgpl-3.0-only.txt',
     'lgpl-3.0-or-later.txt',
