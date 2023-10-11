@@ -194,6 +194,7 @@ Requires-Dist: requests
 Requires-Dist: spdx-license-list
 Requires-Dist: trove-classifiers
 Requires-External: git
+Requires-Python: >=3.10
 Classifier: Development Status :: 2 - Pre-Alpha
 Classifier: Environment :: Console
 Classifier: Intended Audience :: Developers

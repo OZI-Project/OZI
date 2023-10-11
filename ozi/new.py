@@ -91,7 +91,7 @@ wrap_parser = subparser.add_parser(
 required = project_parser.add_argument_group('required')
 required.add_argument('--name', type=str, help='name of project')
 required.add_argument('--author', type=str, help='author of project')
-required.add_argument('--email', type=str, help='valid author email')
+required.add_argument('--author-email', type=str, help='valid author email', action='append')
 required.add_argument('--summary', type=str, help='short summary')
 required.add_argument('--homepage', type=str, help='homepage URL')
 license = project_parser.add_argument_group('license options')
@@ -178,7 +178,23 @@ defaults.add_argument(
     metavar='PATH',
     type=str,
 )
+defaults.add_argument(
+    '--keywords', default='', help='comma-separated list of keywords', type=str
+)
 optional = project_parser.add_argument_group('optional')
+optional.add_argument(
+    '--maintainer',
+    default='',
+    metavar='Maintainer (if different from Author)',
+    help='maintainer of project',
+)
+optional.add_argument(
+    '--maintainer-email',
+    default='',
+    metavar='Maintainer-Email (if different from Author-Email)',
+    help='valid maintainer email',
+    action='append',
+)
 optional.add_argument(
     '--framework',
     default='',
@@ -228,7 +244,6 @@ output.add_argument(
 def new_project(project: argparse.Namespace) -> int:
     """Create a new project in a target directory."""
     count = 0
-    ambiguous_license_classifier = True
     if len(project.copyright_head) == 0:
         project.copyright_head = '\n'.join(
             [
@@ -244,30 +259,21 @@ def new_project(project: argparse.Namespace) -> int:
 
         warnings.simplefilter('error', RuntimeWarning, append=True)
 
-    if project.license in ambiguous_licenses:
-        msg = (
-            f'Ambiguous License string per PEP 639: {project.license}; '
-            'See also: https://github.com/pypa/trove-classifiers/issues/17'
-        )
-        warn(msg, RuntimeWarning)
-    else:
-        print('ok', '-', 'License')
-        ambiguous_license_classifier = False
-    count += 1
-
     possible_spdx: Sequence[str] = spdx_options.get(project.license, ())
     if (
-        ambiguous_license_classifier
+        project.license in ambiguous_licenses
         and project.license_expression.split(' ')[0] not in possible_spdx
     ):
         msg = (
-            'Cannot disambiguate license, set --license-expression'
+            f'Ambiguous License string per PEP 639: {project.license}; '
+            'See also: https://github.com/pypa/trove-classifiers/issues/17;'
+            'set --license-expression'
             f'to one of: {", ".join(possible_spdx)} OR'
             'to a license expression based on one of these.'
         )
         warn(msg, RuntimeWarning)
     else:
-        print('ok', '-', 'License-Disambiguates')
+        print('ok', '-', 'License')
     count += 1
 
     try:
@@ -285,12 +291,56 @@ def new_project(project: argparse.Namespace) -> int:
         print('ok', '-', 'Summary')
     count += 1
 
-    try:
-        emailinfo = validate_email(project.email, check_deliverability=project.verify_email)
-        project.email = emailinfo.normalized
-        print('ok', '-', 'Author-Email')
-    except EmailNotValidError as e:
-        warn(str(e), RuntimeWarning)
+    project.keywords = project.keywords.split(',')
+
+    author_email = []
+    maintainer_email = []
+    for email in set(project.author_email).union(project.maintainer_email):
+        try:
+            emailinfo = validate_email(email, check_deliverability=project.verify_email)
+            email_normalized = emailinfo.normalized
+            if email in project.author_email:
+                author_email += [email_normalized]
+            if email in project.maintainer_email:
+                maintainer_email += [email_normalized]
+            print('ok', '-', 'Author-Email')
+        except EmailNotValidError as e:
+            warn(str(e), RuntimeWarning)
+        count += 1
+    project.author_email = author_email
+    project.maintainer_email = maintainer_email
+
+    author_and_maintainer_email = False
+    if set(project.author_email).intersection(project.maintainer_email):
+        warn(
+            'One or more Author-Email and Maintainer-Email are identical.'
+            'Maintainer-Email should be empty.',
+            RuntimeWarning,
+        )
+    elif any(map(len, project.maintainer_email)) and not any(map(len, project.author_email)):
+        warn('Maintainer-Email provided without setting Author-Email.', RuntimeWarning)
+    elif any(map(len, project.maintainer_email)) and any(map(len, project.author_email)):
+        author_and_maintainer_email = True
+        print('ok', '-', 'Author-Email(s) and Maintainter-Email(s) provided.')
+    else:
+        print('ok', '-', 'Author-Email(s) provided.')
+    count += 1
+
+    if project.author == project.maintainer:
+        warn(
+            'Author and Maintainer are identical. Maintainer should be empty.',
+            RuntimeWarning,
+        )
+    elif len(project.maintainer) and not len(project.author):
+        warn('Maintainer provided without setting Author.', RuntimeWarning)
+    elif len(project.maintainer) and len(project.author):
+        print('ok', '-', 'Author and Maintainer provided.')
+    elif author_and_maintainer_email and not len(project.maintainer):
+        warn(
+            'Expected Maintainer name missing for provided Maintainer-Email.', RuntimeWarning
+        )
+    else:
+        print('ok', '-', 'Author provided.')
     count += 1
 
     try:

@@ -8,6 +8,9 @@ Metadata-Version: {{ ozi.metadata_version }}
 Name: {{ project.name }}
 Version: {version}
 Summary: {{ project.summary }}
+{%- if project.keywords|length %}
+Keywords: {{ project.keywords|join(',') }}
+{%- endif %}
 Classifier: Development Status :: {{ project.status }}
 Classifier: Intended Audience :: {{ project.audience }}
 Classifier: License :: {{ project.license }}
@@ -35,6 +38,10 @@ Home-page: {{ project.homepage }}
 {%- for req in project.requirements %}
 Requires-Dist: {{ req }}
 {%- endfor %}
+{%- if project.requires_external|length %}
+Requires-External: {{ project.requires_external|join(',') }}
+{%- endif %}
+Requires-Python: >= {{ ozi.py_security }}
 Description-Content-Type: text/x-rst
 
 .. OZI
