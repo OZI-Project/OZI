@@ -74,7 +74,7 @@ env.filters['sha256sum'] = __sha256sum
 env.filters['wheel_repr'] = wheel_repr
 
 parser = argparse.ArgumentParser(
-    prog='ozi-new', description=sys.modules[__name__].__doc__, add_help=False
+    prog='ozi-new', description=sys.modules[__name__].__doc__, add_help=False,
 )
 subparser = parser.add_subparsers(help='create new projects, sources, & tests', dest='new')
 project_parser = subparser.add_parser(
@@ -88,60 +88,47 @@ wrap_parser = subparser.add_parser(
     aliases=['w'],
     description='Create a new OZI wrapdb file.',
 )
-required = project_parser.add_argument_group('required')
-required.add_argument('--name', type=str, help='name of project')
-required.add_argument('--author', type=str, help='author of project')
-required.add_argument('--author-email', type=str, help='valid author email', action='append')
-required.add_argument('--summary', type=str, help='short summary')
-required.add_argument('--homepage', type=str, help='homepage URL')
-license = project_parser.add_argument_group('license options')
-license.add_argument(
-    '--license-expression',
-    type=str,
-    metavar='ID e.g. MIT, BSD-2-Clause, GPL-3.0-or-later, Apache-2.0',
-    help='SPDX short ID or composite license for license disambiguation',
-)
-required.add_argument(
-    '--license',
-    type=str,
-    metavar=f'LICENSE e.g. {", ".join(top4)}',
-    help='license classifier',
-    action=CloseMatch,
-)
-required.add_argument(
-    'target',
-    type=str,
-    help='target directory for new project',
-)
-email = project_parser.add_argument_group('email options')
-email.add_argument(
-    '--verify-email',
-    default=False,
-    action=argparse.BooleanOptionalAction,
-    help='email domain deliverability check',
-)
-output = project_parser.add_argument_group('output options')
-output.add_argument(
-    '--strict',
-    default=False,
-    action=argparse.BooleanOptionalAction,
-    help='strict mode raises warnings to errors.',
-)
-defaults = project_parser.add_argument_group('defaults')
-defaults.add_argument(
+required = project_parser.add_argument_group('PKG-INFO required')
+ozi_required = project_parser.add_argument_group('required')
+ozi_defaults = project_parser.add_argument_group('defaults')
+optional = project_parser.add_argument_group('PKG-INFO optional')
+defaults = project_parser.add_argument_group('PKG-INFO defaults')
+ozi_defaults.add_argument(
     '--copyright-head',
     type=str,
     default='',
     help='copyright header string',
     metavar='"Part of the NAME project.\\nSee LICENSE..."',
 )
-defaults.add_argument(
+ozi_defaults.add_argument(
     '--ci-provider',
     type=str,
     default='github',
-    choices=('github',),
+    choices=frozenset(('github',)),
     metavar='"github"',
     help='continuous integration and release provider',
+)
+required.add_argument('-n', '--name', type=str, help='Name (Single Use)')
+required.add_argument('-a', '--author', type=str, help='Author (Single Use)')
+required.add_argument('-e', '--author-email', type=str, help='Author-email (Single Use, Comma-separated List)', action='append')
+required.add_argument('-s', '--summary', type=str, help='Summary (Single Use)')
+required.add_argument('-p', '--home-page', type=str, help='Home-page (Single Use)')
+required.add_argument(
+    '--license-expression',
+    type=str,
+    help='Classifier: License Expression (Single Use, SPDX Expression)',
+)
+required.add_argument(
+    '-l',
+    '--license',
+    type=str,
+    help='Classifier: License (Single Use)',
+    action=CloseMatch,
+)
+ozi_required.add_argument(
+    'target',
+    type=str,
+    help='target directory for new project',
 )
 project_output = project_parser.add_mutually_exclusive_group()
 project_output.add_argument(
@@ -151,84 +138,94 @@ defaults.add_argument(
     '--audience',
     '--intended-audience',
     type=str,
-    metavar='"Other Audience"',
-    default='Other Audience',
-    help='audience for the project',
+    help='Classifier: Intended Audience (Multiple Use)',
+    default=['Other Audience'],
+    metavar='{Other Audience, ...}',
+    nargs='?',
     action=CloseMatch,
 )
 defaults.add_argument(
     '--typing',
     type=str,
-    metavar='"Typed"',
-    default='Typed',
-    help='typing for the project (OZI specifies Typed packages).',
+    choices=frozenset(('Typed', 'Stubs Only')),
+    metavar='{Typing, ...}',
+    nargs='?',
+    help='Classifier: Typing (Multiple Use)',
+    default=['Typed'],
 )
 defaults.add_argument(
     '--environment',
-    default='Other Environment',
-    help='primary environment for project use case',
-    metavar='"Other Environment"',
+    default=['Other Environment'],
+    metavar='{Other Environment,...}',
+    help='Classifier: Environment (Multiple Use)',
     action=CloseMatch,
+    nargs='?',
     type=str,
 )
 defaults.add_argument(
     '--license-file',
     default='LICENSE.txt',
-    help='license text file path',
-    metavar='PATH',
+    choices=frozenset(('LICENSE.txt',)),
+    help='Classifier: License File (Single Use)',
     type=str,
 )
-defaults.add_argument(
-    '--keywords', default='', help='comma-separated list of keywords', type=str
+optional.add_argument(
+    '--keywords',
+    default='',
+    help='Keywords (Single Use, Comma-separated List)',
+    type=str
 )
-optional = project_parser.add_argument_group('optional')
 optional.add_argument(
     '--maintainer',
     default='',
-    metavar='Maintainer (if different from Author)',
-    help='maintainer of project',
+    help='Maintainer (if different from Author)',
 )
 optional.add_argument(
     '--maintainer-email',
     default='',
-    metavar='Maintainer-Email (if different from Author-Email)',
-    help='valid maintainer email',
+    help='Maintainer-Email (if different from Author-Email)',
     action='append',
 )
 optional.add_argument(
     '--framework',
-    default='',
-    help='primary project framework',
-    metavar='FRAMEWORK e.g. tox, Flake8, etc',
+    help='Classifier: Framework (Multiple Use)',
     action=CloseMatch,
     type=str,
+    nargs='?',
 )
 defaults.add_argument(
     '--language',
     '--natural-language',
-    default='English',
-    help='primary natural language',
-    metavar='"English"',
+    default=['English'],
+    metavar='{English, ...}',
+    help='Classifier: Natural Language (Multiple Use)',
     action=CloseMatch,
     type=str,
-)
-defaults.add_argument(
-    '--topic',
-    default=['Utilities'],
-    help='Python package topic (this option may be used multiple times)',
-    metavar='"Utilities"',
     nargs='?',
-    action='append',
+)
+optional.add_argument(
+    '--topic',
+    help='Classifier: Topic (Multiple Use)',
+    nargs='?',
+    action=CloseMatch,
     type=str,
 )
 defaults.add_argument(
     '--status',
     '--development-status',
     action=CloseMatch,
-    default='1 - Planning',
-    help='Python package status',
+    default=['1 - Planning'],
+    help='Classifier: Development Status (Single Use)',
     metavar='"1 - Planning"',
     type=str,
+)
+optional.add_argument(
+    '-r',
+    '--dist-requires',
+    help='Dist-Requires (Multiple Use)',
+    action='append',
+    type=str,
+    nargs='?',
 )
 output = parser.add_mutually_exclusive_group()
 output.add_argument('-h', '--help', action='help', help='show this help message and exit')
@@ -239,6 +236,18 @@ output.add_argument(
     choices=list_available.keys(),
     help='list valid option settings and exit',
 )
+ozi_defaults.add_argument(
+    '--verify-email',
+    default='--no-verify-email',
+    action=argparse.BooleanOptionalAction,
+    help='email domain deliverability check',
+)
+ozi_defaults.add_argument(
+    '--strict',
+    default='--no-strict',
+    action=argparse.BooleanOptionalAction,
+    help='strict mode raises warnings to errors.',
+)
 
 
 def new_project(project: argparse.Namespace) -> int:
@@ -248,7 +257,7 @@ def new_project(project: argparse.Namespace) -> int:
         project.copyright_head = '\n'.join(
             [
                 f'Part of {project.name}.',
-                'See LICENSE.txt in the project root for details.',
+                f'See {project.license_file} in the project root for details.',
             ]
         )
         print('ok', '-', 'Default-Copyright-Header')

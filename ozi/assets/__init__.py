@@ -307,10 +307,10 @@ class CloseMatch(argparse.Action):
         **kwargs: Any,
     ) -> None:
         """argparse init"""
-        if nargs is not None:
-            raise ValueError('nargs not allowed')
+        if nargs not in [None, '?']:
+            raise ValueError('nargs (other than "?") not allowed')
 
-        super().__init__(option_strings, dest, **kwargs)  # type: ignore
+        super().__init__(option_strings, dest, nargs=nargs, **kwargs)  # type: ignore
 
     def __call__(
         self: argparse.Action,
@@ -324,22 +324,36 @@ class CloseMatch(argparse.Action):
             key = option_string.lstrip('-').replace('-', '_')
         else:
             key = ''  # pragma: defer to good-first-issue
-        if values is None:
+        if values is None and self.nargs is None:
             values = ''  # pragma: defer to good-first-issue
-        try:
-            values = get_close_matches(values, self.__getattribute__(key), cutoff=0.40)[0]
-        except (IndexError, AttributeError):
-            warn(
-                '\n'.join(
-                    [
-                        f'No {key} choice matching "{values}" available.',
-                        'To list available options:',
+        elif values is None and self.nargs == '?':
+            values = []
+
+        if self.nargs == '?':
+            matches = []
+            for v in values:  # type: ignore
+                try:
+                    v = get_close_matches(v, self.__getattribute__(key), cutoff=0.40)[0]
+                except (IndexError, AttributeError):
+                    warn(
+                        f'No {key} choice matching "{v}" available.'
+                        'To list available options:'
                         f'$ ozi-new -l {key}',
-                    ]
-                ),
-                RuntimeWarning,
-            )
-        setattr(namespace, self.dest, values)
+                        RuntimeWarning,
+                    )
+                matches += v
+            setattr(namespace, self.dest, matches)
+        else:
+            try:
+                values = get_close_matches(values, self.__getattribute__(key), cutoff=0.40)[0]  # type: ignore
+            except (IndexError, AttributeError):
+                warn(
+                    f'No {key} choice matching "{values}" available.'
+                    'To list available options:'
+                    f'$ ozi-new -l {key}',
+                    RuntimeWarning,
+                )
+            setattr(namespace, self.dest, values)
 
 
 def underscorify(s: str) -> str:

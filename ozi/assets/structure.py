@@ -4,10 +4,12 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Directory structure expected files"""
 required_pkg_info = (
-    'Name',
-    'Version',
+    'Description-Content-Type',
+    'Home-page',
     'Metadata-Version',
+    'Name',
     'Summary',
+    'Version',
 )
 root_dirs = ['tests' 'subprojects']
 root_files = [

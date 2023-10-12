@@ -32,6 +32,7 @@ bad_namespace = argparse.Namespace(
     summary='A' * 512,
     copyright_head='',
     license_expression='CC0-1.0',
+    license_file='LICENSE.txt',
     license='CC0 1.0 Universal (CC0 1.0) Public Domain Dedication',
     license_id='ITWASAFICTION',
     license_exception_id='WEMADEITUP',

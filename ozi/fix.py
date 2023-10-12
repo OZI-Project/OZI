@@ -533,7 +533,7 @@ def main() -> NoReturn:  # pragma: no cover
     project.copyright_head = '\n'.join(
         [
             f'Part of {name}.',
-            'See LICENSE.txt in the project root for details.',
+            f'See {project.license_file} in the project root for details.',
         ]
     )
     rewriter = Rewriter(project.target, project.name, project.fix)

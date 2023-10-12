@@ -34,6 +34,7 @@ import ozi.new
             'homepage': st.one_of(st.just('https://oziproject.dev/')),
             'summary': st.text(max_size=512),
             'copyright_head': st.text(),
+            'license_file': st.just('LICENSE.txt'),
             'license_exception_id': st.one_of(
                 list(map(st.just, ozi.new.CloseMatch.license_exception_id))
             ),
@@ -139,6 +140,7 @@ def test_new_project_bad_args(  # noqa: DC102
         'copyright_head': '',
         'license_expression': 'CC0-1.0',
         'license_id': 'CC0-1.0',
+        'license_file': 'LICENSE.txt',
         'license_exception_id': '',
         'topic': 'Utilities',
         'audience': 'Developers',
@@ -171,6 +173,7 @@ def test_new_project_bad_target_not_empty(  # noqa: DC102
         'summary': '',
         'copyright_head': '',
         'license_expression': 'CC0-1.0',
+        'license_file': 'LICENSE.txt',
         'license_id': 'CC0-1.0',
         'license_exception_id': '',
         'topic': 'Utilities',
@@ -188,7 +191,7 @@ def test_new_project_bad_target_not_empty(  # noqa: DC102
 @given(
     option_strings=st.lists(st.from_regex(r'--[a-z]*-?[a-z*]')),
     dest=st.text(),
-    nargs=st.one_of(st.none(), st.text()),
+    nargs=st.one_of(st.none()),
     data=st.one_of(
         st.just('license'),
         st.just('environment'),
@@ -202,29 +205,134 @@ def test_new_project_bad_target_not_empty(  # noqa: DC102
         st.none(),
     ),
 )
-def test_fuzz_CloseMatch(  # noqa: DC102
+def test_fuzz_CloseMatch_nargs_None(  # noqa: DC102
     option_strings: typing.List[str],
     dest: str,
     nargs: typing.Union[int, str, None],
     data: typing.Any,
 ) -> None:
-    if nargs is not None:
-        with pytest.raises(ValueError, match='nargs not allowed'):
-            ozi.new.CloseMatch(option_strings=option_strings, dest=dest, nargs=nargs)
+    close_match = ozi.new.CloseMatch(option_strings=option_strings, dest=dest, nargs=nargs)
+    if data not in [None, 'topic', 'status']:
+        close_match(argparse.ArgumentParser(), argparse.Namespace(), data, f'--{data}')
     else:
-        close_match = ozi.new.CloseMatch(
-            option_strings=option_strings, dest=dest, nargs=nargs
+        with pytest.warns(RuntimeWarning):
+            close_match(
+                argparse.ArgumentParser(),
+                argparse.Namespace(),
+                data,
+                f'--{data}' if data is not None else None,
+            )
+
+
+@given(
+    option_strings=st.one_of(
+        st.just('--license'),
+        st.just('--environment'),
+        st.just('--framework'),
+        st.just('--license-id'),
+        st.just('--license-exception-id'),
+        st.just('--audience'),
+        st.just('--language'),
+        st.just('--topic'),
+        st.just('--status'),
+    ),
+    dest=st.text(),
+    nargs=st.one_of(st.just('?')),
+    data=st.data(),
+)
+def test_fuzz_CloseMatch_nargs_append(  # noqa: DC102
+    option_strings: str,
+    dest: str,
+    nargs: typing.Union[int, str, None],
+    data: typing.Any,
+) -> None:
+    close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
+    data = data.draw(
+        st.sampled_from(
+            close_match.__getattribute__(option_strings.lstrip('-').replace('-', '_'))
         )
-        if data not in [None, 'topic', 'status']:
-            close_match(argparse.ArgumentParser(), argparse.Namespace(), data, f'--{data}')
-        else:
-            with pytest.warns(RuntimeWarning):
-                close_match(
-                    argparse.ArgumentParser(),
-                    argparse.Namespace(),
-                    data,
-                    f'--{data}' if data is not None else None,
-                )
+    )
+    close_match(argparse.ArgumentParser(), argparse.Namespace(), [data], option_strings)
+
+
+@given(
+    option_strings=st.one_of(
+        st.just('--license'),
+        st.just('--environment'),
+        st.just('--framework'),
+        st.just('--license-id'),
+        st.just('--license-exception-id'),
+        st.just('--audience'),
+        st.just('--language'),
+        st.just('--topic'),
+        st.just('--status'),
+    ),
+    dest=st.text(),
+    nargs=st.one_of(st.just('?')),
+    data=st.none(),
+)
+def test_fuzz_CloseMatch_nargs_append_None_values(  # noqa: DC102
+    option_strings: str,
+    dest: str,
+    nargs: typing.Union[int, str, None],
+    data: typing.Any,
+) -> None:
+    close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
+    close_match(argparse.ArgumentParser(), argparse.Namespace(), data, option_strings)
+
+
+@given(
+    option_strings=st.one_of(
+        st.just('--license'),
+        st.just('--environment'),
+        st.just('--framework'),
+        st.just('--license-id'),
+        st.just('--license-exception-id'),
+        st.just('--audience'),
+        st.just('--language'),
+        st.just('--topic'),
+        st.just('--status'),
+    ),
+    dest=st.text(),
+    nargs=st.one_of(st.just('?')),
+    data=st.text(min_size=100),
+)
+def test_fuzz_CloseMatch_nargs_append_warns(  # noqa: DC102
+    option_strings: str,
+    dest: str,
+    nargs: typing.Union[int, str, None],
+    data: typing.Any,
+) -> None:
+    close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
+    with pytest.warns(RuntimeWarning):
+        close_match(argparse.ArgumentParser(), argparse.Namespace(), [data], option_strings)
+
+
+@given(
+    option_strings=st.one_of(
+        st.just('--license'),
+        st.just('--environment'),
+        st.just('--framework'),
+        st.just('--license-id'),
+        st.just('--license-exception-id'),
+        st.just('--audience'),
+        st.just('--language'),
+        st.just('--topic'),
+        st.just('--status'),
+    ),
+    dest=st.text(),
+    nargs=st.one_of(st.just('*')),
+    data=st.text(min_size=100),
+)
+def test_fuzz_CloseMatch_nargs_invalid(  # noqa: DC102
+    option_strings: str,
+    dest: str,
+    nargs: typing.Union[int, str, None],
+    data: typing.Any,
+) -> None:
+    with pytest.raises(ValueError):
+        close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
+        close_match(argparse.ArgumentParser(), argparse.Namespace(), [data], option_strings)
 
 
 @given(

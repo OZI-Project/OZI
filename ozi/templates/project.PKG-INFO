@@ -8,13 +8,13 @@ Metadata-Version: {{ ozi.metadata_version }}
 Name: {{ project.name }}
 Version: {version}
 Summary: {{ project.summary }}
+Home-page: {{ project.homepage }}
+Requires-Python: >= {{ ozi.py_security }}
 {%- if project.keywords|length %}
 Keywords: {{ project.keywords|join(',') }}
 {%- endif %}
+Classifier: License :: {{ license }}
 Classifier: Development Status :: {{ project.status }}
-Classifier: Intended Audience :: {{ project.audience }}
-Classifier: License :: {{ project.license }}
-Classifier: Natural Language :: {{ project.language }}
 Classifier: Programming Language :: Python :: {{ ozi.py_major }} :: Only
 Classifier: Programming Language :: Python :: {{ ozi.py_security }}
 Classifier: Programming Language :: Python :: {{ ozi.py_bugfix2 }}
@@ -22,26 +22,30 @@ Classifier: Programming Language :: Python :: {{ ozi.py_bugfix1 }}
 {%- for implementation in ozi.py_implementations %}
 Classifier: Programming Language :: Python :: Implementation :: {{ implementation }}
 {%- endfor %}
+{%- for audience in project.audience %}
+Classifier: Intended Audience :: {{ audience }}
+{%- endfor %}
+{%- for language in project.language %}
+Classifier: Natural Language :: {{ language }}
+{%- endfor %}
 {%- for topic in project.topic %}
 Classifier: Topic :: {{ topic }}
 {%- endfor %}
-{%- if project.typing != '' %}
-Classifier: Typing :: {{ project.typing }}
-{%- endif %}
+{%- for typing in project.typing %}
+Classifier: Typing :: {{ typing }}
+{%- endfor %}
 {%- if project.framework != '' %}
 Classifier: Framework :: {{ project.framework }}
 {%- endif %}
 {%- if project.environment != '' %}
 Classifier: Environment :: {{ project.environment }}
 {%- endif %}
-Home-page: {{ project.homepage }}
-{%- for req in project.requirements %}
+{%- for req in project.dist_requires %}
 Requires-Dist: {{ req }}
 {%- endfor %}
 {%- if project.requires_external|length %}
 Requires-External: {{ project.requires_external|join(',') }}
 {%- endif %}
-Requires-Python: >= {{ ozi.py_security }}
 Description-Content-Type: text/x-rst
 
 .. OZI
