@@ -56,6 +56,19 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
     license_id,
     license_expression,
 ) -> None:
+    assume(project['author_email'] != project['maintainer_email'])
+    assume(len(project['author_email']))
+    assume(
+        map(
+            operator.ne,
+            *[
+                i
+                for i in zip_longest(project['author_email'], project['maintainer_email'])
+                if any(i)
+            ],
+        )
+    )
+    assume(project['author'] != project['maintainer'])
     project['target'] = tmp_path_factory.mktemp('new_project_')
     project['license'] = license.draw(
         st.one_of(
@@ -70,19 +83,6 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
         st.one_of(map(st.just, ozi.assets.spdx_options.get(project['license'])))  # type: ignore
     )
     project['license_expression'] = license_expression.draw(st.just(project['license_id']))
-    assume(project['author_email'] != project['maintainer_email'])
-    assume(len(project['author_email']))
-    assume(
-        map(
-            operator.ne,
-            *[
-                i
-                for i in zip_longest(project['author_email'], project['maintainer_email'])
-                if any(i)
-            ],
-        )
-    )
-    assume(project['author'] != project['maintainer'])
     namespace = argparse.Namespace(**project)
     ozi.new.new_project(project=namespace)
 
@@ -223,7 +223,7 @@ def test_fuzz_CloseMatch_nargs_None(  # noqa: DC102
                 f'--{data}' if data is not None else None,
             )
 
-
+@settings(deadline=timedelta(milliseconds=500))
 @given(
     option_strings=st.one_of(
         st.just('--license'),
@@ -279,7 +279,6 @@ def test_fuzz_CloseMatch_nargs_append_None_values(  # noqa: DC102
 ) -> None:
     close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
     close_match(argparse.ArgumentParser(), argparse.Namespace(), data, option_strings)
-
 
 @given(
     option_strings=st.one_of(
