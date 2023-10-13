@@ -2,6 +2,37 @@
 
 
 
+## v0.0.154 (2023-10-13)
+
+### :bug:
+
+* :bug:: Fix missing license templates. ([`439c426`](https://github.com/rjdbcm/OZI/commit/439c426894c4de153579be08f9b41e34ae72dff7))
+
+### :children_crossing:
+
+* :children_crossing:: Reduce test size to fix failed health check. ([`13bb6f3`](https://github.com/rjdbcm/OZI/commit/13bb6f339051adb1ce233cd0ae04ad86e7ca506b))
+
+* :children_crossing:: Moved test assumptions to start of test. ([`b345516`](https://github.com/rjdbcm/OZI/commit/b3455164da0dcc64a20c773271a29327592e6b51))
+
+### :hammer:
+
+* :hammer:(ozi-new): Refactor of arguments. ([`69a5ace`](https://github.com/rjdbcm/OZI/commit/69a5ace417daa4d2e38d23ec3d3ea5b10ab03ff5))
+
+* :hammer:: Change PKG-INFO template.
+
+Add:
+* keywords
+* maintainer
+* maintainer_email
+
+Change:
+* email -&gt; author_email ([`93b59a0`](https://github.com/rjdbcm/OZI/commit/93b59a0bcf85ca800d9898f22b8f161354cb0936))
+
+* :hammer:: Add missing license templates.
+
+Just LGPL-2.0-x and APSL-X.X ([`6465972`](https://github.com/rjdbcm/OZI/commit/6465972cc9ce6639d95ac99c5b57f88fe7a4f72f))
+
+
 ## v0.0.153 (2023-10-10)
 
 ### :hammer:
