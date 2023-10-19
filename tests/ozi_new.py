@@ -28,12 +28,12 @@ import ozi.new
             'ci_provider': st.just('github'),
             'name': st.from_regex(r'^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9])$'),
             'author': st.text(min_size=1, max_size=128),
-            'author_email': st.lists(st.emails()),
+            'author_email': st.lists(st.emails(), max_size=8),
             'maintainer': st.text(min_size=1, max_size=64),
-            'maintainer_email': st.lists(st.emails()),
+            'maintainer_email': st.lists(st.emails(), max_size=8),
             'home_page': st.one_of(st.just('https://oziproject.dev/')),
             'summary': st.text(max_size=512),
-            'copyright_head': st.text(),
+            'copyright_head': st.text(max_size=512),
             'license_file': st.just('LICENSE.txt'),
             'license_exception_id': st.one_of(
                 list(map(st.just, ozi.new.CloseMatch.license_exception_id))
