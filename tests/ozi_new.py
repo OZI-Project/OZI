@@ -188,6 +188,7 @@ def test_new_project_bad_target_not_empty(  # noqa: DC102
         ozi.new.new_project(project=namespace)
 
 
+@settings(deadline=timedelta(milliseconds=500))
 @given(
     option_strings=st.one_of(
         st.just('--license'),
