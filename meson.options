@@ -179,15 +179,28 @@ option('args-sphinxawesome-codelinter', type: 'array', value: [], yield: false)
 option('args-sphinxawesome-theme', type: 'array', value: [], yield: false)
 option('args-mypy', type: 'array', value: ['@project_name@', '@test_source@'])
 option(
-    'args-bandit',
-    type: 'array',
-    value: ['-r', '@project_name@'],
-    yield: false,
+   'args-bandit',
+   description: 'application',
+   type: 'array',
+   value: [
+      '--configfile', 'pyproject.toml',
+      '--ignore-nosec',
+      '-r', '@project_name@'
+   ]
 )
 option(
     'args-black',
     type: 'array',
-    value: ['-S', '-v', '--check', '--diff', '@project_name@'],
+    value: [
+        '-S',
+        '--verbose',
+        '--check',
+        '--diff',
+        '--no-color',
+        '--exclude',
+        '.gitignore',
+        '@project_name@',
+    ],
     yield: false,
 )
 option(
@@ -197,7 +210,17 @@ option(
     yield: false,
 )
 option('args-pylint', type: 'array', value: ['@project_name@'], yield: false)
-option('args-pyright', type: 'array', value: ['@project_name@'], yield: false)
+option(
+   'args-pyright',
+   type: 'array', 
+   value: [
+      '--stats',
+      '--warnings',
+      '--verbose',
+      '@project_name@',
+   ],
+   yield: false
+)
 option('args-coverage', type: 'array', value: ['debug', 'config'], yield: false)
 option(
     'args-restructuredtext-lint',
@@ -205,7 +228,19 @@ option(
     value: ['--level=debug', '@project_name@'],
     yield: false,
 )
-option('args-flake8p', type: 'array', value: [], yield: false)
+option(
+    'args-flake8p',
+    type: 'array',
+    value: [
+        '--benchmark',
+        '--statistics',
+        '--max-complexity',
+        '5',
+        '--show-source',
+        '@project_name@',
+    ],
+    yield: false,
+)
 option('args-Flake8-pyproject', type: 'array', value: [], yield: false)
 option(
     'args-hypothesis',

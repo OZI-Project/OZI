@@ -10,7 +10,7 @@ import sys
 import warnings
 from importlib.metadata import version
 from pathlib import Path
-from typing import Callable, Mapping, NoReturn, Sequence, Union
+from typing import Callable, Mapping, NoReturn, Sequence, Tuple, Union
 from urllib.parse import urlparse
 from warnings import warn
 
@@ -34,7 +34,6 @@ from .assets import (
     specification_version,
     tap_warning_format,
     test_templates,
-    top4,
     underscorify,
     wheel_repr,
 )
@@ -74,7 +73,9 @@ env.filters['sha256sum'] = __sha256sum
 env.filters['wheel_repr'] = wheel_repr
 
 parser = argparse.ArgumentParser(
-    prog='ozi-new', description=sys.modules[__name__].__doc__, add_help=False,
+    prog='ozi-new',
+    description=sys.modules[__name__].__doc__,
+    add_help=False,
 )
 subparser = parser.add_subparsers(help='create new projects, sources, & tests', dest='new')
 project_parser = subparser.add_parser(
@@ -110,7 +111,13 @@ ozi_defaults.add_argument(
 )
 required.add_argument('-n', '--name', type=str, help='Name (Single Use)')
 required.add_argument('-a', '--author', type=str, help='Author (Single Use)')
-required.add_argument('-e', '--author-email', type=str, help='Author-email (Single Use, Comma-separated List)', action='append')
+required.add_argument(
+    '-e',
+    '--author-email',
+    type=str,
+    help='Author-email (Single Use, Comma-separated List)',
+    action='append',
+)
 required.add_argument('-s', '--summary', type=str, help='Summary (Single Use)')
 required.add_argument('-p', '--home-page', type=str, help='Home-page (Single Use)')
 required.add_argument(
@@ -170,10 +177,7 @@ defaults.add_argument(
     type=str,
 )
 optional.add_argument(
-    '--keywords',
-    default='',
-    help='Keywords (Single Use, Comma-separated List)',
-    type=str
+    '--keywords', default='', help='Keywords (Single Use, Comma-separated List)', type=str
 )
 optional.add_argument(
     '--maintainer',
@@ -250,9 +254,8 @@ ozi_defaults.add_argument(
 )
 
 
-def new_project(project: argparse.Namespace) -> int:
-    """Create a new project in a target directory."""
-    count = 0
+def copyright_head(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespace, int]:
+    """OZI:Copyright-Head"""
     if len(project.copyright_head) == 0:
         project.copyright_head = '\n'.join(
             [
@@ -262,12 +265,11 @@ def new_project(project: argparse.Namespace) -> int:
         )
         print('ok', '-', 'Default-Copyright-Header')
     count += 1
+    return project, count
 
-    if project.strict:  # pragma: defer to pytest
-        import warnings
 
-        warnings.simplefilter('error', RuntimeWarning, append=True)
-
+def license_(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespace, int]:
+    """PKG-INFO:License"""
     possible_spdx: Sequence[str] = spdx_options.get(project.license, ())
     if (
         project.license in ambiguous_licenses
@@ -284,7 +286,11 @@ def new_project(project: argparse.Namespace) -> int:
     else:
         print('ok', '-', 'License')
     count += 1
+    return project, count
 
+
+def license_expression(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespace, int]:
+    """PKG-INFO[PEP-639]:License-Expression"""
     try:
         project.license_expression = Combine(
             spdx_license_expression, join_string=' '
@@ -293,15 +299,27 @@ def new_project(project: argparse.Namespace) -> int:
     except ParseException as e:
         warn(str(e).strip('\n'), RuntimeWarning)
     count += 1
+    return project, count
 
+
+def summary(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespace, int]:
+    """PKG-INFO:Summary"""
     if len(project.summary) > 512:
         warn('Project summary exceeds 512 characters (PyPI limit).', RuntimeWarning)
     else:
         print('ok', '-', 'Summary')
     count += 1
+    return project, count
 
+
+def keywords(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespace, int]:
+    """PKG-INFO:Keywords"""
     project.keywords = project.keywords.split(',')
+    return project, count
 
+
+def author_email(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespace, int]:  # noqa: C901
+    """PKG-INFO:Author-Email"""
     author_email = []
     maintainer_email = []
     for email in set(project.author_email).union(project.maintainer_email):
@@ -319,6 +337,11 @@ def new_project(project: argparse.Namespace) -> int:
     project.author_email = author_email
     project.maintainer_email = maintainer_email
 
+    return project, count
+
+
+def maintainer_email(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespace, int]:  # noqa: C901
+    """PKG-INFO:Maintainer-Email,Author,Maintainer"""
     author_and_maintainer_email = False
     if set(project.author_email).intersection(project.maintainer_email):
         warn(
@@ -351,7 +374,11 @@ def new_project(project: argparse.Namespace) -> int:
     else:
         print('ok', '-', 'Author provided.')
     count += 1
+    return project, count
 
+
+def name(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespace, int]:
+    """PKG-INFO:Name"""
     try:
         Regex('^([A-Z]|[A-Z][A-Z0-9._-]*[A-Z0-9])$', re.IGNORECASE).set_name(
             'Package-Index-Name'
@@ -360,8 +387,12 @@ def new_project(project: argparse.Namespace) -> int:
     except ParseException as e:
         warn(str(e), RuntimeWarning)
     count += 1
+    return project, count
 
-    home_url = urlparse(project.homepage)
+
+def home_page(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespace, int]:
+    """PKG-INFO:Home-page"""
+    home_url = urlparse(project.home_page)
     if home_url.scheme != 'https':
         warn('Homepage url scheme unsupported.', RuntimeWarning)
     else:
@@ -373,27 +404,11 @@ def new_project(project: argparse.Namespace) -> int:
     else:
         print('ok', '-', 'Homepage-Netloc')
     count += 1
+    return project, count
 
-    project.name = re.sub(r'[-_.]+', '-', project.name).lower()
-    project.target = Path(project.target)
-    project.topic = list(set(project.topic))
 
-    env.globals = env.globals | {
-        'project': vars(project),
-        'ozi': {
-            'version': version('OZI'),
-            'spec': specification_version,
-            'metadata_version': metadata_version,
-            'py_major': python_support.major,
-            'py_security': '.'.join(
-                map(str, (python_support.major, python_support.security))
-            ),
-            'py_bugfix2': '.'.join(map(str, (python_support.major, python_support.bugfix2))),
-            'py_bugfix1': '.'.join(map(str, (python_support.major, python_support.bugfix1))),
-            'py_implementations': implementation_support,
-        },
-    }
-
+def create_project_files(project: argparse.Namespace, count: int, env: Environment) -> int:  # noqa: C901
+    """Create the actual project."""
     if any(project.target.iterdir()):
         warn(
             'Bail out! target directory not empty. No files will be created. Exiting.',
@@ -408,7 +423,8 @@ def new_project(project: argparse.Namespace) -> int:
             f.write(template.render())
     else:
         warn(
-            f'Bail out! --ci-provider {project.ci_provider} unrecognized. No files will be created. Exiting',
+            f'Bail out! --ci-provider {project.ci_provider} unrecognized.'
+            'No files will be created. Exiting',
             RuntimeWarning,
         )
         return 0
@@ -439,6 +455,49 @@ def new_project(project: argparse.Namespace) -> int:
             f.write(template.render())
 
     return count
+
+
+def new_project(project: argparse.Namespace) -> int:
+    """Create a new project in a target directory."""
+    count = 0
+
+    if project.strict:  # pragma: defer to pytest
+        import warnings
+
+        warnings.simplefilter('error', RuntimeWarning, append=True)
+
+    args = copyright_head(project, count)
+    args = license_(*args)
+    args = license_expression(*args)
+    args = summary(*args)
+    args = keywords(*args)
+    args = author_email(*args)
+    args = maintainer_email(*args)
+    args = name(*args)
+    args = home_page(*args)
+
+    project, count = args
+
+    project.name = re.sub(r'[-_.]+', '-', project.name).lower()
+    project.target = Path(project.target)
+    project.topic = list(set(project.topic))
+
+    env.globals = env.globals | {
+        'project': vars(project),
+        'ozi': {
+            'version': version('OZI'),
+            'spec': specification_version,
+            'metadata_version': metadata_version,
+            'py_major': python_support.major,
+            'py_security': '.'.join(
+                map(str, (python_support.major, python_support.security))
+            ),
+            'py_bugfix2': '.'.join(map(str, (python_support.major, python_support.bugfix2))),
+            'py_bugfix1': '.'.join(map(str, (python_support.major, python_support.bugfix1))),
+            'py_implementations': implementation_support,
+        },
+    }
+    return create_project_files(project, count, env)
 
 
 def __new_wrap(project: argparse.Namespace) -> int:  # pragma: no cover

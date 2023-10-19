@@ -8,7 +8,7 @@ Metadata-Version: {{ ozi.metadata_version }}
 Name: {{ project.name }}
 Version: {version}
 Summary: {{ project.summary }}
-Home-page: {{ project.homepage }}
+Home-page: {{ project.home_page }}
 Requires-Python: >= {{ ozi.py_security }}
 {%- if project.keywords|length %}
 Keywords: {{ project.keywords|join(',') }}

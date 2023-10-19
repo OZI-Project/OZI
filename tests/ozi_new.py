@@ -31,7 +31,7 @@ import ozi.new
             'author_email': st.lists(st.emails()),
             'maintainer': st.text(min_size=1, max_size=64),
             'maintainer_email': st.lists(st.emails()),
-            'homepage': st.one_of(st.just('https://oziproject.dev/')),
+            'home_page': st.one_of(st.just('https://oziproject.dev/')),
             'summary': st.text(max_size=512),
             'copyright_head': st.text(),
             'license_file': st.just('LICENSE.txt'),
@@ -53,8 +53,8 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
     tmp_path_factory: pytest.TempPathFactory,
     project: typing.Dict,
     license: typing.Any,
-    license_id,
-    license_expression,
+    license_id: typing.Any,
+    license_expression: typing.Any,
 ) -> None:
     assume(project['author_email'] != project['maintainer_email'])
     assume(len(project['author_email']))
@@ -135,7 +135,7 @@ def test_new_project_bad_args(  # noqa: DC102
         'keywords': '',
         'maintainer': '',
         'maintainer_email': [],
-        'homepage': 'https://oziproject.dev/',
+        'home_page': 'https://oziproject.dev/',
         'summary': '',
         'copyright_head': '',
         'license_expression': 'CC0-1.0',
@@ -169,7 +169,7 @@ def test_new_project_bad_target_not_empty(  # noqa: DC102
         'author_email': ['noreply@oziproject.dev'],
         'maintainer': '',
         'maintainer_email': [],
-        'homepage': 'https://oziproject.dev/',
+        'home_page': 'https://oziproject.dev/',
         'summary': '',
         'copyright_head': '',
         'license_expression': 'CC0-1.0',
@@ -189,39 +189,35 @@ def test_new_project_bad_target_not_empty(  # noqa: DC102
 
 
 @given(
-    option_strings=st.lists(st.from_regex(r'--[a-z]*-?[a-z*]')),
+    option_strings=st.one_of(
+        st.just('--license'),
+        st.just('--environment'),
+        st.just('--framework'),
+        st.just('--license-id'),
+        st.just('--license-exception-id'),
+        st.just('--audience'),
+        st.just('--language'),
+        st.just('--topic'),
+        st.just('--status'),
+    ),
     dest=st.text(),
     nargs=st.one_of(st.none()),
-    data=st.one_of(
-        st.just('license'),
-        st.just('environment'),
-        st.just('framework'),
-        st.just('license-id'),
-        st.just('license-exception-id'),
-        st.just('audience'),
-        st.just('language'),
-        st.just('topic'),
-        st.just('status'),
-        st.none(),
-    ),
+    data=st.data(),
 )
 def test_fuzz_CloseMatch_nargs_None(  # noqa: DC102
-    option_strings: typing.List[str],
+    option_strings: str,
     dest: str,
     nargs: typing.Union[int, str, None],
     data: typing.Any,
 ) -> None:
-    close_match = ozi.new.CloseMatch(option_strings=option_strings, dest=dest, nargs=nargs)
-    if data not in [None, 'topic', 'status']:
-        close_match(argparse.ArgumentParser(), argparse.Namespace(), data, f'--{data}')
-    else:
-        with pytest.warns(RuntimeWarning):
-            close_match(
-                argparse.ArgumentParser(),
-                argparse.Namespace(),
-                data,
-                f'--{data}' if data is not None else None,
-            )
+    close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
+    data = data.draw(
+        st.sampled_from(
+            close_match.__getattribute__(option_strings.lstrip('-').replace('-', '_'))
+        )
+    )
+    close_match(argparse.ArgumentParser(), argparse.Namespace(), data, option_strings)
+
 
 @settings(deadline=timedelta(milliseconds=500))
 @given(
@@ -280,6 +276,7 @@ def test_fuzz_CloseMatch_nargs_append_None_values(  # noqa: DC102
     close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
     close_match(argparse.ArgumentParser(), argparse.Namespace(), data, option_strings)
 
+
 @given(
     option_strings=st.one_of(
         st.just('--license'),
@@ -329,9 +326,8 @@ def test_fuzz_CloseMatch_nargs_invalid(  # noqa: DC102
     nargs: typing.Union[int, str, None],
     data: typing.Any,
 ) -> None:
-    with pytest.raises(ValueError):
-        close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
-        close_match(argparse.ArgumentParser(), argparse.Namespace(), [data], option_strings)
+    with pytest.raises(ValueError, match='nargs'):
+        ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
 
 
 @given(

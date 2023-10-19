@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import argparse
+from functools import partial
 import json
 import os
 import re
@@ -16,7 +17,17 @@ from email import message_from_file
 from email.message import Message
 from importlib.metadata import version
 from pathlib import Path
-from typing import Callable, Dict, List, NoReturn, Tuple, Union
+from typing import (
+    Any,
+    Callable,
+    Dict,
+    List,
+    Mapping,
+    NoReturn,
+    Set,
+    Tuple,
+    Union,
+)
 from warnings import warn
 
 from jinja2 import Environment, PackageLoader, select_autoescape
@@ -39,7 +50,8 @@ from .assets import (
     tap_warning_format,
     underscorify,
 )
-from .assets.structure import required_pkg_info, root_files, source_files, test_files
+from .assets.structure import required_pkg_info, root_files, source_files, test_files  # noqa: F401
+
 
 warnings.formatwarning = tap_warning_format  # type: ignore
 
@@ -207,6 +219,92 @@ def pkg_info_extra(payload: str, as_message: bool = True) -> Union[Dict[str, str
         return pep639  # type: ignore
 
 
+def missing_python_support(
+    pkg_info: Message, count: int, stdout: Callable
+) -> Tuple[int, Set[Tuple[str, str]]]:
+    """Check PKG-INFO Message for python support."""
+    remaining_pkg_info = {(k, v) for k, v in pkg_info.items() if k not in required_pkg_info}
+    for k, v in iter(python_support_required):
+        if (k, v) in remaining_pkg_info:
+            count += 1
+            stdout('ok', count, '-', f'{k}:', v)
+        else:
+            warn(f'{count} - "{v}" MISSING', RuntimeWarning)
+    return count, remaining_pkg_info
+
+
+def missing_ozi_required(pkg_info: Message, count: int, stdout: Callable) -> Tuple[int, Any]:
+    """Check missing required OZI extra PKG-INFO"""
+    count, remaining_pkg_info = missing_python_support(pkg_info, count, stdout)
+    remaining_pkg_info.difference_update(set(iter(python_support_required)))
+    for k, v in iter(remaining_pkg_info):
+        count += 1
+        stdout('ok', count, '-', f'{k}:', v)
+    try:
+        extra_pkg_info = pkg_info_extra(pkg_info.get_payload()).items()
+    except ParseException as e:
+        extra_pkg_info = {}
+        newline = '\n'
+        warn(f'{count} - MISSING {str(e).replace(newline, " ")}', RuntimeWarning)
+    return count, extra_pkg_info
+
+
+def missing_required(target: Path, count: int, stdout: Callable) -> Tuple[int, str, Any]:
+    """Find missing required PKG-INFO"""
+    with target.joinpath('PKG-INFO').open() as f:
+        pkg_info = message_from_file(f)
+        count += 1
+        stdout('ok', count, '-', 'Parse PKG-INFO')
+    for i in required_pkg_info:
+        count += 1
+        v = pkg_info.get(i, None)
+        if v is not None:
+            stdout('ok', count, '-', f'{i}:', v)
+        else:
+            warn(f'{count} - {i} MISSING', RuntimeWarning)
+    count, extra_pkg_info = missing_ozi_required(pkg_info, count, stdout)
+    name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', str())).lower()
+    for k, v in extra_pkg_info:
+        count += 1
+        stdout('ok', count, '-', f'{k}:', v)
+    return count, name, extra_pkg_info
+
+
+def missing_required_files(
+    kind: str, target: Path, count: int, miss_count: int, name: str, stdout: Callable
+) -> Tuple[int, int, List[str], List[str]]:
+    """Count missing files required by OZI"""
+    found_files = []
+    miss_count = 0
+    mapping = {
+        'test': Path('tests'),
+        'source': Path(underscorify(name)),
+        'root': Path('.'),
+    }
+    for file in vars(sys.modules[__name__]).get('_'.join([kind, 'files']), []):
+        count += 1
+        rel_path = mapping.get(kind, Path('.')) / file
+        if not target.joinpath(rel_path).exists():
+            warn(f'{count} - {rel_path} MISSING', RuntimeWarning)
+            miss_count += 1
+            continue  # pragma: defer to https://github.com/nedbat/coveragepy/issues/198
+        else:
+            stdout('ok', count, '-', rel_path)
+        found_files.append(file)
+    rel_path = mapping.get(kind, Path('.'))
+    extra_files = [
+        file
+        for file in os.listdir(target / rel_path)
+        if os.path.isfile(target / rel_path / file)
+    ]
+    extra_files = list(set(extra_files).symmetric_difference(set(found_files)))
+    for file in extra_files:
+        count += 1
+        stdout('ok', count, '#', 'SKIP', rel_path / file)
+
+    return count, miss_count, found_files, extra_files
+
+
 def report_missing(
     target: Path, stdout: Callable = print
 ) -> Union[
@@ -221,113 +319,27 @@ def report_missing(
     count = 0
     name = None
     pkg_info = None
-    extra_pkg_info = None
-    extra_source_files = None
+    extra_pkg_info = {}
     try:
-        with target.joinpath('PKG-INFO').open() as f:
-            pkg_info = message_from_file(f)
-            count += 1
-            stdout('ok', count, '-', 'Parse PKG-INFO')
-        for i in required_pkg_info:
-            count += 1
-            v = pkg_info.get(i, None)
-            if v is not None:
-                stdout('ok', count, '-', f'{i}:', v)
-            else:
-                warn(f'{count} - {i} MISSING', RuntimeWarning)
-        remaining_pkg_info = set(
-            (k, v) for k, v in pkg_info.items() if k not in required_pkg_info
-        )
-        for k, v in iter(python_support_required):
-            if (k, v) in remaining_pkg_info:
-                count += 1
-                stdout('ok', count, '-', f'{k}:', v)
-            else:
-                warn(f'{count} - "{v}" MISSING', RuntimeWarning)
-        remaining_pkg_info.difference_update(set(iter(python_support_required)))
-        for k, v in iter(remaining_pkg_info):
-            count += 1
-            stdout('ok', count, '-', f'{k}:', v)
-        name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', str())).lower()
-        try:
-            extra_pkg_info = pkg_info_extra(pkg_info.get_payload()).items()
-        except ParseException:
-            extra_pkg_info = {}
-            warn(f'{count} - PKG-INFO Extra MISSING', RuntimeWarning)
-        for k, v in extra_pkg_info:
-            count += 1
-            stdout('ok', count, '-', f'{k}:', v)
-        found_source_files = []
-        for file in source_files:
-            count += 1
-            if not target.joinpath(underscorify(name), file).exists():
-                warn(f'{count} - {Path(underscorify(name)) / file} MISSING', RuntimeWarning)
-                miss_count += 1
-                continue  # pragma: defer to https://github.com/nedbat/coveragepy/issues/198
-            else:
-                stdout('ok', count, '-', Path(underscorify(name), file))
-            found_source_files.append(file)
-        extra_source_files = [
-            file
-            for file in os.listdir(target / underscorify(name))
-            if os.path.isfile(os.path.join(target, underscorify(name), file))
-        ]
-        extra_source_files = list(
-            set(extra_source_files).symmetric_difference(set(found_source_files))
-        )
-        for file in extra_source_files:
-            count += 1
-            stdout('ok', count, '#', 'SKIP', Path(underscorify(name)) / file)
+        count, name, extra_pkg_info = missing_required(target, count, stdout)
     except FileNotFoundError:
+        name = ''
         warn(f'{count} - PKG-INFO MISSING', RuntimeWarning)
-    found_root_files = []
-    for file in root_files:
-        count += 1
-        if not target.joinpath(file).exists():
-            warn(f'{count} - {Path(file)} MISSING', RuntimeWarning)
-            miss_count += 1
-            continue
-        else:
-            stdout('ok', count, '-', Path(file))
-        found_root_files.append(file)
-    extra_root_files = [
-        file for file in os.listdir(target) if os.path.isfile(os.path.join(target, file))
-    ]
-    extra_root_files = list(
-        set(extra_root_files).symmetric_difference(set(found_root_files))
+    count, miss_count, found_source_files, extra_source_files = missing_required_files(
+        'source', target, count, 0, name, stdout
     )
-    for file in extra_root_files:
-        count += 1
-        stdout('ok', count, '#', 'SKIP', file)
-
-    found_test_files = []
-    for file in test_files:
-        count += 1
-        if not target.joinpath('tests', file).exists():
-            warn(f"{count} - {Path('tests', file)} MISSING", RuntimeWarning)
-            miss_count += 1
-            continue
-        else:
-            stdout('ok', count, '-', Path('tests', file))
-        found_test_files.append(file)
-    extra_test_files = [
-        file
-        for file in os.listdir(target / 'tests')
-        if os.path.isfile(os.path.join(target, 'tests', file))
-    ]
-    extra_test_files = list(
-        set(extra_test_files).symmetric_difference(set(found_test_files))
+    count, miss_count, found_test_files, extra_test_files = missing_required_files(
+        'test', target, count, miss_count, name, stdout
     )
-    for file in extra_test_files:
-        count += 1
-        stdout('ok', count, '#', 'SKIP', Path('tests', file))
+    count, miss_count, found_root_files, extra_root_files = missing_required_files(
+        'root', target, count, miss_count, name, stdout
+    )
     all_files = (
         ['PKG-INFO'],
-        pkg_info,
         extra_pkg_info,
-        root_files,
-        source_files,
-        test_files,
+        found_root_files,
+        found_source_files,
+        found_test_files,
         extra_root_files,
         extra_source_files,
         extra_test_files,
@@ -391,6 +403,15 @@ class Rewriter:
     name: str
     fix: str
     commands: List[Dict[str, str]] = field(default_factory=list)
+    path_map: Mapping[str, Callable[[str], Path]] = field(init=False)
+
+    def __post_init__(self: Rewriter) -> None:
+        """Setup the path_map"""
+        self.path_map = {
+            'source': partial(Path, self.target, self.name),
+            'test': partial(Path, self.target, 'tests'),
+            'root': partial(Path, self.target),
+        }
 
     def _add(
         self: Rewriter,
@@ -401,7 +422,7 @@ class Rewriter:
     ) -> Tuple[RewriteCommand, RewriteCommand]:
         """Add items to OZI Rewriter"""
         templates = {
-            'root': env.get_template('project.name/new_module.py.j2'),
+            'root': env.get_template('tests/new_test.py.j2'),
             'source': env.get_template('project.name/new_module.py.j2'),
             'test': env.get_template('tests/new_test.py.j2'),
         }
@@ -434,14 +455,7 @@ class Rewriter:
         cmd_children = RewriteCommand()
 
         for file in other:
-            if self.fix == 'source':
-                child = Path(self.target, self.name, file)
-            elif self.fix == 'test':
-                child = Path(self.target, 'tests', file)
-            elif self.fix == 'root':
-                child = Path(self.target, file)
-            else:
-                child = Path()
+            child = self.path_map.get(self.fix, partial(Path))(file)
             cmd_files, cmd_children = self._add(child, file, cmd_files, cmd_children)
         if cmd_files.active:
             self.commands += [{k: v for k, v in asdict(cmd_files).items() if k != 'active'}]
@@ -472,24 +486,9 @@ class Rewriter:
         cmd_files = RewriteCommand()
         cmd_children = RewriteCommand()
         for file in other:
-            child = Path(self.target, file)
-            if self.fix == 'source':
-                child = Path(self.target, self.name, file)
-            elif self.fix == 'root':
-                child = Path(self.target, file)
-            elif self.fix == 'test':
-                child = Path(self.target, 'tests', file)
-            else:
-                child = Path()
+            child = self.path_map.get(self.fix, partial(Path))(file)
             cmd_files, cmd_children = self._sub(child, file, cmd_files, cmd_children)
-            if file.endswith('/'):
-                try:
-                    child.rmdir()
-                except OSError:
-                    warn(
-                        f'Could not remove non-empty or non-existing {self.fix} child.',
-                        RuntimeWarning,
-                    )
+            self.__rm_dir(file, child)
         if cmd_files.active:
             self.commands += [{k: v for k, v in asdict(cmd_files).items() if k != 'active'}]
         if cmd_children.active:
@@ -497,6 +496,17 @@ class Rewriter:
                 {k: v for k, v in asdict(cmd_children).items() if k != 'active'}
             ]
         return self
+
+    def __rm_dir(self: Rewriter, file: str, child: Path) -> None:
+        """Try to remove a directory if empty."""
+        if file.endswith('/'):
+            try:
+                child.rmdir()
+            except OSError:
+                warn(
+                    f'Could not remove non-empty or non-existing {self.fix}: "{child}".',
+                    RuntimeWarning,
+                )
 
 
 def preprocess(project: argparse.Namespace) -> argparse.Namespace:

@@ -57,15 +57,18 @@ elif current_date > ozi_support_eol:  # pragma: no cover
 
 
 @dataclass(frozen=True)
-class PythonSupport:
+class __PythonSupport:
+    """Datatype for OZI Python version support."""
+
     major: int
     bugfix1: int
     bugfix2: int
     security: int
 
 
-def python_support_versions(date: date) -> PythonSupport:
-    return PythonSupport(
+def __python_support_versions(date: date) -> __PythonSupport:
+    """Get the currently supported Python versions from the schedule."""
+    return __PythonSupport(
         3,
         *sorted(
             [k for k, v in minor_deprecation.items() if v - timedelta(weeks=104) > date]
@@ -73,20 +76,23 @@ def python_support_versions(date: date) -> PythonSupport:
     )
 
 
-python_support = python_support_versions(current_date)
+python_support = __python_support_versions(current_date)
 python_support_required = {
     ('Classifier', f'Programming Language :: Python :: {str(python_support.major)} :: Only'),
     (
         'Classifier',
-        f'Programming Language :: Python :: {str(python_support.major)}.{str(python_support.security)}',
+        'Programming Language :: Python :: '
+        f'{str(python_support.major)}.{str(python_support.security)}',
     ),
     (
         'Classifier',
-        f'Programming Language :: Python :: {str(python_support.major)}.{str(python_support.bugfix2)}',
+        'Programming Language :: Python :: '
+        f'{str(python_support.major)}.{str(python_support.bugfix2)}',
     ),
     (
         'Classifier',
-        f'Programming Language :: Python :: {str(python_support.major)}.{str(python_support.bugfix1)}',
+        'Programming Language :: Python :: '
+        f'{str(python_support.major)}.{str(python_support.bugfix1)}',
     ),
 }
 
@@ -312,47 +318,46 @@ class CloseMatch(argparse.Action):
 
         super().__init__(option_strings, dest, nargs=nargs, **kwargs)  # type: ignore
 
+    def close_matches(
+        self: argparse.Action, key: str, value: Sequence[str]
+    ) -> Sequence[str]:
+        """Get a single close match for a class attribute."""
+        if value is None:
+            return []  # pragma: defer to good-first-issue
+        try:
+            value = get_close_matches(value, self.__getattribute__(key), cutoff=0.40)[0]
+        except (IndexError, AttributeError):
+            warn(
+                f'No {key} choice matching "{value}" available.'
+                'To list available options:'
+                f'$ ozi-new -l {key}',
+                RuntimeWarning,
+            )
+        return value
+
     def __call__(
         self: argparse.Action,
         parser: argparse.ArgumentParser,
         namespace: argparse.Namespace,
-        values: Union[str, Sequence[Any], None],
+        values: Union[str, Sequence[Any]],
         option_string: Union[str, None] = None,
     ) -> None:
         """Action business logic."""
+        if values is None:
+            return
         if option_string is not None:
             key = option_string.lstrip('-').replace('-', '_')
         else:
             key = ''  # pragma: defer to good-first-issue
-        if values is None and self.nargs is None:
-            values = ''  # pragma: defer to good-first-issue
-        elif values is None and self.nargs == '?':
-            values = []
 
         if self.nargs == '?':
             matches = []
-            for v in values:  # type: ignore
-                try:
-                    v = get_close_matches(v, self.__getattribute__(key), cutoff=0.40)[0]
-                except (IndexError, AttributeError):
-                    warn(
-                        f'No {key} choice matching "{v}" available.'
-                        'To list available options:'
-                        f'$ ozi-new -l {key}',
-                        RuntimeWarning,
-                    )
+            for v in values:
+                v = self.close_matches(key, v)  # type: ignore
                 matches += v
             setattr(namespace, self.dest, matches)
         else:
-            try:
-                values = get_close_matches(values, self.__getattribute__(key), cutoff=0.40)[0]  # type: ignore
-            except (IndexError, AttributeError):
-                warn(
-                    f'No {key} choice matching "{values}" available.'
-                    'To list available options:'
-                    f'$ ozi-new -l {key}',
-                    RuntimeWarning,
-                )
+            values = self.close_matches(key, values)  # type: ignore
             setattr(namespace, self.dest, values)
 
 
@@ -362,6 +367,7 @@ def underscorify(s: str) -> str:
 
 
 def wheel_repr(version: str) -> str:
+    """Filter to transform versions of the form "X.Y" into "pyXY"."""
     major, minor = version.split('.')
     return f'py{major}{minor}'
 
