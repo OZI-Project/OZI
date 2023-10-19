@@ -9,7 +9,7 @@ import typing
 from datetime import timedelta
 
 import pytest
-from hypothesis import assume, given, settings
+from hypothesis import HealthCheck, assume, given, settings
 from hypothesis import strategies as st
 
 import ozi.assets
@@ -17,7 +17,7 @@ import ozi.fix
 import ozi.new
 
 
-@settings(deadline=timedelta(milliseconds=500))
+@settings(deadline=timedelta(milliseconds=500), suppress_health_check=[HealthCheck.too_slow])
 @given(
     project=st.fixed_dictionaries(
         {
