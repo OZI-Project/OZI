@@ -2,6 +2,28 @@
 
 
 
+## v0.0.155 (2023-10-20)
+
+### :hammer:
+
+* :hammer:(meson.options):Complete compliance with specification.
+
+Flake8 is happy.
+Coverage is complete. ([`5a0d991`](https://github.com/rjdbcm/OZI/commit/5a0d9910326be8e5926881f6f6b005afad0c2dae))
+
+### Other
+
+* Add more @settings(deadline=timedelta(milliseconds=500)) ([`c6bbe72`](https://github.com/rjdbcm/OZI/commit/c6bbe72c0d39ba2811cd683cabfc614c20487dd9))
+
+* :white_check_mark:(tests/ozi_new.py:test_fuzz_new_project_good_namespace): suppress_health_check=[HealthCheck.too_slow] ([`1792d25`](https://github.com/rjdbcm/OZI/commit/1792d25dbee40a500e35e6a95520886b29de1ae0))
+
+* :white_check_mark:: Fix deadline of test_fuzz_CloseMatch_nargs_None. ([`3b412c9`](https://github.com/rjdbcm/OZI/commit/3b412c9a727e2ed606d2fe92b1f386b5b3d04937))
+
+* :white_check_mark:(tests/ozi_new.py): Reduce size of hypothesis.
+
+Add max_size=8 to author_email and maintainer_email. ([`d75eae9`](https://github.com/rjdbcm/OZI/commit/d75eae9375390f04d6927d99c9add9f5c6a91989))
+
+
 ## v0.0.154 (2023-10-13)
 
 ### :bug:
