@@ -2,6 +2,17 @@
 
 
 
+## v0.0.156 (2023-10-20)
+
+### :pencil2:
+
+* :pencil2: Emails generated from phony domains. ([`e415cc9`](https://github.com/rjdbcm/OZI/commit/e415cc97c7af5878b34334879c769450619ea49a))
+
+### Other
+
+* :white_check_mark:(tests/ozi_new.py): fullmatch=True for from_regex strategy. ([`c20fb56`](https://github.com/rjdbcm/OZI/commit/c20fb56cbef138ab73660e2addfa30d68b6acbe1))
+
+
 ## v0.0.155 (2023-10-20)
 
 ### :hammer:
