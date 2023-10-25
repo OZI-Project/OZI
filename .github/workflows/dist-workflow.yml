@@ -58,6 +58,7 @@ jobs:
           tox -- ${{ matrix.ozi }}
 
       - uses: actions/upload-artifact@master
+        if: always()
         with:
           name: ${{ matrix.ozi }}-${{ matrix.os }}-${{ matrix.py }}-checkpoint
           path: |
