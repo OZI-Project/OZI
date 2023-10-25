@@ -2,6 +2,21 @@
 
 
 
+## v0.0.158 (2023-10-25)
+
+### :hammer:
+
+* :hammer:: Add artifact upload for meson logs during checkpoint. ([`df59a74`](https://github.com/rjdbcm/OZI/commit/df59a743430fa7bc4d471c61d0621ab6aa578a8e))
+
+### :pencil2:
+
+* :pencil2:: Wildcard artifact upload path. ([`4a8aae1`](https://github.com/rjdbcm/OZI/commit/4a8aae1c50c8122c89fd48ddeed1ec36954db254))
+
+* :pencil2:: Fix path name for artifact upload. ([`56fc456`](https://github.com/rjdbcm/OZI/commit/56fc4561efbf48fd1da4ab2b4f19c66141a78165))
+
+* :pencil2:: Always upload artifact ([`3c05e6f`](https://github.com/rjdbcm/OZI/commit/3c05e6fad058cd00c617be08fcb1b3e440047503))
+
+
 ## v0.0.157 (2023-10-25)
 
 ### :children_crossing:
