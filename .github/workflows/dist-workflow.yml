@@ -62,7 +62,7 @@ jobs:
         with:
           name: ${{ matrix.ozi }}-${{ matrix.os }}-${{ matrix.py }}-checkpoint
           path: |
-            .tox/py311/tmp/meson-logs
+            .tox/py311/tmp/meson-logs/
 
   release:
     needs: checkpoint
