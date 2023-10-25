@@ -57,6 +57,12 @@ jobs:
         run: |
           tox -- ${{ matrix.ozi }}
 
+      - uses: actions/upload-artifact@master
+        with:
+          name: ${{ matrix.ozi }}-${{ matrix.os }}-${{ matrix.py }}-checkpoint
+          path: |
+            .tox/py311/tmp/meson-logs
+
   release:
     needs: checkpoint
     runs-on: ubuntu-latest
