@@ -2,6 +2,35 @@
 
 
 
+## v0.0.157 (2023-10-25)
+
+### :children_crossing:
+
+* :hammer::children_crossing:(project): Refactored for running test suite on OZI build itself. ([`1bbd6ae`](https://github.com/rjdbcm/OZI/commit/1bbd6aedcf7539d7c623991aed5bec0aed7975ec))
+
+* :children_crossing:: Add meson-private/ to .gitignore. ([`2a4e62d`](https://github.com/rjdbcm/OZI/commit/2a4e62d30984b0334487b3691c82762640916834))
+
+* :rotating_light::children_crossing:(tests): Fix paths for build. ([`7a8960f`](https://github.com/rjdbcm/OZI/commit/7a8960f4965edd237b8539cdf293478f8ba9048d))
+
+* :hammer::children_crossing:(ozi/scripts): pip-compile now runs silently. ([`a1cf607`](https://github.com/rjdbcm/OZI/commit/a1cf60711aba8d8691ebab0326423faa50d42a22))
+
+### :hammer:
+
+* :hammer::rotating_light:(ozi): Fix py312 flake8-quotes style. ([`54f8ed7`](https://github.com/rjdbcm/OZI/commit/54f8ed7167782fc6d4da5d81d4d4ebe6eef49df6))
+
+* :hammer:: Fix CI workflow for local checkpointing. ([`06d9107`](https://github.com/rjdbcm/OZI/commit/06d91073d1295678e3fe7c571fe891535eb76143))
+
+* :hammer:(ozi/assets;ozi/templates): Fix missing files from build. ([`aa014bb`](https://github.com/rjdbcm/OZI/commit/aa014bbe59589d042ac5a8dbcd904d72b28d571f))
+
+### :pencil2:
+
+* :pencil2:: Fix missing toml-config arg. ([`c764706`](https://github.com/rjdbcm/OZI/commit/c764706ab36c054407a037e652038af941a11f29))
+
+### Other
+
+* :rotating_light:(ozi): Fix linting and typing. ([`7fca0c4`](https://github.com/rjdbcm/OZI/commit/7fca0c49a0d4b3f7b592d3238251f63c65bb4c30))
+
+
 ## v0.0.156 (2023-10-20)
 
 ### :pencil2:
