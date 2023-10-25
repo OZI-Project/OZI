@@ -12,7 +12,7 @@ option('dev', type: 'feature', value: 'auto')
 option('source-to-build', type: 'feature', value: 'auto')
 option('build-dir', type: 'feature', value: 'auto')
 option('project-name', type: 'feature', value: 'auto')
-option('docs-source', type: 'feature', value: 'auto')
+option('docs-source', type: 'feature', value: 'disabled')
 option('test-source', type: 'feature', value: 'auto')
 option('dist', type: 'feature', value: 'auto')
 option('docs', type: 'feature', value: 'auto')
@@ -53,7 +53,14 @@ option(
 )
 
 option('unhashable', type: 'array', value: ['source-to-build'])
-
+option('dist-priority', type: 'integer', value: 1)
+option('docs-priority', type: 'integer', value: 3)
+option('lint-priority', type: 'integer', value: 4)
+option('test-priority', type: 'integer', value: 2)
+option('dist-timeout-multiplier', type: 'integer', value: 1)
+option('docs-timeout-multiplier', type: 'integer', value: 1)
+option('lint-timeout-multiplier', type: 'integer', value: 1)
+option('test-timeout-multiplier', type: 'integer', value: 4)
 option('dist-exclude-suites', type: 'array', value: ['docs', 'lint', 'test'])
 option('docs-exclude-suites', type: 'array', value: ['dist', 'lint', 'test'])
 option('lint-exclude-suites', type: 'array', value: ['docs', 'dist', 'test'])
@@ -85,17 +92,38 @@ option(
         'black',
         'isort',
         'mypy',
-        'pylint',
         'pyright',
-        'flake8p',
-        'Flake8-pyproject',
+        'flake8',
+        'flake8-quotes',
+        'flake8-pytest-style',
+        'flake8-type-checking',
+        'flake8-annotations',
+        'flake8-broken-line',
+        'flake8-eradicate',
+        'flake8-fixme',
+        'flake8-bugbear',
+        'flake8-datetimez',
+        'flake8-no-pep420',
+        'flake8-comprehensions',
+        'flake8-leading-blank-lines',
+        'flake8-tidy-imports',
+        'flake8-pyi',
     ],
 )
 option(
     'test-suite',
     type: 'array',
     description: '--setup=test',
-    value: ['coverage', 'hypothesis', 'pytest'],
+    value: [
+        'coverage',
+        'hypothesis',
+        'pytest',
+        'pytest-asyncio',
+        'pytest-cov',
+        'pytest-xdist',
+        'pytest-tcpclient',
+        'pytest-randomly',
+    ],
 )
 
 option(
@@ -108,13 +136,31 @@ option(
 option(
     'plugin-only',
     type: 'array',
-    description: 'plugins for other utility applications',
+    description: 'install only - plugins for other utility applications',
     value: [
         'pytest-asyncio',
         'pytest-cov',
         'pytest-xdist',
         'pytest-tcpclient',
         'pytest-randomly',
+        'Flake8-pyproject',
+        'flake8-quotes',
+        'flake8-pytest-style',
+        'flake8-type-checking',
+        'flake8-annotations',
+        'flake8-broken-line',
+        'flake8-eradicate',
+        'flake8-fixme',
+        'flake8-bugbear',
+        'flake8-datetimez',
+        'flake8-no-pep420',
+        'flake8-comprehensions',
+        'flake8-leading-blank-lines',
+        'flake8-pyi',
+        'flake8-tidy-imports',
+        'hypothesis',
+        'sphinxawesome-codelinter',
+        'sphinxawesome-theme',
     ],
 )
 
@@ -123,7 +169,6 @@ option(
     type: 'array',
     description: 'no packaged version metadata',
     value: [
-        'Flake8-pyproject',
         'pyc_wheel',
         'pytest-asyncio',
         'pytest-tcpclient',
@@ -132,18 +177,29 @@ option(
         'semantic-release',
         'sphinxawesome-codelinter',
         'sphinxawesome-theme',
+        'flake8-comprehensions',
     ],
 )
 
 option(
     'module-only',
     type: 'array',
-    description: 'install only - no application',
+    description: 'no application - python module entry point only',
     value: [
+        'semantic-release',
         'pyc_wheel',
+        'sigstore',
         'sphinxawesome-codelinter',
         'sphinxawesome-theme',
         'Flake8-pyproject',
+        'pytest',
+        'coverage',
+        'flake8',
+        'bandit',
+        'black',
+        'isort',
+        'pyright',
+        'mypy',
     ],
 )
 # test application arguments
@@ -173,11 +229,7 @@ option(
 )
 
 option('args-sphinx-build', type: 'array', value: ['--version'], yield: false)
-
-option('args-sphinxawesome-codelinter', type: 'array', value: [], yield: false)
-
-option('args-sphinxawesome-theme', type: 'array', value: [], yield: false)
-option('args-mypy', type: 'array', value: ['@project_name@', '@test_source@'])
+option('args-mypy', type: 'array', value: ['@build_root@'])
 option(
    'args-bandit',
    description: 'application',
@@ -185,7 +237,7 @@ option(
    value: [
       '--configfile', 'pyproject.toml',
       '--ignore-nosec',
-      '-r', '@project_name@'
+      '-r', '@build_root@'
    ]
 )
 option(
@@ -197,16 +249,21 @@ option(
         '--check',
         '--diff',
         '--no-color',
-        '--exclude',
-        '.gitignore',
-        '@project_name@',
+        '@build_root@',
     ],
     yield: false,
 )
 option(
     'args-isort',
     type: 'array',
-    value: ['-c', '--skip-glob', '*.pyi', '@project_name@'],
+    value: [
+        '-c',
+        '--skip-glob',
+        '*.pyi',
+        '--extend-skip', 
+        'meson-private/pycompile.py',
+        '@build_root@'
+    ],
     yield: false,
 )
 option('args-pylint', type: 'array', value: ['@project_name@'], yield: false)
@@ -217,7 +274,7 @@ option(
       '--stats',
       '--warnings',
       '--verbose',
-      '@project_name@',
+      '@build_root@',
    ],
    yield: false
 )
@@ -229,7 +286,7 @@ option(
     yield: false,
 )
 option(
-    'args-flake8p',
+    'args-flake8',
     type: 'array',
     value: [
         '--benchmark',
@@ -237,35 +294,27 @@ option(
         '--max-complexity',
         '5',
         '--show-source',
-        '@project_name@',
+        '@build_root@/',
     ],
     yield: false,
 )
 option('args-Flake8-pyproject', type: 'array', value: [], yield: false)
 option(
-    'args-hypothesis',
-    type: 'array',
-    value: ['codemod', '@test_source@'],
-    yield: false,
-)
-option(
     'args-pytest',
     type: 'array',
     value: [
-        '--exitfirst',
-        '-vvv',
-        '--cov-config=pyproject.toml',
-        '@opt_cov_eq_project_name@',
+        'tests/ozi_new.py',
+        'tests/ozi_fix.py',
+        '--cov=ozi',
+        '--basetemp=temp',
         '-n',
         'auto',
         '-d',
-        '@test_source@',
+        '--exitfirst',
+        '--cov-config=pyproject.toml' 
     ],
     yield: false,
 )
-option('args-pytest-asyncio', type: 'array', value: [], yield: false)
-option('args-pytest-cov', type: 'array', value: [], yield: false)
-option('args-pytest-xdist', type: 'array', value: [], yield: false)
 
 option(
     'python-readline-snip',

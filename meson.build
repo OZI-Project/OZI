@@ -55,7 +55,8 @@ test_source = get_option('test-source')
 # templates
 python_readlines = get_option('python-readline-snip')
 
-# Python 3.9+ setup
+build_root = meson.current_build_dir()
+project_name = get_option('project-name').auto() ? meson.project_name() : 'todo'
 python = pymod.find_installation(
     'python3',
     modules: python_dependencies,
@@ -112,16 +113,23 @@ custom_target(
     output: 'requirements.txt',
     build_always_stale: true,
     build_by_default: true,
-    command: ['pip-compile',  '--generate-hashes', '-o', '@OUTPUT@', '@INPUT@']
+    command: ['pip-compile', '--allow-unsafe', '--strip-extras', '-q', '--generate-hashes', '-o', '@OUTPUT@', '@INPUT@']
 )
 source_to_build.enable_auto_if(source_to_build.auto())
-docs_source.enable_auto_if(docs_source.auto())
-test_source.enable_auto_if(test_source.auto())
+docs_source = 'docs'
+test_source = 'tests'
 no_check = {'check': false, 'env': env}
 install = ['install']
 build_commands = {'dev': []}
 test_app_args = {}
 pip_repr = pip.full_path()
+root_files = ['README.rst', 'CHANGELOG.md', 'pyproject.toml', 'PKG-INFO', 'LICENSE.txt']
+foreach source : root_files
+    fs.copyfile(source)
+endforeach
+if false
+    executable('root_files', root_files)
+endif
 if get_option('ozi-blastpipe').enabled()
     # BEGIN BOOTSTRAP SCRIPT
     subproject('blastpipe')
@@ -129,6 +137,9 @@ if get_option('ozi-blastpipe').enabled()
 endif
 subdir('ozi')
 subdir('tests')
+
+# BEGIN checkpoint-suite-install
+modules = []
 foreach name : namespace
     command_names = get_option(name + '-suite')
     summary(
@@ -138,42 +149,70 @@ foreach name : namespace
         section: ' '.join(emoji_setup, 'meson setup --reconfigure -D[option]'),
     )
     foreach command : command_names
-        flag = (
-            command in module_only ? disabler() : find_program(
+        suite = get_option(name)
+        suite.enable_auto_if(dev.enabled())
+        set_variable(name, suite)
+        if suite.enabled() and command not in plugin_only+module_only
+            flag = find_program(
                 command,
                 required: false,
                 disabler: true,
             )
-        )
-        set_variable(command.replace('-', '_'), flag)
-        set_variable(
-            name,
-            get_option(name).enable_auto_if(get_option('dev').enabled()),
-        )
+        elif suite.enabled() and command in module_only
+            if command in ['semantic-release']
+                modules += [command.replace('-', '_')]
+            else
+                modules += [command]
+            endif
+            flag = disabler()
+        else
+            flag = disabler()
+        endif
         requirements = [
             'install',
-            '-vvv',
             '-r',
-            'ozi' / 'scripts' / name / command / 'requirements.txt',
+            build_root / 'ozi' / 'scripts' / name / command / 'requirements.txt',
         ]
-        if get_option('dev').enabled() or get_variable(name).enabled()
-            debug(run_command(pip, requirements, check: true).stdout())
+        if get_option('dev').enabled() or get_variable(name).enabled() and command not in plugin_only
+            run_command(
+                pip_compile,  
+                [
+                    '-q',
+                    '--allow-unsafe',
+                    '--strip-extras',
+                    '--generate-hashes',
+                    '-o', build_root / 'ozi' / 'scripts' / name / command / 'requirements.txt',
+                    'ozi' / 'scripts' / name / command / 'requirements.in'
+                ],
+                check: true,
+            )
+            run_command(pip, requirements, check: true)
+            if not flag.found() and command not in module_only
+                flag = find_program(
+                    command,
+                    required: false,
+                    disabler: true,
+                )
+            elif command in module_only
+                command = command.replace('-', '_')
+                flag = command
+            endif
+        endif
+        if command not in plugin_only
+            set_variable(command.replace('-', '_'), flag)
         endif
         set_variable(name + '_kwargs', {'suite': name, 'env': env})
-        _args = get_option('args-' + command)
-        command_args = []
-        foreach arg : _args
-            if arg.startswith('@') and arg.endswith('@')
-                arg = arg.strip('@')
-                arg = is_variable(arg) ? get_variable(arg) : arg
-            endif
-            command_args += arg
-        endforeach
-        if command not in plugin_only
-            test_app_args += {command: command_args}
-        endif
     endforeach
 endforeach
+pymod.find_installation(
+    'python3',
+    modules: modules,
+    required: false,
+    disabler: true
+)
+# END checkpoint-suite-install
+
+# BEGIN checkpoint-suite-version-check
 done = []
 foreach name : namespace
     foreach suite : get_option(name + '-exclude-suites')
@@ -182,83 +221,143 @@ foreach name : namespace
                 continue
             endif
             emoji = get_variable('emoji_' + suite)
-            header = [emoji, 'meson', 'test', '--setup=@0@'.format(suite)]
+            header = [emoji, 'meson', 'test', '--suite=@0@'.format(suite)]
             feature = get_variable(suite)
-            if app not in no_version
-                summary(
-                    {
-                        ' '.join(emoji_metadata_version, app): get_variable(
-                            app.replace('-', '_'),
-                        ).version(),
-                    },
-                    section: ' '.join(header),
-                )
-            endif
-            packaged_version = run_command(
-                python,
-                ['-c', metadata_version.format(app)],
-                kwargs: no_check,
-            ).stdout().strip()
-            if (
-                app == 'semantic-release' # HACK: we should take care of python- and pytest- names here
-            )
-                fallback_version = run_command(
-                    pip,
-                    ['show', 'python-' + app],
-                    kwargs: no_check,
-                ).stdout().split('\n')
-            else
-                fallback_version = run_command(
-                    pip,
-                    ['show', app],
-                    kwargs: no_check,
-                ).stdout().split('\n')
-            endif
-            fallback_version = (
-                fallback_version.length() > 2 ? fallback_version[1].split(':')[1].strip() : 'unknown'
-            )
-            if app in no_version
-                if packaged_version == ''
-                    app = ' '.join(emoji_no_version, app)
-                    version = fallback_version
+            if feature.enabled()
+                if app not in plugin_only+module_only
+                    if app not in no_version
+                        summary(
+                            {
+                                ' '.join(emoji_metadata_version, app): get_variable(
+                                    app.replace('-', '_'),
+                                ).version(),
+                            },
+                            section: ' '.join(header),
+                        )
+                    endif
+                    packaged_version = run_command(
+                        python,
+                        ['-c', metadata_version.format(app)],
+                        kwargs: no_check,
+                    ).stdout().strip()
+                    fallback_version = run_command(
+                        pip,
+                        ['show', app],
+                        kwargs: no_check,
+                    ).stdout().split('\n')
+                    fallback_version = (
+                        fallback_version.length() > 2 ? fallback_version[1].split(':')[1].strip() : 'unknown'
+                    )
+                    if app in no_version
+                        if packaged_version == ''
+                            app = ' '.join(emoji_no_version, app)
+                            version = fallback_version
+                        else
+                            app = ' '.join(emoji_metadata_version, app)
+                            version = packaged_version
+                        endif
+                        if app not in done
+                            summary({app: version}, section: ' '.join(header))
+                        endif
+                    endif
                 else
-                    app = ' '.join(emoji_metadata_version, app)
-                    version = packaged_version
-                endif
-                if app not in done
-                    summary({app: version}, section: ' '.join(header))
+                    packaged_version = run_command(
+                        python,
+                        ['-c', metadata_version.format(app)],
+                        kwargs: no_check,
+                    ).stdout().strip()
+                    if app in ['semantic-release']
+                        fallback_version = run_command(
+                            pip,
+                            ['show', 'python-' + app],
+                            kwargs: no_check,
+                        ).stdout().split('\n')
+                    else
+                        fallback_version = run_command(
+                            pip,
+                            ['show', app],
+                            kwargs: no_check,
+                        ).stdout().split('\n')
+                    endif
+                    fallback_version = (
+                        fallback_version.length() > 2 ? fallback_version[1].split(':')[1].strip() : 'unknown'
+                    )
+                    if app in no_version
+                        summary(
+                            {' '.join(emoji_metadata_version, app): fallback_version},
+                            section: ' '.join(header),
+                        )
+                    else
+                        summary(
+                            {' '.join(emoji_metadata_version, app): packaged_version},
+                            section: ' '.join(header),
+                        )
+                    endif
                 endif
             endif
             done += app
         endforeach
     endforeach
 endforeach
-foreach plugin : plugin_only
-    packaged_version = run_command(
-        python,
-        ['-c', metadata_version.format(plugin)],
-        kwargs: no_check,
-    ).stdout().strip()
-    fallback_version = run_command(
-        pip,
-        ['show', plugin],
-        kwargs: no_check,
-    ).stdout().split('\n')
-    fallback_version = (
-        fallback_version.length() > 2 ? fallback_version[1].split(':')[1].strip() : 'unknown'
-    )
-    if plugin in no_version
-        summary(
-            {' '.join(emoji_metadata_version, plugin): fallback_version},
-            section: ' '.join(emoji_test, 'meson test --setup=test'),
-        )
-    else
-        summary(
-            {' '.join(emoji_metadata_version, plugin): packaged_version},
-            section: ' '.join(emoji_test, 'meson test --setup=test'),
-        )
-    endif
+# END checkpoint-suite-version-check
+
+# BEGIN checkpoint-suite-invocation
+add_test_setup('dev', is_default: true, env: env)
+env.append('TESTS_BUILDDIR', build_root)
+no_check = {'check': false, 'env': env}
+opt_cov_eq_project_name = '--cov='+project_name
+build_commands = {'dev': []}
+foreach name: namespace
+    add_test_setup(
+        name,
+        exclude_suites: get_option(name+'-exclude-suites'),
+        timeout_multiplier: get_option(name+'-timeout-multiplier'))
+    set_variable(name+'_kwargs', {'suite': name, 'env': env})
+    command_names = get_option(name+'-suite')
+    foreach command: command_names
+        if command not in plugin_only
+            _args = get_option('args-'+command)
+        else
+            _args = []
+        endif
+        command_args = []
+        test_app_args = {}
+        foreach arg : _args
+            if arg.startswith('@') and (arg.endswith('@') or arg.endswith('@/'))
+                arg = arg.strip('@')
+                arg = is_variable(arg)? get_variable(arg) : get_variable(arg.replace('@/', '')) + '/'
+            endif
+            command_args += arg
+        endforeach
+        if command not in plugin_only
+            foreach app, args : {command: command_args}
+                if app in module_only
+                    args = ['-m', app.replace('-', '_'), args]
+                endif
+                args = {'args': args, 'env': env, 'priority': get_option(name+'-priority'), 'suite': name}
+                if app in should_fail
+                    args += {'should_fail': true}
+                endif
+                feature = get_variable(name)
+                if feature.enabled() and app not in module_only
+                    test_app = get_variable(app.replace('-', '_'))
+                else
+                    test_app = disabler()
+                endif
+                if test_app.found() and app not in module_only
+                    test(app, test_app, kwargs: args)
+                elif app in ['bandit']
+                    args += {'workdir': meson.global_source_root()}
+                    test(app, python, kwargs: args)
+                else
+                    test(app, python, kwargs: args)
+                endif
+            endforeach
+        endif
+    endforeach
 endforeach
+# END checkpoint-suite-invocation
+
 summary(
     {
         emoji_no_version: 'non-standard PyPA version metadata',
@@ -282,9 +381,9 @@ display_dirs = [
     'python.platlibdir',
     'python.purelibdir',
 ]
-# foreach dir : display_dirs
-#     summary(
-#         {'📁 ' + dir: get_option(dir)},
-#         section: '〽️ meson install -C @0@'.format(build_dir),
-#     )
-# endforeach
+foreach dir : display_dirs
+    summary(
+        {'📁 ' + dir: get_option(dir)},
+        section: '〽️ meson install -C @0@'.format(build_root),
+    )
+endforeach

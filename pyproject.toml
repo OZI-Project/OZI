@@ -27,7 +27,7 @@ lint = ["bandit[toml]", "black", "flake8", "flake8-quotes",
         "flake8-broken-line", "flake8-eradicate", "flake8-fixme", "flake8-bugbear",
         "flake8-datetimez", "flake8-no-pep420", "flake8-comprehensions",
         "flake8-leading-blank-lines", "flake8-tidy-imports", "flake8-pyi",
-        "Flake8-pyproject", "isort", "mypy", "pylint", "pyright", "restructuredtext-lint"]
+        "Flake8-pyproject", "isort", "mypy", "pyright", "restructuredtext-lint"]
 ## Testing Setup
 test = ["coverage[toml]", "hypothesis[all]", "pytest", "pytest-asyncio", "pytest-cov", 
         "pytest-tcpclient", "pytest-randomly", "pytest-xdist"]
@@ -50,13 +50,13 @@ requires      = [
 build-backend = "mesonpep517.buildapi"
 
 [tool.bandit]
-exclude_dirs = ["venv", "build-env-*"]
+exclude_dirs = ["venv", "meson-private", "tests"]
 format = "txt"
 ignore_nosec = true
 verbose = true
 
 [tool.black]
-extend-exclude = "\\.pyi"
+extend-exclude = "(\\.pyi|meson-private)"
 line-length = 93
 
 [tool.coverage.report]
@@ -85,7 +85,7 @@ ignore = ["D000", "D002"]
 [tool.flake8]
 ban-relative-imports = "parents"
 max-line-length = 93
-extend-exclude = ["build-env-*", "venv", "build*", "*.pyi"]
+extend-exclude = ["meson-private", "build-env-*", "venv", "build*", "*.pyi"]
 extend-ignore = "E203,E501"
 extend-select = "B950"
 
@@ -97,6 +97,9 @@ verbose = true
 [tool.mypy]
 implicit_reexport = true
 strict = true
+exclude = [
+    '^tests',
+]
 
 [tool.pydocstyle]
 match = "\\*\\.py"
@@ -109,6 +112,10 @@ max-nested-blocks = 4
 
 [tool.pyright]
 reportMissingTypeStubs = false
+exclude = [ 
+    'meson-private',
+    'tests'
+]
 
 [tool.pytest.ini_options]  #[tool.pytest] # This will be used by pytest in the future
 filterwarnings      = [
@@ -409,64 +416,28 @@ tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
 legacy_tox_ini = """
 [tox]
 skipsdist = True
-envlist = py3{10-toml,11,12}
+envlist = py3{10,11,12}
 
 [gh]
 python =
      3.12 = py312
      3.11 = py311
-     3.10 = py310-toml
+     3.10 = py310
 
 [testenv]
+allowlist_externals = rm
 package = wheel
 deps =
-     pip-tools
-     pyc_wheel
-     sigstore
-     doc8
-     pydocstyle
-     sphinx
-     sphinxawesome-codelinter
-     sphinxawesome-theme
-     bandit
-     black 
-     isort 
-     mypy
-     pyright
-     Flake8-pyproject
-     flake8
-     flake8-quotes
-     flake8-pytest-style
-     flake8-type-checking
-     flake8-annotations
-     flake8-broken-line
-     flake8-eradicate
-     flake8-fixme
-     flake8-bugbear 
-     flake8-datetimez
-     flake8-no-pep420
-     flake8-comprehensions 
-     flake8-leading-blank-lines
-     flake8-tidy-imports 
-     flake8-pyi
-     restructuredtext-lint
-     coverage[toml]
-     hypothesis[all] 
-     pytest 
-     pytest-asyncio 
-     pytest-cov 
-     pytest-randomly 
-     pytest-tcpclient 
-     pytest-xdist 
-     python-semantic-release
-     wheel >= 0.38.1 # CVE-2022-40898
-     ninja >= 1.8.2
      meson >= 1.1.0
-     setuptools >= 65.5.1 # CVE-2022-40897
-     setuptools_scm[toml]>=6.2
-     toml: tomli >= 2.0.0
+     ninja >= 1.8.2
+     pip-tools
+     setuptools_scm[toml]
+     tomli >= 2.0.0
 commands =
-     meson setup build-{envname}
-     meson test --maxfail=1 -C build-{envname} {posargs}
+     meson setup {env_tmp_dir} -D{posargs}=enabled
+     meson compile -C {env_tmp_dir}
+     rm -rf {env_tmp_dir}/.gitignore
+     pip install .
+     meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup={posargs}
 """
 # -Dblastpipe:dev=enabled -Dozi-blastpipe=enabled
