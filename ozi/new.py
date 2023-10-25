@@ -14,7 +14,7 @@ from typing import Callable, Mapping, NoReturn, Sequence, Tuple, Union
 from urllib.parse import urlparse
 from warnings import warn
 
-import requests
+import requests  # type: ignore
 from email_validator import EmailNotValidError, validate_email
 from jinja2 import Environment, PackageLoader, TemplateNotFound, select_autoescape
 from pyparsing import Combine, ParseException, Regex
@@ -254,7 +254,9 @@ ozi_defaults.add_argument(
 )
 
 
-def copyright_head(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespace, int]:
+def copyright_head(
+    project: argparse.Namespace, count: int
+) -> Tuple[argparse.Namespace, int]:
     """OZI:Copyright-Head"""
     if len(project.copyright_head) == 0:
         project.copyright_head = '\n'.join(
@@ -289,7 +291,9 @@ def license_(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespac
     return project, count
 
 
-def license_expression(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespace, int]:
+def license_expression(
+    project: argparse.Namespace, count: int
+) -> Tuple[argparse.Namespace, int]:
     """PKG-INFO[PEP-639]:License-Expression"""
     try:
         project.license_expression = Combine(
@@ -318,7 +322,9 @@ def keywords(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespac
     return project, count
 
 
-def author_email(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespace, int]:  # noqa: C901
+def author_email(  # noqa: C901
+    project: argparse.Namespace, count: int
+) -> Tuple[argparse.Namespace, int]:
     """PKG-INFO:Author-Email"""
     author_email = []
     maintainer_email = []
@@ -340,7 +346,9 @@ def author_email(project: argparse.Namespace, count: int) -> Tuple[argparse.Name
     return project, count
 
 
-def maintainer_email(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespace, int]:  # noqa: C901
+def maintainer_email(  # noqa: C901
+    project: argparse.Namespace, count: int
+) -> Tuple[argparse.Namespace, int]:
     """PKG-INFO:Maintainer-Email,Author,Maintainer"""
     author_and_maintainer_email = False
     if set(project.author_email).intersection(project.maintainer_email):
@@ -407,7 +415,9 @@ def home_page(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespa
     return project, count
 
 
-def create_project_files(project: argparse.Namespace, count: int, env: Environment) -> int:  # noqa: C901
+def create_project_files(  # noqa: C901
+    project: argparse.Namespace, count: int, env: Environment
+) -> int:
     """Create the actual project."""
     if any(project.target.iterdir()):
         warn(
@@ -524,7 +534,7 @@ def __new_wrap(project: argparse.Namespace) -> int:  # pragma: no cover
     return 1
 
 
-__new_item: Mapping[str, Callable] = {
+__new_item: Mapping[str, Callable[[argparse.Namespace], int]] = {
     'project': new_project,
     'wrap': __new_wrap,
 }

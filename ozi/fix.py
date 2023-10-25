@@ -6,7 +6,6 @@
 from __future__ import annotations
 
 import argparse
-from functools import partial
 import json
 import os
 import re
@@ -15,19 +14,10 @@ import warnings
 from dataclasses import asdict, dataclass, field
 from email import message_from_file
 from email.message import Message
+from functools import partial
 from importlib.metadata import version
 from pathlib import Path
-from typing import (
-    Any,
-    Callable,
-    Dict,
-    List,
-    Mapping,
-    NoReturn,
-    Set,
-    Tuple,
-    Union,
-)
+from typing import Any, Callable, Dict, List, Mapping, NoReturn, Set, Tuple, Union
 from warnings import warn
 
 from jinja2 import Environment, PackageLoader, select_autoescape
@@ -50,8 +40,12 @@ from .assets import (
     tap_warning_format,
     underscorify,
 )
-from .assets.structure import required_pkg_info, root_files, source_files, test_files  # noqa: F401
-
+from .assets.structure import (  # noqa: F401
+    required_pkg_info,
+    root_files,
+    source_files,
+    test_files,
+)
 
 warnings.formatwarning = tap_warning_format  # type: ignore
 
@@ -209,18 +203,18 @@ pep639_parse = Suppress(
 
 def pkg_info_extra(payload: str, as_message: bool = True) -> Union[Dict[str, str], Message]:
     """Get extra PKG-INFO Classifiers tacked onto the payload by OZI."""
-    pep639 = pep639_parse.set_parse_action().parse_string(payload)[0]
+    pep639: Dict[str, str] = pep639_parse.parse_string(payload)[0]  # pyright: ignore
     if as_message:
         msg = Message()
         for k, v in pep639.items():
             msg.add_header('Classifier', f'{k} :: {v}')
         return msg
     else:
-        return pep639  # type: ignore
+        return pep639
 
 
 def missing_python_support(
-    pkg_info: Message, count: int, stdout: Callable
+    pkg_info: Message, count: int, stdout: Callable[..., None]
 ) -> Tuple[int, Set[Tuple[str, str]]]:
     """Check PKG-INFO Message for python support."""
     remaining_pkg_info = {(k, v) for k, v in pkg_info.items() if k not in required_pkg_info}
@@ -233,7 +227,9 @@ def missing_python_support(
     return count, remaining_pkg_info
 
 
-def missing_ozi_required(pkg_info: Message, count: int, stdout: Callable) -> Tuple[int, Any]:
+def missing_ozi_required(
+    pkg_info: Message, count: int, stdout: Callable[..., None]
+) -> Tuple[int, Any]:
     """Check missing required OZI extra PKG-INFO"""
     count, remaining_pkg_info = missing_python_support(pkg_info, count, stdout)
     remaining_pkg_info.difference_update(set(iter(python_support_required)))
@@ -243,13 +239,15 @@ def missing_ozi_required(pkg_info: Message, count: int, stdout: Callable) -> Tup
     try:
         extra_pkg_info = pkg_info_extra(pkg_info.get_payload()).items()
     except ParseException as e:
-        extra_pkg_info = {}
+        extra_pkg_info = {}  # type: ignore
         newline = '\n'
         warn(f'{count} - MISSING {str(e).replace(newline, " ")}', RuntimeWarning)
     return count, extra_pkg_info
 
 
-def missing_required(target: Path, count: int, stdout: Callable) -> Tuple[int, str, Any]:
+def missing_required(
+    target: Path, count: int, stdout: Callable[..., None]
+) -> Tuple[int, str, Any]:
     """Find missing required PKG-INFO"""
     with target.joinpath('PKG-INFO').open() as f:
         pkg_info = message_from_file(f)
@@ -271,7 +269,12 @@ def missing_required(target: Path, count: int, stdout: Callable) -> Tuple[int, s
 
 
 def missing_required_files(
-    kind: str, target: Path, count: int, miss_count: int, name: str, stdout: Callable
+    kind: str,
+    target: Path,
+    count: int,
+    miss_count: int,
+    name: str,
+    stdout: Callable[..., None],
 ) -> Tuple[int, int, List[str], List[str]]:
     """Count missing files required by OZI"""
     found_files = []
@@ -298,7 +301,7 @@ def missing_required_files(
         if os.path.isfile(target / rel_path / file)
     ]
     extra_files = list(set(extra_files).symmetric_difference(set(found_files)))
-    for file in extra_files:
+    for file in extra_files:  # pragma: no cover
         count += 1
         stdout('ok', count, '#', 'SKIP', rel_path / file)
 
@@ -306,7 +309,7 @@ def missing_required_files(
 
 
 def report_missing(
-    target: Path, stdout: Callable = print
+    target: Path, stdout: Callable[..., None] = print
 ) -> Union[
     Tuple[str, Message, List[str], List[str], List[str]], Tuple[None, None, None, None, None]
 ]:
@@ -319,7 +322,7 @@ def report_missing(
     count = 0
     name = None
     pkg_info = None
-    extra_pkg_info = {}
+    extra_pkg_info: Dict[str, str] = {}
     try:
         count, name, extra_pkg_info = missing_required(target, count, stdout)
     except FileNotFoundError:
@@ -345,7 +348,7 @@ def report_missing(
         extra_test_files,
     )
     try:
-        expected = f'{sum(map(len, all_files))+miss_count}'  # type: ignore
+        expected = f'{sum(map(len, all_files))+miss_count}'
     except TypeError:  # pragma: no cover
         warn('Bail out! MISSING required files or metadata.')
         return (None, None, None, None, None)
@@ -533,7 +536,7 @@ def main() -> NoReturn:  # pragma: no cover
         'project': vars(project),
     }
     name, *_ = report_missing(
-        project.target, stdout=print if project.missing else lambda *_: None
+        project.target, stdout=print if project.missing else lambda *_: None  # type: ignore
     )
 
     if name is None:
