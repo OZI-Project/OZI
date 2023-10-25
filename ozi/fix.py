@@ -241,7 +241,8 @@ def missing_ozi_required(
     except ParseException as e:
         extra_pkg_info = {}  # type: ignore
         newline = '\n'
-        warn(f'{count} - MISSING {str(e).replace(newline, " ")}', RuntimeWarning)
+        errstr = str(e).replace(newline, ' ')
+        warn(f'{count} - MISSING {errstr}', RuntimeWarning)
     return count, extra_pkg_info
 
 

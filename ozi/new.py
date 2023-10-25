@@ -277,11 +277,12 @@ def license_(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespac
         project.license in ambiguous_licenses
         and project.license_expression.split(' ')[0] not in possible_spdx
     ):
+        spdx_licenses = ', '.join(possible_spdx)
         msg = (
             f'Ambiguous License string per PEP 639: {project.license}; '
             'See also: https://github.com/pypa/trove-classifiers/issues/17;'
             'set --license-expression'
-            f'to one of: {", ".join(possible_spdx)} OR'
+            f'to one of: {spdx_licenses} OR'
             'to a license expression based on one of these.'
         )
         warn(msg, RuntimeWarning)
