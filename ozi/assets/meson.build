@@ -4,5 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 python_files = files('__init__.py', 'structure.py')
 foreach file : python_files
+    fs.copyfile(file)
     python.install_sources(file, subdir: 'ozi'/'assets')
 endforeach

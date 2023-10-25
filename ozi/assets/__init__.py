@@ -339,7 +339,7 @@ class CloseMatch(argparse.Action):
         self: argparse.Action,
         parser: argparse.ArgumentParser,
         namespace: argparse.Namespace,
-        values: Union[str, Sequence[Any]],
+        values: Union[str, Sequence[str], None],
         option_string: Union[str, None] = None,
     ) -> None:
         """Action business logic."""
@@ -351,7 +351,7 @@ class CloseMatch(argparse.Action):
             key = ''  # pragma: defer to good-first-issue
 
         if self.nargs == '?':
-            matches = []
+            matches: List[str] = []
             for v in values:
                 v = self.close_matches(key, v)  # type: ignore
                 matches += v

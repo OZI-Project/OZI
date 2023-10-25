@@ -11,6 +11,8 @@ workflows = [
     'release.yml.j2',
     'semantic_release.yml.j2',
     'sigstore.yml.j2',
+    'pip-compile.yml.j2',
+    'pytest.yml.j2',
 ]
 foreach file: workflows
     fs.copyfile(file)
