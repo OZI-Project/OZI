@@ -3,10 +3,10 @@
 # Part of ozi.
 # See LICENSE.txt in the project root for details.
 import argparse
-from itertools import zip_longest
 import operator
 import typing
 from datetime import timedelta
+from itertools import zip_longest
 
 import pytest
 from hypothesis import HealthCheck, assume, given, settings
@@ -31,9 +31,13 @@ import ozi.new
                 fullmatch=True,
             ),
             'author': st.text(min_size=1, max_size=128),
-            'author_email': st.lists(st.emails(domains=st.just('phony1.oziproject.dev')), max_size=8),
+            'author_email': st.lists(
+                st.emails(domains=st.just('phony1.oziproject.dev')), max_size=8
+            ),
             'maintainer': st.text(min_size=1, max_size=64),
-            'maintainer_email': st.lists(st.emails(domains=st.just('phony2.oziproject.dev')), max_size=8),
+            'maintainer_email': st.lists(
+                st.emails(domains=st.just('phony2.oziproject.dev')), max_size=8
+            ),
             'home_page': st.one_of(st.just('https://oziproject.dev/')),
             'summary': st.text(max_size=512),
             'copyright_head': st.text(max_size=512),
@@ -95,7 +99,7 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
     [
         {'ci_provider': ''},
         {'summary': 'A' * 513},
-        {'name': '➿'},
+        {'name': 'OZI Phony'},
         {
             'license': 'DFSG approved',
             'license_expression': 'Private',
