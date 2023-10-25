@@ -3,5 +3,7 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 foreach package : lint_suite
- subdir(package)
+    if package not in plugin_only
+        subdir(package)
+    endif
 endforeach

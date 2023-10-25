@@ -7,5 +7,5 @@ custom_target(
     output: 'requirements.txt',
     build_always_stale: true,
     build_by_default: true,
-    command: ['pip-compile',  '--generate-hashes', '-o', '@OUTPUT@', '@INPUT@']
+    command: ['pip-compile', '-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes', '-o', '@OUTPUT@', '@INPUT@']
 )
