@@ -17,7 +17,9 @@ import ozi.fix
 import ozi.new
 
 
-@settings(deadline=timedelta(milliseconds=1000), suppress_health_check=[HealthCheck.too_slow])
+@settings(
+    deadline=timedelta(milliseconds=1000), suppress_health_check=[HealthCheck.too_slow]
+)
 @given(
     project=st.fixed_dictionaries(
         {
