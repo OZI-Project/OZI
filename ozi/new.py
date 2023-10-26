@@ -230,6 +230,7 @@ optional.add_argument(
     action='append',
     type=str,
     nargs='?',
+    default=[],
 )
 output = parser.add_mutually_exclusive_group()
 output.add_argument('-h', '--help', action='help', help='show this help message and exit')
