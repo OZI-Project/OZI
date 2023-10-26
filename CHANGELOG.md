@@ -2,6 +2,15 @@
 
 
 
+## v0.0.161 (2023-10-26)
+
+### :bug:
+
+* :bug:(ozi/new.py): Fix EmailSyntaxError handling.
+
+Emails with no @ sign will simply warn. ([`4e1fe3e`](https://github.com/rjdbcm/OZI/commit/4e1fe3eade42311e4cc2b7356615072d7de3fe47))
+
+
 ## v0.0.160 (2023-10-26)
 
 ### :children_crossing:
