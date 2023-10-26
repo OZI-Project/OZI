@@ -491,7 +491,7 @@ def new_project(project: argparse.Namespace) -> int:
 
     project.name = re.sub(r'[-_.]+', '-', project.name).lower()
     project.target = Path(project.target)
-    project.topic = list(set(project.topic))
+    project.topic = list(set(project.topic)) if project.topic is not None else ['Utilities']
 
     env.globals = env.globals | {
         'project': vars(project),
