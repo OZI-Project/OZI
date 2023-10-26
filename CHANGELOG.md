@@ -2,6 +2,13 @@
 
 
 
+## v0.0.162 (2023-10-26)
+
+### :bug:
+
+* :bug:: Fix default project topic. ([`9d6e9d4`](https://github.com/rjdbcm/OZI/commit/9d6e9d4fd1330a0719fae5869da467fc4af3e9db))
+
+
 ## v0.0.161 (2023-10-26)
 
 ### :bug:
