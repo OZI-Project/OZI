@@ -2,6 +2,17 @@
 
 
 
+## v0.0.164 (2023-10-26)
+
+### :bug:
+
+* :bug:: Fix missing variable in fix copyright_head. ([`1b06ddb`](https://github.com/rjdbcm/OZI/commit/1b06ddbb44e0ff3fd84b72a63033e804dc9ceed5))
+
+### :pencil2:
+
+* :pencil2:: Fix missing format placeholder. ([`a4c49cf`](https://github.com/rjdbcm/OZI/commit/a4c49cf0b3e09ef8068c1cc64d475ab56e665510))
+
+
 ## v0.0.163 (2023-10-26)
 
 ### :bug:
