@@ -13,8 +13,10 @@ Requires-Python: >= {{ ozi.py_security }}, <= {{ ozi.py_bugfix1 }}
 {%- if project.keywords|length %}
 Keywords: {{ project.keywords|join(',') }}
 {%- endif %}
-Classifier: License :: {{ license }}
-Classifier: Development Status :: {{ project.status }}
+Classifier: License :: {{ project.license }}
+{%- for status in project.status %}
+Classifier: Development Status :: {{ status }}
+{%- endfor %}
 Classifier: Programming Language :: Python :: {{ ozi.py_major }} :: Only
 Classifier: Programming Language :: Python :: {{ ozi.py_security }}
 Classifier: Programming Language :: Python :: {{ ozi.py_bugfix2 }}
@@ -37,9 +39,9 @@ Classifier: Typing :: {{ typing }}
 {%- if project.framework != '' %}
 Classifier: Framework :: {{ project.framework }}
 {%- endif %}
-{%- if project.environment != '' %}
-Classifier: Environment :: {{ project.environment }}
-{%- endif %}
+{%- for environment in project.environment %}
+Classifier: Environment :: {{ environment }}
+{%- endfor %}
 {%- for req in project.dist_requires %}
 Requires-Dist: {{ req }}
 {%- endfor %}
