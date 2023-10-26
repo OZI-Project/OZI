@@ -15,7 +15,7 @@ from urllib.parse import urlparse
 from warnings import warn
 
 import requests  # type: ignore
-from email_validator import EmailNotValidError, validate_email
+from email_validator import EmailNotValidError, EmailSyntaxError, validate_email
 from jinja2 import Environment, PackageLoader, TemplateNotFound, select_autoescape
 from pyparsing import Combine, ParseException, Regex
 from spdx_license_list import LICENSES  # type: ignore
@@ -338,7 +338,7 @@ def author_email(  # noqa: C901
             if email in project.maintainer_email:
                 maintainer_email += [email_normalized]
             print('ok', '-', 'Author-Email')
-        except EmailNotValidError as e:
+        except (EmailNotValidError, EmailSyntaxError) as e:
             warn(str(e), RuntimeWarning)
         count += 1
     project.author_email = author_email
