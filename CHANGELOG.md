@@ -2,6 +2,15 @@
 
 
 
+## v0.0.163 (2023-10-26)
+
+### :bug:
+
+* :bug:: Fix missing dist_requires tests. ([`5d3c594`](https://github.com/rjdbcm/OZI/commit/5d3c594903f72d7e00168bf6f36e07697485f29c))
+
+* :bug:: Fix default dist_requires. ([`513b932`](https://github.com/rjdbcm/OZI/commit/513b932dddcdf8890366c885f6c883445ad4cd62))
+
+
 ## v0.0.162 (2023-10-26)
 
 ### :bug:
