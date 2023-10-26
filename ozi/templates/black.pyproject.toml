@@ -5,5 +5,5 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
 [tool.black]
+extend-exclude = "(\\.pyi|meson-private)"
 line-length = 93
-extend-exclude = "\\.pyi"

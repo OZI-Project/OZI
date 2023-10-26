@@ -13,6 +13,6 @@ option(
       '--check',
       '--diff',
       '--exclude','.gitignore',
-      '@project_name@'
+      '@build_root@'
    ]
 )

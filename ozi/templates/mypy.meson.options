@@ -8,7 +8,6 @@ option(
    'args-mypy',
    type: 'array',
    value: [
-      '@project_name@',
-      '@test_source@'
+      '@build_root@',
    ]
 )

@@ -57,18 +57,21 @@
       if: matrix.py == {{ ozi.py_security|wheel_repr }}
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
+        cache: 'pip'
         python-version: {{ ozi.py_security }}
 
     - name: Set up Python {{ ozi.py_bugfix2 }}
       if: matrix.py == {{ ozi.py_bugfix2|wheel_repr }}
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
+        cache: 'pip'
         python-version: {{ ozi.py_bugfix2 }}
 
     - name: Set up Python {{ ozi.py_bugfix1 }}
       if: matrix.py == {{ ozi.py_bugfix1|wheel_repr }}
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
+        cache: 'pip'
         python-version: {{ ozi.py_bugfix1 }}
 {%- raw -%}
     - name: Install ${{ matrix.py }} build dependencies

@@ -8,13 +8,13 @@
 legacy_tox_ini = """
 [tox]
 skipsdist = True
-envlist = {{ ozi.py_security|wheel_repr }}-toml,{{ ozi.py_bugfix2|wheel_repr }},{{ ozi.py_bugfix1|wheel_repr }}
+envlist = {{ ozi.py_security|wheel_repr }},{{ ozi.py_bugfix2|wheel_repr }},{{ ozi.py_bugfix1|wheel_repr }}
 
 [gh]
 python =
    {{ ozi.py_bugfix1 }} = {{ ozi.py_bugfix1|wheel_repr }}
    {{ ozi.py_bugfix2 }} = {{ ozi.py_bugfix2|wheel_repr }}
-   {{ ozi.py_security }} = {{ ozi.py_security|wheel_repr }}-toml
+   {{ ozi.py_security }} = {{ ozi.py_security|wheel_repr }}
 
 [testenv]
 package = wheel
@@ -22,8 +22,11 @@ deps =
    pip-tools
    meson >= 1.1.0
    setuptools_scm[toml]>=6.2
-   toml: tomli >= 2.0.0
+   tomli >= 2.0.0
 commands =
-   meson setup build-{envname} -Ddev=enabled --reconfigure
-   meson test --maxfail=1 -C build-{envname} {posargs}
+   meson setup {env_tmp_dir} -D{posargs}=enabled --reconfigure
+   meson compile -C {env_tmp_dir}
+   rm -rf {env_tmp_dir}/.gitignore
+   pip install .
+   meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup={posargs}
 """

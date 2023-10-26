@@ -5,7 +5,8 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
 [tool.flake8]
+ban-relative-imports = "parents"
 max-line-length = 93
-extend-exclude  = ["build-env-*", "venv", "build*", "*.pyi"]
+extend-exclude  = ["meson-private", "build-env-*", "venv", "build*", "*.pyi"]
 extend-ignore   = "E203,E501"
 extend-select   = "B950"

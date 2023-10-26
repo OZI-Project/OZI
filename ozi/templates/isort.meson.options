@@ -5,12 +5,14 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
 option(
-   'args-isort',
-   type: 'array',
-   value: [
-      '--check',
-      '--diff',
-      '--skip-glob', '*.pyi',
-      '@project_name@'
-   ]
+    'args-isort',
+    type: 'array',
+    value: [
+        '-c',
+        '--skip-glob',
+        '*.pyi',
+        '--extend-skip', 
+        'meson-private/pycompile.py',
+        '@build_root@'
+    ],
 )

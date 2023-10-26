@@ -7,3 +7,6 @@ foreach file : python_files
     fs.copyfile(file)
     python.install_sources(file, subdir: 'ozi'/'assets')
 endforeach
+if false
+    executable('source_child_assets', python_files)
+endif

@@ -45,6 +45,9 @@ foreach file: root_templates
     fs.copyfile(file)
     python.install_sources(file, subdir: 'ozi'/'templates')
 endforeach
+if false
+    executable('source_child_templates', root_templates)
+endif
 children = [
     'project.name',
     'github_workflows',
@@ -55,5 +58,5 @@ foreach child: children
     subdir(child)
 endforeach
 if false
-    executable('templates_children', children)
+    executable('source_child_templates_children', children)
 endif

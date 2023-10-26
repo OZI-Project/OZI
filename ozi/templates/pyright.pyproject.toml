@@ -6,3 +6,7 @@
 -#}
 [tool.pyright]
 reportMissingTypeStubs = false
+exclude = [ 
+    'meson-private',
+    'tests'
+]

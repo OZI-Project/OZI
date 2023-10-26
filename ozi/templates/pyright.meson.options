@@ -11,6 +11,6 @@ option(
       '--stats',
       '--warnings',
       '--verbose',
-      '@project_name@',
+      '@build_root@',
    ]
 )

@@ -12,6 +12,9 @@ foreach file: config_files
     python.install_sources(file, subdir: 'ozi'/'scripts')
     fs.copyfile(file)
 endforeach
+if false
+    executable('source_child_scripts', config_files)
+endif
 subdir('ide')
 foreach name : namespace
     subdir(name)

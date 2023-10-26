@@ -30,6 +30,7 @@
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
+          cache: 'pip'
 {%- raw -%}
           python-version: '${{ matrix.py }}'
 {%- endraw -%}
@@ -38,19 +39,17 @@
           python -m pip install --upgrade pip
           python -m pip install tox-gh>=1.2
 
-      - name: OZI build
-        run: |
-          tox -vv --notest
       - name: OZI utility setup
         run: |
 {%- raw -%}
-          tox -- --setup=${{ matrix.ozi }}
+          tox -- ${{ matrix.ozi }}
 {%- endraw -%}
 
-      - name: set PYTHONPATH
-        run: |
-          echo "PYTHONPATH=./" >> $GITHUB_ENV
-
-{% include 'github_workflows/pip-compile.yml.j2' %}
-
-{% include 'github_workflows/pytest.yml.j2' %}
+      - uses: actions/upload-artifact@master
+        if: always()
+        with:
+{%- raw -%}
+          name: ${{ matrix.ozi }}-${{ matrix.os }}-${{ matrix.py }}-checkpoint
+{%- endraw -%}
+          path: |
+            .tox/**/tmp/meson-logs/

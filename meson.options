@@ -304,8 +304,6 @@ option(
     'args-pytest',
     type: 'array',
     value: [
-        'tests/ozi_new.py',
-        'tests/ozi_fix.py',
         '--cov=ozi',
         '--basetemp=temp',
         '-n',

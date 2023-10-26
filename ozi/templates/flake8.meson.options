@@ -5,13 +5,15 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
 option(
-   'args-flake8p',
-   type: 'array',
-   value: [
-      '--benchmark',
-      '--statistics',
-      '--max-complexity', '5',
-      '--show-source',
-      '@project_name@'
-   ]
+    'args-flake8',
+    type: 'array',
+    value: [
+        '--toml-config=pyproject.toml',
+        '--benchmark',
+        '--statistics',
+        '--max-complexity',
+        '5',
+        '--show-source',
+        '@build_root@/',
+    ],
 )

@@ -78,7 +78,7 @@ option(
         'mypy',
         'pyright',
         'restructuredtext-lint',
-        'flake8p',
+        'flake8',
         'Flake8-pyproject'
     ]
 )

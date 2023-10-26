@@ -202,7 +202,7 @@ Requires-Dist: spdx-license-list
 Requires-Dist: trove-classifiers
 Requires-Dist: pip-tools
 Requires-External: git
-Requires-Python: >=3.10
+Requires-Python: >=3.10, <=3.12
 Classifier: Development Status :: 2 - Pre-Alpha
 Classifier: Environment :: Console
 Classifier: Intended Audience :: Developers
@@ -216,7 +216,7 @@ Classifier: Programming Language :: Python :: 3.11
 Classifier: Programming Language :: Python :: 3.12
 Classifier: Programming Language :: Python :: Implementation :: CPython
 Classifier: Topic :: Software Development :: Build Tools
-Classifier: Topic :: Software Development :: Quality Assurance 
+Classifier: Topic :: Software Development :: Quality Assurance
 Classifier: Typing :: Typed
 Description-Content-Type: text/x-rst
 

@@ -10,6 +10,6 @@ option(
    value: [
       '--configfile', 'pyproject.toml',
       '--ignore-nosec',
-      '-r', '@project_name@'
+      '-r', '@build_root@'
    ]
 )

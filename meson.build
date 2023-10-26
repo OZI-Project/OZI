@@ -329,6 +329,13 @@ foreach name: namespace
             endif
             command_args += arg
         endforeach
+        if command in ['pytest']
+            test_paths = []
+            foreach file: test_files
+                test_paths += ['tests' / file]
+            endforeach
+            command_args = test_paths + command_args
+        endif
         if command not in plugin_only
             foreach app, args : {command: command_args}
                 if app in module_only

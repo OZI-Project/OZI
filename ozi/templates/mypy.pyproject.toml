@@ -7,3 +7,6 @@
 [tool.mypy]
 strict = true
 implicit_reexport = true
+exclude = [
+    '^tests',
+]

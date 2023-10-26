@@ -10,12 +10,10 @@ option('args-pytest',
     value: [
         '--basetemp=temp'
         '--exitfirst',
-        '-vvv',
         '--cov-config=pyproject.toml',
         '@opt_cov_eq_project_name@',
         '-n',
         'auto',
         '-d',
-        '@test_source@',
     ]
 )
