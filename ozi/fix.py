@@ -349,11 +349,11 @@ def report_missing(
         extra_test_files,
     )
     try:
-        expected = f'{sum(map(len, all_files))+miss_count}'
+        sum(map(len, all_files))
     except TypeError:  # pragma: no cover
         warn('Bail out! MISSING required files or metadata.')
         return (None, None, None, None, None)
-    stdout(f'1..{expected}')
+    stdout(f'1..{count+miss_count}')
     return name, pkg_info, found_root_files, found_source_files, found_test_files  # type: ignore
 
 
