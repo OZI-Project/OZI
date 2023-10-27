@@ -2,6 +2,13 @@
 
 
 
+## v0.0.166 (2023-10-27)
+
+### :bug:
+
+* :bug:(ozi-new): Fix keywords parsing. ([`db3f61e`](https://github.com/rjdbcm/OZI/commit/db3f61ef9080fca38d0b5e033e6031111b51faf8))
+
+
 ## v0.0.165 (2023-10-27)
 
 ### :bug:
