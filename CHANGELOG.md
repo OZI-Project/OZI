@@ -2,6 +2,13 @@
 
 
 
+## v0.0.165 (2023-10-27)
+
+### :bug:
+
+* :bug:(ozi-new): Fix several improper PKG-INFO outputs ([`8db531a`](https://github.com/rjdbcm/OZI/commit/8db531a4162764f12967894f53de707386fa49e6))
+
+
 ## v0.0.164 (2023-10-26)
 
 ### :bug:
