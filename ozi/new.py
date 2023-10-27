@@ -178,10 +178,9 @@ defaults.add_argument(
 )
 optional.add_argument(
     '--keywords',
-    default=[],
+    default='',
     help='Keywords (Single Use, Comma-separated List)',
     type=str,
-    action='append',
 )
 optional.add_argument(
     '--maintainer',
