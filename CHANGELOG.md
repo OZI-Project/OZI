@@ -2,6 +2,17 @@
 
 
 
+## v0.0.167 (2023-10-27)
+
+### :bug:
+
+* :bug:: Fix default Multiple use args. ([`38cd3d4`](https://github.com/rjdbcm/OZI/commit/38cd3d4535a94ef8d57bc90fa108f344a3a855ca))
+
+### :pencil2:
+
+* :pencil2:: Fix black complaints. ([`c5b1402`](https://github.com/rjdbcm/OZI/commit/c5b1402b799b2177134d9e91d9fa21ff5b22169b))
+
+
 ## v0.0.166 (2023-10-27)
 
 ### :bug:
