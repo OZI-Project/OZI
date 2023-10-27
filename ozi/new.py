@@ -199,7 +199,7 @@ optional.add_argument(
     action=CloseMatch,
     type=str,
     nargs='?',
-    default=[]
+    default=[],
 )
 defaults.add_argument(
     '--language',
@@ -498,7 +498,7 @@ def new_project(project: argparse.Namespace) -> int:
     project.name = re.sub(r'[-_.]+', '-', project.name).lower()
     project.target = Path(project.target)
     project.topic = list(set(project.topic))
-    project.dist_requires = (list(set(project.dist_requires)))
+    project.dist_requires = list(set(project.dist_requires))
 
     env.globals = env.globals | {
         'project': vars(project),
