@@ -2,6 +2,13 @@
 
 
 
+## v0.0.168 (2023-10-28)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix miscount in TAP output. ([`3e6b662`](https://github.com/rjdbcm/OZI/commit/3e6b66224bf24ec88f77d16b8e9e5e22f090a065))
+
+
 ## v0.0.167 (2023-10-27)
 
 ### :bug:
