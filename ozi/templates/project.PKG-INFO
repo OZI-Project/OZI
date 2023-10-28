@@ -36,9 +36,9 @@ Classifier: Topic :: {{ topic }}
 {%- for typing in project.typing %}
 Classifier: Typing :: {{ typing }}
 {%- endfor %}
-{%- if project.framework != '' %}
-Classifier: Framework :: {{ project.framework }}
-{%- endif %}
+{%- for framework in project.framework %}
+Classifier: Framework :: {{ framework }}
+{%- endfor %}
 {%- for environment in project.environment %}
 Classifier: Environment :: {{ environment }}
 {%- endfor %}
