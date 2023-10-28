@@ -2,6 +2,13 @@
 
 
 
+## v0.0.169 (2023-10-28)
+
+### :bug:
+
+* :bug:(ozi-new): Fix Framework classifier output. ([`e7a7bb3`](https://github.com/rjdbcm/OZI/commit/e7a7bb36d27fd05f8ff7767584663afa5107e709))
+
+
 ## v0.0.168 (2023-10-28)
 
 ### :bug:
