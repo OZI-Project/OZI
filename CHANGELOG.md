@@ -2,6 +2,18 @@
 
 
 
+## v0.0.171 (2023-10-30)
+
+### :children_crossing:
+
+* :children_crossing:(ozi-fix): Can now add nested subdirectories.
+
+You can now add subdirectories that are nested like
+```
+ozi-fix source -a foo/bar/baz/
+``` ([`5d3c15e`](https://github.com/rjdbcm/OZI/commit/5d3c15e7defcd1495ff4fc55aa24335aecdc9e25))
+
+
 ## v0.0.170 (2023-10-30)
 
 ### :children_crossing:
