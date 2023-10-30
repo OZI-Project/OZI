@@ -17,7 +17,7 @@
 {%- endfor %}
 {{ '# DO NOT EDIT BY HAND - This file was generated for use with OZI tools.' }}
 {{ '# ozi-fix -> meson rewrite is the standard editing pipeline.' }}
-{{ parent }}_files = []
+{{ parent }}_files = [{%- if project.fix == 'source' %}'__init__.py'{% endif %}]
 foreach file: {{ parent }}_files
   fs.copyfile(file)
   python.install_sources(file, subdir: '{{ folder }}/{{ '/'|join(heirs) }}')

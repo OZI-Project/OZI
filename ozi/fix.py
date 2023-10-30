@@ -433,7 +433,7 @@ class Rewriter:
             user_template = None
         return user_template
 
-    def _add(
+    def _add(  # noqa: C901
         self: Rewriter,
         child: Path,
         file: str,
@@ -446,15 +446,21 @@ class Rewriter:
         else:
             if file.endswith('/'):
                 child.mkdir(parents=True)
-                (child / 'meson.build').touch()
                 parent = file.rstrip('/')
                 heirs = parent.split('/')
                 if len(heirs) > 1:
                     parent = '_'.join(heirs)
-                with open((child / 'meson.build'), 'w') as f:
+                with open((child / 'meson.build'), 'x') as f:
                     f.write(
                         env.get_template('new_child.j2').render(parent=parent, heirs=heirs)
                     )
+                if self.fix == 'source':
+                    with open((child / '__init__.py'), 'x') as f:
+                        f.write(
+                            env.get_template('project.name/__init__.py.j2').render(
+                                user_template=self.find_user_templates(file)
+                            )
+                        )
                 cmd_children.add(self.fix, 'children', parent)
             elif file.endswith('.py'):
                 child.write_text(
