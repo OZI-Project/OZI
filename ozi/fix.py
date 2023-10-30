@@ -445,11 +445,17 @@ class Rewriter:
             warn('Invalid fix mode nothing will be added.', RuntimeWarning)
         else:
             if file.endswith('/'):
-                child.mkdir()
+                child.mkdir(parents=True)
                 (child / 'meson.build').touch()
+                parent = file.rstrip('/')
+                heirs = parent.split('/')
+                if len(heirs) > 1:
+                    parent = '_'.join(heirs)
                 with open((child / 'meson.build'), 'w') as f:
-                    f.write(env.get_template('new_child.j2').render())
-                cmd_children.add(self.fix, 'children', 'meson.build')
+                    f.write(
+                        env.get_template('new_child.j2').render(parent=parent, heirs=heirs)
+                    )
+                cmd_children.add(self.fix, 'children', parent)
             elif file.endswith('.py'):
                 child.write_text(
                     self.base_templates.get(

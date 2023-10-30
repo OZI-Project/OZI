@@ -59,60 +59,26 @@ configure_file(
         },
     ),
 )
-root_files = ['README.rst', 'CHANGELOG.md', '{{ project.license_file }}', 'NOTICE']
+root_files = [
+    'README.rst',
+    'CHANGELOG.md',
+    '{{ project.license_file }}',
+    'pyproject.toml',
+    'PKG-INFO'
+]
 foreach source : root_files
     fs.copyfile(source)
 endforeach
 if false
     executable('root_files', root_files)
 endif
-children = [project_name, test_source]
-foreach child: children
+root_children = [
+    project_name,
+    test_source,
+]
+foreach child: root_children
     subdir(child)
 endforeach
 if false
-    executable('root_children', children)
-endif
-if get_option('dev').enabled()
-    add_test_setup('dev', is_default: true, env: env)
-    env.append('TESTS_BUILDDIR', build_root)
-    env.append('PYTHONPATH'    , build_root)
-    pip = find_program('pip', required: false, disabler: true)
-    no_check = {'check': false, 'env': env}
-    opt_cov_eq_project_name = '--cov='+project_name
-    build_commands = {'dev': []}
-    foreach name: namespace
-        add_test_setup(name, exclude_suites: get_variable(name+'_exclude_suites'))
-        set_variable(name, get_option(name).enable_auto_if(get_option('dev').enabled()))
-        set_variable(name+'_kwargs', {'suite': name, 'env': env})
-        command_names = dev.get_variable(name+'_suite')
-        foreach command: command_names
-            _args = get_option('args-'+command)
-            command_args = []
-            test_app_args = {}
-            foreach arg : _args
-                if arg.startswith('@') and arg.endswith('@')
-                    arg = arg.strip('@')
-                    arg = is_variable(arg)? get_variable(arg) : arg
-                endif
-                command_args += arg
-            endforeach
-        if command not in plugin_only
-            foreach app, args : {command: command_args}
-                args = {
-                    'args': args,
-                    'env': env,
-                    'priority': get_option(name+'-priority'),
-                    'suite': name
-                }
-                if app in should_fail
-                    args += {'should_fail': true}
-                endif
-            feature = get_variable(args['suite'])
-            test_app = feature.enabled()? dev.get_variable(app.replace('-', '_')): disabler()
-            test_app.found() and feature.enabled()? test(app, test_app, kwargs: args): false
-            endforeach
-        endif
-        endforeach
-    endforeach
+    executable('root_children', root_children)
 endif
