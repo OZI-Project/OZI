@@ -17,10 +17,10 @@ from email.message import Message
 from functools import partial
 from importlib.metadata import version
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Mapping, NoReturn, Set, Tuple, Union
+from typing import Annotated, Any, Callable, Dict, List, Mapping, NoReturn, Set, Tuple, Union
 from warnings import warn
 
-from jinja2 import Environment, PackageLoader, select_autoescape
+from jinja2 import Environment, PackageLoader, Template, select_autoescape
 from pyparsing import (
     CaselessKeyword,
     Combine,
@@ -408,6 +408,9 @@ class Rewriter:
     fix: str
     commands: List[Dict[str, str]] = field(default_factory=list)
     path_map: Mapping[str, Callable[[str], Path]] = field(init=False)
+    base_templates: Dict[
+        Annotated[str, 'fix'], Annotated[Template, 'base_template']
+    ] = field(init=False)
 
     def __post_init__(self: Rewriter) -> None:
         """Setup the path_map"""
@@ -416,6 +419,19 @@ class Rewriter:
             'test': partial(Path, self.target, 'tests'),
             'root': partial(Path, self.target),
         }
+        self.base_templates = {
+            'root': env.get_template('tests/new_test.py.j2'),
+            'source': env.get_template('project.name/new_module.py.j2'),
+            'test': env.get_template('tests/new_test.py.j2'),
+        }
+
+    def find_user_templates(self: Rewriter, file: str) -> str | None:
+        try:
+            with open(Path(self.target, 'templates', self.fix, file)) as template:
+                user_template = template.read()
+        except OSError:
+            user_template = None
+        return user_template
 
     def _add(
         self: Rewriter,
@@ -425,11 +441,6 @@ class Rewriter:
         cmd_children: RewriteCommand,
     ) -> Tuple[RewriteCommand, RewriteCommand]:
         """Add items to OZI Rewriter"""
-        templates = {
-            'root': env.get_template('tests/new_test.py.j2'),
-            'source': env.get_template('project.name/new_module.py.j2'),
-            'test': env.get_template('tests/new_test.py.j2'),
-        }
         if self.fix not in ['source', 'test', 'root']:
             warn('Invalid fix mode nothing will be added.', RuntimeWarning)
         else:
@@ -441,12 +452,12 @@ class Rewriter:
                 cmd_children.add(self.fix, 'children', 'meson.build')
             elif file.endswith('.py'):
                 child.write_text(
-                    templates.get(
+                    self.base_templates.get(
                         self.fix,
-                        templates.setdefault(
+                        self.base_templates.setdefault(
                             self.fix, env.get_template('project.name/new_module.py.j2')
                         ),
-                    ).render()
+                    ).render(user_template=self.find_user_templates(file))
                 )
             else:
                 child.touch()

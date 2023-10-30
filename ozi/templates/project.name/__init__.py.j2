@@ -8,4 +8,7 @@
 {%- for line in project.copyright_head.split('\n') %}
 {{ '# ' ~ line }}
 {%- endfor %}
+{%- if user_template %}
+{% extends user_template %}
+{%- endif %}
 

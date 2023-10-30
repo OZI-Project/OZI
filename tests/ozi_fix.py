@@ -241,6 +241,22 @@ def test_Rewriter_bad_project__iadd__file(  # noqa: DC102
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
+def test_Rewriter_bad_project__iadd__file_from_template(  # noqa: DC102
+    bad_project: pytest.FixtureRequest, fix: str
+) -> None:
+    env.globals.update({'project': vars(bad_namespace)})
+    rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
+    pathlib.Path(bad_project / 'templates').mkdir()
+    pathlib.Path(bad_project / 'templates' / 'foo.py').touch()
+    pathlib.Path(bad_project / 'templates' / 'source').mkdir()
+    pathlib.Path(bad_project / 'templates' / 'source' / 'foo.py').touch()
+    pathlib.Path(bad_project / 'templates' / 'test').mkdir()
+    pathlib.Path(bad_project / 'templates' / 'test' / 'foo.py').touch()
+    rewriter += ['foo.py']
+    assert len(rewriter.commands) == 1
+
+
+@pytest.mark.parametrize('fix', ['test', 'root', 'source'])
 def test_Rewriter_bad_project__iadd__non_python_file(  # noqa: DC102
     bad_project: pytest.FixtureRequest, fix: str
 ) -> None:
