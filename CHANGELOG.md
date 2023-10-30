@@ -2,6 +2,13 @@
 
 
 
+## v0.0.172 (2023-10-30)
+
+### :children_crossing:
+
+* :children_crossing::bug:(ozi-fix): Adding a source subdirectory now includes the __init__.py ([`1403d36`](https://github.com/rjdbcm/OZI/commit/1403d36b170797d676f8f36675ef83b2fb34c4bb))
+
+
 ## v0.0.171 (2023-10-30)
 
 ### :children_crossing:
