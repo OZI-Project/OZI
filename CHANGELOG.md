@@ -2,6 +2,13 @@
 
 
 
+## v0.0.170 (2023-10-30)
+
+### :children_crossing:
+
+* :children_crossing:(ozi-fix): Add support for a ``templates/`` for user templates. ([`ecedb26`](https://github.com/rjdbcm/OZI/commit/ecedb26faa1015c4fba527d29b8b60919ceb5721))
+
+
 ## v0.0.169 (2023-10-28)
 
 ### :bug:
