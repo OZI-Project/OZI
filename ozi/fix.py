@@ -474,9 +474,10 @@ class Rewriter:
                         ),
                     ).render(user_template=self.find_user_templates(file))
                 )
+                cmd_files.add(self.fix, 'files', str(Path(file)))
             else:
                 child.touch()
-            cmd_files.add(self.fix, 'files', str(Path(file)))
+                cmd_files.add(self.fix, 'files', str(Path(file)))
         return cmd_files, cmd_children
 
     def __iadd__(self: Rewriter, other: List[str]) -> Rewriter:
