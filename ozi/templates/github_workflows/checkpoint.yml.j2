@@ -39,7 +39,17 @@
           python -m pip install --upgrade pip
           python -m pip install tox-gh>=1.2
 
-      - name: OZI utility setup
+      - name: OZI utility setup (First Try)
+        id: setup1
+        run: |
+{%- raw -%}
+          tox -- ${{ matrix.ozi }}
+{%- endraw -%}
+
+      - name: OZI utility setup (Second Try)
+{%- raw -%}
+        if: ${{ failure() && steps.setup1.conclusion == 'failure' }}
+{%- endraw -%}
         run: |
 {%- raw -%}
           tox -- ${{ matrix.ozi }}
