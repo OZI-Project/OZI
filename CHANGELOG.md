@@ -2,6 +2,15 @@
 
 
 
+## v0.0.173 (2023-10-31)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix incorrect path to source subdirectory __init__.py ([`b7a454c`](https://github.com/rjdbcm/OZI/commit/b7a454cc496d7252726a5be0c42b4b80433b6c02))
+
+* :bug:(ozi-fix): FIX: Incorrect subdirectory for __init__.py when adding source directories. ([`6c295c9`](https://github.com/rjdbcm/OZI/commit/6c295c9927bb0e52a9202f145687347394a40e7a))
+
+
 ## v0.0.172 (2023-10-30)
 
 ### :children_crossing:
