@@ -143,13 +143,14 @@ def test_fuzz_Rewriter(  # noqa: DC102
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
-def test_Rewriter_bad_project__iadd__dir_nested(  # noqa: DC102
+def test_Rewriter_bad_project__iadd__dir_nested_warns(  # noqa: DC102
     bad_project: pytest.FixtureRequest, fix: str
 ) -> None:
     env.globals = env.globals | {'project': vars(bad_namespace)}
     rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
-    rewriter += ['foo/foo/baz/']
-    assert len(rewriter.commands) == 2
+    with pytest.warns(RuntimeWarning):
+        rewriter += ['foo/foo/baz/']
+    assert len(rewriter.commands) == 0
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
@@ -159,7 +160,7 @@ def test_Rewriter_bad_project__iadd__dir(  # noqa: DC102
     env.globals = env.globals | {'project': vars(bad_namespace)}
     rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     rewriter += ['foo/']
-    assert len(rewriter.commands) == 2
+    assert len(rewriter.commands) == 1
 
 
 def test_Rewriter_bad_project__iadd__bad_fix(  # noqa: DC102

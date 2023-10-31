@@ -449,22 +449,32 @@ class Rewriter:
                 parent = file.rstrip('/')
                 heirs = parent.split('/')
                 if len(heirs) > 1:
-                    parent = '_'.join(heirs)
-                with open((child / 'meson.build'), 'x') as f:
-                    f.write(
-                        env.get_template('new_child.j2').render(parent=parent, heirs=heirs)
-                    )
-                if self.fix == 'source':
-                    with open(
-                        (self.path_map.get(self.fix, partial(Path))(*heirs) / '__init__.py'),
-                        'x',
-                    ) as f:
+                    warn('Nested folder creation not supported.', RuntimeWarning)
+                else:
+                    with open((child / 'meson.build'), 'x') as f:
                         f.write(
-                            env.get_template('project.name/__init__.py.j2').render(
-                                user_template=self.find_user_templates(file)
+                            env.get_template('new_child.j2').render(
+                                parent=parent, heirs=heirs
                             )
                         )
-                cmd_children.add(self.fix, 'children', parent)
+                    cmd_children.add(self.fix, 'children', parent)
+                if self.fix == 'source':
+                    if len(heirs) > 1:
+                        warn('Nested folder creation not supported.', RuntimeWarning)
+                    else:
+                        with open(
+                            (
+                                self.path_map.get(self.fix, partial(Path))(*heirs)
+                                / '__init__.py'
+                            ),
+                            'x',
+                        ) as f:
+                            f.write(
+                                env.get_template('project.name/__init__.py.j2').render(
+                                    user_template=self.find_user_templates(file)
+                                )
+                            )
+                        cmd_children.add(self.fix, 'children', parent)
             elif file.endswith('.py'):
                 child.write_text(
                     self.base_templates.get(
