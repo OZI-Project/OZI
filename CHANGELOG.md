@@ -2,6 +2,15 @@
 
 
 
+## v0.0.176 (2023-10-31)
+
+### :bug:
+
+* :bug: Revert nested dir add ([`b6c0de8`](https://github.com/rjdbcm/OZI/commit/b6c0de88f59818e9a4f4ae9261fd1b817d082bf2))
+
+* :bug:(ozi-fix): Fix unconditional output of a file add command. ([`69614ba`](https://github.com/rjdbcm/OZI/commit/69614ba5d6c0a0c2aad0ee7627c58aefc5ec962d))
+
+
 ## v0.0.175 (2023-10-31)
 
 ### :children_crossing:
