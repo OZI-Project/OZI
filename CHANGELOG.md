@@ -2,6 +2,17 @@
 
 
 
+## v0.0.177 (2023-10-31)
+
+### :bug:
+
+* :bug:(tests/ozi_fix.py): Remove flaky assertion. ([`fcaf807`](https://github.com/rjdbcm/OZI/commit/fcaf8072cf3c03ebd29734b7bfe09e17ad46b5c4))
+
+### :children_crossing:
+
+* :children_crossing:(ozi-fix): warn for nested subdirectories. ([`8f99980`](https://github.com/rjdbcm/OZI/commit/8f99980cc219c4bf17029fdecbc49e0c0768579b))
+
+
 ## v0.0.176 (2023-10-31)
 
 ### :bug:
