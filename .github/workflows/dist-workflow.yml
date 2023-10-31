@@ -55,12 +55,13 @@ jobs:
           python -m pip install tox-gh>=1.2
 
       - name: '${{ matrix.ozi }} (First Try)'
+        continue-on-error: true
         id: setup1
         run: |
           tox -- ${{ matrix.ozi }}
 
       - name: '${{ matrix.ozi }} (Second Try)'
-        if: ${{ failure() && steps.setup1.conclusion == 'failure' }}
+        if: ${{ steps.setup1.outcome == 'failure' }}
         run: |
           tox -r -- ${{ matrix.ozi }}
 

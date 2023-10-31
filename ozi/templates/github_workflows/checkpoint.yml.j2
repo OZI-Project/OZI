@@ -40,6 +40,7 @@
           python -m pip install tox-gh>=1.2
 
       - name: OZI utility setup (First Try)
+        continue-on-error: true
         id: setup1
         run: |
 {%- raw -%}
@@ -48,7 +49,7 @@
 
       - name: OZI utility setup (Second Try)
 {%- raw -%}
-        if: ${{ failure() && steps.setup1.conclusion == 'failure' }}
+        if: ${{ steps.setup1.outcome == 'failure' }}
 {%- endraw -%}
         run: |
 {%- raw -%}
