@@ -2,6 +2,17 @@
 
 
 
+## v0.0.175 (2023-10-31)
+
+### :children_crossing:
+
+* :children_crossing::bug:(CI): Fix retry of OZI utility checkpoint. ([`20b122d`](https://github.com/rjdbcm/OZI/commit/20b122d892dcbea1b70a59937015821e19bcfc81))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`0b8a84e`](https://github.com/rjdbcm/OZI/commit/0b8a84ecfc2c904fa90795a7a08bbe7df96a9af8))
+
+
 ## v0.0.174 (2023-10-31)
 
 ### :children_crossing:
