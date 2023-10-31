@@ -150,7 +150,7 @@ def test_Rewriter_bad_project__iadd__dir_nested_warns(  # noqa: DC102
     rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     with pytest.warns(RuntimeWarning):
         rewriter += ['foo/foo/baz/']
-    assert len(rewriter.commands) == 0
+    assert len(rewriter.commands) == 1
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])

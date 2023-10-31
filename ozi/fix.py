@@ -457,7 +457,6 @@ class Rewriter:
                                 parent=parent, heirs=heirs
                             )
                         )
-                    cmd_children.add(self.fix, 'children', parent)
                 if self.fix == 'source':
                     if len(heirs) > 1:
                         warn('Nested folder creation not supported.', RuntimeWarning)
@@ -475,6 +474,8 @@ class Rewriter:
                                 )
                             )
                         cmd_children.add(self.fix, 'children', parent)
+                else:
+                    cmd_children.add(self.fix, 'children', parent)
             elif file.endswith('.py'):
                 child.write_text(
                     self.base_templates.get(
