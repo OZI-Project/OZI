@@ -2,6 +2,17 @@
 
 
 
+## v0.0.181 (2023-11-01)
+
+### :bug:
+
+* :bug:(CI): Fix workflow job indent level. ([`b6d4587`](https://github.com/rjdbcm/OZI/commit/b6d4587a939472904af4e86d2feb598887a5d263))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`0500b78`](https://github.com/rjdbcm/OZI/commit/0500b780c80707e6f84cf715efc485734b2328e8))
+
+
 ## v0.0.180 (2023-11-01)
 
 ### :bug:
