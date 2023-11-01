@@ -2,6 +2,13 @@
 
 
 
+## v0.0.180 (2023-11-01)
+
+### :bug:
+
+* :bug:(CI): Fix indentation issue in workflow template. ([`07abfd4`](https://github.com/rjdbcm/OZI/commit/07abfd40060617fdfd8ee4a775c7429ee879cd34))
+
+
 ## v0.0.179 (2023-11-01)
 
 ### :bug:
