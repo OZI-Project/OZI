@@ -9,6 +9,6 @@
       if: matrix.py == {{ ozi.py_security|wheel_repr }}
       uses: python-semantic-release/python-semantic-release@3abfb7ac216b9ad439de24fda60eca84038e850e
       with:
-{%- raw -%}
+{%- raw %}
         github_token: ${{ secrets.GITHUB_TOKEN }}
-{%- endraw -%}
+{%- endraw %}

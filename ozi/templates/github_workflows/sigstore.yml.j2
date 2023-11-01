@@ -4,17 +4,17 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
-{%- raw -%}
+{%- raw %}
     - name: Sign ${{ matrix.py }} wheel
-{%- endraw -%}
+{%- endraw %}
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
       run: |
-{%- raw -%}
+{%- raw %}
         sigstore sign dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
-{%- endraw -%}
+{%- endraw %}
 
     - name: Move sigstore signing files
       run: |
-{%- raw -%}
+{%- raw %}
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore
-{%- endraw -%}
+{%- endraw %}
