@@ -2,6 +2,13 @@
 
 
 
+## v0.0.179 (2023-11-01)
+
+### :bug:
+
+* :bug::construction_worker:(CI): Fix for raw jinja whitespace trimming causing broken workflow. ([`e3e4d66`](https://github.com/rjdbcm/OZI/commit/e3e4d6633e6f62a93084eee9dc1e0f74f0c0fd21))
+
+
 ## v0.0.178 (2023-11-01)
 
 ### :bug:
