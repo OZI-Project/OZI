@@ -2,6 +2,13 @@
 
 
 
+## v0.0.182 (2023-11-01)
+
+### :bug:
+
+* :bug:(CI): Fix ozi release workflow python version string quoting. ([`b5ec332`](https://github.com/rjdbcm/OZI/commit/b5ec33265a63b91267b82fce7903c55c810a51c6))
+
+
 ## v0.0.181 (2023-11-01)
 
 ### :bug:
