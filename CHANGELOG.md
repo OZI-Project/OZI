@@ -2,6 +2,13 @@
 
 
 
+## v0.0.178 (2023-11-01)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix incorrect source install subdir argument. ([`77c97b2`](https://github.com/rjdbcm/OZI/commit/77c97b27c492b138dc772609a2de21b1f0bbccbd))
+
+
 ## v0.0.177 (2023-10-31)
 
 ### :bug:
