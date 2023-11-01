@@ -452,11 +452,7 @@ class Rewriter:
                     warn('Nested folder creation not supported.', RuntimeWarning)
                 else:
                     with open((child / 'meson.build'), 'x') as f:
-                        f.write(
-                            env.get_template('new_child.j2').render(
-                                parent=parent, heirs=heirs
-                            )
-                        )
+                        f.write(env.get_template('new_child.j2').render(parent=parent))
                 if self.fix == 'source':
                     if len(heirs) > 1:
                         warn('Nested folder creation not supported.', RuntimeWarning)
