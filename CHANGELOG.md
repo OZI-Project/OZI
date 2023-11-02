@@ -2424,7 +2424,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 * 🙈 add .gitignore!!! ([`04e2eb4`](https://github.com/rjdbcm/OZI/commit/04e2eb40a954935a251f8c65574187c013448a74))
 
 
-## v0.0.4 (2023-06-24)
+## v0.0.1-v0.0.4 (2023-06-24)
 
 ### Other
 
@@ -2465,3 +2465,4 @@ add meson.override_find_program, remove todo wrap. ([`f01c0c7`](https://github.c
 * Create __init__.py ([`3f83f68`](https://github.com/rjdbcm/OZI/commit/3f83f68b731608d0462fb570aa8ea3a1e9915029))
 
 * Root folder sync to blastpipe-0.4.20 ([`b05b497`](https://github.com/rjdbcm/OZI/commit/b05b4977180014aae1e5276d9588fa089ab95ae2))
+
