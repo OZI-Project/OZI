@@ -426,7 +426,7 @@ def create_project_files(  # noqa: C901
     project: argparse.Namespace, count: int, env: Environment
 ) -> int:
     """Create the actual project."""
-    if any(project.target.iterdir()):
+    if any([i for i in project.target.iterdir() if i not in ['templates', '.git']]):
         warn(
             'Bail out! target directory not empty. No files will be created. Exiting.',
             RuntimeWarning,
