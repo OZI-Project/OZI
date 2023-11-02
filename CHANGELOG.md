@@ -125,7 +125,8 @@
 You can now add subdirectories that are nested like
 ```
 ozi-fix source -a foo/bar/baz/
-``` ([`5d3c15e`](https://github.com/rjdbcm/OZI/commit/5d3c15e7defcd1495ff4fc55aa24335aecdc9e25))
+```
+([`5d3c15e`](https://github.com/rjdbcm/OZI/commit/5d3c15e7defcd1495ff4fc55aa24335aecdc9e25))
 
 
 ## v0.0.170 (2023-10-30)
@@ -422,7 +423,8 @@ Also add requirements to PKG-INFO, including git. ([`2fda90e`](https://github.co
 ```
 # &lt;OZI-0.0.146&gt;/ozi/fix.py:239: RuntimeWarning
 not ok - 8 - &#34;Programming Language :: Python :: 3 :: Only&#34; MISSING
-``` ([`9e8b6c0`](https://github.com/rjdbcm/OZI/commit/9e8b6c0d8cfe70973ff094ff1455960dccb7334f))
+```
+([`9e8b6c0`](https://github.com/rjdbcm/OZI/commit/9e8b6c0d8cfe70973ff094ff1455960dccb7334f))
 
 ### :hammer:
 
@@ -529,7 +531,8 @@ Added ignored-by-default patterns for:
 
 ```python
 r&#39;^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9])$&#39;
-``` ([`9f5d2b8`](https://github.com/rjdbcm/OZI/commit/9f5d2b840834f4b5390ffc732950470494a7756e))
+```
+([`9f5d2b8`](https://github.com/rjdbcm/OZI/commit/9f5d2b840834f4b5390ffc732950470494a7756e))
 
 ### Other
 
@@ -676,7 +679,8 @@ TypeError: Object of type RewriteCommand is not JSON serializable ([`a9344cd`](h
 File &#34;&lt;OZI-0.0.129&gt;/ozi/fix.py&#34;, line 435, in main
 File &#34;&lt;OZI-0.0.129&gt;/ozi/fix.py&#34;, line 427, in preprocess
 TypeError: unhashable type: &#39;list&#39;
-``` ([`5ec84bb`](https://github.com/rjdbcm/OZI/commit/5ec84bb1c4640fd3d98ba70f5f412f52452c961e))
+```
+([`5ec84bb`](https://github.com/rjdbcm/OZI/commit/5ec84bb1c4640fd3d98ba70f5f412f52452c961e))
 
 ### Other
 
@@ -865,7 +869,8 @@ Should use TAP output throughout now. ([`1cf2cee`](https://github.com/rjdbcm/OZI
 ```
 File &#34;&lt;OZI-0.0.108&gt;/ozi/fix.py&#34;, line 250, in main
 AttributeError: &#39;str&#39; object has no attribute &#39;is_dir&#39;
-``` ([`8721bb0`](https://github.com/rjdbcm/OZI/commit/8721bb0235f12633352cb2afe705352c942f8323))
+```
+([`8721bb0`](https://github.com/rjdbcm/OZI/commit/8721bb0235f12633352cb2afe705352c942f8323))
 
 
 ## v0.0.108 (2023-09-17)
@@ -877,7 +882,8 @@ AttributeError: &#39;str&#39; object has no attribute &#39;is_dir&#39;
 ```
 File &#34;&lt;OZI-0.0.107&gt;/ozi/fix.py&#34;, line 244, in main
 AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
-``` ([`1368035`](https://github.com/rjdbcm/OZI/commit/13680352ef22520d748eab5a4a9966e63b65b2cc))
+```
+([`1368035`](https://github.com/rjdbcm/OZI/commit/13680352ef22520d748eab5a4a9966e63b65b2cc))
 
 ### :children_crossing:
 
