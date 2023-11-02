@@ -2,6 +2,27 @@
 
 
 
+## v0.0.183 (2023-11-02)
+
+### :bug:
+
+* :bug:(templates): Fix author_email rendering. ([`ab78ea0`](https://github.com/rjdbcm/OZI/commit/ab78ea014c987cfde5155926a852e2ac85b08820))
+
+### :hammer:
+
+* :hammer:(ozi-new): Allow new project with existing ``templates/`` and ``.git/`` ([`53c5687`](https://github.com/rjdbcm/OZI/commit/53c5687821a9af76a19d3572d39b1ae13636c2c7))
+
+### :pencil2:
+
+* :pencil2::construction_worker: Fix workflow logging to use wildcard. ([`5fa5496`](https://github.com/rjdbcm/OZI/commit/5fa549603eb62da4ec00077c902216525dbbd980))
+
+### Other
+
+* Add failure logging to checkpoint workflow. ([`3c5cd27`](https://github.com/rjdbcm/OZI/commit/3c5cd2708ef3fbe027f1df31f1758c75f35c2261))
+
+* :construction_worker:(PKG-INFO): 0.0.183 ([`db66619`](https://github.com/rjdbcm/OZI/commit/db666193bf07ee9a66b143690a5383ddd5f59c06))
+
+
 ## v0.0.182 (2023-11-01)
 
 ### :bug:
