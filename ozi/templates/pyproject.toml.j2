@@ -1,6 +1,5 @@
 {% for line in project.copyright_head.split('\n') %}{{ '# ' ~ line }}
 {% endfor %}
-
 {% include 'root.pyproject.toml' %}
 
 {% include 'bandit.pyproject.toml' %}
