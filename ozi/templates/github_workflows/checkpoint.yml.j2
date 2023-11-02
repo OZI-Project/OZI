@@ -53,7 +53,7 @@
 {%- endraw %}
         run: |
 {%- raw %}
-          cat .tox/${{ matrix.py }}/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
+          cat .tox/**/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
 {%- endraw %}
 
       - name: OZI utility setup (Second Try)
@@ -73,5 +73,5 @@
 {%- endraw %}
           path: |
 {%- raw %}
-            .tox/${{ matrix.py }}/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
+            .tox/**/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
 {%- endraw %}

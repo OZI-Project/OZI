@@ -63,7 +63,7 @@ jobs:
       - name: Logging Failures
         if: ${{ steps.setup1.outcome == 'failure' }}
         run: |
-          cat .tox/${{ matrix.py }}/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
+          cat .tox/**/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
 
       - name: '${{ matrix.ozi }} (Second Try)'
         if: ${{ steps.setup1.outcome == 'failure' }}
@@ -75,7 +75,7 @@ jobs:
         with:
           name: ${{ matrix.ozi }}-${{ matrix.os }}-${{ matrix.py }}-checkpoint
           path: |
-            .tox/${{ matrix.py }}/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
+            .tox/**/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
 
   release:
     needs: checkpoint
