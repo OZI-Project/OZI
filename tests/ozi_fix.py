@@ -46,6 +46,7 @@ bad_namespace = argparse.Namespace(
     add=['ozi.phony'],
     remove=['ozi.phony'],
     dist_requires=[],
+    allow_file=[],
 )
 
 

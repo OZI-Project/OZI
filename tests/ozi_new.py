@@ -53,6 +53,7 @@ import ozi.new
             'environment': st.one_of(list(map(st.just, ozi.new.CloseMatch.environment))),
             'status': st.one_of(list(map(st.just, ozi.new.CloseMatch.status))),
             'dist_requires': st.lists(st.text(max_size=16)),
+            'allow_file': st.just([]),
         },
     ),
     license=st.data(),
@@ -158,6 +159,7 @@ def test_new_project_bad_args(  # noqa: DC102
         'environment': 'No Input/Output (Daemon)',
         'status': '1 - Planning',
         'dist_requires': [],
+        'allow_file': [],
     }
     project_dict.update(item)
     namespace = argparse.Namespace(**project_dict)
@@ -193,6 +195,7 @@ def test_new_project_bad_target_not_empty(  # noqa: DC102
         'environment': 'No Input/Output (Daemon)',
         'status': '1 - Planning',
         'dist_requires': [],
+        'allow_file': [],
     }
     (project_dict['target'] / 'foobar').touch()
     namespace = argparse.Namespace(**project_dict)

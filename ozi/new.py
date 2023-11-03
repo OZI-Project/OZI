@@ -258,6 +258,14 @@ ozi_defaults.add_argument(
     action=argparse.BooleanOptionalAction,
     help='strict mode raises warnings to errors.',
 )
+ozi_defaults.add_argument(
+    '--allow-file',
+    help='Add a file to the allow list for new project target folder.',
+    action='append',
+    type=str,
+    nargs='?',
+    default=['templates', '.git'],
+)
 
 
 def copyright_head(
@@ -426,7 +434,9 @@ def create_project_files(  # noqa: C901
     project: argparse.Namespace, count: int, env: Environment
 ) -> int:
     """Create the actual project."""
-    if any(i for i in project.target.iterdir() if i not in ['templates', '.git']):
+    project.allow_file = set(map(Path, project.allow_file))
+    iterdir = (i for i in project.target.iterdir() if i not in project.allow_file)
+    if any(iterdir):
         warn(
             'Bail out! target directory not empty. No files will be created. Exiting.',
             RuntimeWarning,
