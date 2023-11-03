@@ -1,5 +1,22 @@
 # CHANGELOG
 
+
+
+## v0.0.185 (2023-11-03)
+
+### :hammer:
+
+* :hammer:(ozi-new): Update templates.
+
+Projects now initialize with a changelog.
+PKG-INFO is now initialized with version ``0.0.0``.
+README.rst initializes with the OZI extra package info. ([`d09381b`](https://github.com/rjdbcm/OZI/commit/d09381ba174da7046765f7ca4bae7a0905de1483))
+
+### :pencil2:
+
+* :pencil2: Update semantic_release CHANGELOG.md template whitespace ([`527aa60`](https://github.com/rjdbcm/OZI/commit/527aa6073ef053f1f680870c4cc01fc37126d5c5))
+
+
 ## v0.0.184 (2023-11-03)
 
 ### :hammer:
