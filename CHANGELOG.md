@@ -2,6 +2,13 @@
 
 
 
+## v0.0.186 (2023-11-03)
+
+### :hammer:
+
+* :hammer::pencil2:(ozi-new): Fix project source directory naming in root meson.build. ([`c8eba2f`](https://github.com/rjdbcm/OZI/commit/c8eba2ff2682e4f091542970769b7732366e7fe9))
+
+
 ## v0.0.185 (2023-11-03)
 
 ### :hammer:
