@@ -1,7 +1,7 @@
 # CHANGELOG
-{% if context.history.unreleased | length > 0 %}
+{%- if context.history.unreleased | length > 0 %}
 
-{# UNRELEASED #}
+{#- UNRELEASED -#}
 ## Unreleased
 {% for type_, commits in context.history.unreleased | dictsort %}
 ### {{ type_ | capitalize }}
@@ -11,9 +11,9 @@
 * {{ commit.commit.message.rstrip() }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
 {% endif %}{% endfor %}{% endfor %}
 
-{% endif %}
+{% endif -%}
 
-{# RELEASED #}
+{#- RELEASED -#}
 {% for version, release in context.history.released.items() %}
 ## {{ version.as_tag() }} ({{ release.tagged_date.strftime("%Y-%m-%d") }})
 {% for type_, commits in release["elements"] | dictsort %}
