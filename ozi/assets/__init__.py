@@ -254,6 +254,7 @@ root_templates = [
     'README.rst',
     'LICENSE.txt',
     'requirements.in',
+    'CHANGELOG.md',
 ]
 source_templates = [
     'project.name/__init__.py',

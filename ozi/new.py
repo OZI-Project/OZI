@@ -8,6 +8,7 @@ import hashlib
 import re
 import sys
 import warnings
+from datetime import datetime, timezone
 from importlib.metadata import version
 from pathlib import Path
 from typing import Callable, Mapping, NoReturn, Sequence, Tuple, Union
@@ -434,6 +435,7 @@ def create_project_files(  # noqa: C901
     project: argparse.Namespace, count: int, env: Environment
 ) -> int:
     """Create the actual project."""
+    project.argv = sys.argv[1:]
     project.allow_file = set(map(Path, project.allow_file))
     iterdir = (i for i in project.target.iterdir() if i not in project.allow_file)
     if any(iterdir):
@@ -450,11 +452,9 @@ def create_project_files(  # noqa: C901
             f.write(template.render())
     else:
         warn(
-            f'Bail out! --ci-provider {project.ci_provider} unrecognized.'
-            'No files will be created. Exiting',
+            f'--ci-provider {project.ci_provider} unrecognized.',
             RuntimeWarning,
         )
-        return 0
 
     Path(project.target, underscorify(project.name)).mkdir()
     Path(project.target, 'subprojects').mkdir()
@@ -463,7 +463,10 @@ def create_project_files(  # noqa: C901
     for filename in root_templates:
         template = env.get_template(f'{filename}.j2')
         try:
-            content = template.render()
+            content = template.render(
+                filename=filename,
+                date=datetime.now(tz=datetime.now(timezone.utc).astimezone().tzinfo),
+            )
         except TemplateNotFound:  # pragma: defer to good-first-issue
             content = f'template "{filename}" failed to render.'
             warn(content, RuntimeWarning)

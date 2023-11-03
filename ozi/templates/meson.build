@@ -11,6 +11,7 @@ root_templates = [
     'bandit.pyproject.toml',
     'black.meson.options',
     'black.pyproject.toml',
+    'CHANGELOG.md.j2',
     'coverage.pyproject.toml',
     'doc8.meson.options',
     'doc8.pyproject.toml',

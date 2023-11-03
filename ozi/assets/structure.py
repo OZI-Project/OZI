@@ -21,6 +21,7 @@ root_files = [
     'LICENSE.txt',
     'PKG-INFO',
     'requirements.in',
+    'CHANGELOG.md',
 ]
 source_files = [
     'meson.build',
