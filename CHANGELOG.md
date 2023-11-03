@@ -2,6 +2,26 @@
 
 
 
+## v0.0.184 (2023-11-03)
+
+### :hammer:
+
+* :hammer:(ozi-new): Add ``--allow-file``.
+
+Added a list of allowed files in a new project directory: ``project.allow_file``.
+Currently by default ``templates/`` and ``.git/`` are allowed. ([`a9640c1`](https://github.com/rjdbcm/OZI/commit/a9640c153c0d160bb82a344528d59dcb91d57e55))
+
+### :pencil2:
+
+* :pencil2: Update CHANGELOG.md
+
+Fix minor changelog format issues. ([`f53f628`](https://github.com/rjdbcm/OZI/commit/f53f62872fd5c985df753fd8f26e8f5c9603158b))
+
+### Other
+
+* Update CHANGELOG.md ([`dd953c8`](https://github.com/rjdbcm/OZI/commit/dd953c847a28e0936a4e94a2115319b3c920a303))
+
+
 ## v0.0.183 (2023-11-02)
 
 ### :bug:
@@ -125,8 +145,7 @@
 You can now add subdirectories that are nested like
 ```
 ozi-fix source -a foo/bar/baz/
-```
-([`5d3c15e`](https://github.com/rjdbcm/OZI/commit/5d3c15e7defcd1495ff4fc55aa24335aecdc9e25))
+``` ([`5d3c15e`](https://github.com/rjdbcm/OZI/commit/5d3c15e7defcd1495ff4fc55aa24335aecdc9e25))
 
 
 ## v0.0.170 (2023-10-30)
@@ -423,8 +442,7 @@ Also add requirements to PKG-INFO, including git. ([`2fda90e`](https://github.co
 ```
 # &lt;OZI-0.0.146&gt;/ozi/fix.py:239: RuntimeWarning
 not ok - 8 - &#34;Programming Language :: Python :: 3 :: Only&#34; MISSING
-```
-([`9e8b6c0`](https://github.com/rjdbcm/OZI/commit/9e8b6c0d8cfe70973ff094ff1455960dccb7334f))
+``` ([`9e8b6c0`](https://github.com/rjdbcm/OZI/commit/9e8b6c0d8cfe70973ff094ff1455960dccb7334f))
 
 ### :hammer:
 
@@ -531,8 +549,7 @@ Added ignored-by-default patterns for:
 
 ```python
 r&#39;^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9])$&#39;
-```
-([`9f5d2b8`](https://github.com/rjdbcm/OZI/commit/9f5d2b840834f4b5390ffc732950470494a7756e))
+``` ([`9f5d2b8`](https://github.com/rjdbcm/OZI/commit/9f5d2b840834f4b5390ffc732950470494a7756e))
 
 ### Other
 
@@ -679,8 +696,7 @@ TypeError: Object of type RewriteCommand is not JSON serializable ([`a9344cd`](h
 File &#34;&lt;OZI-0.0.129&gt;/ozi/fix.py&#34;, line 435, in main
 File &#34;&lt;OZI-0.0.129&gt;/ozi/fix.py&#34;, line 427, in preprocess
 TypeError: unhashable type: &#39;list&#39;
-```
-([`5ec84bb`](https://github.com/rjdbcm/OZI/commit/5ec84bb1c4640fd3d98ba70f5f412f52452c961e))
+``` ([`5ec84bb`](https://github.com/rjdbcm/OZI/commit/5ec84bb1c4640fd3d98ba70f5f412f52452c961e))
 
 ### Other
 
@@ -869,8 +885,7 @@ Should use TAP output throughout now. ([`1cf2cee`](https://github.com/rjdbcm/OZI
 ```
 File &#34;&lt;OZI-0.0.108&gt;/ozi/fix.py&#34;, line 250, in main
 AttributeError: &#39;str&#39; object has no attribute &#39;is_dir&#39;
-```
-([`8721bb0`](https://github.com/rjdbcm/OZI/commit/8721bb0235f12633352cb2afe705352c942f8323))
+``` ([`8721bb0`](https://github.com/rjdbcm/OZI/commit/8721bb0235f12633352cb2afe705352c942f8323))
 
 
 ## v0.0.108 (2023-09-17)
@@ -882,8 +897,7 @@ AttributeError: &#39;str&#39; object has no attribute &#39;is_dir&#39;
 ```
 File &#34;&lt;OZI-0.0.107&gt;/ozi/fix.py&#34;, line 244, in main
 AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
-```
-([`1368035`](https://github.com/rjdbcm/OZI/commit/13680352ef22520d748eab5a4a9966e63b65b2cc))
+``` ([`1368035`](https://github.com/rjdbcm/OZI/commit/13680352ef22520d748eab5a4a9966e63b65b2cc))
 
 ### :children_crossing:
 
@@ -2424,7 +2438,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 * 🙈 add .gitignore!!! ([`04e2eb4`](https://github.com/rjdbcm/OZI/commit/04e2eb40a954935a251f8c65574187c013448a74))
 
 
-## v0.0.1-v0.0.4 (2023-06-24)
+## v0.0.4 (2023-06-24)
 
 ### Other
 
@@ -2465,4 +2479,3 @@ add meson.override_find_program, remove todo wrap. ([`f01c0c7`](https://github.c
 * Create __init__.py ([`3f83f68`](https://github.com/rjdbcm/OZI/commit/3f83f68b731608d0462fb570aa8ea3a1e9915029))
 
 * Root folder sync to blastpipe-0.4.20 ([`b05b497`](https://github.com/rjdbcm/OZI/commit/b05b4977180014aae1e5276d9588fa089ab95ae2))
-
