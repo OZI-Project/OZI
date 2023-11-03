@@ -73,7 +73,7 @@ if false
     executable('root_files', root_files)
 endif
 root_children = [
-    project_name,
+    project_name.underscorify(),
     test_source,
 ]
 foreach child: root_children
