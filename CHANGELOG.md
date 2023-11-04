@@ -2,6 +2,15 @@
 
 
 
+## v0.0.187 (2023-11-04)
+
+### :bug:
+
+* :bug:(ozi-new): Project source ``meson.build`` options conditional removed.
+
+This check was added in error. ([`87bf8ec`](https://github.com/rjdbcm/OZI/commit/87bf8ec6b4c9888aa582e83f8ed65cbdc2318436))
+
+
 ## v0.0.186 (2023-11-03)
 
 ### :hammer:
