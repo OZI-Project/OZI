@@ -484,6 +484,10 @@ def create_project_files(  # noqa: C901
         with open(project.target / filename, 'w') as f:
             f.write(template.render())
 
+    template = env.get_template('project.ozi.wrap.j2')
+    with open(project.target / 'subprojects' / 'ozi.wrap', 'w') as f:
+        f.write(template.render())
+
     return count
 
 
