@@ -18,12 +18,10 @@ foreach file: source_files
     python_files += file+'i'
 endforeach
 python_files += ['py.typed']
-if get_option('dev').enabled()
-    foreach file: python_files
-        fs.copyfile(file)
-        python.install_sources(file, subdir: '{{ project.name }}')
-    endforeach
-endif
+foreach file: python_files
+    fs.copyfile(file)
+    python.install_sources(file, subdir: '{{ project.name }}')
+endforeach
 if false
     executable('source_files', source_files)
 endif
