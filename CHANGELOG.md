@@ -2,6 +2,13 @@
 
 
 
+## v0.0.188 (2023-11-04)
+
+### :bug:
+
+* :bug:(ozi-new): Fix missing __init__.pyi in project initialization. ([`94eb34f`](https://github.com/rjdbcm/OZI/commit/94eb34f7b754599e2f71f660b55396ec8aa21f55))
+
+
 ## v0.0.187 (2023-11-04)
 
 ### :bug:
