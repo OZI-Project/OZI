@@ -2,6 +2,15 @@
 
 
 
+## v0.0.190 (2023-11-04)
+
+### :hammer:
+
+* :hammer:(ozi-new): Add a cache key based on compiled requirements file.
+
+Prior to this patch caches were not checked against requirements file. ([`af72080`](https://github.com/rjdbcm/OZI/commit/af720803bfacd8944e02e2b1952bd5a160c387e4))
+
+
 ## v0.0.189 (2023-11-04)
 
 ### :hammer:
