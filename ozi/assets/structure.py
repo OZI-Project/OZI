@@ -25,6 +25,7 @@ root_files = [
 ]
 source_files = [
     'meson.build',
+    '__init__.pyi',
     '__init__.py',
     'py.typed',
 ]

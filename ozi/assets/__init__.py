@@ -258,6 +258,7 @@ root_templates = [
 ]
 source_templates = [
     'project.name/__init__.py',
+    'project.name/__init__.pyi',
     'project.name/meson.build',
     'project.name/py.typed',
 ]

@@ -3,6 +3,7 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 source_templates = [
+    '__init__.pyi.j2',
     '__init__.py.j2',
     'meson.build.j2',
     'py.typed.j2',
