@@ -2,6 +2,13 @@
 
 
 
+## v0.0.189 (2023-11-04)
+
+### :hammer:
+
+* :hammer:(ozi-new): Fix missing ``subprojects/ozi.wrap``. ([`97ba52a`](https://github.com/rjdbcm/OZI/commit/97ba52a0af7e15008e054956ce8a257f77e28b2e))
+
+
 ## v0.0.188 (2023-11-04)
 
 ### :bug:
