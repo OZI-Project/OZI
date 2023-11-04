@@ -31,6 +31,8 @@
         uses: actions/setup-python@v4
         with:
           cache: 'pip'
+          cache-dependency-path: |
+            .tox/**/tmp/**/requirements.txt
 {%- raw %}
           python-version: '${{ matrix.py }}'
 {%- endraw %}

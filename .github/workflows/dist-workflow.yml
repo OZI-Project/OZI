@@ -47,6 +47,8 @@ jobs:
         id: setup-python
         with:
           cache: 'pip'
+          cache-dependency-path: |
+            .tox/**/tmp/**/requirements.txt
           python-version: '${{ matrix.py }}'
 
       - name: Install dependencies
