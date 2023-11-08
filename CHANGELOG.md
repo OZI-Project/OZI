@@ -2,6 +2,19 @@
 
 
 
+## v0.0.191 (2023-11-08)
+
+### :hammer:
+
+* :hammer:(ozi-new): Add optional Project-URL metadata.
+
+Fixes Issue [Project-URLs are not supported by OZI #4](https://github.com/rjdbcm/OZI/issues/4) ([`b09898b`](https://github.com/rjdbcm/OZI/commit/b09898b02edc26ba07bc223e16edc0485fa3188d))
+
+### Other
+
+* :rotating_light:(tests/ozi_new.py): Fix black lint failure. ([`06419d9`](https://github.com/rjdbcm/OZI/commit/06419d98e16e6f56afd5c7e48f8e7c0282b7bc56))
+
+
 ## v0.0.190 (2023-11-04)
 
 ### :hammer:
