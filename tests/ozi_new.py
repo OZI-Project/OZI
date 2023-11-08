@@ -42,7 +42,7 @@ import ozi.new
             ),
             'home_page': st.one_of(st.just('https://oziproject.dev/')),
             'project_url': st.lists(
-                    st.just('A, https://oziproject.dev'),
+                st.just('A, https://oziproject.dev'),
                 max_size=1,
             ),
             'summary': st.text(max_size=512),
