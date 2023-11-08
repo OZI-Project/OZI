@@ -48,6 +48,9 @@ Requires-Dist: {{ req }}
 {%- if project.requires_external|length %}
 Requires-External: {{ project.requires_external|join(',') }}
 {%- endif %}
+{%- for project_url in project.project_url %}
+Project-URL: {{ project_url }}
+{%- endfor %}
 Description-Content-Type: text/x-rst
 
 {% include 'README.rst.j2' %}

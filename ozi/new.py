@@ -202,6 +202,11 @@ optional.add_argument(
     nargs='?',
     default=[],
 )
+optional.add_argument(
+    '--project-url',
+    help='Project-URL (Multiple Use, Comma-separated Tuple[name, url])',
+    action='append',
+)
 defaults.add_argument(
     '--language',
     '--natural-language',
@@ -418,16 +423,37 @@ def home_page(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespa
     """PKG-INFO:Home-page"""
     home_url = urlparse(project.home_page)
     if home_url.scheme != 'https':
-        warn('Homepage url scheme unsupported.', RuntimeWarning)
+        warn('Home-page url scheme unsupported.', RuntimeWarning)
     else:
-        print('ok', '-', 'Homepage-Scheme')
+        print('ok', '-', 'Home-page scheme')
     count += 1
-
     if home_url.netloc == '':
-        warn('Homepage url netloc could not be parsed.', RuntimeWarning)
+        warn('Home-page url netloc could not be parsed.', RuntimeWarning)
     else:
-        print('ok', '-', 'Homepage-Netloc')
+        print('ok', '-', 'Home-page netloc')
     count += 1
+    return project, count
+
+
+def project_url(project: argparse.Namespace, count: int) -> Tuple[argparse.Namespace, int]:
+    """PKG-INFO:Project-URL"""
+    for name, url in [str(i).split(',') for i in project.project_url]:
+        if len(name) > 32:
+            warn('Project-URL name is longer that 32 characters.', RuntimeWarning)
+        else:
+            print('ok', '-', 'Project-URL name')
+        count += 1
+        parsed_url = urlparse(url)
+        if parsed_url.scheme != 'https':
+            warn('Project-URL url scheme unsupported.', RuntimeWarning)
+        else:
+            print('ok', '-', 'Project-URL scheme')
+        count += 1
+        if parsed_url.netloc == '':
+            warn('Project-URL url netloc could not be parsed.', RuntimeWarning)
+        else:
+            print('ok', '-', 'Project-URL netloc')
+        count += 1
     return project, count
 
 
@@ -509,6 +535,7 @@ def new_project(project: argparse.Namespace) -> int:
     args = maintainer_email(*args)
     args = name(*args)
     args = home_page(*args)
+    args = project_url(*args)
 
     project, count = args
 
