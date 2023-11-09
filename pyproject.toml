@@ -201,6 +201,7 @@ Requires-Dist: requests
 Requires-Dist: spdx-license-list
 Requires-Dist: trove-classifiers
 Requires-Dist: pip-tools
+Requires-Dist: GitPython
 Requires-External: git
 Requires-Python: >=3.10, <=3.12
 Classifier: Development Status :: 2 - Pre-Alpha

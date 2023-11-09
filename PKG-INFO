@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: OZI
-Version: 0.0.192
+Version: 0.0.193
 Summary: Packaged with OZI.
-Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/0.0.192.tar.gz
+Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/0.0.193.tar.gz
 Home-page: https://oziproject.dev/
 Keywords: meson,packaging,wheel
 Project-URL: Bug Tracker, https://github.com/rjdbcm/ozi/issues
@@ -13,6 +13,7 @@ Requires-Dist: requests
 Requires-Dist: spdx-license-list
 Requires-Dist: trove-classifiers
 Requires-Dist: pip-tools
+Requires-Dist: GitPython
 Requires-External: git
 Requires-Python: >=3.10, <=3.12
 Classifier: Development Status :: 2 - Pre-Alpha

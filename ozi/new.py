@@ -18,6 +18,7 @@ from warnings import warn
 
 import requests  # type: ignore
 from email_validator import EmailNotValidError, EmailSyntaxError, validate_email
+from git import InvalidGitRepositoryError, Repo
 from jinja2 import Environment, PackageLoader, TemplateNotFound, select_autoescape
 from pyparsing import Combine, ParseException, Regex
 from spdx_license_list import LICENSES  # type: ignore
@@ -472,13 +473,17 @@ def create_project_files(  # noqa: C901
         return 0
 
     if project.ci_provider == 'github':
+        try:
+            project.ci_user = Repo(project.target).config_reader().get('user', 'name')
+        except InvalidGitRepositoryError:
+            project.ci_user = ''
         Path(project.target, '.github', 'workflows').mkdir(parents=True)
         template = env.get_template('github_workflows/ozi.yml.j2')
         with open(Path(project.target, '.github', 'workflows', 'ozi.yml'), 'w') as f:
             f.write(template.render())
     else:
         warn(
-            f'--ci-provider {project.ci_provider} unrecognized.',
+            f'--ci-provider "{project.ci_provider}" unrecognized. ci_user could not be set.',
             RuntimeWarning,
         )
 
