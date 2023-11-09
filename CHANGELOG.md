@@ -2,6 +2,18 @@
 
 
 
+## v0.0.193 (2023-11-09)
+
+### :hammer:
+
+* :hammer:(ozi-new): Add Download-URL to PKG-INFO Template.
+
+Adds a ``project.ci_user`` dependent on ``project.ci_provider``.
+Adds a ``Download-URL`` output dependent on ``project.ci_provider``.
+Adds dependency on [GitPython](https://pypi.org/project/GitPython)
+Fixes Issue #5 [OZI does not support Download-URL header.](https://github.com/rjdbcm/OZI/issues/5) ([`070f033`](https://github.com/rjdbcm/OZI/commit/070f03380dae39b2e2ceb0ad63af7d9a2c38e873))
+
+
 ## v0.0.192 (2023-11-09)
 
 ### :hammer:
