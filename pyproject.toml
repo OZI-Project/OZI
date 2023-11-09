@@ -190,7 +190,7 @@ Metadata-Version: 2.1
 Name: OZI
 Version: {version}
 Summary: Packaged with OZI.
-Download-URL: https://github.com/rjdbcm/ozi/archive/refs/heads/main.zip
+Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/{version}.tar.gz
 Home-page: https://oziproject.dev/
 Keywords: meson,packaging,wheel
 Project-URL: Bug Tracker, https://github.com/rjdbcm/ozi/issues
