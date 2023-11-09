@@ -2,6 +2,15 @@
 
 
 
+## v0.0.192 (2023-11-09)
+
+### :hammer:
+
+* :hammer:(ozi-new): Use ``shlex.join()`` to render argv in changelog. ([`33b5219`](https://github.com/rjdbcm/OZI/commit/33b5219bd80cf11e53de3124b779d332735a464c))
+
+* :hammer:(PKG-INFO): Correct Download-URL. ([`f787eb8`](https://github.com/rjdbcm/OZI/commit/f787eb82bdde5c273232c1a08a4b7e7c9f5fd9b0))
+
+
 ## v0.0.191 (2023-11-08)
 
 ### :hammer:
