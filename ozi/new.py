@@ -6,6 +6,7 @@
 import argparse
 import hashlib
 import re
+import shlex
 import sys
 import warnings
 from datetime import datetime, timezone
@@ -461,7 +462,6 @@ def create_project_files(  # noqa: C901
     project: argparse.Namespace, count: int, env: Environment
 ) -> int:
     """Create the actual project."""
-    project.argv = sys.argv[1:]
     project.allow_file = set(map(Path, project.allow_file))
     iterdir = (i for i in project.target.iterdir() if i not in project.allow_file)
     if any(iterdir):
@@ -595,6 +595,7 @@ __new_item: Mapping[str, Callable[[argparse.Namespace], int]] = {
 def main() -> Union[NoReturn, None]:  # pragma: no cover
     """Main ozi.new entrypoint."""
     project = parser.parse_args()
+    project.argv = shlex.join(sys.argv[1:])
     if project.list == '':
         pass
     elif project.list in list_available.keys():
