@@ -2,6 +2,15 @@
 
 
 
+## v0.0.194 (2023-11-09)
+
+### :bug:
+
+* :bug:(ozi-new): Fix TypeError.
+
+missing default. ([`3f8b5ff`](https://github.com/rjdbcm/OZI/commit/3f8b5ff539d54c024f1a4c89636db352b57390ed))
+
+
 ## v0.0.193 (2023-11-09)
 
 ### :hammer:
