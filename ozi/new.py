@@ -208,6 +208,7 @@ optional.add_argument(
     '--project-url',
     help='Project-URL (Multiple Use, Comma-separated Tuple[name, url])',
     action='append',
+    default=[],
 )
 defaults.add_argument(
     '--language',
