@@ -179,7 +179,7 @@ jobs:
 
     - name: Build and sign sdist
       id: sdist
-      if: matrix.py == '{{ ozi.py_bugfix1|wheel_repr }}'
+      if: matrix.py == 'py312'
       run: |
         meson setup build
         meson dist -C build --formats gztar --no-tests
