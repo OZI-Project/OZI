@@ -107,6 +107,18 @@
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
 {%- endraw %}
 
+{%- raw %}
+    - name: Build ${{ matrix.py }} sdist
+{%- endraw %}
+      id: wheel
+      if: matrix.py == '{{ ozi.py_bugfix1|wheel_repr }}'
+      run: |
+        meson setup build
+        meson dist -C build --formats gztar --no-tests
+{%- raw %}
+        mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
+{%- endraw %}
+
 {% include 'github_workflows/sigstore.yml.j2' %}
 
     - name: Move dist-info file

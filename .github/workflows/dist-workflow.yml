@@ -177,15 +177,25 @@ jobs:
         python -m pyc_wheel dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
 
-    - name: Sign ${{ matrix.py }} wheel
+    - name: Build ${{ matrix.py }} sdist
+      id: sdist
+      if: matrix.py == '{{ ozi.py_bugfix1|wheel_repr }}'
+      run: |
+        meson setup build
+        meson dist -C build --formats gztar --no-tests
+        mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
+
+    - name: Sign wheel and sdist
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
       run: |
         sigstore sign dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
+        sigstore sign dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz
 
     - name: Move sigstore signing files
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
       run: |
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore
+        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore
 
     - name: Move dist-info file
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
