@@ -159,6 +159,7 @@ jobs:
           python -m pip install --user --upgrade meson
           python -m pip install --user --upgrade setuptools_scm
           python -m pip install --user --upgrade ninja
+          python -m pip install --user --upgrade pip-tools
 
     - name: Configure git repository
       if: matrix.py == 'py310'
