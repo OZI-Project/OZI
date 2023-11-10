@@ -2,6 +2,15 @@
 
 
 
+## v0.0.195 (2023-11-10)
+
+### :hammer:
+
+* :hammer::construction_worker:(GitHub): Fix publish workflow to publish an sdist.
+
+Fixes sdist builds disabled #2 ([`5a059e1`](https://github.com/rjdbcm/OZI/commit/5a059e1f3236506e28c03f44330fd3c36f72b2e9))
+
+
 ## v0.0.194 (2023-11-09)
 
 ### :bug:
