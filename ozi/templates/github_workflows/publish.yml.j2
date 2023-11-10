@@ -17,17 +17,17 @@
     - name: Move artifact
       run: cp -a artifact/. ./
 
+    - name: Publish package distributions to GitHub Releases
+      uses: python-semantic-release/upload-to-gh-release@0f96c02a48278aff14251e9f1a0d73122a8c638b
+      with:
+{%- raw %}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+{%- endraw %}
+
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:
         user: __token__
 {%- raw %}
         password: ${{ secrets.PYPI_API_TOKEN }}
-{%- endraw %}
-
-    - name: Publish package distributions to GitHub Releases
-      uses: python-semantic-release/upload-to-gh-release@0f96c02a48278aff14251e9f1a0d73122a8c638b
-      with:
-{%- raw %}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
 {%- endraw %}
