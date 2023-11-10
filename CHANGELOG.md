@@ -6,9 +6,15 @@
 
 ### :bug:
 
+* :bug: Fix release signing for sdist. ([`8295605`](https://github.com/rjdbcm/OZI/commit/829560542fab9f36f86e90e3074f10fa2814aa99))
+
 * :bug:(CI): Fix sdist release.
 
 Also publishes a sigstore bundle for the tarball release. ([`dcdfb20`](https://github.com/rjdbcm/OZI/commit/dcdfb204cc57fbaea6d7609928aff4ad17209145))
+
+### :pencil2:
+
+* :pencil2: Fix typo from clipboard. ([`fe1561c`](https://github.com/rjdbcm/OZI/commit/fe1561c213391ca697c481968cd62852b77f32b5))
 
 
 ## v0.0.195 (2023-11-10)
