@@ -6,6 +6,8 @@
 
 ### :bug:
 
+* :bug:: Fix missing ``pip-tools`` dep. ([`1ee16cc`](https://github.com/rjdbcm/OZI/commit/1ee16ccaea5741a513982bc4681b3b8c8c838865))
+
 * :bug: Fix release signing for sdist. ([`8295605`](https://github.com/rjdbcm/OZI/commit/829560542fab9f36f86e90e3074f10fa2814aa99))
 
 * :bug:(CI): Fix sdist release.
@@ -15,6 +17,10 @@ Also publishes a sigstore bundle for the tarball release. ([`dcdfb20`](https://g
 ### :pencil2:
 
 * :pencil2: Fix typo from clipboard. ([`fe1561c`](https://github.com/rjdbcm/OZI/commit/fe1561c213391ca697c481968cd62852b77f32b5))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`9c16b2f`](https://github.com/rjdbcm/OZI/commit/9c16b2fe8f56b55fe10b2bd1fb629851cb0f0a86))
 
 
 ## v0.0.195 (2023-11-10)
