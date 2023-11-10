@@ -2,6 +2,15 @@
 
 
 
+## v0.0.196 (2023-11-10)
+
+### :bug:
+
+* :bug:(CI): Fix sdist release.
+
+Also publishes a sigstore bundle for the tarball release. ([`dcdfb20`](https://github.com/rjdbcm/OZI/commit/dcdfb204cc57fbaea6d7609928aff4ad17209145))
+
+
 ## v0.0.195 (2023-11-10)
 
 ### :hammer:
