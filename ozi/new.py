@@ -10,31 +10,26 @@ import shlex
 import sys
 import warnings
 from datetime import datetime, timezone
-from importlib.metadata import version
 from pathlib import Path
-from typing import Callable, Mapping, NoReturn, Sequence, Tuple, Union
+from typing import NoReturn, Sequence, Tuple, Union
 from urllib.parse import urlparse
 from warnings import warn
 
-import requests  # type: ignore
-from email_validator import EmailNotValidError, EmailSyntaxError, validate_email
+import requests
+from email_validator import validate_email  # type: ignore
 from git import InvalidGitRepositoryError, Repo
 from jinja2 import Environment, PackageLoader, TemplateNotFound, select_autoescape
+from packaging.version import parse
 from pyparsing import Combine, ParseException, Regex
-from spdx_license_list import LICENSES  # type: ignore
 
+from . import metadata
 from .assets import (
     CloseMatch,
     ambiguous_licenses,
-    implementation_support,
-    metadata_version,
-    python_support,
     root_templates,
     source_templates,
-    spdx_exceptions,
     spdx_license_expression,
     spdx_options,
-    specification_version,
     tap_warning_format,
     test_templates,
     underscorify,
@@ -43,27 +38,32 @@ from .assets import (
 
 warnings.formatwarning = tap_warning_format  # type: ignore
 
-list_available = {
-    'audience': sorted((i for i in CloseMatch.audience)),
-    'environment': sorted((i for i in CloseMatch.environment)),
-    'framework': sorted((i for i in CloseMatch.framework)),
-    'language': sorted((i for i in CloseMatch.language)),
-    'license': sorted((i for i in CloseMatch.license)),
-    'license-id': sorted((k for k, v in LICENSES.items() if v.deprecated_id is False)),
-    'license-exception-id': sorted(spdx_exceptions),
-    'status': sorted(CloseMatch.status),
-    'topic': sorted(CloseMatch.topic),
-}
 
-
-def __sha256sum(url: str) -> str:  # pragma: no cover
-    """Checksum filter for URL content."""
-    checksum = hashlib.sha256()
-    chunksize = 128 * 512
-    response = requests.get(url, allow_redirects=True, stream=True, timeout=30)
-    for chunk in response.iter_content(chunksize):
-        checksum.update(chunk)
-    return checksum.hexdigest()
+def __sha256sum(version: str) -> str:  # pragma: no cover
+    """Checksum filter for OZI source version.
+    :param version: Version of OZI to get a hash for.
+    :returns:
+    """
+    response = requests.get('https://pypi.org/pypi/OZI/json', timeout=30)
+    match response.status_code:
+        case 200:
+            releases = response.json()['releases']
+            latest_version = max(map(parse, releases.keys()))
+            return str(
+                [i for i in releases[latest_version] if i['filename'].endswith('.tar.gz')][0]
+            )
+        case _:
+            checksum = hashlib.sha256()
+            chunksize = 128 * 512
+            response = requests.get(
+                f'https://github.com/rjdbcm/OZI/archive/refs/tags/{version}.tar.gz',
+                allow_redirects=True,
+                stream=True,
+                timeout=30,
+            )
+            for chunk in response.iter_content(chunksize):
+                checksum.update(chunk)
+            return checksum.hexdigest()
 
 
 env = Environment(
@@ -102,31 +102,52 @@ ozi_defaults.add_argument(
     type=str,
     default='',
     help='copyright header string',
-    metavar='"Part of the NAME project.\\nSee LICENSE..."',
+    metavar='Part of the NAME project.\\nSee LICENSE...',
 )
 ozi_defaults.add_argument(
     '--ci-provider',
     type=str,
     default='github',
     choices=frozenset(('github',)),
-    metavar='"github"',
+    metavar='github',
     help='continuous integration and release provider',
 )
-required.add_argument('-n', '--name', type=str, help='Name (Single Use)')
-required.add_argument('-a', '--author', type=str, help='Author (Single Use)')
+required.add_argument(
+    '-n',
+    '--name',
+    type=str,
+    help='Name (Single Use)',
+    required=True,
+)
+required.add_argument(
+    '-a',
+    '--author',
+    type=str,
+    help='Author (Multiple Use, Single output)',
+    required=True,
+    default=[],
+    nargs='?',
+)
 required.add_argument(
     '-e',
     '--author-email',
     type=str,
-    help='Author-email (Single Use, Comma-separated List)',
-    action='append',
+    help='Author-email (Multiple Use, Single output)',
+    required=True,
+    default=[],
+    nargs='?',
 )
-required.add_argument('-s', '--summary', type=str, help='Summary (Single Use)')
-required.add_argument('-p', '--home-page', type=str, help='Home-page (Single Use)')
+required.add_argument(
+    '-s', '--summary', type=str, help='Summary (Single Use)', required=True
+)
+required.add_argument(
+    '-p', '--home-page', type=str, help='Home-page (Single Use)', required=True
+)
 required.add_argument(
     '--license-expression',
     type=str,
     help='Classifier: License Expression (Single Use, SPDX Expression)',
+    required=True,
 )
 required.add_argument(
     '-l',
@@ -134,6 +155,7 @@ required.add_argument(
     type=str,
     help='Classifier: License (Single Use)',
     action=CloseMatch,
+    required=True,
 )
 ozi_required.add_argument(
     'target',
@@ -148,9 +170,8 @@ defaults.add_argument(
     '--audience',
     '--intended-audience',
     type=str,
-    help='Classifier: Intended Audience (Multiple Use)',
+    help='Classifier: Intended Audience (Multiple Use)(default: ["Other Audience"])',
     default=['Other Audience'],
-    metavar='{Other Audience, ...}',
     nargs='?',
     action=CloseMatch,
 )
@@ -158,16 +179,14 @@ defaults.add_argument(
     '--typing',
     type=str,
     choices=frozenset(('Typed', 'Stubs Only')),
-    metavar='{Typing, ...}',
     nargs='?',
-    help='Classifier: Typing (Multiple Use)',
+    help='Classifier: Typing (Multiple Use)(default: [Typed])',
     default=['Typed'],
 )
 defaults.add_argument(
     '--environment',
     default=['Other Environment'],
-    metavar='{Other Environment,...}',
-    help='Classifier: Environment (Multiple Use)',
+    help='Classifier: Environment (Multiple Use)(default: ["Other Environment"])',
     action=CloseMatch,
     nargs='?',
     type=str,
@@ -176,7 +195,7 @@ defaults.add_argument(
     '--license-file',
     default='LICENSE.txt',
     choices=frozenset(('LICENSE.txt',)),
-    help='Classifier: License File (Single Use)',
+    help='Classifier: License File (Single Use)(default: LICENSE.txt)',
     type=str,
 )
 optional.add_argument(
@@ -187,14 +206,15 @@ optional.add_argument(
 )
 optional.add_argument(
     '--maintainer',
-    default='',
-    help='Maintainer (if different from Author)',
+    default=[],
+    nargs='?',
+    help='Maintainer (Multiple Use, Single output, if different from Author)',
 )
 optional.add_argument(
     '--maintainer-email',
-    default='',
-    help='Maintainer-Email (if different from Author-Email)',
-    action='append',
+    help='Maintainer-Email (Multiple Use, Single output, if different from Author-Email)',
+    default=[],
+    nargs='?',
 )
 optional.add_argument(
     '--framework',
@@ -214,8 +234,7 @@ defaults.add_argument(
     '--language',
     '--natural-language',
     default=['English'],
-    metavar='{English, ...}',
-    help='Classifier: Natural Language (Multiple Use)',
+    help='Classifier: Natural Language (Multiple Use)(default: [English])',
     action=CloseMatch,
     type=str,
     nargs='?',
@@ -233,8 +252,7 @@ defaults.add_argument(
     '--development-status',
     action=CloseMatch,
     default=['1 - Planning'],
-    help='Classifier: Development Status (Single Use)',
-    metavar='"1 - Planning"',
+    help='Classifier: Development Status (Single Use)(default: "1 - Planning")',
     type=str,
 )
 optional.add_argument(
@@ -248,28 +266,27 @@ optional.add_argument(
 )
 output = parser.add_mutually_exclusive_group()
 output.add_argument('-h', '--help', action='help', help='show this help message and exit')
-output.add_argument(
-    '-l',
-    '--list',
-    type=str,
-    choices=list_available.keys(),
-    help='list valid option settings and exit',
-)
 ozi_defaults.add_argument(
     '--verify-email',
     default='--no-verify-email',
     action=argparse.BooleanOptionalAction,
-    help='email domain deliverability check',
+    help='verify email domain deliverability(default: --no-verify-email)',
+)
+ozi_defaults.add_argument(
+    '--check-for-update',
+    default='--check-for-update',
+    action=argparse.BooleanOptionalAction,
+    help='check that the package version of OZI is up to date(default: --check-for-update)',
 )
 ozi_defaults.add_argument(
     '--strict',
     default='--no-strict',
     action=argparse.BooleanOptionalAction,
-    help='strict mode raises warnings to errors.',
+    help='strict mode raises warnings to errors(default: --strict)',
 )
 ozi_defaults.add_argument(
     '--allow-file',
-    help='Add a file to the allow list for new project target folder.',
+    help='Add a file to the allow list for new project target folder(default: [templates, .git])',
     action='append',
     type=str,
     nargs='?',
@@ -355,14 +372,16 @@ def author_email(  # noqa: C901
     for email in set(project.author_email).union(project.maintainer_email):
         try:
             emailinfo = validate_email(email, check_deliverability=project.verify_email)
-            email_normalized = emailinfo.normalized
-            if email in project.author_email:
-                author_email += [email_normalized]
-            if email in project.maintainer_email:
-                maintainer_email += [email_normalized]
+            if emailinfo.error:
+                warn(emailinfo.error, RuntimeWarning)
+            else:
+                if email in project.author_email:
+                    author_email += [emailinfo.ascii_email]
+                if email in project.maintainer_email:
+                    maintainer_email += [emailinfo.ascii_email]
             print('ok', '-', 'Author-Email')
-        except (EmailNotValidError, EmailSyntaxError) as e:
-            warn(str(e), RuntimeWarning)
+        except IndexError:
+            warn('missing email domain e.g. "@example.com"', RuntimeWarning)
         count += 1
     project.author_email = author_email
     project.maintainer_email = maintainer_email
@@ -390,7 +409,7 @@ def maintainer_email(  # noqa: C901
         print('ok', '-', 'Author-Email(s) provided.')
     count += 1
 
-    if project.author == project.maintainer:
+    if set(project.author_email).intersection(project.maintainer_email):
         warn(
             'Author and Maintainer are identical. Maintainer should be empty.',
             RuntimeWarning,
@@ -400,7 +419,7 @@ def maintainer_email(  # noqa: C901
     elif len(project.maintainer) and len(project.author):
         print('ok', '-', 'Author and Maintainer provided.')
     elif author_and_maintainer_email and not len(project.maintainer):
-        warn(
+        warn(  # pragma: defer to good-first-issue
             'Expected Maintainer name missing for provided Maintainer-Email.', RuntimeWarning
         )
     else:
@@ -449,8 +468,6 @@ def project_url(project: argparse.Namespace, count: int) -> Tuple[argparse.Names
         parsed_url = urlparse(url)
         if parsed_url.scheme != 'https':
             warn('Project-URL url scheme unsupported.', RuntimeWarning)
-        else:
-            print('ok', '-', 'Project-URL scheme')
         count += 1
         if parsed_url.netloc == '':
             warn('Project-URL url netloc could not be parsed.', RuntimeWarning)
@@ -523,7 +540,7 @@ def create_project_files(  # noqa: C901
     return count
 
 
-def new_project(project: argparse.Namespace) -> int:
+def project(project: argparse.Namespace) -> int:
     """Create a new project in a target directory."""
     count = 0
 
@@ -552,39 +569,17 @@ def new_project(project: argparse.Namespace) -> int:
 
     env.globals = env.globals | {
         'project': vars(project),
-        'ozi': {
-            'version': version('OZI'),
-            'spec': specification_version,
-            'metadata_version': metadata_version,
-            'py_major': python_support.major,
-            'py_security': '.'.join(
-                map(str, (python_support.major, python_support.security))
-            ),
-            'py_bugfix2': '.'.join(map(str, (python_support.major, python_support.bugfix2))),
-            'py_bugfix1': '.'.join(map(str, (python_support.major, python_support.bugfix1))),
-            'py_implementations': implementation_support,
-        },
+        **metadata,
     }
     return create_project_files(project, count, env)
 
 
-def __new_wrap(project: argparse.Namespace) -> int:  # pragma: no cover
+def wrap(project: argparse.Namespace) -> int:  # pragma: no cover
     """Create a new wrap file for publishing. Not a public function."""
 
     env.globals = env.globals | {
         'project': vars(project),
-        'ozi': {
-            'version': version('OZI'),
-            'metadata_version': metadata_version,
-            'spec': specification_version,
-            'py_major': python_support.major,
-            'py_security': '.'.join(
-                map(str, (python_support.major, python_support.security))
-            ),
-            'py_bugfix2': '.'.join(map(str, (python_support.major, python_support.bugfix2))),
-            'py_bugfix1': '.'.join(map(str, (python_support.major, python_support.bugfix1))),
-            'py_implementations': implementation_support,
-        },
+        **metadata,
     }
     template = env.get_template('ozi.wrap.j2')
     with open('ozi.wrap', 'w') as f:
@@ -592,22 +587,20 @@ def __new_wrap(project: argparse.Namespace) -> int:  # pragma: no cover
     return 1
 
 
-__new_item: Mapping[str, Callable[[argparse.Namespace], int]] = {
-    'project': new_project,
-    'wrap': __new_wrap,
-}
-
-
 def main() -> Union[NoReturn, None]:  # pragma: no cover
     """Main ozi.new entrypoint."""
-    project = parser.parse_args()
-    project.argv = shlex.join(sys.argv[1:])
-    if project.list == '':
-        pass
-    elif project.list in list_available.keys():
-        print(*list_available.get(project.list, []), sep='\n')
-        exit(0)
-    return print(f'1..{__new_item.get(project.new, lambda _: None)(project)}')
+    ozi_new = parser.parse_args()
+    ozi_new.argv = shlex.join(sys.argv[1:])
+    result = 0
+    match ozi_new:
+        case ozi_new if ozi_new.new in ['p', 'project']:
+            result = project(ozi_new)
+        case ozi_new if ozi_new.new in ['w', 'wrap']:
+            result = wrap(ozi_new)
+        case _:
+            parser.print_usage()
+
+    return print(f'1..{result}')
 
 
 if __name__ == '__main__':

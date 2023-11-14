@@ -11,13 +11,26 @@ import os
 import re
 import sys
 import warnings
+from contextlib import contextmanager, suppress
 from dataclasses import asdict, dataclass, field
 from email import message_from_file
 from email.message import Message
 from functools import partial
-from importlib.metadata import version
 from pathlib import Path
-from typing import Annotated, Any, Callable, Dict, List, Mapping, NoReturn, Set, Tuple, Union
+from runpy import run_module
+from typing import (
+    Annotated,
+    Any,
+    Callable,
+    Dict,
+    Generator,
+    List,
+    Mapping,
+    NoReturn,
+    Set,
+    Tuple,
+    Union,
+)
 from warnings import warn
 
 from jinja2 import Environment, PackageLoader, Template, select_autoescape
@@ -34,6 +47,7 @@ from pyparsing import (
     oneOf,
 )
 
+from . import metadata
 from .assets import (
     python_support_required,
     spdx_license_expression,
@@ -55,12 +69,7 @@ env = Environment(
     enable_async=True,
 )
 env.filters['underscorify'] = underscorify
-env.globals = env.globals | {
-    'ozi': {
-        'version': version('OZI'),
-        'spec': '0.1',
-    },
-}
+env.globals = env.globals | metadata
 parser = argparse.ArgumentParser(description=sys.modules[__name__].__doc__, add_help=False)
 subparser = parser.add_subparsers(help='source & test fix', dest='fix')
 parser.add_argument('target', type=str, help='target OZI project directory')
@@ -93,7 +102,7 @@ source_parser.add_argument(
     type=str,
     default='',
     help='copyright header string',
-    metavar='"Part of the NAME project.\\nSee LICENSE..."',
+    metavar='Part of the NAME project.\\nSee LICENSE...',
 )
 source_output = source_parser.add_argument_group('output')
 source_output.add_argument(
@@ -126,7 +135,7 @@ test_parser.add_argument(
     type=str,
     default='',
     help='copyright header string',
-    metavar='"Part of the NAME project.\\nSee LICENSE..."',
+    metavar='Part of the NAME project.\\nSee LICENSE...',
 )
 test_output = test_parser.add_argument_group('output')
 test_output.add_argument(
@@ -145,6 +154,7 @@ missing_parser = subparser.add_parser(
     'missing',
     aliases=['m'],
     description='Create a new Python test in an OZI project.',
+    add_help=False,
 )
 missing_parser.add_argument(
     '--add',
@@ -164,13 +174,20 @@ missing_parser.add_argument(
     '--strict',
     default='--no-strict',
     action=argparse.BooleanOptionalAction,
-    help='strict mode raises warnings to errors.',
+    help='strict mode raises warnings to errors, default: --no-strict',
+)
+missing_parser.add_argument(
+    '--run-utility',
+    default='--run-utility',
+    action=argparse.BooleanOptionalAction,
+    help='run-utility mode runs isort, autoflake, and black with OZI standard arguments,'
+    ' default: --run-utlity',
 )
 missing_parser.add_argument(
     '--pretty',
     default='--no-pretty',
     action=argparse.BooleanOptionalAction,
-    help='strict mode raises warnings to errors.',
+    help='pretty mode outputs indented json, default: --no-pretty',
 )
 
 
@@ -269,7 +286,36 @@ def missing_required(
     return count, name, extra_pkg_info
 
 
-def missing_required_files(
+def count_comments(  # noqa: C901
+    count: int, lines: List[str], rel_path: Path
+) -> int:  # pragma: defer to good-first-issue
+    for i, line in enumerate(lines, start=1):
+        if s := re.search(r'(.*?noqa:\s[A-Z0-9]*.*?)', line):
+            count += 1
+            print('#', 'NOQA', f'{str(rel_path)}:{i}', s[0].strip())
+        if s := re.search(r'(.*?type:\signore.*?)', line):
+            count += 1
+            print('#', 'TYPE', f'{str(rel_path)}:{i}', s[0].strip())
+        if s := re.search(r'(.*?pragma:\sdefer\sto\s[a-z_-]*.*?)', line):
+            count += 1
+            print(
+                '#',
+                'PRAGMA',
+                f'{str(rel_path)}:{i}',
+                s[0].strip(),
+            )
+        if s := re.search(r'(.*?pragma:\sno\scover\s.*?)', line):
+            count += 1
+            print(
+                '#',
+                'PRAGMA',
+                f'{str(rel_path)}:{i}',
+                s[0].strip(),
+            )
+    return count
+
+
+def missing_required_files(  # noqa: C901
     kind: str,
     target: Path,
     count: int,
@@ -286,14 +332,17 @@ def missing_required_files(
         'root': Path('.'),
     }
     for file in vars(sys.modules[__name__]).get('_'.join([kind, 'files']), []):
-        count += 1
         rel_path = mapping.get(kind, Path('.')) / file
         if not target.joinpath(rel_path).exists():
+            count += 1
             warn(f'{count} - {rel_path} MISSING', RuntimeWarning)
             miss_count += 1
             continue  # pragma: defer to https://github.com/nedbat/coveragepy/issues/198
-        else:
-            stdout('ok', count, '-', rel_path)
+        elif str(rel_path).endswith('.py'):
+            with open(target.joinpath(rel_path), 'r') as f:
+                count_comments(count, f.readlines(), rel_path)
+        count += 1
+        stdout('ok', count, '-', rel_path)
         found_files.append(file)
     rel_path = mapping.get(kind, Path('.'))
     extra_files = [
@@ -302,10 +351,32 @@ def missing_required_files(
         if os.path.isfile(target / rel_path / file)
     ]
     extra_files = list(set(extra_files).symmetric_difference(set(found_files)))
+    build_files = []
     for file in extra_files:  # pragma: no cover
-        count += 1
-        stdout('ok', count, '#', 'SKIP', rel_path / file)
-
+        with open(str((rel_path / file).parent / 'meson.build'), 'r') as f:
+            for _ in [
+                i for i in f.readlines() if re.search(fr'(.*?[\'|"]{file}[\'|"].*?)', i)
+            ]:
+                count += 1
+                build_file = str((rel_path / file).parent / 'meson.build')
+                stdout(
+                    'ok',
+                    count,
+                    '-',
+                    f'{build_file}:',
+                    str(rel_path / file),
+                )
+        build_files += [str(rel_path / file)]
+        if str(file).endswith('.py') and str(rel_path / file) not in build_files:
+            build_file = str(rel_path / 'meson.build')
+            warn(
+                f'{count} - MISSING {build_file}: {str(rel_path / file)}',
+                RuntimeWarning,
+            )
+            print(f'# SKIP {str(rel_path / file)}')
+        elif str(file).endswith('.py'):
+            with open(target.joinpath(rel_path) / file, 'r') as g:
+                count_comments(count, g.readlines(), rel_path / file)
     return count, miss_count, found_files, extra_files
 
 
@@ -564,11 +635,27 @@ def preprocess(project: argparse.Namespace) -> argparse.Namespace:
     return project
 
 
+@contextmanager
+def redirect_argv(*args: str) -> Generator[None, None, None]:  # pragma: no cover
+    argv = sys.argv[:]
+    sys.argv = list(args)
+    yield
+    sys.argv = argv
+
+
+def run_utility(name: str, *args: str) -> None:  # pragma: no cover
+    with redirect_argv(name, *args):
+        print('# run-utility:', *sys.argv)
+        with suppress(SystemExit):
+            run_module(name)
+
+
 def main() -> NoReturn:  # pragma: no cover
     """Main ozi.fix entrypoint."""
     project = preprocess(parser.parse_args())
     env.globals = env.globals | {
         'project': vars(project),
+        **metadata,
     }
     name, *_ = report_missing(
         project.target, stdout=print if project.missing else lambda *_: None  # type: ignore
@@ -576,6 +663,12 @@ def main() -> NoReturn:  # pragma: no cover
 
     if name is None:
         exit(1)
+
+    if project.run_utility:
+        run_utility('isort', '-q', str(project.target))
+        for i in [underscorify(name), 'tests']:
+            run_utility('autoflake', '-i', str(project.target / i / '**' / '*.py'))
+            run_utility('black', '-q', '-S', str(project.target / i))
 
     project.name = underscorify(name)
     project.license_file = 'LICENSE.txt'

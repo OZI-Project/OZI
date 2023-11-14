@@ -34,16 +34,26 @@ write_to_template = email.message_from_string(
     setuptools_scm.get('write_to_template', '')
 ).get_payload()
 DIFF1 = str().join(
-    difflib.context_diff(pkg_info, readme, tofile='PKG-INFO', fromfile='README.rst')
+    difflib.context_diff(
+        pkg_info, readme, tofile='PKG-INFO', fromfile='README.rst', lineterm=''
+    )
 )
 DIFF2 = str().join(
     difflib.context_diff(
-        readme, write_to_template, tofile='pyproject.toml', fromfile='README.rst'
+        readme,
+        write_to_template,
+        tofile='pyproject.toml',
+        fromfile='README.rst',
+        lineterm='',
     )
 )
 DIFF3 = str().join(
     difflib.context_diff(
-        write_to_template, pkg_info, tofile='pyproject.toml', fromfile='PKG-INFO'
+        write_to_template,
+        pkg_info,
+        tofile='pyproject.toml',
+        fromfile='PKG-INFO',
+        lineterm='',
     )
 )
 if DIFF1 != '':

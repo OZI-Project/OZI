@@ -24,9 +24,9 @@ bad_namespace = argparse.Namespace(
     verify_email=True,
     name='OZI-phony',
     keywords='foo,bar,baz',
-    maintainer='',
+    maintainer=[],
     maintainer_email=[],
-    author='',
+    author=['foo'],
     author_email=['noreply@oziproject.dev'],
     home_page='foobar',
     summary='A' * 512,
@@ -58,7 +58,7 @@ def bad_project(tmp_path_factory: pytest.TempPathFactory) -> pathlib.Path:
     namespace = deepcopy(bad_namespace)
     namespace.target = fn
     with pytest.warns(RuntimeWarning):
-        ozi.new.new_project(namespace)
+        ozi.new.project(namespace)
     return fn
 
 

@@ -17,6 +17,7 @@ project(
     license_files: 'LICENSE.txt',
     meson_version: '>=1.1.0',
 )
+vcs_tag(input: 'pyproject.toml', output: 'pyproject.toml')
 env = environment()
 fs = import('fs')
 pymod = import('python')
@@ -53,10 +54,10 @@ source_to_build = get_option('source-to-build')
 docs_source = get_option('docs-source')
 test_source = get_option('test-source')
 # templates
-python_readlines = get_option('python-readline-snip')
+python_readlines = 'f=open("@0@","r");print(*f.readlines(),sep="",end="");f.close();'
 
 build_root = meson.current_build_dir()
-project_name = get_option('project-name').auto() ? meson.project_name() : 'todo'
+project_name = meson.project_name()
 python = pymod.find_installation(
     'python3',
     modules: python_dependencies,
@@ -68,7 +69,7 @@ core_metadata = run_command(
     [
         '-c',
         python_readlines.format(
-            'ozi' / 'scripts' / get_option('core-metadata-template'),
+            'ozi' / 'scripts' / 'core_metadata_template.py',
         ),
     ],
     check: true,
@@ -78,7 +79,7 @@ metadata_version = run_command(
     [
         '-c',
         python_readlines.format(
-            'ozi' / 'scripts' / get_option('version-metadata-template'),
+            'ozi' / 'scripts' / 'version_metadata_template.py',
         ),
     ],
     check: true,
@@ -89,7 +90,7 @@ scm_version_snip = run_command(
     [
         '-c',
         python_readlines.format(
-            'ozi' / 'scripts' / get_option('scm-version-snip'),
+            'ozi' / 'scripts' / 'scm_version_snip.py',
         ),
     ],
     check: true,
@@ -99,12 +100,12 @@ sync_pkg_readme = run_command(
     [
         '-c',
         python_readlines.format(
-            'ozi' / 'scripts' / get_option('sync-pkg-readme'),
+            'ozi' / 'scripts' / 'sync_pkg_readme.py',
         ),
     ],
     check: true,
 ).stdout()
-run_command(python, ['-c', sync_pkg_readme], check: true).stdout()
+run_command(python, ['-c', sync_pkg_readme], check: true)
 pip = find_program('pip', required: true, disabler: true)
 pip_compile = find_program('pip-compile', required: true)
 custom_target(
@@ -123,7 +124,7 @@ install = ['install']
 build_commands = {'dev': []}
 test_app_args = {}
 pip_repr = pip.full_path()
-root_files = ['README.rst', 'CHANGELOG.md', 'pyproject.toml', 'PKG-INFO', 'LICENSE.txt']
+root_files = ['README.rst', 'CHANGELOG.md', 'PKG-INFO', 'LICENSE.txt']
 foreach source : root_files
     fs.copyfile(source)
 endforeach
@@ -214,6 +215,7 @@ pymod.find_installation(
 
 # BEGIN checkpoint-suite-version-check
 done = []
+aliased = get_option('aliased')
 foreach name : namespace
     foreach suite : get_option(name + '-exclude-suites')
         foreach app : get_option(suite + '-suite')
@@ -245,9 +247,11 @@ foreach name : namespace
                         ['show', app],
                         kwargs: no_check,
                     ).stdout().split('\n')
-                    fallback_version = (
-                        fallback_version.length() > 2 ? fallback_version[1].split(':')[1].strip() : 'unknown'
-                    )
+                    if fallback_version.length() > 2
+                        fallback_version = fallback_version[1].split(':')[1].strip()
+                    else
+                        fallback_version = 'unknown'
+                    endif
                     if app in no_version
                         if packaged_version == ''
                             app = ' '.join(emoji_no_version, app)
@@ -266,10 +270,10 @@ foreach name : namespace
                         ['-c', metadata_version.format(app)],
                         kwargs: no_check,
                     ).stdout().strip()
-                    if app in ['semantic-release']
+                    if app in aliased
                         fallback_version = run_command(
                             pip,
-                            ['show', 'python-' + app],
+                            ['show', get_option('alias-'+app)],
                             kwargs: no_check,
                         ).stdout().split('\n')
                     else
@@ -279,9 +283,11 @@ foreach name : namespace
                             kwargs: no_check,
                         ).stdout().split('\n')
                     endif
-                    fallback_version = (
-                        fallback_version.length() > 2 ? fallback_version[1].split(':')[1].strip() : 'unknown'
-                    )
+                    if fallback_version.length() > 2
+                        fallback_version = fallback_version[1].split(':')[1].strip()
+                    else
+                        fallback_version = 'unknown'
+                    endif
                     if app in no_version
                         summary(
                             {' '.join(emoji_metadata_version, app): fallback_version},
@@ -325,7 +331,13 @@ foreach name: namespace
         foreach arg : _args
             if arg.startswith('@') and (arg.endswith('@') or arg.endswith('@/'))
                 arg = arg.strip('@')
-                arg = is_variable(arg)? get_variable(arg) : get_variable(arg.replace('@/', '')) + '/'
+                if is_variable(arg)
+                    arg = get_variable(arg)
+                elif arg.endswith('@/')
+                    arg = get_variable(arg.replace('@/', '')) + '/'
+                else
+                    warning(arg+' unknown')
+                endif
             endif
             command_args += arg
         endforeach

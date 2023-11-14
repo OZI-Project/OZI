@@ -10,8 +10,11 @@ required_pkg_info = (
     'Name',
     'Summary',
     'Version',
+    'Author',
+    'Author-email',
+    'License',
 )
-root_dirs = ['tests' 'subprojects']
+root_dirs = ['tests', 'subprojects']
 root_files = [
     'README.rst',
     '.gitignore',

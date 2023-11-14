@@ -1,7 +1,11 @@
-email-validator
+email-validator-vector-friendly
 jinja2
 pyparsing
 requests
 spdx-license-list
 trove-classifiers
 pip-tools
+types-requests
+autoflake
+black
+isort

@@ -32,11 +32,11 @@ import ozi.new
                 r'^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9])$',
                 fullmatch=True,
             ),
-            'author': st.text(min_size=1, max_size=128),
+            'author': st.lists(st.text(min_size=1, max_size=16), min_size=1, max_size=8),
             'author_email': st.lists(
-                st.emails(domains=st.just('phony1.oziproject.dev')), max_size=8
+                st.emails(domains=st.just('phony1.oziproject.dev')), min_size=1, max_size=8
             ),
-            'maintainer': st.text(min_size=1, max_size=64),
+            'maintainer': st.lists(st.text(min_size=1, max_size=16), min_size=1, max_size=8),
             'maintainer_email': st.lists(
                 st.emails(domains=st.just('phony2.oziproject.dev')), max_size=8
             ),
@@ -71,7 +71,7 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
     license_id: typing.Any,
     license_expression: typing.Any,
 ) -> None:
-    assume(project['author_email'] != project['maintainer_email'])
+    assume(set(project['author_email']).isdisjoint(set(project['maintainer_email'])))
     assume(len(project['author_email']))
     assume(
         map(
@@ -83,7 +83,7 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
             ],
         )
     )
-    assume(project['author'] != project['maintainer'])
+    assume(set(project['author']).isdisjoint(set(project['maintainer'])))
     project['target'] = tmp_path_factory.mktemp('new_project_')
     project['license'] = license.draw(
         st.one_of(
@@ -99,7 +99,7 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
     )
     project['license_expression'] = license_expression.draw(st.just(project['license_id']))
     namespace = argparse.Namespace(**project)
-    ozi.new.new_project(project=namespace)
+    ozi.new.project(project=namespace)
 
 
 @pytest.mark.parametrize(
@@ -123,12 +123,12 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
             'maintainer_email': ['noreply@oziproject.dev'],
         },
         {
-            'author': '',
-            'maintainer': 'foo',
+            'author': [],
+            'maintainer': ['foo'],
         },
         {
-            'author': 'Zaphod Beeblebrox',
-            'maintainer': '',
+            'author': ['Zaphod Beeblebrox'],
+            'maintainer': [],
             'author_email': ['noreply@oziproject.dev'],
             'maintainer_email': ['user@example.com'],
         },
@@ -154,10 +154,10 @@ def test_new_project_bad_args(  # noqa: DC102
         'ci_provider': 'github',
         'name': 'ozi.phony',
         'license': 'CC0 1.0 Universal (CC0 1.0) Public Domain Dedication',
-        'author': 'Ross J. Duff',
+        'author': ['Ross J. Duff'],
         'author_email': ['noreply@oziproject.dev'],
-        'keywords': '',
-        'maintainer': '',
+        'keywords': 'foo,bar,baz',
+        'maintainer': [],
         'maintainer_email': [],
         'home_page': 'https://oziproject.dev/',
         'project_url': [],
@@ -178,7 +178,7 @@ def test_new_project_bad_args(  # noqa: DC102
     project_dict.update(item)
     namespace = argparse.Namespace(**project_dict)
     with pytest.warns(RuntimeWarning):
-        ozi.new.new_project(project=namespace)
+        ozi.new.project(project=namespace)
 
 
 def test_new_project_bad_target_not_empty(  # noqa: DC102
@@ -191,10 +191,10 @@ def test_new_project_bad_target_not_empty(  # noqa: DC102
         'ci_provider': 'github',
         'name': 'ozi.phony',
         'license': '',
-        'keywords': '',
-        'author': 'Ross J. Duff',
+        'keywords': 'baz,bar,foo',
+        'author': ['Ross J. Duff'],
         'author_email': ['noreply@oziproject.dev'],
-        'maintainer': '',
+        'maintainer': [],
         'maintainer_email': [],
         'home_page': 'https://oziproject.dev/',
         'summary': '',
@@ -215,7 +215,7 @@ def test_new_project_bad_target_not_empty(  # noqa: DC102
     (project_dict['target'] / 'foobar').touch()
     namespace = argparse.Namespace(**project_dict)
     with pytest.warns(RuntimeWarning):
-        ozi.new.new_project(project=namespace)
+        ozi.new.project(project=namespace)
 
 
 @settings(deadline=timedelta(milliseconds=500))

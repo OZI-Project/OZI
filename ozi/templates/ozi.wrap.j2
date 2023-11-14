@@ -4,13 +4,11 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
-{%- set project_url='https://github.com/rjdbcm/OZI/archive/refs/tags/' -%}
-{%- set source_url=project_url~ozi.version~'.tar.gz' -%}
 [wrap-file]
 directory = ozi-{{ ozi.version }}
-source_url = {{ source_url }}
+source_url = {{ 'https://github.com/rjdbcm/OZI/archive/refs/tags/'~ozi.version~'.tar.gz' }}
 source_filename = ozi-{{ ozi.version }}.tar.gz
-source_hash = {{ source_url|sha256sum }}
+source_hash = {{ ozi.version|sha256sum }}
 patch_directory = ozi
 
 [provide]

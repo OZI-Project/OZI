@@ -19,19 +19,30 @@ from spdx_license_list import LICENSES  # type: ignore
 from trove_classifiers import classifiers
 
 required_pkg_info_patterns = (
-    'Name',
-    'Version',
-    'Metadata-Version',
-    'Summary',
+    'Author',
+    'Author-email',
+    'Description-Content-Type',
     'Home-page',
+    'License',
     'License-Expression',
     'License-File',
+    'Metadata-Version',
+    'Name',
     'Programming Language :: Python',
-    'Description-Content-Type',
+    'Summary',
+    'Version',
 )
 metadata_version = '2.1'
 implementation_support = ('CPython',)
 specification_version = '0.1'
+meson_min_version = '1.1.0'
+required_root_dist = [
+    'README.rst',
+    'CHANGELOG.md',
+    'pyproject.toml',
+    'PKG-INFO',
+    'LICENSE.txt',
+]
 __pymajor, __pyminor, __pypatch = map(int, platform.python_version_tuple())
 
 minor_deprecation = {

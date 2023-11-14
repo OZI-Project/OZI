@@ -6,6 +6,6 @@
 -#}
 [tool.setuptools_scm]
 write_to_template = """{% include 'project.PKG-INFO' %}"""
-fallback_version = "@MESON_DIST_FALLBACK_VERSION@"
-parentdir_prefix_version = "@PROJECT_NAME@-"
+fallback_version = "@VCS_TAG@"
+parentdir_prefix_version = "{{ project.name }}-"
 tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"

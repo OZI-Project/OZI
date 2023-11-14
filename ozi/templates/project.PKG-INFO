@@ -9,6 +9,15 @@ Name: {{ project.name }}
 Version: {% if filename == 'PKG-INFO' %}0.0.0{% else %}{% raw %}{version}{% endraw %}{% endif %}
 Summary: {{ project.summary }}
 Home-page: {{ project.home_page }}
+Author: {{ project.author|join(',') }}
+Author-email: {{ project.author_email|join(',') }}
+License: {{ project.license_expression }}
+{%- if project.maintainer|length %}
+Maintainer: {{ project.maintainer|join(',') }}
+{%- endif %}
+{%- if project.maintainer_email|length %}
+Maintainer-email: {{ project.maintainer_email|join(',') }}
+{%- endif %}
 {%- if project.ci_provider == 'github' %}
 Download-URL: https://github.com/{{ project.ci_user }}/{{ project.name }}/archive/refs/tags/{% if filename == 'PKG-INFO' %}0.0.0{% else %}{% raw %}{version}{% endraw %}{% endif %}.tar.gz
 {%- endif %}

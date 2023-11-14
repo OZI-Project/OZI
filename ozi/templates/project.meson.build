@@ -9,7 +9,7 @@ project(
     default_options: ['warning_level=3'],
     license: '{{ project.license_expression }}',
     license_files: ['{{ project.license_file }}'],
-    meson_version: '>=1.1.0',
+    meson_version: '>={{ ozi.meson_min_version }}',
     version: run_command(
         'python3',
         [
@@ -19,18 +19,26 @@ project(
         check: true,
     ).stdout().strip(),
 )
+vcs_tag(input: 'pyproject.toml', output: 'pyproject.toml')
 env = environment()
 source_root = meson.current_source_dir()
 build_root = meson.current_build_dir()
 fs = import('fs')
 pymod = import('python')
-project_name = get_option('project-name').auto() ? meson.project_name() : 'todo'
-build_dir = get_option('build-dir').auto() ? fs.stem(build_root) : 'todo'
-source_to_build = (
-    get_option('source-to-build').auto() ? configuration_data() : 'todo'
+project_name = meson.project_name()
+build_dir = fs.stem(build_root)
+source_to_build = configuration_data()
+docs_source = 'subprojects/docs'
+test_source = 'tests'
+pip_compile = find_program('pip-compile', required: true)
+custom_target(
+    'requirements-{{ project.name }},
+    input: 'requirements.in',
+    output: 'requirements.txt',
+    build_always_stale: true,
+    build_by_default: true,
+    command: ['pip-compile', '--allow-unsafe', '--strip-extras', '-q', '--generate-hashes', '-o', '@OUTPUT@', '@INPUT@']
 )
-docs_source = get_option('docs-source').auto() ? 'subprojects/docs' : 'todo'
-test_source = get_option('test-source').auto() ? 'tests' : 'todo'
 dev = subproject('ozi')
 foreach var : get_option('variables')
     name = var.replace('-', '_')
@@ -60,11 +68,16 @@ configure_file(
     ),
 )
 root_files = [
-    'README.rst',
-    'CHANGELOG.md',
+{%- for required_root_dist in ozi.required_root_dist %}
+{%- if required_root_dist not in ['pyproject.toml'] %}
+    '{{ required_root_dist }}',
+{%- endif %}
+{%- endfor %}
+{%- for filename in ozi.required_root_dist %}
+{%- if project.license_file not in ozi.required_root_dist %}
     '{{ project.license_file }}',
-    'pyproject.toml',
-    'PKG-INFO'
+{%- endif %}
+{%- endfor %}
 ]
 foreach source : root_files
     fs.copyfile(source)

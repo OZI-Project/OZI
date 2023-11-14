@@ -125,7 +125,12 @@ option(
         'pytest-randomly',
     ],
 )
-
+option(
+    'aliased',
+    type: 'array',
+    description: 'modules with non-standard package naming.',
+    value: ['semantic-release'],
+)
 option(
     'should-fail',
     type: 'array',
@@ -204,7 +209,7 @@ option(
 )
 # test application arguments
 option('args-sigstore', type: 'array', value: ['--version'], yield: false)
-
+option('alias-semantic-release', type: 'string', value: 'python-semantic-release', yield: false)
 option(
     'args-semantic-release',
     type: 'array',
@@ -305,6 +310,7 @@ option(
     type: 'array',
     value: [
         '--cov=ozi',
+        '-q',
         '--basetemp=temp',
         '-n',
         'auto',
@@ -313,24 +319,6 @@ option(
         '--cov-config=pyproject.toml' 
     ],
     yield: false,
-)
-
-option(
-    'python-readline-snip',
-    type: 'string',
-    value: 'f=open("@0@","r");[print(line,sep=";",end="") for line in f.readlines()];f.close();',
-)
-option('scm-version-snip', type: 'string', value: 'scm_version_snip.py')
-option(
-    'version-metadata-template',
-    type: 'string',
-    value: 'version_metadata_template.py',
-)
-option('sync-pkg-readme', type: 'string', value: 'sync_pkg_readme.py')
-option(
-    'core-metadata-template',
-    type: 'string',
-    value: 'core_metadata_template.py',
 )
 option('emoji-metadata-version', type: 'string', value: '📦')
 option('emoji-no-version', type: 'string', value: '📡')
