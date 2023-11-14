@@ -2,6 +2,13 @@
 
 
 
+## v0.0.200 (2023-11-14)
+
+### :bug:
+
+* :bug: Fix meson.build build file check to use absolute path. ([`30f8c56`](https://github.com/rjdbcm/OZI/commit/30f8c56bc611309b8ce1e59d2ed110861d764b2b))
+
+
 ## v0.0.199 (2023-11-14)
 
 ### :bug:
