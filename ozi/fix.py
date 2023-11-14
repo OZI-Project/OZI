@@ -664,7 +664,7 @@ def main() -> NoReturn:  # pragma: no cover
     if name is None:
         exit(1)
 
-    if project.run_utility:
+    if hasattr(project, 'run_utility') and project.run_utility:
         run_utility('isort', '-q', str(project.target))
         for i in [underscorify(name), 'tests']:
             run_utility('autoflake', '-i', str(project.target / i / '**' / '*.py'))
