@@ -353,7 +353,7 @@ def missing_required_files(  # noqa: C901
     extra_files = list(set(extra_files).symmetric_difference(set(found_files)))
     build_files = []
     for file in extra_files:  # pragma: no cover
-        with open(str((rel_path / file).parent / 'meson.build'), 'r') as f:
+        with open(str((target.joinpath(rel_path) / file).parent / 'meson.build'), 'r') as f:
             for _ in [
                 i for i in f.readlines() if re.search(fr'(.*?[\'|"]{file}[\'|"].*?)', i)
             ]:
