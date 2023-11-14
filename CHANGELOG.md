@@ -2,6 +2,16 @@
 
 
 
+## v0.0.199 (2023-11-14)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix missing ``run_utility`` AttributeError
+
+Fixes: File &#34;&lt;OZI-0.0.198&gt;/ozi/fix.py&#34;, line 667, in main
+AttributeError: &#39;Namespace&#39; object has no attribute &#39;run_utility&#39; ([`6c4d52a`](https://github.com/rjdbcm/OZI/commit/6c4d52a533052006a69f645bdec79c09fde02c9f))
+
+
 ## v0.0.198 (2023-11-14)
 
 ### :bug:
