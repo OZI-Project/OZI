@@ -16,7 +16,7 @@ from urllib.parse import urlparse
 from warnings import warn
 
 import requests
-from email_validator import validate_email  # type: ignore
+from email_validator import EmailNotValidError, EmailSyntaxError, validate_email
 from git import InvalidGitRepositoryError, Repo
 from jinja2 import Environment, PackageLoader, TemplateNotFound, select_autoescape
 from packaging.version import parse
@@ -125,6 +125,7 @@ required.add_argument(
     type=str,
     help='Author (Multiple Use, Single output)',
     required=True,
+    action='append',
     default=[],
     nargs='?',
 )
@@ -136,6 +137,7 @@ required.add_argument(
     required=True,
     default=[],
     nargs='?',
+    action='append',
 )
 required.add_argument(
     '-s', '--summary', type=str, help='Summary (Single Use)', required=True
@@ -207,12 +209,14 @@ optional.add_argument(
 optional.add_argument(
     '--maintainer',
     default=[],
+    action='append',
     nargs='?',
     help='Maintainer (Multiple Use, Single output, if different from Author)',
 )
 optional.add_argument(
     '--maintainer-email',
     help='Maintainer-Email (Multiple Use, Single output, if different from Author-Email)',
+    action='append',
     default=[],
     nargs='?',
 )
@@ -229,6 +233,7 @@ optional.add_argument(
     help='Project-URL (Multiple Use, Comma-separated Tuple[name, url])',
     action='append',
     default=[],
+    nargs='?',
 )
 defaults.add_argument(
     '--language',
@@ -372,16 +377,14 @@ def author_email(  # noqa: C901
     for email in set(project.author_email).union(project.maintainer_email):
         try:
             emailinfo = validate_email(email, check_deliverability=project.verify_email)
-            if emailinfo.error:
-                warn(emailinfo.error, RuntimeWarning)
-            else:
-                if email in project.author_email:
-                    author_email += [emailinfo.ascii_email]
-                if email in project.maintainer_email:
-                    maintainer_email += [emailinfo.ascii_email]
+            email_normalized = emailinfo.normalized
+            if email in project.author_email:
+                author_email += [email_normalized]
+            if email in project.maintainer_email:
+                maintainer_email += [email_normalized]
             print('ok', '-', 'Author-Email')
-        except IndexError:
-            warn('missing email domain e.g. "@example.com"', RuntimeWarning)
+        except (EmailNotValidError, EmailSyntaxError) as e:
+            warn(str(e), RuntimeWarning)
         count += 1
     project.author_email = author_email
     project.maintainer_email = maintainer_email

@@ -196,7 +196,7 @@ Author-email: help@oziproject.dev
 License: Apache-2.0 WITH LLVM-exception
 Keywords: meson,packaging,wheel
 Project-URL: Bug Tracker, https://github.com/rjdbcm/ozi/issues
-Requires-Dist: email-validator-vector-friendly
+Requires-Dist: email-validator
 Requires-Dist: jinja2
 Requires-Dist: pyparsing
 Requires-Dist: requests
