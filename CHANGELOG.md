@@ -2,6 +2,15 @@
 
 
 
+## v0.0.198 (2023-11-14)
+
+### :bug:
+
+* :bug:(ozi-new): fix missing append argparse arguments.
+
+Revert to using standard email-validator package. ([`1f2959b`](https://github.com/rjdbcm/OZI/commit/1f2959bb9c4dfc82bf7bf64c0aa4d73709a9f42b))
+
+
 ## v0.0.197 (2023-11-14)
 
 ### :hammer:
