@@ -2,6 +2,26 @@
 
 
 
+## v0.0.197 (2023-11-14)
+
+### :hammer:
+
+* :hammer:(ozi-fix,ozi-new): Clean up
+
+Add Author, Author-email, License to assets.required_pkg_info
+Create metadata variable in __init__.py
+Add meson_min_version key to ozi metadata context used in Jinja2 templates
+Add check_for_update method to ``ozi`` main script
+Remove verbosity requirement for ``isort``
+Add ``--run-utility`` to run ``isort``, ``black``, and ``autoflake`` with ``ozi-fix``
+``ozi-fix`` warns for python files missing from meson.build.
+``tox`` run local ``pip install``  add ``--quiet``
+:bug: Template for ``meson.build`` in root now builds ``requirements.in``
+Add Author, Author-email, License, Maintainer, and Maintainer-email keys to PKG-INFO template.
+:bug:(scm_version): Fix ``fallback_version`` placeholder to use VCS_TAG from ``meson`` and set ``parentdir_prefix_version`` at template render.
+Add ``--check-for-update`` bool arg to ``ozi-new`` (not yet implemented) ([`ee63ffd`](https://github.com/rjdbcm/OZI/commit/ee63ffd3f78f0950a1dc080a36f816907085359e))
+
+
 ## v0.0.196 (2023-11-10)
 
 ### :bug:
