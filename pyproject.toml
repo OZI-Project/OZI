@@ -6,7 +6,7 @@
 authors = [{name = "Ross J. Duff MSc", email = "help@oziproject.dev"}]
 dynamic = ["dependencies", "version"]
 license = {file = "LICENSE.txt"}
-readme  = "README.rst"
+readme = "README.rst"
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.in"] }
@@ -70,13 +70,13 @@ exclude_lines = [
     "class .*\\bProtocol\\):",
     "if __name__ == .__main__.:",
     ]
-fail_under    = 100.0
-show_missing  = true
-skip_covered  = true
-skip_empty    = true
+fail_under = 100.0
+show_missing = true
+skip_covered = true
+skip_empty = true
 
 [tool.coverage.run]
-branch         = true
+branch = true
 relative_files = true
 
 [tool.doc8]
@@ -121,16 +121,16 @@ filterwarnings      = [
 "error",
 "ignore:The --rsyncdir command line argument and rsyncdirs config variable are deprecated.:DeprecationWarning",
 ]
-asyncio_mode        = "auto"
-log_cli             = true
+asyncio_mode = "auto"
+log_cli = true
 log_cli_date_format = "%Y-%m-%d %H:%M:%S"
-log_cli_format      = "%(asctime)s [%(levelname)8s] %(name)s: %(message)s (%(filename)s:%(lineno)s)"
-log_cli_level       = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(name)s: %(message)s (%(filename)s:%(lineno)s)"
+log_cli_level = "INFO"
 
 [tool.semantic_release]
-commit_parser                  = "emoji"
-major_on_zero                  = false
-tag_format                     = "{version}"
+commit_parser = "emoji"
+major_on_zero = false
+tag_format = "{version}"
 
 [tool.semantic_release.branches.main]
 match = "(main|master)"
@@ -174,14 +174,14 @@ patch_tags = [
 ]
 
 [tool.semantic_release.changelog]
-changelog_file                 = "CHANGELOG.md"
+changelog_file = "CHANGELOG.md"
 
 [tool.semantic_release.remote]
 token = { env = "GH_TOKEN" }
 
 [tool.semantic_release.publish]
-dist_glob_patterns             = ["*.whl","*.tar.gz", "sig/*"]
-upload_to_vcs_release          = true
+dist_glob_patterns = ["*.whl","*.tar.gz", "sig/*"]
+upload_to_vcs_release = true
 
 [tool.setuptools_scm]
 write_to_template = """
