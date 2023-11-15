@@ -2,6 +2,17 @@
 
 
 
+## v0.0.201 (2023-11-15)
+
+### :bug:
+
+* :bug:: Add missing __init__.pyi required by spec. ([`9e6ba6e`](https://github.com/rjdbcm/OZI/commit/9e6ba6efc45c8f6bbc52fe56f52fc4b7c9dd21e2))
+
+### Other
+
+* :rotating_light:(pyproject.toml): Clean up. ([`6c9e92c`](https://github.com/rjdbcm/OZI/commit/6c9e92c2e8d6238b4078d0b02ecad0e979d6e808))
+
+
 ## v0.0.200 (2023-11-14)
 
 ### :bug:
