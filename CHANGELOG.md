@@ -2,6 +2,40 @@
 
 
 
+## v0.0.202 (2023-11-21)
+
+### :bug:
+
+* :bug:: Fix typing issue on 3.10 ([`b6722c9`](https://github.com/rjdbcm/OZI/commit/b6722c9debe222eece36d2207927c83e0b344619))
+
+* :bug:: Fix missing Self type annotation on 3.10 builds. ([`67059e3`](https://github.com/rjdbcm/OZI/commit/67059e32d6f168b0b96570c27b282d48928b5c9b))
+
+### :wrench:
+
+* :hammer::wrench:: Major refactor iteration.
+
+* Created a specification data API ``ozi/spec.py``
+* Moved argument matching actions to ``ozi/actions.py``
+* Moved most parsers into ``ozi/assets.py``
+  * Remove ``ozi/assets/__init__.py`` and ``ozi/assets/structure.py``
+* Moved most Jinja2 template setups to ``ozi/render.py``
+* Moved Jinja2 compatible filter functions into ``ozi/filter.py``
+* Remove spec requirement for ``__init__.pyi``
+* Update spec with compatibility for ruff
+  * adds single line imports specification format requirement
+* Fix VCS version templating by meson to write to a preprocessed ``pyproject.toml`` (``pyproject.toml.pre``)
+* Move utility requirements to top level source dir ``ozi/dist``, ``ozi/docs``, ``ozi/lint``, ``ozi/test``.
+* Proper author rendering as a list. ([`0793eff`](https://github.com/rjdbcm/OZI/commit/0793eff197e991d0d87896ccfbe5dcbc4572cfbd))
+
+### Other
+
+* :rotating_light:: no cover type guard ([`2c4a33a`](https://github.com/rjdbcm/OZI/commit/2c4a33a27904cee4bafaa53b0be6c5d7978c1385))
+
+* :rotating_light: Forgot to lint. ([`3bf8be5`](https://github.com/rjdbcm/OZI/commit/3bf8be525956bc427690a6d175ca9b0c799b691d))
+
+* :rotating_light: Fix lint. ([`5a05ff0`](https://github.com/rjdbcm/OZI/commit/5a05ff088530c05f8a237caa3c09267e340a665f))
+
+
 ## v0.0.201 (2023-11-15)
 
 ### :bug:
