@@ -2,6 +2,15 @@
 
 
 
+## v0.0.203 (2023-11-21)
+
+### :bug:
+
+* :bug:: Fix ``--list-available`` to use ExactMatch API. ([`2938362`](https://github.com/rjdbcm/OZI/commit/2938362128dbcec76762648a4a11bb8839382e89))
+
+* :bug:(ozi/__main__.py): Fix incorrect help and OZI.spec.Metadata API use. ([`67655e8`](https://github.com/rjdbcm/OZI/commit/67655e8a9ffc250b23d01e7b59e6cb7d1be025d4))
+
+
 ## v0.0.202 (2023-11-21)
 
 ### :bug:
