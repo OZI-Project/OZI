@@ -8,13 +8,14 @@ from datetime import timedelta
 from datetime import timezone
 from functools import cached_property
 from importlib.metadata import PackageNotFoundError
+import sys
 from typing import TYPE_CHECKING
 from typing import ClassVar
 from typing import Protocol
 
-try:
+if sys.version_info >= (3, 11):
     from typing import Self
-except ImportError:  # pragma: no cover
+else:  # pragma: no cover
     from typing_extensions import Self
 
 from typing import Sequence

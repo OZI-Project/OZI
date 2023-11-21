@@ -6,13 +6,14 @@ from argparse import Action
 from dataclasses import asdict
 from dataclasses import dataclass
 from functools import lru_cache
+import sys
 from typing import TYPE_CHECKING
 from typing import Any
 from typing import ClassVar
 
-try:
+if sys.version_info >= (3, 11):
     from typing import Self
-except ImportError:  # pragma: no cover
+else:  # pragma: no cover
     from typing_extensions import Self
 
 if TYPE_CHECKING:  # pragma: no cover
