@@ -2,11 +2,11 @@
 from __future__ import annotations
 
 import re
+import sys
 from argparse import Action
 from dataclasses import asdict
 from dataclasses import dataclass
 from functools import lru_cache
-import sys
 from typing import TYPE_CHECKING
 from typing import Any
 from typing import ClassVar

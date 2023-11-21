@@ -2,13 +2,13 @@
 from __future__ import annotations
 
 import platform
+import sys
 from datetime import date
 from datetime import datetime
 from datetime import timedelta
 from datetime import timezone
 from functools import cached_property
 from importlib.metadata import PackageNotFoundError
-import sys
 from typing import TYPE_CHECKING
 from typing import ClassVar
 from typing import Protocol
