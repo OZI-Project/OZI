@@ -26,10 +26,12 @@ from typing import TYPE_CHECKING
 from typing import Annotated
 from typing import Any
 from typing import NoReturn
+
 try:
     from typing import Self
 except ImportError:  # pragma: no cover
     from typing_extensions import Self
+
 from typing import Union
 from warnings import warn
 
@@ -41,7 +43,6 @@ if TYPE_CHECKING:  # pragma: no cover
     from email.message import Message
 
     from jinja2 import Template
-
 
 from .assets import parse_extra_pkg_info
 from .filter import underscorify

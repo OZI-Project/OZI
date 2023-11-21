@@ -9,6 +9,7 @@ from functools import lru_cache
 from typing import TYPE_CHECKING
 from typing import Any
 from typing import ClassVar
+
 try:
     from typing import Self
 except ImportError:  # pragma: no cover
