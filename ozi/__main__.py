@@ -33,10 +33,12 @@ from packaging.version import parse  # pragma: no cover
 from .actions import CloseMatch  # pragma: no cover
 from .spec import Metadata  # pragma: no cover
 
+metadata = Metadata()
+
 
 def print_version() -> NoReturn:  # pragma: no cover
-    """Print current version string"""
-    print(Metadata().ozi.version)
+    """Print out the current version and exit."""
+    print(metadata.ozi.version)
     sys.exit(0)
 
 
@@ -60,7 +62,7 @@ def check_for_update(
 
 
 def check_version() -> NoReturn:  # pragma: no cover
-    """Print out the current version and exit."""
+    """Check for a newer version of OZI and exit."""
     response = requests.get('https://pypi.org/pypi/OZI/json', timeout=30)
     match response.status_code:
         case 200:
@@ -78,12 +80,12 @@ def check_version() -> NoReturn:  # pragma: no cover
 
 
 def info() -> NoReturn:  # pragma: no cover
-    """Check for a newer version and exit"""
-    sys.exit(print(json.dumps(Metadata(), indent=2)))
+    """Print all metadata as JSON and exit."""
+    sys.exit(print(json.dumps(metadata.asdict(), indent=2)))
 
 
 def list_available(key: str) -> NoReturn:  # pragma: no cover
-    """Print a list of valid values for a key and exit"""
+    """Print a list of valid values for a key and exit."""
     sys.exit(print(*sorted(getattr(CloseMatch, key.replace('-', '_'))), sep='\n'))
 
 
