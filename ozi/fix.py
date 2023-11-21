@@ -5,6 +5,8 @@
 """ozi-fix: Project fix script that outputs a meson rewriter JSON array."""
 from __future__ import annotations
 
+import asyncio
+import gc
 import json
 import os
 import re
@@ -13,6 +15,7 @@ import warnings
 from argparse import SUPPRESS
 from argparse import ArgumentParser
 from argparse import BooleanOptionalAction
+from contextlib import asynccontextmanager
 from contextlib import contextmanager
 from contextlib import suppress
 from dataclasses import asdict
@@ -25,9 +28,10 @@ from runpy import run_module
 from typing import TYPE_CHECKING
 from typing import Annotated
 from typing import Any
+from typing import AsyncGenerator
 from typing import NoReturn
 
-if sys.version_info >= (3, 11):
+if sys.version_info >= (3, 11):  # pragma: no cover
     from typing import Self
 else:  # pragma: no cover
     from typing_extensions import Self
@@ -652,11 +656,23 @@ def redirect_argv(*args: str) -> Generator[None, None, None]:  # pragma: no cove
     sys.argv = argv
 
 
+@contextmanager
+def nogc() -> Generator[None, None, None]:  # pragma: no cover
+    gc.freeze()
+    if gc.isenabled():
+        gc.disable()
+    yield
+    gc.unfreeze()
+    gc.enable()
+    gc.collect()
+
+
 def run_utility(name: str, *args: str) -> None:  # pragma: no cover
-    with redirect_argv(name, *args):
-        print('# run-utility:', *sys.argv)
-        with suppress(SystemExit):
-            run_module(name)
+    with nogc():
+        with redirect_argv(name, *args):
+            print(f'# run-utility:', *sys.argv)
+            with suppress(SystemExit):
+                run_module(name)
 
 
 def main() -> NoReturn:  # pragma: no cover
@@ -673,7 +689,6 @@ def main() -> NoReturn:  # pragma: no cover
 
     if name is None:
         exit(1)
-
     if hasattr(project, 'run_utility') and project.run_utility:
         run_utility('isort', '-q', str(project.target))
         for i in [underscorify(name), 'tests']:

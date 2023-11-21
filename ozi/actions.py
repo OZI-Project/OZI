@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 from typing import Any
 from typing import ClassVar
 
-if sys.version_info >= (3, 11):
+if sys.version_info >= (3, 11):  # pragma: no cover
     from typing import Self
 else:  # pragma: no cover
     from typing_extensions import Self
