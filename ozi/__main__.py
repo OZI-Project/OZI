@@ -30,10 +30,10 @@ import requests  # pragma: no cover
 from packaging.version import Version  # pragma: no cover
 from packaging.version import parse  # pragma: no cover
 
-from .actions import CloseMatch  # pragma: no cover
+from .actions import ExactMatch  # pragma: no cover
 from .spec import Metadata  # pragma: no cover
 
-metadata = Metadata()
+metadata = Metadata()  # pragma: no cover
 
 
 def print_version() -> NoReturn:  # pragma: no cover
@@ -86,7 +86,7 @@ def info() -> NoReturn:  # pragma: no cover
 
 def list_available(key: str) -> NoReturn:  # pragma: no cover
     """Print a list of valid values for a key and exit."""
-    sys.exit(print(*sorted(getattr(CloseMatch, key.replace('-', '_'))), sep='\n'))
+    sys.exit(print(*sorted(getattr(ExactMatch, key.replace('-', '_'))), sep='\n'))
 
 
 parser = argparse.ArgumentParser(
