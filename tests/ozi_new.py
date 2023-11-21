@@ -9,16 +9,24 @@ from datetime import timedelta
 from itertools import zip_longest
 
 import pytest
-from hypothesis import HealthCheck, assume, given, settings
+from hypothesis import HealthCheck
+from hypothesis import assume
+from hypothesis import given
+from hypothesis import settings
 from hypothesis import strategies as st
 
+import ozi.actions
 import ozi.assets
 import ozi.fix
 import ozi.new
+from ozi.spec import Metadata
+
+metadata = Metadata()
 
 
 @settings(
-    deadline=timedelta(milliseconds=1000), suppress_health_check=[HealthCheck.too_slow]
+    deadline=timedelta(milliseconds=1000),
+    suppress_health_check=[HealthCheck.too_slow],
 )
 @given(
     project=st.fixed_dictionaries(
@@ -26,36 +34,41 @@ import ozi.new
             'verify_email': st.just(False),
             'strict': st.just(False),
             'target': st.data(),
-            'keywords': st.from_regex(r'^([a-z_]*[a-z0-9],)*$', fullmatch=True),
+            'keywords': st.from_regex(r'^(([a-z_]*[a-z0-9],)*){2, 650}$', fullmatch=True),
             'ci_provider': st.just('github'),
             'name': st.from_regex(
-                r'^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9])$',
+                r'^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9]){1,80}$',
                 fullmatch=True,
             ),
             'author': st.lists(st.text(min_size=1, max_size=16), min_size=1, max_size=8),
             'author_email': st.lists(
-                st.emails(domains=st.just('phony1.oziproject.dev')), min_size=1, max_size=8
+                st.emails(domains=st.just('phony1.oziproject.dev')),
+                min_size=1,
+                max_size=8,
             ),
             'maintainer': st.lists(st.text(min_size=1, max_size=16), min_size=1, max_size=8),
             'maintainer_email': st.lists(
-                st.emails(domains=st.just('phony2.oziproject.dev')), max_size=8
+                st.emails(domains=st.just('phony2.oziproject.dev')),
+                max_size=8,
             ),
             'home_page': st.one_of(st.just('https://oziproject.dev/')),
             'project_url': st.lists(
                 st.just('A, https://oziproject.dev'),
                 max_size=1,
             ),
-            'summary': st.text(max_size=512),
-            'copyright_head': st.text(max_size=512),
+            'summary': st.text(max_size=255),
+            'copyright_head': st.text(max_size=255),
             'license_file': st.just('LICENSE.txt'),
             'license_exception_id': st.one_of(
-                list(map(st.just, ozi.new.CloseMatch.license_exception_id))
+                list(map(st.just, ozi.actions.ExactMatch().license_exception_id)),
             ),
-            'topic': st.one_of(list(map(st.just, ozi.new.CloseMatch.topic))),
-            'audience': st.one_of(list(map(st.just, ozi.new.CloseMatch.audience))),
-            'framework': st.one_of(list(map(st.just, ozi.new.CloseMatch.framework))),
-            'environment': st.one_of(list(map(st.just, ozi.new.CloseMatch.environment))),
-            'status': st.one_of(list(map(st.just, ozi.new.CloseMatch.status))),
+            'topic': st.one_of(list(map(st.just, ozi.actions.ExactMatch().topic))),
+            'audience': st.one_of(list(map(st.just, ozi.actions.ExactMatch().audience))),
+            'framework': st.one_of(list(map(st.just, ozi.actions.ExactMatch().framework))),
+            'environment': st.one_of(
+                list(map(st.just, ozi.actions.ExactMatch().environment))
+            ),
+            'status': st.one_of(list(map(st.just, ozi.actions.ExactMatch().status))),
             'dist_requires': st.lists(st.text(max_size=16)),
             'allow_file': st.just([]),
         },
@@ -64,9 +77,9 @@ import ozi.new
     license_expression=st.data(),
     license_id=st.data(),
 )
-def test_fuzz_new_project_good_namespace(  # noqa: DC102
+def test_fuzz_new_project_good_namespace(
     tmp_path_factory: pytest.TempPathFactory,
-    project: typing.Dict,
+    project: dict,
     license: typing.Any,
     license_id: typing.Any,
     license_expression: typing.Any,
@@ -81,7 +94,7 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
                 for i in zip_longest(project['author_email'], project['maintainer_email'])
                 if any(i)
             ],
-        )
+        ),
     )
     assume(set(project['author']).isdisjoint(set(project['maintainer'])))
     project['target'] = tmp_path_factory.mktemp('new_project_')
@@ -89,13 +102,13 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
         st.one_of(
             [
                 st.just(k)
-                for k, v in ozi.assets.spdx_options.items()
+                for k, v in metadata.spec.python.pkg.license.ambiguous.items()
                 if len(v) != 0 and k not in ['Private']
-            ]
-        )
+            ],
+        ),
     )
     project['license_id'] = license_id.draw(
-        st.one_of(map(st.just, ozi.assets.spdx_options.get(project['license'])))  # type: ignore
+        st.one_of(map(st.just, metadata.spec.python.pkg.license.ambiguous.get(project['license']))),  # type: ignore
     )
     project['license_expression'] = license_expression.draw(st.just(project['license_id']))
     namespace = argparse.Namespace(**project)
@@ -143,7 +156,7 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102
         },
     ],
 )
-def test_new_project_bad_args(  # noqa: DC102
+def test_new_project_bad_args(
     item: dict,
     tmp_path_factory: pytest.TempPathFactory,
 ) -> None:
@@ -181,7 +194,7 @@ def test_new_project_bad_args(  # noqa: DC102
         ozi.new.project(project=namespace)
 
 
-def test_new_project_bad_target_not_empty(  # noqa: DC102
+def test_new_project_bad_target_not_empty(
     tmp_path_factory: pytest.TempPathFactory,
 ) -> None:
     project_dict = {
@@ -235,17 +248,19 @@ def test_new_project_bad_target_not_empty(  # noqa: DC102
     nargs=st.one_of(st.none()),
     data=st.data(),
 )
-def test_fuzz_CloseMatch_nargs_None(  # noqa: DC102
+def test_fuzz_CloseMatch_nargs_None(
     option_strings: str,
     dest: str,
-    nargs: typing.Union[int, str, None],
+    nargs: int | str | None,
     data: typing.Any,
 ) -> None:
     close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
     data = data.draw(
         st.sampled_from(
-            close_match.__getattribute__(option_strings.lstrip('-').replace('-', '_'))
-        )
+            ozi.actions.ExactMatch().__getattribute__(
+                option_strings.lstrip('-').replace('-', '_')
+            ),
+        ),
     )
     close_match(argparse.ArgumentParser(), argparse.Namespace(), data, option_strings)
 
@@ -267,17 +282,19 @@ def test_fuzz_CloseMatch_nargs_None(  # noqa: DC102
     nargs=st.one_of(st.just('?')),
     data=st.data(),
 )
-def test_fuzz_CloseMatch_nargs_append(  # noqa: DC102
+def test_fuzz_CloseMatch_nargs_append(
     option_strings: str,
     dest: str,
-    nargs: typing.Union[int, str, None],
+    nargs: int | str | None,
     data: typing.Any,
 ) -> None:
     close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
     data = data.draw(
         st.sampled_from(
-            close_match.__getattribute__(option_strings.lstrip('-').replace('-', '_'))
-        )
+            ozi.actions.ExactMatch().__getattribute__(
+                option_strings.lstrip('-').replace('-', '_')
+            ),
+        ),
     )
     close_match(argparse.ArgumentParser(), argparse.Namespace(), [data], option_strings)
 
@@ -298,10 +315,10 @@ def test_fuzz_CloseMatch_nargs_append(  # noqa: DC102
     nargs=st.one_of(st.just('?')),
     data=st.none(),
 )
-def test_fuzz_CloseMatch_nargs_append_None_values(  # noqa: DC102
+def test_fuzz_CloseMatch_nargs_append_None_values(
     option_strings: str,
     dest: str,
-    nargs: typing.Union[int, str, None],
+    nargs: int | str | None,
     data: typing.Any,
 ) -> None:
     close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
@@ -325,10 +342,10 @@ def test_fuzz_CloseMatch_nargs_append_None_values(  # noqa: DC102
     nargs=st.one_of(st.just('?')),
     data=st.text(min_size=100),
 )
-def test_fuzz_CloseMatch_nargs_append_warns(  # noqa: DC102
+def test_fuzz_CloseMatch_nargs_append_warns(
     option_strings: str,
     dest: str,
-    nargs: typing.Union[int, str, None],
+    nargs: int | str | None,
     data: typing.Any,
 ) -> None:
     close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
@@ -353,10 +370,10 @@ def test_fuzz_CloseMatch_nargs_append_warns(  # noqa: DC102
     nargs=st.one_of(st.just('*')),
     data=st.text(min_size=100),
 )
-def test_fuzz_CloseMatch_nargs_invalid(  # noqa: DC102
+def test_fuzz_CloseMatch_nargs_invalid(
     option_strings: str,
     dest: str,
-    nargs: typing.Union[int, str, None],
+    nargs: int | str | None,
     data: typing.Any,
 ) -> None:
     with pytest.raises(ValueError, match='nargs'):
@@ -370,9 +387,17 @@ def test_fuzz_CloseMatch_nargs_invalid(  # noqa: DC102
     lineno=st.integers(),
     line=st.one_of(st.none(), st.text()),
 )
-def test_fuzz_tap_warning_format(  # noqa: DC102
-    msg: str, category: type, filename: str, lineno: int, line: typing.Optional[str]
+def test_fuzz_tap_warning_format(
+    msg: str,
+    category: type,
+    filename: str,
+    lineno: int,
+    line: str | None,
 ) -> None:
     ozi.new.tap_warning_format(
-        msg=msg, category=category, filename=filename, lineno=lineno, line=line
+        message=msg,
+        category=category,
+        filename=filename,
+        lineno=lineno,
+        line=line,
     )

@@ -2,7 +2,7 @@
 
 zlib License
 
-(C) {{ project.copyright_year }} {{ project.author }}
+(C) {{ project.copyright_year }} {{ project.author|join(', ') }}
 
 This software is provided 'as-is', without any express or implied
 warranty.  In no event will the authors be held liable for any damages

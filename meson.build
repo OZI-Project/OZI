@@ -17,10 +17,11 @@ project(
     license_files: 'LICENSE.txt',
     meson_version: '>=1.1.0',
 )
-vcs_tag(input: 'pyproject.toml', output: 'pyproject.toml')
 env = environment()
 fs = import('fs')
 pymod = import('python')
+pyproject_config = configuration_data()
+
 # emoji
 emoji_no_version = get_option('emoji-no-version')
 emoji_metadata_version = get_option('emoji-metadata-version')
@@ -57,6 +58,7 @@ test_source = get_option('test-source')
 python_readlines = 'f=open("@0@","r");print(*f.readlines(),sep="",end="");f.close();'
 
 build_root = meson.current_build_dir()
+scripts = 'ozi' / 'scripts'
 project_name = meson.project_name()
 python = pymod.find_installation(
     'python3',
@@ -64,12 +66,16 @@ python = pymod.find_installation(
     required: true,
     disabler: true,
 )
+pyproject_config.set('PYTHON_VERSION_DIST', 'py'+''.join(python.language_version().split('.')))
+pyproject_config.set('VCS_TAG', '@VCS_TAG@')
+pre_pyproject = configure_file(input: 'pyproject.toml', output: 'pyproject.toml.pre', configuration: pyproject_config)
+
 core_metadata = run_command(
     python,
     [
         '-c',
         python_readlines.format(
-            'ozi' / 'scripts' / 'core_metadata_template.py',
+            scripts / 'core_metadata_template.py',
         ),
     ],
     check: true,
@@ -79,7 +85,7 @@ metadata_version = run_command(
     [
         '-c',
         python_readlines.format(
-            'ozi' / 'scripts' / 'version_metadata_template.py',
+            scripts / 'version_metadata_template.py',
         ),
     ],
     check: true,
@@ -90,7 +96,7 @@ scm_version_snip = run_command(
     [
         '-c',
         python_readlines.format(
-            'ozi' / 'scripts' / 'scm_version_snip.py',
+            scripts / 'scm_version_snip.py',
         ),
     ],
     check: true,
@@ -100,14 +106,36 @@ sync_pkg_readme = run_command(
     [
         '-c',
         python_readlines.format(
-            'ozi' / 'scripts' / 'sync_pkg_readme.py',
+            scripts / 'sync_pkg_readme.py',
         ),
     ],
     check: true,
 ).stdout()
+to_distribution = run_command(
+    python,
+    [
+        '-c',
+        python_readlines.format(
+            scripts / 'to_distribution_template.py'
+        ),
+    ],
+    check: true,
+).stdout()
+replace_ruff_target_version = run_command(
+    python,
+    [
+        '-c',
+        python_readlines.format(
+            scripts / 'replace_ruff_target_version.py'
+        ),
+    ],
+    check: true,
+).stdout()
+run_command(python, ['-c', replace_ruff_target_version], check: true)
 run_command(python, ['-c', sync_pkg_readme], check: true)
 pip = find_program('pip', required: true, disabler: true)
 pip_compile = find_program('pip-compile', required: true)
+vcs_tag(input: pre_pyproject, output: 'pyproject.toml')
 custom_target(
     'requirements-ozi',
     input: 'requirements.in',
@@ -160,11 +188,7 @@ foreach name : namespace
                 disabler: true,
             )
         elif suite.enabled() and command in module_only
-            if command in ['semantic-release']
-                modules += [command.replace('-', '_')]
-            else
-                modules += [command]
-            endif
+            modules += [command]
             flag = disabler()
         else
             flag = disabler()
@@ -172,7 +196,7 @@ foreach name : namespace
         requirements = [
             'install',
             '-r',
-            build_root / 'ozi' / 'scripts' / name / command / 'requirements.txt',
+            build_root / 'ozi' / name / command / 'requirements.txt',
         ]
         if get_option('dev').enabled() or get_variable(name).enabled() and command not in plugin_only
             run_command(
@@ -182,8 +206,8 @@ foreach name : namespace
                     '--allow-unsafe',
                     '--strip-extras',
                     '--generate-hashes',
-                    '-o', build_root / 'ozi' / 'scripts' / name / command / 'requirements.txt',
-                    'ozi' / 'scripts' / name / command / 'requirements.in'
+                    '-o', build_root / 'ozi' / name / command / 'requirements.txt',
+                    'ozi' / name / command / 'requirements.in'
                 ],
                 check: true,
             )
@@ -215,7 +239,6 @@ pymod.find_installation(
 
 # BEGIN checkpoint-suite-version-check
 done = []
-aliased = get_option('aliased')
 foreach name : namespace
     foreach suite : get_option(name + '-exclude-suites')
         foreach app : get_option(suite + '-suite')
@@ -270,10 +293,10 @@ foreach name : namespace
                         ['-c', metadata_version.format(app)],
                         kwargs: no_check,
                     ).stdout().strip()
-                    if app in aliased
+                    if app in module_only
                         fallback_version = run_command(
                             pip,
-                            ['show', get_option('alias-'+app)],
+                            ['show', run_command(python, ['-c', to_distribution.format(app)], kwargs: no_check).stdout()],
                             kwargs: no_check,
                         ).stdout().split('\n')
                     else

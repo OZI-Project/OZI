@@ -22,7 +22,7 @@ option(
     'python-dependencies',
     type: 'array',
     description: 'sanity check module dependencies',
-    value: ['setuptools_scm', 'tomli'],
+    value: ['setuptools_scm', 'tomli', 'piptools', 'setuptools', 'ninja', 'mesonbuild'],
 )
 
 option(
@@ -69,7 +69,7 @@ option(
     'dist-suite',
     type: 'array',
     description: '--setup=dist',
-    value: ['pyc_wheel', 'semantic-release', 'sigstore'],
+    value: ['pyc_wheel', 'semantic_release', 'sigstore'],
 )
 option(
     'docs-suite',
@@ -126,12 +126,6 @@ option(
     ],
 )
 option(
-    'aliased',
-    type: 'array',
-    description: 'modules with non-standard package naming.',
-    value: ['semantic-release'],
-)
-option(
     'should-fail',
     type: 'array',
     description: 'tests that return non-zero',
@@ -179,7 +173,7 @@ option(
         'pytest-tcpclient',
         'pytest-randomly',
         'pytest-xdist',
-        'semantic-release',
+        'semantic_release',
         'sphinxawesome-codelinter',
         'sphinxawesome-theme',
         'flake8-comprehensions',
@@ -191,7 +185,7 @@ option(
     type: 'array',
     description: 'no application - python module entry point only',
     value: [
-        'semantic-release',
+        'semantic_release',
         'pyc_wheel',
         'sigstore',
         'sphinxawesome-codelinter',
@@ -209,9 +203,8 @@ option(
 )
 # test application arguments
 option('args-sigstore', type: 'array', value: ['--version'], yield: false)
-option('alias-semantic-release', type: 'string', value: 'python-semantic-release', yield: false)
 option(
-    'args-semantic-release',
+    'args-semantic_release',
     type: 'array',
     value: ['version', '--print'],
     yield: false,
@@ -298,7 +291,7 @@ option(
         '--benchmark',
         '--statistics',
         '--max-complexity',
-        '5',
+        '6',
         '--show-source',
         '@build_root@/',
     ],

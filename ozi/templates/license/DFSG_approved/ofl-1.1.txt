@@ -1,6 +1,6 @@
 
 
-Copyright (c) {{ project.copyright_year }} {{ project.author }} ([email])
+Copyright (c) {{ project.copyright_year }} {{ project.author|join(', ') }} ([email])
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:

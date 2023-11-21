@@ -12,16 +12,16 @@
     strategy:
       matrix:
         ozi:
-          - dist
-          - lint
-          - test
+{%- for suite in spec.python.ci.checkpoint.suites %}
+          - {{ suite }}
+{%- endfor %}
         os:
           - ubuntu-latest
           - macos-latest
         py:
-          - {{ ozi.py_security }}
-          - {{ ozi.py_bugfix2 }}
-          - {{ ozi.py_bugfix1 }}
+          - {{ spec.python.support.security }}
+          - {{ spec.python.support.bugfix2 }}
+          - {{ spec.python.support.bugfix1 }}
       fail-fast: false
     steps:
       - uses: actions/checkout@v3

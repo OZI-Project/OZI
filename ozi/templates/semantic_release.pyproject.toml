@@ -7,7 +7,7 @@
 [tool.semantic_release]
 commit_parser                  = "emoji"
 major_on_zero                  = false
-tag_format                     = "{version}"
+tag_format                     = "{{ spec.python.src.format.version_placeholder }}"
 
 [tool.semantic_release.branches.main]
 match = "(main|master)"
@@ -51,11 +51,15 @@ patch_tags = [
 ]
 
 [tool.semantic_release.changelog]
-changelog_file                 = "CHANGELOG.md"
+changelog_file = "CHANGELOG.md"
 
 [tool.semantic_release.remote]
 token = { env = "GH_TOKEN" }
 
 [tool.semantic_release.publish]
-dist_glob_patterns             = ["*.whl","*.tar.gz", "sig/*"]
-upload_to_vcs_release          = true
+dist_glob_patterns = [
+{%- for include in spec.python.ci.publish.include %}
+    "{{ include }}",
+{%- endfor %}
+]
+upload_to_vcs_release = true

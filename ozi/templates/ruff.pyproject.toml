@@ -1,0 +1,62 @@
+{#- OZI 0.1
+# ozi/templates/ruff.pyproject.toml
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+-#}
+[tool.ruff]
+line-length = 93
+extend-exclude = ["meson-private", "scripts"]
+select = ["ALL"]
+ignore = [
+    "A003",
+    "ARG",
+    "ANN401",
+    "TRY003",
+    "B028",
+    "B905",
+    "D1",
+    "D2",
+    "D101",
+    "D4",
+    "FLY",
+    "FBT",
+    "PGH003",
+    "PLR",
+    "RET",
+    "EM",
+    "PLW",
+    "PTH",
+    "RUF009",
+    "RUF012",
+    "RUF015",
+    "SIM",
+    "T201",
+    "TCH002",
+    "TCH004",
+    "UP",
+    "PERF203",
+]
+# target-version = "@PYTHON_VERSION_DIST@"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 6
+
+[tool.ruff.format]
+line-ending = "lf"
+quote-style = "single"
+
+[tool.ruff.isort]
+force-single-line = true
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 102
+
+[tool.ruff.lint.flake8-copyright]
+author="{% for author in project.author %}{{ author }},{% endfor %}"
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "single"
+
+[tool.ruff.lint.flake8-type-checking]
+strict = true

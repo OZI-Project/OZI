@@ -8,5 +8,8 @@
 strict = true
 implicit_reexport = true
 exclude = [
-    '^tests',
+{%- for exclude in spec.python.lint.exclude %}
+    "{{ exclude }}",
+{%- endfor %}
+    "tests",
 ]

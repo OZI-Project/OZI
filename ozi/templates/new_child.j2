@@ -11,7 +11,7 @@
 {%- elif project.fix == 'root' %}
 {%- set folder = '.' %}
 {%- endif %}
-{{ '# OZI ' ~ ozi.spec }} meson.build:{{ project.fix }}_child_{{ parent }}
+{{ '# OZI ' ~ spec.version }} meson.build:{{ project.fix }}_child_{{ parent }}
 {%- for line in project.copyright_head.split('\n') %}
 {{ '# ' ~ line }}
 {%- endfor %}

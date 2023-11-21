@@ -11,9 +11,9 @@
     strategy:
       matrix:
         py:
-          - {{ ozi.py_security|wheel_repr }}
-          - {{ ozi.py_bugfix2|wheel_repr }}
-          - {{ ozi.py_bugfix1|wheel_repr }}
+          - {{ spec.python.support.security|wheel_repr }}
+          - {{ spec.python.support.bugfix2|wheel_repr }}
+          - {{ spec.python.support.bugfix1|wheel_repr }}
       fail-fast: true
       max-parallel: 1
     outputs:
@@ -25,7 +25,7 @@
       id-token: write
     steps:
     - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
-      if: matrix.py == '{{ ozi.py_security|wheel_repr }}'
+      if: matrix.py == '{{ spec.python.support.security|wheel_repr }}'
       with:
 {%- raw %}
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -35,17 +35,17 @@
 {% include 'github_workflows/semantic_release.yml.j2' %}
 
     - name: Pass release draft status to job
-      if: matrix.py == '{{ ozi.py_security|wheel_repr }}'
+      if: matrix.py == '{{ spec.python.support.security|wheel_repr }}'
       id: draft
 {%- raw %}
       run: echo "created=${{ steps.release.outputs.released }}" >> $GITHUB_OUTPUT
 {%- endraw %}
 
     - uses: actions/download-artifact@v3
-      if: steps.draft.outputs.created == 'true' && matrix.py != '{{ ozi.py_security|wheel_repr }}'
+      if: steps.draft.outputs.created == 'true' && matrix.py != '{{ spec.python.support.security|wheel_repr }}'
 
     - name: Move artifact
-      if: steps.draft.outputs.created == 'true' && matrix.py != '{{ ozi.py_security|wheel_repr }}'
+      if: steps.draft.outputs.created == 'true' && matrix.py != '{{ spec.python.support.security|wheel_repr }}'
       run: cp -a artifact/. ./
 
     - name: Set version
@@ -53,26 +53,26 @@
       id: version
       run: echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
 
-    - name: Set up Python {{ ozi.py_security }}
-      if: matrix.py == '{{ ozi.py_security|wheel_repr }}'
+    - name: Set up Python {{ spec.python.support.security }}
+      if: matrix.py == '{{ spec.python.support.security|wheel_repr }}'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         cache: 'pip'
-        python-version: {{ ozi.py_security }}
+        python-version: {{ spec.python.support.security }}
 
-    - name: Set up Python {{ ozi.py_bugfix2 }}
-      if: matrix.py == '{{ ozi.py_bugfix2|wheel_repr }}'
+    - name: Set up Python {{ spec.python.support.bugfix2 }}
+      if: matrix.py == '{{ spec.python.support.bugfix2|wheel_repr }}'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         cache: 'pip'
-        python-version: {{ ozi.py_bugfix2 }}
+        python-version: {{ spec.python.support.bugfix2 }}
 
-    - name: Set up Python {{ ozi.py_bugfix1 }}
-      if: matrix.py == '{{ ozi.py_bugfix1|wheel_repr }}'
+    - name: Set up Python {{ spec.python.support.bugfix1 }}
+      if: matrix.py == '{{ spec.python.support.bugfix1|wheel_repr }}'
       uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
       with:
         cache: 'pip'
-        python-version: {{ ozi.py_bugfix1 }}
+        python-version: {{ spec.python.support.bugfix1 }}
 {%- raw %}
     - name: Install ${{ matrix.py }} build dependencies
 {%- endraw %}
@@ -88,7 +88,7 @@
           python -m pip install --user --upgrade pip-tools
 
     - name: Configure git repository
-      if: matrix.py == '{{ ozi.py_security|wheel_repr }}'
+      if: matrix.py == '{{ spec.python.support.security|wheel_repr }}'
       run: |
           git config --global user.email "noreply@oziproject.dev"
           git config --global user.name "OZI Packaging"
@@ -112,7 +112,7 @@
     - name: Build and sign sdist
 {%- endraw %}
       id: wheel
-      if: matrix.py == '{{ ozi.py_bugfix1|wheel_repr }}'
+      if: matrix.py == '{{ spec.python.support.bugfix1|wheel_repr }}'
       run: |
         meson setup build
         meson dist -C build --formats gztar --no-tests

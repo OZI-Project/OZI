@@ -5,7 +5,12 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
 [tool.bandit]
-exclude_dirs = ["venv", "meson-private", "tests"]
+exclude_dirs = [
+{%- for exclude in spec.python.lint.exclude %}
+    "{{ exclude }}",
+{%- endfor %}
+    "tests",
+]
 format = "txt"
 ignore_nosec = true
 verbose = true

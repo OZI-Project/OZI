@@ -4,7 +4,7 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
-Metadata-Version: {{ ozi.metadata_version }}
+Metadata-Version: {{ spec.python.support.metadata_version }}
 Name: {{ project.name }}
 Version: {% if filename == 'PKG-INFO' %}0.0.0{% else %}{% raw %}{version}{% endraw %}{% endif %}
 Summary: {{ project.summary }}
@@ -21,7 +21,7 @@ Maintainer-email: {{ project.maintainer_email|join(',') }}
 {%- if project.ci_provider == 'github' %}
 Download-URL: https://github.com/{{ project.ci_user }}/{{ project.name }}/archive/refs/tags/{% if filename == 'PKG-INFO' %}0.0.0{% else %}{% raw %}{version}{% endraw %}{% endif %}.tar.gz
 {%- endif %}
-Requires-Python: >= {{ ozi.py_security }}, <= {{ ozi.py_bugfix1 }}
+Requires-Python: >= {{ spec.python.support.security }}, <= {{ spec.python.support.bugfix1 }}
 {%- if project.keywords|length %}
 Keywords: {{ project.keywords|join(',') }}
 {%- endif %}
@@ -30,10 +30,10 @@ Classifier: License :: {{ project.license }}
 Classifier: Development Status :: {{ status }}
 {%- endfor %}
 Classifier: Programming Language :: Python :: {{ ozi.py_major }} :: Only
-Classifier: Programming Language :: Python :: {{ ozi.py_security }}
-Classifier: Programming Language :: Python :: {{ ozi.py_bugfix2 }}
-Classifier: Programming Language :: Python :: {{ ozi.py_bugfix1 }}
-{%- for implementation in ozi.py_implementations %}
+Classifier: Programming Language :: Python :: {{ spec.python.support.security }}
+Classifier: Programming Language :: Python :: {{ spec.python.support.bugfix2 }}
+Classifier: Programming Language :: Python :: {{ spec.python.support.bugfix1 }}
+{%- for implementation in spec.python.support.implementations %}
 Classifier: Programming Language :: Python :: Implementation :: {{ implementation }}
 {%- endfor %}
 {%- for audience in project.audience %}

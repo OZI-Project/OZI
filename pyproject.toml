@@ -27,14 +27,14 @@ lint = ["bandit[toml]", "black", "flake8", "flake8-quotes",
         "flake8-broken-line", "flake8-eradicate", "flake8-fixme", "flake8-bugbear",
         "flake8-datetimez", "flake8-no-pep420", "flake8-comprehensions",
         "flake8-leading-blank-lines", "flake8-tidy-imports", "flake8-pyi",
-        "Flake8-pyproject", "isort", "mypy", "pyright", "restructuredtext-lint"]
+        "Flake8-pyproject", "isort", "mypy", "pyright"]
 ## Testing Setup
 test = ["coverage[toml]", "hypothesis[all]", "pytest", "pytest-asyncio", "pytest-cov", 
         "pytest-tcpclient", "pytest-randomly", "pytest-xdist"]
 
 [tool.mesonpep517.metadata]
 pkg-info-file = 'PKG-INFO'
-summary = 'Packaged with OZI.'
+summary = 'Packager for Python projects using Meson.'
 
 [tool.mesonpep517.entry-points]
 console_scripts = [
@@ -56,7 +56,7 @@ ignore_nosec = true
 verbose = true
 
 [tool.black]
-extend-exclude = "(\\.pyi|meson-private)"
+extend-exclude = "(\\.pyi|meson-private|venv)"
 line-length = 93
 
 [tool.coverage.report]
@@ -79,29 +79,88 @@ skip_empty = true
 branch = true
 relative_files = true
 
-[tool.doc8]
-ignore = ["D000", "D002"]
+[tool.ruff]
+line-length = 93
+extend-exclude = ["meson-private", "scripts"]
+select = ["ALL"]
+ignore = [
+    "A003",
+    "ARG",
+    "ANN401",
+    "TRY003",
+    "B028",
+    "B905",
+    "D1",
+    "D2",
+    "D101",
+    "D4",
+    "FLY",
+    "FBT",
+    "PGH003",
+    "PLR",
+    "RET",
+    "EM",
+    "PLW",
+    "PTH",
+    "RUF009",
+    "RUF012",
+    "RUF015",
+    "SIM",
+    "T201",
+    "TCH002",
+    "TCH004",
+    "UP",
+    "PERF203",
+]
+# target-version = "@PYTHON_VERSION_DIST@"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 6
+
+[tool.ruff.format]
+line-ending = "lf"
+quote-style = "single"
+
+[tool.ruff.isort]
+force-single-line = true
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 102
+
+[tool.ruff.lint.flake8-copyright]
+author="Ross J. Duff MSc"
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "single"
+
+[tool.ruff.lint.flake8-type-checking]
+strict = true
 
 [tool.flake8]
 ban-relative-imports = "parents"
 max-line-length = 93
 extend-exclude = ["meson-private", "build-env-*", "venv", "build*", "*.pyi"]
-extend-ignore = "E203,E501"
+extend-ignore = "E203,E501,TC007,TC008"
 extend-select = "B950"
+select = "ALL"
 
 [tool.isort]
 line_length = 93
 profile = "black"
+force_single_line = true
 
 [tool.mypy]
 implicit_reexport = true
 strict = true
 exclude = [
-    '^tests',
+    'meson-private',
+    'tests',
+    'venv',
 ]
 
-[tool.pydocstyle]
-match = "\\*\\.py"
+[[tool.mypy.overrides]]
+module = ["spdx_license_list.*", ]
+ignore_missing_imports = true
 
 [tool.pylint.MASTER]
 disable = "C0301"
@@ -113,7 +172,8 @@ max-nested-blocks = 4
 reportMissingTypeStubs = false
 exclude = [ 
     'meson-private',
-    'tests'
+    'tests',
+    'venv',
 ]
 
 [tool.pytest.ini_options]  #[tool.pytest] # This will be used by pytest in the future
@@ -180,7 +240,7 @@ changelog_file = "CHANGELOG.md"
 token = { env = "GH_TOKEN" }
 
 [tool.semantic_release.publish]
-dist_glob_patterns = ["*.whl","*.tar.gz", "sig/*"]
+dist_glob_patterns = ["*.whl", "*.tar.gz", "sig/*"]
 upload_to_vcs_release = true
 
 [tool.setuptools_scm]

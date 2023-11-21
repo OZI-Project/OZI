@@ -5,76 +5,58 @@
 """ozi-fix: Project fix script that outputs a meson rewriter JSON array."""
 from __future__ import annotations
 
-import argparse
 import json
 import os
 import re
 import sys
 import warnings
-from contextlib import contextmanager, suppress
-from dataclasses import asdict, dataclass, field
+from argparse import SUPPRESS
+from argparse import ArgumentParser
+from argparse import BooleanOptionalAction
+from contextlib import contextmanager
+from contextlib import suppress
+from dataclasses import asdict
+from dataclasses import dataclass
+from dataclasses import field
 from email import message_from_file
-from email.message import Message
 from functools import partial
 from pathlib import Path
 from runpy import run_module
-from typing import (
-    Annotated,
-    Any,
-    Callable,
-    Dict,
-    Generator,
-    List,
-    Mapping,
-    NoReturn,
-    Set,
-    Tuple,
-    Union,
-)
+from typing import TYPE_CHECKING
+from typing import Annotated
+from typing import Any
+from typing import NoReturn
+from typing import Self
+from typing import Union
 from warnings import warn
 
-from jinja2 import Environment, PackageLoader, Template, select_autoescape
-from pyparsing import (
-    CaselessKeyword,
-    Combine,
-    Forward,
-    Keyword,
-    Literal,
-    ParseException,
-    ParseResults,
-    Suppress,
-    White,
-    oneOf,
-)
+if TYPE_CHECKING:  # pragma: no cover
+    from argparse import Namespace
+    from collections.abc import Callable
+    from collections.abc import Generator
+    from collections.abc import Mapping
+    from email.message import Message
 
-from . import metadata
-from .assets import (
-    python_support_required,
-    spdx_license_expression,
-    tap_warning_format,
-    underscorify,
-)
-from .assets.structure import (  # noqa: F401
-    required_pkg_info,
-    root_files,
-    source_files,
-    test_files,
-)
+    from jinja2 import Template
 
-warnings.formatwarning = tap_warning_format  # type: ignore
 
-env = Environment(
-    loader=PackageLoader('ozi'),
-    autoescape=select_autoescape(),
-    enable_async=True,
-)
-env.filters['underscorify'] = underscorify
-env.globals = env.globals | metadata
-parser = argparse.ArgumentParser(description=sys.modules[__name__].__doc__, add_help=False)
+from .assets import parse_extra_pkg_info
+from .filter import underscorify
+from .render import env
+from .spec import Metadata
+from .spec import PythonSupport
+from .spec import tap_warning_format
+
+warnings.formatwarning = tap_warning_format
+metadata = Metadata()
+python_support = PythonSupport()
+parser = ArgumentParser(description=sys.modules[__name__].__doc__, add_help=False)
 subparser = parser.add_subparsers(help='source & test fix', dest='fix')
 parser.add_argument('target', type=str, help='target OZI project directory')
 source_parser = subparser.add_parser(
-    'source', aliases=['s'], description='Create a new Python source in an OZI project.'
+    'source',
+    aliases=['s'],
+    description='Create a new Python source in an OZI project.',
 )
 test_parser = subparser.add_parser(
     'test',
@@ -108,11 +90,14 @@ source_output = source_parser.add_argument_group('output')
 source_output.add_argument(
     '--strict',
     default='--no-strict',
-    action=argparse.BooleanOptionalAction,
+    action=BooleanOptionalAction,
     help='strict mode raises warnings to errors.',
 )
 source_output.add_argument(
-    '-p', '--pretty', action='store_true', help='pretty print JSON output'
+    '-p',
+    '--pretty',
+    action='store_true',
+    help='pretty print JSON output',
 )
 test_parser.add_argument(
     '-a',
@@ -141,11 +126,14 @@ test_output = test_parser.add_argument_group('output')
 test_output.add_argument(
     '--strict',
     default='--no-strict',
-    action=argparse.BooleanOptionalAction,
+    action=BooleanOptionalAction,
     help='strict mode raises warnings to errors.',
 )
 test_output.add_argument(
-    '-p', '--pretty', action='store_true', help='pretty print JSON output'
+    '-p',
+    '--pretty',
+    action='store_true',
+    help='pretty print JSON output',
 )
 
 helpers = parser.add_mutually_exclusive_group()
@@ -161,147 +149,116 @@ missing_parser.add_argument(
     nargs='?',
     action='append',
     default=['ozi.phony'],
-    help=argparse.SUPPRESS,
+    help=SUPPRESS,
 )
 missing_parser.add_argument(
     '--remove',
     nargs='?',
     action='append',
     default=['ozi.phony'],
-    help=argparse.SUPPRESS,
+    help=SUPPRESS,
 )
 missing_parser.add_argument(
     '--strict',
     default='--no-strict',
-    action=argparse.BooleanOptionalAction,
+    action=BooleanOptionalAction,
     help='strict mode raises warnings to errors, default: --no-strict',
 )
 missing_parser.add_argument(
     '--run-utility',
     default='--run-utility',
-    action=argparse.BooleanOptionalAction,
+    action=BooleanOptionalAction,
     help='run-utility mode runs isort, autoflake, and black with OZI standard arguments,'
     ' default: --run-utlity',
 )
 missing_parser.add_argument(
     '--pretty',
     default='--no-pretty',
-    action=argparse.BooleanOptionalAction,
+    action=BooleanOptionalAction,
     help='pretty mode outputs indented json, default: --no-pretty',
 )
 
 
-def _str_dict_union(toks: ParseResults) -> Dict[str, str]:
-    """Parse-time union of Dict[str, str]."""
-    if len(toks) >= 2:
-        return toks[0] | toks[1]  # type: ignore
-    else:  # pragma: no cover
-        return  # type: ignore
-
-
-sspace = Suppress(White(' ', exact=1))
-dcolon = sspace + Suppress(Literal('::')) + sspace
-classifier = Suppress(White(' ', min=2)) + Suppress(Literal('Classifier:')) + sspace
-pep639_headers = Forward()
-license_expression = classifier + (
-    Keyword('License-Expression')
-    + dcolon
-    + Combine(spdx_license_expression, join_string=' ')
-).set_parse_action(lambda t: {str(t[0]): str(t[1])})
-license_file = classifier + (
-    Keyword('License-File') + dcolon + oneOf(['LICENSE', 'LICENSE.txt'])
-).set_parse_action(lambda t: {str(t[0]): str(t[1])})
-pep639_headers <<= license_expression + license_file
-
-pep639_parse = Suppress(
-    Keyword('..') + CaselessKeyword('ozi')
-) + pep639_headers.set_parse_action(_str_dict_union).set_name('pep639')
-
-
-def pkg_info_extra(payload: str, as_message: bool = True) -> Union[Dict[str, str], Message]:
-    """Get extra PKG-INFO Classifiers tacked onto the payload by OZI."""
-    pep639: Dict[str, str] = pep639_parse.parse_string(payload)[0]  # pyright: ignore
-    if as_message:
-        msg = Message()
-        for k, v in pep639.items():
-            msg.add_header('Classifier', f'{k} :: {v}')
-        return msg
-    else:
-        return pep639
-
-
 def missing_python_support(
-    pkg_info: Message, count: int, stdout: Callable[..., None]
-) -> Tuple[int, Set[Tuple[str, str]]]:
+    pkg_info: Message,
+    count: int,
+    stdout: Callable[..., None],
+) -> tuple[int, set[tuple[str, str]]]:
     """Check PKG-INFO Message for python support."""
-    remaining_pkg_info = {(k, v) for k, v in pkg_info.items() if k not in required_pkg_info}
-    for k, v in iter(python_support_required):
+    remaining_pkg_info = {
+        (k, v)
+        for k, v in pkg_info.items()
+        if k not in metadata.spec.python.pkg.info.required
+    }
+    for k, v in iter(python_support.classifiers):
         if (k, v) in remaining_pkg_info:
             count += 1
             stdout('ok', count, '-', f'{k}:', v)
         else:
-            warn(f'{count} - "{v}" MISSING', RuntimeWarning)
+            warn(f'{count} - "{v}" MISSING', RuntimeWarning, stacklevel=0)
     return count, remaining_pkg_info
 
 
 def missing_ozi_required(
-    pkg_info: Message, count: int, stdout: Callable[..., None]
-) -> Tuple[int, Any]:
+    pkg_info: Message,
+    count: int,
+    stdout: Callable[..., None],
+) -> tuple[int, Any]:
     """Check missing required OZI extra PKG-INFO"""
     count, remaining_pkg_info = missing_python_support(pkg_info, count, stdout)
-    remaining_pkg_info.difference_update(set(iter(python_support_required)))
+    remaining_pkg_info.difference_update(set(iter(python_support.classifiers)))
     for k, v in iter(remaining_pkg_info):
         count += 1
         stdout('ok', count, '-', f'{k}:', v)
-    try:
-        extra_pkg_info = pkg_info_extra(pkg_info.get_payload()).items()
-    except ParseException as e:
-        extra_pkg_info = {}  # type: ignore
-        newline = '\n'
-        errstr = str(e).replace(newline, ' ')
-        warn(f'{count} - MISSING {errstr}', RuntimeWarning)
+    extra_pkg_info, errstr = parse_extra_pkg_info(pkg_info)
+    if errstr != '':  # pragma: defer to good-first-issue
+        warn(f'{count} - MISSING {errstr}', RuntimeWarning, stacklevel=0)
     return count, extra_pkg_info
 
 
 def missing_required(
-    target: Path, count: int, stdout: Callable[..., None]
-) -> Tuple[int, str, Any]:
+    target: Path,
+    count: int,
+    stdout: Callable[..., None],
+) -> tuple[int, str, Any]:
     """Find missing required PKG-INFO"""
     with target.joinpath('PKG-INFO').open() as f:
         pkg_info = message_from_file(f)
         count += 1
         stdout('ok', count, '-', 'Parse PKG-INFO')
-    for i in required_pkg_info:
+    for i in metadata.spec.python.pkg.info.required:
         count += 1
         v = pkg_info.get(i, None)
         if v is not None:
             stdout('ok', count, '-', f'{i}:', v)
         else:
-            warn(f'{count} - {i} MISSING', RuntimeWarning)
+            warn(f'{count} - {i} MISSING', RuntimeWarning, stacklevel=0)
     count, extra_pkg_info = missing_ozi_required(pkg_info, count, stdout)
-    name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', str())).lower()
-    for k, v in extra_pkg_info:
+    name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', '')).lower()
+    for k, v in extra_pkg_info.items():
         count += 1
         stdout('ok', count, '-', f'{k}:', v)
     return count, name, extra_pkg_info
 
 
-def count_comments(  # noqa: C901
-    count: int, lines: List[str], rel_path: Path
+def count_comments(
+    count: int,
+    lines: list[str],
+    rel_path: Path,
 ) -> int:  # pragma: defer to good-first-issue
     for i, line in enumerate(lines, start=1):
         if s := re.search(r'(.*?noqa:\s[A-Z0-9]*.*?)', line):
             count += 1
-            print('#', 'NOQA', f'{str(rel_path)}:{i}', s[0].strip())
+            print('#', 'NOQA', f'{rel_path!s}:{i}', s[0].strip())
         if s := re.search(r'(.*?type:\signore.*?)', line):
             count += 1
-            print('#', 'TYPE', f'{str(rel_path)}:{i}', s[0].strip())
+            print('#', 'TYPE', f'{rel_path!s}:{i}', s[0].strip())
         if s := re.search(r'(.*?pragma:\sdefer\sto\s[a-z_-]*.*?)', line):
             count += 1
             print(
                 '#',
                 'PRAGMA',
-                f'{str(rel_path)}:{i}',
+                f'{rel_path!s}:{i}',
                 s[0].strip(),
             )
         if s := re.search(r'(.*?pragma:\sno\scover\s.*?)', line):
@@ -309,7 +266,7 @@ def count_comments(  # noqa: C901
             print(
                 '#',
                 'PRAGMA',
-                f'{str(rel_path)}:{i}',
+                f'{rel_path!s}:{i}',
                 s[0].strip(),
             )
     return count
@@ -322,29 +279,38 @@ def missing_required_files(  # noqa: C901
     miss_count: int,
     name: str,
     stdout: Callable[..., None],
-) -> Tuple[int, int, List[str], List[str]]:
+) -> tuple[int, int, list[str], list[str]]:
     """Count missing files required by OZI"""
     found_files = []
     miss_count = 0
-    mapping = {
-        'test': Path('tests'),
-        'source': Path(underscorify(name)),
-        'root': Path('.'),
-    }
-    for file in vars(sys.modules[__name__]).get('_'.join([kind, 'files']), []):
-        rel_path = mapping.get(kind, Path('.')) / file
-        if not target.joinpath(rel_path).exists():
-            count += 1
-            warn(f'{count} - {rel_path} MISSING', RuntimeWarning)
-            miss_count += 1
-            continue  # pragma: defer to https://github.com/nedbat/coveragepy/issues/198
-        elif str(rel_path).endswith('.py'):
-            with open(target.joinpath(rel_path), 'r') as f:
-                count_comments(count, f.readlines(), rel_path)
+    match kind:
+        case 'test':
+            rel_path = Path('tests')
+            expected_files = metadata.spec.python.src.required.test
+        case 'root':
+            rel_path = Path()
+            expected_files = metadata.spec.python.src.required.root
+        case 'source':
+            rel_path = Path(underscorify(name))
+            expected_files = metadata.spec.python.src.required.source
+        case _:  # pragma: no cover
+            rel_path = Path()
+            expected_files = frozenset()
+
+    for file in expected_files:
+        f = rel_path / file
+        match f:
+            case f if f and not target.joinpath(f).exists():
+                count += 1
+                warn(f'{count} - {f} MISSING', RuntimeWarning, stacklevel=0)
+                miss_count += 1
+                continue  # pragma: defer to https://github.com/nedbat/coveragepy/issues/198
+            case f if f and str(f).endswith('.py'):
+                with open(target.joinpath(f)) as fh:
+                    count_comments(count, fh.readlines(), f)
         count += 1
-        stdout('ok', count, '-', rel_path)
+        stdout('ok', count, '-', f)
         found_files.append(file)
-    rel_path = mapping.get(kind, Path('.'))
     extra_files = [
         file
         for file in os.listdir(target / rel_path)
@@ -353,9 +319,9 @@ def missing_required_files(  # noqa: C901
     extra_files = list(set(extra_files).symmetric_difference(set(found_files)))
     build_files = []
     for file in extra_files:  # pragma: no cover
-        with open(str((target.joinpath(rel_path) / file).parent / 'meson.build'), 'r') as f:
+        with open(str((target.joinpath(rel_path) / file).parent / 'meson.build')) as fh:
             for _ in [
-                i for i in f.readlines() if re.search(fr'(.*?[\'|"]{file}[\'|"].*?)', i)
+                i for i in fh.readlines() if re.search(fr'(.*?[\'|"]{file}[\'|"].*?)', i)
             ]:
                 count += 1
                 build_file = str((rel_path / file).parent / 'meson.build')
@@ -367,23 +333,28 @@ def missing_required_files(  # noqa: C901
                     str(rel_path / file),
                 )
         build_files += [str(rel_path / file)]
-        if str(file).endswith('.py') and str(rel_path / file) not in build_files:
-            build_file = str(rel_path / 'meson.build')
-            warn(
-                f'{count} - MISSING {build_file}: {str(rel_path / file)}',
-                RuntimeWarning,
-            )
-            print(f'# SKIP {str(rel_path / file)}')
-        elif str(file).endswith('.py'):
-            with open(target.joinpath(rel_path) / file, 'r') as g:
-                count_comments(count, g.readlines(), rel_path / file)
+        match file:
+            case file if str(file).endswith('.py') and str(
+                rel_path / file,
+            ) not in build_files:
+                build_file = str(rel_path / 'meson.build')
+                warn(
+                    f'{count} - MISSING {build_file}: {rel_path / file!s}',
+                    RuntimeWarning,
+                )
+                print(f'# SKIP {rel_path / file!s}')
+            case file if str(file).endswith('.py'):
+                with open(target.joinpath(rel_path) / file) as g:
+                    count_comments(count, g.readlines(), rel_path / file)
     return count, miss_count, found_files, extra_files
 
 
 def report_missing(
-    target: Path, stdout: Callable[..., None] = print
+    target: Path,
+    stdout: Callable[..., None] = print,
 ) -> Union[
-    Tuple[str, Message, List[str], List[str], List[str]], Tuple[None, None, None, None, None]
+    tuple[str, Message, list[str], list[str], list[str]],
+    tuple[None, None, None, None, None],
 ]:
     """Report missing OZI project files
     :param target: Relative path to target directory.
@@ -394,20 +365,35 @@ def report_missing(
     count = 0
     name = None
     pkg_info = None
-    extra_pkg_info: Dict[str, str] = {}
+    extra_pkg_info: dict[str, str] = {}
     try:
         count, name, extra_pkg_info = missing_required(target, count, stdout)
     except FileNotFoundError:
         name = ''
-        warn(f'{count} - PKG-INFO MISSING', RuntimeWarning)
+        warn(f'{count} - PKG-INFO MISSING', RuntimeWarning, stacklevel=0)
     count, miss_count, found_source_files, extra_source_files = missing_required_files(
-        'source', target, count, 0, name, stdout
+        'source',
+        target,
+        count,
+        0,
+        name,
+        stdout,
     )
     count, miss_count, found_test_files, extra_test_files = missing_required_files(
-        'test', target, count, miss_count, name, stdout
+        'test',
+        target,
+        count,
+        miss_count,
+        name,
+        stdout,
     )
     count, miss_count, found_root_files, extra_root_files = missing_required_files(
-        'root', target, count, miss_count, name, stdout
+        'root',
+        target,
+        count,
+        miss_count,
+        name,
+        stdout,
     )
     all_files = (
         ['PKG-INFO'],
@@ -436,29 +422,37 @@ class RewriteCommand:  # pragma: defer to meson
     type: str = 'target'
     target: str = ''
     operation: str = ''
-    sources: List[str] = field(default_factory=list)
+    sources: list[str] = field(default_factory=list)
     subdir: str = ''
     target_type: str = ''
 
     def add(
-        self: RewriteCommand, mode: str, kind: str, source: str
-    ) -> Dict[str, Union[str, List[str]]]:
+        self: RewriteCommand,
+        mode: str,
+        kind: str,
+        source: str,
+    ) -> dict[str, Union[str, list[str]]]:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
         self.operation = 'src_add'
         return self._body(mode, kind)
 
     def rem(
-        self: RewriteCommand, mode: str, kind: str, source: str
-    ) -> Dict[str, Union[str, List[str]]]:
+        self: RewriteCommand,
+        mode: str,
+        kind: str,
+        source: str,
+    ) -> dict[str, Union[str, list[str]]]:
         """Add sources and tests to an OZI project."""
         self.sources += [source]
         self.operation = 'src_rem'
         return self._body(mode, kind)
 
     def _body(
-        self: RewriteCommand, mode: str, kind: str
-    ) -> Dict[str, Union[str, List[str]]]:
+        self: RewriteCommand,
+        mode: str,
+        kind: str,
+    ) -> dict[str, Union[str, list[str]]]:
         """The body of the add/rem functions"""
         self.active = True
         target = mode + '_' + kind
@@ -477,10 +471,11 @@ class Rewriter:
     target: str
     name: str
     fix: str
-    commands: List[Dict[str, str]] = field(default_factory=list)
+    commands: list[dict[str, str]] = field(default_factory=list)
     path_map: Mapping[str, Callable[[str], Path]] = field(init=False)
-    base_templates: Dict[
-        Annotated[str, 'fix'], Annotated[Template, 'base_template']
+    base_templates: dict[
+        Annotated[str, 'fix'],
+        Annotated[Template, 'base_template'],
     ] = field(init=False)
 
     def __post_init__(self: Rewriter) -> None:
@@ -510,55 +505,60 @@ class Rewriter:
         file: str,
         cmd_files: RewriteCommand,
         cmd_children: RewriteCommand,
-    ) -> Tuple[RewriteCommand, RewriteCommand]:
+    ) -> tuple[RewriteCommand, RewriteCommand]:
         """Add items to OZI Rewriter"""
         if self.fix not in ['source', 'test', 'root']:
-            warn('Invalid fix mode nothing will be added.', RuntimeWarning)
-        else:
-            if file.endswith('/'):
-                child.mkdir(parents=True)
-                parent = file.rstrip('/')
-                heirs = parent.split('/')
-                if len(heirs) > 1:
-                    warn('Nested folder creation not supported.', RuntimeWarning)
-                else:
-                    with open((child / 'meson.build'), 'x') as f:
-                        f.write(env.get_template('new_child.j2').render(parent=parent))
-                if self.fix == 'source':
-                    if len(heirs) > 1:
-                        warn('Nested folder creation not supported.', RuntimeWarning)
-                    else:
-                        with open(
-                            (
-                                self.path_map.get(self.fix, partial(Path))(*heirs)
-                                / '__init__.py'
-                            ),
-                            'x',
-                        ) as f:
-                            f.write(
-                                env.get_template('project.name/__init__.py.j2').render(
-                                    user_template=self.find_user_templates(file)
-                                )
-                            )
-                        cmd_children.add(self.fix, 'children', parent)
-                else:
-                    cmd_children.add(self.fix, 'children', parent)
-            elif file.endswith('.py'):
-                child.write_text(
-                    self.base_templates.get(
-                        self.fix,
-                        self.base_templates.setdefault(
-                            self.fix, env.get_template('project.name/new_module.py.j2')
-                        ),
-                    ).render(user_template=self.find_user_templates(file))
+            warn('Invalid fix mode nothing will be added.', RuntimeWarning, stacklevel=0)
+        elif file.endswith('/'):
+            child.mkdir(parents=True)
+            parent = file.rstrip('/')
+            heirs = parent.split('/')
+            if len(heirs) > 1:
+                warn(
+                    'Nested folder creation not supported.',
+                    RuntimeWarning,
+                    stacklevel=0,
                 )
-                cmd_files.add(self.fix, 'files', str(Path(file)))
             else:
-                child.touch()
-                cmd_files.add(self.fix, 'files', str(Path(file)))
+                with open((child / 'meson.build'), 'x') as f:
+                    f.write(env.get_template('new_child.j2').render(parent=parent))
+            if self.fix == 'source':
+                if len(heirs) > 1:
+                    warn(
+                        'Nested folder creation not supported.',
+                        RuntimeWarning,
+                        stacklevel=0,
+                    )
+                else:
+                    with open(
+                        (self.path_map.get(self.fix, partial(Path))(*heirs) / '__init__.py'),
+                        'x',
+                    ) as f:
+                        f.write(
+                            env.get_template('project.name/__init__.py.j2').render(
+                                user_template=self.find_user_templates(file),
+                            ),
+                        )
+                    cmd_children.add(self.fix, 'children', parent)
+            else:
+                cmd_children.add(self.fix, 'children', parent)
+        elif file.endswith('.py'):
+            child.write_text(
+                self.base_templates.get(
+                    self.fix,
+                    self.base_templates.setdefault(
+                        self.fix,
+                        env.get_template('project.name/new_module.py.j2'),
+                    ),
+                ).render(user_template=self.find_user_templates(file)),
+            )
+            cmd_files.add(self.fix, 'files', str(Path(file)))
+        else:
+            child.touch()
+            cmd_files.add(self.fix, 'files', str(Path(file)))
         return cmd_files, cmd_children
 
-    def __iadd__(self: Rewriter, other: List[str]) -> Rewriter:
+    def __iadd__(self: Self, other: list[str]) -> Self:
         """Add a list of paths"""
         cmd_files = RewriteCommand()
         cmd_children = RewriteCommand()
@@ -570,7 +570,7 @@ class Rewriter:
             self.commands += [{k: v for k, v in asdict(cmd_files).items() if k != 'active'}]
         if cmd_children.active:
             self.commands += [
-                {k: v for k, v in asdict(cmd_children).items() if k != 'active'}
+                {k: v for k, v in asdict(cmd_children).items() if k != 'active'},
             ]
         return self
 
@@ -580,7 +580,7 @@ class Rewriter:
         file: str,
         cmd_files: RewriteCommand,
         cmd_children: RewriteCommand,
-    ) -> Tuple[RewriteCommand, RewriteCommand]:
+    ) -> tuple[RewriteCommand, RewriteCommand]:
         """Remove items from OZI Rewriter"""
         if file.endswith('/'):
             cmd_children.rem(self.fix, 'children', str(child / 'meson.build'))
@@ -590,7 +590,7 @@ class Rewriter:
             cmd_files.rem(self.fix, 'files', str(Path(file)))
         return cmd_files, cmd_children
 
-    def __isub__(self: Rewriter, other: List[str]) -> Rewriter:
+    def __isub__(self: Self, other: list[str]) -> Self:
         """Remove a list of paths"""
         cmd_files = RewriteCommand()
         cmd_children = RewriteCommand()
@@ -602,11 +602,11 @@ class Rewriter:
             self.commands += [{k: v for k, v in asdict(cmd_files).items() if k != 'active'}]
         if cmd_children.active:
             self.commands += [
-                {k: v for k, v in asdict(cmd_children).items() if k != 'active'}
+                {k: v for k, v in asdict(cmd_children).items() if k != 'active'},
             ]
         return self
 
-    def __rm_dir(self: Rewriter, file: str, child: Path) -> None:
+    def __rm_dir(self: Self, file: str, child: Path) -> None:
         """Try to remove a directory if empty."""
         if file.endswith('/'):
             try:
@@ -618,15 +618,20 @@ class Rewriter:
                 )
 
 
-def preprocess(project: argparse.Namespace) -> argparse.Namespace:
+def preprocess(project: Namespace) -> Namespace:
     """Remove phony arguments, check target exists and is a directory, set missing flag."""
     project.missing = project.fix == 'missing'
     project.target = Path(project.target).absolute()
     if not project.target.exists():
-        warn(f'Bail out! target: {project.target}\ntarget does not exist.', RuntimeWarning)
+        warn(
+            f'Bail out! target: {project.target}\ntarget does not exist.',
+            RuntimeWarning,
+            stacklevel=0,
+        )
     elif not project.target.is_dir():
         warn(
-            f'Bail out! target: {project.target}\ntarget is not a directory.', RuntimeWarning
+            f'Bail out! target: {project.target}\ntarget is not a directory.',
+            RuntimeWarning,
         )
     project.add.remove('ozi.phony')
     project.add = list(set(project.add))
@@ -655,10 +660,11 @@ def main() -> NoReturn:  # pragma: no cover
     project = preprocess(parser.parse_args())
     env.globals = env.globals | {
         'project': vars(project),
-        **metadata,
+        **metadata.asdict(),
     }
     name, *_ = report_missing(
-        project.target, stdout=print if project.missing else lambda *_: None  # type: ignore
+        project.target,
+        stdout=print if project.missing else lambda *_: None,  # type: ignore
     )
 
     if name is None:
@@ -676,7 +682,7 @@ def main() -> NoReturn:  # pragma: no cover
         [
             f'Part of {name}.',
             f'See {project.license_file} in the project root for details.',
-        ]
+        ],
     )
     rewriter = Rewriter(project.target, project.name, project.fix)
     rewriter += project.add

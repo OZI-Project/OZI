@@ -9,7 +9,7 @@ project(
     default_options: ['warning_level=3'],
     license: '{{ project.license_expression }}',
     license_files: ['{{ project.license_file }}'],
-    meson_version: '>={{ ozi.meson_min_version }}',
+    meson_version: '{{ spec.python.build.requires.meson|replace('meson', '') }}',
     version: run_command(
         'python3',
         [
@@ -49,31 +49,17 @@ scm_version = run_command(
     ['-c', scm_version_snip],
     check: true,
 ).stdout().strip()
-semantic_version = meson.project_version().split('.')
-maj_version = semantic_version.get(0)
-min_version = semantic_version.get(1)
-pat_version = semantic_version.get(2)
-configure_file(
-    input: 'pyproject.toml',
-    output: 'pyproject.toml',
-    configuration: configuration_data(
-        {
-            'PROJECT_NAME': project_name,
-            'MESON_DIST_FALLBACK_VERSION': '.'.join(
-                maj_version,
-                min_version,
-                pat_version,
-            ),
-        },
-    ),
-)
+python = pymod.find_installation()
+pyproject_config.set('PYTHON_VERSION_DIST', 'py'+''.join(python.language_version().split('.')))
+pre_pyproject = configure_file(input: 'pyproject.toml', output: 'pyproject.toml.pre', configuration: pyproject_config)
+vcs_tag(input: pre_pyproject, output: 'pyproject.toml')
 root_files = [
-{%- for required_root_dist in ozi.required_root_dist %}
+{%- for required_root_dist in spec.python.pkg.required.root %}
 {%- if required_root_dist not in ['pyproject.toml'] %}
     '{{ required_root_dist }}',
 {%- endif %}
 {%- endfor %}
-{%- for filename in ozi.required_root_dist %}
+{%- for filename in spec.python.pkg.required.root %}
 {%- if project.license_file not in ozi.required_root_dist %}
     '{{ project.license_file }}',
 {%- endif %}

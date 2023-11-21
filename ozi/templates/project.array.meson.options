@@ -8,19 +8,18 @@ option(
     'namespace',
     type: 'array',
     value: [
-        'dist',
-        'docs',
-        'lint',
-        'test'
+{%- for suite in spec.python.ci.checkpoint.suites %}
+        '{{ suite }}',
+{%- endfor %}
     ]
 )
 option(
     'python-dependencies', 
     type: 'array',
     value: [
-        'ensurepip',
-        'setuptools_scm',
-        'tomli'
+{%- for requires in spec.python.build.requires %}
+    '{{ requires|to_distribution }}',
+{%- endfor %}
     ]
 )
 option(
@@ -37,62 +36,30 @@ option(
         'plugin-only',
         'no-version',
         'emoji-dist',
-        'emoji-docs',
         'emoji-lint',
         'emoji-test',
         'emoji-no-version',
         'emoji-metadata-version',
         'dist-exclude-suites',
-        'docs-exclude-suites',
         'lint-exclude-suites',
         'test-exclude-suites'
     ]
 )
+{%- for suite in spec.python.ci.checkpoint.suites %}
 option(
-    'dist-suite',
+    '{{ suite }}-suite',
     type: 'array',
     value: [
-        'pyc_wheel',
-        'semantic-release',
-        'sigstore'
+{%- for utility in spec.python.get(suite).utility.keys() %}
+{%- if utility in spec.python.get(suite).module %}
+        '{{ utility|to_distribution }}',
+{%- else %}
+        '{{ utility }}',
+{%- endif %}
+{%- endfor %}
+{%- for plugin in spec.python.get(suite).plugin.keys() %}
+        '{{ plugin }}',
+{%- endfor %}
     ]
 )
-option(
-    'docs-suite',
-    type: 'array',
-    value: [
-        'doc8',
-        'pydocstyle',
-        'sphinx-build',
-        'sphinxawesome-codelinter', 
-        'sphinxawesome-theme'
-    ]
-)
-option(
-    'lint-suite',
-    type: 'array',
-    value: [
-        'bandit', 
-        'black', 
-        'isort',
-        'mypy',
-        'pyright',
-        'restructuredtext-lint',
-        'flake8',
-        'Flake8-pyproject'
-    ]
-)
-option(
-    'test-suite',
-    type: 'array',
-    value: [
-        'coverage',
-        'hypothesis',
-        'pytest',
-        'pytest-asyncio',
-        'pytest-cov',
-        'pytest-randomly',
-        'pytest-tcpclient',
-        'pytest-xdist'
-    ]
-)
+{%- endfor %}

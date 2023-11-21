@@ -8,5 +8,5 @@
 check-quote-consistency = true
 expected-line-ending-format = "LF"
 max-nested-blocks = 4
-max-line-length = 93
+max-line-length = {{ spec.python.src.format.max_line_length }}
 disable = "C0301"

@@ -6,7 +6,8 @@ config_files = [
     'core_metadata_template.py',
     'scm_version_snip.py',
     'sync_pkg_readme.py',
-    'version_metadata_template.py'
+    'version_metadata_template.py',
+    'replace_ruff_target_version.py',
 ]
 foreach file: config_files
     python.install_sources(file, subdir: 'ozi'/'scripts')
@@ -15,7 +16,3 @@ endforeach
 if false
     executable('source_child_scripts', config_files)
 endif
-subdir('ide')
-foreach name : namespace
-    subdir(name)
-endforeach

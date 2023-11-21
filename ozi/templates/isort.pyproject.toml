@@ -5,5 +5,5 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
 [tool.isort]
-line_length = 93
+line_length = {{ spec.python.src.format.max_line_length }}
 profile = "black"

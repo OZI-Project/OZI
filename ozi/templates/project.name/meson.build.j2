@@ -4,7 +4,7 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
-{{ '# OZI ' ~ ozi.spec }} meson.build:source_files,source_children
+{{ '# OZI ' ~ spec.version }} meson.build:source_files,source_children
 {%- for line in project.copyright_head.split('\n') %}
 {{ '# ' ~ line }}
 {%- endfor %}

@@ -2,7 +2,7 @@
 
 The Clear BSD License
 
-Copyright (c) {{ project.copyright_year }} {{ project.author }}
+Copyright (c) {{ project.copyright_year }} {{ project.author|join(', ') }}
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
