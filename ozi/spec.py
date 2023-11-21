@@ -11,7 +11,10 @@ from importlib.metadata import PackageNotFoundError
 from typing import TYPE_CHECKING
 from typing import ClassVar
 from typing import Protocol
-from typing import Self
+try:
+    from typing import Self
+except ImportError:  # pragma: no cover
+    from typing_extensions import Self
 from typing import Sequence
 from typing import TypeAlias
 from warnings import warn

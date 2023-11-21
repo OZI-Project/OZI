@@ -26,7 +26,10 @@ from typing import TYPE_CHECKING
 from typing import Annotated
 from typing import Any
 from typing import NoReturn
-from typing import Self
+try:
+    from typing import Self
+except ImportError:  # pragma: no cover
+    from typing_extensions import Self
 from typing import Union
 from warnings import warn
 

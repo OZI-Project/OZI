@@ -9,7 +9,10 @@ from functools import lru_cache
 from typing import TYPE_CHECKING
 from typing import Any
 from typing import ClassVar
-from typing import Self
+try:
+    from typing import Self
+except ImportError:  # pragma: no cover
+    from typing_extensions import Self
 
 if TYPE_CHECKING:  # pragma: no cover
     from argparse import ArgumentParser
