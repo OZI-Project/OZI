@@ -19,7 +19,6 @@ project(
         check: true,
     ).stdout().strip(),
 )
-vcs_tag(input: 'pyproject.toml', output: 'pyproject.toml')
 env = environment()
 source_root = meson.current_source_dir()
 build_root = meson.current_build_dir()
@@ -37,22 +36,43 @@ custom_target(
     output: 'requirements.txt',
     build_always_stale: true,
     build_by_default: true,
-    command: ['pip-compile', '--allow-unsafe', '--strip-extras', '-q', '--generate-hashes', '-o', '@OUTPUT@', '@INPUT@']
+    command: [
+        'pip-compile',
+        '--allow-unsafe',
+        '--strip-extras',
+        '-q',
+        '--generate-hashes',
+        '-o',
+        '@OUTPUT@',
+        '@INPUT@'
+    ]
 )
 dev = subproject('ozi')
 foreach var : get_option('variables')
     name = var.replace('-', '_')
     set_variable(name, dev.get_variable(name))
 endforeach
-scm_version = run_command(
-    python,
-    ['-c', scm_version_snip],
-    check: true,
-).stdout().strip()
 python = pymod.find_installation()
-pyproject_config.set('PYTHON_VERSION_DIST', 'py'+''.join(python.language_version().split('.')))
-pre_pyproject = configure_file(input: 'pyproject.toml', output: 'pyproject.toml.pre', configuration: pyproject_config)
+
+{#- BEGIN check MESON_SOURCE_ROOT/PKG-INFO #}
+run_command(python, ['-c', sync_pkg_readme], check: true)
+{#- END check MESON_SOURCE_ROOT/PKG-INFO #}
+
+{#- BEGIN config MESON_BUILD_ROOT/pyproject.toml.pre #}
+pyproject_config.set(
+    'PYTHON_VERSION_DIST',
+    'py'+''.join(python.language_version().split('.'))
+)
+pyproject_config.set('VCS_TAG', '@VCS_TAG@')
+pre_pyproject = configure_file(
+    input: 'pyproject.toml',
+    output: 'pyproject.toml.pre',
+    configuration: pyproject_config
+)
+run_command(python, ['-c', replace_ruff_target_version], check: true)
 vcs_tag(input: pre_pyproject, output: 'pyproject.toml')
+{#- END config MESON_BUILD_ROOT/pyproject.toml.pre #}
+
 root_files = [
 {%- for required_root_dist in spec.python.pkg.required.root %}
 {%- if required_root_dist not in ['pyproject.toml'] %}
