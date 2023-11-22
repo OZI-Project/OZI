@@ -19,10 +19,8 @@ import argparse  # pragma: no cover
 import json  # pragma: no cover
 import sys  # pragma: no cover
 import warnings  # pragma: no cover
-from contextlib import contextmanager  # pragma: no cover
 from dataclasses import fields  # pragma: no cover
 from typing import TYPE_CHECKING  # pragma: no cover
-from typing import Generator  # pragma: no cover
 from typing import NoReturn  # pragma: no cover
 
 if TYPE_CHECKING:  # pragma: no cover
@@ -51,12 +49,8 @@ def tap_warning_format(  # pragma: no cover
     return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {message}\n'  # pragma: no cover
 
 
-@contextmanager  # pragma: no cover
-def output_tap_warnings() -> Generator[None, None, None]:  # pragma: no cover
-    oldformat = warnings.formatwarning
-    warnings.formatwarning = tap_warning_format
-    yield
-    warnings.formatwarning = oldformat
+pywarningformat = warnings.formatwarning
+warnings.formatwarning = tap_warning_format
 
 
 def print_version() -> NoReturn:  # pragma: no cover
@@ -65,7 +59,6 @@ def print_version() -> NoReturn:  # pragma: no cover
     sys.exit(0)
 
 
-@output_tap_warnings()  # pragma: no cover
 def check_for_update(
     current_version: Version,
     releases: Collection[Version],
@@ -85,7 +78,6 @@ def check_for_update(
             print(f'ok - OZI package is up to date ({current_version}).')
 
 
-@output_tap_warnings()  # pragma: no cover
 def check_version() -> NoReturn:  # pragma: no cover
     """Check for a newer version of OZI and exit."""
     response = requests.get('https://pypi.org/pypi/OZI/json', timeout=30)
@@ -165,6 +157,7 @@ def main() -> NoReturn | str:  # pragma: no cover
     ozi = parser.parse_args()
     ozi.version()
     ozi.check_version()
+    warnings.filterwarnings = pywarningformat
     ozi.info()
     if ozi.list_available:
         list_available(ozi.list_available)

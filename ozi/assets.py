@@ -27,63 +27,8 @@ from pyparsing import ZeroOrMore
 from pyparsing import oneOf
 from spdx_license_list import LICENSES
 
-exceptions = (
-    '389-exception',
-    'Asterisk-exception',
-    'Autoconf-exception-2.0',
-    'Autoconf-exception-3.0',
-    'Autoconf-exception-generic',
-    'Autoconf-exception-macro',
-    'Bison-exception-2.2',
-    'Bootloader-exception',
-    'Classpath-exception-2.0',
-    'CLISP-exception-2.0',
-    'cryptsetup-OpenSSL-exception',
-    'DigiRule-FOSS-exception',
-    'eCos-exception-2.0',
-    'Fawkes-Runtime-exception',
-    'FLTK-exception',
-    'Font-exception-2.0',
-    'freertos-exception-2.0',
-    'GCC-exception-2.0',
-    'GCC-exception-3.1',
-    'GNAT-exception',
-    'gnu-javamail-exception',
-    'GPL-3.0-interface-exception',
-    'GPL-3.0-linking-exception',
-    'GPL-3.0-linking-source-exception',
-    'GPL-CC-1.0',
-    'GStreamer-exception-2005',
-    'GStreamer-exception-2008',
-    'i2p-gpl-java-exception',
-    'KiCad-libraries-exception',
-    'LGPL-3.0-linking-exception',
-    'libpri-OpenH323-exception',
-    'Libtool-exception',
-    'Linux-syscall-note',
-    'LLGPL',
-    'LLVM-exception',
-    'LZMA-exception',
-    'mif-exception',
-    'OCaml-LGPL-linking-exception',
-    'OCCT-exception-1.0',
-    'OpenJDK-assembly-exception-1.0',
-    'openvpn-openssl-exception',
-    'PS-or-PDF-font-exception-20170817',
-    'QPL-1.0-INRIA-2004-exception',
-    'Qt-GPL-exception-1.0',
-    'Qt-LGPL-exception-1.1',
-    'Qwt-exception-1.0',
-    'SHL-2.0',
-    'SHL-2.1',
-    'SWI-exception',
-    'Swift-exception',
-    'u-boot-exception-2.0',
-    'Universal-FOSS-exception-1.0',
-    'vsftpd-openssl-exception',
-    'WxWindows-exception-3.1',
-    'x11vnc-openssl-exception',
-)
+from .spec import License
+
 pep639_spdx = [
     'LicenseRef-Public-Domain',
     'LicenseRef-Proprietary',
@@ -92,7 +37,7 @@ spdx_license_expression = Forward()
 spdx_license_expression <<= oneOf(
     pep639_spdx + [lic.id for lic in LICENSES.values() if not lic.deprecated_id],
 ).set_name('License-ID') + ZeroOrMore(
-    Keyword('WITH') + oneOf(exceptions).set_name('License-Exception-ID')
+    Keyword('WITH') + oneOf(License().exceptions).set_name('License-Exception-ID')
     | Keyword('AND') + spdx_license_expression
     | Keyword('OR') + spdx_license_expression,
 ) | Literal(

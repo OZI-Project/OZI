@@ -60,16 +60,11 @@ def tap_warning_format(  # pragma: no cover
     line: str | None = None,
 ) -> str:
     """Test Anything Protocol formatted warnings."""
-    return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {message}\n'  # pragma: no cover
+    return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {message}\n'
 
 
-@contextmanager
-def output_tap_warnings() -> Generator[None, None, None]:  # pragma: no cover
-    oldformat = warnings.formatwarning
-    warnings.formatwarning = tap_warning_format
-    yield
-    warnings.formatwarning = oldformat
-
+pywarningformat = warnings.formatwarning
+warnings.formatwarning = tap_warning_format
 
 metadata = Metadata()
 python_support = PythonSupport()
@@ -202,7 +197,6 @@ missing_parser.add_argument(
 )
 
 
-@output_tap_warnings()
 def missing_python_support(
     pkg_info: Message,
     count: int,
@@ -223,7 +217,6 @@ def missing_python_support(
     return count, remaining_pkg_info
 
 
-@output_tap_warnings()
 def missing_ozi_required(
     pkg_info: Message,
     count: int,
@@ -241,7 +234,6 @@ def missing_ozi_required(
     return count, extra_pkg_info
 
 
-@output_tap_warnings()
 def missing_required(
     target: Path,
     count: int,
@@ -298,7 +290,6 @@ def count_comments(
     return count
 
 
-@output_tap_warnings()
 def missing_required_files(  # noqa: C901
     kind: str,
     target: Path,
@@ -376,7 +367,6 @@ def missing_required_files(  # noqa: C901
     return count, miss_count, found_files, extra_files
 
 
-@output_tap_warnings()
 def report_missing(
     target: Path,
     stdout: Callable[..., None] = print,
@@ -646,7 +636,6 @@ class Rewriter:
                 )
 
 
-@output_tap_warnings()
 def preprocess(project: Namespace) -> Namespace:
     """Remove phony arguments, check target exists and is a directory, set missing flag."""
     project.missing = project.fix == 'missing'
