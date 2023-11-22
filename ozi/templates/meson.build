@@ -39,6 +39,7 @@ root_templates = [
     'pytest.pyproject.toml',
     'requirements.in.j2',
     'root.pyproject.toml',
+    'ruff.pyproject.toml',
     'semantic_release.pyproject.toml',
     'setuptools_scm.pyproject.toml',
     'tox.pyproject.toml',
