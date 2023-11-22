@@ -2,6 +2,21 @@
 
 
 
+## v0.0.205 (2023-11-22)
+
+### :bug:
+
+* :bug:: No cover warning formatter. ([`5b52bfc`](https://github.com/rjdbcm/OZI/commit/5b52bfc4443e220ef23c4d612ed77cb622779722))
+
+* :bug:: Remove test of tap warning formatting. ([`be62ac1`](https://github.com/rjdbcm/OZI/commit/be62ac1867aadf1629b77102b1e6c45ddded9b2b))
+
+* :bug:: Fix circular assets import. ([`b8a2774`](https://github.com/rjdbcm/OZI/commit/b8a2774b5106b2e2095f4d405f88afae5a02d931))
+
+### Other
+
+* Fix missing ruff template and circular import. ([`323b963`](https://github.com/rjdbcm/OZI/commit/323b96375b1e1c8f083b95fdfb1bc69e3e65e911))
+
+
 ## v0.0.204 (2023-11-22)
 
 ### :bug:
