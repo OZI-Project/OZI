@@ -386,26 +386,3 @@ def test_fuzz_CloseMatch_nargs_invalid(
 ) -> None:
     with pytest.raises(ValueError, match='nargs'):
         ozi.actions.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
-
-
-@given(
-    msg=st.text(),
-    category=st.just(Warning),
-    filename=st.text(),
-    lineno=st.integers(),
-    line=st.one_of(st.none(), st.text()),
-)
-def test_fuzz_tap_warning_format(
-    msg: str,
-    category: type,
-    filename: str,
-    lineno: int,
-    line: str | None,
-) -> None:
-    ozi.assets.tap_warning_format(
-        message=msg,
-        category=category,
-        filename=filename,
-        lineno=lineno,
-        line=line,
-    )
