@@ -49,8 +49,8 @@ def tap_warning_format(  # pragma: no cover
     return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {message}\n'  # pragma: no cover
 
 
-pywarningformat = warnings.formatwarning
-warnings.formatwarning = tap_warning_format
+pywarningformat = warnings.formatwarning  # pragma: no cover
+warnings.formatwarning = tap_warning_format  # pragma: no cover
 
 
 def print_version() -> NoReturn:  # pragma: no cover
