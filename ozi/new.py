@@ -13,10 +13,6 @@ import warnings
 from typing import TYPE_CHECKING
 from typing import NoReturn
 
-from email_validator import EmailNotValidError
-from email_validator import EmailSyntaxError
-from email_validator import validate_email
-
 if TYPE_CHECKING:  # pragma: no cover
     from collections.abc import Sequence
 
@@ -34,6 +30,9 @@ from ozi.render import env
 from ozi.render import render_ci_files_set_user
 from ozi.render import render_project_files
 from ozi.spec import Metadata
+from ozi.vendor.email_validator import EmailNotValidError
+from ozi.vendor.email_validator import EmailSyntaxError
+from ozi.vendor.email_validator import validate_email
 
 metadata = Metadata()
 

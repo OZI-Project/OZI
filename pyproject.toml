@@ -81,7 +81,7 @@ relative_files = true
 
 [tool.ruff]
 line-length = 93
-extend-exclude = ["meson-private", "scripts"]
+extend-exclude = ["meson-private", "scripts", "vendor"]
 select = ["ALL"]
 ignore = [
     "A003",
@@ -156,6 +156,7 @@ exclude = [
     'meson-private',
     'tests',
     'venv',
+    'vendor',
 ]
 
 [[tool.mypy.overrides]]
@@ -174,6 +175,7 @@ exclude = [
     'meson-private',
     'tests',
     'venv',
+    'vendor',
 ]
 
 [tool.pytest.ini_options]  #[tool.pytest] # This will be used by pytest in the future
@@ -256,7 +258,8 @@ Author-email: help@oziproject.dev
 License: Apache-2.0 WITH LLVM-exception
 Keywords: meson,packaging,wheel
 Project-URL: Bug Tracker, https://github.com/rjdbcm/ozi/issues
-Requires-Dist: email-validator
+Requires-Dist: dnspython
+Requires-Dist: idna
 Requires-Dist: jinja2
 Requires-Dist: pyparsing
 Requires-Dist: requests
