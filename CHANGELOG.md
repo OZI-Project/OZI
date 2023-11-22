@@ -2,6 +2,21 @@
 
 
 
+## v0.0.206 (2023-11-22)
+
+### :bug:
+
+* :bug:: Fix coverage with no cover of warning format. ([`05322ed`](https://github.com/rjdbcm/OZI/commit/05322ede2634de929f00915f3192c5aea7adca4c))
+
+* :bug:: Fix linter complaints and missing import. ([`c1d68d8`](https://github.com/rjdbcm/OZI/commit/c1d68d8d20929984b04d7a104d90bca43e93818d))
+
+* :bug:: Fix unknown import issue with email_validator. ([`d4d8b16`](https://github.com/rjdbcm/OZI/commit/d4d8b161d4e73a02e68170e64af2a48c886c8e5e))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`0605305`](https://github.com/rjdbcm/OZI/commit/0605305647598863eb5ebb8dce9e4db568ca7a17))
+
+
 ## v0.0.205 (2023-11-22)
 
 ### :bug:
