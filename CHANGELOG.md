@@ -2,6 +2,15 @@
 
 
 
+## v0.0.204 (2023-11-22)
+
+### :bug:
+
+* :bug:: Fix meson.build template pyproject.toml preprocessing. ([`e9f10da`](https://github.com/rjdbcm/OZI/commit/e9f10da28bf2a3fc9dd78766f684b72def73ee6f))
+
+* :bug:: Fix warning output to use TAP with a contextmanager. ([`92dea85`](https://github.com/rjdbcm/OZI/commit/92dea85753c1edb4fc6bf676a1c75f4048809ac9))
+
+
 ## v0.0.203 (2023-11-21)
 
 ### :bug:
