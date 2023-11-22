@@ -157,7 +157,7 @@ def main() -> NoReturn | str:  # pragma: no cover
     ozi = parser.parse_args()
     ozi.version()
     ozi.check_version()
-    warnings.filterwarnings = pywarningformat
+    warnings.filterwarnings = pywarningformat  # type: ignore
     ozi.info()
     if ozi.list_available:
         list_available(ozi.list_available)
