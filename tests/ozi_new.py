@@ -254,7 +254,9 @@ def test_fuzz_CloseMatch_nargs_None(
     nargs: int | str | None,
     data: typing.Any,
 ) -> None:
-    close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
+    close_match = ozi.actions.CloseMatch(
+        option_strings=[option_strings], dest=dest, nargs=nargs
+    )
     data = data.draw(
         st.sampled_from(
             ozi.actions.ExactMatch().__getattribute__(
@@ -288,7 +290,9 @@ def test_fuzz_CloseMatch_nargs_append(
     nargs: int | str | None,
     data: typing.Any,
 ) -> None:
-    close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
+    close_match = ozi.actions.CloseMatch(
+        option_strings=[option_strings], dest=dest, nargs=nargs
+    )
     data = data.draw(
         st.sampled_from(
             ozi.actions.ExactMatch().__getattribute__(
@@ -321,7 +325,9 @@ def test_fuzz_CloseMatch_nargs_append_None_values(
     nargs: int | str | None,
     data: typing.Any,
 ) -> None:
-    close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
+    close_match = ozi.actions.CloseMatch(
+        option_strings=[option_strings], dest=dest, nargs=nargs
+    )
     close_match(argparse.ArgumentParser(), argparse.Namespace(), data, option_strings)
 
 
@@ -348,7 +354,9 @@ def test_fuzz_CloseMatch_nargs_append_warns(
     nargs: int | str | None,
     data: typing.Any,
 ) -> None:
-    close_match = ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
+    close_match = ozi.actions.CloseMatch(
+        option_strings=[option_strings], dest=dest, nargs=nargs
+    )
     with pytest.warns(RuntimeWarning):
         close_match(argparse.ArgumentParser(), argparse.Namespace(), [data], option_strings)
 
@@ -377,7 +385,7 @@ def test_fuzz_CloseMatch_nargs_invalid(
     data: typing.Any,
 ) -> None:
     with pytest.raises(ValueError, match='nargs'):
-        ozi.new.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
+        ozi.actions.CloseMatch(option_strings=[option_strings], dest=dest, nargs=nargs)
 
 
 @given(
@@ -394,7 +402,7 @@ def test_fuzz_tap_warning_format(
     lineno: int,
     line: str | None,
 ) -> None:
-    ozi.new.tap_warning_format(
+    ozi.assets.tap_warning_format(
         message=msg,
         category=category,
         filename=filename,

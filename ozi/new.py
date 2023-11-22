@@ -9,7 +9,6 @@ import argparse
 import re
 import shlex
 import sys
-import warnings
 from typing import TYPE_CHECKING
 from typing import NoReturn
 
@@ -24,6 +23,7 @@ from warnings import simplefilter
 from warnings import warn
 
 from .actions import CloseMatch
+from .assets import output_tap_warnings
 from .assets import parse_email
 from .assets import parse_project_name
 from .assets import parse_spdx
@@ -31,9 +31,7 @@ from .render import env
 from .render import render_ci_files_set_user
 from .render import render_project_files
 from .spec import Metadata
-from .spec import tap_warning_format
 
-warnings.formatwarning = tap_warning_format
 metadata = Metadata()
 
 parser = argparse.ArgumentParser(
@@ -288,6 +286,7 @@ def copyright_head(
     return project, count
 
 
+@output_tap_warnings()
 def license_(project: argparse.Namespace, count: int) -> tuple[argparse.Namespace, int]:
     """PKG-INFO:License"""
     possible_spdx: Sequence[str] = metadata.spec.python.pkg.license.ambiguous.get(
@@ -313,6 +312,7 @@ def license_(project: argparse.Namespace, count: int) -> tuple[argparse.Namespac
     return project, count
 
 
+@output_tap_warnings()
 def license_expression(
     project: argparse.Namespace,
     count: int,
@@ -323,6 +323,7 @@ def license_expression(
     return project, count
 
 
+@output_tap_warnings()
 def summary(project: argparse.Namespace, count: int) -> tuple[argparse.Namespace, int]:
     """PKG-INFO:Summary"""
     if len(project.summary) > 512:
@@ -343,6 +344,7 @@ def keywords(project: argparse.Namespace, count: int) -> tuple[argparse.Namespac
     return project, count
 
 
+@output_tap_warnings()
 def author_email(
     project: argparse.Namespace,
     count: int,
@@ -356,6 +358,7 @@ def author_email(
     return project, count
 
 
+@output_tap_warnings()
 def maintainer_email(  # noqa: C901
     project: argparse.Namespace,
     count: int,
@@ -404,6 +407,7 @@ def maintainer_email(  # noqa: C901
     return project, count
 
 
+@output_tap_warnings()
 def name(project: argparse.Namespace, count: int) -> tuple[argparse.Namespace, int]:
     """PKG-INFO:Name"""
     project.name = parse_project_name(project.name)
@@ -411,6 +415,7 @@ def name(project: argparse.Namespace, count: int) -> tuple[argparse.Namespace, i
     return project, count
 
 
+@output_tap_warnings()
 def home_page(project: argparse.Namespace, count: int) -> tuple[argparse.Namespace, int]:
     """PKG-INFO:Home-page"""
     home_url = urlparse(project.home_page)
@@ -427,6 +432,7 @@ def home_page(project: argparse.Namespace, count: int) -> tuple[argparse.Namespa
     return project, count
 
 
+@output_tap_warnings()
 def project_url(project: argparse.Namespace, count: int) -> tuple[argparse.Namespace, int]:
     """PKG-INFO:Project-URL"""
     for name, url in [str(i).split(',') for i in project.project_url]:
@@ -451,6 +457,7 @@ def project_url(project: argparse.Namespace, count: int) -> tuple[argparse.Names
     return project, count
 
 
+@output_tap_warnings()
 def create_project_files(
     project: argparse.Namespace,
     count: int,

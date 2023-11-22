@@ -18,6 +18,7 @@ from __future__ import annotations  # pragma: no cover
 import argparse  # pragma: no cover
 import json  # pragma: no cover
 import sys  # pragma: no cover
+from dataclasses import fields  # pragma: no cover
 from typing import TYPE_CHECKING  # pragma: no cover
 from typing import NoReturn  # pragma: no cover
 
@@ -31,6 +32,7 @@ from packaging.version import Version  # pragma: no cover
 from packaging.version import parse  # pragma: no cover
 
 from .actions import ExactMatch  # pragma: no cover
+from .assets import output_tap_warnings  # pragma: no cover
 from .spec import Metadata  # pragma: no cover
 
 metadata = Metadata()  # pragma: no cover
@@ -42,6 +44,7 @@ def print_version() -> NoReturn:  # pragma: no cover
     sys.exit(0)
 
 
+@output_tap_warnings()  # pragma: no cover
 def check_for_update(
     current_version: Version,
     releases: Collection[Version],
@@ -50,17 +53,18 @@ def check_for_update(
     match max(releases):
         case latest if latest > current_version:
             warn(
-                'Newer version of OZI available to download on PyPI: '
+                f'Newer version of OZI ({latest} > {current_version}) available to download on PyPI: '
                 'https://pypi.org/project/OZI/',
                 RuntimeWarning,
                 stacklevel=0,
             )
         case latest if latest < current_version:
-            print('ok - OZI package is development version.')
+            print(f'ok - OZI package is development version ({current_version}).')
         case latest if latest == current_version:
-            print('ok - OZI package is up to date.')
+            print(f'ok - OZI package is up to date ({current_version}).')
 
 
+@output_tap_warnings()  # pragma: no cover
 def check_version() -> NoReturn:  # pragma: no cover
     """Check for a newer version of OZI and exit."""
     response = requests.get('https://pypi.org/pypi/OZI/json', timeout=30)
@@ -131,17 +135,7 @@ helpers.add_argument(  # pragma: no cover
     '--list-available',
     help=list_available.__doc__,
     action='store',
-    choices={
-        'audience',
-        'environment',
-        'framework',
-        'language',
-        'license',
-        'license-id',
-        'license-exception-id',
-        'status',
-        'topic',
-    },
+    choices={i.name for i in fields(ExactMatch) if i.repr},
 )
 
 

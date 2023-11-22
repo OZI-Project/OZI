@@ -5,17 +5,14 @@
 """ozi-fix: Project fix script that outputs a meson rewriter JSON array."""
 from __future__ import annotations
 
-import asyncio
 import gc
 import json
 import os
 import re
 import sys
-import warnings
 from argparse import SUPPRESS
 from argparse import ArgumentParser
 from argparse import BooleanOptionalAction
-from contextlib import asynccontextmanager
 from contextlib import contextmanager
 from contextlib import suppress
 from dataclasses import asdict
@@ -28,7 +25,6 @@ from runpy import run_module
 from typing import TYPE_CHECKING
 from typing import Annotated
 from typing import Any
-from typing import AsyncGenerator
 from typing import NoReturn
 
 if sys.version_info >= (3, 11):  # pragma: no cover
@@ -48,14 +44,13 @@ if TYPE_CHECKING:  # pragma: no cover
 
     from jinja2 import Template
 
+from .assets import output_tap_warnings
 from .assets import parse_extra_pkg_info
 from .filter import underscorify
 from .render import env
 from .spec import Metadata
 from .spec import PythonSupport
-from .spec import tap_warning_format
 
-warnings.formatwarning = tap_warning_format
 metadata = Metadata()
 python_support = PythonSupport()
 parser = ArgumentParser(description=sys.modules[__name__].__doc__, add_help=False)
@@ -187,6 +182,7 @@ missing_parser.add_argument(
 )
 
 
+@output_tap_warnings()
 def missing_python_support(
     pkg_info: Message,
     count: int,
@@ -198,7 +194,7 @@ def missing_python_support(
         for k, v in pkg_info.items()
         if k not in metadata.spec.python.pkg.info.required
     }
-    for k, v in iter(python_support.classifiers):
+    for k, v in iter(python_support.classifiers[:4]):
         if (k, v) in remaining_pkg_info:
             count += 1
             stdout('ok', count, '-', f'{k}:', v)
@@ -207,6 +203,7 @@ def missing_python_support(
     return count, remaining_pkg_info
 
 
+@output_tap_warnings()
 def missing_ozi_required(
     pkg_info: Message,
     count: int,
@@ -219,11 +216,12 @@ def missing_ozi_required(
         count += 1
         stdout('ok', count, '-', f'{k}:', v)
     extra_pkg_info, errstr = parse_extra_pkg_info(pkg_info)
-    if errstr != '':  # pragma: defer to good-first-issue
+    if errstr not in ('', None):  # pragma: defer to good-first-issue
         warn(f'{count} - MISSING {errstr}', RuntimeWarning, stacklevel=0)
     return count, extra_pkg_info
 
 
+@output_tap_warnings()
 def missing_required(
     target: Path,
     count: int,
@@ -280,6 +278,7 @@ def count_comments(
     return count
 
 
+@output_tap_warnings()
 def missing_required_files(  # noqa: C901
     kind: str,
     target: Path,
@@ -303,7 +302,7 @@ def missing_required_files(  # noqa: C901
             expected_files = metadata.spec.python.src.required.source
         case _:  # pragma: no cover
             rel_path = Path()
-            expected_files = frozenset()
+            expected_files = ()
 
     for file in expected_files:
         f = rel_path / file
@@ -357,6 +356,7 @@ def missing_required_files(  # noqa: C901
     return count, miss_count, found_files, extra_files
 
 
+@output_tap_warnings()
 def report_missing(
     target: Path,
     stdout: Callable[..., None] = print,
@@ -626,6 +626,7 @@ class Rewriter:
                 )
 
 
+@output_tap_warnings()
 def preprocess(project: Namespace) -> Namespace:
     """Remove phony arguments, check target exists and is a directory, set missing flag."""
     project.missing = project.fix == 'missing'
@@ -670,7 +671,7 @@ def nogc() -> Generator[None, None, None]:  # pragma: no cover
 def run_utility(name: str, *args: str) -> None:  # pragma: no cover
     with nogc():
         with redirect_argv(name, *args):
-            print(f'# run-utility:', *sys.argv)
+            print('# run-utility:', *sys.argv)
             with suppress(SystemExit):
                 run_module(name)
 
@@ -678,15 +679,11 @@ def run_utility(name: str, *args: str) -> None:  # pragma: no cover
 def main() -> NoReturn:  # pragma: no cover
     """Main ozi.fix entrypoint."""
     project = preprocess(parser.parse_args())
-    env.globals = env.globals | {
-        'project': vars(project),
-        **metadata.asdict(),
-    }
+    env.globals = env.globals | {'project': vars(project)}
     name, *_ = report_missing(
         project.target,
         stdout=print if project.missing else lambda *_: None,  # type: ignore
     )
-
     if name is None:
         exit(1)
     if hasattr(project, 'run_utility') and project.run_utility:

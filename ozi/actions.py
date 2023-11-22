@@ -62,20 +62,22 @@ def from_prefix(prefix: str) -> tuple[str, ...]:
     return tuple(i[len(prefix) :].lstrip() for i in classifiers if i.startswith(str(prefix)))
 
 
+_prefix = Prefix()
+
+
 @dataclass
 class ExactMatch:
-    _prefix = Prefix()
-    audience = from_prefix(_prefix.audience)
-    language = from_prefix(_prefix.language)
-    framework = from_prefix(_prefix.framework)
-    environment = from_prefix(_prefix.environment)
-    license = from_prefix(_prefix.license)
+    audience: tuple[str, ...] = from_prefix(_prefix.audience)
+    language: tuple[str, ...] = from_prefix(_prefix.language)
+    framework: tuple[str, ...] = from_prefix(_prefix.framework)
+    environment: tuple[str, ...] = from_prefix(_prefix.environment)
+    license: tuple[str, ...] = from_prefix(_prefix.license)
     license_id: ClassVar[list[str]] = [
         k for k, v in LICENSES.items() if v.deprecated_id is False
     ]
-    license_exception_id = License().exceptions
-    status = from_prefix(_prefix.status)
-    topic = from_prefix(_prefix.topic)
+    license_exception_id: tuple[str, ...] = License().exceptions
+    status: tuple[str, ...] = from_prefix(_prefix.status)
+    topic: tuple[str, ...] = from_prefix(_prefix.topic)
 
 
 class CloseMatch(Action):

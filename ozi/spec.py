@@ -34,6 +34,7 @@ if TYPE_CHECKING:  # pragma: no cover
 from dataclasses import asdict
 from dataclasses import dataclass
 from dataclasses import field
+from dataclasses import fields
 from importlib.metadata import version
 
 __all__ = (
@@ -63,24 +64,11 @@ __all__ = (
     'SrcRequired',
     'SrcTemplate',
     'Support',
-    'current_version',
-    'tap_warning_format',
 )
 
 pymajor, pyminor, pypatch = map(int, platform.python_version_tuple())
 DATE_FORMAT = '%Y-%m-%d'
 DEPRECATION_DELTA_WEEKS = 104
-
-
-def tap_warning_format(
-    message: Warning | str,
-    category: type[Warning],
-    filename: str,
-    lineno: int,
-    line: str | None = None,
-) -> str:
-    """Test Anything Protocol formatted warnings."""
-    return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {message}\n'
 
 
 def current_version() -> str:
@@ -118,7 +106,20 @@ class Default(_FactoryDataclass):
         a Default subclass as the default_factory.
         Typing is compatible with Jinja2 Environment and JSON.
         """
-        return {k: v for k, v in asdict(self).items() if self.__dataclass_fields__[k].repr}
+        all_fields = (
+            (
+                f.name,
+                getattr(self, f.name)
+                if not isinstance(getattr(self, f.name), Default)
+                else getattr(self, f.name).asdict(),
+            )
+            for f in fields(self)
+            if f.repr
+        )
+
+        return dict(all_fields) | {
+            'help': str(self.__class__.__doc__).replace('\n   ', ''),
+        }
 
     def __len__(self: Self) -> int:  # pragma: defer to python
         return len(list(iter(asdict(self))))
@@ -250,8 +251,8 @@ class PythonSupport(Default):
 class CheckpointSuite(Default):
     """OZI checkpoint base class."""
 
-    exclude: frozenset[str] = field(default_factory=frozenset)
-    module: frozenset[str] = field(default_factory=frozenset)
+    exclude: tuple[str, ...] = field(default_factory=tuple)
+    module: tuple[str, ...] = field(default_factory=tuple)
     plugin: Mapping[str, str] = field(default_factory=dict)
     utility: Mapping[str, str] = field(default_factory=dict)
 
@@ -260,8 +261,8 @@ class CheckpointSuite(Default):
 class RuffLint(CheckpointSuite):
     """OZI experimental linting and formatting with ruff."""
 
-    module: frozenset[str] = frozenset(('ruff', 'mypy', 'pyright'))
-    exclude: frozenset[str] = frozenset(('meson-private',))
+    module: tuple[str, ...] = ('ruff', 'mypy', 'pyright')
+    exclude: tuple[str, ...] = ('meson-private',)
     utility: Mapping[str, str] = field(
         default_factory=lambda: {
             'ruff': 'ruff>=0.1.6',
@@ -275,10 +276,8 @@ class RuffLint(CheckpointSuite):
 class ClassicLint(CheckpointSuite):
     """OZI standard linting and formatting suite."""
 
-    module: frozenset[str] = frozenset(
-        ('bandit', 'black', 'flake8', 'isort', 'mypy', 'pyright'),
-    )
-    exclude: frozenset[str] = frozenset(('venv', 'meson-private'))
+    module: tuple[str, ...] = ('bandit', 'black', 'flake8', 'isort', 'mypy', 'pyright')
+    exclude: tuple[str, ...] = ('venv', 'meson-private')
     utility: Mapping[str, str] = field(
         default_factory=lambda: {
             'bandit': 'bandit[toml]',
@@ -315,7 +314,7 @@ class ClassicLint(CheckpointSuite):
 class ClassicTest(CheckpointSuite):
     """OZI standard testing and coverage."""
 
-    module: frozenset[str] = frozenset(('coverage', 'pytest'))
+    module: tuple[str, ...] = ('coverage', 'pytest')
     plugin: Mapping[str, str] = field(
         default_factory=lambda: {
             'hypothesis': 'hypothesis[all]',
@@ -338,7 +337,7 @@ class ClassicTest(CheckpointSuite):
 class ClassicDist(CheckpointSuite):
     """OZI standard publishing and distribution."""
 
-    module: frozenset[str] = frozenset(('pyc_wheel', 'python-semantic-release', 'sigstore'))
+    module: tuple[str, ...] = ('pyc_wheel', 'python-semantic-release', 'sigstore')
     utility: Mapping[str, str] = field(
         default_factory=lambda: {
             'pyc_wheel': 'pyc_wheel',
@@ -352,14 +351,14 @@ class ClassicDist(CheckpointSuite):
 class Publish(Default):
     """Publishing patterns for packaged project."""
 
-    include: frozenset[str] = frozenset(('*.tar.gz', '*.whl', 'sig/*'))
+    include: tuple[str, ...] = ('*.tar.gz', '*.whl', 'sig/*')
 
 
 @dataclass(slots=True, frozen=True, eq=True)
 class Checkpoint(Default):
     """Checkpoint suites to run."""
 
-    suites: frozenset[str] = frozenset(('dist', 'lint', 'test'))
+    suites: tuple[str, ...] = ('dist', 'lint', 'test')
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -369,7 +368,7 @@ class CI(Default):
     backend: str = 'tox'
     checkpoint: Checkpoint = Checkpoint()
     publish: Publish = Publish()
-    providers: frozenset[str] = frozenset(('github',))
+    providers: tuple[str, ...] = ('github',)
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -388,56 +387,54 @@ class SrcFormat(Default):
 class SrcRequired(Default):
     """Required files for OZI to output with ``ozi-new``."""
 
-    root: frozenset[str] = frozenset(
-        (
-            'README.rst',
-            '.gitignore',
-            'pyproject.toml',
-            'meson.build',
-            'meson.options',
-            'LICENSE.txt',
-            'PKG-INFO',
-            'requirements.in',
-            'CHANGELOG.md',
-        ),
+    root: tuple[str, ...] = (
+        'README.rst',
+        '.gitignore',
+        'pyproject.toml',
+        'meson.build',
+        'meson.options',
+        'LICENSE.txt',
+        'PKG-INFO',
+        'requirements.in',
+        'CHANGELOG.md',
     )
-    source: frozenset[str] = frozenset(
-        (
-            'meson.build',
-            '__init__.py',
-            'py.typed',
-        ),
+    source: tuple[str, ...] = (
+        'meson.build',
+        '__init__.py',
+        'py.typed',
     )
-    test: frozenset[str] = frozenset(('meson.build',))
+    test: tuple[str, ...] = ('meson.build',)
 
 
 @dataclass(slots=True, frozen=True, eq=True)
 class SrcTemplate(Default):
-    root: frozenset[str] = frozenset(
-        [
-            '.gitignore',
-            'meson.build',
-            'meson.options',
-            'PKG-INFO',
-            'pyproject.toml',
-            'README.rst',
-            'LICENSE.txt',
-            'requirements.in',
-            'CHANGELOG.md',
-        ],
+    """OZI templates folder layout.
+    This is also the relative search directory used when searching
+    for ``ozi-new`` user-provided templates in the ``templates/``
+    root directory.
+    """
+
+    root: tuple[str, ...] = (
+        '.gitignore',
+        'meson.build',
+        'meson.options',
+        'PKG-INFO',
+        'pyproject.toml',
+        'README.rst',
+        'LICENSE.txt',
+        'requirements.in',
+        'CHANGELOG.md',
     )
-    source: frozenset[str] = frozenset(
-        [
-            'project.name/__init__.py',
-            'project.name/meson.build',
-            'project.name/py.typed',
-        ],
+    source: tuple[str, ...] = (
+        'project.name/__init__.py',
+        'project.name/meson.build',
+        'project.name/py.typed',
     )
-    test: frozenset[str] = frozenset(('tests/meson.build',))
+    test: tuple[str, ...] = ('tests/meson.build',)
     ci_provider: Mapping[str, str] = field(
         default_factory=lambda: {'github': 'github_workflows/ozi.yml'},
     )
-    add_root: str = field(default='project.name/new_module.py')
+    add_root: str = field(default='project.name/new_test.py')
     add_source: str = field(default='project.name/new_module.py')
     add_test: str = field(default='tests/new_test.py')
 
@@ -446,16 +443,18 @@ class SrcTemplate(Default):
 class PkgRequired(Default):
     """Required files for OZI project publishing."""
 
-    root: frozenset[str] = frozenset(
-        (
-            'README.rst',
-            'CHANGELOG.md',
-            'pyproject.toml',
-            'PKG-INFO',
-            'LICENSE.txt',
-            'requirements.in',
-        ),
+    root: tuple[str, ...] = (
+        'README.rst',
+        'CHANGELOG.md',
+        'pyproject.toml',
+        'PKG-INFO',
+        'LICENSE.txt',
+        'requirements.in',
     )
+
+    source: tuple[str, ...] = ('__init__.py',)
+
+    test: tuple[str, ...] = ()
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -477,18 +476,16 @@ class PkgPattern(Default):
 
 @dataclass(slots=True, frozen=True, eq=True)
 class PkgInfo(Default):
-    required: frozenset[str] = frozenset(
-        (
-            'Author',
-            'Author-email',
-            'Description-Content-Type',
-            'Home-page',
-            'License',
-            'Metadata-Version',
-            'Name',
-            'Summary',
-            'Version',
-        ),
+    required: tuple[str, ...] = (
+        'Author',
+        'Author-email',
+        'Description-Content-Type',
+        'Home-page',
+        'License',
+        'Metadata-Version',
+        'Name',
+        'Summary',
+        'Version',
     )
 
 
@@ -514,7 +511,7 @@ class Build(Default):
 class Support(Default):
     """Python implementation and version support info for OZI."""
 
-    implementations: frozenset[str] = frozenset(('CPython',))
+    implementations: tuple[str, ...] = ('CPython',)
     metadata_version: str = '2.1'
     major: str = '3'
     prerelease: str = PythonSupport().prerelease
@@ -673,9 +670,11 @@ class License(Default):
 
 @dataclass(slots=True, frozen=True, eq=True)
 class Src(Default):
+    """Python source code metadata."""
+
     format: SrcFormat = SrcFormat()
     required: SrcRequired = SrcRequired()
-    template: SrcTemplate = field(repr=False, default_factory=SrcTemplate)
+    template: SrcTemplate = field(default_factory=SrcTemplate)
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -729,6 +728,7 @@ class OZI(Default):
     """OZI distribution metadata."""
 
     version: str = field(default_factory=current_version)
+    python_support: PythonSupport = PythonSupport()
 
 
 @dataclass(slots=True, frozen=True, eq=True)
