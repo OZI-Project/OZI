@@ -45,11 +45,11 @@ if TYPE_CHECKING:  # pragma: no cover
 
     from jinja2 import Template
 
-from .assets import parse_extra_pkg_info
-from .filter import underscorify
-from .render import env
-from .spec import Metadata
-from .spec import PythonSupport
+from ozi.assets import parse_extra_pkg_info
+from ozi.filter import underscorify
+from ozi.render import env
+from ozi.spec import Metadata
+from ozi.spec import PythonSupport
 
 
 def tap_warning_format(  # pragma: no cover

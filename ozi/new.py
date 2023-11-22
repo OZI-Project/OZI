@@ -13,6 +13,10 @@ import warnings
 from typing import TYPE_CHECKING
 from typing import NoReturn
 
+from email_validator import EmailNotValidError
+from email_validator import EmailSyntaxError
+from email_validator import validate_email
+
 if TYPE_CHECKING:  # pragma: no cover
     from collections.abc import Sequence
 
@@ -23,16 +27,36 @@ from urllib.parse import urlparse
 from warnings import simplefilter
 from warnings import warn
 
-from .actions import CloseMatch
-from .assets import parse_email
-from .assets import parse_project_name
-from .assets import parse_spdx
-from .render import env
-from .render import render_ci_files_set_user
-from .render import render_project_files
-from .spec import Metadata
+from ozi.actions import CloseMatch
+from ozi.assets import parse_project_name
+from ozi.assets import parse_spdx
+from ozi.render import env
+from ozi.render import render_ci_files_set_user
+from ozi.render import render_project_files
+from ozi.spec import Metadata
 
 metadata = Metadata()
+
+
+def parse_email(
+    author_email: list[str],
+    maintainer_email: list[str],
+    verify: bool,
+) -> tuple[list[str], list[str]]:
+    _author_email = []
+    _maintainer_email = []
+    for email in set(author_email).union(maintainer_email):
+        try:
+            emailinfo = validate_email(email, check_deliverability=verify)
+            email_normalized = emailinfo.normalized
+            if email in author_email:
+                _author_email += [email_normalized]
+            if email in maintainer_email:
+                _maintainer_email += [email_normalized]
+            print('ok', '-', 'Author-Email')
+        except (EmailNotValidError, EmailSyntaxError) as e:
+            warn(str(e), RuntimeWarning, stacklevel=0)
+    return _author_email, _maintainer_email
 
 
 def tap_warning_format(  # pragma: no cover

@@ -10,9 +10,6 @@ from email.message import Message
 from typing import Any
 from warnings import warn
 
-from email_validator import EmailNotValidError
-from email_validator import EmailSyntaxError
-from email_validator import validate_email
 from pyparsing import CaselessKeyword
 from pyparsing import Combine
 from pyparsing import Forward
@@ -27,7 +24,7 @@ from pyparsing import ZeroOrMore
 from pyparsing import oneOf
 from spdx_license_list import LICENSES
 
-from .spec import License
+from ozi.spec import License
 
 pep639_spdx = [
     'LicenseRef-Public-Domain',
@@ -96,27 +93,6 @@ def parse_project_name(name: str | ParseResults) -> str | ParseResults:
     except ParseException as e:
         warn(str(e), RuntimeWarning, stacklevel=0)
     return name
-
-
-def parse_email(
-    author_email: list[str],
-    maintainer_email: list[str],
-    verify: bool,
-) -> tuple[list[str], list[str]]:
-    _author_email = []
-    _maintainer_email = []
-    for email in set(author_email).union(maintainer_email):
-        try:
-            emailinfo = validate_email(email, check_deliverability=verify)
-            email_normalized = emailinfo.normalized
-            if email in author_email:
-                _author_email += [email_normalized]
-            if email in maintainer_email:
-                _maintainer_email += [email_normalized]
-            print('ok', '-', 'Author-Email')
-        except (EmailNotValidError, EmailSyntaxError) as e:
-            warn(str(e), RuntimeWarning, stacklevel=0)
-    return _author_email, _maintainer_email
 
 
 def pkg_info_extra(payload: str, as_message: bool = True) -> dict[str, str] | Message:

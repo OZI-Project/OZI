@@ -32,8 +32,8 @@ import requests  # pragma: no cover
 from packaging.version import Version  # pragma: no cover
 from packaging.version import parse  # pragma: no cover
 
-from .actions import ExactMatch  # pragma: no cover
-from .spec import Metadata  # pragma: no cover
+from ozi.actions import ExactMatch  # pragma: no cover
+from ozi.spec import Metadata  # pragma: no cover
 
 metadata = Metadata()  # pragma: no cover
 

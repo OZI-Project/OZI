@@ -8,12 +8,12 @@ from jinja2 import PackageLoader
 from jinja2 import TemplateNotFound
 from jinja2 import select_autoescape
 
-from .filter import current_date
-from .filter import sha256sum
-from .filter import to_distribution
-from .filter import underscorify
-from .filter import wheel_repr
-from .spec import Metadata
+from ozi.filter import current_date
+from ozi.filter import sha256sum
+from ozi.filter import to_distribution
+from ozi.filter import underscorify
+from ozi.filter import wheel_repr
+from ozi.spec import Metadata
 
 metadata = Metadata()
 env = Environment(
