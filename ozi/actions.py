@@ -27,7 +27,7 @@ from warnings import warn
 from spdx_license_list import LICENSES
 from trove_classifiers import classifiers
 
-from .assets import License
+from .spec import License
 
 CLASSIFIER_RE = re.compile(r'^([\w\s]*\s\:\:\s)?')
 
