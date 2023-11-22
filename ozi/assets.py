@@ -6,11 +6,8 @@
 from __future__ import annotations
 
 import re
-import warnings
-from contextlib import contextmanager
 from email.message import Message
 from typing import Any
-from typing import Generator
 from warnings import warn
 
 from email_validator import EmailNotValidError
@@ -31,26 +28,6 @@ from pyparsing import oneOf
 from spdx_license_list import LICENSES
 
 from .spec import License
-
-
-def tap_warning_format(
-    message: Warning | str,
-    category: type[Warning],
-    filename: str,
-    lineno: int,
-    line: str | None = None,
-) -> str:
-    """Test Anything Protocol formatted warnings."""
-    return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {message}\n'
-
-
-@contextmanager
-def output_tap_warnings() -> Generator[None, None, None]:
-    oldformat = warnings.formatwarning
-    warnings.formatwarning = tap_warning_format
-    yield
-    warnings.formatwarning = oldformat
-
 
 pep639_spdx = [
     'LicenseRef-Public-Domain',

@@ -9,7 +9,10 @@ import argparse
 import re
 import shlex
 import sys
+import warnings
+from contextlib import contextmanager
 from typing import TYPE_CHECKING
+from typing import Generator
 from typing import NoReturn
 
 if TYPE_CHECKING:  # pragma: no cover
@@ -23,7 +26,6 @@ from warnings import simplefilter
 from warnings import warn
 
 from .actions import CloseMatch
-from .assets import output_tap_warnings
 from .assets import parse_email
 from .assets import parse_project_name
 from .assets import parse_spdx
@@ -33,6 +35,26 @@ from .render import render_project_files
 from .spec import Metadata
 
 metadata = Metadata()
+
+
+def tap_warning_format(  # pragma: no cover
+    message: Warning | str,
+    category: type[Warning],
+    filename: str,
+    lineno: int,
+    line: str | None = None,
+) -> str:
+    """Test Anything Protocol formatted warnings."""
+    return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {message}\n'
+
+
+@contextmanager
+def output_tap_warnings() -> Generator[None, None, None]:  # pragma: no cover
+    oldformat = warnings.formatwarning
+    warnings.formatwarning = tap_warning_format
+    yield
+    warnings.formatwarning = oldformat
+
 
 parser = argparse.ArgumentParser(
     prog='ozi-new',

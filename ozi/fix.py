@@ -10,6 +10,7 @@ import json
 import os
 import re
 import sys
+import warnings
 from argparse import SUPPRESS
 from argparse import ArgumentParser
 from argparse import BooleanOptionalAction
@@ -44,12 +45,31 @@ if TYPE_CHECKING:  # pragma: no cover
 
     from jinja2 import Template
 
-from .assets import output_tap_warnings
 from .assets import parse_extra_pkg_info
 from .filter import underscorify
 from .render import env
 from .spec import Metadata
 from .spec import PythonSupport
+
+
+def tap_warning_format(  # pragma: no cover
+    message: Warning | str,
+    category: type[Warning],
+    filename: str,
+    lineno: int,
+    line: str | None = None,
+) -> str:
+    """Test Anything Protocol formatted warnings."""
+    return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {message}\n'
+
+
+@contextmanager
+def output_tap_warnings() -> Generator[None, None, None]:  # pragma: no cover
+    oldformat = warnings.formatwarning
+    warnings.formatwarning = tap_warning_format
+    yield
+    warnings.formatwarning = oldformat
+
 
 metadata = Metadata()
 python_support = PythonSupport()

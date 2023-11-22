@@ -18,8 +18,11 @@ from __future__ import annotations  # pragma: no cover
 import argparse  # pragma: no cover
 import json  # pragma: no cover
 import sys  # pragma: no cover
+import warnings  # pragma: no cover
+from contextlib import contextmanager  # pragma: no cover
 from dataclasses import fields  # pragma: no cover
 from typing import TYPE_CHECKING  # pragma: no cover
+from typing import Generator  # pragma: no cover
 from typing import NoReturn  # pragma: no cover
 
 if TYPE_CHECKING:  # pragma: no cover
@@ -32,10 +35,28 @@ from packaging.version import Version  # pragma: no cover
 from packaging.version import parse  # pragma: no cover
 
 from .actions import ExactMatch  # pragma: no cover
-from .assets import output_tap_warnings  # pragma: no cover
 from .spec import Metadata  # pragma: no cover
 
 metadata = Metadata()  # pragma: no cover
+
+
+def tap_warning_format(  # pragma: no cover
+    message: Warning | str,
+    category: type[Warning],
+    filename: str,
+    lineno: int,
+    line: str | None = None,
+) -> str:
+    """Test Anything Protocol formatted warnings."""
+    return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {message}\n'
+
+
+@contextmanager
+def output_tap_warnings() -> Generator[None, None, None]:  # pragma: no cover
+    oldformat = warnings.formatwarning
+    warnings.formatwarning = tap_warning_format
+    yield
+    warnings.formatwarning = oldformat
 
 
 def print_version() -> NoReturn:  # pragma: no cover
