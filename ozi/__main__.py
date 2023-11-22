@@ -48,10 +48,10 @@ def tap_warning_format(  # pragma: no cover
     line: str | None = None,
 ) -> str:
     """Test Anything Protocol formatted warnings."""
-    return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {message}\n'
+    return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {message}\n'  # pragma: no cover
 
 
-@contextmanager
+@contextmanager  # pragma: no cover
 def output_tap_warnings() -> Generator[None, None, None]:  # pragma: no cover
     oldformat = warnings.formatwarning
     warnings.formatwarning = tap_warning_format
