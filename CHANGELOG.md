@@ -2,6 +2,17 @@
 
 
 
+## v0.0.208 (2023-11-22)
+
+### :bug:
+
+* :bug:: Fix circular depend on email_validator ([`30543b7`](https://github.com/rjdbcm/OZI/commit/30543b70a48b25b660030f2f032fa106359e1b26))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`5ad1bae`](https://github.com/rjdbcm/OZI/commit/5ad1bae67d7da17de21b4cc962e402fdbcb77eaa))
+
+
 ## v0.0.207 (2023-11-22)
 
 ### :bug:
