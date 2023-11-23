@@ -2,6 +2,15 @@
 
 
 
+## v0.0.213 (2023-11-23)
+
+### :bug:
+
+* :bug:(ozi): Fix main commandline app list not working for choices with dashes. ([`9c3c4e7`](https://github.com/rjdbcm/OZI/commit/9c3c4e728eda4386186dcdf7c4971c63351f4779))
+
+* :bug:(ozi-new): Fix typo in rendering of black config template. ([`cfd6f52`](https://github.com/rjdbcm/OZI/commit/cfd6f52b7f661d8ff58385ca195b0177d3bdc079))
+
+
 ## v0.0.212 (2023-11-23)
 
 ### :bug:
