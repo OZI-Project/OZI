@@ -2,6 +2,16 @@
 
 
 
+## v0.0.217 (2023-11-23)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix warnings still being emitted for ``--add``
+
+Also remove the ``stdout`` argument from several functions.
+Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rjdbcm/OZI/commit/218b768852962e777c1e5cba8d9421e4e87f258a))
+
+
 ## v0.0.216 (2023-11-23)
 
 ### :bug:
