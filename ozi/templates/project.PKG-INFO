@@ -26,6 +26,9 @@ Requires-Python: >= {{ spec.python.support.security }}, <= {{ spec.python.suppor
 Keywords: {{ project.keywords|join(',') }}
 {%- endif %}
 Classifier: License :: {{ project.license }}
+{%- if project.license == 'Private' %}
+Classifier: Private :: Do Not Upload
+{%- endif %}
 {%- for status in project.status %}
 Classifier: Development Status :: {{ status }}
 {%- endfor %}
