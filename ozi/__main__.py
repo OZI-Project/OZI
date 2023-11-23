@@ -148,7 +148,7 @@ helpers.add_argument(  # pragma: no cover
     '--list-available',
     help=list_available.__doc__,
     action='store',
-    choices={i.name for i in fields(ExactMatch) if i.repr},
+    choices={i.name.replace('_', '-') for i in fields(ExactMatch) if i.repr},
 )
 
 
