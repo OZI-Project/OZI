@@ -32,7 +32,7 @@ Classifier: Private :: Do Not Upload
 {%- for status in project.status %}
 Classifier: Development Status :: {{ status }}
 {%- endfor %}
-Classifier: Programming Language :: Python :: {{ ozi.py_major }} :: Only
+Classifier: Programming Language :: Python :: {{ spec.python.support.major }} :: Only
 Classifier: Programming Language :: Python :: {{ spec.python.support.security }}
 Classifier: Programming Language :: Python :: {{ spec.python.support.bugfix2 }}
 Classifier: Programming Language :: Python :: {{ spec.python.support.bugfix1 }}
