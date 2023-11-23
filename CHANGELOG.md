@@ -2,6 +2,17 @@
 
 
 
+## v0.0.212 (2023-11-23)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix reDOS in filename search. ([`2c2fc82`](https://github.com/rjdbcm/OZI/commit/2c2fc824ee5141c792d4b6c02fa26098c346ddfa))
+
+### Other
+
+* Bump PKG-INFO. ([`812f49d`](https://github.com/rjdbcm/OZI/commit/812f49d3c7f7f9f3e1b4f5feea89d03e86daea4d))
+
+
 ## v0.0.211 (2023-11-23)
 
 ### :bug:
