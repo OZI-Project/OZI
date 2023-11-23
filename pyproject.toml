@@ -78,6 +78,9 @@ skip_empty = true
 [tool.coverage.run]
 branch = true
 relative_files = true
+omit = [
+    "*/vendor/*",
+]
 
 [tool.ruff]
 line-length = 93
@@ -139,7 +142,7 @@ strict = true
 [tool.flake8]
 ban-relative-imports = "parents"
 max-line-length = 93
-extend-exclude = ["meson-private", "build-env-*", "venv", "build*", "*.pyi"]
+extend-exclude = ["meson-private", "build-env-*", "vendor", "venv", "build*", "*.pyi"]
 extend-ignore = "E203,E501,TC007,TC008"
 extend-select = "B950"
 select = "ALL"
@@ -156,11 +159,14 @@ exclude = [
     'meson-private',
     'tests',
     'venv',
-    'vendor',
 ]
 
 [[tool.mypy.overrides]]
-module = ["spdx_license_list.*", ]
+module = ["ozi.vendor.*"]
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = ["spdx_license_list.*"]
 ignore_missing_imports = true
 
 [tool.pylint.MASTER]
@@ -175,7 +181,7 @@ exclude = [
     'meson-private',
     'tests',
     'venv',
-    'vendor',
+    '*/vendor/',
 ]
 
 [tool.pytest.ini_options]  #[tool.pytest] # This will be used by pytest in the future

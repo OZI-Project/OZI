@@ -20,7 +20,10 @@ def caching_resolver(*, timeout: Optional[int] = None, cache=None):
 
 
 def validate_email_deliverability(
-    domain: str, domain_i18n: str, timeout: Optional[int] = None, dns_resolver=None,
+    domain: str,
+    domain_i18n: str,
+    timeout: Optional[int] = None,
+    dns_resolver=None,
 ):
     # Check that the domain resolves to an MX record. If there is no MX record,
     # try an A or AAAA record which is a deprecated fallback for deliverability.

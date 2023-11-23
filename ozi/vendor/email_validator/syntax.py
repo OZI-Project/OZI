@@ -142,9 +142,7 @@ def validate_email_local_part(
             # Check for invalid characters against the non-internationalized
             # permitted character set.
             # (RFC 5322 3.2.3)
-            bad_chars = {
-                safe_character_display(c) for c in local if not ATEXT_RE.match(c)
-            }
+            bad_chars = {safe_character_display(c) for c in local if not ATEXT_RE.match(c)}
             if bad_chars:
                 raise EmailSyntaxError(
                     'Internationalized characters before the @-sign are not supported: '
@@ -179,9 +177,7 @@ def validate_email_local_part(
             )
 
         # See if any characters are outside of the ASCII range.
-        bad_chars = {
-            safe_character_display(c) for c in local if not (32 <= ord(c) <= 126)
-        }
+        bad_chars = {safe_character_display(c) for c in local if not (32 <= ord(c) <= 126)}
         if bad_chars:
             requires_smtputf8 = True
 
