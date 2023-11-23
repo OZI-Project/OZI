@@ -7,7 +7,7 @@ python_files = [
 ]
 foreach file : files(python_files)
     fs.copyfile(file)
-    python.install_sources(file, pure: true, subdir: 'ozi')
+    python.install_sources(file, pure: true, subdir: 'ozi' / 'vendor')
 endforeach
 if false
     executable('source_files', python_files)
