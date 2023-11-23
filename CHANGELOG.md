@@ -2,6 +2,19 @@
 
 
 
+## v0.0.209 (2023-11-23)
+
+### :bug:
+
+* :bug:: Finish vendoring of email_validator ([`fa371f1`](https://github.com/rjdbcm/OZI/commit/fa371f178aa662bbeb4e0f3fab11fd6bb4154fa3))
+
+* :bug:: Vendor email-validator. ([`d17acf1`](https://github.com/rjdbcm/OZI/commit/d17acf12824864d24f5493e0a3d1379632859dfa))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`c1fdcc0`](https://github.com/rjdbcm/OZI/commit/c1fdcc0e63c2114cc4e1131d626718101840115e))
+
+
 ## v0.0.208 (2023-11-22)
 
 ### :bug:
