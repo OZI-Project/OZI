@@ -9,7 +9,6 @@ from dataclasses import dataclass
 from functools import lru_cache
 from typing import TYPE_CHECKING
 from typing import Any
-from typing import ClassVar
 
 if sys.version_info >= (3, 11):  # pragma: no cover
     from typing import Self
@@ -72,9 +71,9 @@ class ExactMatch:
     framework: tuple[str, ...] = from_prefix(_prefix.framework)
     environment: tuple[str, ...] = from_prefix(_prefix.environment)
     license: tuple[str, ...] = from_prefix(_prefix.license)
-    license_id: ClassVar[list[str]] = [
+    license_id: tuple[str, ...] = tuple(
         k for k, v in LICENSES.items() if v.deprecated_id is False
-    ]
+    )
     license_exception_id: tuple[str, ...] = License().exceptions
     status: tuple[str, ...] = from_prefix(_prefix.status)
     topic: tuple[str, ...] = from_prefix(_prefix.topic)

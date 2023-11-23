@@ -638,7 +638,7 @@ class Rewriter:
 def preprocess(project: Namespace) -> Namespace:
     """Remove phony arguments, check target exists and is a directory, set missing flag."""
     project.missing = project.fix == 'missing'
-    project.target = Path(os.path.relpath(os.path.join("/", project.target), "/")).absolute()
+    project.target = Path(os.path.relpath(os.path.join('/', project.target), '/')).absolute()
     if not project.target.exists():
         warn(
             f'Bail out! target: {project.target}\ntarget does not exist.',
