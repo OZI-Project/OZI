@@ -2,6 +2,21 @@
 
 
 
+## v0.0.211 (2023-11-23)
+
+### :bug:
+
+* :bug:: Sanitize ozi-fix target against directory traversal. ([`690d200`](https://github.com/rjdbcm/OZI/commit/690d200b796ae46965230410102a214149f99150))
+
+* :bug:: Fix unsanitized path. ([`7a3d624`](https://github.com/rjdbcm/OZI/commit/7a3d624fca54405eda4fe0472403926541e07fe2))
+
+### Other
+
+* :rotating_light:: Fix mypy complaints. ([`d06449f`](https://github.com/rjdbcm/OZI/commit/d06449f23ecc4a53e3f9de8de6149f4ab8b4f5f6))
+
+* :rotating_light:: Fix black and revert PKG-INFO patch bump. ([`bbea8fb`](https://github.com/rjdbcm/OZI/commit/bbea8fbe7138263d529764032dc8655733dddcb0))
+
+
 ## v0.0.210 (2023-11-23)
 
 ### :bug:
