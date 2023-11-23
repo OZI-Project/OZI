@@ -2,9 +2,26 @@
 
 
 
+## v0.0.215 (2023-11-23)
+
+### :bug:
+
+* :bug:(ozi-new): Fix pytest ``pyproject.toml`` config rendering. ([`1f1e511`](https://github.com/rjdbcm/OZI/commit/1f1e5111df638231a465e9524fad82ba225d7756))
+
+* :bug:(ozi-new): Fix PKG-INFO rendering &#34;Programming Language :: Python :: {major} :: Only&#34; ([`21f069c`](https://github.com/rjdbcm/OZI/commit/21f069cedec8d51dfc68c44df21de61570442d96))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`c786128`](https://github.com/rjdbcm/OZI/commit/c786128fddcbe9d42fc77c3ad0f696310bc26dee))
+
+* Bump PKG-INFO. ([`0aed6b8`](https://github.com/rjdbcm/OZI/commit/0aed6b88fe8ab4b6793a1487445c6993f24979ab))
+
+
 ## v0.0.214 (2023-11-23)
 
 ### :bug:
+
+* :bug:(tests): Fix typo in keywords regex strategy. ([`a6d198e`](https://github.com/rjdbcm/OZI/commit/a6d198e57cf651863bb3da5b5056f9992a31dd15))
 
 * :bug:(ozi-fix): Fix missing license-id list option. ([`bfc7609`](https://github.com/rjdbcm/OZI/commit/bfc7609f137898a4c91be6e99417dc71d6c34bec))
 
