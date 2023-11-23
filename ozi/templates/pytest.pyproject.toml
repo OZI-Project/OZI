@@ -8,6 +8,6 @@
 filterwarnings = ["error","ignore:The --rsyncdir command line argument and rsyncdirs config variable are deprecated.:DeprecationWarning"]
 asyncio_mode = "auto"
 log_cli = true
-log_cli_date_format = {{ spec.python.src.format.date }}
-log_cli_format = {{ spec.python.src.format.log }}
+log_cli_date_format = "{{ spec.python.src.format.date }}"
+log_cli_format = "{{ spec.python.src.format.log }}"
 log_cli_level = "INFO"
