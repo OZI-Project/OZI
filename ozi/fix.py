@@ -15,6 +15,7 @@ from argparse import SUPPRESS
 from argparse import ArgumentParser
 from argparse import BooleanOptionalAction
 from contextlib import contextmanager
+from contextlib import redirect_stdout
 from contextlib import suppress
 from dataclasses import asdict
 from dataclasses import dataclass
@@ -200,7 +201,6 @@ missing_parser.add_argument(
 def missing_python_support(
     pkg_info: Message,
     count: int,
-    stdout: Callable[..., None],
 ) -> tuple[int, set[tuple[str, str]]]:
     """Check PKG-INFO Message for python support."""
     remaining_pkg_info = {
@@ -211,7 +211,7 @@ def missing_python_support(
     for k, v in iter(python_support.classifiers[:4]):
         if (k, v) in remaining_pkg_info:
             count += 1
-            stdout('ok', count, '-', f'{k}:', v)
+            print('ok', count, '-', f'{k}:', v)
         else:
             warn(f'{count} - "{v}" MISSING', RuntimeWarning, stacklevel=0)
     return count, remaining_pkg_info
@@ -220,14 +220,13 @@ def missing_python_support(
 def missing_ozi_required(
     pkg_info: Message,
     count: int,
-    stdout: Callable[..., None],
 ) -> tuple[int, Any]:
     """Check missing required OZI extra PKG-INFO"""
-    count, remaining_pkg_info = missing_python_support(pkg_info, count, stdout)
+    count, remaining_pkg_info = missing_python_support(pkg_info, count)
     remaining_pkg_info.difference_update(set(iter(python_support.classifiers)))
     for k, v in iter(remaining_pkg_info):
         count += 1
-        stdout('ok', count, '-', f'{k}:', v)
+        print('ok', count, '-', f'{k}:', v)
     extra_pkg_info, errstr = parse_extra_pkg_info(pkg_info)
     if errstr not in ('', None):  # pragma: defer to good-first-issue
         warn(f'{count} - MISSING {errstr}', RuntimeWarning, stacklevel=0)
@@ -237,25 +236,24 @@ def missing_ozi_required(
 def missing_required(
     target: Path,
     count: int,
-    stdout: Callable[..., None],
 ) -> tuple[int, str, Any]:
     """Find missing required PKG-INFO"""
     with target.joinpath('PKG-INFO').open() as f:
         pkg_info = message_from_file(f)
         count += 1
-        stdout('ok', count, '-', 'Parse PKG-INFO')
+        print('ok', count, '-', 'Parse PKG-INFO')
     for i in metadata.spec.python.pkg.info.required:
         count += 1
         v = pkg_info.get(i, None)
         if v is not None:
-            stdout('ok', count, '-', f'{i}:', v)
+            print('ok', count, '-', f'{i}:', v)
         else:
             warn(f'{count} - {i} MISSING', RuntimeWarning, stacklevel=0)
-    count, extra_pkg_info = missing_ozi_required(pkg_info, count, stdout)
+    count, extra_pkg_info = missing_ozi_required(pkg_info, count)
     name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', '')).lower()
     for k, v in extra_pkg_info.items():
         count += 1
-        stdout('ok', count, '-', f'{k}:', v)
+        print('ok', count, '-', f'{k}:', v)
     return count, name, extra_pkg_info
 
 
@@ -296,7 +294,6 @@ def missing_required_files(  # noqa: C901
     count: int,
     miss_count: int,
     name: str,
-    stdout: Callable[..., None],
 ) -> tuple[int, int, list[str], list[str]]:
     """Count missing files required by OZI"""
     found_files = []
@@ -327,7 +324,7 @@ def missing_required_files(  # noqa: C901
                 with open(target.joinpath(f)) as fh:
                     count_comments(count, fh.readlines(), f)
         count += 1
-        stdout('ok', count, '-', f)
+        print('ok', count, '-', f)
         found_files.append(file)
     extra_files = [
         file
@@ -342,7 +339,7 @@ def missing_required_files(  # noqa: C901
             for _ in [i for i in fh.readlines() if re.search(pattern, i)]:
                 count += 1
                 build_file = str((rel_path / file).parent / 'meson.build')
-                stdout(
+                print(
                     'ok',
                     count,
                     '-',
@@ -368,7 +365,6 @@ def missing_required_files(  # noqa: C901
 
 def report_missing(
     target: Path,
-    stdout: Callable[..., None] = print,
 ) -> Union[
     tuple[str, Message, list[str], list[str], list[str]],
     tuple[None, None, None, None, None],
@@ -384,7 +380,7 @@ def report_missing(
     pkg_info = None
     extra_pkg_info: dict[str, str] = {}
     try:
-        count, name, extra_pkg_info = missing_required(target, count, stdout)
+        count, name, extra_pkg_info = missing_required(target, count)
     except FileNotFoundError:
         name = ''
         warn(f'{count} - PKG-INFO MISSING', RuntimeWarning, stacklevel=0)
@@ -394,7 +390,6 @@ def report_missing(
         count,
         0,
         name,
-        stdout,
     )
     count, miss_count, found_test_files, extra_test_files = missing_required_files(
         'test',
@@ -402,7 +397,6 @@ def report_missing(
         count,
         miss_count,
         name,
-        stdout,
     )
     count, miss_count, found_root_files, extra_root_files = missing_required_files(
         'root',
@@ -410,7 +404,6 @@ def report_missing(
         count,
         miss_count,
         name,
-        stdout,
     )
     all_files = (
         ['PKG-INFO'],
@@ -427,7 +420,7 @@ def report_missing(
     except TypeError:  # pragma: no cover
         warn('Bail out! MISSING required files or metadata.')
         return (None, None, None, None, None)
-    stdout(f'1..{count+miss_count}')
+    print(f'1..{count+miss_count}')
     return name, pkg_info, found_root_files, found_source_files, found_test_files  # type: ignore
 
 
@@ -688,10 +681,14 @@ def main() -> NoReturn:  # pragma: no cover
     """Main ozi.fix entrypoint."""
     project = preprocess(parser.parse_args())
     env.globals = env.globals | {'project': vars(project)}
-    name, *_ = report_missing(
-        project.target,
-        stdout=print if project.missing else lambda *_: None,  # type: ignore
-    )
+
+    if project.missing:
+        name, *_ = report_missing(project.target)
+    else:
+        warnings.simplefilter('ignore')
+        with redirect_stdout(None):
+            name, *_ = report_missing(project.target)
+
     if name is None:
         exit(1)
     if hasattr(project, 'run_utility') and project.run_utility:
