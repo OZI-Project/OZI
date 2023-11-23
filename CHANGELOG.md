@@ -2,6 +2,13 @@
 
 
 
+## v0.0.210 (2023-11-23)
+
+### :bug:
+
+* :bug:: Fix email email validator install path. ([`9828d09`](https://github.com/rjdbcm/OZI/commit/9828d097103d953433d0ea814b0488bee4043ee2))
+
+
 ## v0.0.209 (2023-11-23)
 
 ### :bug:
