@@ -34,7 +34,7 @@ metadata = Metadata()
             'verify_email': st.just(False),
             'strict': st.just(False),
             'target': st.data(),
-            'keywords': st.from_regex(r'^(([a-z_]*[a-z0-9],)*){2, 650}$', fullmatch=True),
+            'keywords': st.from_regex(r'^(([a-z_]*[a-z0-9],)*){2,650}$', fullmatch=True),
             'ci_provider': st.just('github'),
             'name': st.from_regex(
                 r'^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9]){1,80}$',
