@@ -2,6 +2,13 @@
 
 
 
+## v0.0.216 (2023-11-23)
+
+### :bug:
+
+* :bug:(ozi-new,ozi-fix): Fix meson.build install path rendering. ([`28f0f9d`](https://github.com/rjdbcm/OZI/commit/28f0f9d2597fcbed411dc45e73e6d6dbc563973d))
+
+
 ## v0.0.215 (2023-11-23)
 
 ### :bug:
