@@ -2,6 +2,17 @@
 
 
 
+## v0.0.214 (2023-11-23)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix missing license-id list option. ([`bfc7609`](https://github.com/rjdbcm/OZI/commit/bfc7609f137898a4c91be6e99417dc71d6c34bec))
+
+### :hammer:
+
+* :hammer:(ozi-new): Rendered PKG-INFO includes &#34;Private :: Do Not Upload&#34; if license is set to &#34;Private&#34; ([`0575a5f`](https://github.com/rjdbcm/OZI/commit/0575a5fc7865ecca6bd68d9a388bbf009ef5672e))
+
+
 ## v0.0.213 (2023-11-23)
 
 ### :bug:
