@@ -20,7 +20,7 @@ endforeach
 python_files += ['py.typed']
 foreach file: python_files
     fs.copyfile(file)
-    python.install_sources(file, subdir: '{{ project.name }}')
+    python.install_sources(file, subdir: '{{ project.name|underscorify }}')
 endforeach
 if false
     executable('source_files', source_files)

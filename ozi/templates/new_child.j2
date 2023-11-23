@@ -20,7 +20,7 @@
 {{ parent }}_files = [{%- if project.fix == 'source' %}'__init__.py'{% endif %}]
 foreach file: {{ parent }}_files
   fs.copyfile(file)
-  python.install_sources(file, subdir: '{{ folder }}/{{ parent }}')
+  python.install_sources(file, subdir: '{{ folder }}' / '{{ parent }}')
 endforeach
 if false
   executable('{{ parent }}_files', {{ parent }}_files)
