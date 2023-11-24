@@ -8,4 +8,4 @@
 write_to_template = """{% include 'project.PKG-INFO' %}"""
 fallback_version = "@VCS_TAG@"
 parentdir_prefix_version = "{{ project.name }}-"
-tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
+tag_regex = "{{ spec.python.pkg.pattern.version }}"

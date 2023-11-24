@@ -5,58 +5,39 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
 [tool.ruff]
-line-length = 93
-extend-exclude = ["meson-private", "scripts"]
+line-length = {{ spec.python.src.format.max_line_length }}
+extend-exclude = [
+{%- for exclude in spec.python.lint.exclude %}
+    "{{ exclude }}",
+{%- endfor %}
+]
 select = ["ALL"]
 ignore = [
-    "A003",
-    "ARG",
-    "ANN401",
-    "TRY003",
-    "B028",
-    "B905",
-    "D1",
-    "D2",
-    "D101",
-    "D4",
-    "FLY",
-    "FBT",
-    "PGH003",
-    "PLR",
-    "RET",
-    "EM",
-    "PLW",
-    "PTH",
-    "RUF009",
-    "RUF012",
-    "RUF015",
-    "SIM",
-    "T201",
-    "TCH002",
-    "TCH004",
-    "UP",
-    "PERF203",
+{%- for ignore in ozi.experimental.ruff.ignore %}
+    "{{ ignore }}",
+{%- endfor %}
 ]
 # target-version = "@PYTHON_VERSION_DIST@"
 
 [tool.ruff.lint.mccabe]
-max-complexity = 6
+max-complexity = {{ spec.python.src.format.max_complexity }}
 
 [tool.ruff.format]
-line-ending = "lf"
-quote-style = "single"
+line-ending = "{{ spec.python.src.format.line_end|lower }}"
+quote-style = "{{ spec.python.src.format.quotes }}"
 
 [tool.ruff.isort]
-force-single-line = true
+force-single-line = {{ spec.python.src.format.single_line_imports|lower }}
 
 [tool.ruff.lint.pycodestyle]
-max-line-length = 102
+{%- set x = spec.python.src.format.max_line_length|int  %}
+max-line-length = {{ (x + x * 0.10)|round(method='floor')|int }}
 
 [tool.ruff.lint.flake8-copyright]
 author="{% for author in project.author %}{{ author }},{% endfor %}"
 
 [tool.ruff.lint.flake8-quotes]
-inline-quotes = "single"
+inline-quotes = "{{ spec.python.src.format.quotes }}"
 
 [tool.ruff.lint.flake8-type-checking]
 strict = true

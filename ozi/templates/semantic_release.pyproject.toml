@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
 [tool.semantic_release]
-commit_parser                  = "emoji"
+commit_parser                  = "{{ spec.python.pkg.version.semantic }}"
 major_on_zero                  = false
 tag_format                     = "{{ spec.python.src.format.version_placeholder }}"
 
@@ -15,39 +15,20 @@ prerelease_token = "beta"
 prerelease = false
 
 [tool.semantic_release.commit_parser_options]
-major_tags = [":boom:"]
+major_tags = [
+{%- for tag in spec.python.pkg.version.major_tags %}
+    "{{ tag }}",
+{%- endfor %}
+]
 minor_tags = [
-    ":sparkles:",
-    ":rocket:",
+{%- for tag in spec.python.pkg.version.minor_tags %}
+    "{{ tag }}",
+{%- endfor %}
 ]
 patch_tags = [
-    ":children_crossing:",
-    ":ambulance:",
-    ":lock:",
-    ":bug:",
-    ":zap:",
-    ":goal_net:",
-    ":alien:",
-    ":wheelchair:",
-    ":arrow_down:",
-    ":pushpin:",
-    ":arrow_up:",
-    ":speech_balloon:",
-    ":mag:",
-    ":apple:",
-    ":penguin:",
-    ":checkered_flag:",
-    ":robot:",
-    ":green_heart:",
-    ":green_apple:",
-    ":recycle:",
-    ":wrench:",
-    ":hammer:",
-    ":pencil2:",
-    ":bento:",
-    ":bulb:",
-    ":label:",
-    ":fire:",
+{%- for tag in spec.python.pkg.version.patch_tags %}
+    "{{ tag }}",
+{%- endfor %}
 ]
 
 [tool.semantic_release.changelog]

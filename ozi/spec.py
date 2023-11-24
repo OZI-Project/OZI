@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import platform
-import sys
 from datetime import date
 from datetime import datetime
 from datetime import timedelta
@@ -12,17 +11,12 @@ from importlib.metadata import PackageNotFoundError
 from typing import TYPE_CHECKING
 from typing import ClassVar
 from typing import Protocol
-
-if sys.version_info >= (3, 11):  # pragma: no cover
-    from typing import Self
-else:  # pragma: no cover
-    from typing_extensions import Self
-
 from typing import Sequence
 from typing import TypeAlias
 from warnings import warn
 
-if TYPE_CHECKING:  # pragma: no cover
+if TYPE_CHECKING:
+    import sys
     from collections.abc import Callable
     from collections.abc import Mapping
 
@@ -30,6 +24,11 @@ if TYPE_CHECKING:  # pragma: no cover
     _KT: TypeAlias = str | int | float | None | _VT
     _Lambda: TypeAlias = Callable[[], '_FactoryMethod']
     _FactoryMethod: TypeAlias = Callable[[], _Lambda]
+
+    if sys.version_info >= (3, 11):
+        from typing import Self
+    elif sys.version_info <= (3, 10):
+        from typing_extensions import Self
 
 from dataclasses import asdict
 from dataclasses import dataclass
@@ -46,14 +45,17 @@ __all__ = (
     'ClassicLint',
     'ClassicProject',
     'ClassicTest',
+    'CommentPatterns',
     'Default',
     'License',
     'Metadata',
     'OZI',
     'Pkg',
+    'PkgClassifiers',
     'PkgInfo',
     'PkgPattern',
     'PkgRequired',
+    'PkgVersion',
     'Publish',
     'PythonProject',
     'PythonSupport',
@@ -240,7 +242,7 @@ class PythonSupport(Default):
                 f'Programming Language :: Python :: {self.bugfix1}',
             ),
         ]
-        if self.prerelease_minor:  # pragma: no cover
+        if self.prerelease_minor:  # pragma: defer to spec
             classifiers += [
                 ('Classifier', f'Programming Language :: Python :: {self.prerelease}'),
             ]
@@ -255,12 +257,44 @@ class CheckpointSuite(Default):
     module: tuple[str, ...] = field(default_factory=tuple)
     plugin: Mapping[str, str] = field(default_factory=dict)
     utility: Mapping[str, str] = field(default_factory=dict)
+    ignore: tuple[str, ...] = field(default_factory=tuple)
 
 
 @dataclass(slots=True, frozen=True, eq=True)
 class RuffLint(CheckpointSuite):
-    """OZI experimental linting and formatting with ruff."""
+    """OZI experimental linting and formatting with ruff.
+    The goal is parity with the classic lint suite.
+    """
 
+    ignore: tuple[str, ...] = (
+        'A003',
+        'ARG',
+        'ANN401',
+        'TRY003',
+        'B028',
+        'B905',
+        'D1',
+        'D2',
+        'D101',
+        'D4',
+        'FLY',
+        'FBT',
+        'PGH003',
+        'PLR',
+        'RET',
+        'EM',
+        'PLW',
+        'PTH',
+        'RUF009',
+        'RUF012',
+        'RUF015',
+        'SIM',
+        'T201',
+        'TCH002',
+        'TCH004',
+        'UP',
+        'PERF203',
+    )
     module: tuple[str, ...] = ('ruff', 'mypy', 'pyright')
     exclude: tuple[str, ...] = ('meson-private',)
     utility: Mapping[str, str] = field(
@@ -276,6 +310,7 @@ class RuffLint(CheckpointSuite):
 class ClassicLint(CheckpointSuite):
     """OZI standard linting and formatting suite."""
 
+    ignore: tuple[str, ...] = ('E203', 'E501', 'TC007', 'TC008')
     module: tuple[str, ...] = ('bandit', 'black', 'flake8', 'isort', 'mypy', 'pyright')
     exclude: tuple[str, ...] = ('venv', 'meson-private')
     utility: Mapping[str, str] = field(
@@ -372,6 +407,18 @@ class CI(Default):
 
 
 @dataclass(slots=True, frozen=True, eq=True)
+class CommentPatterns(Default):
+    """Search patterns for source comments."""
+
+    pragma_no_cover: str = r'^.*#\s*(pragma|PRAGMA)[:\s]?\s*(no|NO)\s*(cover|COVER)'
+    pragma_defer_to: str = (
+        r'^.*#\s*(pragma|PRAGMA)[:\s]?\s*(defer|DEFER)\s*(to|TO)\s*[a-zA-Z0-9_-]*'
+    )
+    noqa: str = r'^.*#\s*(noqa|NOQA)[:\s]?\s*[a-zA-Z0-9_]*'
+    type: str = r'^.*#\s*(type|TYPE)[:\s]?\s(ignore|IGNORE)'
+
+
+@dataclass(slots=True, frozen=True, eq=True)
 class SrcFormat(Default):
     """Python source code formatting specification."""
 
@@ -379,8 +426,11 @@ class SrcFormat(Default):
     line_end: str = 'LF'
     quotes: str = 'single'
     log: str = '%(asctime)s [%(levelname)8s] %(name)s: %(message)s (%(filename)s:%(lineno)s)'
-    max_line_length: str = '93'
+    max_line_length: int = 93
     version_placeholder: str = '{version}'
+    max_complexity: int = 6
+    min_coverage: float = 100.0
+    single_line_imports: bool = True
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -404,6 +454,51 @@ class SrcRequired(Default):
         'py.typed',
     )
     test: tuple[str, ...] = ('meson.build',)
+
+
+@dataclass(slots=True, frozen=True, eq=True)
+class PkgVersion(Default):
+    """Versioning metadata (aligns with python-semantic-release 8 emoji parser)."""
+
+    semantic: str = 'emoji'
+    major_tags: tuple[str] = (':boom:',)
+    minor_tags: tuple[str] = (':sparkles:',)
+    patch_tags: tuple[str, ...] = (
+        ':rewind:',
+        ':wheelchair:',
+        ':alembic:',
+        ':zap:',
+        ':pencil2:',
+        ':heavy_plus_sign:',
+        ':heavy_minus_sign:',
+        ':arrow_up:',
+        ':arrow_down:',
+        ':globe_with_meridians:',
+        ':bento:',
+        ':label:',
+        ':bug:',
+        ':necktie:',
+        ':alien:',
+        ':lipstick:',
+        ':dizzy:',
+        ':speech_balloon:',
+        ':chart_with_upwards_trend:',
+        ':pushpin:',
+        ':package:',
+        ':iphone:',
+        ':mag:',
+        ':lock:',
+        ':wrench:',
+        ':card_file_box:',
+        ':wastebasket:',
+        ':ambulance:',
+        ':triangular_flag_on_post:',
+        ':children_crossing:',
+        ':passport_control:',
+        ':goal_net:',
+        ':egg:',
+        ':adhesive_bandage:',
+    )
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -434,9 +529,9 @@ class SrcTemplate(Default):
     ci_provider: Mapping[str, str] = field(
         default_factory=lambda: {'github': 'github_workflows/ozi.yml'},
     )
-    add_root: str = field(default='project.name/new_test.py')
-    add_source: str = field(default='project.name/new_module.py')
-    add_test: str = field(default='tests/new_test.py')
+    add_root: str = field(default='tests/new_test.py.j2')
+    add_source: str = field(default='project.name/new_module.py.j2')
+    add_test: str = field(default='tests/new_test.py.j2')
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -462,7 +557,8 @@ class PkgPattern(Default):
     """Regex patterns (or deferrals) for PKG-INFO headers."""
 
     name: str = r'^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9]){1,80}$'
-    keywords: str = r'^(([a-z_]*[a-z0-9],)*{2, 650})$'
+    version: str = r'^(?P<prefix>v)?(?P<version>[^\+]+)(?P<suffix>.*)?$'
+    keywords: str = r'^(([a-z_]*[a-z0-9],)*{2,650})$'
     email: str = 'defer to RFC'
     license: str = 'defer to SPDX'
     license_id: str = 'defer to SPDX'
@@ -475,7 +571,20 @@ class PkgPattern(Default):
 
 
 @dataclass(slots=True, frozen=True, eq=True)
+class PkgClassifiers(Default):
+    """PKG-INFO default classifier metadata."""
+
+    intended_audience: list[str] = field(default_factory=lambda: ['Other Audience'])
+    typing: list[str] = field(default_factory=lambda: ['Typed'])
+    environment: list[str] = field(default_factory=lambda: ['Other Environment'])
+    language: list[str] = field(default_factory=lambda: ['English'])
+    development_status: tuple[str] = ('1 - Planning',)
+
+
+@dataclass(slots=True, frozen=True, eq=True)
 class PkgInfo(Default):
+    """PKG-INFO defaults metadata."""
+
     required: tuple[str, ...] = (
         'Author',
         'Author-email',
@@ -487,6 +596,7 @@ class PkgInfo(Default):
         'Summary',
         'Version',
     )
+    classifiers: PkgClassifiers = PkgClassifiers()
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -675,6 +785,8 @@ class Src(Default):
     format: SrcFormat = SrcFormat()
     required: SrcRequired = SrcRequired()
     template: SrcTemplate = field(default_factory=SrcTemplate)
+    allow_files: tuple[str, ...] = ('templates', '.git')
+    comments: CommentPatterns = CommentPatterns()
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -686,6 +798,7 @@ class Pkg(Default):
     required: PkgRequired = PkgRequired()
     license: License = License()
     pattern: PkgPattern = PkgPattern()
+    version: PkgVersion = PkgVersion()
     info: PkgInfo = PkgInfo()
 
 
@@ -724,11 +837,17 @@ class Spec(Default):
 
 
 @dataclass(slots=True, frozen=True, eq=True)
+class Experimental(Default):
+    ruff: RuffLint = RuffLint()
+
+
+@dataclass(slots=True, frozen=True, eq=True)
 class OZI(Default):
     """OZI distribution metadata."""
 
     version: str = field(default_factory=current_version)
     python_support: PythonSupport = PythonSupport()
+    experimental: Experimental = Experimental()
 
 
 @dataclass(slots=True, frozen=True, eq=True)

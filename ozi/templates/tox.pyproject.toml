@@ -23,9 +23,9 @@ deps =
    {{ requires }}
 {%- endfor %}
 commands =
-   meson setup {env_tmp_dir} -D{posargs}=enabled --reconfigure
+   meson setup {env_tmp_dir} -D{posargs:test}=enabled --reconfigure
    meson compile -C {env_tmp_dir}
    rm -rf {env_tmp_dir}/.gitignore
    pip install -q .
-   meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup={posargs}
+   meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup={posargs:test}
 """

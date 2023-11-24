@@ -15,5 +15,5 @@ extend-exclude  = [
     "build*",
     "*.pyi"
 ]
-extend-ignore   = "E203,E501"
+extend-ignore   = "{{ spec.python.lint.ignore|join(',') }}"
 extend-select   = "B950"

@@ -7,3 +7,4 @@
 [tool.isort]
 line_length = {{ spec.python.src.format.max_line_length }}
 profile = "black"
+force_single_line = {{ spec.python.src.format.single_line_imports|lower }}
