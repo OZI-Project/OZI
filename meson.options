@@ -258,9 +258,9 @@ option(
         '-c',
         '--skip-glob',
         '*.pyi',
-        '--extend-skip', 
+        '--extend-skip',
         'meson-private/pycompile.py',
-        '@build_root@'
+        '@build_root@',
     ],
     yield: false,
 )
