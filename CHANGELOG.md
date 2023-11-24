@@ -2,6 +2,13 @@
 
 
 
+## v0.0.219 (2023-11-24)
+
+### :pencil2:
+
+* :pencil2:(ozi): Restore setuptools entrypoint ``main()``. ([`e7e1726`](https://github.com/rjdbcm/OZI/commit/e7e1726195a5854f1d2044a6a636afb89f7b26ae))
+
+
 ## v0.0.218 (2023-11-24)
 
 ### :hammer:
