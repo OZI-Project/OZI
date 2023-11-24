@@ -17,8 +17,8 @@ from hypothesis import strategies as st
 
 import ozi.actions
 import ozi.assets
-import ozi.fix
-import ozi.new
+import ozi.fix.__main__
+import ozi.new.__main__
 from ozi.spec import Metadata
 
 metadata = Metadata()
@@ -112,7 +112,7 @@ def test_fuzz_new_project_good_namespace(
     )
     project['license_expression'] = license_expression.draw(st.just(project['license_id']))
     namespace = argparse.Namespace(**project)
-    ozi.new.project(project=namespace)
+    ozi.new.__main__.project(project=namespace)
 
 
 @pytest.mark.parametrize(
@@ -191,7 +191,7 @@ def test_new_project_bad_args(
     project_dict.update(item)
     namespace = argparse.Namespace(**project_dict)
     with pytest.warns(RuntimeWarning):
-        ozi.new.project(project=namespace)
+        ozi.new.__main__.project(project=namespace)
 
 
 def test_new_project_bad_target_not_empty(
@@ -228,7 +228,7 @@ def test_new_project_bad_target_not_empty(
     (project_dict['target'] / 'foobar').touch()
     namespace = argparse.Namespace(**project_dict)
     with pytest.warns(RuntimeWarning):
-        ozi.new.project(project=namespace)
+        ozi.new.__main__.project(project=namespace)
 
 
 @settings(deadline=timedelta(milliseconds=500))
