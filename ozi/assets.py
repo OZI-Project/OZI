@@ -5,9 +5,15 @@
 """Assets for python packaging metadata."""
 from __future__ import annotations
 
+import gc
 import re
+import sys
+from contextlib import contextmanager
+from contextlib import suppress
 from email.message import Message
+from runpy import run_module
 from typing import Any
+from typing import Generator
 from warnings import warn
 
 from pyparsing import CaselessKeyword
@@ -25,6 +31,45 @@ from pyparsing import oneOf
 from spdx_license_list import LICENSES
 
 from ozi.spec import License
+
+
+@contextmanager
+def redirect_argv(*args: str) -> Generator[None, None, None]:  # pragma: no cover
+    argv = sys.argv[:]
+    sys.argv = list(args)
+    yield
+    sys.argv = argv
+
+
+@contextmanager
+def nogc() -> Generator[None, None, None]:  # pragma: no cover
+    gc.freeze()
+    if gc.isenabled():
+        gc.disable()
+    yield
+    gc.unfreeze()
+    gc.enable()
+    gc.collect()
+
+
+def run_utility(name: str, *args: str) -> None:  # pragma: no cover
+    with nogc():
+        with redirect_argv(name, *args):
+            print('# run-utility:', *sys.argv)
+            with suppress(SystemExit):
+                run_module(name)
+
+
+def tap_warning_format(
+    message: Warning | str,
+    category: type[Warning],
+    filename: str,
+    lineno: int,
+    line: str | None = None,
+) -> str:
+    """Test Anything Protocol formatted warnings."""
+    return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {message}\n'  # pragma: no cover
+
 
 pep639_spdx = [
     'LicenseRef-Public-Domain',
