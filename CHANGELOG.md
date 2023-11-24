@@ -2,6 +2,33 @@
 
 
 
+## v0.0.218 (2023-11-24)
+
+### :hammer:
+
+* :hammer:(ozi/spec.py): Add more spec metadata for templates. ([`5fa0c67`](https://github.com/rjdbcm/OZI/commit/5fa0c676bc04faf57877b1d569542335e5ba8f1c))
+
+### :pencil2:
+
+* :pencil2:: add changed entrypoint for ozi.fix and ozi.new ([`7c7d62a`](https://github.com/rjdbcm/OZI/commit/7c7d62a7c44f348f2420e65c8a94450e38067bf6))
+
+* :pencil2:(requirements.in): Remove email-validator. ([`a458510`](https://github.com/rjdbcm/OZI/commit/a458510349098a74e5ff61d185ea4100dc6f0f1c))
+
+### Other
+
+* :construction_worker:(PKG-INFO): Bump version. ([`b9e792e`](https://github.com/rjdbcm/OZI/commit/b9e792e6e5fa81d613f975eb2455ace334a66fb7))
+
+* :rotating_light:(ozi/actions.py): Update type guard block. ([`e1ba894`](https://github.com/rjdbcm/OZI/commit/e1ba894faeb9d3ecc360158d34b68fec34affc8d))
+
+* Clean up hanging whitespace. ([`68c4050`](https://github.com/rjdbcm/OZI/commit/68c405069b1671c9239f91effbc5988eab205338))
+
+* :memo:(ozi): Update pragma comments. Update docstring. ([`8aa482d`](https://github.com/rjdbcm/OZI/commit/8aa482d0794f1e2fbd2b1193b9b2f9187edc5fa2))
+
+* :truck:(ozi/assets.py): Move utility functions and tap_warning_format into ``ozi/assets.py`` ([`a9b374b`](https://github.com/rjdbcm/OZI/commit/a9b374b485c97cc30d16d0f32f9c05ab65cae8fe))
+
+* :truck:(ozi-new,ozi-fix): Moved ozi-fix and ozi-new into their own respective submodules. ([`bb35aa9`](https://github.com/rjdbcm/OZI/commit/bb35aa929e4587a6317def8c1d4f6e6fd15e01f7))
+
+
 ## v0.0.217 (2023-11-23)
 
 ### :bug:
