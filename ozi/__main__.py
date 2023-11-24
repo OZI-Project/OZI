@@ -143,8 +143,7 @@ helpers.add_argument(  # pragma: no cover
 )
 
 
-if __name__ == '__main__':
-    """Main ozi entrypoint."""
+def main() -> None:  # pragma: no cover
     ozi = parser.parse_args()
     ozi.version()
     ozi.check_version()
@@ -153,3 +152,8 @@ if __name__ == '__main__':
     if ozi.list_available:
         list_available(ozi.list_available)
     parser.print_help()
+
+
+if __name__ == '__main__':
+    """Main ozi entrypoint."""
+    main()
