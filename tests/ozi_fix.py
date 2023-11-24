@@ -14,9 +14,9 @@ from hypothesis import settings
 from hypothesis import strategies as st
 
 import ozi.assets
-import ozi.fix
-import ozi.new
-from ozi.fix import env
+import ozi.fix.__main__
+import ozi.new.__main__
+from ozi.render import env
 from ozi.spec import Metadata
 
 metadata = Metadata()
@@ -75,7 +75,7 @@ def bad_project(tmp_path_factory: pytest.TempPathFactory) -> pathlib.Path:
     namespace = deepcopy(bad_namespace)
     namespace.target = fn
     with pytest.warns(RuntimeWarning):
-        ozi.new.project(namespace)
+        ozi.new.__main__.project(namespace)
     return fn
 
 
@@ -88,7 +88,7 @@ def test_report_missing_required(bad_project: pathlib.Path, key: str) -> None:
         content = content.replace(key, '')
         f.write(content)
     with pytest.raises(RuntimeWarning):
-        ozi.fix.report_missing(bad_project)
+        ozi.fix.__main__.report_missing(bad_project)
 
 
 @pytest.mark.parametrize(
@@ -98,7 +98,7 @@ def test_report_missing_required_root_file(bad_project: pathlib.Path, key: str) 
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath(key))
     with pytest.warns(RuntimeWarning):
-        ozi.fix.report_missing(bad_project)
+        ozi.fix.__main__.report_missing(bad_project)
 
 
 @pytest.mark.parametrize('key', ['PKG-INFO'])
@@ -106,7 +106,7 @@ def test_report_missing_required_pkg_info_file(bad_project: pathlib.Path, key: s
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath(key))
     with pytest.raises((SystemExit, RuntimeWarning)):
-        ozi.fix.report_missing(bad_project)
+        ozi.fix.__main__.report_missing(bad_project)
 
 
 @pytest.mark.parametrize('key', metadata.spec.python.src.required.test)
@@ -114,7 +114,7 @@ def test_report_missing_required_test_file(bad_project: pathlib.Path, key: str) 
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath('tests') / key)
     with pytest.warns(RuntimeWarning):
-        ozi.fix.report_missing(bad_project)
+        ozi.fix.__main__.report_missing(bad_project)
 
 
 @pytest.mark.parametrize('key', metadata.spec.python.src.required.source)
@@ -122,7 +122,7 @@ def test_report_missing_required_source_file(bad_project: pathlib.Path, key: str
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath('ozi_phony') / key)
     with pytest.warns(RuntimeWarning):
-        ozi.fix.report_missing(bad_project)
+        ozi.fix.__main__.report_missing(bad_project)
 
 
 @given(
@@ -141,7 +141,7 @@ def test_fuzz_RewriteCommand(
     subdir: str,
     target_type: str,
 ) -> None:
-    ozi.fix.RewriteCommand(
+    ozi.fix.__main__.RewriteCommand(
         type=type,
         target=target,
         operation=operation,
@@ -163,7 +163,7 @@ def test_fuzz_Rewriter(
     fix: str,
     commands: list[dict[str, str]],
 ) -> None:
-    ozi.fix.Rewriter(target=target, name=name, fix=fix, commands=commands)
+    ozi.fix.__main__.Rewriter(target=target, name=name, fix=fix, commands=commands)
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
@@ -172,7 +172,7 @@ def test_Rewriter_bad_project__iadd__dir_nested_warns(
     fix: str,
 ) -> None:
     env.globals = env.globals | {'project': vars(bad_namespace)}
-    rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
+    rewriter = ozi.fix.__main__.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     with pytest.warns(RuntimeWarning):
         rewriter += ['foo/foo/baz/']
 
@@ -183,7 +183,7 @@ def test_Rewriter_bad_project__iadd__dir(
     fix: str,
 ) -> None:
     env.globals = env.globals | {'project': vars(bad_namespace)}
-    rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
+    rewriter = ozi.fix.__main__.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     rewriter += ['foo/']
     assert len(rewriter.commands) == 1
 
@@ -192,7 +192,7 @@ def test_Rewriter_bad_project__iadd__bad_fix(
     bad_project: pytest.FixtureRequest,
 ) -> None:
     env.globals = env.globals | {'project': vars(bad_namespace)}
-    rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix='')
+    rewriter = ozi.fix.__main__.Rewriter(target=str(bad_project), name='ozi_phony', fix='')
     with pytest.warns(RuntimeWarning):
         rewriter += ['foo/']
     assert len(rewriter.commands) == 0
@@ -202,7 +202,7 @@ def test_Rewriter_bad_project__isub__bad_fix(
     bad_project: pytest.FixtureRequest,
 ) -> None:
     env.globals = env.globals | {'project': vars(bad_namespace)}
-    rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix='')
+    rewriter = ozi.fix.__main__.Rewriter(target=str(bad_project), name='ozi_phony', fix='')
     rewriter -= ['foo.py']
     assert len(rewriter.commands) == 1
 
@@ -213,7 +213,7 @@ def test_Rewriter_bad_project__isub__non_existing_child(
     fix: str,
 ) -> None:
     env.globals = env.globals | {'project': vars(bad_namespace)}
-    rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
+    rewriter = ozi.fix.__main__.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     with pytest.raises(RuntimeWarning):
         rewriter -= ['foo/']
     assert len(rewriter.commands) == 0
@@ -225,7 +225,7 @@ def test_Rewriter_bad_project__isub__child(
     fix: str,
 ) -> None:
     env.globals = env.globals | {'project': vars(bad_namespace)}
-    rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
+    rewriter = ozi.fix.__main__.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     if fix == 'root':
         pathlib.Path(str(bad_project), 'foo').mkdir()
     elif fix == 'source':
@@ -242,7 +242,7 @@ def test_Rewriter_bad_project__isub__python_file(
     fix: str,
 ) -> None:
     env.globals = env.globals | {'project': vars(bad_namespace)}
-    rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
+    rewriter = ozi.fix.__main__.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     if fix == 'root':
         pathlib.Path(str(bad_project), 'foo.py').touch()
     elif fix == 'source':
@@ -259,7 +259,7 @@ def test_Rewriter_bad_project__isub__file(
     fix: str,
 ) -> None:
     env.globals = env.globals | {'project': vars(bad_namespace)}
-    rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
+    rewriter = ozi.fix.__main__.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     if fix == 'root':
         pathlib.Path(str(bad_project), 'foo').touch()
     elif fix == 'source':
@@ -276,7 +276,7 @@ def test_Rewriter_bad_project__iadd__file(
     fix: str,
 ) -> None:
     env.globals.update({'project': vars(bad_namespace)})
-    rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
+    rewriter = ozi.fix.__main__.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     rewriter += ['foo.py']
     assert len(rewriter.commands) == 1
 
@@ -287,7 +287,7 @@ def test_Rewriter_bad_project__iadd__file_from_template(
     fix: str,
 ) -> None:
     env.globals.update({'project': vars(bad_namespace)})
-    rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
+    rewriter = ozi.fix.__main__.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     pathlib.Path(bad_project / 'templates').mkdir()
     pathlib.Path(bad_project / 'templates' / 'foo.py').touch()
     pathlib.Path(bad_project / 'templates' / 'source').mkdir()
@@ -304,7 +304,7 @@ def test_Rewriter_bad_project__iadd__non_python_file(
     fix: str,
 ) -> None:
     env.globals.update({'project': vars(bad_namespace)})
-    rewriter = ozi.fix.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
+    rewriter = ozi.fix.__main__.Rewriter(target=str(bad_project), name='ozi_phony', fix=fix)
     rewriter += ['foo']
     assert len(rewriter.commands) == 1
 
@@ -319,7 +319,7 @@ def test_preprocess_warns_non_existing_target() -> None:
     namespace = deepcopy(bad_namespace)
     namespace.target = 'temp/foobar'
     with pytest.warns(RuntimeWarning):
-        ozi.fix.preprocess(namespace)
+        ozi.fix.__main__.preprocess(namespace)
 
 
 def test_preprocess_warns_file_target() -> None:
@@ -327,13 +327,13 @@ def test_preprocess_warns_file_target() -> None:
     namespace.target = 'temp/foobar.txt'
     pathlib.Path(namespace.target).touch()
     with pytest.warns(RuntimeWarning):
-        ozi.fix.preprocess(namespace)
+        ozi.fix.__main__.preprocess(namespace)
 
 
 def test_preprocess_existing_target() -> None:
     namespace = deepcopy(bad_namespace)
     namespace.target = '..'
-    namespace = ozi.fix.preprocess(namespace)
+    namespace = ozi.fix.__main__.preprocess(namespace)
     assert 'ozi.phony' not in namespace.add
     assert 'ozi.phony' not in namespace.remove
 
@@ -347,7 +347,7 @@ def test_fuzz_preprocess_existing_target(
     namespace.add.extend(add_items)
     namespace.remove.extend(remove_items)
     namespace.target = '.'
-    namespace = ozi.fix.preprocess(namespace)
+    namespace = ozi.fix.__main__.preprocess(namespace)
     assert 'ozi.phony' not in namespace.add
     assert 'ozi.phony' not in namespace.remove
 
@@ -360,4 +360,4 @@ def test_fuzz_pkg_info_extra(payload: str, as_message: bool) -> None:
 
 @given(s=st.from_regex(r'^([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9._-]*[A-Za-z0-9])$'))
 def test_fuzz_underscorify(s: str) -> None:
-    ozi.fix.underscorify(s=s)
+    ozi.fix.__main__.underscorify(s=s)

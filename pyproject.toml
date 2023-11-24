@@ -39,8 +39,8 @@ summary = 'Packager for Python projects using Meson.'
 [tool.mesonpep517.entry-points]
 console_scripts = [
     "ozi = ozi.__main__:main",
-    "ozi-new = ozi.new:main",
-    "ozi-fix = ozi.fix:main",
+    "ozi-new = ozi.new.__main__:main",
+    "ozi-fix = ozi.fix.__main__:main",
 ]
 
 [build-system]
@@ -61,14 +61,16 @@ line-length = 93
 
 [tool.coverage.report]
 exclude_lines = [
-    "#\\s*(pragma|PRAGMA)[:\\s]?\\s*(no|NO)\\s*(cover|COVER)",
-    "#\\s*(pragma|PRAGMA)[:\\s]?\\s*(defer|DEFER)\\s*(to|TO)\\s*[a-zA-Z0-9_]*",
+    "^.*#\\s*(pragma|PRAGMA)[:\\s]?\\s*(no|NO)\\s*(cover|COVER)",
+    "^.*#\\s*(pragma|PRAGMA)[:\\s]?\\s*(defer|DEFER)\\s*(to|TO)\\s*[a-zA-Z0-9_]*",
     "def __repr__",
     "def __wrapper", # functools.wraps decorated functions
     "(\\.\\.\\.)",
     "@(abc\\.)?abstractmethod",
     "class .*\\bProtocol\\):",
     "if __name__ == .__main__.:",
+    "if (typing\\.)?TYPE_CHECKING:",
+    "(el)?if\\s?(sys\\.)?version_info\\s?(==|<=|>=|<|>)\\s?\\([234],\\s?[0-9]{1,3}\\)\\s?:",
     ]
 fail_under = 100.0
 show_missing = true
@@ -145,7 +147,6 @@ max-line-length = 93
 extend-exclude = ["meson-private", "build-env-*", "vendor", "venv", "build*", "*.pyi"]
 extend-ignore = "E203,E501,TC007,TC008"
 extend-select = "B950"
-select = "ALL"
 
 [tool.isort]
 line_length = 93
@@ -510,10 +511,10 @@ deps =
      setuptools_scm[toml]
      tomli >= 2.0.0
 commands =
-     meson setup {env_tmp_dir} -D{posargs}=enabled
+     meson setup {env_tmp_dir} -D{posargs:lint}=enabled
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
      pip install -q .
-     meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup={posargs}
+     meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup={posargs:lint}
 """
 # -Dblastpipe:dev=enabled -Dozi-blastpipe=enabled

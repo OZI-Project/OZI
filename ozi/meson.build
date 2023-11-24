@@ -8,8 +8,6 @@ python_files = [
     'actions.py',
     'assets.py',
     'filter.py',
-    'fix.py',
-    'new.py',
     'spec.py',
     'render.py',
 ]
@@ -20,7 +18,7 @@ endforeach
 if false
     executable('source_files', python_files)
 endif
-children = ['templates', 'scripts', 'vendor']
+children = ['templates', 'scripts', 'vendor', 'new', 'fix',]
 foreach child: children
     subdir(child)
 endforeach
