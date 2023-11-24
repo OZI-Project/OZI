@@ -4,14 +4,16 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """OZI - Python Project Packaging console application.
 
-Most functionality is found in two additional console applications:
+project authoring console application:
+  ozi-new -h         show help for the ozi-new command.
 
-ozi-new:
-  project authoring command
+project maintainence console application:
+  ozi-fix -h         show help for the ozi-fix command.
 
-ozi-fix:
-  project maintainence command
-
+continuous integration checkpoints:
+  tox -- lint        run formatting, linting, and typechecking.
+  tox -- test        run testing and coverage.
+  tox -- dist        run distribution and packaging.
 """  # pragma: no cover
 from __future__ import annotations  # pragma: no cover
 
@@ -23,7 +25,7 @@ from dataclasses import fields  # pragma: no cover
 from typing import TYPE_CHECKING  # pragma: no cover
 from typing import NoReturn  # pragma: no cover
 
-if TYPE_CHECKING:  # pragma: no cover
+if TYPE_CHECKING:
     from collections.abc import Collection
 
 from warnings import warn  # pragma: no cover
@@ -33,21 +35,10 @@ from packaging.version import Version  # pragma: no cover
 from packaging.version import parse  # pragma: no cover
 
 from ozi.actions import ExactMatch  # pragma: no cover
+from ozi.assets import tap_warning_format  # pragma: no cover
 from ozi.spec import Metadata  # pragma: no cover
 
 metadata = Metadata()  # pragma: no cover
-
-
-def tap_warning_format(  # pragma: no cover
-    message: Warning | str,
-    category: type[Warning],
-    filename: str,
-    lineno: int,
-    line: str | None = None,
-) -> str:
-    """Test Anything Protocol formatted warnings."""
-    return f'# {filename}:{lineno}: {category.__name__}\nnot ok - {message}\n'  # pragma: no cover
-
 
 pywarningformat = warnings.formatwarning  # pragma: no cover
 warnings.formatwarning = tap_warning_format  # pragma: no cover
@@ -62,7 +53,7 @@ def print_version() -> NoReturn:  # pragma: no cover
 def check_for_update(
     current_version: Version,
     releases: Collection[Version],
-) -> None:  # pragma: no cover
+) -> None:  # pragma: defer to python
     """Issue a warning if installed version of OZI is not up to date."""
     match max(releases):
         case latest if latest > current_version:
@@ -78,7 +69,7 @@ def check_for_update(
             print(f'ok - OZI package is up to date ({current_version}).')
 
 
-def check_version() -> NoReturn:  # pragma: no cover
+def check_version() -> NoReturn:  # pragma: defer to PyPI
     """Check for a newer version of OZI and exit."""
     response = requests.get('https://pypi.org/pypi/OZI/json', timeout=30)
     match response.status_code:
@@ -152,7 +143,7 @@ helpers.add_argument(  # pragma: no cover
 )
 
 
-def main() -> NoReturn | str:  # pragma: no cover
+if __name__ == '__main__':
     """Main ozi entrypoint."""
     ozi = parser.parse_args()
     ozi.version()
@@ -162,8 +153,3 @@ def main() -> NoReturn | str:  # pragma: no cover
     if ozi.list_available:
         list_available(ozi.list_available)
     parser.print_help()
-    return 'ok'
-
-
-if __name__ == '__main__':
-    main()
