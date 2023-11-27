@@ -1,15 +1,27 @@
 # CHANGELOG
+## 0.0.220 (2023-11-27)
 
+### :bug:
 
+* :bug::rotating_light:(ozi/tap.py): Fix nested quote styles and add version guard for typing.Self. ([`d1bc0b1`](https://github.com/rjdbcm/OZI/commit/d1bc0b1b0f4a6367e6835e6617bdddc6b7f05b3a))
 
-## v0.0.219 (2023-11-24)
+### :hammer:
+
+* :hammer:(ozi,ozi-fix,ozi-new): Add ``tap.py`` TAP support module. ([`cf5e144`](https://github.com/rjdbcm/OZI/commit/cf5e14440accc11148adce6cc6257e8fd8b48ae3))
+
+* :hammer:(ozi-fix): Add ruff to utility suite. ([`1ab1c17`](https://github.com/rjdbcm/OZI/commit/1ab1c17111d2f3c180d7f4324c7ca7c5c6095214))
+
+### Other
+
+* :rotating_light:(ozi): Fix linter complaints. ([`d764695`](https://github.com/rjdbcm/OZI/commit/d764695f77c34f1e7c704fd7433cd90cde654aa8))
+
+## 0.0.219 (2023-11-24)
 
 ### :pencil2:
 
 * :pencil2:(ozi): Restore setuptools entrypoint ``main()``. ([`e7e1726`](https://github.com/rjdbcm/OZI/commit/e7e1726195a5854f1d2044a6a636afb89f7b26ae))
 
-
-## v0.0.218 (2023-11-24)
+## 0.0.218 (2023-11-24)
 
 ### :hammer:
 
@@ -35,8 +47,7 @@
 
 * :truck:(ozi-new,ozi-fix): Moved ozi-fix and ozi-new into their own respective submodules. ([`bb35aa9`](https://github.com/rjdbcm/OZI/commit/bb35aa929e4587a6317def8c1d4f6e6fd15e01f7))
 
-
-## v0.0.217 (2023-11-23)
+## 0.0.217 (2023-11-23)
 
 ### :bug:
 
@@ -45,15 +56,13 @@
 Also remove the ``stdout`` argument from several functions.
 Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rjdbcm/OZI/commit/218b768852962e777c1e5cba8d9421e4e87f258a))
 
-
-## v0.0.216 (2023-11-23)
+## 0.0.216 (2023-11-23)
 
 ### :bug:
 
 * :bug:(ozi-new,ozi-fix): Fix meson.build install path rendering. ([`28f0f9d`](https://github.com/rjdbcm/OZI/commit/28f0f9d2597fcbed411dc45e73e6d6dbc563973d))
 
-
-## v0.0.215 (2023-11-23)
+## 0.0.215 (2023-11-23)
 
 ### :bug:
 
@@ -67,8 +76,7 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 
 * Bump PKG-INFO. ([`0aed6b8`](https://github.com/rjdbcm/OZI/commit/0aed6b88fe8ab4b6793a1487445c6993f24979ab))
 
-
-## v0.0.214 (2023-11-23)
+## 0.0.214 (2023-11-23)
 
 ### :bug:
 
@@ -80,8 +88,7 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 
 * :hammer:(ozi-new): Rendered PKG-INFO includes &#34;Private :: Do Not Upload&#34; if license is set to &#34;Private&#34; ([`0575a5f`](https://github.com/rjdbcm/OZI/commit/0575a5fc7865ecca6bd68d9a388bbf009ef5672e))
 
-
-## v0.0.213 (2023-11-23)
+## 0.0.213 (2023-11-23)
 
 ### :bug:
 
@@ -89,8 +96,7 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 
 * :bug:(ozi-new): Fix typo in rendering of black config template. ([`cfd6f52`](https://github.com/rjdbcm/OZI/commit/cfd6f52b7f661d8ff58385ca195b0177d3bdc079))
 
-
-## v0.0.212 (2023-11-23)
+## 0.0.212 (2023-11-23)
 
 ### :bug:
 
@@ -100,8 +106,7 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 
 * Bump PKG-INFO. ([`812f49d`](https://github.com/rjdbcm/OZI/commit/812f49d3c7f7f9f3e1b4f5feea89d03e86daea4d))
 
-
-## v0.0.211 (2023-11-23)
+## 0.0.211 (2023-11-23)
 
 ### :bug:
 
@@ -115,15 +120,13 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 
 * :rotating_light:: Fix black and revert PKG-INFO patch bump. ([`bbea8fb`](https://github.com/rjdbcm/OZI/commit/bbea8fbe7138263d529764032dc8655733dddcb0))
 
-
-## v0.0.210 (2023-11-23)
+## 0.0.210 (2023-11-23)
 
 ### :bug:
 
 * :bug:: Fix email email validator install path. ([`9828d09`](https://github.com/rjdbcm/OZI/commit/9828d097103d953433d0ea814b0488bee4043ee2))
 
-
-## v0.0.209 (2023-11-23)
+## 0.0.209 (2023-11-23)
 
 ### :bug:
 
@@ -135,8 +138,7 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`c1fdcc0`](https://github.com/rjdbcm/OZI/commit/c1fdcc0e63c2114cc4e1131d626718101840115e))
 
-
-## v0.0.208 (2023-11-22)
+## 0.0.208 (2023-11-22)
 
 ### :bug:
 
@@ -146,15 +148,13 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`5ad1bae`](https://github.com/rjdbcm/OZI/commit/5ad1bae67d7da17de21b4cc962e402fdbcb77eaa))
 
-
-## v0.0.207 (2023-11-22)
+## 0.0.207 (2023-11-22)
 
 ### :bug:
 
 * :bug:: Fix circular import. ([`d0fd1bd`](https://github.com/rjdbcm/OZI/commit/d0fd1bd0edcc83db54279dd182ab8e8288c2720b))
 
-
-## v0.0.206 (2023-11-22)
+## 0.0.206 (2023-11-22)
 
 ### :bug:
 
@@ -168,8 +168,7 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`0605305`](https://github.com/rjdbcm/OZI/commit/0605305647598863eb5ebb8dce9e4db568ca7a17))
 
-
-## v0.0.205 (2023-11-22)
+## 0.0.205 (2023-11-22)
 
 ### :bug:
 
@@ -183,8 +182,7 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 
 * Fix missing ruff template and circular import. ([`323b963`](https://github.com/rjdbcm/OZI/commit/323b96375b1e1c8f083b95fdfb1bc69e3e65e911))
 
-
-## v0.0.204 (2023-11-22)
+## 0.0.204 (2023-11-22)
 
 ### :bug:
 
@@ -192,8 +190,7 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 
 * :bug:: Fix warning output to use TAP with a contextmanager. ([`92dea85`](https://github.com/rjdbcm/OZI/commit/92dea85753c1edb4fc6bf676a1c75f4048809ac9))
 
-
-## v0.0.203 (2023-11-21)
+## 0.0.203 (2023-11-21)
 
 ### :bug:
 
@@ -201,8 +198,7 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 
 * :bug:(ozi/__main__.py): Fix incorrect help and OZI.spec.Metadata API use. ([`67655e8`](https://github.com/rjdbcm/OZI/commit/67655e8a9ffc250b23d01e7b59e6cb7d1be025d4))
 
-
-## v0.0.202 (2023-11-21)
+## 0.0.202 (2023-11-21)
 
 ### :bug:
 
@@ -235,8 +231,7 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 
 * :rotating_light: Fix lint. ([`5a05ff0`](https://github.com/rjdbcm/OZI/commit/5a05ff088530c05f8a237caa3c09267e340a665f))
 
-
-## v0.0.201 (2023-11-15)
+## 0.0.201 (2023-11-15)
 
 ### :bug:
 
@@ -246,15 +241,13 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 
 * :rotating_light:(pyproject.toml): Clean up. ([`6c9e92c`](https://github.com/rjdbcm/OZI/commit/6c9e92c2e8d6238b4078d0b02ecad0e979d6e808))
 
-
-## v0.0.200 (2023-11-14)
+## 0.0.200 (2023-11-14)
 
 ### :bug:
 
 * :bug: Fix meson.build build file check to use absolute path. ([`30f8c56`](https://github.com/rjdbcm/OZI/commit/30f8c56bc611309b8ce1e59d2ed110861d764b2b))
 
-
-## v0.0.199 (2023-11-14)
+## 0.0.199 (2023-11-14)
 
 ### :bug:
 
@@ -263,8 +256,7 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 Fixes: File &#34;&lt;OZI-0.0.198&gt;/ozi/fix.py&#34;, line 667, in main
 AttributeError: &#39;Namespace&#39; object has no attribute &#39;run_utility&#39; ([`6c4d52a`](https://github.com/rjdbcm/OZI/commit/6c4d52a533052006a69f645bdec79c09fde02c9f))
 
-
-## v0.0.198 (2023-11-14)
+## 0.0.198 (2023-11-14)
 
 ### :bug:
 
@@ -272,8 +264,7 @@ AttributeError: &#39;Namespace&#39; object has no attribute &#39;run_utility&#39
 
 Revert to using standard email-validator package. ([`1f2959b`](https://github.com/rjdbcm/OZI/commit/1f2959bb9c4dfc82bf7bf64c0aa4d73709a9f42b))
 
-
-## v0.0.197 (2023-11-14)
+## 0.0.197 (2023-11-14)
 
 ### :hammer:
 
@@ -292,8 +283,7 @@ Add Author, Author-email, License, Maintainer, and Maintainer-email keys to PKG-
 :bug:(scm_version): Fix ``fallback_version`` placeholder to use VCS_TAG from ``meson`` and set ``parentdir_prefix_version`` at template render.
 Add ``--check-for-update`` bool arg to ``ozi-new`` (not yet implemented) ([`ee63ffd`](https://github.com/rjdbcm/OZI/commit/ee63ffd3f78f0950a1dc080a36f816907085359e))
 
-
-## v0.0.196 (2023-11-10)
+## 0.0.196 (2023-11-10)
 
 ### :bug:
 
@@ -313,8 +303,7 @@ Also publishes a sigstore bundle for the tarball release. ([`dcdfb20`](https://g
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`9c16b2f`](https://github.com/rjdbcm/OZI/commit/9c16b2fe8f56b55fe10b2bd1fb629851cb0f0a86))
 
-
-## v0.0.195 (2023-11-10)
+## 0.0.195 (2023-11-10)
 
 ### :hammer:
 
@@ -322,8 +311,7 @@ Also publishes a sigstore bundle for the tarball release. ([`dcdfb20`](https://g
 
 Fixes sdist builds disabled #2 ([`5a059e1`](https://github.com/rjdbcm/OZI/commit/5a059e1f3236506e28c03f44330fd3c36f72b2e9))
 
-
-## v0.0.194 (2023-11-09)
+## 0.0.194 (2023-11-09)
 
 ### :bug:
 
@@ -331,8 +319,7 @@ Fixes sdist builds disabled #2 ([`5a059e1`](https://github.com/rjdbcm/OZI/commit
 
 missing default. ([`3f8b5ff`](https://github.com/rjdbcm/OZI/commit/3f8b5ff539d54c024f1a4c89636db352b57390ed))
 
-
-## v0.0.193 (2023-11-09)
+## 0.0.193 (2023-11-09)
 
 ### :hammer:
 
@@ -343,8 +330,7 @@ Adds a ``Download-URL`` output dependent on ``project.ci_provider``.
 Adds dependency on [GitPython](https://pypi.org/project/GitPython)
 Fixes Issue #5 [OZI does not support Download-URL header.](https://github.com/rjdbcm/OZI/issues/5) ([`070f033`](https://github.com/rjdbcm/OZI/commit/070f03380dae39b2e2ceb0ad63af7d9a2c38e873))
 
-
-## v0.0.192 (2023-11-09)
+## 0.0.192 (2023-11-09)
 
 ### :hammer:
 
@@ -352,8 +338,7 @@ Fixes Issue #5 [OZI does not support Download-URL header.](https://github.com/rj
 
 * :hammer:(PKG-INFO): Correct Download-URL. ([`f787eb8`](https://github.com/rjdbcm/OZI/commit/f787eb82bdde5c273232c1a08a4b7e7c9f5fd9b0))
 
-
-## v0.0.191 (2023-11-08)
+## 0.0.191 (2023-11-08)
 
 ### :hammer:
 
@@ -365,8 +350,7 @@ Fixes Issue [Project-URLs are not supported by OZI #4](https://github.com/rjdbcm
 
 * :rotating_light:(tests/ozi_new.py): Fix black lint failure. ([`06419d9`](https://github.com/rjdbcm/OZI/commit/06419d98e16e6f56afd5c7e48f8e7c0282b7bc56))
 
-
-## v0.0.190 (2023-11-04)
+## 0.0.190 (2023-11-04)
 
 ### :hammer:
 
@@ -374,22 +358,19 @@ Fixes Issue [Project-URLs are not supported by OZI #4](https://github.com/rjdbcm
 
 Prior to this patch caches were not checked against requirements file. ([`af72080`](https://github.com/rjdbcm/OZI/commit/af720803bfacd8944e02e2b1952bd5a160c387e4))
 
-
-## v0.0.189 (2023-11-04)
+## 0.0.189 (2023-11-04)
 
 ### :hammer:
 
 * :hammer:(ozi-new): Fix missing ``subprojects/ozi.wrap``. ([`97ba52a`](https://github.com/rjdbcm/OZI/commit/97ba52a0af7e15008e054956ce8a257f77e28b2e))
 
-
-## v0.0.188 (2023-11-04)
+## 0.0.188 (2023-11-04)
 
 ### :bug:
 
 * :bug:(ozi-new): Fix missing __init__.pyi in project initialization. ([`94eb34f`](https://github.com/rjdbcm/OZI/commit/94eb34f7b754599e2f71f660b55396ec8aa21f55))
 
-
-## v0.0.187 (2023-11-04)
+## 0.0.187 (2023-11-04)
 
 ### :bug:
 
@@ -397,15 +378,13 @@ Prior to this patch caches were not checked against requirements file. ([`af7208
 
 This check was added in error. ([`87bf8ec`](https://github.com/rjdbcm/OZI/commit/87bf8ec6b4c9888aa582e83f8ed65cbdc2318436))
 
-
-## v0.0.186 (2023-11-03)
+## 0.0.186 (2023-11-03)
 
 ### :hammer:
 
 * :hammer::pencil2:(ozi-new): Fix project source directory naming in root meson.build. ([`c8eba2f`](https://github.com/rjdbcm/OZI/commit/c8eba2ff2682e4f091542970769b7732366e7fe9))
 
-
-## v0.0.185 (2023-11-03)
+## 0.0.185 (2023-11-03)
 
 ### :hammer:
 
@@ -419,8 +398,7 @@ README.rst initializes with the OZI extra package info. ([`d09381b`](https://git
 
 * :pencil2: Update semantic_release CHANGELOG.md template whitespace ([`527aa60`](https://github.com/rjdbcm/OZI/commit/527aa6073ef053f1f680870c4cc01fc37126d5c5))
 
-
-## v0.0.184 (2023-11-03)
+## 0.0.184 (2023-11-03)
 
 ### :hammer:
 
@@ -439,8 +417,7 @@ Fix minor changelog format issues. ([`f53f628`](https://github.com/rjdbcm/OZI/co
 
 * Update CHANGELOG.md ([`dd953c8`](https://github.com/rjdbcm/OZI/commit/dd953c847a28e0936a4e94a2115319b3c920a303))
 
-
-## v0.0.183 (2023-11-02)
+## 0.0.183 (2023-11-02)
 
 ### :bug:
 
@@ -460,15 +437,13 @@ Fix minor changelog format issues. ([`f53f628`](https://github.com/rjdbcm/OZI/co
 
 * :construction_worker:(PKG-INFO): 0.0.183 ([`db66619`](https://github.com/rjdbcm/OZI/commit/db666193bf07ee9a66b143690a5383ddd5f59c06))
 
-
-## v0.0.182 (2023-11-01)
+## 0.0.182 (2023-11-01)
 
 ### :bug:
 
 * :bug:(CI): Fix ozi release workflow python version string quoting. ([`b5ec332`](https://github.com/rjdbcm/OZI/commit/b5ec33265a63b91267b82fce7903c55c810a51c6))
 
-
-## v0.0.181 (2023-11-01)
+## 0.0.181 (2023-11-01)
 
 ### :bug:
 
@@ -478,29 +453,25 @@ Fix minor changelog format issues. ([`f53f628`](https://github.com/rjdbcm/OZI/co
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`0500b78`](https://github.com/rjdbcm/OZI/commit/0500b780c80707e6f84cf715efc485734b2328e8))
 
-
-## v0.0.180 (2023-11-01)
+## 0.0.180 (2023-11-01)
 
 ### :bug:
 
 * :bug:(CI): Fix indentation issue in workflow template. ([`07abfd4`](https://github.com/rjdbcm/OZI/commit/07abfd40060617fdfd8ee4a775c7429ee879cd34))
 
-
-## v0.0.179 (2023-11-01)
+## 0.0.179 (2023-11-01)
 
 ### :bug:
 
 * :bug::construction_worker:(CI): Fix for raw jinja whitespace trimming causing broken workflow. ([`e3e4d66`](https://github.com/rjdbcm/OZI/commit/e3e4d6633e6f62a93084eee9dc1e0f74f0c0fd21))
 
-
-## v0.0.178 (2023-11-01)
+## 0.0.178 (2023-11-01)
 
 ### :bug:
 
 * :bug:(ozi-fix): Fix incorrect source install subdir argument. ([`77c97b2`](https://github.com/rjdbcm/OZI/commit/77c97b27c492b138dc772609a2de21b1f0bbccbd))
 
-
-## v0.0.177 (2023-10-31)
+## 0.0.177 (2023-10-31)
 
 ### :bug:
 
@@ -510,8 +481,7 @@ Fix minor changelog format issues. ([`f53f628`](https://github.com/rjdbcm/OZI/co
 
 * :children_crossing:(ozi-fix): warn for nested subdirectories. ([`8f99980`](https://github.com/rjdbcm/OZI/commit/8f99980cc219c4bf17029fdecbc49e0c0768579b))
 
-
-## v0.0.176 (2023-10-31)
+## 0.0.176 (2023-10-31)
 
 ### :bug:
 
@@ -519,8 +489,7 @@ Fix minor changelog format issues. ([`f53f628`](https://github.com/rjdbcm/OZI/co
 
 * :bug:(ozi-fix): Fix unconditional output of a file add command. ([`69614ba`](https://github.com/rjdbcm/OZI/commit/69614ba5d6c0a0c2aad0ee7627c58aefc5ec962d))
 
-
-## v0.0.175 (2023-10-31)
+## 0.0.175 (2023-10-31)
 
 ### :children_crossing:
 
@@ -530,15 +499,13 @@ Fix minor changelog format issues. ([`f53f628`](https://github.com/rjdbcm/OZI/co
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`0b8a84e`](https://github.com/rjdbcm/OZI/commit/0b8a84ecfc2c904fa90795a7a08bbe7df96a9af8))
 
-
-## v0.0.174 (2023-10-31)
+## 0.0.174 (2023-10-31)
 
 ### :children_crossing:
 
 * :children_crossing::construction_worker:(CI): Retry checkpoint workflow after failure. ([`3188248`](https://github.com/rjdbcm/OZI/commit/318824881d6ae0fa5a38d47ceef5b87f4767525f))
 
-
-## v0.0.173 (2023-10-31)
+## 0.0.173 (2023-10-31)
 
 ### :bug:
 
@@ -546,15 +513,13 @@ Fix minor changelog format issues. ([`f53f628`](https://github.com/rjdbcm/OZI/co
 
 * :bug:(ozi-fix): FIX: Incorrect subdirectory for __init__.py when adding source directories. ([`6c295c9`](https://github.com/rjdbcm/OZI/commit/6c295c9927bb0e52a9202f145687347394a40e7a))
 
-
-## v0.0.172 (2023-10-30)
+## 0.0.172 (2023-10-30)
 
 ### :children_crossing:
 
 * :children_crossing::bug:(ozi-fix): Adding a source subdirectory now includes the __init__.py ([`1403d36`](https://github.com/rjdbcm/OZI/commit/1403d36b170797d676f8f36675ef83b2fb34c4bb))
 
-
-## v0.0.171 (2023-10-30)
+## 0.0.171 (2023-10-30)
 
 ### :children_crossing:
 
@@ -565,29 +530,25 @@ You can now add subdirectories that are nested like
 ozi-fix source -a foo/bar/baz/
 ``` ([`5d3c15e`](https://github.com/rjdbcm/OZI/commit/5d3c15e7defcd1495ff4fc55aa24335aecdc9e25))
 
-
-## v0.0.170 (2023-10-30)
+## 0.0.170 (2023-10-30)
 
 ### :children_crossing:
 
 * :children_crossing:(ozi-fix): Add support for a ``templates/`` for user templates. ([`ecedb26`](https://github.com/rjdbcm/OZI/commit/ecedb26faa1015c4fba527d29b8b60919ceb5721))
 
-
-## v0.0.169 (2023-10-28)
+## 0.0.169 (2023-10-28)
 
 ### :bug:
 
 * :bug:(ozi-new): Fix Framework classifier output. ([`e7a7bb3`](https://github.com/rjdbcm/OZI/commit/e7a7bb36d27fd05f8ff7767584663afa5107e709))
 
-
-## v0.0.168 (2023-10-28)
+## 0.0.168 (2023-10-28)
 
 ### :bug:
 
 * :bug:(ozi-fix): Fix miscount in TAP output. ([`3e6b662`](https://github.com/rjdbcm/OZI/commit/3e6b66224bf24ec88f77d16b8e9e5e22f090a065))
 
-
-## v0.0.167 (2023-10-27)
+## 0.0.167 (2023-10-27)
 
 ### :bug:
 
@@ -597,22 +558,19 @@ ozi-fix source -a foo/bar/baz/
 
 * :pencil2:: Fix black complaints. ([`c5b1402`](https://github.com/rjdbcm/OZI/commit/c5b1402b799b2177134d9e91d9fa21ff5b22169b))
 
-
-## v0.0.166 (2023-10-27)
+## 0.0.166 (2023-10-27)
 
 ### :bug:
 
 * :bug:(ozi-new): Fix keywords parsing. ([`db3f61e`](https://github.com/rjdbcm/OZI/commit/db3f61ef9080fca38d0b5e033e6031111b51faf8))
 
-
-## v0.0.165 (2023-10-27)
+## 0.0.165 (2023-10-27)
 
 ### :bug:
 
 * :bug:(ozi-new): Fix several improper PKG-INFO outputs ([`8db531a`](https://github.com/rjdbcm/OZI/commit/8db531a4162764f12967894f53de707386fa49e6))
 
-
-## v0.0.164 (2023-10-26)
+## 0.0.164 (2023-10-26)
 
 ### :bug:
 
@@ -622,8 +580,7 @@ ozi-fix source -a foo/bar/baz/
 
 * :pencil2:: Fix missing format placeholder. ([`a4c49cf`](https://github.com/rjdbcm/OZI/commit/a4c49cf0b3e09ef8068c1cc64d475ab56e665510))
 
-
-## v0.0.163 (2023-10-26)
+## 0.0.163 (2023-10-26)
 
 ### :bug:
 
@@ -631,15 +588,13 @@ ozi-fix source -a foo/bar/baz/
 
 * :bug:: Fix default dist_requires. ([`513b932`](https://github.com/rjdbcm/OZI/commit/513b932dddcdf8890366c885f6c883445ad4cd62))
 
-
-## v0.0.162 (2023-10-26)
+## 0.0.162 (2023-10-26)
 
 ### :bug:
 
 * :bug:: Fix default project topic. ([`9d6e9d4`](https://github.com/rjdbcm/OZI/commit/9d6e9d4fd1330a0719fae5869da467fc4af3e9db))
 
-
-## v0.0.161 (2023-10-26)
+## 0.0.161 (2023-10-26)
 
 ### :bug:
 
@@ -647,8 +602,7 @@ ozi-fix source -a foo/bar/baz/
 
 Emails with no @ sign will simply warn. ([`4e1fe3e`](https://github.com/rjdbcm/OZI/commit/4e1fe3eade42311e4cc2b7356615072d7de3fe47))
 
-
-## v0.0.160 (2023-10-26)
+## 0.0.160 (2023-10-26)
 
 ### :children_crossing:
 
@@ -660,15 +614,13 @@ Emails with no @ sign will simply warn. ([`4e1fe3e`](https://github.com/rjdbcm/O
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`7182937`](https://github.com/rjdbcm/OZI/commit/718293782da8391afde615bf10c607f096445ab5))
 
-
-## v0.0.159 (2023-10-26)
+## 0.0.159 (2023-10-26)
 
 ### :hammer:
 
 * :hammer::construction_worker:: Update templates and turn on CI dependency caching. ([`4897943`](https://github.com/rjdbcm/OZI/commit/4897943249f5375ed7ed9626e2c232b9acd13604))
 
-
-## v0.0.158 (2023-10-25)
+## 0.0.158 (2023-10-25)
 
 ### :hammer:
 
@@ -682,8 +634,7 @@ Emails with no @ sign will simply warn. ([`4e1fe3e`](https://github.com/rjdbcm/O
 
 * :pencil2:: Always upload artifact ([`3c05e6f`](https://github.com/rjdbcm/OZI/commit/3c05e6fad058cd00c617be08fcb1b3e440047503))
 
-
-## v0.0.157 (2023-10-25)
+## 0.0.157 (2023-10-25)
 
 ### :children_crossing:
 
@@ -711,8 +662,7 @@ Emails with no @ sign will simply warn. ([`4e1fe3e`](https://github.com/rjdbcm/O
 
 * :rotating_light:(ozi): Fix linting and typing. ([`7fca0c4`](https://github.com/rjdbcm/OZI/commit/7fca0c49a0d4b3f7b592d3238251f63c65bb4c30))
 
-
-## v0.0.156 (2023-10-20)
+## 0.0.156 (2023-10-20)
 
 ### :pencil2:
 
@@ -722,8 +672,7 @@ Emails with no @ sign will simply warn. ([`4e1fe3e`](https://github.com/rjdbcm/O
 
 * :white_check_mark:(tests/ozi_new.py): fullmatch=True for from_regex strategy. ([`c20fb56`](https://github.com/rjdbcm/OZI/commit/c20fb56cbef138ab73660e2addfa30d68b6acbe1))
 
-
-## v0.0.155 (2023-10-20)
+## 0.0.155 (2023-10-20)
 
 ### :hammer:
 
@@ -744,8 +693,7 @@ Coverage is complete. ([`5a0d991`](https://github.com/rjdbcm/OZI/commit/5a0d9910
 
 Add max_size=8 to author_email and maintainer_email. ([`d75eae9`](https://github.com/rjdbcm/OZI/commit/d75eae9375390f04d6927d99c9add9f5c6a91989))
 
-
-## v0.0.154 (2023-10-13)
+## 0.0.154 (2023-10-13)
 
 ### :bug:
 
@@ -775,8 +723,7 @@ Change:
 
 Just LGPL-2.0-x and APSL-X.X ([`6465972`](https://github.com/rjdbcm/OZI/commit/6465972cc9ce6639d95ac99c5b57f88fe7a4f72f))
 
-
-## v0.0.153 (2023-10-10)
+## 0.0.153 (2023-10-10)
 
 ### :hammer:
 
@@ -793,8 +740,7 @@ Also add requirements as Requires-Dist in PKG-INFO template. ([`f18a8d8`](https:
 
 This is mainly so we can document it in the specification. ([`c4fb826`](https://github.com/rjdbcm/OZI/commit/c4fb8261f1aebd7ffd74ce478d863f11b7803b50))
 
-
-## v0.0.152 (2023-10-08)
+## 0.0.152 (2023-10-08)
 
 ### :hammer:
 
@@ -804,15 +750,13 @@ This is mainly so we can document it in the specification. ([`c4fb826`](https://
 
 * :hammer:: Make ``Home-page`` a REQUIRED PKG-INFO key. ([`a92191c`](https://github.com/rjdbcm/OZI/commit/a92191c98697e9957a91a4553df8b57cef90b6cc))
 
-
-## v0.0.151 (2023-10-07)
+## 0.0.151 (2023-10-07)
 
 ### :bug:
 
 * :bug::pencil2:: PKG-INFO template python version typo fix. ([`11ec7d9`](https://github.com/rjdbcm/OZI/commit/11ec7d9d4eee89fd74b44f2f4459c37a5972f06a))
 
-
-## v0.0.150 (2023-10-06)
+## 0.0.150 (2023-10-06)
 
 ### :bug:
 
@@ -830,15 +774,13 @@ Also add requirements to PKG-INFO, including git. ([`2fda90e`](https://github.co
 
 * :construction_worker:(PKG-INFO): Patch bump. ([`3ead502`](https://github.com/rjdbcm/OZI/commit/3ead50241c5068ff0a9137c5201b674a4b8d2f5b))
 
-
-## v0.0.149 (2023-10-06)
+## 0.0.149 (2023-10-06)
 
 ### :bug:
 
 * :bug:(CI): Fix Python versioning to follow an automated policy for CI templates. ([`7ae853b`](https://github.com/rjdbcm/OZI/commit/7ae853b66203f2ecf0ab4d6dacc860d5884be3ff))
 
-
-## v0.0.148 (2023-10-06)
+## 0.0.148 (2023-10-06)
 
 ### :children_crossing:
 
@@ -848,8 +790,7 @@ Also add requirements to PKG-INFO, including git. ([`2fda90e`](https://github.co
 
 * :hammer:: Add automation and checking of Python implementation and version metadata. ([`7315896`](https://github.com/rjdbcm/OZI/commit/7315896021a07f9cac43b003af189d22b31c0df6))
 
-
-## v0.0.147 (2023-10-06)
+## 0.0.147 (2023-10-06)
 
 ### :bug:
 
@@ -866,8 +807,7 @@ not ok - 8 - &#34;Programming Language :: Python :: 3 :: Only&#34; MISSING
 
 * :hammer::white_check_mark:(ozi-fix): Add coverage for Python version PKG-INFO. ([`39422a5`](https://github.com/rjdbcm/OZI/commit/39422a5b4052dae92c1f13c85926c32da08c237a))
 
-
-## v0.0.146 (2023-10-06)
+## 0.0.146 (2023-10-06)
 
 ### :bug:
 
@@ -880,8 +820,7 @@ Unreliable test timings! On an initial run, this test took 359.85ms, which excee
 
 * :hammer:(ozi-fix): Coverage complete for pep-639 extra classifiers. ([`6c65619`](https://github.com/rjdbcm/OZI/commit/6c65619597f73bf7a296ccf283f6e3e653a19362))
 
-
-## v0.0.145 (2023-10-05)
+## 0.0.145 (2023-10-05)
 
 ### :hammer:
 
@@ -894,8 +833,7 @@ It is likely I will move it to it&#39;s own module as well. ([`a796bd3`](https:/
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`d604dbc`](https://github.com/rjdbcm/OZI/commit/d604dbc357dc7a69c39ea232d9956ff46cc0cab8))
 
-
-## v0.0.144 (2023-10-05)
+## 0.0.144 (2023-10-05)
 
 ### :hammer:
 
@@ -903,8 +841,7 @@ It is likely I will move it to it&#39;s own module as well. ([`a796bd3`](https:/
 
 * :hammer:(ozi-fix): Added reporting of all PKG-INFO headers present. ([`dee27f7`](https://github.com/rjdbcm/OZI/commit/dee27f7b779d33fa8e75c4c78a4b1dda09938991))
 
-
-## v0.0.143 (2023-10-04)
+## 0.0.143 (2023-10-04)
 
 ### :pushpin:
 
@@ -922,8 +859,7 @@ Add support for Python 3.12 ([`706191e`](https://github.com/rjdbcm/OZI/commit/70
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`eff6b85`](https://github.com/rjdbcm/OZI/commit/eff6b85697cf7c862707493293d8e7cf436da151))
 
-
-## v0.0.142 (2023-10-04)
+## 0.0.142 (2023-10-04)
 
 ### :bug:
 
@@ -946,8 +882,7 @@ Added ignored-by-default patterns for:
 * Byte-compiled / optimized / DLL files
 *  C extensions ([`cfdd5d7`](https://github.com/rjdbcm/OZI/commit/cfdd5d72a660e39f923b7574efe107634e3ebc0f))
 
-
-## v0.0.141 (2023-10-03)
+## 0.0.141 (2023-10-03)
 
 ### :bug:
 
@@ -979,22 +914,19 @@ We mainly want to test that ``ozi-new project`` does not complain about licenses
 
 A handful of defer to good-first-issue like ``project.homepage.netloc`` ([`4f0339a`](https://github.com/rjdbcm/OZI/commit/4f0339a2a9a8f80b31eadc78c5ea1b54b08d004b))
 
-
-## v0.0.140 (2023-10-01)
+## 0.0.140 (2023-10-01)
 
 ### :bug:
 
 * :bug:(ozi-fix): Fix ``--missing`` output. ([`36fa838`](https://github.com/rjdbcm/OZI/commit/36fa838b93d36f8ffe41f787b890ed6665981b38))
 
-
-## v0.0.139 (2023-10-01)
+## 0.0.139 (2023-10-01)
 
 ### :hammer:
 
 * :hammer:(ozi-fix): Fix missing pretty print arg. ([`7e5a9bb`](https://github.com/rjdbcm/OZI/commit/7e5a9bb9200eac98e12a762eac3eb815c52dda60))
 
-
-## v0.0.138 (2023-10-01)
+## 0.0.138 (2023-10-01)
 
 ### :hammer:
 
@@ -1002,15 +934,13 @@ A handful of defer to good-first-issue like ``project.homepage.netloc`` ([`4f033
 
 Decoupled utility functionality. Also corrected some output. ([`99ffe02`](https://github.com/rjdbcm/OZI/commit/99ffe022d802806559568f8da0800db9536141f7))
 
-
-## v0.0.137 (2023-10-01)
+## 0.0.137 (2023-10-01)
 
 ### :bug:
 
 * :bug:(ozi-new): Fix skipping of new item creation. ([`93b1e70`](https://github.com/rjdbcm/OZI/commit/93b1e701d0d3ef7dda817cd8451f80c35a51b625))
 
-
-## v0.0.136 (2023-10-01)
+## 0.0.136 (2023-10-01)
 
 ### :hammer:
 
@@ -1022,8 +952,7 @@ Decoupled utility functionality. Also corrected some output. ([`99ffe02`](https:
 
 * :memo:: Update tempates for documentation. ([`6cb97e7`](https://github.com/rjdbcm/OZI/commit/6cb97e79d1a425e0684b5d45116766bc78fd0c76))
 
-
-## v0.0.135 (2023-10-01)
+## 0.0.135 (2023-10-01)
 
 ### :bug:
 
@@ -1059,8 +988,7 @@ It was unclear until this point where pytest would be invoked. Now it is clearly
 
 * :construction_worker:: Add builtin pytest invocation. ([`88b335e`](https://github.com/rjdbcm/OZI/commit/88b335e78aa3506ddae56eb72aee5a745c618240))
 
-
-## v0.0.134 (2023-10-01)
+## 0.0.134 (2023-10-01)
 
 ### :hammer:
 
@@ -1072,8 +1000,7 @@ Most nearly 100% coverage. ([`68e6dbb`](https://github.com/rjdbcm/OZI/commit/68e
 
 * Add basetemp for testing. ([`d92fa25`](https://github.com/rjdbcm/OZI/commit/d92fa2503dc205a664afdf25892ab2bc37cb5786))
 
-
-## v0.0.133 (2023-09-28)
+## 0.0.133 (2023-09-28)
 
 ### :hammer:
 
@@ -1087,15 +1014,13 @@ This also fixes some minor UX bugs:
 * Missing ``ozi-new --list`` keys
 * Incorrect names ([`748b730`](https://github.com/rjdbcm/OZI/commit/748b730f393f4b7facc8060a2745dc0f31a8f638))
 
-
-## v0.0.132 (2023-09-27)
+## 0.0.132 (2023-09-27)
 
 ### :pencil2:
 
 * :pencil2:(ozi-fix): Remove unnecessary print statement. ([`20d509f`](https://github.com/rjdbcm/OZI/commit/20d509ff8ebbf94f03b3d67f4038bb4c1d39c943))
 
-
-## v0.0.131 (2023-09-27)
+## 0.0.131 (2023-09-27)
 
 ### :bug:
 
@@ -1103,8 +1028,7 @@ This also fixes some minor UX bugs:
 
 TypeError: Object of type RewriteCommand is not JSON serializable ([`a9344cd`](https://github.com/rjdbcm/OZI/commit/a9344cd69fcfc3671ecff8278213aaacaadfc6fb))
 
-
-## v0.0.130 (2023-09-26)
+## 0.0.130 (2023-09-26)
 
 ### :bug:
 
@@ -1120,8 +1044,7 @@ TypeError: unhashable type: &#39;list&#39;
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`7254cd6`](https://github.com/rjdbcm/OZI/commit/7254cd6e9a3894c7a4c90993be881fce32d4ad91))
 
-
-## v0.0.129 (2023-09-26)
+## 0.0.129 (2023-09-26)
 
 ### :bug:
 
@@ -1129,8 +1052,7 @@ TypeError: unhashable type: &#39;list&#39;
 
 &#39;Namespace&#39; object has no attribute &#39;add&#39; ([`17e1d79`](https://github.com/rjdbcm/OZI/commit/17e1d794dc17a0bfb90ca4e98d7775daae1dd8d2))
 
-
-## v0.0.128 (2023-09-26)
+## 0.0.128 (2023-09-26)
 
 ### :hammer:
 
@@ -1142,8 +1064,7 @@ Add Rewriter class. ([`8410fcc`](https://github.com/rjdbcm/OZI/commit/8410fcc93c
 
 * :memo:: Add security policy. ([`ba1b1ba`](https://github.com/rjdbcm/OZI/commit/ba1b1bab2f6f4a052282a37bf5cc262e9b17a63d))
 
-
-## v0.0.127 (2023-09-24)
+## 0.0.127 (2023-09-24)
 
 ### :children_crossing:
 
@@ -1151,22 +1072,19 @@ Add Rewriter class. ([`8410fcc`](https://github.com/rjdbcm/OZI/commit/8410fcc93c
 
 I do plan to implement a test suite but blastpipe&#39;s invocation from OZI during continuous integration is currently suffering from broken arguments. ([`2461151`](https://github.com/rjdbcm/OZI/commit/24611518eb2fb656698532248b80c9eee3edce0d))
 
-
-## v0.0.126 (2023-09-24)
+## 0.0.126 (2023-09-24)
 
 ### :bug:
 
 * :bug:(ozi-fix):  &#39;Namespace&#39; object has no attribute &#39;strict&#39; ([`f7bbdaf`](https://github.com/rjdbcm/OZI/commit/f7bbdafb132be919311458487fe2834612dedc42))
 
-
-## v0.0.125 (2023-09-24)
+## 0.0.125 (2023-09-24)
 
 ### :bug:
 
 * :bug:(ozi-fix): Fix &#39;Namespace&#39; object has no attribute &#39;add&#39;. ([`af35c7e`](https://github.com/rjdbcm/OZI/commit/af35c7e5f8e4322a9e26b54e712540b16946db0c))
 
-
-## v0.0.124 (2023-09-23)
+## 0.0.124 (2023-09-23)
 
 ### :bug:
 
@@ -1176,22 +1094,19 @@ I do plan to implement a test suite but blastpipe&#39;s invocation from OZI duri
 
 * :memo:(PKG-INFO): Bump version. ([`fca526b`](https://github.com/rjdbcm/OZI/commit/fca526b6aa5b59dad27b8a47c89d02e1e9f5d3e6))
 
-
-## v0.0.123 (2023-09-23)
+## 0.0.123 (2023-09-23)
 
 ### :bug:
 
 * :bug:(ozi-fix): proper detection of target paths. ([`09806e0`](https://github.com/rjdbcm/OZI/commit/09806e07386d7c12a40e5e6d409e8a58624f9fd4))
 
-
-## v0.0.122 (2023-09-23)
+## 0.0.122 (2023-09-23)
 
 ### :bug:
 
 * :bug:(ozi-fix): Fix &#39;Namespace has no attribute missing&#39;. ([`238ba81`](https://github.com/rjdbcm/OZI/commit/238ba81c18f0ad81c6b6f266639984ce8c7c5500))
 
-
-## v0.0.121 (2023-09-23)
+## 0.0.121 (2023-09-23)
 
 ### :children_crossing:
 
@@ -1201,8 +1116,7 @@ I do plan to implement a test suite but blastpipe&#39;s invocation from OZI duri
 
 * :memo:(PKG-INFO): Bump version. ([`18c112a`](https://github.com/rjdbcm/OZI/commit/18c112ac9cb4f80851bf2fcdea5480319239c1b0))
 
-
-## v0.0.120 (2023-09-23)
+## 0.0.120 (2023-09-23)
 
 ### :bug:
 
@@ -1210,8 +1124,7 @@ I do plan to implement a test suite but blastpipe&#39;s invocation from OZI duri
 
 Using dataclasses.asdict(). ([`32fad26`](https://github.com/rjdbcm/OZI/commit/32fad263589ef9555f3f03fccb0ca147295e7a8d))
 
-
-## v0.0.119 (2023-09-23)
+## 0.0.119 (2023-09-23)
 
 ### :bug:
 
@@ -1221,8 +1134,7 @@ Using dataclasses.asdict(). ([`32fad26`](https://github.com/rjdbcm/OZI/commit/32
 
 * :memo:(PKG-INFO): Bump version. ([`ed08b45`](https://github.com/rjdbcm/OZI/commit/ed08b45eb9e3aa9b76fdd659233dff5c33fb5cff))
 
-
-## v0.0.118 (2023-09-23)
+## 0.0.118 (2023-09-23)
 
 ### :bug:
 
@@ -1230,22 +1142,19 @@ Using dataclasses.asdict(). ([`32fad26`](https://github.com/rjdbcm/OZI/commit/32
 
 * :bug:(ozi-fix): Fix incorrect annotation of self. ([`d3417ae`](https://github.com/rjdbcm/OZI/commit/d3417ae6ad60d9e87e26cb7b246c225b79537a22))
 
-
-## v0.0.117 (2023-09-23)
+## 0.0.117 (2023-09-23)
 
 ### :hammer:
 
 * :hammer:: Improved ``ozi-fix`` implementation. ([`c4b2cf4`](https://github.com/rjdbcm/OZI/commit/c4b2cf48baf0dfd361e7729a44fb033b55f94b2f))
 
-
-## v0.0.116 (2023-09-19)
+## 0.0.116 (2023-09-19)
 
 ### :children_crossing:
 
 * :children_crossing:: ``ozi-fix`` arg order matches ``ozi-new`` ([`c776a0e`](https://github.com/rjdbcm/OZI/commit/c776a0e33a45adcec3fb6e351e62b8e206497c17))
 
-
-## v0.0.115 (2023-09-19)
+## 0.0.115 (2023-09-19)
 
 ### :pencil2:
 
@@ -1253,15 +1162,13 @@ Using dataclasses.asdict(). ([`32fad26`](https://github.com/rjdbcm/OZI/commit/32
 
 * :pencil2:: Correct test count print for ``ozi-new``. ([`80eeda5`](https://github.com/rjdbcm/OZI/commit/80eeda53990dda6f7c775bda14822f5071b9a7b0))
 
-
-## v0.0.114 (2023-09-18)
+## 0.0.114 (2023-09-18)
 
 ### :children_crossing:
 
 * :children_crossing:: Update list functionality. ([`c681cd1`](https://github.com/rjdbcm/OZI/commit/c681cd132758cfe530b1e24791531e3d5ef97e12))
 
-
-## v0.0.113 (2023-09-18)
+## 0.0.113 (2023-09-18)
 
 ### :pencil2:
 
@@ -1270,15 +1177,13 @@ Using dataclasses.asdict(). ([`32fad26`](https://github.com/rjdbcm/OZI/commit/32
 Show name of Warning.
 Also run isort and blacken. ([`16c948d`](https://github.com/rjdbcm/OZI/commit/16c948d48ca041e952a50c52d7b876149bd955f1))
 
-
-## v0.0.112 (2023-09-18)
+## 0.0.112 (2023-09-18)
 
 ### :pencil2:
 
 * :pencil2: Fix TAP output newlines. ([`cb37731`](https://github.com/rjdbcm/OZI/commit/cb377310ebb6fe75493ed83766cb58db5f21a41a))
 
-
-## v0.0.111 (2023-09-18)
+## 0.0.111 (2023-09-18)
 
 ### :hammer:
 
@@ -1286,15 +1191,13 @@ Also run isort and blacken. ([`16c948d`](https://github.com/rjdbcm/OZI/commit/16
 
 Should use TAP output throughout now. ([`1cf2cee`](https://github.com/rjdbcm/OZI/commit/1cf2cee123be53551d6b377069492be0dee13e22))
 
-
-## v0.0.110 (2023-09-18)
+## 0.0.110 (2023-09-18)
 
 ### :ambulance:
 
 * :ambulance::pencil2:: Fix incorrect importlib.metadata import. ([`c0cf9b9`](https://github.com/rjdbcm/OZI/commit/c0cf9b9d0ccb8cf1f258c2f4f2d396969c434789))
 
-
-## v0.0.109 (2023-09-17)
+## 0.0.109 (2023-09-17)
 
 ### :hammer:
 
@@ -1305,8 +1208,7 @@ File &#34;&lt;OZI-0.0.108&gt;/ozi/fix.py&#34;, line 250, in main
 AttributeError: &#39;str&#39; object has no attribute &#39;is_dir&#39;
 ``` ([`8721bb0`](https://github.com/rjdbcm/OZI/commit/8721bb0235f12633352cb2afe705352c942f8323))
 
-
-## v0.0.108 (2023-09-17)
+## 0.0.108 (2023-09-17)
 
 ### :ambulance:
 
@@ -1329,15 +1231,13 @@ AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
 
 * :memo:: Update template header. ([`f1c0f7d`](https://github.com/rjdbcm/OZI/commit/f1c0f7de109be93205affe7475f0d9f7ea5ce0dd))
 
-
-## v0.0.107 (2023-09-17)
+## 0.0.107 (2023-09-17)
 
 ### :pencil2:
 
 * :pencil2:: Fix README whitespace finally, hopefully. ([`4b7a27a`](https://github.com/rjdbcm/OZI/commit/4b7a27ad7b665b4be21c0174040293b93f634b3c))
 
-
-## v0.0.106 (2023-09-17)
+## 0.0.106 (2023-09-17)
 
 ### :ambulance:
 
@@ -1353,15 +1253,13 @@ AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
 
 * :memo:: Bump PKG-INFO. ([`a4f6d59`](https://github.com/rjdbcm/OZI/commit/a4f6d59ea6501fcb0ab83bdfd625d59939754e91))
 
-
-## v0.0.105 (2023-09-16)
+## 0.0.105 (2023-09-16)
 
 ### :ambulance:
 
 * :ambulance:: Fix incorrect remote file checksumming. ([`99a3ea0`](https://github.com/rjdbcm/OZI/commit/99a3ea078e992c4fda660b19dbef5a84ae3ef39d))
 
-
-## v0.0.104 (2023-09-16)
+## 0.0.104 (2023-09-16)
 
 ### :hammer:
 
@@ -1375,29 +1273,25 @@ AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
 
 * :heavy_plus_sign:: Add ``requests`` to dependencies. ([`5e65e34`](https://github.com/rjdbcm/OZI/commit/5e65e340617f04e4b16985c6218edfa51f2a3056))
 
-
-## v0.0.103 (2023-09-16)
+## 0.0.103 (2023-09-16)
 
 ### :ambulance:
 
 * :ambulance:: Fix ozi.wrap hash url. ([`68af9f6`](https://github.com/rjdbcm/OZI/commit/68af9f6f856b81e63e51ab57b3a9b0c843873364))
 
-
-## v0.0.102 (2023-09-16)
+## 0.0.102 (2023-09-16)
 
 ### :children_crossing:
 
 * :hammer::children_crossing:: Generate sha256sum for wrapfile. ([`c9f8fd0`](https://github.com/rjdbcm/OZI/commit/c9f8fd0b6b9cc4228747fc6bcce95bc88c41727b))
 
-
-## v0.0.101 (2023-09-16)
+## 0.0.101 (2023-09-16)
 
 ### :pencil2:
 
 * :pencil2:: Fix variable reference in ``ozi.wrap.j2`` ([`3d7ffa1`](https://github.com/rjdbcm/OZI/commit/3d7ffa1774a8e9f0113cddd1e2df5d4f098c040a))
 
-
-## v0.0.100 (2023-09-16)
+## 0.0.100 (2023-09-16)
 
 ### :ambulance:
 
@@ -1407,15 +1301,13 @@ AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
 
 * :pencil2:: Fix wrapfile template filename. ([`46d1bd0`](https://github.com/rjdbcm/OZI/commit/46d1bd0709235417358294a1d103724b93396959))
 
-
-## v0.0.99 (2023-09-16)
+## 0.0.99 (2023-09-16)
 
 ### :hammer:
 
 * :hammer:: Update only need copyright_head for source generation. ([`174c1ac`](https://github.com/rjdbcm/OZI/commit/174c1acb3bad3392c0f467970b12f51f871b6ea7))
 
-
-## v0.0.98 (2023-09-16)
+## 0.0.98 (2023-09-16)
 
 ### :pencil2:
 
@@ -1425,8 +1317,7 @@ AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
 
 * :pencil2:: Move strict warning filter into ``ozi-new`` into project block. ([`b70ae67`](https://github.com/rjdbcm/OZI/commit/b70ae671c0211c59dde745bfe40cd98329cd4c31))
 
-
-## v0.0.97 (2023-09-16)
+## 0.0.97 (2023-09-16)
 
 ### :children_crossing:
 
@@ -1436,8 +1327,7 @@ AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
 
 * Updated disclaimers. ([`78f1bd0`](https://github.com/rjdbcm/OZI/commit/78f1bd09dd2152d893b3b5595a4d27b3bfed8ae2))
 
-
-## v0.0.96 (2023-09-16)
+## 0.0.96 (2023-09-16)
 
 ### :children_crossing:
 
@@ -1453,8 +1343,7 @@ AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
 
 * :pencil2:: Remove uneeded NOTICE header. ([`062e116`](https://github.com/rjdbcm/OZI/commit/062e1162152cc22f347639766a652b60e9ffecd0))
 
-
-## v0.0.95 (2023-09-16)
+## 0.0.95 (2023-09-16)
 
 ### :ambulance:
 
@@ -1464,8 +1353,7 @@ AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`c491dbc`](https://github.com/rjdbcm/OZI/commit/c491dbc50eb716084c9d4354891ead05b951edc6))
 
-
-## v0.0.94 (2023-09-16)
+## 0.0.94 (2023-09-16)
 
 ### :ambulance:
 
@@ -1475,8 +1363,7 @@ AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
 
 * :children_crossing: Restructure dependencies around pip-tools. ([`9c21588`](https://github.com/rjdbcm/OZI/commit/9c21588db1935d7c70a2f071a9d5d6b2fe8faef6))
 
-
-## v0.0.93 (2023-09-15)
+## 0.0.93 (2023-09-15)
 
 ### :ambulance:
 
@@ -1502,8 +1389,7 @@ Also improved license disambiguation for PEP 639 preparedness. ([`7774b02`](http
 
 Loosely follows the style of LLVM. ([`f80f7eb`](https://github.com/rjdbcm/OZI/commit/f80f7eba7fb862db443494c2e01869424afdbd31))
 
-
-## v0.0.92 (2023-09-14)
+## 0.0.92 (2023-09-14)
 
 ### :children_crossing:
 
@@ -1534,8 +1420,7 @@ prospectively choose to deem waived or otherwise exclude such Section(s) of
 the License, but only in their entirety and only with respect to the Combined
 Software. ([`0ede284`](https://github.com/rjdbcm/OZI/commit/0ede284551bee0a6c6f17c0ecd27d9d43cfd2be0))
 
-
-## v0.0.91 (2023-09-12)
+## 0.0.91 (2023-09-12)
 
 ### :bug:
 
@@ -1545,8 +1430,7 @@ Software. ([`0ede284`](https://github.com/rjdbcm/OZI/commit/0ede284551bee0a6c6f1
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`49c8b0d`](https://github.com/rjdbcm/OZI/commit/49c8b0d3c57cc5392402b7995400ed5ce4100e8f))
 
-
-## v0.0.90 (2023-09-12)
+## 0.0.90 (2023-09-12)
 
 ### :children_crossing:
 
@@ -1564,36 +1448,31 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 * :hammer:: Add py.typed to source_templates. ([`0b2e730`](https://github.com/rjdbcm/OZI/commit/0b2e730d708cf872eb8c508f6a0e9c9f1dba1c82))
 
-
-## v0.0.89 (2023-09-11)
+## 0.0.89 (2023-09-11)
 
 ### :hammer:
 
 * :hammer:: Add strict flag to ``ozi-new project`` and ``ozi-fix``. ([`3f8c4db`](https://github.com/rjdbcm/OZI/commit/3f8c4db094cad91c3dfdbcce7594720c63c6b0bd))
 
-
-## v0.0.88 (2023-09-11)
+## 0.0.88 (2023-09-11)
 
 ### :pencil2:
 
 * :pencil2:: Fix jinja2 include directive. ([`43101e3`](https://github.com/rjdbcm/OZI/commit/43101e3a07d5838b2fd27e5b195669ebf5498732))
 
-
-## v0.0.87 (2023-09-11)
+## 0.0.87 (2023-09-11)
 
 ### :children_crossing:
 
 * :children_crossing: Add ``ozi.spec`` versioned header for meson templates. ([`fa27b03`](https://github.com/rjdbcm/OZI/commit/fa27b031f34b127e4a0bf3ff8e6b8bcb2bfff21a))
 
-
-## v0.0.86 (2023-09-11)
+## 0.0.86 (2023-09-11)
 
 ### :bug:
 
 * :bug:: Fix comment and loop whitespace trimming. ([`5c5040e`](https://github.com/rjdbcm/OZI/commit/5c5040eb1581a02e40620157b8263f871221eeaf))
 
-
-## v0.0.85 (2023-09-11)
+## 0.0.85 (2023-09-11)
 
 ### :bug:
 
@@ -1601,8 +1480,7 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 * :bug:: Fix PKG-INFO whitespace. ([`2ee8841`](https://github.com/rjdbcm/OZI/commit/2ee88414351a0a13e84271a00e9409cee0073fd8))
 
-
-## v0.0.84 (2023-09-11)
+## 0.0.84 (2023-09-11)
 
 ### :bug:
 
@@ -1614,29 +1492,25 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 * :lipstick:: Fix jinja header comment rendering. ([`b5db826`](https://github.com/rjdbcm/OZI/commit/b5db826e3f56a9c17ecd906e8bc32fc2edfc500e))
 
-
-## v0.0.83 (2023-09-11)
+## 0.0.83 (2023-09-11)
 
 ### :bug:
 
 * :bug::pencil2:: Fix another unescaped false positive for Jinja2. ([`076cdbb`](https://github.com/rjdbcm/OZI/commit/076cdbb2ae6e43c92bfdb65f1c16e29c0555d5bb))
 
-
-## v0.0.82 (2023-09-11)
+## 0.0.82 (2023-09-11)
 
 ### :bug:
 
 * :bug::pencil2:: Fix template paths. ([`84363da`](https://github.com/rjdbcm/OZI/commit/84363da70e038896f02d416cd6434e5dd3f2e0b9))
 
-
-## v0.0.81 (2023-09-11)
+## 0.0.81 (2023-09-11)
 
 ### :bug:
 
 * :bug:: Fix unescaped jinja directive false positive. ([`2e074be`](https://github.com/rjdbcm/OZI/commit/2e074beba320179d14166e6bc9c92600b0772e62))
 
-
-## v0.0.80 (2023-09-11)
+## 0.0.80 (2023-09-11)
 
 ### :bug:
 
@@ -1646,8 +1520,7 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`0829a90`](https://github.com/rjdbcm/OZI/commit/0829a9071f73184b482417d5b1e760c8a9976eff))
 
-
-## v0.0.79 (2023-09-10)
+## 0.0.79 (2023-09-10)
 
 ### :bug:
 
@@ -1655,8 +1528,7 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 * :bug:: Fix whitespace in templates. ([`d345443`](https://github.com/rjdbcm/OZI/commit/d34544374af83f0b3bc5a44ded71548d09fddbd2))
 
-
-## v0.0.78 (2023-09-10)
+## 0.0.78 (2023-09-10)
 
 ### :bug:
 
@@ -1670,8 +1542,7 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 * :hammer:: add ci_provider_templates and test_templates. ([`5518bb8`](https://github.com/rjdbcm/OZI/commit/5518bb8233781682114b662e43f2a8812a75e558))
 
-
-## v0.0.77 (2023-09-10)
+## 0.0.77 (2023-09-10)
 
 ### :bug:
 
@@ -1681,15 +1552,13 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`44ce220`](https://github.com/rjdbcm/OZI/commit/44ce2204f61ab92a8178aa6a10246cb2ef422d5d))
 
-
-## v0.0.76 (2023-09-10)
+## 0.0.76 (2023-09-10)
 
 ### :bug:
 
 * :bug:: Fix untrimmed whitespace in ``ozi-new project`` output. ([`60e0d10`](https://github.com/rjdbcm/OZI/commit/60e0d1074cbc970cecb15ace97d6c974a83d0de1))
 
-
-## v0.0.75 (2023-09-10)
+## 0.0.75 (2023-09-10)
 
 ### :bug:
 
@@ -1699,15 +1568,13 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`2309d7b`](https://github.com/rjdbcm/OZI/commit/2309d7ba2111766249164e7b0b0cb11fd6312029))
 
-
-## v0.0.74 (2023-09-10)
+## 0.0.74 (2023-09-10)
 
 ### :bug:
 
 * :bug:: Fix wrong subdir install location for OSI Approved licenses. ([`64d547b`](https://github.com/rjdbcm/OZI/commit/64d547bb3d4c18ec4a6b523bb16215e7a50f551a))
 
-
-## v0.0.73 (2023-09-10)
+## 0.0.73 (2023-09-10)
 
 ### :bug:
 
@@ -1717,29 +1584,25 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`215ae0e`](https://github.com/rjdbcm/OZI/commit/215ae0e16db795bc39612bf1bbe5d9882cb6127a))
 
-
-## v0.0.72 (2023-09-10)
+## 0.0.72 (2023-09-10)
 
 ### :bug:
 
 * :bug:: Fix: trim whitespace from template includes. ([`09e54dd`](https://github.com/rjdbcm/OZI/commit/09e54dd41fda430ca7edf5d1b8093939d1a2e864))
 
-
-## v0.0.71 (2023-09-10)
+## 0.0.71 (2023-09-10)
 
 ### :pencil2:
 
 * :pencil2:: Fix include of project.PKG-INFO. ([`332d1c1`](https://github.com/rjdbcm/OZI/commit/332d1c1b3f7ee8f431bd059476bbb426d8489c7c))
 
-
-## v0.0.70 (2023-09-10)
+## 0.0.70 (2023-09-10)
 
 ### :pencil2:
 
 * :pencil2:: Fix unquoted template include path. ([`3fe0d91`](https://github.com/rjdbcm/OZI/commit/3fe0d91c0a0d748cc67d716d84eaf088b0f843ab))
 
-
-## v0.0.69 (2023-09-10)
+## 0.0.69 (2023-09-10)
 
 ### :bug:
 
@@ -1749,57 +1612,49 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`65fe0a7`](https://github.com/rjdbcm/OZI/commit/65fe0a75343bc2c08be310739fbf10fb90d6bdc4))
 
-
-## v0.0.68 (2023-09-09)
+## 0.0.68 (2023-09-09)
 
 ### :bug:
 
 * :bug:: FIX: Add missing pyright pyproject.toml template. ([`dc1b22f`](https://github.com/rjdbcm/OZI/commit/dc1b22fcdd17a657eaa6e1ddc4e16c9c95fad648))
 
-
-## v0.0.67 (2023-09-09)
+## 0.0.67 (2023-09-09)
 
 ### :pencil2:
 
 * :pencil2:: Fix template typo. ([`291bdf8`](https://github.com/rjdbcm/OZI/commit/291bdf889b333af2a20b8ebe2a9c0acfc073b735))
 
-
-## v0.0.66 (2023-09-09)
+## 0.0.66 (2023-09-09)
 
 ### :bug:
 
 * :bug::hammer:: Fix incorrect use of split function. ([`b6362b4`](https://github.com/rjdbcm/OZI/commit/b6362b454858aeb04dc2930a5c06a42088c6bc3a))
 
-
-## v0.0.65 (2023-09-09)
+## 0.0.65 (2023-09-09)
 
 ### :bug:
 
 * :hammer::bug:: Add split filter to template globals. ([`935c1a2`](https://github.com/rjdbcm/OZI/commit/935c1a25dad5e2502a5f25203f888e2431f82d14))
 
-
-## v0.0.64 (2023-09-09)
+## 0.0.64 (2023-09-09)
 
 ### :bug:
 
 * :bug::hammer:: Unite default Jinja Namespace with ours. ([`7b0d394`](https://github.com/rjdbcm/OZI/commit/7b0d394161e1f6d2eaa3d7ce30689c03cc9e04ad))
 
-
-## v0.0.63 (2023-09-09)
+## 0.0.63 (2023-09-09)
 
 ### :bug:
 
 * :bug:: Fix for loop over numeric range in Jinja templates. ([`940efbb`](https://github.com/rjdbcm/OZI/commit/940efbbf0464bca6fd8c60e92304e3e39ea06c78))
 
-
-## v0.0.62 (2023-09-09)
+## 0.0.62 (2023-09-09)
 
 ### :bug:
 
 * :hammer::bug:: Fix improper filter invocation in Jinja templates. ([`df1fe8d`](https://github.com/rjdbcm/OZI/commit/df1fe8d56f272599941de823272eeab725d9800f))
 
-
-## v0.0.61 (2023-09-09)
+## 0.0.61 (2023-09-09)
 
 ### :hammer:
 
@@ -1811,29 +1666,25 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`301e338`](https://github.com/rjdbcm/OZI/commit/301e3382cd3c69478ea76c3a60940b842c5c4f48))
 
-
-## v0.0.60 (2023-09-09)
+## 0.0.60 (2023-09-09)
 
 ### :ambulance:
 
 * :ambulance:: Fix Jinja includes to use a quoted string. ([`a675068`](https://github.com/rjdbcm/OZI/commit/a675068ae2dc1d985613fcfb87d2e2f7f999ba22))
 
-
-## v0.0.59 (2023-09-09)
+## 0.0.59 (2023-09-09)
 
 ### :ambulance:
 
 * :ambulance:: FIX: Ensure that templates are loaded properly. ([`537e2c1`](https://github.com/rjdbcm/OZI/commit/537e2c1f0f3f67267fd0fd2de502c6fa476d05c7))
 
-
-## v0.0.58 (2023-09-09)
+## 0.0.58 (2023-09-09)
 
 ### :hammer:
 
 * :hammer::pencil2:: Fix uneeded call to geturl(). ([`a0d6f35`](https://github.com/rjdbcm/OZI/commit/a0d6f3597740ecac4d8fd48a87cee3c4097a6f3e))
 
-
-## v0.0.57 (2023-09-09)
+## 0.0.57 (2023-09-09)
 
 ### :hammer:
 
@@ -1843,22 +1694,19 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`3c755c8`](https://github.com/rjdbcm/OZI/commit/3c755c828d0ab741e7d552002f7960ff65c81c65))
 
-
-## v0.0.56 (2023-09-09)
+## 0.0.56 (2023-09-09)
 
 ### :hammer:
 
 * :hammer::pencil2:: Fix minor typo and bump the PKG-INFO. ([`165730b`](https://github.com/rjdbcm/OZI/commit/165730b5aeb4ce27be834a1a7801c23ffc4e31ad))
 
-
-## v0.0.55 (2023-09-09)
+## 0.0.55 (2023-09-09)
 
 ### :ambulance:
 
 * :hammer::ambulance:: Fix ``ozi-new`` bug that caused early exit. ([`f56f93b`](https://github.com/rjdbcm/OZI/commit/f56f93be9096e837fa2c3fdf9498f6bbb0f16f49))
 
-
-## v0.0.54 (2023-09-08)
+## 0.0.54 (2023-09-08)
 
 ### :children_crossing:
 
@@ -1872,15 +1720,13 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`ca661f2`](https://github.com/rjdbcm/OZI/commit/ca661f2fbbf6be4335d457deebe7f3ae625e33e4))
 
-
-## v0.0.53 (2023-09-06)
+## 0.0.53 (2023-09-06)
 
 ### :ambulance:
 
 * :ambulance:: Fix entrypoint version arg. ([`e098e8c`](https://github.com/rjdbcm/OZI/commit/e098e8c43e8fbf07d5e76b8ac851ac4175903c27))
 
-
-## v0.0.52 (2023-09-06)
+## 0.0.52 (2023-09-06)
 
 ### :children_crossing:
 
@@ -1894,8 +1740,7 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 Also made ``--version`` work. ([`d804b32`](https://github.com/rjdbcm/OZI/commit/d804b320d7d074f9085b8b31631c2f614b8695c0))
 
-
-## v0.0.51 (2023-09-05)
+## 0.0.51 (2023-09-05)
 
 ### :bento:
 
@@ -1905,8 +1750,7 @@ Also made ``--version`` work. ([`d804b32`](https://github.com/rjdbcm/OZI/commit/
 
 * :memo:: Resychronize README.rst. ([`8a57e39`](https://github.com/rjdbcm/OZI/commit/8a57e3906f5456e8180ff0c7a01eeb0ee5beacf3))
 
-
-## v0.0.50 (2023-09-05)
+## 0.0.50 (2023-09-05)
 
 ### :ambulance:
 
@@ -1928,8 +1772,7 @@ Also fixed PKG-INFO template. ([`d9bf177`](https://github.com/rjdbcm/OZI/commit/
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`35a07e2`](https://github.com/rjdbcm/OZI/commit/35a07e2006913f89d5de6323c9664e12aac1ceb2))
 
-
-## v0.0.49 (2023-09-05)
+## 0.0.49 (2023-09-05)
 
 ### :hammer:
 
@@ -1941,15 +1784,13 @@ Also fixed PKG-INFO template. ([`d9bf177`](https://github.com/rjdbcm/OZI/commit/
 
 * :art: Add E203 to Flake8 ignore to allow for black slice style. ([`e11fef2`](https://github.com/rjdbcm/OZI/commit/e11fef2581a804bd090273e266ad24c1a571c0bc))
 
-
-## v0.0.48 (2023-09-05)
+## 0.0.48 (2023-09-05)
 
 ### :ambulance:
 
 * :ambulance::construction_worker:: Fix wheel versions. Was building all on 3.11. ([`0ccfa1e`](https://github.com/rjdbcm/OZI/commit/0ccfa1e2f6c2aaa6198b5d0152031f1e61ccb4fd))
 
-
-## v0.0.47 (2023-09-05)
+## 0.0.47 (2023-09-05)
 
 ### :ambulance:
 
@@ -1975,15 +1816,13 @@ We now should only do a full release workflow if semantic-release triggers one. 
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`19736ab`](https://github.com/rjdbcm/OZI/commit/19736ab7e3068fb3f7d5b5f0d62e64c81b79db38))
 
-
-## v0.0.46 (2023-09-04)
+## 0.0.46 (2023-09-04)
 
 ### :pencil2:
 
 * :pencil2::construction_worker:: Update workflow name to OZI. ([`d59200f`](https://github.com/rjdbcm/OZI/commit/d59200f8cd64bb9727c7fe77fdd9ab7f69e81d3f))
 
-
-## v0.0.45 (2023-09-04)
+## 0.0.45 (2023-09-04)
 
 ### :ambulance:
 
@@ -2097,8 +1936,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`4e4cbb2`](https://github.com/rjdbcm/OZI/commit/4e4cbb2dc6a8b690dac1142b09bc6167448c9330))
 
-
-## v0.0.44 (2023-09-03)
+## 0.0.44 (2023-09-03)
 
 ### :hammer:
 
@@ -2108,8 +1946,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`e8897da`](https://github.com/rjdbcm/OZI/commit/e8897da27fbb1e14a4d3e33611d026937232ebfd))
 
-
-## v0.0.43 (2023-09-02)
+## 0.0.43 (2023-09-02)
 
 ### :bento:
 
@@ -2125,8 +1962,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`5c10473`](https://github.com/rjdbcm/OZI/commit/5c1047327f7f673d1868bbf934e5d4f2ca2cf6c5))
 
-
-## v0.0.42 (2023-09-02)
+## 0.0.42 (2023-09-02)
 
 ### :hammer:
 
@@ -2136,8 +1972,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`baa497e`](https://github.com/rjdbcm/OZI/commit/baa497e47225b5d51596f0f6409283f849a43b16))
 
-
-## v0.0.41 (2023-09-02)
+## 0.0.41 (2023-09-02)
 
 ### :bento:
 
@@ -2165,8 +2000,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`470d40e`](https://github.com/rjdbcm/OZI/commit/470d40e0cfd6ae82afe1f7c537cf5011e710d775))
 
-
-## v0.0.40 (2023-09-01)
+## 0.0.40 (2023-09-01)
 
 ### :pencil2:
 
@@ -2176,8 +2010,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`3339932`](https://github.com/rjdbcm/OZI/commit/3339932f9b5753de03f39691d9685c0ce270c302))
 
-
-## v0.0.39 (2023-09-01)
+## 0.0.39 (2023-09-01)
 
 ### :ambulance:
 
@@ -2193,8 +2026,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`4dad555`](https://github.com/rjdbcm/OZI/commit/4dad55587b5ce6ec26f6fed7d1b3f1948d2ce272))
 
-
-## v0.0.38 (2023-09-01)
+## 0.0.38 (2023-09-01)
 
 ### :wrench:
 
@@ -2206,8 +2038,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`11818bb`](https://github.com/rjdbcm/OZI/commit/11818bbedad7f7e329d34b75debdf7cc5c2c09d7))
 
-
-## v0.0.37 (2023-09-01)
+## 0.0.37 (2023-09-01)
 
 ### :wrench:
 
@@ -2221,8 +2052,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`46279ac`](https://github.com/rjdbcm/OZI/commit/46279acf8a5cc1025c85a0aca0eb1054206fce7b))
 
-
-## v0.0.36 (2023-09-01)
+## 0.0.36 (2023-09-01)
 
 ### :ambulance:
 
@@ -2232,8 +2062,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`87e5573`](https://github.com/rjdbcm/OZI/commit/87e5573ff78dbdb01b64328715dc70774c40f7b6))
 
-
-## v0.0.35 (2023-09-01)
+## 0.0.35 (2023-09-01)
 
 ### :ambulance:
 
@@ -2257,8 +2086,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`dc0e174`](https://github.com/rjdbcm/OZI/commit/dc0e174330a07b10028bba864cecf10350923509))
 
-
-## v0.0.34 (2023-09-01)
+## 0.0.34 (2023-09-01)
 
 ### :ambulance:
 
@@ -2270,8 +2098,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`f426f8b`](https://github.com/rjdbcm/OZI/commit/f426f8b778ff4234213abaddcd72a4881004f3b2))
 
-
-## v0.0.33 (2023-09-01)
+## 0.0.33 (2023-09-01)
 
 ### :children_crossing:
 
@@ -2283,8 +2110,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`66d1b0a`](https://github.com/rjdbcm/OZI/commit/66d1b0aa7f31c401e617164c034cf04334d5bff0))
 
-
-## v0.0.32 (2023-08-31)
+## 0.0.32 (2023-08-31)
 
 ### :bento:
 
@@ -2300,8 +2126,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`7be3c2b`](https://github.com/rjdbcm/OZI/commit/7be3c2b672341b6226f8267cc3045e753ba4a870))
 
-
-## v0.0.31 (2023-08-30)
+## 0.0.31 (2023-08-30)
 
 ### :children_crossing:
 
@@ -2311,8 +2136,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`b16af53`](https://github.com/rjdbcm/OZI/commit/b16af531534be46e98bb5f04ddf4ec46f9501cbf))
 
-
-## v0.0.30 (2023-08-30)
+## 0.0.30 (2023-08-30)
 
 ### :ambulance:
 
@@ -2352,8 +2176,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * 🔨🚑️: FIX: sync_pkg_readme should use meson.source_root(). ([`ed99470`](https://github.com/rjdbcm/OZI/commit/ed994701df37ff0ceda6dca96cd501c2fcf08749))
 
-
-## v0.0.29 (2023-08-29)
+## 0.0.29 (2023-08-29)
 
 ### :bug:
 
@@ -2379,8 +2202,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`ae5657d`](https://github.com/rjdbcm/OZI/commit/ae5657de16cf194fc1d91550b9a0afc40e748f69))
 
-
-## v0.0.28 (2023-08-29)
+## 0.0.28 (2023-08-29)
 
 ### Other
 
@@ -2388,8 +2210,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * 🚑️(pyproject.toml:tool.semantic_release): No hardcoded version. ([`f2cad32`](https://github.com/rjdbcm/OZI/commit/f2cad323e928c8dbe12eb2f9d70dc136a11b340b))
 
-
-## v0.0.27 (2023-08-29)
+## 0.0.27 (2023-08-29)
 
 ### :bug:
 
@@ -2413,8 +2234,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * Remove Windows Classifier. ([`92d424c`](https://github.com/rjdbcm/OZI/commit/92d424ccdc918367cd01c7865436f55c29b3ea45))
 
-
-## v0.0.26 (2023-08-29)
+## 0.0.26 (2023-08-29)
 
 ### Other
 
@@ -2536,8 +2356,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * PKG-INFO Updated ([`e8b8e71`](https://github.com/rjdbcm/OZI/commit/e8b8e71fdb4df3c2f6c9f0cf896fc6145eb4b5e1))
 
-
-## v0.0.25 (2023-08-06)
+## 0.0.25 (2023-08-06)
 
 ### Other
 
@@ -2551,8 +2370,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * PKG-INFO Updated ([`167694d`](https://github.com/rjdbcm/OZI/commit/167694d1d78f9b40a3b65f57466e389a84c040d0))
 
-
-## v0.0.24 (2023-07-13)
+## 0.0.24 (2023-07-13)
 
 ### Other
 
@@ -2584,15 +2402,13 @@ Added human-centered messaging. ([`8d7d0a6`](https://github.com/rjdbcm/OZI/commi
 
 * PKG-INFO Updated ([`e4feee9`](https://github.com/rjdbcm/OZI/commit/e4feee97a6e7c6ce0eebd879c4770bbe9267ccaf))
 
-
-## v0.0.23 (2023-07-06)
+## 0.0.23 (2023-07-06)
 
 ### :pencil2:
 
 * :pencil2: blastpipe provides blastpipe. ([`68f1897`](https://github.com/rjdbcm/OZI/commit/68f1897671398b9a52ca42f3df6a15192950eba1))
 
-
-## v0.0.22 (2023-07-06)
+## 0.0.22 (2023-07-06)
 
 ### Other
 
@@ -2646,8 +2462,7 @@ This allows support of hashed version pins. ([`baaf291`](https://github.com/rjdb
 
 * PKG-INFO Updated ([`0877e63`](https://github.com/rjdbcm/OZI/commit/0877e63c615d2e39630dc3e0dcb08729c1854c40))
 
-
-## v0.0.21 (2023-07-02)
+## 0.0.21 (2023-07-02)
 
 ### Other
 
@@ -2689,8 +2504,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 * PKG-INFO Updated ([`c1c04d9`](https://github.com/rjdbcm/OZI/commit/c1c04d9bd89823b9d8c48eb422c5bc6a8360e883))
 
-
-## v0.0.20 (2023-06-25)
+## 0.0.20 (2023-06-25)
 
 ### Other
 
@@ -2700,29 +2514,25 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 * PKG-INFO Updated ([`5de6296`](https://github.com/rjdbcm/OZI/commit/5de6296f33c58f751c97551b9b69f1f786c04409))
 
-
-## v0.0.19 (2023-06-25)
+## 0.0.19 (2023-06-25)
 
 ### Other
 
 * 🔨 stash after push release. ([`4169813`](https://github.com/rjdbcm/OZI/commit/4169813270f1e6783da08a914904b53776b3b49c))
 
-
-## v0.0.18 (2023-06-25)
+## 0.0.18 (2023-06-25)
 
 ### Other
 
 * 🔨 turn back on repo build. ([`4137e1e`](https://github.com/rjdbcm/OZI/commit/4137e1e2822dfce5eb0d47ac23519515422181db))
 
-
-## v0.0.17 (2023-06-25)
+## 0.0.17 (2023-06-25)
 
 ### Other
 
 * 🔊 Add changes for 0.0.16. ([`62e9641`](https://github.com/rjdbcm/OZI/commit/62e9641e4e0505e664449110d0a46b5e3a1f794f))
 
-
-## v0.0.16 (2023-06-25)
+## 0.0.16 (2023-06-25)
 
 ### Other
 
@@ -2736,8 +2546,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 * PKG-INFO Updated ([`0916ffd`](https://github.com/rjdbcm/OZI/commit/0916ffd48343b54474bde97d77d52f32fd7b712c))
 
-
-## v0.0.15 (2023-06-24)
+## 0.0.15 (2023-06-24)
 
 ### Other
 
@@ -2745,15 +2554,13 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 * PKG-INFO Updated ([`cf1df31`](https://github.com/rjdbcm/OZI/commit/cf1df31248d4cf5aae72380b928f9c3e0ddaf79f))
 
-
-## v0.0.14 (2023-06-24)
+## 0.0.14 (2023-06-24)
 
 ### Other
 
 * PKG-INFO Updated ([`8001504`](https://github.com/rjdbcm/OZI/commit/8001504dfe277eff8b16ea07fe5987feb0754968))
 
-
-## v0.0.13 (2023-06-24)
+## 0.0.13 (2023-06-24)
 
 ### Other
 
@@ -2761,8 +2568,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 * PKG-INFO Updated ([`382ed8a`](https://github.com/rjdbcm/OZI/commit/382ed8a40a26b47c7451b632a33ecc43b1cc1dd0))
 
-
-## v0.0.12 (2023-06-24)
+## 0.0.12 (2023-06-24)
 
 ### Other
 
@@ -2770,15 +2576,13 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 * PKG-INFO Updated ([`7ed30a3`](https://github.com/rjdbcm/OZI/commit/7ed30a3f486f9bf1011d849b4f910dbc2d1a24fc))
 
-
-## v0.0.11 (2023-06-24)
+## 0.0.11 (2023-06-24)
 
 ### Other
 
 * PKG-INFO Updated ([`55f6ccb`](https://github.com/rjdbcm/OZI/commit/55f6ccb170a0c652a344a944b119ca06088bd477))
 
-
-## v0.0.10 (2023-06-24)
+## 0.0.10 (2023-06-24)
 
 ### Other
 
@@ -2786,15 +2590,13 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 * PKG-INFO Updated ([`79cd462`](https://github.com/rjdbcm/OZI/commit/79cd462d26dba50421267a1eaf0ebc60f2893495))
 
-
-## v0.0.9 (2023-06-24)
+## 0.0.9 (2023-06-24)
 
 ### :pencil2:
 
 * :pencil2: git add CHANGELOG.md. ([`6575895`](https://github.com/rjdbcm/OZI/commit/65758958a899629f680b37b930ac34377dfd0b59))
 
-
-## v0.0.8 (2023-06-24)
+## 0.0.8 (2023-06-24)
 
 ### Other
 
@@ -2806,8 +2608,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 * PKG-INFO Updated ([`1db763d`](https://github.com/rjdbcm/OZI/commit/1db763d5e978742e1848b0cf83b773e39a9efe98))
 
-
-## v0.0.7 (2023-06-24)
+## 0.0.7 (2023-06-24)
 
 ### Other
 
@@ -2815,8 +2616,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 * PKG-INFO Updated ([`88d8722`](https://github.com/rjdbcm/OZI/commit/88d87224d4e8b5c734ef0791c5707df0f3441dd1))
 
-
-## v0.0.6 (2023-06-24)
+## 0.0.6 (2023-06-24)
 
 ### :pencil2:
 
@@ -2844,8 +2644,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 * PKG-INFO Updated ([`c9f3a62`](https://github.com/rjdbcm/OZI/commit/c9f3a62e30f9deda448bd245ff71e6813fd84c2d))
 
-
-## v0.0.5 (2023-06-24)
+## 0.0.5 (2023-06-24)
 
 ### :pencil2:
 
@@ -2855,8 +2654,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/rjdbcm/OZI/comm
 
 * 🙈 add .gitignore!!! ([`04e2eb4`](https://github.com/rjdbcm/OZI/commit/04e2eb40a954935a251f8c65574187c013448a74))
 
-
-## v0.0.4 (2023-06-24)
+## 0.0.4 (2023-06-24)
 
 ### Other
 
