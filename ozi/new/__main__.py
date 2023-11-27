@@ -26,7 +26,6 @@ if TYPE_CHECKING:
 
 from pathlib import Path
 from urllib.parse import urlparse
-from warnings import warn
 
 from ozi.new.parser import parser
 from ozi.render import env
@@ -306,6 +305,7 @@ def main() -> NoReturn | None:  # pragma: no cover
             wrap(ozi_new)
         case _:
             parser.print_usage()
+    return None
 
 
 if __name__ == '__main__':
