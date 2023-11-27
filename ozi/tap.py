@@ -14,9 +14,13 @@ if TYPE_CHECKING:
     from types import TracebackType
     from typing import Any
 
+    if sys.version_info >= (3, 11):
+        from typing import Self
+    elif sys.version_info <= (3, 10):
+        from typing_extensions import Self
+
 from typing import Generator
 from typing import NoReturn
-from typing import Self
 from typing import TextIO
 
 OK = 'ok'
@@ -86,7 +90,8 @@ class TAP(ContextDecorator):
     @staticmethod
     def diagnostic(*message: str) -> None:
         """Print a diagnostic message."""
-        sys.stderr.write(f'# {" - ".join(message).strip()}\n')  # pragma: no cover
+        formatted = ' - '.join(message).strip()
+        sys.stderr.write(f'# {formatted}\n')  # pragma: no cover
 
     @staticmethod
     def bail_out(*message: str) -> NoReturn:
@@ -128,15 +133,17 @@ class TAP(ContextDecorator):
         cls._count[OK] += 1
         cls._count[SKIP] += 1 if skip else 0
         directive = '-' if not skip else '# SKIP'
-        sys.stdout.write(f'ok {cls._count[OK]} {directive} {" - ".join(args).strip()}\n')
+        formatted = ' - '.join(args).strip()
+        sys.stdout.write(f'ok {cls._count[OK]} {directive} {formatted}\n')
 
     @classmethod
     def not_ok(cls: type[Self], *args: str, skip: bool = False) -> None:
         cls._count[NOT_OK] += 1
         cls._count[SKIP] += 1 if skip else 0
         directive = '-' if not skip else '# SKIP'
+        formatted = ' - '.join(args).strip()
         warnings.warn(
-            f'{cls._count[NOT_OK]} {directive} {" - ".join(args).strip()}',
+            f'{cls._count[NOT_OK]} {directive} {formatted}',
             RuntimeWarning,
             stacklevel=2,
         )
