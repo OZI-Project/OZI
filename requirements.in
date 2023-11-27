@@ -8,4 +8,5 @@ types-requests
 autoflake
 black
 isort
+ruff>=0.1.6
 typing-extensions;python_version=="3.10"

@@ -278,6 +278,7 @@ Requires-Dist: types-requests
 Requires-Dist: autoflake
 Requires-Dist: black
 Requires-Dist: isort
+Requires-Dist: ruff>=0.1.6
 Requires-Dist: typing-extensions;python_version=="3.10"
 Requires-External: git
 Requires-Python: >=3.10, <=3.12
