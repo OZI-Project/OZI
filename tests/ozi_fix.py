@@ -13,7 +13,6 @@ from hypothesis import given
 from hypothesis import settings
 from hypothesis import strategies as st
 
-import ozi.assets
 import ozi.fix.__main__
 import ozi.new.__main__
 from ozi.render import env
@@ -65,6 +64,7 @@ bad_namespace = argparse.Namespace(
     remove=['ozi.phony'],
     dist_requires=[],
     allow_file=[],
+    missing=True,
 )
 
 
@@ -92,12 +92,16 @@ def test_report_missing_required(bad_project: pathlib.Path, key: str) -> None:
 
 
 @pytest.mark.parametrize(
-    'key', [i for i in metadata.spec.python.src.required.root if i not in ['PKG-INFO']]
+    'key',
+    [i for i in metadata.spec.python.src.required.root if i not in ['PKG-INFO']],
 )
-def test_report_missing_required_root_file(bad_project: pathlib.Path, key: str) -> None:
+def test_report_missing_required_root_file(
+    bad_project: pathlib.Path,
+    key: str,
+) -> None:
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath(key))
-    with pytest.warns(RuntimeWarning):
+    with pytest.raises(RuntimeWarning):
         ozi.fix.__main__.report_missing(bad_project)
 
 
@@ -113,7 +117,7 @@ def test_report_missing_required_pkg_info_file(bad_project: pathlib.Path, key: s
 def test_report_missing_required_test_file(bad_project: pathlib.Path, key: str) -> None:
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath('tests') / key)
-    with pytest.warns(RuntimeWarning):
+    with pytest.raises(RuntimeWarning):
         ozi.fix.__main__.report_missing(bad_project)
 
 
@@ -121,7 +125,7 @@ def test_report_missing_required_test_file(bad_project: pathlib.Path, key: str) 
 def test_report_missing_required_source_file(bad_project: pathlib.Path, key: str) -> None:
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath('ozi_phony') / key)
-    with pytest.warns(RuntimeWarning):
+    with pytest.raises(RuntimeWarning):
         ozi.fix.__main__.report_missing(bad_project)
 
 
@@ -315,10 +319,10 @@ header = """.. OZI
 """
 
 
-def test_preprocess_warns_non_existing_target() -> None:
+def test_preprocess_exits_non_existing_target() -> None:
     namespace = deepcopy(bad_namespace)
     namespace.target = 'temp/foobar'
-    with pytest.warns(RuntimeWarning):
+    with pytest.raises(SystemExit):
         ozi.fix.__main__.preprocess(namespace)
 
 
@@ -326,7 +330,7 @@ def test_preprocess_warns_file_target() -> None:
     namespace = deepcopy(bad_namespace)
     namespace.target = 'temp/foobar.txt'
     pathlib.Path(namespace.target).touch()
-    with pytest.warns(RuntimeWarning):
+    with pytest.raises(SystemExit):
         ozi.fix.__main__.preprocess(namespace)
 
 
@@ -355,7 +359,7 @@ def test_fuzz_preprocess_existing_target(
 @settings(deadline=timedelta(milliseconds=500))
 @given(payload=st.text(max_size=65535).map(header.__add__), as_message=st.booleans())
 def test_fuzz_pkg_info_extra(payload: str, as_message: bool) -> None:
-    ozi.assets.pkg_info_extra(payload=payload, as_message=as_message)
+    ozi.fix.__main__.pkg_info_extra(payload=payload, as_message=as_message)
 
 
 @given(s=st.from_regex(r'^([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9._-]*[A-Za-z0-9])$'))

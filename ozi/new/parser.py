@@ -216,19 +216,13 @@ output = parser.add_mutually_exclusive_group()
 output.add_argument('-h', '--help', action='help', help='show this help message and exit')
 ozi_defaults.add_argument(
     '--verify-email',
-    default='--no-verify-email',
+    default=False,
     action=argparse.BooleanOptionalAction,
     help='verify email domain deliverability(default: --no-verify-email)',
 )
 ozi_defaults.add_argument(
-    '--check-for-update',
-    default='--check-for-update',
-    action=argparse.BooleanOptionalAction,
-    help='check that the package version of OZI is up to date(default: --check-for-update)',
-)
-ozi_defaults.add_argument(
     '--strict',
-    default='--no-strict',
+    default=False,
     action=argparse.BooleanOptionalAction,
     help='strict mode raises warnings to errors(default: --strict)',
 )

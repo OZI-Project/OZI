@@ -3,12 +3,11 @@ from __future__ import annotations
 import json
 import os
 import re
-import warnings
-from contextlib import redirect_stdout
 from dataclasses import asdict
 from dataclasses import dataclass
 from dataclasses import field
 from email import message_from_file
+from email.message import Message
 from functools import partial
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -23,7 +22,6 @@ if TYPE_CHECKING:
     from argparse import Namespace
     from collections.abc import Callable
     from collections.abc import Mapping
-    from email.message import Message
 
     from jinja2 import Template
 
@@ -32,26 +30,82 @@ if TYPE_CHECKING:
     elif sys.version_info <= (3, 10):
         from typing_extensions import Self
 
-from ozi.assets import parse_extra_pkg_info
-from ozi.assets import run_utility
-from ozi.assets import tap_warning_format
+from pyparsing import CaselessKeyword
+from pyparsing import Combine
+from pyparsing import Forward
+from pyparsing import Keyword
+from pyparsing import Literal
+from pyparsing import ParseException
+from pyparsing import ParseResults
+from pyparsing import Suppress
+from pyparsing import White
+from pyparsing import oneOf
+
+from ozi.experimental import run_utility
 from ozi.filter import underscorify
 from ozi.fix.parser import parser
 from ozi.render import env
+from ozi.spdx import spdx_license_expression
 from ozi.spec import Metadata
 from ozi.spec import PythonSupport
+from ozi.tap import TAP
 
-metadata = Metadata()
 python_support = PythonSupport()
 
 metadata = Metadata()
-warnings.formatwarning = tap_warning_format
 
 
-def missing_python_support(
-    pkg_info: Message,
-    count: int,
-) -> tuple[int, set[tuple[str, str]]]:
+def _str_dict_union(toks: ParseResults) -> Any | ParseResults:
+    """Parse-time union of dict[str, str]."""
+    if len(toks) >= 2:
+        return dict(toks[0]) | dict(toks[1])
+    else:  # pragma: no cover
+        return None
+
+
+sspace = Suppress(White(' ', exact=1))
+dcolon = sspace + Suppress(Literal('::')) + sspace
+classifier = Suppress(White(' ', min=2)) + Suppress(Literal('Classifier:')) + sspace
+pep639_headers = Forward()
+license_expression = classifier + (
+    Keyword('License-Expression')
+    + dcolon
+    + Combine(spdx_license_expression, join_string=' ')
+).set_parse_action(lambda t: {str(t[0]): str(t[1])})
+license_file = classifier + (
+    Keyword('License-File') + dcolon + oneOf(['LICENSE', 'LICENSE.txt'])
+).set_parse_action(lambda t: {str(t[0]): str(t[1])})
+pep639_headers <<= license_expression + license_file
+
+
+pep639_parse = Suppress(
+    Keyword('..') + CaselessKeyword('ozi'),
+) + pep639_headers.set_parse_action(_str_dict_union).set_name('pep639')
+
+
+def pkg_info_extra(payload: str, as_message: bool = True) -> dict[str, str] | Message:
+    """Get extra PKG-INFO Classifiers tacked onto the payload by OZI."""
+    pep639: dict[str, str] = pep639_parse.parse_string(payload)[0]  # pyright: ignore
+    if as_message:
+        msg = Message()
+        for k, v in pep639.items():
+            msg.add_header('Classifier', f'{k} :: {v}')
+        return msg
+    return pep639
+
+
+def parse_extra_pkg_info(pkg_info: Message) -> tuple[dict[str, str], str | None]:
+    errstr = None
+    try:
+        extra_pkg_info = dict(pkg_info_extra(pkg_info.get_payload()))
+    except ParseException as e:  # pragma: defer to good-first-issue
+        extra_pkg_info = {}
+        newline = '\n'
+        errstr = str(e).replace(newline, ' ')
+    return extra_pkg_info, errstr
+
+
+def missing_python_support(pkg_info: Message) -> set[tuple[str, str]]:
     """Check PKG-INFO Message for python support."""
     remaining_pkg_info = {
         (k, v)
@@ -60,96 +114,83 @@ def missing_python_support(
     }
     for k, v in iter(python_support.classifiers[:4]):
         if (k, v) in remaining_pkg_info:
-            count += 1
-            print('ok', count, '-', f'{k}:', v)
+            TAP.ok(k, v)
         else:
-            warn(f'{count} - "{v}" MISSING', RuntimeWarning, stacklevel=0)
-    return count, remaining_pkg_info
+            TAP.not_ok('MISSING', v)
+    return remaining_pkg_info
 
 
-def missing_ozi_required(
-    pkg_info: Message,
-    count: int,
-) -> tuple[int, Any]:
+def missing_ozi_required(pkg_info: Message) -> dict[str, str]:
     """Check missing required OZI extra PKG-INFO"""
-    count, remaining_pkg_info = missing_python_support(pkg_info, count)
+    remaining_pkg_info = missing_python_support(pkg_info)
     remaining_pkg_info.difference_update(set(iter(python_support.classifiers)))
     for k, v in iter(remaining_pkg_info):
-        count += 1
-        print('ok', count, '-', f'{k}:', v)
+        TAP.ok(k, v)
     extra_pkg_info, errstr = parse_extra_pkg_info(pkg_info)
     if errstr not in ('', None):  # pragma: defer to good-first-issue
-        warn(f'{count} - MISSING {errstr}', RuntimeWarning, stacklevel=0)
-    return count, extra_pkg_info
+        TAP.not_ok('MISSING', str(errstr))
+    return extra_pkg_info
 
 
 def missing_required(
     target: Path,
-    count: int,
-) -> tuple[int, str, Any]:
+) -> tuple[str, dict[str, str]]:
     """Find missing required PKG-INFO"""
     with target.joinpath('PKG-INFO').open() as f:
         pkg_info = message_from_file(f)
-        count += 1
-        print('ok', count, '-', 'Parse PKG-INFO')
+        TAP.ok('Parse PKG-INFO')
     for i in metadata.spec.python.pkg.info.required:
-        count += 1
         v = pkg_info.get(i, None)
         if v is not None:
-            print('ok', count, '-', f'{i}:', v)
+            TAP.ok(i, v)
         else:
-            warn(f'{count} - {i} MISSING', RuntimeWarning, stacklevel=0)
-    count, extra_pkg_info = missing_ozi_required(pkg_info, count)
+            TAP.not_ok('MISSING', i)
+    extra_pkg_info = missing_ozi_required(pkg_info)
     name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', '')).lower()
     for k, v in extra_pkg_info.items():
-        count += 1
-        print('ok', count, '-', f'{k}:', v)
-    return count, name, extra_pkg_info
+        TAP.ok(k, v)
+    return name, extra_pkg_info
 
 
-def count_comments(
-    count: int,
+@TAP
+def comment_diagnostic(  # pragma: defer to TAP-Consumer
     lines: list[str],
     rel_path: Path,
-) -> int:  # pragma: defer to good-first-issue
+) -> None:
     for i, line in enumerate(lines, start=1):
-        if s := re.search(metadata.spec.python.src.comments.noqa, line):
-            count += 1
-            print('#', 'noqa', '-', f'{rel_path!s}:{i}', s[0].strip())
-        if s := re.search(metadata.spec.python.src.comments.type, line):
-            count += 1
-            print('#', 'type', '-', f'{rel_path!s}:{i}', s[0].strip())
-        if s := re.search(metadata.spec.python.src.comments.pragma_defer_to, line):
-            count += 1
-            print(
-                '#',
-                'pragma',
-                '-',
-                f'{rel_path!s}:{i}',
-                s[0].strip(),
-            )
-        if s := re.search(metadata.spec.python.src.comments.pragma_no_cover, line):
-            count += 1
-            print(
-                '#',
-                'pragma',
-                '-',
-                f'{rel_path!s}:{i}',
-                s[0].strip(),
-            )
-    return count
+        if s := re.search(
+            metadata.spec.python.src.comments.noqa,
+            line,
+        ):  # pragma: defer to TAP-Consumer
+            TAP.diagnostic('noqa  ', f'{rel_path!s}:{i}', s[0].strip())
+            continue
+        if s := re.search(
+            metadata.spec.python.src.comments.type,
+            line,
+        ):  # pragma: defer to TAP-Consumer
+            TAP.diagnostic('type  ', f'{rel_path!s}:{i}', s[0].strip())
+            continue
+        if s := re.search(
+            metadata.spec.python.src.comments.pragma_defer_to,
+            line,
+        ):  # pragma: defer to TAP-Consumer
+            TAP.diagnostic('defer ', f'{rel_path!s}:{i}', s[0].strip())
+            continue
+        if s := re.search(
+            metadata.spec.python.src.comments.pragma_no_cover,
+            line,
+        ):  # pragma: defer to TAP-Consumer
+            TAP.diagnostic('no cov', f'{rel_path!s}:{i}', s[0].strip())
+            continue
 
 
 def missing_required_files(  # noqa: C901
     kind: str,
     target: Path,
-    count: int,
-    miss_count: int,
     name: str,
-) -> tuple[int, int, list[str], list[str]]:
+) -> tuple[list[str], list[str]]:
     """Count missing files required by OZI"""
     found_files = []
-    miss_count = 0
     match kind:
         case 'test':
             rel_path = Path('tests')
@@ -168,15 +209,12 @@ def missing_required_files(  # noqa: C901
         f = rel_path / file
         match f:
             case f if f and not target.joinpath(f).exists():
-                count += 1
-                warn(f'{count} - {f} MISSING', RuntimeWarning, stacklevel=0)
-                miss_count += 1
+                TAP.not_ok('MISSING', str(f))
                 continue  # pragma: defer to https://github.com/nedbat/coveragepy/issues/198
             case f if f and str(f).endswith('.py'):
                 with open(target.joinpath(f)) as fh:
-                    count_comments(count, fh.readlines(), f)
-        count += 1
-        print('ok', count, '-', f)
+                    comment_diagnostic(fh.readlines(), f)
+        TAP.ok(str(f))
         found_files.append(file)
     extra_files = [
         file
@@ -189,75 +227,42 @@ def missing_required_files(  # noqa: C901
         pattern = re.compile(f'(.*?[\'|"]{re.escape(file)}[\'|"].*?)')
         with open(str((target / rel_path / file).parent / 'meson.build')) as fh:
             for _ in [i for i in fh.readlines() if re.search(pattern, i)]:
-                count += 1
                 build_file = str((rel_path / file).parent / 'meson.build')
-                print(
-                    'ok',
-                    count,
-                    '-',
-                    f'{build_file}:',
-                    str(rel_path / file),
-                )
+                TAP.ok(f'{build_file} lists {rel_path / file}')
         build_files += [str(rel_path / file)]
         match file:
             case file if str(file).endswith('.py') and str(
                 rel_path / file,
             ) not in build_files:
                 build_file = str(rel_path / 'meson.build')
-                warn(
-                    f'{count} - MISSING {build_file}: {rel_path / file!s}',
-                    RuntimeWarning,
-                )
-                print(f'# SKIP {rel_path / file!s}')
+                TAP.not_ok('MISSING', '{build_file}: {rel_path / file!s}')
             case file if str(file).endswith('.py'):
                 with open(target.joinpath(rel_path) / file) as g:
-                    count_comments(count, g.readlines(), rel_path / file)
-    return count, miss_count, found_files, extra_files
+                    comment_diagnostic(g.readlines(), rel_path / file)
+    return found_files, extra_files
 
 
+@TAP
 def report_missing(
     target: Path,
-) -> Union[
-    tuple[str, Message, list[str], list[str], list[str]],
-    tuple[None, None, None, None, None],
-]:
+) -> tuple[str, Message | None, list[str], list[str], list[str]] | NoReturn:
     """Report missing OZI project files
     :param target: Relative path to target directory.
     :return: Normalized Name, PKG-INFO, found_root, found_sources, found_tests
     """
     target = Path(target)
-    miss_count = 0
-    count = 0
     name = None
     pkg_info = None
     extra_pkg_info: dict[str, str] = {}
     try:
-        count, name, extra_pkg_info = missing_required(target, count)
+        name, extra_pkg_info = missing_required(target)
     except FileNotFoundError:
         name = ''
-        warn(f'{count} - PKG-INFO MISSING', RuntimeWarning, stacklevel=0)
-    count, miss_count, found_source_files, extra_source_files = missing_required_files(
-        'source',
-        target,
-        count,
-        0,
-        name,
-    )
-    count, miss_count, found_test_files, extra_test_files = missing_required_files(
-        'test',
-        target,
-        count,
-        miss_count,
-        name,
-    )
-    count, miss_count, found_root_files, extra_root_files = missing_required_files(
-        'root',
-        target,
-        count,
-        miss_count,
-        name,
-    )
-    all_files = (
+        TAP.not_ok('MISSING', 'PKG-INFO')
+    found_source_files, extra_source_files = missing_required_files('source', target, name)
+    found_test_files, extra_test_files = missing_required_files('test', target, name)
+    found_root_files, extra_root_files = missing_required_files('root', target, name)
+    all_files = (  # pragma: defer to TAP-Consumer
         ['PKG-INFO'],
         extra_pkg_info,
         found_root_files,
@@ -267,13 +272,17 @@ def report_missing(
         extra_source_files,
         extra_test_files,
     )
-    try:
+    try:  # pragma: defer to TAP-Consumer
         sum(map(len, all_files))
-    except TypeError:  # pragma: no cover
-        warn('Bail out! MISSING required files or metadata.')
-        return (None, None, None, None, None)
-    print(f'1..{count+miss_count}')
-    return name, pkg_info, found_root_files, found_source_files, found_test_files  # type: ignore
+    except TypeError:  # pragma: defer to TAP-Consumer
+        TAP.bail_out('MISSING required files or metadata.')
+    return (  # pragma: defer to TAP-Consumer
+        name,
+        pkg_info,
+        found_root_files,
+        found_source_files,
+        found_test_files,
+    )
 
 
 @dataclass
@@ -485,16 +494,9 @@ def preprocess(project: Namespace) -> Namespace:
     project.missing = project.fix == 'missing' or project.fix == 'm'
     project.target = Path(os.path.relpath(os.path.join('/', project.target), '/')).absolute()
     if not project.target.exists():
-        warn(
-            f'Bail out! target: {project.target}\ntarget does not exist.',
-            RuntimeWarning,
-            stacklevel=0,
-        )
+        TAP.bail_out(f'target: {project.target} does not exist.')
     elif not project.target.is_dir():
-        warn(
-            f'Bail out! target: {project.target}\ntarget is not a directory.',
-            RuntimeWarning,
-        )
+        TAP.bail_out(f'target: {project.target} is not a directory.')
     project.add.remove('ozi.phony')
     project.add = list(set(project.add))
     project.remove.remove('ozi.phony')
@@ -507,34 +509,37 @@ def main() -> NoReturn:  # pragma: no cover
     project = preprocess(parser.parse_args())
     env.globals = env.globals | {'project': vars(project)}
 
-    if project.missing:
-        name, *_ = report_missing(project.target)
-    else:
-        warnings.simplefilter('ignore')
-        with redirect_stdout(None):
+    match [project.missing, project.strict]:
+        case [True, False]:
             name, *_ = report_missing(project.target)
-
-    if name is None:
-        exit(1)
-    if hasattr(project, 'run_utility') and project.run_utility:
-        run_utility('isort', '-q', str(project.target))
-        for i in [underscorify(name), 'tests']:
-            run_utility('autoflake', '-i', str(project.target / i / '**' / '*.py'))
-            run_utility('black', '-q', '-S', str(project.target / i))
-
-    project.name = underscorify(name)
-    project.license_file = 'LICENSE.txt'
-    project.copyright_head = '\n'.join(
-        [
-            f'Part of {name}.',
-            f'See {project.license_file} in the project root for details.',
-        ],
-    )
-    rewriter = Rewriter(project.target, project.name, project.fix)
-    rewriter += project.add
-    rewriter -= project.remove
-    if not project.missing:
-        print(json.dumps(rewriter.commands, indent=4 if project.pretty else None))
+            if hasattr(project, 'run_utility') and project.run_utility:
+                run_utility('ruff', 'check', '--fix', str(project.target))
+                run_utility('isort', '-q', str(project.target))
+                for i in [underscorify(name), 'tests']:
+                    run_utility('autoflake', '-i', str(project.target / i / '**' / '*.py'))
+                    run_utility('black', '-q', '-S', str(project.target / i))
+            TAP.end()
+        case [False, _]:
+            with TAP.suppress():
+                name, *_ = report_missing(project.target)
+            project.name = underscorify(name)
+            project.license_file = 'LICENSE.txt'
+            project.copyright_head = '\n'.join(
+                [
+                    f'Part of {name}.',
+                    f'See {project.license_file} in the project root for details.',
+                ],
+            )
+            rewriter = Rewriter(project.target, project.name, project.fix)
+            rewriter += project.add
+            rewriter -= project.remove
+            print(json.dumps(rewriter.commands, indent=4 if project.pretty else None))
+        case [True, True]:
+            with TAP.strict():
+                name, *_ = report_missing(project.target)
+            TAP.end()
+        case [_, _]:
+            TAP.bail_out('Name discovery failed.')
     exit(0)
 
 

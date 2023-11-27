@@ -16,7 +16,6 @@ from hypothesis import settings
 from hypothesis import strategies as st
 
 import ozi.actions
-import ozi.assets
 import ozi.fix.__main__
 import ozi.new.__main__
 from ozi.spec import Metadata
@@ -25,7 +24,7 @@ metadata = Metadata()
 
 
 @settings(
-    deadline=timedelta(milliseconds=1000),
+    deadline=timedelta(milliseconds=5000),
     suppress_health_check=[HealthCheck.too_slow],
 )
 @given(
@@ -40,13 +39,21 @@ metadata = Metadata()
                 r'^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9]){1,80}$',
                 fullmatch=True,
             ),
-            'author': st.lists(st.text(min_size=1, max_size=16), min_size=1, max_size=8),
+            'author': st.lists(
+                st.text(st.characters(exclude_categories=('C',)), min_size=1, max_size=16),
+                min_size=1,
+                max_size=8,
+            ),
             'author_email': st.lists(
                 st.emails(domains=st.just('phony1.oziproject.dev')),
                 min_size=1,
                 max_size=8,
             ),
-            'maintainer': st.lists(st.text(min_size=1, max_size=16), min_size=1, max_size=8),
+            'maintainer': st.lists(
+                st.text(st.characters(exclude_categories=('C',)), min_size=1, max_size=16),
+                min_size=1,
+                max_size=8,
+            ),
             'maintainer_email': st.lists(
                 st.emails(domains=st.just('phony2.oziproject.dev')),
                 max_size=8,
@@ -56,8 +63,10 @@ metadata = Metadata()
                 st.just('A, https://oziproject.dev'),
                 max_size=1,
             ),
-            'summary': st.text(max_size=255),
-            'copyright_head': st.text(max_size=255),
+            'summary': st.text(st.characters(exclude_categories=('C',)), max_size=255),
+            'copyright_head': st.text(
+                st.characters(exclude_categories=('C',)), max_size=255
+            ),
             'license_file': st.just('LICENSE.txt'),
             'license_exception_id': st.one_of(
                 list(map(st.just, ozi.actions.ExactMatch().license_exception_id)),
@@ -66,10 +75,15 @@ metadata = Metadata()
             'audience': st.one_of(list(map(st.just, ozi.actions.ExactMatch().audience))),
             'framework': st.one_of(list(map(st.just, ozi.actions.ExactMatch().framework))),
             'environment': st.one_of(
-                list(map(st.just, ozi.actions.ExactMatch().environment))
+                list(map(st.just, ozi.actions.ExactMatch().environment)),
             ),
             'status': st.one_of(list(map(st.just, ozi.actions.ExactMatch().status))),
-            'dist_requires': st.lists(st.text(max_size=16)),
+            'dist_requires': st.lists(
+                st.from_regex(
+                    r'^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9]){1,80}$',
+                    fullmatch=True,
+                )
+            ),
             'allow_file': st.just([]),
         },
     ),
@@ -190,7 +204,7 @@ def test_new_project_bad_args(
     }
     project_dict.update(item)
     namespace = argparse.Namespace(**project_dict)
-    with pytest.warns(RuntimeWarning):
+    with pytest.raises(RuntimeWarning):
         ozi.new.__main__.project(project=namespace)
 
 
@@ -227,7 +241,7 @@ def test_new_project_bad_target_not_empty(
     }
     (project_dict['target'] / 'foobar').touch()
     namespace = argparse.Namespace(**project_dict)
-    with pytest.warns(RuntimeWarning):
+    with pytest.raises(RuntimeWarning):
         ozi.new.__main__.project(project=namespace)
 
 

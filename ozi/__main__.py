@@ -20,28 +20,26 @@ from __future__ import annotations  # pragma: no cover
 import argparse  # pragma: no cover
 import json  # pragma: no cover
 import sys  # pragma: no cover
-import warnings  # pragma: no cover
 from dataclasses import fields  # pragma: no cover
 from typing import TYPE_CHECKING  # pragma: no cover
 from typing import NoReturn  # pragma: no cover
 
+from pyparsing import ParseException  # pragma: no cover
+
 if TYPE_CHECKING:
     from collections.abc import Collection
 
-from warnings import warn  # pragma: no cover
 
 import requests  # pragma: no cover
 from packaging.version import Version  # pragma: no cover
 from packaging.version import parse  # pragma: no cover
 
 from ozi.actions import ExactMatch  # pragma: no cover
-from ozi.assets import tap_warning_format  # pragma: no cover
+from ozi.spdx import spdx_license_expression  # pragma: no cover
 from ozi.spec import Metadata  # pragma: no cover
+from ozi.tap import TAP  # pragma: no cover
 
 metadata = Metadata()  # pragma: no cover
-
-pywarningformat = warnings.formatwarning  # pragma: no cover
-warnings.formatwarning = tap_warning_format  # pragma: no cover
 
 
 def print_version() -> NoReturn:  # pragma: no cover
@@ -50,6 +48,7 @@ def print_version() -> NoReturn:  # pragma: no cover
     sys.exit(0)
 
 
+@TAP  # pragma: defer to TAP-Consumer
 def check_for_update(
     current_version: Version,
     releases: Collection[Version],
@@ -57,18 +56,18 @@ def check_for_update(
     """Issue a warning if installed version of OZI is not up to date."""
     match max(releases):
         case latest if latest > current_version:
-            warn(
-                f'Newer version of OZI ({latest} > {current_version}) available to download on PyPI: '
+            TAP.not_ok(
+                f'Newer version of OZI ({latest} > {current_version})',
+                'available to download on PyPI',
                 'https://pypi.org/project/OZI/',
-                RuntimeWarning,
-                stacklevel=0,
             )
         case latest if latest < current_version:
-            print(f'ok - OZI package is development version ({current_version}).')
+            TAP.ok('OZI package is development version', str(current_version))
         case latest if latest == current_version:
-            print(f'ok - OZI package is up to date ({current_version}).')
+            TAP.ok('OZI package is up to date', str(current_version))
 
 
+@TAP  # pragma: defer to TAP-Consumer
 def check_version() -> NoReturn:  # pragma: defer to PyPI
     """Check for a newer version of OZI and exit."""
     response = requests.get('https://pypi.org/pypi/OZI/json', timeout=30)
@@ -78,13 +77,12 @@ def check_version() -> NoReturn:  # pragma: defer to PyPI
                 current_version=parse(Metadata().ozi.version),
                 releases=set(map(parse, response.json()['releases'].keys())),
             )
-            print('1..1')
+            TAP.end()
         case _:
-            print(
-                '1..0 # skip OZI package version check with status code'
+            TAP.end(
+                skip_reason='OZI package version check failed with status code'
                 f' {response.status_code}.',
             )
-    sys.exit(0)
 
 
 def info() -> NoReturn:  # pragma: no cover
@@ -95,6 +93,16 @@ def info() -> NoReturn:  # pragma: no cover
 def list_available(key: str) -> NoReturn:  # pragma: no cover
     """Print a list of valid values for a key and exit."""
     sys.exit(print(*sorted(getattr(ExactMatch, key.replace('-', '_'))), sep='\n'))
+
+
+@TAP  # pragma: defer to TAP-Consumer
+def license_expression(expr: str) -> NoReturn:  # pragma: no cover
+    try:
+        spdx_license_expression.parse_string(expr, parse_all=True)
+        TAP.ok(expr, 'parsed successfully')
+    except ParseException as e:
+        TAP.not_ok(expr, str(e))
+    TAP.end()
 
 
 parser = argparse.ArgumentParser(
@@ -127,6 +135,11 @@ helpers.add_argument(  # pragma: no cover
     help=check_version.__doc__,
 )
 helpers.add_argument(  # pragma: no cover
+    '-e',
+    '--license-expression',
+    action='store',
+)
+helpers.add_argument(  # pragma: no cover
     '-i',
     '--info',
     action='store_const',
@@ -147,10 +160,11 @@ def main() -> None:  # pragma: no cover
     ozi = parser.parse_args()
     ozi.version()
     ozi.check_version()
-    warnings.filterwarnings = pywarningformat  # type: ignore
     ozi.info()
     if ozi.list_available:
         list_available(ozi.list_available)
+    elif ozi.license_expression:
+        license_expression(ozi.license_expression)
     parser.print_help()
 
 

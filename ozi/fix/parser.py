@@ -42,7 +42,7 @@ source_parser.add_argument(
 source_output = source_parser.add_argument_group('output')
 source_output.add_argument(
     '--strict',
-    default='--no-strict',
+    default=False,
     action=BooleanOptionalAction,
     help='strict mode raises warnings to errors.',
 )
@@ -78,7 +78,7 @@ test_parser.add_argument(
 test_output = test_parser.add_argument_group('output')
 test_output.add_argument(
     '--strict',
-    default='--no-strict',
+    default=False,
     action=BooleanOptionalAction,
     help='strict mode raises warnings to errors.',
 )
@@ -95,7 +95,7 @@ missing_parser = subparser.add_parser(
     'missing',
     aliases=['m'],
     allow_abbrev=True,
-    description='Check for missing files and run utilities in an OZI project.',
+    description='Check for missing files and run utilities (optional) in an OZI project.',
 )
 missing_parser.add_argument(
     '--add',
@@ -113,20 +113,21 @@ missing_parser.add_argument(
 )
 missing_parser.add_argument(
     '--strict',
-    default='--no-strict',
+    default=False,
     action=BooleanOptionalAction,
-    help='strict mode raises warnings to errors, default: --no-strict',
+    help='strict mode raises warnings to errors, overrides: --run-utility,'
+    ' default: --no-strict',
 )
 missing_parser.add_argument(
     '--run-utility',
-    default='--run-utility',
+    default=False,
     action=BooleanOptionalAction,
-    help='run-utility mode runs isort, autoflake, and black with OZI standard arguments,'
-    ' default: --run-utlity',
+    help='run-utility mode (experimental) runs ruff, isort, autoflake, and black'
+    ' with OZI standard arguments, default: --run-utlity',
 )
 missing_parser.add_argument(
     '--pretty',
-    default='--no-pretty',
+    default=False,
     action=BooleanOptionalAction,
     help='pretty mode outputs indented json, default: --no-pretty',
 )

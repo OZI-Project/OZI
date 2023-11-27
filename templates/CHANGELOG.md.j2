@@ -10,7 +10,6 @@
 {% else %}
 * {{ commit.commit.message.rstrip() }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
 {% endif %}{% endfor %}{% endfor %}
-
 {% endif -%}
 
 {#- RELEASED -#}
@@ -23,5 +22,3 @@
 {% else %}
 * {{ commit.commit.message.rstrip() }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
 {% endif %}{% endfor %}{% endfor %}{% endfor %}
-
-{% include 'CHANGELOG.orig.md' %}

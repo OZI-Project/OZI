@@ -6,10 +6,12 @@ python_files = [
     '__init__.py',
     '__main__.py',
     'actions.py',
-    'assets.py',
     'filter.py',
     'spec.py',
     'render.py',
+    'experimental.py',
+    'spdx.py',
+    'tap.py',
 ]
 foreach file : files(python_files)
     fs.copyfile(file)

@@ -45,11 +45,11 @@ def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -
             with open(Path(target, '.github', 'workflows', 'ozi.yml'), 'w') as f:
                 f.write(template.render())
         case _:
+            ci_user = ''
             warn(
                 f'--ci-provider "{ci_provider}" unrecognized. ci_user could not be set.',
                 RuntimeWarning,
             )
-            ci_user = ''
     return ci_user
 
 
