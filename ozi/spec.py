@@ -1,3 +1,7 @@
+# ozi/spec.py
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Specification API for OZI Metadata."""
 from __future__ import annotations
 
@@ -457,6 +461,19 @@ class SrcRequired(Default):
 
 
 @dataclass(slots=True, frozen=True, eq=True)
+class SrcRepo(Default):
+    hidden_dirs: tuple[str, ...] = ('.git', '.github')
+    ignore_dirs: tuple[str, ...] = (
+        '.mypy_cache',
+        '.ruff_cache',
+        '.pytest_cache',
+        '.hypothesis',
+        '.tox',
+        '__pycache__',
+    )
+
+
+@dataclass(slots=True, frozen=True, eq=True)
 class PkgVersion(Default):
     """Versioning metadata (aligns with python-semantic-release 8 emoji parser)."""
 
@@ -786,6 +803,7 @@ class Src(Default):
     required: SrcRequired = SrcRequired()
     template: SrcTemplate = field(default_factory=SrcTemplate)
     allow_files: tuple[str, ...] = ('templates', '.git')
+    repo: SrcRepo = SrcRepo()
     comments: CommentPatterns = CommentPatterns()
 
 
