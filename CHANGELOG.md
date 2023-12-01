@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.224 (2023-12-01)
+
+### :bug:
+
+* :bug:(ozi-new): Fix missing ``TAP.end()`` ([`213ee76`](https://github.com/rjdbcm/OZI/commit/213ee76c6941107c768f3323a4ee6a19ff38b43d))
+
 ## 0.0.223 (2023-12-01)
 
 ### :bug:
