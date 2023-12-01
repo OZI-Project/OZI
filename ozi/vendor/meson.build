@@ -12,7 +12,7 @@ endforeach
 if false
     executable('source_files', python_files)
 endif
-children = ['email_validator']
-foreach child: children
+source_child_vendor_children = ['email_validator']
+foreach child: source_child_vendor_children
     subdir(child)
 endforeach

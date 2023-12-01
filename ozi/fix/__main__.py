@@ -1,3 +1,7 @@
+# ozi/fix/__main__.py
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 from __future__ import annotations
 
 import json
@@ -44,6 +48,8 @@ from pyparsing import oneOf
 from ozi.experimental import run_utility
 from ozi.filter import underscorify
 from ozi.fix.parser import parser
+from ozi.meson import get_build_items
+from ozi.meson import query_build_value
 from ozi.render import env
 from ozi.spdx import spdx_license_expression
 from ozi.spec import Metadata
@@ -152,7 +158,6 @@ def missing_required(
     return name, extra_pkg_info
 
 
-@TAP
 def comment_diagnostic(  # pragma: defer to TAP-Consumer
     lines: list[str],
     rel_path: Path,
@@ -184,11 +189,85 @@ def comment_diagnostic(  # pragma: defer to TAP-Consumer
             continue
 
 
-def missing_required_files(  # noqa: C901
+IGNORE_MISSING = {
+    'subprojects',
+    *metadata.spec.python.src.repo.hidden_dirs,
+    *metadata.spec.python.src.repo.ignore_dirs,
+    *metadata.spec.python.src.allow_files,
+}
+
+REPO_ONLY_FILES = {
+    '.markdownlint.json',
+    'SECURTY.md',
+    'CODE_OF_CONDUCT.md',
+}
+
+
+def walk_build_definition(  # noqa: C901
+    target: Path,
+    rel_path: Path,
+    found_files: list[str] | None = None,
+) -> None:
+    subdirs = [
+        directory
+        for directory in os.listdir(target / rel_path)
+        if os.path.isdir(target / rel_path / directory)
+    ]
+    children = get_build_items(str((target / rel_path)), 'children')
+    for directory in subdirs:
+        if children and directory in children:  # pragma: defer to good-issue
+            TAP.ok(str(rel_path / 'meson.build'), 'subdir', str(directory))
+            if rel_path != Path('.'):
+                walk_build_definition(target / rel_path, Path(directory))
+        elif children and directory not in IGNORE_MISSING:  # pragma: defer to good-issue
+            TAP.not_ok(
+                str(rel_path / 'meson.build'),
+                'subdir',
+                str(directory),
+                'MISSING',
+                skip=True,
+            )
+        else:  # pragma: no cover
+            TAP.ok(
+                str(rel_path / 'meson.build'),
+                'subdir',
+                str(directory),
+                'IGNORED',
+                skip=True,
+            )
+    extra_files = [
+        file
+        for file in os.listdir(target / rel_path)
+        if os.path.isfile(target / rel_path / file)
+    ]
+    found_files = found_files if found_files else []
+    extra_files = list(set(extra_files).symmetric_difference(set(found_files)))
+    build_files = [str(rel_path / 'meson.build'), str(rel_path / 'meson.options')]
+    for file in extra_files:  # pragma: no cover
+        found_literal = query_build_value(
+            str((target / rel_path / file).parent),
+            file,
+        )
+        if found_literal:
+            build_file = str((rel_path / file).parent / 'meson.build')
+            TAP.ok(f'{build_file} lists {rel_path / file}')
+            build_files += [str(rel_path / file)]
+        match file:
+            case file if file and str(
+                rel_path / file,
+            ) not in build_files and file not in found_files:
+                build_file = str(rel_path / 'meson.build')
+                TAP.not_ok('MISSING', f'{build_file}: {rel_path / file!s}')
+            case file if str(file).endswith('.py'):
+                with open(target.joinpath(rel_path) / file) as g:
+                    comment_diagnostic(g.readlines(), rel_path / file)
+
+
+def missing_required_files(
     kind: str,
     target: Path,
     name: str,
-) -> tuple[list[str], list[str]]:
+) -> list[str]:
     """Count missing files required by OZI"""
     found_files = []
     match kind:
@@ -196,13 +275,13 @@ def missing_required_files(  # noqa: C901
             rel_path = Path('tests')
             expected_files = metadata.spec.python.src.required.test
         case 'root':
-            rel_path = Path()
+            rel_path = Path('.')
             expected_files = metadata.spec.python.src.required.root
         case 'source':
             rel_path = Path(underscorify(name))
             expected_files = metadata.spec.python.src.required.source
         case _:  # pragma: no cover
-            rel_path = Path()
+            rel_path = Path('.')
             expected_files = ()
 
     for file in expected_files:
@@ -216,33 +295,12 @@ def missing_required_files(  # noqa: C901
                     comment_diagnostic(fh.readlines(), f)
         TAP.ok(str(f))
         found_files.append(file)
-    extra_files = [
-        file
-        for file in os.listdir(target / rel_path)
-        if os.path.isfile(target / rel_path / file)
-    ]
-    extra_files = list(set(extra_files).symmetric_difference(set(found_files)))
-    build_files = []
-    for file in extra_files:  # pragma: no cover
-        pattern = re.compile(f'(.*?[\'|"]{re.escape(file)}[\'|"].*?)')
-        with open(str((target / rel_path / file).parent / 'meson.build')) as fh:
-            for _ in [i for i in fh.readlines() if re.search(pattern, i)]:
-                build_file = str((rel_path / file).parent / 'meson.build')
-                TAP.ok(f'{build_file} lists {rel_path / file}')
-        build_files += [str(rel_path / file)]
-        match file:
-            case file if str(file).endswith('.py') and str(
-                rel_path / file,
-            ) not in build_files:
-                build_file = str(rel_path / 'meson.build')
-                TAP.not_ok('MISSING', '{build_file}: {rel_path / file!s}')
-            case file if str(file).endswith('.py'):
-                with open(target.joinpath(rel_path) / file) as g:
-                    comment_diagnostic(g.readlines(), rel_path / file)
-    return found_files, extra_files
+
+    walk_build_definition(target, rel_path, found_files=found_files)
+
+    return found_files
 
 
-@TAP
 def report_missing(
     target: Path,
 ) -> tuple[str, Message | None, list[str], list[str], list[str]] | NoReturn:
@@ -259,18 +317,15 @@ def report_missing(
     except FileNotFoundError:
         name = ''
         TAP.not_ok('MISSING', 'PKG-INFO')
-    found_source_files, extra_source_files = missing_required_files('source', target, name)
-    found_test_files, extra_test_files = missing_required_files('test', target, name)
-    found_root_files, extra_root_files = missing_required_files('root', target, name)
+    found_source_files = missing_required_files('source', target, name)
+    found_test_files = missing_required_files('test', target, name)
+    found_root_files = missing_required_files('root', target, name)
     all_files = (  # pragma: defer to TAP-Consumer
         ['PKG-INFO'],
         extra_pkg_info,
         found_root_files,
         found_source_files,
         found_test_files,
-        extra_root_files,
-        extra_source_files,
-        extra_test_files,
     )
     try:  # pragma: defer to TAP-Consumer
         sum(map(len, all_files))

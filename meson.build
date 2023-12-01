@@ -136,9 +136,10 @@ run_command(python, ['-c', sync_pkg_readme], check: true)
 pip = find_program('pip', required: true, disabler: true)
 pip_compile = find_program('pip-compile', required: true)
 vcs_tag(input: pre_pyproject, output: 'pyproject.toml')
+requirements = ['requirements.in']
 custom_target(
     'requirements-ozi',
-    input: 'requirements.in',
+    input: requirements,
     output: 'requirements.txt',
     build_always_stale: true,
     build_by_default: true,
@@ -164,8 +165,10 @@ if get_option('ozi-blastpipe').enabled()
     subproject('blastpipe')
     # END BOOTSTRAP SCRIPT
 endif
-subdir('ozi')
-subdir('tests')
+root_children = ['ozi', 'tests']
+foreach child: root_children
+    subdir(child)
+endforeach
 
 # BEGIN checkpoint-suite-install
 modules = []

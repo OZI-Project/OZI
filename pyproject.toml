@@ -170,6 +170,10 @@ ignore_errors = true
 module = ["spdx_license_list.*"]
 ignore_missing_imports = true
 
+[[tool.mypy.overrides]]
+module = ["mesonbuild.*"]
+ignore_missing_imports = true
+
 [tool.pylint.MASTER]
 disable = "C0301"
 expected-line-ending-format = "LF"
@@ -266,6 +270,7 @@ License: Apache-2.0 WITH LLVM-exception
 Keywords: meson,packaging,wheel
 Project-URL: Bug Tracker, https://github.com/rjdbcm/ozi/issues
 Requires-Dist: dnspython
+Requires-Dist: meson>=1.1.0
 Requires-Dist: idna
 Requires-Dist: jinja2
 Requires-Dist: pyparsing

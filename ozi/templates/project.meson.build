@@ -30,9 +30,10 @@ source_to_build = configuration_data()
 docs_source = 'subprojects/docs'
 test_source = 'tests'
 pip_compile = find_program('pip-compile', required: true)
+requirements = ['requirements.in']
 custom_target(
     'requirements-{{ project.name }},
-    input: 'requirements.in',
+    input: requirements,
     output: 'requirements.txt',
     build_always_stale: true,
     build_by_default: true,
@@ -92,8 +93,8 @@ if false
     executable('root_files', root_files)
 endif
 root_children = [
-    project_name.underscorify(),
-    test_source,
+    '{{ project.name|underscorify }}',
+    'tests',
 ]
 foreach child: root_children
     subdir(child)

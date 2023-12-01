@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: OZI
-Version: 0.0.220
+Version: 0.0.221
 Summary: Packager for Python projects using Meson.
-Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/0.0.220.tar.gz
+Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/0.0.221.tar.gz
 Home-page: https://oziproject.dev/
 Author: Ross J. Duff MSc
 Author-email: help@oziproject.dev
@@ -10,6 +10,7 @@ License: Apache-2.0 WITH LLVM-exception
 Keywords: meson,packaging,wheel
 Project-URL: Bug Tracker, https://github.com/rjdbcm/ozi/issues
 Requires-Dist: dnspython
+Requires-Dist: meson>=1.1.0
 Requires-Dist: idna
 Requires-Dist: jinja2
 Requires-Dist: pyparsing

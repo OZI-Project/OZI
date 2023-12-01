@@ -8,6 +8,7 @@ config_files = [
     'sync_pkg_readme.py',
     'version_metadata_template.py',
     'replace_ruff_target_version.py',
+    'to_distribution_template.py',
 ]
 foreach file: config_files
     python.install_sources(file, subdir: 'ozi'/'scripts')

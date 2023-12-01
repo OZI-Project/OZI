@@ -12,6 +12,8 @@ python_files = [
     'experimental.py',
     'spdx.py',
     'tap.py',
+    'meson.py',
+    'py.typed',
 ]
 foreach file : files(python_files)
     fs.copyfile(file)
@@ -20,13 +22,19 @@ endforeach
 if false
     executable('source_files', python_files)
 endif
-children = ['templates', 'scripts', 'vendor', 'new', 'fix',]
-foreach child: children
+source_children = [
+    'templates',
+    'scripts',
+    'vendor',
+    'new',
+    'fix',
+    'dist',
+    'lint',
+    'test'
+]
+foreach child: source_children
     subdir(child)
 endforeach
-foreach name : namespace
-    subdir(name)
-endforeach
 if false
-    executable('source_children', children)
+    executable('source_children', source_children)
 endif

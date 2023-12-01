@@ -3,11 +3,11 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 children = [
-    'CC0 1.0 Universal (CC0 1.0) Public Domain Dedication',
-    'DFSG approved',
-    'Free To Use But Restricted',
-    'OSI Approved',
-    'Public Domain',
+    'CC0_1_0_Universal__CC0_1_0__Public_Domain_Dedication',
+    'DFSG_approved',
+    'Free_To_Use_But_Restricted',
+    'OSI_Approved',
+    'Public_Domain',
 ]
 foreach child: children
     subdir(child.underscorify())
