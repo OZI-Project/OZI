@@ -1,4 +1,20 @@
 # CHANGELOG
+## 0.0.221 (2023-12-01)
+
+### :hammer:
+
+* :hammer:: TAP class is now simply changes the warning format for ``TAP.not_ok``.
+
+No longer uses a ContextDecorator. ([`3a003bb`](https://github.com/rjdbcm/OZI/commit/3a003bb38672e522dd783922ab844cb617629dcc))
+
+* :hammer:(ozi-fix): Add a proper mesonbuild AST inspection module ``ozi.meson``. ([`b5e5e3e`](https://github.com/rjdbcm/OZI/commit/b5e5e3edb488220708527535f5f1f4a6132f90d5))
+
+### Other
+
+* :page_facing_up:: Add copyright headers to some files. ([`76be62b`](https://github.com/rjdbcm/OZI/commit/76be62bc8810b583a6a5ddf47d1b07db4816ebb8))
+
+* :truck:: Move repo files to ``.github`` ([`0e423c3`](https://github.com/rjdbcm/OZI/commit/0e423c3fd03f84f40f0f9e0f6afbd049f56bd4d5))
+
 ## 0.0.220 (2023-11-27)
 
 ### :bug:
