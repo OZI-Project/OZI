@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.223 (2023-12-01)
+
+### :bug:
+
+* :bug:(ozi-fix): Make devnull writable. ([`11f0b7a`](https://github.com/rjdbcm/OZI/commit/11f0b7aef701c6303ac5e373eb6f07c4bd91836d))
+
 ## 0.0.222 (2023-12-01)
 
 ### :hammer:
