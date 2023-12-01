@@ -4,12 +4,14 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 from __future__ import annotations
 
+import os
 import sys
 import warnings
 from collections import Counter
 from contextlib import ContextDecorator
 from contextlib import contextmanager
 from contextlib import redirect_stdout
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -122,8 +124,9 @@ class TAP(ContextDecorator):
         :note:`Does not suppress Python exceptions.`
         """
         warnings.simplefilter('ignore')
-        with redirect_stdout(None):
-            yield
+        with Path(os.devnull).open() as null:
+            with redirect_stdout(null):
+                yield
         warnings.resetwarnings()
 
     @staticmethod

@@ -32,7 +32,7 @@ test_source = 'tests'
 pip_compile = find_program('pip-compile', required: true)
 requirements = ['requirements.in']
 custom_target(
-    'requirements-{{ project.name }},
+    'requirements-{{ project.name }}',
     input: requirements,
     output: 'requirements.txt',
     build_always_stale: true,
