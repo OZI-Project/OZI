@@ -1,3 +1,7 @@
+# ozi/tap.py
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 from __future__ import annotations
 
 import sys
@@ -6,12 +10,9 @@ from collections import Counter
 from contextlib import ContextDecorator
 from contextlib import contextmanager
 from contextlib import redirect_stdout
-from functools import wraps
 from typing import TYPE_CHECKING
-from typing import Callable
 
 if TYPE_CHECKING:
-    from types import TracebackType
     from typing import Any
 
     if sys.version_info >= (3, 11):
@@ -36,7 +37,7 @@ def tap_warning_format(
     line: str | None = None,
 ) -> str:
     """Test Anything Protocol formatted warnings."""
-    return f'# {filename}:{lineno}: {category.__name__}\n'  # pragma: no cover
+    return f'# {category.__name__}\n'  # pragma: no cover
 
 
 def tap_warn(
@@ -76,16 +77,23 @@ class TAP(ContextDecorator):
         count = cls._count.total()
         match [count, skip_reason, skip]:
             case [0, reason, s] if [reason, s] and reason != '' and skip > 0:
-                sys.exit(sys.stdout.write(f'1..{count} # SKIP {reason}\n'))
+                sys.stdout.write(f'1..{count} # SKIP {reason}\n')
+                sys.exit(0)
             case [0, reason, s] if [reason, s] and reason == '' and skip > 0:
-                sys.exit(sys.stdout.write(f'1..{count} # SKIP no "skip_reason" provided\n'))
-            case [n, reason, 0] if [n, skip_reason] and reason != '' and count > 0:
-                TAP.diagnostic('unecessary argument "skip_reason" to TAP.end_plan')
-                sys.exit(sys.stdout.write(f'1..{count}\n'))
+                sys.stdout.write(f'1..{count} # SKIP no "skip_reason" provided\n')
+                sys.exit(0)
+            case [n, reason, s] if [reason, s] and reason == '' and skip > 0:
+                sys.stdout.write(f'1..{count}\n')
+                sys.exit(0)
+            case [n, reason, 0] if [n, reason] and reason != '' and count > 0:
+                TAP.diagnostic('unecessary argument "skip_reason" to TAP.end')
+                sys.stdout.write(f'1..{count}\n')
+                sys.exit(0)
             case [n, reason, 0] if [n, reason] and reason == '' and count > 0:
-                sys.exit(sys.stdout.write(f'1..{count}\n'))
+                sys.stdout.write(f'1..{count}\n')
+                sys.exit(0)
             case _:
-                TAP.bail_out('TAP.end_plan failed due to invalid arguments.')
+                TAP.bail_out('TAP.end failed due to invalid arguments.')
 
     @staticmethod
     def diagnostic(*message: str) -> None:
@@ -134,7 +142,9 @@ class TAP(ContextDecorator):
         cls._count[SKIP] += 1 if skip else 0
         directive = '-' if not skip else '# SKIP'
         formatted = ' - '.join(args).strip()
-        sys.stdout.write(f'ok {cls._count[OK]} {directive} {formatted}\n')
+        sys.stdout.write(
+            f'ok {cls._count.total() - cls._count[SKIP]} {directive} {formatted}\n',
+        )
 
     @classmethod
     def not_ok(cls: type[Self], *args: str, skip: bool = False) -> None:
@@ -142,37 +152,12 @@ class TAP(ContextDecorator):
         cls._count[SKIP] += 1 if skip else 0
         directive = '-' if not skip else '# SKIP'
         formatted = ' - '.join(args).strip()
+        warnings.formatwarning = tap_warning_format
+        warnings.showwarning = tap_warn  # type: ignore
         warnings.warn(
-            f'{cls._count[NOT_OK]} {directive} {formatted}',
+            f'{cls._count.total() - cls._count[SKIP]} {directive} {formatted}',
             RuntimeWarning,
             stacklevel=2,
         )
-
-    def _recreate_cm(self: Self) -> Self:
-        return self
-
-    def __init__(self: Self, func: Callable[..., Any]) -> None:
-        self._func = func
-
-    def __call__(self: Self, *args: Any, **kwargs: Any) -> Any:
-        self.f_name = self._func.__name__
-
-        @wraps(self._func)
-        def wrapper(*args: Any, **kwargs: Any) -> Any:
-            with self._recreate_cm():
-                return self._func(*args, **kwargs)
-
-        return wrapper(*args, **kwargs)
-
-    def __enter__(self: Self) -> None:
-        warnings.formatwarning = tap_warning_format
-        warnings.showwarning = tap_warn  # type: ignore
-
-    def __exit__(
-        self: Self,
-        exc_type: type[BaseException] | None,
-        exc: BaseException | None,
-        exc_tb: TracebackType | None,
-    ) -> None:
-        warnings.formatwarning = TAP._formatwarning
-        warnings.showwarning = TAP._showwarning
+        warnings.formatwarning = cls._formatwarning  # pragma: no cover
+        warnings.showwarning = cls._showwarning  # pragma: no cover

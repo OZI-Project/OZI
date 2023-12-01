@@ -48,7 +48,6 @@ def print_version() -> NoReturn:  # pragma: no cover
     sys.exit(0)
 
 
-@TAP  # pragma: defer to TAP-Consumer
 def check_for_update(
     current_version: Version,
     releases: Collection[Version],
@@ -67,7 +66,6 @@ def check_for_update(
             TAP.ok('OZI package is up to date', str(current_version))
 
 
-@TAP  # pragma: defer to TAP-Consumer
 def check_version() -> NoReturn:  # pragma: defer to PyPI
     """Check for a newer version of OZI and exit."""
     response = requests.get('https://pypi.org/pypi/OZI/json', timeout=30)
@@ -95,7 +93,6 @@ def list_available(key: str) -> NoReturn:  # pragma: no cover
     sys.exit(print(*sorted(getattr(ExactMatch, key.replace('-', '_'))), sep='\n'))
 
 
-@TAP  # pragma: defer to TAP-Consumer
 def license_expression(expr: str) -> NoReturn:  # pragma: no cover
     try:
         spdx_license_expression.parse_string(expr, parse_all=True)

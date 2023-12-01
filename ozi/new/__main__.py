@@ -1,3 +1,7 @@
+# ozi/new/__main__.py
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 from __future__ import annotations
 
 import re
@@ -201,11 +205,11 @@ def name(project: Namespace) -> Namespace:
 def home_page(project: Namespace) -> Namespace:
     """PKG-INFO:Home-page"""
     home_url = urlparse(project.home_page)
-    if home_url.scheme != 'https':
+    if home_url.scheme != 'https':  # pragma: defer to good-issue
         TAP.not_ok('Home-page', 'url', 'scheme', 'unsupported')
     else:
         TAP.ok('Home-page', 'scheme')
-    if home_url.netloc == '':
+    if home_url.netloc == '':  # pragma: defer to good-issue
         TAP.not_ok('Home-page url netloc could not be parsed.')
     else:
         TAP.ok('Home-page', 'netloc')
@@ -293,7 +297,6 @@ def wrap(project: Namespace) -> None:  # pragma: no cover
         f.write(template.render())
 
 
-@TAP
 def main() -> NoReturn | None:  # pragma: no cover
     """Main ozi.new entrypoint."""
     ozi_new = parser.parse_args()
