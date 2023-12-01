@@ -304,8 +304,10 @@ def main() -> NoReturn | None:  # pragma: no cover
     match ozi_new:
         case ozi_new if ozi_new.new in ['p', 'project']:
             project(ozi_new)
+            TAP.end()
         case ozi_new if ozi_new.new in ['w', 'wrap']:
             wrap(ozi_new)
+            TAP.end()
         case _:
             parser.print_usage()
     return None
