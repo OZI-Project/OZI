@@ -1,4 +1,12 @@
 # CHANGELOG
+## 0.0.222 (2023-12-01)
+
+### :hammer:
+
+* :hammer:(ozi-fix): Fix doctest failures.
+Redirect output to null for ``TAP.suppress``.
+Fix unclosed quote in root meson.build template. ([`98c8aa6`](https://github.com/rjdbcm/OZI/commit/98c8aa6e1e03f54417649f83e1976b429088b20a))
+
 ## 0.0.221 (2023-12-01)
 
 ### :hammer:
