@@ -124,7 +124,7 @@ class TAP(ContextDecorator):
         :note:`Does not suppress Python exceptions.`
         """
         warnings.simplefilter('ignore')
-        with Path(os.devnull).open() as null:
+        with Path(os.devnull).open('w') as null:
             with redirect_stdout(null):
                 yield
         warnings.resetwarnings()
