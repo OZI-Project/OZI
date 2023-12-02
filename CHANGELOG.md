@@ -1,4 +1,14 @@
 # CHANGELOG
+## 0.0.225 (2023-12-02)
+
+### :hammer:
+
+* :hammer:(ozi-fix): No longer using ozi to run utility modules.
+
+tox is the preferred CI env manager.
+Remove ``ozi/experimental.py``
+Trying a new tox CI setup. ([`a7d15e1`](https://github.com/rjdbcm/OZI/commit/a7d15e19f00586f48c4accbd70dd39f501a2fb13))
+
 ## 0.0.224 (2023-12-01)
 
 ### :bug:
