@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.226 (2023-12-02)
+
+### :hammer:
+
+* :hammer:(ozi-new): Update tox checkpoint invocation. ([`bd64128`](https://github.com/rjdbcm/OZI/commit/bd64128f6aecdf85a485b4b79a0cad42bfebe327))
+
 ## 0.0.225 (2023-12-02)
 
 ### :hammer:
