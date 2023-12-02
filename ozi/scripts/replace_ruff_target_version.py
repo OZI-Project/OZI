@@ -1,5 +1,5 @@
 # noqa: INP001
-# ozi/scripts/core_metadata_template.py
+# ozi/scripts/replace_ruff_target_version.py
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception

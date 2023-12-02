@@ -45,7 +45,6 @@ from pyparsing import Suppress
 from pyparsing import White
 from pyparsing import oneOf
 
-from ozi.experimental import run_utility
 from ozi.filter import underscorify
 from ozi.fix.parser import parser
 from ozi.meson import get_build_items
@@ -194,12 +193,6 @@ IGNORE_MISSING = {
     *metadata.spec.python.src.repo.hidden_dirs,
     *metadata.spec.python.src.repo.ignore_dirs,
     *metadata.spec.python.src.allow_files,
-}
-
-REPO_ONLY_FILES = {
-    '.markdownlint.json',
-    'SECURTY.md',
-    'CODE_OF_CONDUCT.md',
 }
 
 
@@ -567,12 +560,6 @@ def main() -> NoReturn:  # pragma: no cover
     match [project.missing, project.strict]:
         case [True, False]:
             name, *_ = report_missing(project.target)
-            if hasattr(project, 'run_utility') and project.run_utility:
-                run_utility('ruff', 'check', '--fix', str(project.target))
-                run_utility('isort', '-q', str(project.target))
-                for i in [underscorify(name), 'tests']:
-                    run_utility('autoflake', '-i', str(project.target / i / '**' / '*.py'))
-                    run_utility('black', '-q', '-S', str(project.target / i))
             TAP.end()
         case [False, _]:
             with TAP.suppress():

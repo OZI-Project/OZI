@@ -60,7 +60,7 @@ jobs:
         continue-on-error: true
         id: setup1
         run: |
-          tox -- ${{ matrix.ozi }}
+          tox -e ${{ matrix.ozi }}
 
       - name: Logging Failures
         if: ${{ steps.setup1.outcome == 'failure' }}

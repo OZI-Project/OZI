@@ -2,6 +2,8 @@
 """Unit and fuzz tests for ``ozi-fix`` utility script"""
 # Part of ozi.
 # See LICENSE.txt in the project root for details.
+from __future__ import annotations
+
 import argparse
 import os
 import pathlib

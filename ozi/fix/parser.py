@@ -119,15 +119,7 @@ missing_parser.add_argument(
     '--strict',
     default=False,
     action=BooleanOptionalAction,
-    help='strict mode raises warnings to errors, overrides: --run-utility,'
-    ' default: --no-strict',
-)
-missing_parser.add_argument(
-    '--run-utility',
-    default=False,
-    action=BooleanOptionalAction,
-    help='run-utility mode (experimental) runs ruff, isort, autoflake, and black'
-    ' with OZI standard arguments, default: --run-utlity',
+    help='strict mode raises warnings to errors default: --no-strict',
 )
 missing_parser.add_argument(
     '--pretty',

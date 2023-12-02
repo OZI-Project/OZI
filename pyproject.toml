@@ -355,7 +355,6 @@ The following checkpointed environments:
 * code testing and coverage
 * distributing Python packages with Meson_
 * code linting and formatting
-* documentation linting, build, and doctests 🚧 Work in Progress 🚧
 
 Message from the Maintainer
 ###########################
@@ -507,7 +506,7 @@ python =
      3.11 = py311
      3.10 = py310
 
-[testenv]
+[testenv:dist]
 allowlist_externals = rm
 package = wheel
 deps =
@@ -517,10 +516,56 @@ deps =
      setuptools_scm[toml]
      tomli >= 2.0.0
 commands =
-     meson setup {env_tmp_dir} -D{posargs:lint}=enabled
+     meson setup {env_tmp_dir} -Ddist=enabled
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
      pip install -q .
-     meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup={posargs:lint}
+     meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=dist
+
+[testenv:lint]
+allowlist_externals = rm
+package = wheel
+deps =
+     meson >= 1.1.0
+     ninja >= 1.8.2
+     pip-tools
+     setuptools_scm[toml]
+     tomli >= 2.0.0
+commands =
+     meson setup {env_tmp_dir} -Dlint=enabled
+     meson compile -C {env_tmp_dir}
+     rm -rf {env_tmp_dir}/.gitignore
+     pip install -q .
+     meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=lint
+
+[testenv:test]
+allowlist_externals = rm
+package = wheel
+deps =
+     meson >= 1.1.0
+     ninja >= 1.8.2
+     pip-tools
+     setuptools_scm[toml]
+     tomli >= 2.0.0
+commands =
+     meson setup {env_tmp_dir} -Dtest=enabled
+     meson compile -C {env_tmp_dir}
+     rm -rf {env_tmp_dir}/.gitignore
+     pip install -q .
+     meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=test
+
+[testenv:fix]
+description = quickly fix minor source issues 
+deps = 
+     black
+     isort
+     autoflake
+     ruff
+skip_install = true
+commands =
+     black -v -S .
+     isort .
+     autoflake -i -vv -r .
+     ruff check ozi --fix
 """
 # -Dblastpipe:dev=enabled -Dozi-blastpipe=enabled

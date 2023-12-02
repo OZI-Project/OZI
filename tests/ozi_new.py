@@ -2,6 +2,8 @@
 """Unit and fuzz tests for ``ozi-new``."""
 # Part of ozi.
 # See LICENSE.txt in the project root for details.
+from __future__ import annotations
+
 import argparse
 import operator
 import typing
@@ -65,7 +67,8 @@ metadata = Metadata()
             ),
             'summary': st.text(st.characters(exclude_categories=('C',)), max_size=255),
             'copyright_head': st.text(
-                st.characters(exclude_categories=('C',)), max_size=255
+                st.characters(exclude_categories=('C',)),
+                max_size=255,
             ),
             'license_file': st.just('LICENSE.txt'),
             'license_exception_id': st.one_of(
@@ -82,7 +85,7 @@ metadata = Metadata()
                 st.from_regex(
                     r'^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9]){1,80}$',
                     fullmatch=True,
-                )
+                ),
             ),
             'allow_file': st.just([]),
         },
@@ -269,12 +272,14 @@ def test_fuzz_CloseMatch_nargs_None(
     data: typing.Any,
 ) -> None:
     close_match = ozi.actions.CloseMatch(
-        option_strings=[option_strings], dest=dest, nargs=nargs
+        option_strings=[option_strings],
+        dest=dest,
+        nargs=nargs,
     )
     data = data.draw(
         st.sampled_from(
             ozi.actions.ExactMatch().__getattribute__(
-                option_strings.lstrip('-').replace('-', '_')
+                option_strings.lstrip('-').replace('-', '_'),
             ),
         ),
     )
@@ -305,12 +310,14 @@ def test_fuzz_CloseMatch_nargs_append(
     data: typing.Any,
 ) -> None:
     close_match = ozi.actions.CloseMatch(
-        option_strings=[option_strings], dest=dest, nargs=nargs
+        option_strings=[option_strings],
+        dest=dest,
+        nargs=nargs,
     )
     data = data.draw(
         st.sampled_from(
             ozi.actions.ExactMatch().__getattribute__(
-                option_strings.lstrip('-').replace('-', '_')
+                option_strings.lstrip('-').replace('-', '_'),
             ),
         ),
     )
@@ -340,7 +347,9 @@ def test_fuzz_CloseMatch_nargs_append_None_values(
     data: typing.Any,
 ) -> None:
     close_match = ozi.actions.CloseMatch(
-        option_strings=[option_strings], dest=dest, nargs=nargs
+        option_strings=[option_strings],
+        dest=dest,
+        nargs=nargs,
     )
     close_match(argparse.ArgumentParser(), argparse.Namespace(), data, option_strings)
 
@@ -369,7 +378,9 @@ def test_fuzz_CloseMatch_nargs_append_warns(
     data: typing.Any,
 ) -> None:
     close_match = ozi.actions.CloseMatch(
-        option_strings=[option_strings], dest=dest, nargs=nargs
+        option_strings=[option_strings],
+        dest=dest,
+        nargs=nargs,
     )
     with pytest.warns(RuntimeWarning):
         close_match(argparse.ArgumentParser(), argparse.Namespace(), [data], option_strings)

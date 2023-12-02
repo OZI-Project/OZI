@@ -49,7 +49,6 @@ The following checkpointed environments:
 * code testing and coverage
 * distributing Python packages with Meson_
 * code linting and formatting
-* documentation linting, build, and doctests 🚧 Work in Progress 🚧
 
 Message from the Maintainer
 ###########################

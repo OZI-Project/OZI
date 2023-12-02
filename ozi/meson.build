@@ -9,7 +9,6 @@ python_files = [
     'filter.py',
     'spec.py',
     'render.py',
-    'experimental.py',
     'spdx.py',
     'tap.py',
     'meson.py',
