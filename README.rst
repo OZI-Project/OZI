@@ -146,10 +146,12 @@ Ross J. Duff MSc - help@oziproject.dev
 
 .. |black-badge| image:: https://img.shields.io/badge/code%20style-%E2%9C%94%20black-000000.svg
     :target: https://github.com/psf/black
+    :alt: The Uncompromising Code Formatter
 
 .. |flake8-badge| image:: https://img.shields.io/badge/code%20quality-%E2%9C%94%20Flake8-informational
 .. |isort-badge| image:: https://img.shields.io/badge/%20imports-%E2%9C%94%20isort-%231674b1?style=flat&labelColor=ef8336
     :target: https://pycqa.github.io/isort/
+    :alt: isort your imports, so you don't have to.
 .. |pyright-badge| image:: https://img.shields.io/badge/typing-%E2%9C%94%20Pyright%3A%200%20e%2C%200%20w%2C%200%20i-informational
 .. |rst-lint-badge| image:: https://img.shields.io/badge/rst--lint-%E2%9C%94%20README.rst-informational
 

@@ -11,9 +11,9 @@ project maintainence console application:
   ozi-fix -h         show help for the ozi-fix command.
 
 continuous integration checkpoints:
-  tox -- lint        run formatting, linting, and typechecking.
-  tox -- test        run testing and coverage.
-  tox -- dist        run distribution and packaging.
+  tox -e lint        run formatting, linting, and typechecking.
+  tox -e test        run testing and coverage.
+  tox -e dist        run distribution and packaging.
 """  # pragma: no cover
 from __future__ import annotations  # pragma: no cover
 
