@@ -16,16 +16,33 @@ python =
    {{ spec.python.support.bugfix2 }} = {{ spec.python.support.bugfix2|wheel_repr }}
    {{ spec.python.support.security }} = {{ spec.python.support.security|wheel_repr }}
 
-[testenv]
+{%- for suite in spec.python.ci.checkpoint.suites %}
+[testenv:{{ suite }}]
+allowlist_externals = rm
 package = wheel
 deps =
 {%- for requires in spec.python.build.requires.values() %}
    {{ requires }}
 {%- endfor %}
 commands =
-   meson setup {env_tmp_dir} -D{posargs:test}=enabled --reconfigure
+   meson setup {env_tmp_dir} -D{{ suite }}=enabled --reconfigure
    meson compile -C {env_tmp_dir}
    rm -rf {env_tmp_dir}/.gitignore
    pip install -q .
-   meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup={posargs:test}
+   meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup={{ suite }}
+{%- endfor %}
+
+[testenv:fix]
+description = quickly fix minor source issues 
+deps = 
+     black
+     isort
+     autoflake
+     ruff
+skip_install = true
+commands =
+     black -v -S .
+     isort .
+     autoflake -i -vv -r .
+     ruff check ozi --fix
 """

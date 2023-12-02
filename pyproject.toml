@@ -12,8 +12,8 @@ readme = "README.rst"
 dependencies = { file = ["requirements.in"] }
 
 [project.optional_dependencies] # also meson test suite names
-# Bootstrapping Dependencies
-boot = ["mesonpep517", "ninja", "dist"]
+# tox -e fix
+fix  = ["black", "ruff>=0.1.6", "autoflake", "isort"]
 # Default meson test setup
 dev  = ["[dist,docs,lint,test]"]
 ## Packaging Setup
@@ -280,10 +280,6 @@ Requires-Dist: trove-classifiers
 Requires-Dist: pip-tools
 Requires-Dist: GitPython
 Requires-Dist: types-requests
-Requires-Dist: autoflake
-Requires-Dist: black
-Requires-Dist: isort
-Requires-Dist: ruff>=0.1.6
 Requires-Dist: typing-extensions;python_version=="3.10"
 Requires-External: git
 Requires-Python: >=3.10, <=3.12

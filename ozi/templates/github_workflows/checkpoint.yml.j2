@@ -46,7 +46,7 @@
         id: setup1
         run: |
 {%- raw %}
-          tox -- ${{ matrix.ozi }}
+          tox -e ${{ matrix.ozi }}
 {%- endraw %}
 
       - name: Logging Failures

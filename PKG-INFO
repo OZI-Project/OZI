@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: OZI
-Version: 0.0.225
+Version: 0.0.226
 Summary: Packager for Python projects using Meson.
-Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/0.0.225.tar.gz
+Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/0.0.226.tar.gz
 Home-page: https://oziproject.dev/
 Author: Ross J. Duff MSc
 Author-email: help@oziproject.dev
@@ -20,10 +20,6 @@ Requires-Dist: trove-classifiers
 Requires-Dist: pip-tools
 Requires-Dist: GitPython
 Requires-Dist: types-requests
-Requires-Dist: autoflake
-Requires-Dist: black
-Requires-Dist: isort
-Requires-Dist: ruff>=0.1.6
 Requires-Dist: typing-extensions;python_version=="3.10"
 Requires-External: git
 Requires-Python: >=3.10, <=3.12
