@@ -12,6 +12,8 @@ readme = "README.rst"
 dependencies = { file = ["requirements.in"] }
 
 [project.optional_dependencies] # also meson test suite names
+# continuous integration
+ci   = ["tox>4", "tox-gh>1.2"]
 # tox -e fix
 fix  = ["black", "ruff>=0.1.6", "autoflake", "isort"]
 # Default meson test setup
