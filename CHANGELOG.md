@@ -1,4 +1,20 @@
 # CHANGELOG
+## 0.0.227 (2023-12-03)
+
+### :bug:
+
+* :bug:(ozi): Correct tox invocation docstring info.
+
+Also clean up README badges. ([`ff66382`](https://github.com/rjdbcm/OZI/commit/ff66382ade92dc88eec6feb63499190cc192f82f))
+
+### :hammer:
+
+* :hammer:(ozi-new): add tox ci backend to optional_dependencies. ([`5f5a4ad`](https://github.com/rjdbcm/OZI/commit/5f5a4ad9c6bf9e7fbd2962380a5c6bbdeeabc833))
+
+### Other
+
+* Merge branches &#39;main&#39; and &#39;main&#39; of https://github.com/rjdbcm/ozi ([`9bd50b3`](https://github.com/rjdbcm/OZI/commit/9bd50b3bf80461b700769d92acb4f82536abb4a1))
+
 ## 0.0.226 (2023-12-02)
 
 ### :hammer:
