@@ -70,7 +70,7 @@ jobs:
       - name: '${{ matrix.ozi }} (Second Try)'
         if: ${{ steps.setup1.outcome == 'failure' }}
         run: |
-          tox -r -- ${{ matrix.ozi }}
+          tox -r -e ${{ matrix.ozi }}
 
       - uses: actions/upload-artifact@master
         if: always()

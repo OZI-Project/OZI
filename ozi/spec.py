@@ -404,7 +404,9 @@ class Checkpoint(Default):
 class CI(Default):
     """Provider-agnostic CI information."""
 
-    backend: Mapping[str, str] = {'tox': 'tox>4', 'tox-gh': 'tox-gh>1.2'}
+    backend: Mapping[str, str] = field(
+        default_factory=lambda: {'tox': 'tox>4', 'tox-gh': 'tox-gh>1.2'},
+    )
     checkpoint: Checkpoint = Checkpoint()
     publish: Publish = Publish()
     providers: tuple[str, ...] = ('github',)

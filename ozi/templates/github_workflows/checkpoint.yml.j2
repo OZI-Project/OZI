@@ -64,7 +64,7 @@
 {%- endraw %}
         run: |
 {%- raw %}
-          tox -- ${{ matrix.ozi }}
+          tox -r -e ${{ matrix.ozi }}
 {%- endraw %}
 
       - uses: actions/upload-artifact@master
