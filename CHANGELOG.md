@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.228 (2023-12-04)
+
+### :bug:
+
+* :bug:(ozi-new): Fix spec field typo and tox invocation for checkpoint retries. ([`692207f`](https://github.com/rjdbcm/OZI/commit/692207f060a57002421a822c6ac9a2168162d654))
+
 ## 0.0.227 (2023-12-03)
 
 ### :bug:
