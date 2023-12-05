@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.229 (2023-12-05)
+
+### :bug:
+
+* :bug:(ozi-new): Fix github workflow duplicate id. ([`1ccd73c`](https://github.com/rjdbcm/OZI/commit/1ccd73c11bd610e1f6f5649495bebb220f670833))
+
 ## 0.0.228 (2023-12-04)
 
 ### :bug:
