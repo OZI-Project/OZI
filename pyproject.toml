@@ -47,7 +47,12 @@ console_scripts = [
 
 [build-system]
 requires      = [
-    "mesonpep517", "ninja", "pip-tools", "setuptools>=64", "setuptools_scm[toml]>=6.2", "tomli"
+    "mesonpep517",
+    "ninja",
+    "pip-tools",
+    "setuptools>=64",
+    "setuptools_scm[toml]>=6.2",
+    "tomli",
 ]
 build-backend = "mesonpep517.buildapi"
 
@@ -507,6 +512,7 @@ python =
      3.10 = py310
 
 [testenv:dist]
+description = OZI distribution checkpoint
 allowlist_externals = rm
 package = wheel
 deps =
@@ -523,6 +529,7 @@ commands =
      meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=dist
 
 [testenv:lint]
+description = OZI source formatting and linting checkpoint
 allowlist_externals = rm
 package = wheel
 deps =
@@ -539,6 +546,7 @@ commands =
      meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=lint
 
 [testenv:test]
+description = OZI unit tests checkpoint
 allowlist_externals = rm
 package = wheel
 deps =
@@ -555,7 +563,7 @@ commands =
      meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=test
 
 [testenv:fix]
-description = quickly fix minor source issues 
+description = OZI project fix issues utility; runs black, isort, autoflake, and ruff
 deps = 
      black
      isort
@@ -568,26 +576,12 @@ commands =
      autoflake -i -vv -r .
      ruff check ozi --fix
 
-[testenv:sdist]
-description = package sdist
-skip_install = true
-commands =
-     meson setup build
-     meson dist -C build --formats gztar --no-tests
-
-[testenv:wheel]
-allowlist_externals = git
-description = package wheel
-skip_install = true
+[testenv:ls]
+description = OZI list all SCM tracked files.
 deps =
-     build
-     mesonpep517
-     tomli
-	 ninja
-	 setuptools_scm[toml]>=6.2
-	 pip-tools
+     setuptools_scm[toml]>=8
 commands =
-     {env_python} -m build -n -w
-     git stash -- PKG-INFO
+     {env_python} -m setuptools_scm ls
+
 """
 # -Dblastpipe:dev=enabled -Dozi-blastpipe=enabled

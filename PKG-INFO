@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: OZI
-Version: 0.0.228
+Version: 0.0.229
 Summary: Packager for Python projects using Meson.
-Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/0.0.228.tar.gz
+Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/0.0.229.tar.gz
 Home-page: https://oziproject.dev/
 Author: Ross J. Duff MSc
 Author-email: help@oziproject.dev

@@ -102,7 +102,6 @@
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
       run: |
         python -m build -w
-        git stash -- PKG-INFO
 {% include 'github_workflows/pyc_wheel.yml.j2' %}
 {%- raw %}
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
@@ -111,7 +110,7 @@
 {%- raw %}
     - name: Build and sign sdist
 {%- endraw %}
-      id: wheel
+      id: sdist
       if: matrix.py == '{{ spec.python.support.bugfix1|wheel_repr }}'
       run: |
         meson setup build
