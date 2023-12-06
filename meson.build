@@ -68,7 +68,8 @@ python = pymod.find_installation(
 )
 pyproject_config.set('PYTHON_VERSION_DIST', 'py'+''.join(python.language_version().split('.')))
 pyproject_config.set('VCS_TAG', '@VCS_TAG@')
-pre_pyproject = configure_file(input: 'pyproject.toml', output: 'pyproject.toml.pre', configuration: pyproject_config)
+pyproject_config.set('README_TEXT', fs.read('README.rst'))
+pre_pyproject = configure_file(input: 'pyproject.toml', output: 'pyproject.toml.ozi', configuration: pyproject_config)
 
 core_metadata = run_command(
     python,
@@ -132,7 +133,6 @@ replace_ruff_target_version = run_command(
     check: true,
 ).stdout()
 run_command(python, ['-c', replace_ruff_target_version], check: true)
-run_command(python, ['-c', sync_pkg_readme], check: true)
 pip = find_program('pip', required: true, disabler: true)
 pip_compile = find_program('pip-compile', required: true)
 vcs_tag(input: pre_pyproject, output: 'pyproject.toml')
@@ -153,10 +153,17 @@ install = ['install']
 build_commands = {'dev': []}
 test_app_args = {}
 pip_repr = pip.full_path()
-root_files = ['README.rst', 'CHANGELOG.md', 'PKG-INFO', 'LICENSE.txt']
+configure_file(command: [python, '-m', 'setuptools_scm'], output: 'PKG-INFO.ozi')
+configure_file(
+    input: meson.project_build_root() / 'PKG-INFO.ozi',
+    output: 'PKG-INFO',
+    configuration: configuration_data({'README_TEXT': fs.read('README.rst')}),
+)
+root_files = ['README.rst', 'CHANGELOG.md', 'LICENSE.txt']
 foreach source : root_files
     fs.copyfile(source)
 endforeach
+run_command(python, ['-c', sync_pkg_readme], check: true)
 if false
     executable('root_files', root_files)
 endif

@@ -6,6 +6,7 @@
 -#}
 [tool.setuptools_scm]
 write_to_template = """{% include 'project.PKG-INFO' %}"""
+write_to = "PKG-INFO.ozi"
 fallback_version = "@VCS_TAG@"
 parentdir_prefix_version = "{{ project.name }}-"
 tag_regex = "{{ spec.python.pkg.pattern.version }}"

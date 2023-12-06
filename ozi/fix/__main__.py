@@ -10,7 +10,7 @@ import re
 from dataclasses import asdict
 from dataclasses import dataclass
 from dataclasses import field
-from email import message_from_file
+from email import message_from_string
 from email.message import Message
 from functools import partial
 from pathlib import Path
@@ -20,6 +20,8 @@ from typing import Any
 from typing import NoReturn
 from typing import Union
 from warnings import warn
+
+import toml
 
 if TYPE_CHECKING:
     import sys
@@ -141,9 +143,15 @@ def missing_required(
     target: Path,
 ) -> tuple[str, dict[str, str]]:
     """Find missing required PKG-INFO"""
-    with target.joinpath('PKG-INFO').open() as f:
-        pkg_info = message_from_file(f)
-        TAP.ok('Parse PKG-INFO')
+    with target.joinpath('pyproject.toml').open() as f:
+        setuptools_scm = toml.loads(f.read()).get('tool', {}).get('setuptools_scm', {})
+        pkg_info = message_from_string(
+            setuptools_scm.get('write_to_template', '@README_TEXT@').replace(
+                '@README_TEXT@',
+                Path('README.rst').read_text(),
+            ),
+        )
+        TAP.ok('setuptools_scm', 'PKG-INFO', 'template')
     for i in metadata.spec.python.pkg.info.required:
         v = pkg_info.get(i, None)
         if v is not None:

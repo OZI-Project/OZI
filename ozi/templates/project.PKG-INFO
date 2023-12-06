@@ -68,4 +68,4 @@ Project-URL: {{ project_url }}
 {%- endfor %}
 Description-Content-Type: text/x-rst
 
-{% include 'README.rst.j2' %}
+@README_TEXT@
