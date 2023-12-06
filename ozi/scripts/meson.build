@@ -5,7 +5,7 @@
 config_files = [
     'core_metadata_template.py',
     'scm_version_snip.py',
-    'sync_pkg_readme.py',
+    'meson_setuptools_scm.py',
     'version_metadata_template.py',
     'replace_ruff_target_version.py',
     'to_distribution_template.py',

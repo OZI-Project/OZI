@@ -71,6 +71,16 @@ pyproject_config.set('VCS_TAG', '@VCS_TAG@')
 pyproject_config.set('README_TEXT', fs.read('README.rst'))
 pre_pyproject = configure_file(input: 'pyproject.toml', output: 'pyproject.toml.ozi', configuration: pyproject_config)
 
+meson_setuptools_scm = run_command(
+    python,
+    [
+        '-c',
+        python_readlines.format(
+            scripts / 'meson_setuptools_scm.py',
+        ),
+    ],
+    check: true,
+).stdout()
 core_metadata = run_command(
     python,
     [
@@ -98,16 +108,6 @@ scm_version_snip = run_command(
         '-c',
         python_readlines.format(
             scripts / 'scm_version_snip.py',
-        ),
-    ],
-    check: true,
-).stdout()
-sync_pkg_readme = run_command(
-    python,
-    [
-        '-c',
-        python_readlines.format(
-            scripts / 'sync_pkg_readme.py',
         ),
     ],
     check: true,
@@ -153,17 +153,22 @@ install = ['install']
 build_commands = {'dev': []}
 test_app_args = {}
 pip_repr = pip.full_path()
-configure_file(command: [python, '-m', 'setuptools_scm'], output: 'PKG-INFO.ozi')
-configure_file(
+run_command(python, ['-c', meson_setuptools_scm], check: true)
+pkg_info = configure_file(
     input: meson.project_build_root() / 'PKG-INFO.ozi',
-    output: 'PKG-INFO',
-    configuration: configuration_data({'README_TEXT': fs.read('README.rst')}),
+    output: 'PKG-INFO.cfg',
+    configuration: configuration_data(
+        {
+            'README_TEXT': fs.read('README.rst'),
+            'VCS_TAG': '@VCS_TAG@'
+        }
+    ),
 )
+vcs_tag(input: pkg_info, output: 'PKG-INFO')
 root_files = ['README.rst', 'CHANGELOG.md', 'LICENSE.txt']
 foreach source : root_files
     fs.copyfile(source)
 endforeach
-run_command(python, ['-c', sync_pkg_readme], check: true)
 if false
     executable('root_files', root_files)
 endif

@@ -5,18 +5,6 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
 [project]
-authors = [
-{%- for author, email in project.author|zip(project.author_email) %}
-    {name = "{{ author }}", email = "{{ email }}"},
-{%- endfor %} 
-]
-{%- if project.maintainer %}
-maintainers = [
-{%- for maintainer, email in project.maintainer|zip(project.maintainer_email) %}
-    {name = "{{ maintainer }}", email = "{{ email }}"},
-{%- endfor %} 
-]
-{%- endif %}
 dynamic = ["dependencies", "version"]
 license = {file = "{{ project.license_file }}"}
 readme  = "README.rst"
@@ -48,7 +36,7 @@ dev  = ["[{% for suite in spec.python.ci.checkpoint.suites %}{{ suite }},{% endf
 {%- endfor %}
 
 [tool.mesonpep517.metadata]
-pkg-info-file = 'PKG-INFO'
+pkg-info-file = 'PKG-INFO.ozi'
 summary = "{{ project.summary }}"
 
 [build-system]

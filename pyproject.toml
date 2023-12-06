@@ -2,14 +2,87 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
-[project]
-authors = [{name = "Ross J. Duff MSc", email = "help@oziproject.dev"}]
-dynamic = ["dependencies", "version"]
-license = {file = "LICENSE.txt"}
-readme = "README.rst"
+[build-system]
+build-backend = "mesonpep517.buildapi"
+requires      = [
+    "mesonpep517",
+    "ninja",
+    "pip-tools",
+    "setuptools>=64",
+    "setuptools_scm[toml]>=6.2",
+    "tomli",
+]
+
+[tool.mesonpep517.entry-points]
+console_scripts = [
+    "ozi = ozi.__main__:main",
+    "ozi-new = ozi.new.__main__:main",
+    "ozi-fix = ozi.fix.__main__:main",
+]
+
+[tool.mesonpep517.metadata]
+pkg-info-file = 'PKG-INFO.ozi'
+summary = 'Packager for Python projects using Meson.'
+
+[tool.setuptools_scm]
+write_to_template = """
+Metadata-Version: 2.1
+Name: OZI
+Version: @VCS_TAG@
+Summary: Packager for Python projects using Meson.
+Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/@VCS_TAG@.tar.gz
+Home-page: https://oziproject.dev/
+Author: Ross J. Duff MSc
+Author-email: help@oziproject.dev
+License: Apache-2.0 WITH LLVM-exception
+Keywords: meson,packaging,wheel
+Project-URL: Bug Tracker, https://github.com/rjdbcm/ozi/issues
+Requires-Dist: dnspython
+Requires-Dist: meson>=1.1.0
+Requires-Dist: idna
+Requires-Dist: jinja2
+Requires-Dist: pyparsing
+Requires-Dist: requests
+Requires-Dist: spdx-license-list
+Requires-Dist: trove-classifiers
+Requires-Dist: pip-tools
+Requires-Dist: GitPython
+Requires-Dist: types-requests
+Requires-Dist: typing-extensions;python_version=="3.10"
+Requires-External: git
+Requires-Python: >=3.10, <=3.12
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Typing :: Typed
+Description-Content-Type: text/x-rst
+
+@README_TEXT@
+"""
+write_to = "PKG-INFO.ozi"
+# meson writes during configuration so that meson dist can have a valid version.
+fallback_version = "@VCS_TAG@"
+parentdir_prefix_version = "OZI-"
+tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.in"] }
+
+[project]
+dynamic = ["dependencies", "version"]
+license = {file = "LICENSE.txt"}
+readme = "README.rst"
 
 [project.optional_dependencies] # also meson test suite names
 # continuous integration
@@ -33,28 +106,6 @@ lint = ["bandit[toml]", "black", "flake8", "flake8-quotes",
 ## Testing Setup
 test = ["coverage[toml]", "hypothesis[all]", "pytest", "pytest-asyncio", "pytest-cov", 
         "pytest-tcpclient", "pytest-randomly", "pytest-xdist"]
-
-[tool.mesonpep517.metadata]
-pkg-info-file = 'PKG-INFO'
-summary = 'Packager for Python projects using Meson.'
-
-[tool.mesonpep517.entry-points]
-console_scripts = [
-    "ozi = ozi.__main__:main",
-    "ozi-new = ozi.new.__main__:main",
-    "ozi-fix = ozi.fix.__main__:main",
-]
-
-[build-system]
-requires      = [
-    "mesonpep517",
-    "ninja",
-    "pip-tools",
-    "setuptools>=64",
-    "setuptools_scm[toml]>=6.2",
-    "tomli",
-]
-build-backend = "mesonpep517.buildapi"
 
 [tool.bandit]
 exclude_dirs = ["venv", "meson-private", "tests"]
@@ -278,58 +329,6 @@ token = { env = "GH_TOKEN" }
 [tool.semantic_release.publish]
 dist_glob_patterns = ["*.whl", "*.tar.gz", "sig/*"]
 upload_to_vcs_release = true
-
-[tool.setuptools_scm]
-write_to_template = """
-Metadata-Version: 2.1
-Name: OZI
-Version: {version}
-Summary: Packager for Python projects using Meson.
-Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/{version}.tar.gz
-Home-page: https://oziproject.dev/
-Author: Ross J. Duff MSc
-Author-email: help@oziproject.dev
-License: Apache-2.0 WITH LLVM-exception
-Keywords: meson,packaging,wheel
-Project-URL: Bug Tracker, https://github.com/rjdbcm/ozi/issues
-Requires-Dist: dnspython
-Requires-Dist: meson>=1.1.0
-Requires-Dist: idna
-Requires-Dist: jinja2
-Requires-Dist: pyparsing
-Requires-Dist: requests
-Requires-Dist: spdx-license-list
-Requires-Dist: trove-classifiers
-Requires-Dist: pip-tools
-Requires-Dist: GitPython
-Requires-Dist: types-requests
-Requires-Dist: typing-extensions;python_version=="3.10"
-Requires-External: git
-Requires-Python: >=3.10, <=3.12
-Classifier: Development Status :: 2 - Pre-Alpha
-Classifier: Environment :: Console
-Classifier: Intended Audience :: Developers
-Classifier: License :: OSI Approved :: Apache Software License
-Classifier: Natural Language :: English
-Classifier: Operating System :: MacOS :: MacOS X
-Classifier: Operating System :: POSIX :: Linux
-Classifier: Programming Language :: Python :: 3 :: Only
-Classifier: Programming Language :: Python :: 3.10
-Classifier: Programming Language :: Python :: 3.11
-Classifier: Programming Language :: Python :: 3.12
-Classifier: Programming Language :: Python :: Implementation :: CPython
-Classifier: Topic :: Software Development :: Build Tools
-Classifier: Topic :: Software Development :: Quality Assurance
-Classifier: Typing :: Typed
-Description-Content-Type: text/x-rst
-
-@README_TEXT@
-"""
-write_to = "PKG-INFO.ozi"
-# meson writes during configuration so that meson dist can have a valid version.
-fallback_version = "@VCS_TAG@"
-parentdir_prefix_version = "OZI-"
-tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
 
 [tool.tox]
 legacy_tox_ini = """

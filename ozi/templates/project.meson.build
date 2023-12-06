@@ -72,8 +72,18 @@ vcs_tag(input: pre_pyproject, output: 'pyproject.toml')
 {#- END config MESON_BUILD_ROOT/pyproject.toml.ozi #}
 
 {#- BEGIN config MESON_SOURCE_ROOT/PKG-INFO #}
-configure_file(command: [python, '-m', 'setuptools_scm'], output: 'PKG-INFO.ozi')
-configure_file(input: meson.project_build_root() / 'PKG-INFO.ozi', output: 'PKG-INFO',  configuration: configuration_data({'README_TEXT': fs.read('README.rst')}))
+run_command(python, ['-c', meson_setuptools_scm], check: true)
+pkg_info = configure_file(
+    input: meson.project_build_root() / 'PKG-INFO.ozi',
+    output: 'PKG-INFO.cfg',
+    configuration: configuration_data(
+        {
+            'README_TEXT': fs.read('README.rst'),
+            'VCS_TAG': '@VCS_TAG@'
+        }
+    ),
+)
+vcs_tag(input: pkg_info, output: 'PKG-INFO')
 {#- END config MESON_SOURCE_ROOT/PKG-INFO #}
 root_files = [
 {%- for required_root_dist in spec.python.pkg.required.root %}
