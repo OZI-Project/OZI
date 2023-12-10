@@ -68,6 +68,7 @@ pyproject_config.set(
     'py'+''.join(python.language_version().split('.'))
 )
 pyproject_config.set('SCM_VERSION', meson.project_version())
+pyproject_config.set('VCS_TAG', '@VCS_TAG@')
 pyproject_config.set('PROJECT_NAME', project_name)
 pyproject_config.set('README_TEXT', fs.read('README.rst'))
 pyproject_config.set('REQUIREMENTS_IN', '\n'.join(required))
@@ -81,7 +82,8 @@ run_command(python, ['-c', replace_ruff_target_version], check: true)
 {#- END config MESON_BUILD_ROOT/pyproject.toml #}
 
 {#- BEGIN config MESON_SOURCE_ROOT/PKG-INFO #}
-run_command(python, ['-c', meson_setuptools_scm], check: true)    
+run_command(python, ['-c', meson_setuptools_scm], check: true)
+vcs_tag(input: 'pyproject.toml', output: 'pyproject.toml')
 {#- END config MESON_SOURCE_ROOT/PKG-INFO #}
 root_files = [
 {%- for required_root_dist in spec.python.pkg.required.root %}

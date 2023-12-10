@@ -62,10 +62,17 @@ jobs:
         run: |
           tox -e ${{ matrix.ozi }}
 
-      - name: Logging Failures
+      - name: Logging Checkpoint Failures
         if: ${{ steps.setup1.outcome == 'failure' }}
+        continue-on-error: true
         run: |
           cat .tox/**/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
+
+      - name: Logging OZI/Meson Failures
+        if: ${{ steps.setup1.outcome == 'failure' }}
+        continue-on-error: true
+        run: |
+          cat .tox/**/tmp/meson-logs/meson-log.txt
 
       - name: '${{ matrix.ozi }} (Second Try)'
         if: ${{ steps.setup1.outcome == 'failure' }}

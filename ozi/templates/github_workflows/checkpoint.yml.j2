@@ -49,14 +49,23 @@
           tox -e ${{ matrix.ozi }}
 {%- endraw %}
 
-      - name: Logging Failures
+      - name: Logging Checkpoint Failures
 {%- raw %}
         if: ${{ steps.setup1.outcome == 'failure' }}
 {%- endraw %}
+        continue-on-error: true
         run: |
 {%- raw %}
           cat .tox/**/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
 {%- endraw %}
+
+      - name: Logging OZI/Meson Failures
+{%- raw %}
+        if: ${{ steps.setup1.outcome == 'failure' }}
+{%- endraw %}
+        continue-on-error: true
+        run: |
+          cat .tox/**/tmp/meson-logs/meson-log.txt
 
       - name: OZI utility setup (Second Try)
 {%- raw %}

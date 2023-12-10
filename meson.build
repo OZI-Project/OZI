@@ -78,6 +78,7 @@ pyproject_config.set(
     'py' + ''.join(python.language_version().split('.')),
 )
 pyproject_config.set('SCM_VERSION', meson.project_version())
+pyproject_config.set('VCS_TAG', '@VCS_TAG@')
 pyproject_config.set('README_TEXT', fs.read('README.rst'))
 pyproject_config.set('REQUIREMENTS_IN', '\n'.join(required))
 pyproject_config.set('PROJECT_NAME', project_name)
@@ -173,6 +174,7 @@ build_commands = {'dev': []}
 test_app_args = {}
 pip_repr = pip.full_path()
 run_command(python, ['-c', meson_setuptools_scm], check: true)
+vcs_tag(input: 'pyproject.toml', output: 'pyproject.toml')
 root_files = ['README.rst', 'CHANGELOG.md', 'LICENSE.txt']
 foreach source : root_files
     fs.copyfile(source)

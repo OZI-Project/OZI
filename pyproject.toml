@@ -59,7 +59,7 @@ Description-Content-Type: text/x-rst
 
 @README_TEXT@
 """
-version_file = "PKG-INFO.ozi"
+version_file = "PKG-INFO"
 # meson writes during configuration so that meson dist can have a valid version.
 fallback_version = "@VCS_TAG@"
 parentdir_prefix_version = "OZI-"
