@@ -416,12 +416,12 @@ class CI(Default):
 class CommentPatterns(Default):
     """Search patterns for source comments."""
 
-    pragma_no_cover: str = r'^.*#\s*(pragma|PRAGMA)[:\s]?\s*(no|NO)\s*(cover|COVER)'
+    pragma_no_cover: str = r'^.*#\\s*(pragma|PRAGMA)[:\\s]?\\s*(no|NO)\\s*(cover|COVER)'
     pragma_defer_to: str = (
-        r'^.*#\s*(pragma|PRAGMA)[:\s]?\s*(defer|DEFER)\s*(to|TO)\s*[a-zA-Z0-9_-]*'
+        r'^.*#\\s*(pragma|PRAGMA)[:\\s]?\\s*(defer|DEFER)\\s*(to|TO)\\s*[a-zA-Z0-9_-]*'
     )
-    noqa: str = r'^.*#\s*(noqa|NOQA)[:\s]?\s*[a-zA-Z0-9_]*'
-    type: str = r'^.*#\s*(type|TYPE)[:\s]?\s(ignore|IGNORE)'
+    noqa: str = r'^.*#\\s*(noqa|NOQA)[:\\s]?\\s*[a-zA-Z0-9_]*'
+    type: str = r'^.*#\\s*(type|TYPE)[:\\s]?\\s(ignore|IGNORE)'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -584,7 +584,7 @@ class PkgPattern(Default):
     """Regex patterns (or deferrals) for PKG-INFO headers."""
 
     name: str = r'^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9]){1,80}$'
-    version: str = r'^(?P<prefix>v)?(?P<version>[^\+]+)(?P<suffix>.*)?$'
+    version: str = r'^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$'
     keywords: str = r'^(([a-z_]*[a-z0-9],)*{2,650})$'
     email: str = 'defer to RFC'
     license: str = 'defer to SPDX'
@@ -633,13 +633,12 @@ class Build(Default):
     backend: str = 'mesonpep517.buildapi'
     requires: Mapping[str, str] = field(
         default_factory=lambda: {
-            'mesonpep517': 'mesonpep517',
-            'meson': 'meson>=1.1.0',
-            'ninja': 'ninja',
-            'pip-tools': 'pip-tools',
+            'mesonpep517': 'mesonpep517>=0.2',
+            'meson': 'meson[ninja]>=1.1.0',
+            'pip-tools': 'pip-tools>=7',
             'setuptools': 'setuptools>=64',
-            'setuptools_scm': 'setuptools_scm[toml]>=6.2',
-            'tomli': 'tomli>=2.0.0',
+            'setuptools_scm': 'setuptools_scm>=8.0',
+            'tomli': 'tomli>=2.0.0;python_version<3.11',
         },
     )
 

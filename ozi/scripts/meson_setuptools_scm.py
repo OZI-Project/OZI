@@ -6,11 +6,12 @@
 """deploy python PKG-INFO template for meson based on pyproject file."""
 
 import os
+import sys
 from pathlib import Path
 
-try:
-    import toml
-except ModuleNotFoundError:
+if sys.version_info >= (3, 11):  # pragma: no cover
+    import tomllib as toml
+elif sys.version_info <= (3, 10):  # pragma: no cover
     import tomli as toml
 
 source = '/' / Path(
@@ -19,10 +20,9 @@ source = '/' / Path(
         '/',
     ),
 )
-project_file = (source / 'pyproject.toml.ozi').open()
-pyproject_toml = toml.loads(project_file.read())
-project_file.close()
+with (source / 'pyproject.toml').open('rb') as project_file:
+    pyproject_toml = toml.load(project_file)
 setuptools_scm = pyproject_toml.get('tool', {}).get('setuptools_scm', {})
-Path(source / setuptools_scm.get('write_to')).write_text(
-    setuptools_scm.get('write_to_template')
+Path(source / setuptools_scm.get('version_file')).write_text(
+    setuptools_scm.get('version_file_template')
 )

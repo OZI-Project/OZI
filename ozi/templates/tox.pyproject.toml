@@ -24,11 +24,11 @@ deps =
 {%- for requires in spec.python.build.requires.values() %}
    {{ requires }}
 {%- endfor %}
+   -r requirements.in
 commands =
    meson setup {env_tmp_dir} -D{{ suite }}=enabled --reconfigure
    meson compile -C {env_tmp_dir}
    rm -rf {env_tmp_dir}/.gitignore
-   pip install -q .
    meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup={{ suite }}
 {%- endfor %}
 

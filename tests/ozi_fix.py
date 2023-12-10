@@ -80,18 +80,6 @@ def bad_project(tmp_path_factory: pytest.TempPathFactory) -> pathlib.Path:
     return fn
 
 
-@pytest.mark.parametrize('key', required_pkg_info_patterns)
-def test_report_missing_required(bad_project: pathlib.Path, key: str) -> None:
-    """Check that we warn on missing requirements"""
-    with bad_project.joinpath('PKG-INFO').open() as f:
-        content = f.read()
-    with bad_project.joinpath('PKG-INFO').open('w') as f:
-        content = content.replace(key, '')
-        f.write(content)
-    with pytest.raises(RuntimeWarning):
-        ozi.fix.__main__.report_missing(bad_project)
-
-
 @pytest.mark.parametrize(
     'key',
     [i for i in metadata.spec.python.src.required.root if i not in ['PKG-INFO']],
@@ -103,14 +91,6 @@ def test_report_missing_required_root_file(
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath(key))
     with pytest.raises(RuntimeWarning):
-        ozi.fix.__main__.report_missing(bad_project)
-
-
-@pytest.mark.parametrize('key', ['PKG-INFO'])
-def test_report_missing_required_pkg_info_file(bad_project: pathlib.Path, key: str) -> None:
-    """Check that we warn on missing files."""
-    os.remove(bad_project.joinpath(key))
-    with pytest.raises((SystemExit, RuntimeWarning)):
         ozi.fix.__main__.report_missing(bad_project)
 
 

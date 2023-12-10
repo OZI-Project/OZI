@@ -6,9 +6,12 @@
 """python template: check core metadata"""
 import os
 import pathlib
+import sys
 
-#
-import tomli
+if sys.version_info >= (3, 11):  # pragma: no cover
+    import tomllib as toml
+elif sys.version_info <= (3, 10):  # pragma: no cover
+    import tomli as toml
 
 # pylint: disable=consider-using-with
 source = pathlib.Path(
@@ -18,7 +21,7 @@ source = pathlib.Path(
     ),
 )
 project_file = open(source / 'pyproject.toml', 'rb')
-pyproject_toml = tomli.load(project_file)
+pyproject_toml = toml.load(project_file)
 project_file.close()
 core_metadata = pyproject_toml.get('project', {'optional_dependencies': {}})
 print(core_metadata.get('optional_dependencies', {'todo': []}).get('@0@', 'fail'))

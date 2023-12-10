@@ -13,5 +13,5 @@ build = '/' / Path(
         '/',
     ),
 )
-file = build / 'pyproject.toml.ozi'
+file = build / 'pyproject.toml'
 file.write_text(file.read_text().replace('# target-version', 'target-version'))

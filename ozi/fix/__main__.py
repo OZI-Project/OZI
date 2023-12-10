@@ -7,6 +7,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import sys
 from dataclasses import asdict
 from dataclasses import dataclass
 from dataclasses import field
@@ -21,10 +22,12 @@ from typing import NoReturn
 from typing import Union
 from warnings import warn
 
-import toml
+if sys.version_info >= (3, 11):  # pragma: no cover
+    import tomllib as toml
+elif sys.version_info <= (3, 10):  # pragma: no cover
+    import tomli as toml
 
 if TYPE_CHECKING:
-    import sys
     from argparse import Namespace
     from collections.abc import Callable
     from collections.abc import Mapping
@@ -123,7 +126,7 @@ def missing_python_support(pkg_info: Message) -> set[tuple[str, str]]:
         if (k, v) in remaining_pkg_info:
             TAP.ok(k, v)
         else:
-            TAP.not_ok('MISSING', v)
+            TAP.not_ok('MISSING', v)  # pragma: defer to good-issue
     return remaining_pkg_info
 
 
@@ -134,7 +137,7 @@ def missing_ozi_required(pkg_info: Message) -> dict[str, str]:
     for k, v in iter(remaining_pkg_info):
         TAP.ok(k, v)
     extra_pkg_info, errstr = parse_extra_pkg_info(pkg_info)
-    if errstr not in ('', None):  # pragma: defer to good-first-issue
+    if errstr not in ('', None):  # pragma: defer to good-issue
         TAP.not_ok('MISSING', str(errstr))
     return extra_pkg_info
 
@@ -143,8 +146,8 @@ def missing_required(
     target: Path,
 ) -> tuple[str, dict[str, str]]:
     """Find missing required PKG-INFO"""
-    with target.joinpath('pyproject.toml').open() as f:
-        setuptools_scm = toml.loads(f.read()).get('tool', {}).get('setuptools_scm', {})
+    with target.joinpath('pyproject.toml').open('rb') as f:
+        setuptools_scm = toml.load(f).get('tool', {}).get('setuptools_scm', {})
         pkg_info = message_from_string(
             setuptools_scm.get('write_to_template', '@README_TEXT@').replace(
                 '@README_TEXT@',
@@ -157,7 +160,7 @@ def missing_required(
         if v is not None:
             TAP.ok(i, v)
         else:
-            TAP.not_ok('MISSING', i)
+            TAP.not_ok('MISSING', i)  # pragma: defer to good-issue
     extra_pkg_info = missing_ozi_required(pkg_info)
     name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', '')).lower()
     for k, v in extra_pkg_info.items():

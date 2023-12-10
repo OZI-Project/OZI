@@ -5,12 +5,12 @@
 [build-system]
 build-backend = "mesonpep517.buildapi"
 requires      = [
-    "mesonpep517",
-    "ninja",
-    "pip-tools",
+    "mesonpep517>=0.2",
+    "meson[ninja]>=1.1.0",
+    "pip-tools>=7",
     "setuptools>=64",
-    "setuptools_scm[toml]>=6.2",
-    "tomli",
+    "setuptools_scm>=8.0",
+    'tomli>=2.0.0;python_version<"3.11"',
 ]
 
 [tool.mesonpep517.entry-points]
@@ -21,34 +21,23 @@ console_scripts = [
 ]
 
 [tool.mesonpep517.metadata]
-pkg-info-file = 'PKG-INFO.ozi'
+pkg-info-file = 'build/PKG-INFO'
 summary = 'Packager for Python projects using Meson.'
 
 [tool.setuptools_scm]
-write_to_template = """
+version_file_template = """
 Metadata-Version: 2.1
-Name: OZI
-Version: @VCS_TAG@
+Name: @PROJECT_NAME@
+Version: @SCM_VERSION@
 Summary: Packager for Python projects using Meson.
-Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/@VCS_TAG@.tar.gz
+Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/@SCM_VERSION@.tar.gz
 Home-page: https://oziproject.dev/
 Author: Ross J. Duff MSc
 Author-email: help@oziproject.dev
-License: Apache-2.0 WITH LLVM-exception
+License: @LICENSE@
 Keywords: meson,packaging,wheel
 Project-URL: Bug Tracker, https://github.com/rjdbcm/ozi/issues
-Requires-Dist: dnspython
-Requires-Dist: meson>=1.1.0
-Requires-Dist: idna
-Requires-Dist: jinja2
-Requires-Dist: pyparsing
-Requires-Dist: requests
-Requires-Dist: spdx-license-list
-Requires-Dist: trove-classifiers
-Requires-Dist: pip-tools
-Requires-Dist: GitPython
-Requires-Dist: types-requests
-Requires-Dist: typing-extensions;python_version=="3.10"
+@REQUIREMENTS_IN@
 Requires-External: git
 Requires-Python: >=3.10, <=3.12
 Classifier: Development Status :: 2 - Pre-Alpha
@@ -70,7 +59,7 @@ Description-Content-Type: text/x-rst
 
 @README_TEXT@
 """
-write_to = "PKG-INFO.ozi"
+version_file = "PKG-INFO.ozi"
 # meson writes during configuration so that meson dist can have a valid version.
 fallback_version = "@VCS_TAG@"
 parentdir_prefix_version = "OZI-"
@@ -352,11 +341,11 @@ deps =
      pip-tools
      setuptools_scm[toml]
      tomli >= 2.0.0
+    -r requirements.in
 commands =
      meson setup {env_tmp_dir} -Ddist=enabled
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
-     pip install -q .
      meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=dist
 
 [testenv:lint]
@@ -369,11 +358,11 @@ deps =
      pip-tools
      setuptools_scm[toml]
      tomli >= 2.0.0
+     -r requirements.in
 commands =
      meson setup {env_tmp_dir} -Dlint=enabled
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
-     pip install -q .
      meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=lint
 
 [testenv:test]
@@ -386,11 +375,11 @@ deps =
      pip-tools
      setuptools_scm[toml]
      tomli >= 2.0.0
+     -r requirements.in
 commands =
      meson setup {env_tmp_dir} -Dtest=enabled
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
-     pip install -q .
      meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=test
 
 [testenv:fix]

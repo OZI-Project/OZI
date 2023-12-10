@@ -101,6 +101,7 @@
       id: wheel
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
       run: |
+        meson setup build
         python -m build -w
 {% include 'github_workflows/pyc_wheel.yml.j2' %}
 {%- raw %}

@@ -5,13 +5,13 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
 Metadata-Version: {{ spec.python.support.metadata_version }}
-Name: {{ project.name }}
-Version: {% if filename == 'PKG-INFO' %}0.0.0{% else %}{% raw %}@VCS_TAG@{% endraw %}{% endif %}
+Name: @PROJECT_NAME@
+Version: @SCM_VERSION@
 Summary: {{ project.summary }}
 Home-page: {{ project.home_page }}
 Author: {{ project.author|join(',') }}
 Author-email: {{ project.author_email|join(',') }}
-License: {{ project.license_expression }}
+License: @LICENSE@
 {%- if project.maintainer|length %}
 Maintainer: {{ project.maintainer|join(',') }}
 {%- endif %}
@@ -19,7 +19,7 @@ Maintainer: {{ project.maintainer|join(',') }}
 Maintainer-email: {{ project.maintainer_email|join(',') }}
 {%- endif %}
 {%- if project.ci_provider == 'github' %}
-Download-URL: https://github.com/{{ project.ci_user }}/{{ project.name }}/archive/refs/tags/{% if filename == 'PKG-INFO' %}0.0.0{% else %}{% raw %}@VCS_TAG@{% endraw %}{% endif %}.tar.gz
+Download-URL: https://github.com/{{ project.ci_user }}/{{ project.name }}/archive/refs/tags/@SCM_VERSION@.tar.gz
 {%- endif %}
 Requires-Python: >= {{ spec.python.support.security }}, <= {{ spec.python.support.bugfix1 }}
 {%- if project.keywords|length %}
@@ -57,9 +57,7 @@ Classifier: Framework :: {{ framework }}
 {%- for environment in project.environment %}
 Classifier: Environment :: {{ environment }}
 {%- endfor %}
-{%- for req in project.dist_requires %}
-Requires-Dist: {{ req }}
-{%- endfor %}
+@REQUIREMENTS_IN@
 {%- if project.requires_external|length %}
 Requires-External: {{ project.requires_external|join(',') }}
 {%- endif %}

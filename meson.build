@@ -66,11 +66,27 @@ python = pymod.find_installation(
     required: true,
     disabler: true,
 )
-pyproject_config.set('PYTHON_VERSION_DIST', 'py'+''.join(python.language_version().split('.')))
-pyproject_config.set('VCS_TAG', '@VCS_TAG@')
+pkg_info_req = 'Requires-Dist: @0@'
+required = []
+foreach requirement : fs.read('requirements.in').split('\n')
+    if requirement != '' and not requirement.startswith('#')
+        required += pkg_info_req.format(requirement)
+    endif
+endforeach
+pyproject_config.set(
+    'PYTHON_VERSION_DIST',
+    'py' + ''.join(python.language_version().split('.')),
+)
+pyproject_config.set('SCM_VERSION', meson.project_version())
 pyproject_config.set('README_TEXT', fs.read('README.rst'))
-pre_pyproject = configure_file(input: 'pyproject.toml', output: 'pyproject.toml.ozi', configuration: pyproject_config)
-
+pyproject_config.set('REQUIREMENTS_IN', '\n'.join(required))
+pyproject_config.set('PROJECT_NAME', project_name)
+pyproject_config.set('LICENSE', meson.project_license()[0])
+configure_file(
+    input: 'pyproject.toml',
+    output: 'pyproject.toml',
+    configuration: pyproject_config,
+)
 meson_setuptools_scm = run_command(
     python,
     [
@@ -116,9 +132,7 @@ to_distribution = run_command(
     python,
     [
         '-c',
-        python_readlines.format(
-            scripts / 'to_distribution_template.py'
-        ),
+        python_readlines.format(scripts / 'to_distribution_template.py'),
     ],
     check: true,
 ).stdout()
@@ -126,16 +140,13 @@ replace_ruff_target_version = run_command(
     python,
     [
         '-c',
-        python_readlines.format(
-            scripts / 'replace_ruff_target_version.py'
-        ),
+        python_readlines.format(scripts / 'replace_ruff_target_version.py'),
     ],
     check: true,
 ).stdout()
 run_command(python, ['-c', replace_ruff_target_version], check: true)
 pip = find_program('pip', required: true, disabler: true)
 pip_compile = find_program('pip-compile', required: true)
-vcs_tag(input: pre_pyproject, output: 'pyproject.toml')
 requirements = ['requirements.in']
 custom_target(
     'requirements-ozi',
@@ -143,7 +154,15 @@ custom_target(
     output: 'requirements.txt',
     build_always_stale: true,
     build_by_default: true,
-    command: ['pip-compile', '--allow-unsafe', '--strip-extras', '-q', '--generate-hashes', '-o', '@OUTPUT@', '@INPUT@']
+    command: [
+        'pip-compile',
+        '--allow-unsafe',
+        '--strip-extras',
+        '-q',
+        '--generate-hashes',
+        '-o', '@OUTPUT@',
+        '@INPUT@',
+    ],
 )
 source_to_build.enable_auto_if(source_to_build.auto())
 docs_source = 'docs'
@@ -154,17 +173,6 @@ build_commands = {'dev': []}
 test_app_args = {}
 pip_repr = pip.full_path()
 run_command(python, ['-c', meson_setuptools_scm], check: true)
-pkg_info = configure_file(
-    input: meson.project_build_root() / 'PKG-INFO.ozi',
-    output: 'PKG-INFO.cfg',
-    configuration: configuration_data(
-        {
-            'README_TEXT': fs.read('README.rst'),
-            'VCS_TAG': '@VCS_TAG@'
-        }
-    ),
-)
-vcs_tag(input: pkg_info, output: 'PKG-INFO')
 root_files = ['README.rst', 'CHANGELOG.md', 'LICENSE.txt']
 foreach source : root_files
     fs.copyfile(source)
@@ -178,7 +186,7 @@ if get_option('ozi-blastpipe').enabled()
     # END BOOTSTRAP SCRIPT
 endif
 root_children = ['ozi', 'tests']
-foreach child: root_children
+foreach child : root_children
     subdir(child)
 endforeach
 
@@ -196,7 +204,7 @@ foreach name : namespace
         suite = get_option(name)
         suite.enable_auto_if(dev.enabled())
         set_variable(name, suite)
-        if suite.enabled() and command not in plugin_only+module_only
+        if suite.enabled() and command not in plugin_only + module_only
             flag = find_program(
                 command,
                 required: false,
@@ -213,16 +221,21 @@ foreach name : namespace
             '-r',
             build_root / 'ozi' / name / command / 'requirements.txt',
         ]
-        if get_option('dev').enabled() or get_variable(name).enabled() and command not in plugin_only
+        if (
+            get_option('dev').enabled()
+            or get_variable(name).enabled()
+            and command not in plugin_only
+        )
             run_command(
-                pip_compile,  
+                pip_compile,
                 [
                     '-q',
                     '--allow-unsafe',
                     '--strip-extras',
                     '--generate-hashes',
-                    '-o', build_root / 'ozi' / name / command / 'requirements.txt',
-                    'ozi' / name / command / 'requirements.in'
+                    '-o',
+                    build_root / 'ozi' / name / command / 'requirements.txt',
+                    'ozi' / name / command / 'requirements.in',
                 ],
                 check: true,
             )
@@ -248,7 +261,7 @@ pymod.find_installation(
     'python3',
     modules: modules,
     required: false,
-    disabler: true
+    disabler: true,
 )
 # END checkpoint-suite-install
 
@@ -264,7 +277,7 @@ foreach name : namespace
             header = [emoji, 'meson', 'test', '--suite=@0@'.format(suite)]
             feature = get_variable(suite)
             if feature.enabled()
-                if app not in plugin_only+module_only
+                if app not in plugin_only + module_only
                     if app not in no_version
                         summary(
                             {
@@ -311,7 +324,14 @@ foreach name : namespace
                     if app in module_only
                         fallback_version = run_command(
                             pip,
-                            ['show', run_command(python, ['-c', to_distribution.format(app)], kwargs: no_check).stdout()],
+                            [
+                                'show',
+                                run_command(
+                                    python,
+                                    ['-c', to_distribution.format(app)],
+                                    kwargs: no_check,
+                                ).stdout(),
+                            ],
                             kwargs: no_check,
                         ).stdout().split('\n')
                     else
@@ -328,12 +348,16 @@ foreach name : namespace
                     endif
                     if app in no_version
                         summary(
-                            {' '.join(emoji_metadata_version, app): fallback_version},
+                            {
+                                ' '.join(emoji_metadata_version, app): fallback_version,
+                            },
                             section: ' '.join(header),
                         )
                     else
                         summary(
-                            {' '.join(emoji_metadata_version, app): packaged_version},
+                            {
+                                ' '.join(emoji_metadata_version, app): packaged_version,
+                            },
                             section: ' '.join(header),
                         )
                     endif
@@ -349,18 +373,19 @@ endforeach
 add_test_setup('dev', is_default: true, env: env)
 env.append('TESTS_BUILDDIR', build_root)
 no_check = {'check': false, 'env': env}
-opt_cov_eq_project_name = '--cov='+project_name
+opt_cov_eq_project_name = '--cov=' + project_name
 build_commands = {'dev': []}
-foreach name: namespace
+foreach name : namespace
     add_test_setup(
         name,
-        exclude_suites: get_option(name+'-exclude-suites'),
-        timeout_multiplier: get_option(name+'-timeout-multiplier'))
-    set_variable(name+'_kwargs', {'suite': name, 'env': env})
-    command_names = get_option(name+'-suite')
-    foreach command: command_names
+        exclude_suites: get_option(name + '-exclude-suites'),
+        timeout_multiplier: get_option(name + '-timeout-multiplier'),
+    )
+    set_variable(name + '_kwargs', {'suite': name, 'env': env})
+    command_names = get_option(name + '-suite')
+    foreach command : command_names
         if command not in plugin_only
-            _args = get_option('args-'+command)
+            _args = get_option('args-' + command)
         else
             _args = []
         endif
@@ -374,14 +399,14 @@ foreach name: namespace
                 elif arg.endswith('@/')
                     arg = get_variable(arg.replace('@/', '')) + '/'
                 else
-                    warning(arg+' unknown')
+                    warning(arg + ' unknown')
                 endif
             endif
             command_args += arg
         endforeach
         if command in ['pytest']
             test_paths = []
-            foreach file: test_files
+            foreach file : test_files
                 test_paths += ['tests' / file]
             endforeach
             command_args = test_paths + command_args
@@ -391,7 +416,12 @@ foreach name: namespace
                 if app in module_only
                     args = ['-m', app.replace('-', '_'), args]
                 endif
-                args = {'args': args, 'env': env, 'priority': get_option(name+'-priority'), 'suite': name}
+                args = {
+                    'args': args,
+                    'env': env,
+                    'priority': get_option(name + '-priority'),
+                    'suite': name,
+                }
                 if app in should_fail
                     args += {'should_fail': true}
                 endif

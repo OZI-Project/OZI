@@ -173,6 +173,7 @@ jobs:
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
       id: wheel
       run: |
+        meson setup build
         python -m build -w
         python -m pyc_wheel dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
