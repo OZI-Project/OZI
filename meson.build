@@ -98,6 +98,16 @@ meson_setuptools_scm = run_command(
     ],
     check: true,
 ).stdout()
+meson_dist_setuptools_scm = run_command(
+    python,
+    [
+        '-c',
+        python_readlines.format(
+            scripts / 'meson_dist_setuptools_scm.py',
+        ),
+    ],
+    check: true,
+).stdout()
 core_metadata = run_command(
     python,
     [
@@ -174,6 +184,7 @@ build_commands = {'dev': []}
 test_app_args = {}
 pip_repr = pip.full_path()
 configure_file(command: [python, '-c', meson_setuptools_scm], output: 'PKG-INFO')
+meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.toml')
 root_files = ['README.rst', 'CHANGELOG.md', 'LICENSE.txt']
 foreach source : root_files
