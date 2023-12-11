@@ -3,6 +3,8 @@
 
 ### :bug:
 
+* :bug:: Remove tomli from sanity check deps. ([`c02c26d`](https://github.com/rjdbcm/OZI/commit/c02c26d3abcfddef29414afb7cccf9ae60d6d0a0))
+
 * :bug:: Correct version_info import guards. ([`fd749fa`](https://github.com/rjdbcm/OZI/commit/fd749fad6a2d97077b5c4d945f4a9189103c25d8))
 
 * :bug:: Simplify PKG-INFO deployment and add a meson-log.txt to checkpoint workflow failure printing. ([`a0b9a26`](https://github.com/rjdbcm/OZI/commit/a0b9a268737ff8d4eabd28460b9cfe41b664b5e1))
