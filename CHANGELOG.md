@@ -1,4 +1,36 @@
 # CHANGELOG
+## 0.0.230 (2023-12-11)
+
+### :bug:
+
+* :bug:: Correct version_info import guards. ([`fd749fa`](https://github.com/rjdbcm/OZI/commit/fd749fad6a2d97077b5c4d945f4a9189103c25d8))
+
+* :bug:: Simplify PKG-INFO deployment and add a meson-log.txt to checkpoint workflow failure printing. ([`a0b9a26`](https://github.com/rjdbcm/OZI/commit/a0b9a268737ff8d4eabd28460b9cfe41b664b5e1))
+
+* :bug: Partial revert of last commit.
+
+Remove ``sync_pkg_readme.py`` script.
+Store a truncated ``PKG-INFO`` file in the project root called ``PKG-INFO.ozi``, this is a fallback to allow for local installation of OZI with ``pip install .``.
+Meson uses ``vcs_tag`` to write the SCM supplied version tag. ([`1ebc27f`](https://github.com/rjdbcm/OZI/commit/1ebc27f2f3fae0312f69eb9b7f0ce64f7c48ac67))
+
+### :hammer:
+
+* :hammer:(ozi-new,ozi-fix,spec): PKG-INFO now concealed in build system rather than being at the project root.
+
+This is fairly standard although explicit PKG-INFO configuration-time template is provided in ``[tool.setuptools_scm]`` and configured by the ``ozi-new`` rendered build script.
+
+The string ``@README_TEXT@`` is replaced with the contents of ``README.rst`` at meson configuration-time. ([`546f74d`](https://github.com/rjdbcm/OZI/commit/546f74da81a807ceb2259199a8209c5420ef7790))
+
+### :pencil2:
+
+* :pencil2:: Fix some no cover comments. ([`d8f79c6`](https://github.com/rjdbcm/OZI/commit/d8f79c66fc168a697f4bf3cd0711790bda603365))
+
+* :pencil2:: Fix PKG-INFO, deployment at build config time only. ([`18b2995`](https://github.com/rjdbcm/OZI/commit/18b299521d08105450e60e2668d11a8b98a8f702))
+
+### Other
+
+* Run formatter. ([`65e79a5`](https://github.com/rjdbcm/OZI/commit/65e79a54e39991c3ccef6e6ac2e0782c5b3bdbfe))
+
 ## 0.0.229 (2023-12-05)
 
 ### :bug:
@@ -286,7 +318,7 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/rj
 
 * :bug:: Fix missing Self type annotation on 3.10 builds. ([`67059e3`](https://github.com/rjdbcm/OZI/commit/67059e32d6f168b0b96570c27b282d48928b5c9b))
 
-### :wrench:
+### :hammer:
 
 * :hammer::wrench:: Major refactor iteration.
 
@@ -571,7 +603,7 @@ Fix minor changelog format issues. ([`f53f628`](https://github.com/rjdbcm/OZI/co
 
 ## 0.0.175 (2023-10-31)
 
-### :children_crossing:
+### :bug:
 
 * :children_crossing::bug:(CI): Fix retry of OZI utility checkpoint. ([`20b122d`](https://github.com/rjdbcm/OZI/commit/20b122d892dcbea1b70a59937015821e19bcfc81))
 
@@ -595,7 +627,7 @@ Fix minor changelog format issues. ([`f53f628`](https://github.com/rjdbcm/OZI/co
 
 ## 0.0.172 (2023-10-30)
 
-### :children_crossing:
+### :bug:
 
 * :children_crossing::bug:(ozi-fix): Adding a source subdirectory now includes the __init__.py ([`1403d36`](https://github.com/rjdbcm/OZI/commit/1403d36b170797d676f8f36675ef83b2fb34c4bb))
 
@@ -923,9 +955,11 @@ It is likely I will move it to it&#39;s own module as well. ([`a796bd3`](https:/
 
 ## 0.0.143 (2023-10-04)
 
-### :pushpin:
+### :pencil2:
 
 * :pushpin::pencil2:: Forgot to bump Python for OZI&#39;s distribution. ([`c0e07d4`](https://github.com/rjdbcm/OZI/commit/c0e07d41c8ee1c21d2f7bc395322b493cbb6c7a3))
+
+### :pushpin:
 
 * :pushpin:: Deprecate Python version 3.9
 
@@ -1345,13 +1379,13 @@ AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
 
 * :hammer:: Use a streaming request to generate hashes for wrapfile. ([`e27546d`](https://github.com/rjdbcm/OZI/commit/e27546d17183ab85e5e8af9bd6416cac01328594))
 
+### :heavy_plus_sign:
+
+* :heavy_plus_sign:: Add ``requests`` to dependencies. ([`5e65e34`](https://github.com/rjdbcm/OZI/commit/5e65e340617f04e4b16985c6218edfa51f2a3056))
+
 ### :pencil2:
 
 * :pencil2:: Fix file permissions. ([`a6d033a`](https://github.com/rjdbcm/OZI/commit/a6d033afc8edb60477d9f9d7aa8e6f9e4b6575bc))
-
-### Other
-
-* :heavy_plus_sign:: Add ``requests`` to dependencies. ([`5e65e34`](https://github.com/rjdbcm/OZI/commit/5e65e340617f04e4b16985c6218edfa51f2a3056))
 
 ## 0.0.103 (2023-09-16)
 
@@ -1568,7 +1602,7 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/rjdbcm
 
 * :bug:: Fix PKG-INFO whitespace. ([`eabd4cc`](https://github.com/rjdbcm/OZI/commit/eabd4cccdc594df90e818b48fb9f2c03b50a8496))
 
-### Other
+### :lipstick:
 
 * :lipstick:: Fix jinja header comment rendering. ([`b5db826`](https://github.com/rjdbcm/OZI/commit/b5db826e3f56a9c17ecd906e8bc32fc2edfc500e))
 
@@ -2108,7 +2142,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 ## 0.0.38 (2023-09-01)
 
-### :wrench:
+### :pencil2:
 
 * :pencil2::wrench:: Fix wheel build. ([`a335272`](https://github.com/rjdbcm/OZI/commit/a3352728a55f875f6cbd569b6340dac06dec8d5d))
 
@@ -2156,7 +2190,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/rjdbcm/
 
 * :fire:: remove duplicate workflow scripts folder. ([`239ef1a`](https://github.com/rjdbcm/OZI/commit/239ef1a110fb2766cc5b0c8ec14c203ab5edacca))
 
-### :wrench:
+### :pencil2:
 
 * :pencil2::wrench:: Fix unquoted string in build. ([`5a9feb4`](https://github.com/rjdbcm/OZI/commit/5a9feb4842bba3b5b1efd653b833b3d9c5922ddf))
 
