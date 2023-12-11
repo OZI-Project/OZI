@@ -3,6 +3,8 @@
 
 ### :bug:
 
+* :bug:: Still need to install local before sdist build. ([`e15d773`](https://github.com/rjdbcm/OZI/commit/e15d77323549c4e4f93e52544f8cb87a3c616133))
+
 * :bug:: Fix sdist build invocation. ([`33626d6`](https://github.com/rjdbcm/OZI/commit/33626d6f8085aa9b32326e578b22dd34bbf10ed1))
 
 * :bug:: Remove tomli from sanity check deps. ([`c02c26d`](https://github.com/rjdbcm/OZI/commit/c02c26d3abcfddef29414afb7cccf9ae60d6d0a0))
