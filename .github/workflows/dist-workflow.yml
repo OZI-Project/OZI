@@ -192,6 +192,7 @@ jobs:
       run: |
         meson setup build
         pip install .
+        pip install --user --upgrade tomli
         meson dist -C build --formats gztar --no-tests
         mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
         sigstore sign dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz
