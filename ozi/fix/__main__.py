@@ -165,7 +165,9 @@ def missing_required(
             TAP.not_ok('MISSING', i)  # pragma: defer to good-issue
     extra_pkg_info = missing_ozi_required(pkg_info)  # pragma: defer to good-issue
     name = re.sub(
-        r'[-_.]+', '-', pkg_info.get('Name', ''),
+        r'[-_.]+',
+        '-',
+        pkg_info.get('Name', ''),
     ).lower()  # pragma: defer to good-issue
     for k, v in extra_pkg_info.items():  # pragma: defer to good-issue
         TAP.ok(k, v)
@@ -326,13 +328,19 @@ def report_missing(
         name = ''
         TAP.not_ok('MISSING', 'PKG-INFO')
     found_source_files = missing_required_files(
-        'source', target, name,
+        'source',
+        target,
+        name,
     )  # pragma: defer to good-issue
     found_test_files = missing_required_files(
-        'test', target, name,
+        'test',
+        target,
+        name,
     )  # pragma: defer to good-issue
     found_root_files = missing_required_files(
-        'root', target, name,
+        'root',
+        target,
+        name,
     )  # pragma: defer to good-issue
     all_files = (  # pragma: defer to TAP-Consumer
         ['PKG-INFO'],
