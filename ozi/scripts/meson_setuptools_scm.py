@@ -11,7 +11,7 @@ from pathlib import Path
 
 if sys.version_info >= (3, 11):  # pragma: no cover
     import tomllib as toml
-elif sys.version_info <= (3, 10):  # pragma: no cover
+elif sys.version_info < (3, 11):  # pragma: no cover
     import tomli as toml
 
 source = '/' / Path(
