@@ -22,7 +22,7 @@ option(
     'python-dependencies',
     type: 'array',
     description: 'sanity check module dependencies',
-    value: ['setuptools_scm', 'tomli', 'piptools', 'setuptools', 'ninja', 'mesonbuild'],
+    value: ['setuptools_scm', 'piptools', 'setuptools', 'ninja', 'mesonbuild'],
 )
 
 option(
