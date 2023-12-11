@@ -173,7 +173,7 @@ install = ['install']
 build_commands = {'dev': []}
 test_app_args = {}
 pip_repr = pip.full_path()
-run_command(python, ['-c', meson_setuptools_scm], check: true)
+configure_file(command: [python, '-c', meson_setuptools_scm], output: 'PKG-INFO')
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.toml')
 root_files = ['README.rst', 'CHANGELOG.md', 'LICENSE.txt']
 foreach source : root_files

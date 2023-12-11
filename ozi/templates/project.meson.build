@@ -82,7 +82,7 @@ run_command(python, ['-c', replace_ruff_target_version], check: true)
 {#- END config MESON_BUILD_ROOT/pyproject.toml #}
 
 {#- BEGIN config MESON_SOURCE_ROOT/PKG-INFO #}
-run_command(python, ['-c', meson_setuptools_scm], check: true)
+configure_file(command: [python, '-c', meson_setuptools_scm], output: 'PKG-INFO')
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.toml')
 {#- END config MESON_SOURCE_ROOT/PKG-INFO #}
 root_files = [
