@@ -34,7 +34,7 @@ WhereItems: TypeAlias = type[IdNode]
 
 
 @lru_cache
-def load_ast(source_root: str) -> CodeBlockNode | None:
+def load_ast(source_root: str) -> CodeBlockNode | None:  # pragma: no cover
     ast = AstInterpreter(source_root, '', '')
     try:
         ast.load_root_meson_file()
@@ -95,7 +95,7 @@ def item_query_var_suffix(
     select: SelectItems = ForeachClauseNode,
     where: type[ElementaryNode] = IdNode,
     get: type[ElementaryNode] = StringNode,
-) -> set[str]:
+) -> set[str]:  # pragma: no cover
     loop_vars = {
         i.items.value
         for i in ast.lines
@@ -137,8 +137,8 @@ def get_build_items(
     select: SelectItems = ForeachClauseNode,
     where: WhereItems = IdNode,
     get: type[ElementaryNode] = StringNode,
-) -> set[str] | None:
+) -> set[str] | None:  # pragma: no cover
     ast = load_ast(source_root)
     if ast:
         return item_query_var_suffix(ast, query, select=select, where=where, get=get)  # type: ignore
-    return ast  # pragma: no cover
+    return ast

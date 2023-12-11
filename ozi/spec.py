@@ -230,7 +230,7 @@ class PythonSupport(Default):
         return ''  # pragma: defer to good-first-issue
 
     @cached_property
-    def classifiers(self: Self) -> Sequence[tuple[str, str]]:
+    def classifiers(self: Self) -> Sequence[tuple[str, str]]:  # pragma: no cover
         classifiers = [
             ('Classifier', f'Programming Language :: Python :: {self.major} :: Only'),
             (

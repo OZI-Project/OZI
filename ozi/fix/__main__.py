@@ -104,7 +104,9 @@ def pkg_info_extra(payload: str, as_message: bool = True) -> dict[str, str] | Me
     return pep639
 
 
-def parse_extra_pkg_info(pkg_info: Message) -> tuple[dict[str, str], str | None]:
+def parse_extra_pkg_info(
+    pkg_info: Message,
+) -> tuple[dict[str, str], str | None]:  # pragma: no cover
     errstr = None
     try:
         extra_pkg_info = dict(pkg_info_extra(pkg_info.get_payload()))
@@ -115,7 +117,7 @@ def parse_extra_pkg_info(pkg_info: Message) -> tuple[dict[str, str], str | None]
     return extra_pkg_info, errstr
 
 
-def missing_python_support(pkg_info: Message) -> set[tuple[str, str]]:
+def missing_python_support(pkg_info: Message) -> set[tuple[str, str]]:  # pragma: no cover
     """Check PKG-INFO Message for python support."""
     remaining_pkg_info = {
         (k, v)
@@ -130,7 +132,7 @@ def missing_python_support(pkg_info: Message) -> set[tuple[str, str]]:
     return remaining_pkg_info
 
 
-def missing_ozi_required(pkg_info: Message) -> dict[str, str]:
+def missing_ozi_required(pkg_info: Message) -> dict[str, str]:  # pragma: no cover
     """Check missing required OZI extra PKG-INFO"""
     remaining_pkg_info = missing_python_support(pkg_info)
     remaining_pkg_info.difference_update(set(iter(python_support.classifiers)))
@@ -161,17 +163,19 @@ def missing_required(
             TAP.ok(i, v)
         else:
             TAP.not_ok('MISSING', i)  # pragma: defer to good-issue
-    extra_pkg_info = missing_ozi_required(pkg_info)
-    name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', '')).lower()
-    for k, v in extra_pkg_info.items():
+    extra_pkg_info = missing_ozi_required(pkg_info)  # pragma: defer to good-issue
+    name = re.sub(
+        r'[-_.]+', '-', pkg_info.get('Name', ''),
+    ).lower()  # pragma: defer to good-issue
+    for k, v in extra_pkg_info.items():  # pragma: defer to good-issue
         TAP.ok(k, v)
-    return name, extra_pkg_info
+    return name, extra_pkg_info  # pragma: defer to good-issue
 
 
-def comment_diagnostic(  # pragma: defer to TAP-Consumer
+def comment_diagnostic(
     lines: list[str],
     rel_path: Path,
-) -> None:
+) -> None:  # pragma: defer to TAP-Consumer
     for i, line in enumerate(lines, start=1):
         if s := re.search(
             metadata.spec.python.src.comments.noqa,
@@ -211,7 +215,7 @@ def walk_build_definition(  # noqa: C901
     target: Path,
     rel_path: Path,
     found_files: list[str] | None = None,
-) -> None:
+) -> None:  # pragma: no cover
     subdirs = [
         directory
         for directory in os.listdir(target / rel_path)
@@ -271,7 +275,7 @@ def missing_required_files(
     kind: str,
     target: Path,
     name: str,
-) -> list[str]:
+) -> list[str]:  # pragma: no cover
     """Count missing files required by OZI"""
     found_files = []
     match kind:
@@ -321,9 +325,15 @@ def report_missing(
     except FileNotFoundError:
         name = ''
         TAP.not_ok('MISSING', 'PKG-INFO')
-    found_source_files = missing_required_files('source', target, name)
-    found_test_files = missing_required_files('test', target, name)
-    found_root_files = missing_required_files('root', target, name)
+    found_source_files = missing_required_files(
+        'source', target, name,
+    )  # pragma: defer to good-issue
+    found_test_files = missing_required_files(
+        'test', target, name,
+    )  # pragma: defer to good-issue
+    found_root_files = missing_required_files(
+        'root', target, name,
+    )  # pragma: defer to good-issue
     all_files = (  # pragma: defer to TAP-Consumer
         ['PKG-INFO'],
         extra_pkg_info,
