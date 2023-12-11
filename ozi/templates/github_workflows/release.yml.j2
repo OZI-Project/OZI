@@ -116,7 +116,7 @@
       run: |
         meson setup build
         pip install .
-        python -m build -s
+        python -m build -n -s
 {%- raw %}
         mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
         sigstore sign dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz

@@ -191,7 +191,7 @@ jobs:
       run: |
         meson setup build
         pip install .
-        python -m build -s
+        python -m build -n -s
         mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
         sigstore sign dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore
