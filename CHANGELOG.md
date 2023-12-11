@@ -35,6 +35,10 @@ The string ``@README_TEXT@`` is replaced with the contents of ``README.rst`` at 
 
 ### Other
 
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`5e80fd0`](https://github.com/rjdbcm/OZI/commit/5e80fd0391190d438e7e01f4b3374544027279f0))
+
+* :construction_worker:: Turn build isolation off for sdist. ([`7e69072`](https://github.com/rjdbcm/OZI/commit/7e6907202bd69aa74a45a360218445181e300a25))
+
 * Run formatter. ([`65e79a5`](https://github.com/rjdbcm/OZI/commit/65e79a54e39991c3ccef6e6ac2e0782c5b3bdbfe))
 
 ## 0.0.229 (2023-12-05)
