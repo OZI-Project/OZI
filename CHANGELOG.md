@@ -3,6 +3,8 @@
 
 ### :bug:
 
+* :bug:: Fix sdist build invocation. ([`33626d6`](https://github.com/rjdbcm/OZI/commit/33626d6f8085aa9b32326e578b22dd34bbf10ed1))
+
 * :bug:: Remove tomli from sanity check deps. ([`c02c26d`](https://github.com/rjdbcm/OZI/commit/c02c26d3abcfddef29414afb7cccf9ae60d6d0a0))
 
 * :bug:: Correct version_info import guards. ([`fd749fa`](https://github.com/rjdbcm/OZI/commit/fd749fad6a2d97077b5c4d945f4a9189103c25d8))
