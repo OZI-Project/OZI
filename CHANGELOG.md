@@ -37,6 +37,10 @@ The string ``@README_TEXT@`` is replaced with the contents of ``README.rst`` at 
 
 ### Other
 
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`c019586`](https://github.com/rjdbcm/OZI/commit/c019586a586611c26524bbb2e968b0fb700c08af))
+
+* :construction_worker:: Deploy PKG-INFO into dist source tarball. ([`87019b0`](https://github.com/rjdbcm/OZI/commit/87019b096842d54185094ea6dfa6ca46aa1d9cec))
+
 * Make sure PKG-INFO is in sdist. ([`4b7f4da`](https://github.com/rjdbcm/OZI/commit/4b7f4da56f227c65fba5a6b2996612866c09d4a3))
 
 * :construction_worker:: Add mesonpep517 install to release env. ([`e5894f1`](https://github.com/rjdbcm/OZI/commit/e5894f1aed2e68db299888b06a5547ca1d9c2ca1))
