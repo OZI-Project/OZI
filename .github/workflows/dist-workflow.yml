@@ -190,6 +190,7 @@ jobs:
       if: matrix.py == 'py312'
       run: |
         meson setup build
+        pip install .
         python -m build -s
         mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
         sigstore sign dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz

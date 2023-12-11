@@ -115,6 +115,7 @@
       if: matrix.py == '{{ spec.python.support.bugfix1|wheel_repr }}'
       run: |
         meson setup build
+        pip install .
         python -m build -s
 {%- raw %}
         mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
