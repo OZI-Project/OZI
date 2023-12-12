@@ -33,7 +33,6 @@ WhereValue: TypeAlias = type[ArrayNode | DictNode | MethodNode | FunctionNode]
 WhereItems: TypeAlias = type[IdNode]
 
 
-@lru_cache
 def load_ast(source_root: str) -> CodeBlockNode | None:  # pragma: no cover
     ast = AstInterpreter(source_root, '', '')
     try:
@@ -41,6 +40,25 @@ def load_ast(source_root: str) -> CodeBlockNode | None:  # pragma: no cover
     except InvalidArguments:  # pragma: no cover
         return None
     return ast.ast
+
+
+def project_metadata(ast: CodeBlockNode) -> tuple[str, str]:
+    project_args = ast.lines[0].args.arguments  # pyright: ignore
+    default_options = ast.lines[0].args.kwargs  # pyright: ignore
+    license_ = [
+        v
+        for k, v in default_options.items()
+        if isinstance(k, IdNode) and k.value == 'license'
+    ][0]
+
+    if isinstance(license_, ArrayNode):  # pragma: no cover
+        license_ = license_.args.arguments[0]
+
+    license_ = license_.value  # pyright: ignore
+
+    project_name, *_ = (i.value for i in project_args if isinstance(i, StringNode))
+
+    return project_name, license_
 
 
 @lru_cache(typed=True)

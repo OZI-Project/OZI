@@ -53,6 +53,8 @@ from pyparsing import oneOf
 from ozi.filter import underscorify
 from ozi.fix.parser import parser
 from ozi.meson import get_build_items
+from ozi.meson import load_ast
+from ozi.meson import project_metadata
 from ozi.meson import query_build_value
 from ozi.render import env
 from ozi.spdx import spdx_license_expression
@@ -148,13 +150,21 @@ def missing_required(
     target: Path,
 ) -> tuple[str, dict[str, str]]:
     """Find missing required PKG-INFO"""
+    ast = load_ast(str(target))
+    name = ''
+    license_ = ''
+    if ast:
+        name, license_ = project_metadata(ast)
     with target.joinpath('pyproject.toml').open('rb') as f:
         setuptools_scm = toml.load(f).get('tool', {}).get('setuptools_scm', {})
         pkg_info = message_from_string(
-            setuptools_scm.get('write_to_template', '@README_TEXT@').replace(
+            setuptools_scm.get('write_to_template', '@README_TEXT@')
+            .replace(
                 '@README_TEXT@',
                 Path('README.rst').read_text(),
-            ),
+            )
+            .replace('@PROJECT_NAME@', name)
+            .replace('@LICENSE@', license_),
         )
         TAP.ok('setuptools_scm', 'PKG-INFO', 'template')
     for i in metadata.spec.python.pkg.info.required:
