@@ -184,6 +184,7 @@ build_commands = {'dev': []}
 test_app_args = {}
 pip_repr = pip.full_path()
 configure_file(command: [python, '-c', meson_setuptools_scm], output: 'PKG-INFO')
+meson.add_dist_script(pip, 'install', 'tomli>=2.0.0')
 meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.toml')
 root_files = ['README.rst', 'CHANGELOG.md', 'LICENSE.txt']
