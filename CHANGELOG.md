@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.231 (2023-12-12)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix metadata retrieval for missing command. ([`4a8fce4`](https://github.com/rjdbcm/OZI/commit/4a8fce44e95981fe4efc6a2b73c358913eda7bed))
+
 ## 0.0.230 (2023-12-12)
 
 ### :bug:
