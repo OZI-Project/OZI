@@ -1,5 +1,5 @@
 # CHANGELOG
-## 0.0.230 (2023-12-11)
+## 0.0.230 (2023-12-12)
 
 ### :bug:
 
@@ -36,6 +36,8 @@ The string ``@README_TEXT@`` is replaced with the contents of ``README.rst`` at 
 * :pencil2:: Fix PKG-INFO, deployment at build config time only. ([`18b2995`](https://github.com/rjdbcm/OZI/commit/18b299521d08105450e60e2668d11a8b98a8f702))
 
 ### Other
+
+* :construction_worker: patch in tomli for bug in mesonpep517. ([`5ce8bc8`](https://github.com/rjdbcm/OZI/commit/5ce8bc8c380af128318a11e68bcf12a50c7505f8))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`c019586`](https://github.com/rjdbcm/OZI/commit/c019586a586611c26524bbb2e968b0fb700c08af))
 
