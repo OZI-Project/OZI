@@ -3,6 +3,8 @@
 
 ### :bug:
 
+* :bug:: Workaround for dist script python version issue in mesonpep517. ([`0d60fb4`](https://github.com/rjdbcm/OZI/commit/0d60fb444bcd64d3d99904a4111d989fb73428ac))
+
 * :bug:: Fix release sdist. ([`af87ddf`](https://github.com/rjdbcm/OZI/commit/af87ddf429845d9f6c8b19137732f59b976157dc))
 
 * :bug:: Still need to install local before sdist build. ([`e15d773`](https://github.com/rjdbcm/OZI/commit/e15d77323549c4e4f93e52544f8cb87a3c616133))
