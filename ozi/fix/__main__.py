@@ -146,6 +146,18 @@ def missing_ozi_required(pkg_info: Message) -> dict[str, str]:  # pragma: no cov
     return extra_pkg_info
 
 
+def render_requirements(target: Path) -> str:
+    """Render requirements.in as it would appear in PKG-INFO"""
+    requirements = target.joinpath('requirements.in').read_text().splitlines()
+    required = []
+    for req in requirements:
+        if req.startswith('#') or req == '\n':  # pragma: no cover
+            pass
+        else:  # pragma: defer to good-issue
+            required += [f'Requires-Dist: {req}\n']
+    return ''.join(required)
+
+
 def missing_required(
     target: Path,
 ) -> tuple[str, dict[str, str]]:
@@ -158,14 +170,17 @@ def missing_required(
     with target.joinpath('pyproject.toml').open('rb') as f:
         setuptools_scm = toml.load(f).get('tool', {}).get('setuptools_scm', {})
         pkg_info = message_from_string(
-            setuptools_scm.get('write_to_template', '@README_TEXT@')
+            setuptools_scm.get('version_file_template', '@README_TEXT@')
             .replace(
                 '@README_TEXT@',
                 target.joinpath('README.rst').read_text(),
             )
             .replace('@PROJECT_NAME@', name)
-            .replace('@LICENSE@', license_),
+            .replace('@LICENSE@', license_)
+            .replace('@REQUIREMENTS_IN@\n', render_requirements(target))
+            .replace('@SCM_VERSION@', '{version}'),
         )
+        print(pkg_info)
         TAP.ok('setuptools_scm', 'PKG-INFO', 'template')
     for i in metadata.spec.python.pkg.info.required:
         v = pkg_info.get(i, None)
