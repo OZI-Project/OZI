@@ -13,6 +13,7 @@ from jinja2 import TemplateNotFound
 from jinja2 import select_autoescape
 
 from ozi.filter import current_date
+from ozi.filter import next_minor
 from ozi.filter import sha256sum
 from ozi.filter import to_distribution
 from ozi.filter import underscorify
@@ -25,6 +26,7 @@ env = Environment(
     autoescape=select_autoescape(),
     enable_async=True,
 )
+env.filters['next_minor'] = next_minor
 env.filters['to_distribution'] = to_distribution
 env.filters['underscorify'] = underscorify
 env.filters['zip'] = zip

@@ -21,7 +21,7 @@ Maintainer-email: {{ project.maintainer_email|join(',') }}
 {%- if project.ci_provider == 'github' %}
 Download-URL: https://github.com/{{ project.ci_user }}/{{ project.name }}/archive/refs/tags/@SCM_VERSION@.tar.gz
 {%- endif %}
-Requires-Python: >={{ spec.python.support.security }}, <3.13
+Requires-Python: >={{ spec.python.support.security }}, <{{ spec.python.support.bugfix1|next_minor }}
 {%- if project.keywords|length %}
 Keywords: {{ project.keywords|join(',') }}
 {%- endif %}

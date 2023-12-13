@@ -63,6 +63,11 @@ def sha256sum(version: str) -> str:  # pragma: no cover
             return checksum.hexdigest()
 
 
+def next_minor(version: str) -> str:
+    major, minor, *_ = map(int, version.split('.'))
+    return f'{major}.{minor + 1}'
+
+
 @lru_cache
 def to_distribution(package: str) -> str | None:
     """Returns the first distributed module name for a package."""
