@@ -39,7 +39,7 @@ Keywords: meson,packaging,wheel
 Project-URL: Bug Tracker, https://github.com/rjdbcm/ozi/issues
 @REQUIREMENTS_IN@
 Requires-External: git
-Requires-Python: >=3.10, <=3.12
+Requires-Python: >=3.10, <3.13
 Classifier: Development Status :: 2 - Pre-Alpha
 Classifier: Environment :: Console
 Classifier: Intended Audience :: Developers
