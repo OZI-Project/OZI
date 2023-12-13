@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.233 (2023-12-13)
+
+### :bug:
+
+* :bug:(ozi-fix, ozi-new): Fix PKG-INFO rendering for ``setuptools_scm`` version 8. ([`07be62f`](https://github.com/rjdbcm/OZI/commit/07be62f6680f2639c8fd0da06144936634212b05))
+
 ## 0.0.232 (2023-12-13)
 
 ### :bug:
