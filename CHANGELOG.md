@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.234 (2023-12-13)
+
+### :bug:
+
+* :pencil2::bug:(ozi-fix): Remove debug print. ([`9dbe921`](https://github.com/rjdbcm/OZI/commit/9dbe921f71157e15ddd0b8b8631a559c4b5b4400))
+
 ## 0.0.233 (2023-12-13)
 
 ### :bug:
