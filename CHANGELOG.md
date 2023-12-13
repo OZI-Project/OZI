@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.232 (2023-12-13)
+
+### :bug:
+
+* :bug:(ozi-fix): Fix README path for PKG-INFO render. ([`2f04204`](https://github.com/rjdbcm/OZI/commit/2f04204433b218ef7f2c481452b16559778a204b))
+
 ## 0.0.231 (2023-12-12)
 
 ### :bug:
