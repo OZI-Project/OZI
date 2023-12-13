@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.235 (2023-12-13)
+
+### :bug:
+
+* :bug:(ozi-new): Properly template upper bound Python-Support. ([`ebd2f25`](https://github.com/rjdbcm/OZI/commit/ebd2f25af910e4742345302617775929456c7285))
+
 ## 0.0.234 (2023-12-13)
 
 ### :bug:
