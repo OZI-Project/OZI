@@ -180,7 +180,6 @@ def missing_required(
             .replace('@REQUIREMENTS_IN@\n', render_requirements(target))
             .replace('@SCM_VERSION@', '{version}'),
         )
-        print(pkg_info)
         TAP.ok('setuptools_scm', 'PKG-INFO', 'template')
     for i in metadata.spec.python.pkg.info.required:
         v = pkg_info.get(i, None)
