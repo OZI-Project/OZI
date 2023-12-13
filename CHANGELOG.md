@@ -3,6 +3,8 @@
 
 ### :bug:
 
+* :bug:(ozi-new): Fix PKG-INFO:Requires-Python ceiling. ([`813b17b`](https://github.com/rjdbcm/OZI/commit/813b17b1024d795555769386bbba7c9a85d122fd))
+
 * :bug:(ozi-fix): Fix README path for PKG-INFO render. ([`2f04204`](https://github.com/rjdbcm/OZI/commit/2f04204433b218ef7f2c481452b16559778a204b))
 
 ## 0.0.231 (2023-12-12)
