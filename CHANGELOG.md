@@ -1,4 +1,16 @@
 # CHANGELOG
+## 0.0.236 (2023-12-14)
+
+### :bug:
+
+* :bug:: Fix accidental inclusion of non-existing template. ([`97dae1d`](https://github.com/rjdbcm/OZI/commit/97dae1dd7ca0e4d0ac027c6dab93af934a4c4c68))
+
+* :bug: Fix some bugs discovered during integration testing. ([`bcf5540`](https://github.com/rjdbcm/OZI/commit/bcf5540f14d1b9ea780349bedcf062f373a30228))
+
+### Other
+
+* :rotating_light:: Fix coverage. ([`8938456`](https://github.com/rjdbcm/OZI/commit/89384560f1c4491e620514e89b1293f0c70cb33b))
+
 ## 0.0.235 (2023-12-13)
 
 ### :bug:
