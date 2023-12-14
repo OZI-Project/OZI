@@ -292,7 +292,7 @@ def walk_build_definition(  # noqa: C901
             ) not in build_files and file not in found_files:
                 build_file = str(rel_path / 'meson.build')
                 TAP.not_ok('MISSING', f'{build_file}: {rel_path / file!s}')
-            case file if str(file).endswith('.py'):
+            case file if str(file).endswith('.py'):  # pragma: no cover
                 with open(target.joinpath(rel_path) / file) as g:
                     comment_diagnostic(g.readlines(), rel_path / file)
 
@@ -431,7 +431,7 @@ class RewriteCommand:  # pragma: defer to meson
         mode_set = self.target == target or self.target == ''
         if mode_set:
             self.target = target
-        else:
+        else:  # pragma: no cover
             raise ValueError(f'target already set to {self.target}')
         return asdict(self)
 
