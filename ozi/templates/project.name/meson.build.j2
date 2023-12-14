@@ -12,13 +12,9 @@
 {{ '# ozi-fix -> meson rewrite is the standard editing pipeline.' }}
 source_files = [
     '__init__.py',
+    'py.typed',
 ]
-python_files = source_files
 foreach file: source_files
-    python_files += file+'i'
-endforeach
-python_files += ['py.typed']
-foreach file: python_files
     fs.copyfile(file)
     python.install_sources(file, subdir: '{{ project.name|underscorify }}')
 endforeach

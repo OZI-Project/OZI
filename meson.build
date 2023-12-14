@@ -57,7 +57,7 @@ test_source = get_option('test-source')
 # templates
 python_readlines = 'f=open("@0@","r");print(*f.readlines(),sep="",end="");f.close();'
 
-build_root = meson.current_build_dir()
+build_root = meson.global_build_root()
 scripts = 'ozi' / 'scripts'
 project_name = meson.project_name()
 python = pymod.find_installation(

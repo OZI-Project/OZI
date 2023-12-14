@@ -72,4 +72,4 @@ def next_minor(version: str) -> str:
 def to_distribution(package: str) -> str | None:
     """Returns the first distributed module name for a package."""
     distributions = {v[0]: k for k, v in packages_distributions().items()}
-    return distributions.get(package, None)
+    return distributions.get(package, package)

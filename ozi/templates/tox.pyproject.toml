@@ -26,7 +26,7 @@ deps =
 {%- endfor %}
    -r requirements.in
 commands =
-   meson setup {env_tmp_dir} -D{{ suite }}=enabled --reconfigure
+   meson setup {env_tmp_dir} -Dozi:{{ suite }}=enabled --reconfigure
    meson compile -C {env_tmp_dir}
    rm -rf {env_tmp_dir}/.gitignore
    meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup={{ suite }}

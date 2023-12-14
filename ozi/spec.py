@@ -569,7 +569,6 @@ class PkgRequired(Default):
         'README.rst',
         'CHANGELOG.md',
         'pyproject.toml',
-        'PKG-INFO',
         'LICENSE.txt',
         'requirements.in',
     )
@@ -638,7 +637,7 @@ class Build(Default):
             'pip-tools': 'pip-tools>=7',
             'setuptools': 'setuptools>=64',
             'setuptools_scm': 'setuptools_scm>=8.0',
-            'tomli': 'tomli>=2.0.0;python_version<3.11',
+            'tomli': 'tomli>=2.0.0;python_version<"3.11"',
         },
     )
 
