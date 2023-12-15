@@ -44,5 +44,5 @@ commands =
      black -v -S .
      isort .
      autoflake -i -vv -r .
-     ruff check ozi --fix
+     ruff check {{ project.name|underscorify }} --fix
 """
