@@ -3,6 +3,8 @@
 
 ### :bug:
 
+* :bug:: Try to fix artifact download issue. ([`045441d`](https://github.com/rjdbcm/OZI/commit/045441d1d8ba9534855b06e0c983b91a9d57a755))
+
 * :bug:: Fix tox fix template. ([`eca8bf2`](https://github.com/rjdbcm/OZI/commit/eca8bf294ed768bcd6b1b0a2ab3d5c3239572a1d))
 
 * :bug:: Fix accidental inclusion of non-existing template. ([`97dae1d`](https://github.com/rjdbcm/OZI/commit/97dae1dd7ca0e4d0ac027c6dab93af934a4c4c68))
