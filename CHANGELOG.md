@@ -1,6 +1,10 @@
 # CHANGELOG
 ## 0.0.236 (2023-12-15)
 
+### :alembic:
+
+* :bug::alembic:: Attempt to fix workflow. ([`b6d6634`](https://github.com/rjdbcm/OZI/commit/b6d663455221e90c0be35df227bf5fd2b829c81c))
+
 ### :bug:
 
 * :bug:: Try to fix artifact download issue. ([`045441d`](https://github.com/rjdbcm/OZI/commit/045441d1d8ba9534855b06e0c983b91a9d57a755))
