@@ -125,6 +125,8 @@ jobs:
 
     - uses: actions/download-artifact@v3
       if: steps.draft.outputs.created == 'true' && matrix.py != 'py310'
+      with:
+        name: artifact
 
     - name: Move artifact
       if: steps.draft.outputs.created == 'true' && matrix.py != 'py310'
