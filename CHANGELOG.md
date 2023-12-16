@@ -11,6 +11,8 @@
 
 ### Other
 
+* :construction_worker:: Use static CIBW configuration. ([`f91e1df`](https://github.com/rjdbcm/OZI/commit/f91e1df7abed2732c8c15e3932e87c3746652aa1))
+
 * :construction_worker: Bump CIBW. ([`8d2aefa`](https://github.com/rjdbcm/OZI/commit/8d2aefa93692ae085e19a437a73ba7846110ba99))
 
 * Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`8ff818f`](https://github.com/rjdbcm/OZI/commit/8ff818f6ef262b161be9fda6c9816cfe96366ab5))
