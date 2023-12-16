@@ -88,14 +88,13 @@ jobs:
 
   release:
     needs: checkpoint
-    runs-on: ubuntu-latest
+    runs-on: '${{ matrix.os }}'
     concurrency: release
     strategy:
       matrix:
-        py:
-          - 'py310'
-          - 'py311'
-          - 'py312'
+        os:
+          - ubuntu-latest
+          - macos-latest
       fail-fast: true
       max-parallel: 1
     outputs:
@@ -111,7 +110,6 @@ jobs:
 
     - name: Python Semantic Release
       id: release
-      if: matrix.py == 'py310'
       uses: python-semantic-release/python-semantic-release@3abfb7ac216b9ad439de24fda60eca84038e850e
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -119,7 +117,7 @@ jobs:
     - name: Pass release draft status to job
       id: draft
       env:
-        check: ${{ (steps.release.outputs.released && matrix.py == 'py310') || matrix.py != 'py310' }}
+        check: ${{ steps.release.outputs.released }}
       run: echo "created=${{ env.check }}" >> $GITHUB_OUTPUT
 
     - name: Set version
@@ -127,81 +125,35 @@ jobs:
       id: version
       run: echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
 
-    - name: Set up Python 3.10
-      if: matrix.py == 'py310'
-      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
-      with:
-        cache: 'pip'
-        python-version: '3.10'
-
-    - name: Set up Python 3.11
-      if: matrix.py == 'py311'
-      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
-      with:
-        cache: 'pip'
-        python-version: '3.11'
-
-    - name: Set up Python 3.12 
-      if: matrix.py == 'py312'
-      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
-      with:
-        cache: 'pip'
-        python-version: '3.12'
-
-    - name: Install ${{ matrix.py }} build dependencies
-      if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
-      run: |
-          python -m pip install --upgrade pip
-          python -m pip install --user --upgrade build
-          python -m pip install --user --upgrade pyc_wheel
-          python -m pip install --user --upgrade sigstore
-          python -m pip install --user --upgrade meson
-          python -m pip install --user --upgrade mesonpep517
-          python -m pip install --user --upgrade setuptools_scm
-          python -m pip install --user --upgrade ninja
-          python -m pip install --user --upgrade pip-tools
-
     - name: Configure git repository
-      if: matrix.py == 'py310'
       run: |
           git config --global user.email "noreply@oziproject.dev"
           git config --global user.name "OZI Packaging"
           rm -rf .git/COMMIT_EDITMSG
           mkdir sig
 
-    - name: Build ${{ matrix.py }} wheel
+    - name: Build wheels
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
-      id: wheel
-      run: |
-        meson setup build
-        python -m build -w
-        python -m pyc_wheel dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl
-        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
+      uses: pypa/cibuildwheel@v1.12.0
+      with:
+        output-dir: dist
+      env:
+        CIBW_BUILD_FRONTEND: build
+        CIBW_BEFORE_BUILD: meson setup build
 
     - name: Build and sign sdist
       id: sdist
-      if: matrix.py == 'py312'
       run: |
         meson setup build
         pip install .
         meson dist -C build --formats gztar --no-tests
         mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
-        sigstore sign dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz
-        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore
+        sigstore sign--output-directory sig dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz
 
     - name: Sign wheel
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
       run: |
-        sigstore sign dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
-
-    - name: Move sigstore signing files
-      if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
-      run: |
-        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore
-
-    - name: Move dist-info file
-      if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
-      run: mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}.dist-info
+        sigstore sign --output-directory sig dist/*.whl
 
     - name: Publish package distributions to PyPI
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
