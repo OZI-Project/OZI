@@ -1,4 +1,14 @@
 # CHANGELOG
+## 0.0.238 (2023-12-16)
+
+### :bug:
+
+* :bug:: Attempt to simplify CI build process. ([`1b1571c`](https://github.com/rjdbcm/OZI/commit/1b1571ccb71d29e119996bbd503bbb1471a1f585))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`8ff818f`](https://github.com/rjdbcm/OZI/commit/8ff818f6ef262b161be9fda6c9816cfe96366ab5))
+
 ## 0.0.237 (2023-12-16)
 
 ### :bug:
