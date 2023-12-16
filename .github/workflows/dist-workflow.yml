@@ -137,10 +137,6 @@ jobs:
       uses: pypa/cibuildwheel@v2.16.2
       with:
         output-dir: dist
-      env:
-        CIBW_PROJECT_REQUIRES_PYTHON: ">=3.10"
-        CIBW_BUILD_FRONTEND: build
-        CIBW_BEFORE_BUILD: meson setup build
 
     - name: Build and sign sdist
       if: ${{ matrix.os == 'ubuntu-latest' }}
@@ -150,7 +146,7 @@ jobs:
         pip install .
         meson dist -C build --formats gztar --no-tests
         mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
-        sigstore sign--output-directory sig dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz
+        sigstore sign --output-directory sig dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz
 
     - name: Sign wheel
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
