@@ -105,7 +105,6 @@ jobs:
       id-token: write
     steps:
     - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
-      if: matrix.py == 'py310'
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
