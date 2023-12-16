@@ -1,4 +1,14 @@
 # CHANGELOG
+## 0.0.237 (2023-12-16)
+
+### :bug:
+
+* :bug:: Try to fix release workflow. ([`129d70a`](https://github.com/rjdbcm/OZI/commit/129d70af588aeb6df6ee3984c3012924f58662c1))
+
+### Other
+
+* :rotating_light:: Fix pyright false alarm. ([`3169ed2`](https://github.com/rjdbcm/OZI/commit/3169ed25219721e8d4886125fb8f8e4a9152991a))
+
 ## 0.0.236 (2023-12-15)
 
 ### :alembic:
