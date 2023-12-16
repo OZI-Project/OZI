@@ -134,7 +134,7 @@ jobs:
 
     - name: Build wheels
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
-      uses: pypa/cibuildwheel@v1.12.0
+      uses: pypa/cibuildwheel@v2.16.2
       with:
         output-dir: dist
       env:
