@@ -3,6 +3,8 @@
 
 ### :bug:
 
+* :bug:: Don&#39;t run pip install --user for CIBW. ([`d0f3b5b`](https://github.com/rjdbcm/OZI/commit/d0f3b5b1949c78b278ad32f681c9383794fa23f3))
+
 * :bug: Try to fix CIBW versioning. ([`d8cf99b`](https://github.com/rjdbcm/OZI/commit/d8cf99bcef699d128c864f1454af58f7f3b59977))
 
 * :bug:: Limit wheel builds to supported versions. ([`708043a`](https://github.com/rjdbcm/OZI/commit/708043aee241202fce385e4e6228701540895195))
