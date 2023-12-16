@@ -111,7 +111,7 @@ def parse_extra_pkg_info(
 ) -> tuple[dict[str, str], str | None]:  # pragma: no cover
     errstr = None
     try:
-        extra_pkg_info = dict(pkg_info_extra(pkg_info.get_payload()))
+        extra_pkg_info = dict(pkg_info_extra(pkg_info.get_payload()))  # pyright: ignore
     except ParseException as e:  # pragma: defer to good-first-issue
         extra_pkg_info = {}
         newline = '\n'
