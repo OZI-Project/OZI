@@ -3,6 +3,8 @@
 
 ### :bug:
 
+* :bug: Try to fix CIBW versioning. ([`d8cf99b`](https://github.com/rjdbcm/OZI/commit/d8cf99bcef699d128c864f1454af58f7f3b59977))
+
 * :bug:: Limit wheel builds to supported versions. ([`708043a`](https://github.com/rjdbcm/OZI/commit/708043aee241202fce385e4e6228701540895195))
 
 * :bug:: Attempt to simplify CI build process. ([`1b1571c`](https://github.com/rjdbcm/OZI/commit/1b1571ccb71d29e119996bbd503bbb1471a1f585))
