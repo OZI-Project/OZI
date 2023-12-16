@@ -138,7 +138,7 @@ jobs:
       with:
         output-dir: dist
       env:
-        CIBW_BUILD: cp310-* cp311-* cp312-*
+        CIBW_PROJECT_REQUIRES_PYTHON: ">=3.10"
         CIBW_BUILD_FRONTEND: build
         CIBW_BEFORE_BUILD: meson setup build
 
