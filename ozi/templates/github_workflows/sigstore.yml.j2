@@ -10,11 +10,5 @@
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
       run: |
 {%- raw %}
-        sigstore sign dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
-{%- endraw %}
-
-    - name: Move sigstore signing files
-      run: |
-{%- raw %}
-        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl.sigstore
+        sigstore sign --output-directory sig dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
 {%- endraw %}

@@ -120,8 +120,7 @@
         meson dist -C build --formats gztar --no-tests
 {%- raw %}
         mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
-        sigstore sign dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz
-        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore
+        sigstore sign --output-directory sig dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz
 {%- endraw %}
 
 {% include 'github_workflows/sigstore.yml.j2' %}

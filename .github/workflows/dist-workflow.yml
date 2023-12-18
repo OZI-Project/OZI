@@ -187,7 +187,6 @@ jobs:
         meson dist -C build --formats gztar --no-tests
         mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
         sigstore sign --output-directory sig dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz
-        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz.sigstore
 
     - name: Sign wheel
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
