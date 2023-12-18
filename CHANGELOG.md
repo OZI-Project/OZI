@@ -3,6 +3,8 @@
 
 ### :bug:
 
+* :bug::construction_worker:: set sigstore output directory. ([`97a45a0`](https://github.com/rjdbcm/OZI/commit/97a45a0ae975a1345bfc8d252fe89992a8a39600))
+
 * :bug:: Pin upload-artifact to v3 to fix broken publish workflow. ([`13eca77`](https://github.com/rjdbcm/OZI/commit/13eca773da591776fd984843db4d72c1162d54d2))
 
 * :bug:: Revert CIBW experiment. ([`b0c94bf`](https://github.com/rjdbcm/OZI/commit/b0c94bf5258faf443b5c8714a2b906507d036bb4))
