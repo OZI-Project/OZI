@@ -1,7 +1,9 @@
 # CHANGELOG
-## 0.0.238 (2023-12-16)
+## 0.0.238 (2023-12-18)
 
 ### :bug:
+
+* :bug:: Revert CIBW experiment. ([`b0c94bf`](https://github.com/rjdbcm/OZI/commit/b0c94bf5258faf443b5c8714a2b906507d036bb4))
 
 * :bug:: Don&#39;t run pip install --user for CIBW. ([`d0f3b5b`](https://github.com/rjdbcm/OZI/commit/d0f3b5b1949c78b278ad32f681c9383794fa23f3))
 
