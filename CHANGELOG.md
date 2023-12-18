@@ -3,6 +3,8 @@
 
 ### :bug:
 
+* :bug:: Pin upload-artifact to v3 to fix broken publish workflow. ([`13eca77`](https://github.com/rjdbcm/OZI/commit/13eca773da591776fd984843db4d72c1162d54d2))
+
 * :bug:: Revert CIBW experiment. ([`b0c94bf`](https://github.com/rjdbcm/OZI/commit/b0c94bf5258faf443b5c8714a2b906507d036bb4))
 
 * :bug:: Don&#39;t run pip install --user for CIBW. ([`d0f3b5b`](https://github.com/rjdbcm/OZI/commit/d0f3b5b1949c78b278ad32f681c9383794fa23f3))
