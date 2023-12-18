@@ -198,7 +198,7 @@ jobs:
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
       run: mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}.dist-info
 
-    - uses: actions/upload-artifact@master
+    - uses: actions/upload-artifact@v3
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
       with:
         path: |
