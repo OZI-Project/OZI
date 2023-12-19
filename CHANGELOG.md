@@ -1,4 +1,18 @@
 # CHANGELOG
+## 0.0.239 (2023-12-19)
+
+### :bug:
+
+* :bug::construction_worker:: No real need to run checkpoints on macos-latest. ([`a37c838`](https://github.com/rjdbcm/OZI/commit/a37c8385bcccca57a225bcbf93b480ae7f34a1b5))
+
+### :pushpin:
+
+* :pushpin::construction_worker:: Pin actions/upload-artifact to v3 for checkpoint. ([`c72a99a`](https://github.com/rjdbcm/OZI/commit/c72a99a3ef801d97f2be53e5d9749849d8d09695))
+
+### Other
+
+* :page_facing_up:: Update license to include LLVM exception text. ([`8626688`](https://github.com/rjdbcm/OZI/commit/862668885998003d3297a2b02beaf401869ec9ba))
+
 ## 0.0.238 (2023-12-18)
 
 ### :bug:
