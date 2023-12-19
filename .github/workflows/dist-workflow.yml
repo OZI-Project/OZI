@@ -31,7 +31,6 @@ jobs:
           - test
         os:
           - ubuntu-latest
-          - macos-latest
         py:
           - '3.10'
           - '3.11'
