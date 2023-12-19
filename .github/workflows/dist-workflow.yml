@@ -74,7 +74,7 @@ jobs:
         if: ${{ steps.setup1.outcome == 'failure' }}
         run: |
           tox -r -e ${{ matrix.ozi }}
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: ${{ matrix.ozi }}-${{ matrix.os }}-${{ matrix.py }}-checkpoint
@@ -98,6 +98,7 @@ jobs:
       contents: write
       id-token: write
     steps:
+
     - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
       if: matrix.py == 'py310'
       with:
@@ -162,6 +163,7 @@ jobs:
           python -m pip install --user --upgrade setuptools_scm
           python -m pip install --user --upgrade ninja
           python -m pip install --user --upgrade pip-tools
+
     - name: Configure git repository
       if: matrix.py == 'py310'
       run: |
@@ -169,6 +171,7 @@ jobs:
           git config --global user.name "OZI Packaging"
           rm -rf .git/COMMIT_EDITMSG
           mkdir sig
+
     - name: Build ${{ matrix.py }} wheel
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
       id: wheel
@@ -177,7 +180,7 @@ jobs:
         python -m build -w
         python -m pyc_wheel dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl
         mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
-    
+
     - name: Build and sign sdist
       id: sdist
       if: matrix.py == 'py312'
