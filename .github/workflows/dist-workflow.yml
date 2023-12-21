@@ -126,10 +126,11 @@ jobs:
 
     - uses: actions/download-artifact@v4
       if: steps.draft.outputs.created == 'true' && matrix.py != 'py310'
+      name: ${{ matrix.py }}
 
     - name: Move artifact
       if: steps.draft.outputs.created == 'true' && matrix.py != 'py310'
-      run: cp -a artifact/. ./
+      run: cp -a ${{ matrix.py }}/. ./
 
     - name: Set version
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
@@ -207,11 +208,26 @@ jobs:
       run: mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}.dist-info
 
     - uses: actions/upload-artifact@v4
-      if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
+      if: matrix.py == 'py310' && (steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true')
       with:
+        name: 'py311'
         path: |
           ./
-          !artifact/
+
+    - uses: actions/upload-artifact@v4
+      if: matrix.py == 'py311' && (steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true')
+      with:
+        name: 'py312'
+        path: |
+          !py311/
+          ./
+
+    - uses: actions/upload-artifact@v4
+      if: matrix.py == 'py312' && (steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true')
+      with:
+        path: |
+          !py312/
+          ./
 
   publish:
     runs-on: ubuntu-latest
@@ -233,7 +249,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish package distributions to PyPI
-      uses: pypa/gh-action-pypi-publish@v1.8.11
+      uses: pypa/gh-action-pypi-publish@release/v1
       # NOTE: DO NOT wrap the conditional in ${{ }} as it will always evaluate to true.
       # See https://github.com/actions/runner/issues/1173
       with:
