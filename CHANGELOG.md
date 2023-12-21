@@ -1,4 +1,16 @@
 # CHANGELOG
+## 0.0.240 (2023-12-21)
+
+### :pushpin:
+
+* :pushpin::construction_worker:: Pin workflow action versions in dist. ([`3f0edb9`](https://github.com/rjdbcm/OZI/commit/3f0edb9dd94f49efcec51f9a0a18f8516a2e18c4))
+
+### Other
+
+* Update CODE_OF_CONDUCT.md
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`edddbca`](https://github.com/rjdbcm/OZI/commit/edddbca7aa9feb7bd196dc0fb6a93cbc3ee9dc9a))
+
 ## 0.0.239 (2023-12-19)
 
 ### :bug:
