@@ -1,6 +1,10 @@
 # CHANGELOG
 ## 0.0.240 (2023-12-21)
 
+### :bug:
+
+* :bug:: Fix dist workflow for artifact v4. ([`1c8b5b6`](https://github.com/rjdbcm/OZI/commit/1c8b5b6a2b7b7889afe83fd2cff7823bd907f8ba))
+
 ### :pushpin:
 
 * :pushpin::construction_worker:: Pin workflow action versions in dist. ([`3f0edb9`](https://github.com/rjdbcm/OZI/commit/3f0edb9dd94f49efcec51f9a0a18f8516a2e18c4))
