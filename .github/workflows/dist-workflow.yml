@@ -20,6 +20,7 @@ on:
       - main
 
 jobs:
+
   checkpoint:
     name: OZI ${{ matrix.ozi }} with ${{ matrix.py }} on ${{ matrix.os }}
     runs-on: '${{ matrix.os }}'
@@ -37,12 +38,12 @@ jobs:
           - '3.12'
       fail-fast: false
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
+        uses: actions/setup-python@v5
         id: setup-python
         with:
           cache: 'pip'
@@ -54,31 +55,37 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install tox-gh>=1.2
+
       - name: '${{ matrix.ozi }} (First Try)'
         continue-on-error: true
         id: setup1
         run: |
           tox -e ${{ matrix.ozi }}
+
       - name: Logging Checkpoint Failures
         if: ${{ steps.setup1.outcome == 'failure' }}
         continue-on-error: true
         run: |
           cat .tox/**/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
+
       - name: Logging OZI/Meson Failures
         if: ${{ steps.setup1.outcome == 'failure' }}
         continue-on-error: true
         run: |
           cat .tox/**/tmp/meson-logs/meson-log.txt
+
       - name: '${{ matrix.ozi }} (Second Try)'
         if: ${{ steps.setup1.outcome == 'failure' }}
         run: |
           tox -r -e ${{ matrix.ozi }}
-      - uses: actions/upload-artifact@v3
+
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: ${{ matrix.ozi }}-${{ matrix.os }}-${{ matrix.py }}-checkpoint
           path: |
             .tox/**/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
+
   release:
     needs: checkpoint
     runs-on: ubuntu-latest
@@ -98,7 +105,7 @@ jobs:
       id-token: write
     steps:
 
-    - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
+    - uses: actions/checkout@v4
       if: matrix.py == 'py310'
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -107,7 +114,7 @@ jobs:
     - name: Python Semantic Release
       id: release
       if: matrix.py == 'py310'
-      uses: python-semantic-release/python-semantic-release@3abfb7ac216b9ad439de24fda60eca84038e850e
+      uses: python-semantic-release/python-semantic-release@v8.5.2
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -117,7 +124,7 @@ jobs:
         check: ${{ (steps.release.outputs.released && matrix.py == 'py310') || matrix.py != 'py310' }}
       run: echo "created=${{ env.check }}" >> $GITHUB_OUTPUT
 
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
       if: steps.draft.outputs.created == 'true' && matrix.py != 'py310'
 
     - name: Move artifact
@@ -131,21 +138,21 @@ jobs:
 
     - name: Set up Python 3.10
       if: matrix.py == 'py310'
-      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
+      uses: actions/setup-python@v5
       with:
         cache: 'pip'
         python-version: '3.10'
 
     - name: Set up Python 3.11
       if: matrix.py == 'py311'
-      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
+      uses: actions/setup-python@v5
       with:
         cache: 'pip'
         python-version: '3.11'
 
     - name: Set up Python 3.12 
       if: matrix.py == 'py312'
-      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
+      uses: actions/setup-python@v5
       with:
         cache: 'pip'
         python-version: '3.12'
@@ -199,7 +206,7 @@ jobs:
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
       run: mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}.dist-info
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
       with:
         path: |
@@ -214,7 +221,8 @@ jobs:
       contents: write
       id-token: write
     steps:
-    - uses: actions/download-artifact@v3
+    
+    - uses: actions/download-artifact@v4
 
     - name: Move artifact
       run: cp -a artifact/. ./
@@ -225,7 +233,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish package distributions to PyPI
-      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+      uses: pypa/gh-action-pypi-publish@v1.8.11
       # NOTE: DO NOT wrap the conditional in ${{ }} as it will always evaluate to true.
       # See https://github.com/actions/runner/issues/1173
       with:
