@@ -121,7 +121,7 @@ jobs:
     - name: Pass release draft status to job
       id: draft
       env:
-        check: ${{ (steps.release.outputs.released && matrix.py == 'py310') || matrix.py != 'py310' }}
+        check: ${{ steps.release.outputs.released == 'true' || matrix.py != 'py310' }}
       run: echo "created=${{ env.check }}" >> $GITHUB_OUTPUT
 
     - uses: actions/download-artifact@v4

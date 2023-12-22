@@ -24,11 +24,11 @@
           - {{ spec.python.support.bugfix1 }}
       fail-fast: false
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           cache: 'pip'
           cache-dependency-path: |
@@ -76,7 +76,7 @@
           tox -r -e ${{ matrix.ozi }}
 {%- endraw %}
 
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
 {%- raw %}

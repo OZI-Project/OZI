@@ -12,7 +12,7 @@
       contents: write
       id-token: write
     steps:
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
 
     - name: Move artifact
       run: cp -a artifact/. ./
@@ -25,7 +25,7 @@
 {%- endraw %}
 
     - name: Publish package distributions to PyPI
-      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+      uses: pypa/gh-action-pypi-publish@release/v1
       with:
         user: __token__
 {%- raw %}

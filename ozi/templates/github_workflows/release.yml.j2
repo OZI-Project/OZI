@@ -24,7 +24,7 @@
       contents: write
       id-token: write
     steps:
-    - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
+    - uses: actions/checkout@v4
       if: matrix.py == '{{ spec.python.support.security|wheel_repr }}'
       with:
 {%- raw %}
@@ -35,18 +35,21 @@
 {% include 'github_workflows/semantic_release.yml.j2' %}
 
     - name: Pass release draft status to job
-      if: matrix.py == '{{ spec.python.support.security|wheel_repr }}'
       id: draft
+      env:
 {%- raw %}
-      run: echo "created=${{ steps.release.outputs.released }}" >> $GITHUB_OUTPUT
+        check: ${{ steps.release.outputs.released == 'true' || matrix.py != '{{ spec.python.support.security|wheel_repr }}' }}
+      run: echo "created=${{ env.check }}" >> $GITHUB_OUTPUT
 {%- endraw %}
 
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
       if: steps.draft.outputs.created == 'true' && matrix.py != '{{ spec.python.support.security|wheel_repr }}'
 
     - name: Move artifact
       if: steps.draft.outputs.created == 'true' && matrix.py != '{{ spec.python.support.security|wheel_repr }}'
-      run: cp -a artifact/. ./
+{%- raw %}
+      run: cp -a ${{ matrix.py }}/. ./
+{%- endraw %}
 
     - name: Set version
       if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
@@ -55,21 +58,21 @@
 
     - name: Set up Python {{ spec.python.support.security }}
       if: matrix.py == '{{ spec.python.support.security|wheel_repr }}'
-      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
+      uses: actions/setup-python@v5
       with:
         cache: 'pip'
         python-version: {{ spec.python.support.security }}
 
     - name: Set up Python {{ spec.python.support.bugfix2 }}
       if: matrix.py == '{{ spec.python.support.bugfix2|wheel_repr }}'
-      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
+      uses: actions/setup-python@v5
       with:
         cache: 'pip'
         python-version: {{ spec.python.support.bugfix2 }}
 
     - name: Set up Python {{ spec.python.support.bugfix1 }}
       if: matrix.py == '{{ spec.python.support.bugfix1|wheel_repr }}'
-      uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1
+      uses: actions/setup-python@v5
       with:
         cache: 'pip'
         python-version: {{ spec.python.support.bugfix1 }}
@@ -131,9 +134,24 @@
       run: mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}.dist-info
 {%- endraw %}
 
-    - uses: actions/upload-artifact@v3
-      if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
+    - uses: actions/upload-artifact@v4
+      if: matrix.py == '{{ spec.python.support.security|wheel_repr }}' && (steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true')
       with:
+        name: '{{ spec.python.support.bugfix2|wheel_repr }}'
         path: |
           ./
-          !artifact/
+
+    - uses: actions/upload-artifact@v4
+      if: matrix.py == '{{ spec.python.support.bugfix2|wheel_repr }}' && (steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true')
+      with:
+        name: '{{ spec.python.support.bugfix1|wheel_repr }}'
+        path: |
+          !{{ spec.python.support.bugfix2|wheel_repr }}/
+          ./
+
+    - uses: actions/upload-artifact@v4
+      if: matrix.py == '{{ spec.python.support.bugfix1|wheel_repr }}' && (steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true')
+      with:
+        path: |
+          !{{ spec.python.support.bugfix1|wheel_repr }}/
+          ./
