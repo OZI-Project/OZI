@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.243 (2023-12-23)
+
+### :bug:
+
+* :bug:(ozi-fix): Run comment diagnostic over source *.py files. ([`0709abc`](https://github.com/rjdbcm/OZI/commit/0709abc82c02e258d5bdb0214fa2a9f9c9dff162))
+
 ## 0.0.242 (2023-12-23)
 
 ### :hammer:
