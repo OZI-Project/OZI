@@ -118,8 +118,10 @@
       id: sdist
       if: matrix.py == '{{ spec.python.support.bugfix1|wheel_repr }}'
       run: |
-        meson setup build
-        pip install .
+        meson setup build --reconfigure
+{%- raw %}
+        pip install dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
+{%- endraw %}
         meson dist -C build --formats gztar --no-tests
 {%- raw %}
         mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
@@ -139,6 +141,7 @@
       with:
         name: '{{ spec.python.support.bugfix2|wheel_repr }}'
         path: |
+          !build/
           ./
 
     - uses: actions/upload-artifact@v4
@@ -146,6 +149,7 @@
       with:
         name: '{{ spec.python.support.bugfix1|wheel_repr }}'
         path: |
+          !build/
           !{{ spec.python.support.bugfix2|wheel_repr }}/
           ./
 
@@ -153,5 +157,6 @@
       if: matrix.py == '{{ spec.python.support.bugfix1|wheel_repr }}' && (steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true')
       with:
         path: |
+          !build/
           !{{ spec.python.support.bugfix1|wheel_repr }}/
           ./

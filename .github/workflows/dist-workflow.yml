@@ -192,7 +192,7 @@ jobs:
       id: sdist
       if: matrix.py == 'py312'
       run: |
-        meson setup build
+        meson setup build --reconfigure
         pip install dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
         meson dist -C build --formats gztar --no-tests
         mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
@@ -212,6 +212,7 @@ jobs:
       with:
         name: 'py311'
         path: |
+          !build/
           ./
 
     - uses: actions/upload-artifact@v4
@@ -220,6 +221,7 @@ jobs:
         name: 'py312'
         path: |
           !py311/
+          !build/
           ./
 
     - uses: actions/upload-artifact@v4
@@ -227,6 +229,7 @@ jobs:
       with:
         path: |
           !py312/
+          !build/
           ./
 
   publish:
