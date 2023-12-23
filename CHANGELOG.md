@@ -1,4 +1,26 @@
 # CHANGELOG
+## 0.0.241 (2023-12-23)
+
+### :hammer:
+
+* :pushpin::construction_worker::hammer:(ozi-new): Pin workflow utilities. ([`70d2304`](https://github.com/rjdbcm/OZI/commit/70d230417fc499369d53169c007bbd408e0c7410))
+
+### :pencil2:
+
+* :pencil2:: fix bullet points README.rst
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`0d7ca02`](https://github.com/rjdbcm/OZI/commit/0d7ca027fc2000ac10ee860851fc1aff79633b7f))
+
+### Other
+
+* Merge branch &#39;main&#39; of https://github.com/rjdbcm/ozi ([`b803336`](https://github.com/rjdbcm/OZI/commit/b8033364a6bf19956a168f19d8e12d011391e8f5))
+
+* :memo:: Simplify readme layout. ([`814b773`](https://github.com/rjdbcm/OZI/commit/814b773743a799e33951a22097b14cabd2ec113d))
+
+* :memo:: clean up README.rst 
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`47a7288`](https://github.com/rjdbcm/OZI/commit/47a7288e380d73368e2931e62b7c2ab8f33ef797))
+
 ## 0.0.240 (2023-12-21)
 
 ### :bug:
