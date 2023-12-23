@@ -3,6 +3,8 @@
 
 ### :hammer:
 
+* :hammer:: Build sdist from bugfix1 whl ([`2c08b9c`](https://github.com/rjdbcm/OZI/commit/2c08b9c6bd21c627be83c54bf7bceffd312195b5))
+
 * :pushpin::construction_worker::hammer:(ozi-new): Pin workflow utilities. ([`70d2304`](https://github.com/rjdbcm/OZI/commit/70d230417fc499369d53169c007bbd408e0c7410))
 
 ### :pencil2:
