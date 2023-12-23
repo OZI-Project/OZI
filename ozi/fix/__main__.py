@@ -204,25 +204,33 @@ def comment_diagnostic(
 ) -> None:  # pragma: defer to TAP-Consumer
     for i, line in enumerate(lines, start=1):
         if s := re.search(
-            metadata.spec.python.src.comments.noqa,
+            metadata.spec.python.src.comments.noqa.encode('raw_unicode_escape').decode(
+                'unicode_escape',
+            ),
             line,
         ):  # pragma: defer to TAP-Consumer
             TAP.diagnostic('noqa  ', f'{rel_path!s}:{i}', s[0].strip())
             continue
         if s := re.search(
-            metadata.spec.python.src.comments.type,
+            metadata.spec.python.src.comments.type.encode('raw_unicode_escape').decode(
+                'unicode_escape',
+            ),
             line,
         ):  # pragma: defer to TAP-Consumer
             TAP.diagnostic('type  ', f'{rel_path!s}:{i}', s[0].strip())
             continue
         if s := re.search(
-            metadata.spec.python.src.comments.pragma_defer_to,
+            metadata.spec.python.src.comments.pragma_defer_to.encode(
+                'raw_unicode_escape',
+            ).decode('unicode_escape'),
             line,
         ):  # pragma: defer to TAP-Consumer
             TAP.diagnostic('defer ', f'{rel_path!s}:{i}', s[0].strip())
             continue
         if s := re.search(
-            metadata.spec.python.src.comments.pragma_no_cover,
+            metadata.spec.python.src.comments.pragma_no_cover.encode(
+                'raw_unicode_escape',
+            ).decode('unicode_escape'),
             line,
         ):  # pragma: defer to TAP-Consumer
             TAP.diagnostic('no cov', f'{rel_path!s}:{i}', s[0].strip())
@@ -286,15 +294,12 @@ def walk_build_definition(  # noqa: C901
             build_file = str((rel_path / file).parent / 'meson.build')
             TAP.ok(f'{build_file} lists {rel_path / file}')
             build_files += [str(rel_path / file)]
-        match file:
-            case file if file and str(
-                rel_path / file,
-            ) not in build_files and file not in found_files:
-                build_file = str(rel_path / 'meson.build')
-                TAP.not_ok('MISSING', f'{build_file}: {rel_path / file!s}')
-            case file if str(file).endswith('.py'):  # pragma: no cover
-                with open(target.joinpath(rel_path) / file) as g:
-                    comment_diagnostic(g.readlines(), rel_path / file)
+        if str(rel_path / file) not in build_files and file not in found_files:
+            build_file = str(rel_path / 'meson.build')
+            TAP.not_ok('MISSING', f'{build_file}: {rel_path / file!s}')
+        if str(file).endswith('.py'):  # pragma: no cover
+            with open(target.joinpath(rel_path) / file) as g:
+                comment_diagnostic(g.readlines(), rel_path / file)
 
 
 def missing_required_files(
@@ -320,13 +325,12 @@ def missing_required_files(
 
     for file in expected_files:
         f = rel_path / file
-        match f:
-            case f if f and not target.joinpath(f).exists():
-                TAP.not_ok('MISSING', str(f))
-                continue  # pragma: defer to https://github.com/nedbat/coveragepy/issues/198
-            case f if f and str(f).endswith('.py'):
-                with open(target.joinpath(f)) as fh:
-                    comment_diagnostic(fh.readlines(), f)
+        if not target.joinpath(f).exists():
+            TAP.not_ok('MISSING', str(f))
+            continue  # pragma: defer to https://github.com/nedbat/coveragepy/issues/198
+        if str(f).endswith('.py'):
+            with open(target.joinpath(f)) as fh:
+                comment_diagnostic(fh.readlines(), f)
         TAP.ok(str(f))
         found_files.append(file)
 
