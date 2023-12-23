@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.242 (2023-12-23)
+
+### :hammer:
+
+* :hammer::construction_worker:(ozi-new): New meson build dir for each wheel ([`d27b72e`](https://github.com/rjdbcm/OZI/commit/d27b72e8d0ad4b456b4465e67b2e482b650ceac8))
+
 ## 0.0.241 (2023-12-23)
 
 ### :hammer:
