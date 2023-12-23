@@ -193,7 +193,7 @@ jobs:
       if: matrix.py == 'py312'
       run: |
         meson setup build
-        pip install .
+        pip install dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
         meson dist -C build --formats gztar --no-tests
         mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
         sigstore sign --output-directory sig dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz
