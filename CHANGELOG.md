@@ -1,4 +1,14 @@
 # CHANGELOG
+## 0.0.245 (2023-12-27)
+
+### :bug:
+
+* :bug:: Run pip-compile at config time. ([`ebe8445`](https://github.com/rjdbcm/OZI/commit/ebe8445034159726675799321312740ad3febf25))
+
+### :pencil2:
+
+* :pencil2:: Fix custom_target --&gt; configure_file for pyright requirements.txt. ([`bc02394`](https://github.com/rjdbcm/OZI/commit/bc02394bb9dde7073847fc14a9b818ef6710f09e))
+
 ## 0.0.244 (2023-12-27)
 
 ### :hammer:
