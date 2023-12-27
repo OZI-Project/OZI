@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.244 (2023-12-27)
+
+### :hammer:
+
+* :construction_worker::hammer:: Build requirements.txt at configure time. ([`9765aab`](https://github.com/rjdbcm/OZI/commit/9765aab0ad30b47566d69e7d944156f07f4a7604))
+
 ## 0.0.243 (2023-12-23)
 
 ### :bug:
