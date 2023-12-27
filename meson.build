@@ -240,19 +240,6 @@ foreach name : namespace
             or get_variable(name).enabled()
             and command not in plugin_only
         )
-            run_command(
-                pip_compile,
-                [
-                    '-q',
-                    '--allow-unsafe',
-                    '--strip-extras',
-                    '--generate-hashes',
-                    '-o',
-                    build_root / 'ozi' / name / command / 'requirements.txt',
-                    'ozi' / name / command / 'requirements.in',
-                ],
-                check: true,
-            )
             run_command(pip, requirements, check: true)
             if not flag.found() and command not in module_only
                 flag = find_program(
