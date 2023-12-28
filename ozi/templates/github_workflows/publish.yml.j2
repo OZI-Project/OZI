@@ -26,8 +26,3 @@
 
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        user: __token__
-{%- raw %}
-        password: ${{ secrets.PYPI_API_TOKEN }}
-{%- endraw %}

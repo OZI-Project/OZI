@@ -7,7 +7,7 @@
     - name: Python Semantic Release
       id: release
       if: matrix.py == '{{ spec.python.support.security|wheel_repr }}'
-      uses: python-semantic-release/python-semantic-release@v8.5.2
+      uses: python-semantic-release/python-semantic-release@v8.7.0
       with:
 {%- raw %}
         github_token: ${{ secrets.GITHUB_TOKEN }}

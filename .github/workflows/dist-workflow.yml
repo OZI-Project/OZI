@@ -114,7 +114,7 @@ jobs:
     - name: Python Semantic Release
       id: release
       if: matrix.py == 'py310'
-      uses: python-semantic-release/python-semantic-release@v8.5.2
+      uses: python-semantic-release/python-semantic-release@v8.7.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -253,8 +253,3 @@ jobs:
 
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
-      # NOTE: DO NOT wrap the conditional in ${{ }} as it will always evaluate to true.
-      # See https://github.com/actions/runner/issues/1173
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
