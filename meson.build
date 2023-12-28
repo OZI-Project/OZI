@@ -233,7 +233,7 @@ foreach name : namespace
         requirements = [
             'install',
             '-r',
-            build_root / 'ozi' / name / command / 'requirements.txt',
+            meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
         ]
         if (
             get_option('dev').enabled()
