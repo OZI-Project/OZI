@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.246 (2023-12-28)
+
+### :bug:
+
+* :bug:: Install utility requirements from ``meson.project_build_root()`` ([`0618f0c`](https://github.com/rjdbcm/OZI/commit/0618f0c3652bafc4981c7f00a01da730b78dc677))
+
 ## 0.0.245 (2023-12-27)
 
 ### :bug:
