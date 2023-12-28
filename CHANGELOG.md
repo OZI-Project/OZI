@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.247 (2023-12-28)
+
+### :bug:
+
+* :pushpin::bug:: Pin semantic-release to 8.7.0 and enable trusted publishing workflow. ([`d40a58a`](https://github.com/rjdbcm/OZI/commit/d40a58afad9150f926ed6db365536aa05d20043b))
+
 ## 0.0.246 (2023-12-28)
 
 ### :bug:
