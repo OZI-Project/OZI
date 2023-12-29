@@ -407,6 +407,21 @@ class CI(Default):
     backend: Mapping[str, str] = field(
         default_factory=lambda: {'tox': 'tox>4', 'tox-gh': 'tox-gh>1.2'},
     )
+    frontend: Mapping[str, str] = field(
+        default_factory=lambda: {
+            'actions/checkout': 'v4',
+            'actions/download-artifact': 'v4',
+            'actions/setup-python': 'v5',
+            'actions/upload-artifact': 'v4',
+            'rjdbcm/ozi-checkpoint': 'v0.1',
+            'pypa/gh-action-pypi-publish': 'release/v1',
+            'python-semantic-release/python-semantic-release': 'v8.7.0',
+            'python-semantic-release/upload-to-gh-release': (
+                '0f96c02a48278aff14251e9f1a0d73122a8c638b'
+            ),
+            'sigstore/gh-action-sigstore-python': 'v2.1.1',
+        },
+    )
     checkpoint: Checkpoint = Checkpoint()
     publish: Publish = Publish()
     providers: tuple[str, ...] = ('github',)

@@ -42,49 +42,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        id: setup-python
+      - uses: rjdbcm/ozi-checkpoint@v0.1
         with:
-          cache: 'pip'
-          cache-dependency-path: |
-            .tox/**/tmp/**/requirements.txt
-          python-version: '${{ matrix.py }}'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install tox-gh>=1.2
-
-      - name: '${{ matrix.ozi }} (First Try)'
-        continue-on-error: true
-        id: setup1
-        run: |
-          tox -e ${{ matrix.ozi }}
-
-      - name: Logging Checkpoint Failures
-        if: ${{ steps.setup1.outcome == 'failure' }}
-        continue-on-error: true
-        run: |
-          cat .tox/**/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
-
-      - name: Logging OZI/Meson Failures
-        if: ${{ steps.setup1.outcome == 'failure' }}
-        continue-on-error: true
-        run: |
-          cat .tox/**/tmp/meson-logs/meson-log.txt
-
-      - name: '${{ matrix.ozi }} (Second Try)'
-        if: ${{ steps.setup1.outcome == 'failure' }}
-        run: |
-          tox -r -e ${{ matrix.ozi }}
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: ${{ matrix.ozi }}-${{ matrix.os }}-${{ matrix.py }}-checkpoint
-          path: |
-            .tox/**/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
+          python-version: ${{ matrix.py }}
+          suite: ${{ matrix.ozi }}
 
   release:
     needs: checkpoint
@@ -99,138 +60,15 @@ jobs:
       fail-fast: true
       max-parallel: 1
     outputs:
-      drafted: ${{ steps.draft.outputs.created }}
+      drafted: ${{ steps.release.outputs.drafted }}
     permissions:
       contents: write
       id-token: write
     steps:
-
-    - uses: actions/checkout@v4
-      if: matrix.py == 'py310'
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        fetch-depth: 0
-
-    - name: Python Semantic Release
-      id: release
-      if: matrix.py == 'py310'
-      uses: python-semantic-release/python-semantic-release@v8.7.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Pass release draft status to job
-      id: draft
-      env:
-        check: ${{ steps.release.outputs.released == 'true' || matrix.py != 'py310' }}
-      run: echo "created=${{ env.check }}" >> $GITHUB_OUTPUT
-
-    - uses: actions/download-artifact@v4
-      if: steps.draft.outputs.created == 'true' && matrix.py != 'py310'
-      name: ${{ matrix.py }}
-
-    - name: Move artifact
-      if: steps.draft.outputs.created == 'true' && matrix.py != 'py310'
-      run: cp -a ${{ matrix.py }}/. ./
-
-    - name: Set version
-      if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
-      id: version
-      run: echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
-
-    - name: Set up Python 3.10
-      if: matrix.py == 'py310'
-      uses: actions/setup-python@v5
-      with:
-        cache: 'pip'
-        python-version: '3.10'
-
-    - name: Set up Python 3.11
-      if: matrix.py == 'py311'
-      uses: actions/setup-python@v5
-      with:
-        cache: 'pip'
-        python-version: '3.11'
-
-    - name: Set up Python 3.12 
-      if: matrix.py == 'py312'
-      uses: actions/setup-python@v5
-      with:
-        cache: 'pip'
-        python-version: '3.12'
-
-    - name: Install ${{ matrix.py }} build dependencies
-      if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
-      run: |
-          python -m pip install --upgrade pip
-          python -m pip install --user --upgrade build
-          python -m pip install --user --upgrade pyc_wheel
-          python -m pip install --user --upgrade sigstore
-          python -m pip install --user --upgrade meson
-          python -m pip install --user --upgrade mesonpep517
-          python -m pip install --user --upgrade setuptools_scm
-          python -m pip install --user --upgrade ninja
-          python -m pip install --user --upgrade pip-tools
-
-    - name: Configure git repository
-      if: matrix.py == 'py310'
-      run: |
-          git config --global user.email "noreply@oziproject.dev"
-          git config --global user.name "OZI Packaging"
-          rm -rf .git/COMMIT_EDITMSG
-          mkdir sig
-
-    - name: Build ${{ matrix.py }} wheel
-      if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
-      id: wheel
-      run: |
-        meson setup build
-        python -m build -w
-        python -m pyc_wheel dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl
-        mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-py3-none-any.whl dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
-
-    - name: Build and sign sdist
-      id: sdist
-      if: matrix.py == 'py312'
-      run: |
-        meson setup build --reconfigure
-        pip install dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
-        meson dist -C build --formats gztar --no-tests
-        mv build/meson-dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz 
-        sigstore sign --output-directory sig dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.tar.gz
-
-    - name: Sign wheel
-      if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
-      run: |
-        sigstore sign --output-directory sig dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}-none-any.whl
-
-    - name: Move dist-info file
-      if: steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true'
-      run: mv dist/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.dist-info sig/${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}-${{ matrix.py }}.dist-info
-
-    - uses: actions/upload-artifact@v4
-      if: matrix.py == 'py310' && (steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true')
-      with:
-        name: 'py311'
-        path: |
-          !build/
-          ./
-
-    - uses: actions/upload-artifact@v4
-      if: matrix.py == 'py311' && (steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true')
-      with:
-        name: 'py312'
-        path: |
-          !py311/
-          !build/
-          ./
-
-    - uses: actions/upload-artifact@v4
-      if: matrix.py == 'py312' && (steps.release.outputs.released == 'true' || steps.draft.outputs.created == 'true')
-      with:
-        path: |
-          !py312/
-          !build/
-          ./
+      - uses: rjdbcm/ozi-release@v0.1
+        id: release
+        with:
+          python-dist: ${{ matrix.py }}
 
   publish:
     runs-on: ubuntu-latest
@@ -240,16 +78,4 @@ jobs:
       contents: write
       id-token: write
     steps:
-    
-    - uses: actions/download-artifact@v4
-
-    - name: Move artifact
-      run: cp -a artifact/. ./
-
-    - name: Publish package distributions to GitHub Releases
-      uses: python-semantic-release/upload-to-gh-release@0f96c02a48278aff14251e9f1a0d73122a8c638b
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Publish package distributions to PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
+    - uses: rjdbcm/ozi-publish@v0.1

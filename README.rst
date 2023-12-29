@@ -11,7 +11,7 @@ OZI
 ===
 
 |py-version-badge| |openssf-badge| |slsa-level3-badge| |fossa-badge| |semantic-release-badge|
-|bandit-badge| |black-badge| |isort-badge| |flake8-badge| |pyright-badge| |rst-lint-badge|
+|bandit-badge| |black-badge| |isort-badge| |flake8-badge| |pyright-badge|
 
 .. image:: https://raw.githubusercontent.com/sigstore/community/main/artwork/badge/sigstore_codesigned_purple.png
  :align: right
@@ -150,7 +150,6 @@ Ross J. Duff MSc - help@oziproject.dev
     :target: https://pycqa.github.io/isort/
     :alt: isort your imports, so you don't have to.
 .. |pyright-badge| image:: https://img.shields.io/badge/typing-%E2%9C%94%20Pyright%3A%200%20e%2C%200%20w%2C%200%20i-informational
-.. |rst-lint-badge| image:: https://img.shields.io/badge/rst--lint-%E2%9C%94%20README.rst-informational
 
 .. |osi-logo| image:: https://149753425.v2.pressablecdn.com/wp-content/uploads/2009/06/OSIApproved_100X125.png
  :height: 100
