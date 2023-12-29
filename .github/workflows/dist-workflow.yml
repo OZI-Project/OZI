@@ -69,6 +69,7 @@ jobs:
         id: release
         with:
           python-dist: ${{ matrix.py }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
     runs-on: ubuntu-latest
@@ -79,3 +80,5 @@ jobs:
       id-token: write
     steps:
     - uses: rjdbcm/ozi-publish@v0.1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
