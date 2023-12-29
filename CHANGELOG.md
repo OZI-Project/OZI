@@ -1,4 +1,12 @@
 # CHANGELOG
+## 0.0.248 (2023-12-29)
+
+### :hammer:
+
+* :hammer:: Fix workflow secrets handling. ([`8f83999`](https://github.com/rjdbcm/OZI/commit/8f839992763b3c4c503b85673de8a557bf68a927))
+
+* :hammer:: Try new streamlined github CI. ([`7949809`](https://github.com/rjdbcm/OZI/commit/79498096c635ec42597b05409ecf7bfdb82a217c))
+
 ## 0.0.247 (2023-12-28)
 
 ### :bug:
