@@ -15,6 +15,8 @@
 
 ### Other
 
+* :memo:: Update readme. ([`8f9fd3b`](https://github.com/rjdbcm/OZI/commit/8f9fd3bcb1b7a467b28a098dd07e3fab2ca8e6ea))
+
 * :memo:: Update readme. ([`5aeede8`](https://github.com/rjdbcm/OZI/commit/5aeede8d9e07b44b959d026f435d201f3c76f613))
 
 * :memo:: Edit readme. ([`58e5b9a`](https://github.com/rjdbcm/OZI/commit/58e5b9afc5237ffaa66b51a064ca607fb05672b6))
