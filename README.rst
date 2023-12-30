@@ -33,12 +33,6 @@ What OZI is
 
 * Checkpointed Python packaging for Meson projects focused on pure Python sources.
 
-What OZI is **not**
-###################
-
-* A replacement for test environment managers like tox_, as a matter of fact OZI uses ``tox``.
-* A replacement for git hook package management tools like pre-commit_
-
 OZI is meant for Python developers as a standardized and opinionated
 Python packaging style guide and checkpointing API using the Meson build system.
 
@@ -47,6 +41,12 @@ The following checkpointed environments:
 * code testing and coverage
 * distributing Python packages with Meson_
 * code linting and formatting
+
+What OZI is **not**
+###################
+
+* A replacement for test environment managers like tox_, as a matter of fact OZI uses ``tox``.
+* A replacement for git hook package management tools like pre-commit_
 
 Message from the Maintainer
 ###########################
