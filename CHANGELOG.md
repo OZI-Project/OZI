@@ -13,6 +13,10 @@
 
 * :hammer:: Try new streamlined github CI. ([`7949809`](https://github.com/rjdbcm/OZI/commit/79498096c635ec42597b05409ecf7bfdb82a217c))
 
+### Other
+
+* :memo:: Edit readme. ([`58e5b9a`](https://github.com/rjdbcm/OZI/commit/58e5b9afc5237ffaa66b51a064ca607fb05672b6))
+
 ## 0.0.247 (2023-12-28)
 
 ### :bug:
