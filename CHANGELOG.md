@@ -1,5 +1,9 @@
 # CHANGELOG
-## 0.0.248 (2023-12-29)
+## 0.0.248 (2023-12-30)
+
+### :bug:
+
+* :bug: Force release. ([`7199470`](https://github.com/rjdbcm/OZI/commit/719947047224e652256a90a446a36e201b4a843e))
 
 ### :hammer:
 
