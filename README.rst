@@ -42,6 +42,8 @@ The following checkpointed environments:
 * distributing Python packages with Meson_
 * code linting and formatting
 
+Release drafting and publishing.
+
 What OZI is **not**
 ###################
 
