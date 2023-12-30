@@ -36,13 +36,16 @@ What OZI is
 OZI is meant for Python developers as a standardized and opinionated
 Python packaging style guide and checkpointing API using the Meson build system.
 
-The following checkpointed environments:
+The OZI continuous integration strategy consists of:
+
+1. The following checkpointed environments:
 
 * code testing and coverage
 * distributing Python packages with Meson_
 * code linting and formatting
 
-Release drafting and publishing.
+2. Release drafting
+3. Publishing
 
 What OZI is **not**
 ###################
