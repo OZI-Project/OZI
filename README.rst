@@ -60,6 +60,11 @@ I just wanted packaging to work without having to reorient myself to best practi
 This is a solution to help me package Python modules with Meson.
 OZI can also help to synchronize packaging practices across packages using it, helping to reduce maintenance time.
 
+Contributing
+############
+
+See the project `CONTRIBUTING.md <https://github.com/rjdbcm/OZI/blob/main/.github/CONTRIBUTING.md>`_
+
 License
 ^^^^^^^
 
