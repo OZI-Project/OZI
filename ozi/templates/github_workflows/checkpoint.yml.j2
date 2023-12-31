@@ -4,8 +4,8 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
-{%- raw %}
   checkpoint:
+{%- raw %}
     name: OZI ${{ matrix.ozi }} with ${{ matrix.py }} on ${{ matrix.os }}
     runs-on: '${{ matrix.os }}'
 {%- endraw %}
@@ -17,7 +17,6 @@
 {%- endfor %}
         os:
           - ubuntu-latest
-          - macos-latest
         py:
           - {{ spec.python.support.security }}
           - {{ spec.python.support.bugfix2 }}
@@ -27,62 +26,10 @@
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          cache: 'pip'
-          cache-dependency-path: |
-            .tox/**/tmp/**/requirements.txt
-{%- raw %}
-          python-version: '${{ matrix.py }}'
-{%- endraw %}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install tox-gh>=1.2
 
-      - name: OZI utility setup (First Try)
-        continue-on-error: true
-        id: setup1
-        run: |
-{%- raw %}
-          tox -e ${{ matrix.ozi }}
-{%- endraw %}
-
-      - name: Logging Checkpoint Failures
-{%- raw %}
-        if: ${{ steps.setup1.outcome == 'failure' }}
-{%- endraw %}
-        continue-on-error: true
-        run: |
-{%- raw %}
-          cat .tox/**/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
-{%- endraw %}
-
-      - name: Logging OZI/Meson Failures
-{%- raw %}
-        if: ${{ steps.setup1.outcome == 'failure' }}
-{%- endraw %}
-        continue-on-error: true
-        run: |
-          cat .tox/**/tmp/meson-logs/meson-log.txt
-
-      - name: OZI utility setup (Second Try)
-{%- raw %}
-        if: ${{ steps.setup1.outcome == 'failure' }}
-{%- endraw %}
-        run: |
-{%- raw %}
-          tox -r -e ${{ matrix.ozi }}
-{%- endraw %}
-
-      - uses: actions/upload-artifact@v4
-        if: always()
+      - uses: rjdbcm/ozi-checkpoint@v{{ spec.version }}
         with:
 {%- raw %}
-          name: ${{ matrix.ozi }}-${{ matrix.os }}-${{ matrix.py }}-checkpoint
-{%- endraw %}
-          path: |
-{%- raw %}
-            .tox/**/tmp/meson-logs/testlog-${{ matrix.ozi }}.txt
+          python-version: ${{ matrix.py }}
+          suite: ${{ matrix.ozi }}
 {%- endraw %}

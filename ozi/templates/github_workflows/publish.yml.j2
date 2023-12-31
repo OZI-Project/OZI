@@ -12,17 +12,8 @@
       contents: write
       id-token: write
     steps:
-    - uses: actions/download-artifact@v4
-
-    - name: Move artifact
-      run: cp -a artifact/. ./
-
-    - name: Publish package distributions to GitHub Releases
-      uses: python-semantic-release/upload-to-gh-release@0f96c02a48278aff14251e9f1a0d73122a8c638b
+    - uses: rjdbcm/ozi-publish@v{{ spec.version }}
       with:
 {%- raw %}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
 {%- endraw %}
-
-    - name: Publish package distributions to PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
