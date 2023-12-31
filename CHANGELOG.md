@@ -1,4 +1,16 @@
 # CHANGELOG
+## 0.0.249 (2023-12-31)
+
+### :hammer:
+
+* :hammer::construction_worker:(ozi-new): Output workflow with official github actions. ([`6d3e772`](https://github.com/rjdbcm/OZI/commit/6d3e772bb95da3f010070a1dd81780681aa6f34f))
+
+### Other
+
+* :memo:: Update readme with link to contributing. ([`204215a`](https://github.com/rjdbcm/OZI/commit/204215a0f084dec657849eaac1b18d12f1df1941))
+
+* :memo:: Move readme contributing section to CONTRIBUTING.md ([`90615c7`](https://github.com/rjdbcm/OZI/commit/90615c7b188c8d3c79a6b064680a96f09045edd9))
+
 ## 0.0.248 (2023-12-30)
 
 ### :bug:
