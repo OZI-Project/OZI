@@ -392,6 +392,7 @@ class Publish(Default):
 
     include: tuple[str, ...] = ('*.tar.gz', '*.whl', 'sig/*')
 
+
 @dataclass(slots=True, frozen=True, eq=True)
 class Release(Default):
     """Release patterns for packaged project."""
