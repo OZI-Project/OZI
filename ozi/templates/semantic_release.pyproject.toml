@@ -35,7 +35,7 @@ patch_tags = [
 changelog_file = "CHANGELOG.md"
 
 [tool.semantic_release.remote]
-token = { env = "GH_TOKEN" }
+type = "{{ project.ci_provider }}"
 
 [tool.semantic_release.publish]
 dist_glob_patterns = [

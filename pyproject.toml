@@ -214,6 +214,7 @@ extend-select = "B950"
 line_length = 93
 profile = "black"
 force_single_line = true
+skip_glob = ['subprojects/*',]
 
 [tool.mypy]
 implicit_reexport = true
@@ -328,7 +329,7 @@ patch_tags = [
 changelog_file = "CHANGELOG.md"
 
 [tool.semantic_release.remote]
-token = { env = "GH_TOKEN" }
+type = "github"
 
 [tool.semantic_release.publish]
 dist_glob_patterns = ["*.whl", "*.tar.gz", "sig/*"]

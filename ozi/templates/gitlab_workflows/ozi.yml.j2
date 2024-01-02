@@ -1,0 +1,11 @@
+{#- OZI 0.1
+# ozi/templates/github_workflows/ozi.yml.j2
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+-#}
+
+include:
+  - component: 'gitlab.com/ozi-project/pipeline/checkpoint@{{ spec.version }}'
+  - component: 'gitlab.com/ozi-project/pipeline/release@{{ spec.version }}'
+  - component: 'gitlab.com/ozi-project/pipeline/publish@{{ spec.version }}'
