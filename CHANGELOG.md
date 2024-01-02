@@ -1,4 +1,14 @@
 # CHANGELOG
+## 0.0.250 (2024-01-02)
+
+### :hammer:
+
+* :hammer:(ozi-new): Set semantic-release remote type based on ``ci-provider``. ([`c007e1f`](https://github.com/rjdbcm/OZI/commit/c007e1fa9634609abe1412131a5f26ba362a4a24))
+
+### Other
+
+* :rotating_light:: Fix lint. ([`93843cb`](https://github.com/rjdbcm/OZI/commit/93843cb2d8d6f5d0eb767594ca552d0333eef1a6))
+
 ## 0.0.249 (2023-12-31)
 
 ### :hammer:
