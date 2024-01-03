@@ -142,9 +142,6 @@ skip_empty = true
 [tool.coverage.run]
 branch = true
 relative_files = true
-omit = [
-    "*/vendor/*",
-]
 
 [tool.ruff]
 line-length = 93
