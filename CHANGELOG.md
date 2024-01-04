@@ -1,4 +1,22 @@
 # CHANGELOG
+## 0.0.252 (2024-01-04)
+
+### :hammer:
+
+* :hammer::pencil2:: Fix duplicated toml key. ([`4e5f6d3`](https://github.com/OZI-Project/OZI/commit/4e5f6d387361b75a716da069cbf63b8227153c62))
+
+* :hammer:: Update workflow to run in release branch. ([`cb9c9db`](https://github.com/OZI-Project/OZI/commit/cb9c9db916ad4e48feab3ce29a41b6acc9a373f9))
+
+* :hammer:: Publish from an unprotected branch. ([`e405e2d`](https://github.com/OZI-Project/OZI/commit/e405e2d9a4b8e98c9dc66f663b86771799b34a37))
+
+* :hammer::construction_worker:: Integrate step-security recommended workflows. ([`4be4298`](https://github.com/OZI-Project/OZI/commit/4be42980c4cd8f460486cc50cdf40c26538c24eb))
+
+### Other
+
+* Merge pull request #8 from OZI-Project/main
+
+0.0.251 ([`d58d787`](https://github.com/OZI-Project/OZI/commit/d58d787d7946ed9c83f9f14998a36185179ddffd))
+
 ## 0.0.251 (2024-01-04)
 
 ### :hammer:
