@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.253 (2024-01-05)
+
+### :hammer:
+
+* :hammer::construction_worker:: Change branch match pattern. ([`2c396c8`](https://github.com/OZI-Project/OZI/commit/2c396c8208175f50d4d5311e7441d48ed2b14a1b))
+
 ## 0.0.252 (2024-01-04)
 
 ### :hammer:
