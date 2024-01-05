@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.253 (2024-01-05)
+
+### :hammer:
+
+* :hammer:: 0.0.253 force re-release ([`b365dd3`](https://github.com/OZI-Project/OZI/commit/b365dd348e528bfd2c5a91475617a54497f4c5e1))
+
 ## 0.0.252 (2024-01-05)
 
 ### :hammer:
