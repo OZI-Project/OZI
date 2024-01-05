@@ -20,6 +20,9 @@ on:
       - "v?[0-9].[0-9]*"
       - "v?[1-9]+[0-9].[0-9]*"
 
+permissions:
+  contents: read
+
 jobs:
   checkpoint:
     name: OZI ${{ matrix.ozi }} with ${{ matrix.py }} on ${{ matrix.os }}
