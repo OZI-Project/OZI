@@ -1,8 +1,11 @@
 # CHANGELOG
 ## 0.0.254 (2024-01-05)
 
-
 ### Other
+
+* Update CHANGELOG.md
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`f06bfc5`](https://github.com/OZI-Project/OZI/commit/f06bfc51716abae6538cd01e58976856d1eea160))
 
 * Merge branch &#39;main&#39; into 0.0.x
 
