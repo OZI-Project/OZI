@@ -24,6 +24,7 @@ option(
     description: 'sanity check module dependencies',
     value: ['setuptools_scm', 'piptools', 'setuptools', 'ninja', 'mesonbuild'],
 )
+
 option(
     'namespace',
     type: 'array',
