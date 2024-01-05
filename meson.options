@@ -31,7 +31,6 @@ option(
     value: ['dist', 'docs', 'lint', 'test'],
     yield: false,
 )
-
 option(
     'variables',
     type: 'array',
