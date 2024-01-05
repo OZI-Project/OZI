@@ -20,6 +20,9 @@ on:
       - "v?[0-9].[0-9]*"
       - "v?[1-9]+[0-9].[0-9]*"
 
+permissions:
+  contents: read
+
 jobs:
   checkpoint:
     name: OZI ${{ matrix.ozi }} with ${{ matrix.py }} on ${{ matrix.os }}
@@ -73,6 +76,8 @@ jobs:
       contents: write
       id-token: write
     steps:
-    - uses: rjdbcm/ozi-publish@v0.1
+    - uses: rjdbcm/ozi-publish@b7a8335e8a68da2aefa10130f0c7e98e0f1498df
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        ssh-public: ${{ env.SSH_PUBKEY }}
+        ssh-private: ${{ secrets.SSH_PRVKEY }}
