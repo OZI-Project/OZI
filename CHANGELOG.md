@@ -1,4 +1,10 @@
 # CHANGELOG
+## 0.0.254 (2024-01-06)
+
+### :hammer:
+
+* :hammer:: 0.0.254 re-release. ([`8fd45c3`](https://github.com/OZI-Project/OZI/commit/8fd45c3a8c81395875467e9fbb4b4ae567865de2))
+
 ## 0.0.253 (2024-01-05)
 
 ### :hammer:
