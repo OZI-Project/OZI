@@ -270,7 +270,7 @@ tag_format = "{version}"
 
 [tool.semantic_release.branches.main]
 match = "(main|master)"
-prerelease_token = "beta"
+prerelease_token = "alpha"
 prerelease = false
 
 [tool.semantic_release.branches."0.0"]
