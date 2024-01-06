@@ -12,4 +12,4 @@ This page will be updated for the Alpha release to maturity.
 
 ## Reporting a Vulnerability
 
-This can be done directly through GitHub.
+This can be done directly through GitHub or via help@oziproject.dev
