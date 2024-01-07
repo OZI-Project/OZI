@@ -41,7 +41,7 @@ jobs:
           - '3.12'
       fail-fast: false
     steps:
-      - uses: rjdbcm/ozi-checkpoint@v0.1
+      - uses: OZI-Project/checkpoint@42141dd7821fbb632c1efe87cb6e3a5da72cac4a
         with:
           python-version: ${{ matrix.py }}
           suite: ${{ matrix.ozi }}
@@ -63,7 +63,7 @@ jobs:
       contents: write
       id-token: write
     steps:
-      - uses: rjdbcm/ozi-release@v0.1
+      - uses: OZI-Project/release@16f7f12353f734bdf1b4cee733f694bb63583f61
         id: release
         with:
           python-dist: ${{ matrix.py }}
@@ -76,7 +76,7 @@ jobs:
       contents: write
       id-token: write
     steps:
-    - uses: rjdbcm/ozi-publish@b7a8335e8a68da2aefa10130f0c7e98e0f1498df
+    - uses: OZI-Project/publish@b7a8335e8a68da2aefa10130f0c7e98e0f1498df
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         ssh-public: ${{ env.SSH_PUBKEY }}

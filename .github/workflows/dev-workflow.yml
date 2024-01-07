@@ -1,0 +1,33 @@
+name: OZI Checkpoint-only
+
+on:
+  push:
+    branches:
+      - 'dev*'
+      - 'dev/**'
+
+permissions:
+  contents: read
+
+jobs:
+  checkpoint:
+    name: OZI ${{ matrix.ozi }} with ${{ matrix.py }} on ${{ matrix.os }}
+    runs-on: '${{ matrix.os }}'
+    strategy:
+      matrix:
+        ozi:
+          - dist
+          - lint
+          - test
+        os:
+          - ubuntu-latest
+        py:
+          - '3.10'
+          - '3.11'
+          - '3.12'
+      fail-fast: false
+    steps:
+      - uses: OZI-Project/checkpoint@42141dd7821fbb632c1efe87cb6e3a5da72cac4a
+        with:
+          python-version: ${{ matrix.py }}
+          suite: ${{ matrix.ozi }}
