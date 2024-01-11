@@ -1,4 +1,78 @@
 # CHANGELOG
+## 0.0.256 (2024-01-11)
+
+### :arrow_up:
+
+* :arrow_up: Bump github/codeql-action from 3.22.12 to 3.23.0
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.22.12 to 3.23.0.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/012739e5082ff0c22ca6d6ab32e07c36df03c4a4...e5f05b81d5b6ff8cfa111c80c22c5fd02a384118)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`fe3466d`](https://github.com/OZI-Project/OZI/commit/fe3466d54b2b6d615fd51bf7f66edcd9352a3bba))
+
+* :arrow_up: Bump github/codeql-action from 3.22.12 to 3.23.0
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.22.12 to 3.23.0.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/012739e5082ff0c22ca6d6ab32e07c36df03c4a4...e5f05b81d5b6ff8cfa111c80c22c5fd02a384118)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`8288ad4`](https://github.com/OZI-Project/OZI/commit/8288ad4442fff8f8aa78b844f4917b322f4559dc))
+
+### Other
+
+* Merge pull request #42 from OZI-Project/main
+
+Pull patch changes ([`69ca475`](https://github.com/OZI-Project/OZI/commit/69ca475cac0069c212417c393643577916868e7e))
+
+* Merge pull request #40 from OZI-Project/dev
+
+Dev merge ([`9d0e276`](https://github.com/OZI-Project/OZI/commit/9d0e2761d762403ec353b1ea1b00ead73503b56f))
+
+* Merge pull request #38 from OZI-Project/dependabot/github_actions/github/codeql-action-3.23.0
+
+⬆️ Bump github/codeql-action from 3.22.12 to 3.23.0 ([`b4eb391`](https://github.com/OZI-Project/OZI/commit/b4eb391b0047dabe5c225637f251dde298e36397))
+
+* Merge pull request #32 from OZI-Project/dependabot/github_actions/github/codeql-action-3.23.0
+
+⬆️ Bump github/codeql-action from 3.22.12 to 3.23.0 ([`144e7c7`](https://github.com/OZI-Project/OZI/commit/144e7c7299134380af02b2d61d87efe772db8614))
+
+* Merge pull request #31 from OZI-Project/dev
+
+Dev merge ([`a140afc`](https://github.com/OZI-Project/OZI/commit/a140afcc820be9172c4ee271be2e68d9e345e055))
+
+* Merge pull request #30 from OZI-Project/rjdbcm-patch-1
+
+:memo:: Create FUNDING.yml ([`8b7cd8a`](https://github.com/OZI-Project/OZI/commit/8b7cd8aeb7cb014b7255ff15514d60991fb68657))
+
+* :memo:: Create FUNDING.yml
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`62f46be`](https://github.com/OZI-Project/OZI/commit/62f46bed149b97bb14337ae336872bd149a1eeaf))
+
+* Merge pull request #28 from step-security-bot/stepsecurity_remediation_1704664557
+
+[StepSecurity] ci: Harden GitHub Actions ([`4bc3760`](https://github.com/OZI-Project/OZI/commit/4bc376070007cd7402f15edb37d2ae45ede3ac4a))
+
+* :construction_worker::(StepSecurity): Harden GitHub Actions
+
+Signed-off-by: StepSecurity Bot &lt;bot@stepsecurity.io&gt; ([`52f5342`](https://github.com/OZI-Project/OZI/commit/52f5342fb445c7e04ce554434f0ec56e4acc4cb1))
+
 ## 0.0.255 (2024-01-07)
 
 ### :arrow_up:
