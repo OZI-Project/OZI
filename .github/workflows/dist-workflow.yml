@@ -41,7 +41,7 @@ jobs:
           - '3.12'
       fail-fast: false
     steps:
-      - uses: OZI-Project/checkpoint@42141dd7821fbb632c1efe87cb6e3a5da72cac4a
+      - uses: OZI-Project/checkpoint@5fbb337eff2581d34ee99b91382dc7a3de4e3db3
         with:
           python-version: ${{ matrix.py }}
           suite: ${{ matrix.ozi }}
