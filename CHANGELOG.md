@@ -1,4 +1,256 @@
 # CHANGELOG
+## 0.0.257 (2024-01-12)
+
+### :arrow_up:
+
+* :arrow_up:: bump checkpoint workflow pin ([`ce2626f`](https://github.com/OZI-Project/OZI/commit/ce2626f5f3a47a43912a659e93e59c6576e8d00a))
+
+### Other
+
+* Merge pull request #44 from OZI-Project/main
+
+Merge checkpoint workflow changes. ([`b1015d6`](https://github.com/OZI-Project/OZI/commit/b1015d683a2ac49151dfb889e34dac851c1ac818))
+
+* Merge pull request #43 from OZI-Project/dev
+
+Dev merge ([`6dbf20f`](https://github.com/OZI-Project/OZI/commit/6dbf20f3d0463daa00c8877db968af6efdbacab1))
+
+## 0.0.256 (2024-01-11)
+
+### :arrow_up:
+
+* :arrow_up: Bump github/codeql-action from 3.22.12 to 3.23.0
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.22.12 to 3.23.0.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/012739e5082ff0c22ca6d6ab32e07c36df03c4a4...e5f05b81d5b6ff8cfa111c80c22c5fd02a384118)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`fe3466d`](https://github.com/OZI-Project/OZI/commit/fe3466d54b2b6d615fd51bf7f66edcd9352a3bba))
+
+* :arrow_up: Bump github/codeql-action from 3.22.12 to 3.23.0
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.22.12 to 3.23.0.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/012739e5082ff0c22ca6d6ab32e07c36df03c4a4...e5f05b81d5b6ff8cfa111c80c22c5fd02a384118)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`8288ad4`](https://github.com/OZI-Project/OZI/commit/8288ad4442fff8f8aa78b844f4917b322f4559dc))
+
+### Other
+
+* Merge pull request #42 from OZI-Project/main
+
+Pull patch changes ([`69ca475`](https://github.com/OZI-Project/OZI/commit/69ca475cac0069c212417c393643577916868e7e))
+
+* Merge pull request #41 from OZI-Project/main
+
+catch up ([`7d65df4`](https://github.com/OZI-Project/OZI/commit/7d65df485429a25cf0c00de2da5fbf31eadcf2dd))
+
+* Merge pull request #40 from OZI-Project/dev
+
+Dev merge ([`9d0e276`](https://github.com/OZI-Project/OZI/commit/9d0e2761d762403ec353b1ea1b00ead73503b56f))
+
+* Merge pull request #38 from OZI-Project/dependabot/github_actions/github/codeql-action-3.23.0
+
+⬆️ Bump github/codeql-action from 3.22.12 to 3.23.0 ([`b4eb391`](https://github.com/OZI-Project/OZI/commit/b4eb391b0047dabe5c225637f251dde298e36397))
+
+* Merge pull request #32 from OZI-Project/dependabot/github_actions/github/codeql-action-3.23.0
+
+⬆️ Bump github/codeql-action from 3.22.12 to 3.23.0 ([`144e7c7`](https://github.com/OZI-Project/OZI/commit/144e7c7299134380af02b2d61d87efe772db8614))
+
+* Merge pull request #31 from OZI-Project/dev
+
+Dev merge ([`a140afc`](https://github.com/OZI-Project/OZI/commit/a140afcc820be9172c4ee271be2e68d9e345e055))
+
+* Merge pull request #30 from OZI-Project/rjdbcm-patch-1
+
+:memo:: Create FUNDING.yml ([`8b7cd8a`](https://github.com/OZI-Project/OZI/commit/8b7cd8aeb7cb014b7255ff15514d60991fb68657))
+
+* :memo:: Create FUNDING.yml
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`62f46be`](https://github.com/OZI-Project/OZI/commit/62f46bed149b97bb14337ae336872bd149a1eeaf))
+
+* Merge pull request #28 from step-security-bot/stepsecurity_remediation_1704664557
+
+[StepSecurity] ci: Harden GitHub Actions ([`4bc3760`](https://github.com/OZI-Project/OZI/commit/4bc376070007cd7402f15edb37d2ae45ede3ac4a))
+
+* :construction_worker::(StepSecurity): Harden GitHub Actions
+
+Signed-off-by: StepSecurity Bot &lt;bot@stepsecurity.io&gt; ([`52f5342`](https://github.com/OZI-Project/OZI/commit/52f5342fb445c7e04ce554434f0ec56e4acc4cb1))
+
+## 0.0.255 (2024-01-07)
+
+### :arrow_up:
+
+* :arrow_up: Bump actions/upload-artifact from 3.1.0 to 4.0.0
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 3.1.0 to 4.0.0.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/3cea5372237819ed00197afe530f5a7ea3e805c8...c7d193f32edcb7bfad88892161225aeda64e9392)
+
+---
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`c8f77c8`](https://github.com/OZI-Project/OZI/commit/c8f77c89d1809ee19434a6ef61cbbca6a9614a30))
+
+* :arrow_up: Bump actions/dependency-review-action from 2.5.1 to 3.1.5
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 2.5.1 to 3.1.5.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/0efb1d1d84fc9633afcdaad14c485cbbc90ef46c...c74b580d73376b7750d3d2a50bfb8adc2c937507)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`1ef8ec2`](https://github.com/OZI-Project/OZI/commit/1ef8ec22878c794ab13685a2a08865a947abd23a))
+
+* :arrow_up: Bump ossf/scorecard-action from 2.1.2 to 2.3.1
+
+Bumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.1.2 to 2.3.1.
+- [Release notes](https://github.com/ossf/scorecard-action/releases)
+- [Changelog](https://github.com/ossf/scorecard-action/blob/main/RELEASE.md)
+- [Commits](https://github.com/ossf/scorecard-action/compare/e38b1902ae4f44df626f11ba0734b14fb91f8f86...0864cf19026789058feabb7e87baa5f140aac736)
+
+---
+updated-dependencies:
+- dependency-name: ossf/scorecard-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`bc0d3fd`](https://github.com/OZI-Project/OZI/commit/bc0d3fdecc1f296fcb8098ce8cab103cc4a043fe))
+
+* :arrow_up: Bump github/codeql-action from 2.2.4 to 3.22.12
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 2.2.4 to 3.22.12.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/v2.2.4...012739e5082ff0c22ca6d6ab32e07c36df03c4a4)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`3aba574`](https://github.com/OZI-Project/OZI/commit/3aba57406c2e5e51d42a1f3a5e4e3aa15958d98e))
+
+* :arrow_up: Bump actions/checkout from 3.1.0 to 4.1.1
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 3.1.0 to 4.1.1.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/v3.1.0...b4ffde65f46336ab88eb53be808477a3936bae11)
+
+---
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`bad22f6`](https://github.com/OZI-Project/OZI/commit/bad22f696459ec672790bf1f2404075ab19990db))
+
+### :hammer:
+
+* :lock::hammer::construction_worker:: Add security best practices recommendations.
+
+[StepSecurity] Apply security best practices
+
+Signed-off-by: StepSecurity Bot &lt;bot@stepsecurity.io&gt; ([`649b499`](https://github.com/OZI-Project/OZI/commit/649b4999ce8ed725d8b778e0a135e5a4acdeb9ca))
+
+* :hammer:: Add a dev branch matching checkpoint workflow. ([`42c9902`](https://github.com/OZI-Project/OZI/commit/42c990278bdcb316f969688a88e4e97f5f0fca8f))
+
+### :pushpin:
+
+* :pushpin:: Pin workflows to commit hash. ([`a5a445d`](https://github.com/OZI-Project/OZI/commit/a5a445da64cc63f6e5a4352c71f934e31b328240))
+
+### Other
+
+* Merge pull request #27 from OZI-Project/main
+
+Merge changes from main. ([`9bcee10`](https://github.com/OZI-Project/OZI/commit/9bcee104ba02809c1fac8811232da6213b8ab6b4))
+
+* Merge pull request #26 from OZI-Project/dev
+
+Dev merge ([`c104475`](https://github.com/OZI-Project/OZI/commit/c10447551ef6cd605cd8082838fc59e0029b65d3))
+
+* Merge pull request #20 from OZI-Project/dependabot/github_actions/actions/checkout-4.1.1
+
+⬆️ Bump actions/checkout from 3.1.0 to 4.1.1 ([`0b049e0`](https://github.com/OZI-Project/OZI/commit/0b049e0b7e2902af8b77f2c482f95f63cc366c40))
+
+* Merge pull request #21 from OZI-Project/dependabot/github_actions/github/codeql-action-3.22.12
+
+⬆️ Bump github/codeql-action from 2.2.4 to 3.22.12 ([`446e78b`](https://github.com/OZI-Project/OZI/commit/446e78b7c64ad7369de49b3f356cd00bbcf3d77f))
+
+* Merge pull request #22 from OZI-Project/dependabot/github_actions/ossf/scorecard-action-2.3.1
+
+⬆️ Bump ossf/scorecard-action from 2.1.2 to 2.3.1 ([`4c57bff`](https://github.com/OZI-Project/OZI/commit/4c57bff4de52e52620317542de6dd285d562ee55))
+
+* Merge pull request #23 from OZI-Project/dependabot/github_actions/actions/dependency-review-action-3.1.5
+
+⬆️ Bump actions/dependency-review-action from 2.5.1 to 3.1.5 ([`0eb3e9d`](https://github.com/OZI-Project/OZI/commit/0eb3e9d1d0e11f29d0b3564538392a173fd3649e))
+
+* Merge pull request #24 from OZI-Project/dependabot/github_actions/actions/upload-artifact-4.0.0
+
+⬆️ Bump actions/upload-artifact from 3.1.0 to 4.0.0 ([`6280306`](https://github.com/OZI-Project/OZI/commit/6280306d11cf3535350f2821379346d43b820638))
+
+* Merge pull request #25 from OZI-Project/main
+
+Catchup to direct PRs on main. ([`0f1178f`](https://github.com/OZI-Project/OZI/commit/0f1178f22d196e2b669bbd4d3bd65841d114623c))
+
+* Merge pull request #19 from step-security-bot/stepsecurity_remediation_1704657939
+
+[StepSecurity] Apply security best practices ([`c813eea`](https://github.com/OZI-Project/OZI/commit/c813eead5bdfdf10d1343bf61bb0185514e17432))
+
+* Merge pull request #18 from OZI-Project/dev
+
+:pushpin:: Pin workflows to commit hash. ([`f7ebf21`](https://github.com/OZI-Project/OZI/commit/f7ebf2144de1792f4536fcbd49bff04ddabcf64b))
+
+* Merge pull request #17 from OZI-Project/dev
+
+:memo:: Update security policy. ([`141b587`](https://github.com/OZI-Project/OZI/commit/141b587d5229f1a3477cd5f316f5b598d62734f7))
+
+* :memo:: Update security policy. ([`86d0a7a`](https://github.com/OZI-Project/OZI/commit/86d0a7a5087b4265ec99215eb32e46971414fc0c))
+
+* Merge pull request #16 from OZI-Project/dev
+
+Dev merge ([`af56da0`](https://github.com/OZI-Project/OZI/commit/af56da03c5be1bf36de5112fc6edc5f3778c7230))
+
+* :memo:: Add security contact email. ([`f1604fe`](https://github.com/OZI-Project/OZI/commit/f1604fec8d061ecb42b5fbf75b7dc703331f7da9))
+
+* Merge pull request #15 from OZI-Project/main
+
+Fix silliness with branches. ([`9ba66bd`](https://github.com/OZI-Project/OZI/commit/9ba66bd152a9f05843770a49a7dc68f9f30ba7fc))
+
+* Merge pull request #14 from OZI-Project/0.0
+
+Merge 0.0 catchup changes ([`d33e982`](https://github.com/OZI-Project/OZI/commit/d33e9827208594354b9c95894f924903112492b5))
+
 ## 0.0.254 (2024-01-06)
 
 ### :hammer:
