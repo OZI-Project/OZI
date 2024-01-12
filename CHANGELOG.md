@@ -1,4 +1,20 @@
 # CHANGELOG
+## 0.0.257 (2024-01-12)
+
+### :arrow_up:
+
+* :arrow_up:: bump checkpoint workflow pin ([`ce2626f`](https://github.com/OZI-Project/OZI/commit/ce2626f5f3a47a43912a659e93e59c6576e8d00a))
+
+### Other
+
+* Merge pull request #44 from OZI-Project/main
+
+Merge checkpoint workflow changes. ([`b1015d6`](https://github.com/OZI-Project/OZI/commit/b1015d683a2ac49151dfb889e34dac851c1ac818))
+
+* Merge pull request #43 from OZI-Project/dev
+
+Dev merge ([`6dbf20f`](https://github.com/OZI-Project/OZI/commit/6dbf20f3d0463daa00c8877db968af6efdbacab1))
+
 ## 0.0.256 (2024-01-11)
 
 ### :arrow_up:
@@ -40,6 +56,10 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`8288ad4`](https://g
 * Merge pull request #42 from OZI-Project/main
 
 Pull patch changes ([`69ca475`](https://github.com/OZI-Project/OZI/commit/69ca475cac0069c212417c393643577916868e7e))
+
+* Merge pull request #41 from OZI-Project/main
+
+catch up ([`7d65df4`](https://github.com/OZI-Project/OZI/commit/7d65df485429a25cf0c00de2da5fbf31eadcf2dd))
 
 * Merge pull request #40 from OZI-Project/dev
 
