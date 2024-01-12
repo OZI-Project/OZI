@@ -1,4 +1,22 @@
 # CHANGELOG
+## 0.0.258 (2024-01-12)
+
+### :arrow_up:
+
+* :arrow_up:: Bump OZI-Project/release.
+
+New pin: cde53aa6ef204695f7a5b4d5debc5bf696846cf1 ([`040f029`](https://github.com/OZI-Project/OZI/commit/040f02967a56930bf6b3edc8f25a832969f1a694))
+
+### Other
+
+* Merge pull request #46 from OZI-Project/main
+
+Bump release workflow ([`eb3b00b`](https://github.com/OZI-Project/OZI/commit/eb3b00b18e60d7223c9c99cf9e2154705c210507))
+
+* Merge pull request #45 from OZI-Project/dev
+
+:arrow_up:: Bump OZI-Project/release. ([`e2408ce`](https://github.com/OZI-Project/OZI/commit/e2408ce07b4cf9c13c08fc4ce361ec397e740267))
+
 ## 0.0.257 (2024-01-12)
 
 ### :arrow_up:
