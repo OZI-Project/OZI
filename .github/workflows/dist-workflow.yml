@@ -41,6 +41,11 @@ jobs:
           - '3.12'
       fail-fast: false
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          egress-policy: audit
+
       - uses: OZI-Project/checkpoint@5fbb337eff2581d34ee99b91382dc7a3de4e3db3
         with:
           python-version: ${{ matrix.py }}
@@ -63,6 +68,11 @@ jobs:
       contents: write
       id-token: write
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          egress-policy: audit
+
       - uses: OZI-Project/release@cde53aa6ef204695f7a5b4d5debc5bf696846cf1
         id: release
         with:
@@ -76,6 +86,11 @@ jobs:
       contents: write
       id-token: write
     steps:
+    - name: Harden Runner
+      uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+      with:
+        egress-policy: audit
+
     - uses: OZI-Project/publish@b7a8335e8a68da2aefa10130f0c7e98e0f1498df
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
