@@ -46,7 +46,7 @@ jobs:
         with:
           egress-policy: audit
 
-      - uses: OZI-Project/checkpoint@5fbb337eff2581d34ee99b91382dc7a3de4e3db3
+      - uses: OZI-Project/checkpoint@52b74310d31ed92dbc8193d3d2a1027373cf64da
         with:
           python-version: ${{ matrix.py }}
           suite: ${{ matrix.ozi }}
@@ -73,7 +73,7 @@ jobs:
         with:
           egress-policy: audit
 
-      - uses: OZI-Project/release@cde53aa6ef204695f7a5b4d5debc5bf696846cf1
+      - uses: OZI-Project/release@5e5ef572f5593adb4212466d26bafc204fa1bd77
         id: release
         with:
           python-dist: ${{ matrix.py }}
@@ -91,7 +91,7 @@ jobs:
       with:
         egress-policy: audit
 
-    - uses: OZI-Project/publish@b7a8335e8a68da2aefa10130f0c7e98e0f1498df
+    - uses: OZI-Project/publish@37f120b2f1f8130d11e0d6c62b01ad2061187f59
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         ssh-public: ${{ env.SSH_PUBKEY }}
