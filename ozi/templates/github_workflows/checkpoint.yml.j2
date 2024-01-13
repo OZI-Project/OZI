@@ -23,7 +23,12 @@
           - {{ spec.python.support.bugfix1 }}
       fail-fast: false
     steps:
-      - uses: OZI-Project/checkpoint@5fbb337eff2581d34ee99b91382dc7a3de4e3db3
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          egress-policy: audit
+
+      - uses: OZI-Project/checkpoint@52b74310d31ed92dbc8193d3d2a1027373cf64da
         with:
 {%- raw %}
           python-version: ${{ matrix.py }}

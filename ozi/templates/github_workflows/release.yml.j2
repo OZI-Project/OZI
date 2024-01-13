@@ -24,8 +24,12 @@
       contents: write
       id-token: write
     steps:
-    steps:
-      - uses: OZI-Project/release@cde53aa6ef204695f7a5b4d5debc5bf696846cf1
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          egress-policy: audit
+
+      - uses: OZI-Project/release@5e5ef572f5593adb4212466d26bafc204fa1bd77
         id: release
         with:
 {%- raw %}
