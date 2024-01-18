@@ -2,3 +2,6 @@
 ozi/dist/* @OZI-Project/dist
 ozi/lint/* @OZI-Project/lint
 ozi/test/* @OZI-Project/test
+
+# Vendored libraries
+ozi/vendor/* @OZI-Project/fork
