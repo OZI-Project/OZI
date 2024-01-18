@@ -1,0 +1,4 @@
+# Checkpoint requirements.txt compilation.
+ozi/dist/* @OZI-Project/checkpoint
+ozi/lint/* @OZI-Project/checkpoint
+ozi/test/* @OZI-Project/checkpoint
