@@ -1,4 +1,5 @@
 # CHANGELOG
+
 ## 0.0.258 (2024-01-12)
 
 ### :arrow_up:
@@ -16,6 +17,7 @@ Bump release workflow ([`eb3b00b`](https://github.com/OZI-Project/OZI/commit/eb3
 * Merge pull request #45 from OZI-Project/dev
 
 :arrow_up:: Bump OZI-Project/release. ([`e2408ce`](https://github.com/OZI-Project/OZI/commit/e2408ce07b4cf9c13c08fc4ce361ec397e740267))
+
 
 ## 0.0.257 (2024-01-12)
 
@@ -312,6 +314,7 @@ Merge 0.0 catchup changes ([`d33e982`](https://github.com/OZI-Project/OZI/commit
 Dev merge ([`b6117b1`](https://github.com/OZI-Project/OZI/commit/b6117b14d14786e11391cd6214e00abb9b57f620))
 
 * 0.0.x changes (#11)
+
 
 * :hammer::construction_worker:: Integrate step-security recommended workflows.
 

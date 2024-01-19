@@ -12,7 +12,22 @@
       contents: write
       id-token: write
     steps:
-    - uses: OZI-Project/publish@b7a8335e8a68da2aefa10130f0c7e98e0f1498df
+    - name: Harden Runner
+      uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+      with:
+        egress-policy: audit
+
+    # Currently this action needs to be referred by tag. More details at:
+    # https://github.com/slsa-framework/slsa-github-generator#verification-of-provenance
+    - uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@07e64b653f10a80b6510f4568f685f8b7b9ea830 # v1.9.0
+      with:
+{%- raw %}
+        provenance-name: provenance-${{ github.event.repository.name }}-${{ github.event.release.tag_name }}.intoto.jsonl
+        base64-subjects: "${{ needs.release.outputs.hashes }}"
+{%- endraw %}
+        upload-assets: true
+
+    - uses: OZI-Project/publish@37f120b2f1f8130d11e0d6c62b01ad2061187f59
       with:
 {%- raw %}
         github-token: ${{ secrets.GITHUB_TOKEN }}
