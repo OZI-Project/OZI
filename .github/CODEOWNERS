@@ -1,0 +1,10 @@
+# Checkpoint requirements.txt compilation.
+ozi/dist/* @OZI-Project/dist @OZI-Project/cd
+ozi/lint/* @OZI-Project/lint
+ozi/test/* @OZI-Project/test @OZI-Project/qa
+
+# Python unit tests.
+tests/*.py @OZI-Project/qa
+
+# Vendored libraries
+ozi/vendor/* @OZI-Project/fork
