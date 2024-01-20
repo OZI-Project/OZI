@@ -90,9 +90,24 @@ jobs:
           python-dist: ${{ matrix.py }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
+  generate-provenance:
+    needs: [release]
+    name: Generate build provenance
+    permissions:
+      actions: read # To read the workflow path.
+      id-token: write # To sign the provenance.
+      contents: write # To add assets to a release.
+    # Currently this action needs to be referred by tag. More details at:
+    # https://github.com/slsa-framework/slsa-github-generator#verification-of-provenance
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@07e64b653f10a80b6510f4568f685f8b7b9ea830 # v1.9.0
+    with:
+      provenance-name: provenance-${{ github.event.repository.name }}-${{ github.event.release.tag_name }}.intoto.jsonl
+      base64-subjects: "${{ needs.release.outputs.hashes }}"
+      upload-assets: true
+
   publish:
     runs-on: ubuntu-latest
-    needs: release
+    needs: [release, generate-provenance]
     if: needs.release.outputs.drafted == 'true'
     permissions:
       actions: read
@@ -103,14 +118,6 @@ jobs:
       uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
       with:
         egress-policy: audit
-
-    # Currently this action needs to be referred by tag. More details at:
-    # https://github.com/slsa-framework/slsa-github-generator#verification-of-provenance
-    - uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@07e64b653f10a80b6510f4568f685f8b7b9ea830 # v1.9.0
-      with:
-        provenance-name: provenance-${{ github.event.repository.name }}-${{ github.event.release.tag_name }}.intoto.jsonl
-        base64-subjects: "${{ needs.release.outputs.hashes }}"
-        upload-assets: true
 
     - uses: OZI-Project/publish@37f120b2f1f8130d11e0d6c62b01ad2061187f59
       with:
