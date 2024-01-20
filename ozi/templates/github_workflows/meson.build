@@ -4,6 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 workflows = [
     'checkpoint.yml.j2',
+    'generate_provenance.yml.j2',
     'ozi.yml.j2',
     'publish.yml.j2',
     'release.yml.j2',
