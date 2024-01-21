@@ -1,5 +1,5 @@
 # CHANGELOG
-## 0.0.259 (2024-01-20)
+## 0.0.259 (2024-01-21)
 
 ### :arrow_up:
 
@@ -51,6 +51,30 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`dcb65a1`](https://g
 * :hammer:: Implement hardened runner in workflow output. ([`5c47aff`](https://github.com/OZI-Project/OZI/commit/5c47aff6baa775a300c56b1317aef52180d7e0e9))
 
 ### Other
+
+* Merge pull request #88 from OZI-Project/main
+
+Merge pull request #87 from OZI-Project/0.0 ([`7271816`](https://github.com/OZI-Project/OZI/commit/7271816ec1308c35805b01218288c0d7f1308368))
+
+* Merge pull request #87 from OZI-Project/0.0
+
+Merge pull request #86 from OZI-Project/main ([`abdf6fb`](https://github.com/OZI-Project/OZI/commit/abdf6fb4d2a052b20eaa6500bdfb14787a63803a))
+
+* Merge pull request #86 from OZI-Project/main
+
+Reattempt 0.0.259 release ([`7a00073`](https://github.com/OZI-Project/OZI/commit/7a00073dd8f910f60b73286e938c27dd4b7dd71f))
+
+* Merge pull request #85 from OZI-Project/rjdbcm-dev
+
+:construction_worker:: Pin reusable SLSA generator version. ([`b06f854`](https://github.com/OZI-Project/OZI/commit/b06f85479a72010da40414d94b4b58d1e7e7d0b7))
+
+* Merge branch &#39;main&#39; into rjdbcm-dev ([`e94f33f`](https://github.com/OZI-Project/OZI/commit/e94f33f033e3f271305c47312df8acb922e5ff75))
+
+* Merge pull request #84 from OZI-Project/0.0
+
+0.0 ([`0be8725`](https://github.com/OZI-Project/OZI/commit/0be8725fb6b73d2dd63ac3dec6893e01db58f520))
+
+* :construction_worker:: Pin reusable SLSA generator version. ([`f54c869`](https://github.com/OZI-Project/OZI/commit/f54c869580c36732cf09f003b22941d5359a2d0e))
 
 * Merge pull request #83 from OZI-Project/main
 
