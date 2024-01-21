@@ -1,4 +1,297 @@
 # CHANGELOG
+## 0.0.259 (2024-01-20)
+
+### :arrow_up:
+
+* :arrow_up: Bump github/codeql-action from 3.23.0 to 3.23.1
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.23.0 to 3.23.1.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/e5f05b81d5b6ff8cfa111c80c22c5fd02a384118...0b21cf2492b6b02c465a3e5d7c473717ad7721ba)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`13aa5e1`](https://github.com/OZI-Project/OZI/commit/13aa5e1725832c6dd9f92f89c9ba7a5e36e3bb93))
+
+* :arrow_up: Bump actions/upload-artifact from 4.0.0 to 4.1.0
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.0.0 to 4.1.0.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/c7d193f32edcb7bfad88892161225aeda64e9392...1eb3cb2b3e0f29609092a73eb033bb759a334595)
+
+---
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`dcb65a1`](https://github.com/OZI-Project/OZI/commit/dcb65a10888cb6038b577ab99be63a1cfc071458))
+
+### :hammer:
+
+* :hammer:: Add generate-provenance step template ([`c612e68`](https://github.com/OZI-Project/OZI/commit/c612e680c031ccacbfc4900675d8d50960795220))
+
+* :construction_worker::hammer:: Correct use of reusable workflow for SLSA generation. ([`b8c97f5`](https://github.com/OZI-Project/OZI/commit/b8c97f5d1127894f57716e86e90143ddfa4c2fa3))
+
+* :hammer:: Attempt to add SLSA provenance to publish step. ([`7a0bf0c`](https://github.com/OZI-Project/OZI/commit/7a0bf0cdb0e0bc5941c3c2cc1059fe34c42b4de8))
+
+* :hammer:: Update egress policy to include artifact store ([`d80d453`](https://github.com/OZI-Project/OZI/commit/d80d453e373aca3dfcd25e51d300acbed081a237))
+
+* :hammer:: set checkpoint egress policy. ([`b2bd306`](https://github.com/OZI-Project/OZI/commit/b2bd3062275bab2bdd1c6bcbe0e8d7bfa00d8268))
+
+* :hammer::construction_worker:: Fix workflow hardener to run outside our actions. ([`57b284e`](https://github.com/OZI-Project/OZI/commit/57b284e5a073c075b8e38bb34145dac8ca87efa8))
+
+* :hammer:: Implement hardened runner in workflow output. ([`5c47aff`](https://github.com/OZI-Project/OZI/commit/5c47aff6baa775a300c56b1317aef52180d7e0e9))
+
+### Other
+
+* Merge pull request #83 from OZI-Project/main
+
+Try another release with SLSA workflow. ([`5a58489`](https://github.com/OZI-Project/OZI/commit/5a58489636b32bcf1285042a68ca41007ce42abb))
+
+* Merge pull request #82 from OZI-Project/0.0
+
+Merge pull request #80 from OZI-Project/main ([`11d50eb`](https://github.com/OZI-Project/OZI/commit/11d50ebc27ac5f0b3d5f054c04de27bd49aa1b54))
+
+* Merge pull request #81 from OZI-Project/rjdbcm-dev
+
+:hammer:: Add generate-provenance step template ([`de72258`](https://github.com/OZI-Project/OZI/commit/de722583d7d5b86088607f5d032c0ce637a7dc14))
+
+* Merge branch &#39;main&#39; into rjdbcm-dev ([`9336e88`](https://github.com/OZI-Project/OZI/commit/9336e88ee005dbed0eb02ee8921574deafc5bdfb))
+
+* Merge pull request #80 from OZI-Project/main
+
+Attempt a release with SLSA. ([`8ec17c4`](https://github.com/OZI-Project/OZI/commit/8ec17c4ebec41bf4b2b92a09208f2f54f04a1284))
+
+* Merge pull request #79 from OZI-Project/0.0
+
+Merge failed 0.0 releases. ([`e31b174`](https://github.com/OZI-Project/OZI/commit/e31b174cf59a68fa54fa6f8c022418616e8ebe89))
+
+* Merge pull request #78 from OZI-Project/rjdbcm-dev
+
+:construction_worker:: Use external SLSA workflows. ([`08cc1ca`](https://github.com/OZI-Project/OZI/commit/08cc1cae1bd67f2e13e76b1c77e2bc32b69d34d7))
+
+* :construction_worker:: Use external SLSA workflows by setting org permissions. ([`154ac13`](https://github.com/OZI-Project/OZI/commit/154ac13f429095ae8d1e16e5d9983ef8edab97ed))
+
+* Merge pull request #77 from OZI-Project/main
+
+Use organization SLSA generator. ([`6316619`](https://github.com/OZI-Project/OZI/commit/63166195f1ed2dbd988a6f7a5c42431a17702286))
+
+* Merge pull request #76 from OZI-Project/rjdbcm-dev
+
+:construction_worker:: Use organization fork of SLSA generator. ([`ad3427b`](https://github.com/OZI-Project/OZI/commit/ad3427b2c5706789ee066f367afc2806a2d17fc1))
+
+* Merge branch &#39;main&#39; into rjdbcm-dev ([`c9d531d`](https://github.com/OZI-Project/OZI/commit/c9d531dc759f24c9473d602dfa0a5081b97c9637))
+
+* :construction_worker:: Use organization fork of SLSA generator. ([`e1ca493`](https://github.com/OZI-Project/OZI/commit/e1ca4930ee984b6e228b238301f7a9db5f76ebb2))
+
+* Merge pull request #75 from OZI-Project/main
+
+Retry release. ([`4bfe63d`](https://github.com/OZI-Project/OZI/commit/4bfe63dad3615a128061557af36697b9d42cbdb3))
+
+* Merge pull request #74 from OZI-Project/rjdbcm-patch-1
+
+Update README.rst ([`17ed28c`](https://github.com/OZI-Project/OZI/commit/17ed28c6627eba25e4da9cb2230a191fd5785408))
+
+* Update README.rst
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`52bd96c`](https://github.com/OZI-Project/OZI/commit/52bd96ceac2f4e43071b95ca6996683d23e01315))
+
+* Merge pull request #73 from OZI-Project/0.0
+
+0.0 release update ([`38a3bb6`](https://github.com/OZI-Project/OZI/commit/38a3bb6c978e31534411ed8632c6b047ed6cee4c))
+
+* Merge branch &#39;main&#39; into 0.0 ([`0436224`](https://github.com/OZI-Project/OZI/commit/04362242f1d539bc81e616ec0d7673e42634880e))
+
+* Merge pull request #71 from OZI-Project/rjdbcm-dev
+
+:construction_worker::hammer:: Correct use of reusable workflow ([`7c58a8d`](https://github.com/OZI-Project/OZI/commit/7c58a8dd7568718112b97091a1ca792a43be9000))
+
+* Merge branch &#39;main&#39; into rjdbcm-dev ([`ea76c58`](https://github.com/OZI-Project/OZI/commit/ea76c586bec3b341d0eb0328d918e9a3bc20b7a9))
+
+* Merge pull request #70 from OZI-Project/rjdbcm-dev
+
+Merge conflicts into dev ([`0aadc7f`](https://github.com/OZI-Project/OZI/commit/0aadc7fb982ea1df34f947a01ad489cf54606ff6))
+
+* Merge branch &#39;0.0&#39; into rjdbcm-dev
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`a9e7bcd`](https://github.com/OZI-Project/OZI/commit/a9e7bcd033010637bdba849a82cd49ee6738eb64))
+
+* Merge pull request #68 from OZI-Project/dev
+
+:hammer:: Attempt to add SLSA provenance to publish step. ([`70b091e`](https://github.com/OZI-Project/OZI/commit/70b091edf042ea8c6b37010feb9e1bfca1471a50))
+
+* Merge branch &#39;main&#39; into dev ([`12e1796`](https://github.com/OZI-Project/OZI/commit/12e1796e8c5cab3d3d6a9ef482c199ae632c2d5f))
+
+* Merge pull request #65 from OZI-Project/dependabot/github_actions/actions/dependency-review-action-4.0.0
+
+Bump actions/dependency-review-action from 3.1.5 to 4.0.0 ([`143f032`](https://github.com/OZI-Project/OZI/commit/143f03210e7161c8dfb3c5007134db1bab90270a))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/actions/dependency-review-action-4.0.0 ([`c3354aa`](https://github.com/OZI-Project/OZI/commit/c3354aad0b18c77b6d4d96127f6d531e2c1415f0))
+
+* Merge pull request #66 from OZI-Project/dependabot/github_actions/actions/upload-artifact-4.2.0
+
+Bump actions/upload-artifact from 4.1.0 to 4.2.0 ([`e60b0b4`](https://github.com/OZI-Project/OZI/commit/e60b0b4188faa4b5e2a41f066a736c4703cc40ff))
+
+* Bump actions/upload-artifact from 4.1.0 to 4.2.0
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.1.0 to 4.2.0.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/1eb3cb2b3e0f29609092a73eb033bb759a334595...694cdabd8bdb0f10b2cea11669e1bf5453eed0a6)
+
+---
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`02082e8`](https://github.com/OZI-Project/OZI/commit/02082e87def0ccab00db8fcac9fdb6b5efeff58d))
+
+* Bump actions/dependency-review-action from 3.1.5 to 4.0.0
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 3.1.5 to 4.0.0.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/c74b580d73376b7750d3d2a50bfb8adc2c937507...4901385134134e04cec5fbe5ddfe3b2c5bd5d976)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`c0bf369`](https://github.com/OZI-Project/OZI/commit/c0bf3698145da958a1a47174bc8a157988e38c09))
+
+* Merge pull request #64 from OZI-Project/rjdbcm-patch-2
+
+Update CODEOWNERS ([`f6dda17`](https://github.com/OZI-Project/OZI/commit/f6dda170b893cf008a6db5c24934ee3b41702c96))
+
+* Update CODEOWNERS
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`568b8b0`](https://github.com/OZI-Project/OZI/commit/568b8b0f68090f00a22d80b913d22e378dae45e9))
+
+* Merge pull request #63 from OZI-Project/rjdbcm-patch-2
+
+Update CODEOWNERS ([`066210a`](https://github.com/OZI-Project/OZI/commit/066210a05a85eadc45030dc3240d1beb30626c46))
+
+* Update CODEOWNERS
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`4331d11`](https://github.com/OZI-Project/OZI/commit/4331d11b75bdde85ccbb654532d87b969e777fe1))
+
+* Merge pull request #62 from OZI-Project/rjdbcm-patch-1
+
+Update CODEOWNERS ([`820424d`](https://github.com/OZI-Project/OZI/commit/820424d7a34074245103863880146baab5f89358))
+
+* Update CODEOWNERS
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`90fbeff`](https://github.com/OZI-Project/OZI/commit/90fbeff45a8f9136eb13716274b42693e18c4b7a))
+
+* Merge pull request #61 from OZI-Project/rjdbcm-patch-1
+
+Update CODEOWNERS ([`4171741`](https://github.com/OZI-Project/OZI/commit/417174120962ef3b9a61fde60dcac3ec4aee881a))
+
+* Update CODEOWNERS
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`eb5a856`](https://github.com/OZI-Project/OZI/commit/eb5a8563957ee3f95f6c25a4c1343eb2a560b949))
+
+* Merge pull request #59 from OZI-Project/dependabot/github_actions/github/codeql-action-3.23.1
+
+⬆️ Bump github/codeql-action from 3.23.0 to 3.23.1 ([`2570f08`](https://github.com/OZI-Project/OZI/commit/2570f0851c75abf9704df4ee336f4cb3fddcfbad))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/github/codeql-action-3.23.1 ([`fd3ec8b`](https://github.com/OZI-Project/OZI/commit/fd3ec8b4638408f3bc07d91c70cf6faa5a7b9aba))
+
+* Merge pull request #60 from OZI-Project/rjdbcm-patch-4
+
+Update CODEOWNERS ([`fb24ebf`](https://github.com/OZI-Project/OZI/commit/fb24ebf83cd1bddb455c755949e30db90c6b317f))
+
+* Update CODEOWNERS
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`13afc2d`](https://github.com/OZI-Project/OZI/commit/13afc2d7ae6150999da06d127aa8456fa69a1c5d))
+
+* Merge pull request #58 from OZI-Project/rjdbcm-patch-4
+
+Create CODEOWNERS ([`7f018ab`](https://github.com/OZI-Project/OZI/commit/7f018aba32ae12c5dbb963f3c8627787d176b62a))
+
+* Create CODEOWNERS
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`c86f348`](https://github.com/OZI-Project/OZI/commit/c86f348be858aa4085e8073707d84697dca7b93e))
+
+* Merge pull request #57 from OZI-Project/dependabot/github_actions/actions/upload-artifact-4.1.0
+
+⬆️ Bump actions/upload-artifact from 4.0.0 to 4.1.0 ([`1b4aa50`](https://github.com/OZI-Project/OZI/commit/1b4aa5085a37a67479ebc8f6ee7a77f89700292f))
+
+* Merge pull request #56 from OZI-Project/dev
+
+Dev ([`924f172`](https://github.com/OZI-Project/OZI/commit/924f17261eb771f6e9995016ba20680aa59eb687))
+
+* Merge pull request #55 from OZI-Project/rjdbcm-patch-3
+
+Update FUNDING.yml ([`7224904`](https://github.com/OZI-Project/OZI/commit/72249040a9b104f3ae8511731ef7cc3d84a7830a))
+
+* Update FUNDING.yml
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`4eab163`](https://github.com/OZI-Project/OZI/commit/4eab1637529b24f4918a634b6ab584939fb4f2c0))
+
+* Merge pull request #54 from OZI-Project/rjdbcm-patch-2
+
+Rjdbcm patch 2 ([`b331862`](https://github.com/OZI-Project/OZI/commit/b331862d59ecf0e26145cff534e2f4354e606e45))
+
+* Update codeql.yml
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`9da5638`](https://github.com/OZI-Project/OZI/commit/9da563834ba09732bb8c5c7fbc66f1d841e7f39e))
+
+* Merge pull request #53 from OZI-Project/dev
+
+Dev ([`331beff`](https://github.com/OZI-Project/OZI/commit/331beffb23aa92ed39bd1db6772a2f35568f7d50))
+
+* Merge branch &#39;main&#39; into dev ([`6325c9d`](https://github.com/OZI-Project/OZI/commit/6325c9d015bdd231126a31827c5fb4e265305297))
+
+* Merge pull request #51 from OZI-Project/dev
+
+Dev merge ([`8cf716d`](https://github.com/OZI-Project/OZI/commit/8cf716d826d9e33ab8acf136b23fd5b97802b1cb))
+
+* Merge pull request #50 from step-security-bot/stepsecurity_remediation_1705176175
+
+[StepSecurity] ci: Harden GitHub Actions ([`19e75bf`](https://github.com/OZI-Project/OZI/commit/19e75bf2d0a637b06e16317733434c126a9d0eae))
+
+* [StepSecurity] ci: Harden GitHub Actions
+
+Signed-off-by: StepSecurity Bot &lt;bot@stepsecurity.io&gt; ([`a269af7`](https://github.com/OZI-Project/OZI/commit/a269af72df76a8c421b5e51ba086a795552b3a22))
+
+* Merge pull request #49 from OZI-Project/main
+
+Release changes ([`a3c4d20`](https://github.com/OZI-Project/OZI/commit/a3c4d20ffd54f2f777c0f354013e87e119e60f2a))
+
+* 0.0 merge (#48)
+
+* 0.0.255
+
+Automatically generated by python-semantic-release
+
+* 0.0.256
+
+Automatically generated by python-semantic-release
+
+* 0.0.257
+
+Automatically generated by python-semantic-release
+
+* 0.0.258
+
+Automatically generated by python-semantic-release
+
+---------
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt;
+Co-authored-by: github-actions &lt;github-actions@github.com&gt; ([`f8805d4`](https://github.com/OZI-Project/OZI/commit/f8805d4e2c14621f79150b85f1987d9af564b99a))
 
 ## 0.0.258 (2024-01-12)
 
@@ -10,6 +303,24 @@ New pin: cde53aa6ef204695f7a5b4d5debc5bf696846cf1 ([`040f029`](https://github.co
 
 ### Other
 
+* 0.0 release tags (#47)
+
+* 0.0.255
+
+Automatically generated by python-semantic-release
+
+* 0.0.256
+
+Automatically generated by python-semantic-release
+
+* 0.0.257
+
+Automatically generated by python-semantic-release
+
+---------
+
+Co-authored-by: github-actions &lt;github-actions@github.com&gt; ([`135a07b`](https://github.com/OZI-Project/OZI/commit/135a07bc74c93b2530d408518275a154ad1e84c6))
+
 * Merge pull request #46 from OZI-Project/main
 
 Bump release workflow ([`eb3b00b`](https://github.com/OZI-Project/OZI/commit/eb3b00b18e60d7223c9c99cf9e2154705c210507))
@@ -17,7 +328,6 @@ Bump release workflow ([`eb3b00b`](https://github.com/OZI-Project/OZI/commit/eb3
 * Merge pull request #45 from OZI-Project/dev
 
 :arrow_up:: Bump OZI-Project/release. ([`e2408ce`](https://github.com/OZI-Project/OZI/commit/e2408ce07b4cf9c13c08fc4ce361ec397e740267))
-
 
 ## 0.0.257 (2024-01-12)
 
@@ -314,7 +624,6 @@ Merge 0.0 catchup changes ([`d33e982`](https://github.com/OZI-Project/OZI/commit
 Dev merge ([`b6117b1`](https://github.com/OZI-Project/OZI/commit/b6117b14d14786e11391cd6214e00abb9b57f620))
 
 * 0.0.x changes (#11)
-
 
 * :hammer::construction_worker:: Integrate step-security recommended workflows.
 
