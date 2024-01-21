@@ -3,7 +3,7 @@ name: OZI Checkpoint-only
 on:
   push:
     branches:
-      - 'main'
+      - '**'
 
 permissions:
   contents: read
