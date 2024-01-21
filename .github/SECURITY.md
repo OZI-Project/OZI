@@ -10,8 +10,17 @@ currently being supported with security updates.
 
 This page will be updated for the Alpha release to maturity.
 
+## Disclosure
+
+All known security vulnerabilities must be disclosed publically within 30 days of a detection during regular monitoring.
+
+## Reporting a Vulnerability
+
+This can be done directly through GitHub or via help@oziproject.dev
+
 ## Workflows
 
+We maintain a deny-by-default posture on GitHub actions workflows with the following exceptions:
 - [x] Allow actions created by OZI-Project
 - [x] Allow actions created by GitHub
 - [x] Allow actions by Marketplace verified creators
@@ -26,11 +35,3 @@ This page will be updated for the Alpha release to maturity.
   - slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.9.0
   - softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844
   - softprops/action-gh-release@v1
-
-## Disclosure
-
-All known security vulnerabilities must be disclosed publically within 30 days of a detection during regular monitoring.
-
-## Reporting a Vulnerability
-
-This can be done directly through GitHub or via help@oziproject.dev
