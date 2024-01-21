@@ -10,7 +10,8 @@
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.9.0
     with:
 {%- raw %}
-      provenance-name: provenance-${{ github.event.repository.name }}-${{ github.event.release.tag_name }}.intoto.jsonl
+      provenance-name: provenance-${{ github.event.repository.name }}-${{ needs.release.outputs.tag }}.intoto.jsonl
       base64-subjects: "${{ needs.release.outputs.hashes }}"
+      upload-tag-name: "${{ needs.release.outputs.tag }}"
       upload-assets: true
 {%- endraw %}
