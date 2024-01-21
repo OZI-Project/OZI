@@ -3,15 +3,14 @@ name: OZI Checkpoint-only
 on:
   push:
     branches:
-      - 'dev*'
-      - 'dev/**'
+      - '**'
 
 permissions:
   contents: read
 
 jobs:
   checkpoint:
-    name: OZI ${{ matrix.ozi }} with ${{ matrix.py }} on ${{ matrix.os }}
+    name: OZI Checkpoint-only ${{ matrix.ozi }} (Python ${{ matrix.py }} on ${{ matrix.os }})
     runs-on: '${{ matrix.os }}'
     strategy:
       matrix:

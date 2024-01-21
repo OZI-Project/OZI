@@ -20,6 +20,7 @@
 {%- raw %}
       drafted: ${{ steps.draft.outputs.created }}
       hashes: ${{ steps.release.outputs.hashes }}
+      tag: ${{ steps.release.outputs.tag }}
 {%- endraw %}
     permissions:
       contents: write
@@ -30,7 +31,7 @@
         with:
           egress-policy: audit
 
-      - uses: OZI-Project/release@ea7fca3a3bfa32ae33ae243229be27ecfb63cc08
+      - uses: OZI-Project/release@e8279fc939a671a1379226cce645fa1834c3f0d3
         id: release
         with:
 {%- raw %}
