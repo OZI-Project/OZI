@@ -75,6 +75,7 @@ jobs:
     outputs:
       drafted: ${{ steps.release.outputs.drafted }}
       hashes: ${{ steps.release.outputs.hashes }}
+      tag: ${{ steps.release.outputs.tag }}
     permissions:
       contents: write
       id-token: write
@@ -84,7 +85,7 @@ jobs:
         with:
           egress-policy: audit
 
-      - uses: OZI-Project/release@ea7fca3a3bfa32ae33ae243229be27ecfb63cc08
+      - uses: OZI-Project/release@e8279fc939a671a1379226cce645fa1834c3f0d3
         id: release
         with:
           python-dist: ${{ matrix.py }}
@@ -101,8 +102,9 @@ jobs:
     # https://github.com/slsa-framework/slsa-github-generator#verification-of-provenance
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.9.0
     with:
-      provenance-name: provenance-${{ github.event.repository.name }}-${{ github.event.release.tag_name }}.intoto.jsonl
+      provenance-name: provenance-${{ github.event.repository.name }}-${{ needs.release.outputs.tag }}.intoto.jsonl
       base64-subjects: "${{ needs.release.outputs.hashes }}"
+      upload-tag-name: "${{ needs.release.outputs.tag }}"
       upload-assets: true
 
   publish:
