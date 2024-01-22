@@ -1,5 +1,61 @@
 # CHANGELOG
-## 0.0.259 (2024-01-20)
+## 0.0.260 (2024-01-21)
+
+### :hammer:
+
+* :hammer:: Fix SLSA generation by using the output release tag. ([`879b7a3`](https://github.com/OZI-Project/OZI/commit/879b7a397ad60a2d2a7e854d250bd0a04ed8883b))
+
+### Other
+
+* Merge pull request #95 from OZI-Project/main
+
+Release 0.0.260 ([`fa9af45`](https://github.com/OZI-Project/OZI/commit/fa9af45058f6474495bc65e72c4ace64e3980e2a))
+
+* Merge pull request #93 from OZI-Project/rjdbcm-dev
+
+:hammer:: Fix SLSA generation by using the output release tag. ([`da657ad`](https://github.com/OZI-Project/OZI/commit/da657ad81e4a68bccc61696d652ab66b71a43abd))
+
+* Merge branch &#39;main&#39; into rjdbcm-dev ([`e86c613`](https://github.com/OZI-Project/OZI/commit/e86c61327d8da551de0850878df3f6a811363cc4))
+
+* Merge pull request #90 from OZI-Project/rjdbcm-patch-2
+
+:memo:: Update SECURITY.md ([`9b9ae4e`](https://github.com/OZI-Project/OZI/commit/9b9ae4e7653ae52019cdf1326c9d96f4a407dab1))
+
+* Merge branch &#39;main&#39; into rjdbcm-patch-2 ([`347efdb`](https://github.com/OZI-Project/OZI/commit/347efdbcce08f238dba9584854947c5161b261fb))
+
+* Merge pull request #92 from OZI-Project/rjdbcm-patch-3
+
+Update dev-workflow.yml to run on any branch. ([`528eeb3`](https://github.com/OZI-Project/OZI/commit/528eeb380e8cc0f6cc14e70a79a41308add3560f))
+
+* Update dev-workflow.yml to run on any branch.
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`9a126f4`](https://github.com/OZI-Project/OZI/commit/9a126f4a80205fadce0858be56947245a1550422))
+
+* Merge branch &#39;main&#39; into rjdbcm-patch-2 ([`6b6e7b2`](https://github.com/OZI-Project/OZI/commit/6b6e7b209b7e2e425fee20f77521b7877e1e2a9f))
+
+* Merge pull request #91 from OZI-Project/rjdbcm-patch-3
+
+Update dev-workflow.yml ([`79a45dd`](https://github.com/OZI-Project/OZI/commit/79a45dd16646971643949788c04c342c18f5b61c))
+
+* Update dev-workflow.yml
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`1f39913`](https://github.com/OZI-Project/OZI/commit/1f39913087af1eb979e309d8a49ecfebce09307e))
+
+* :memo:: Update SECURITY.md 
+
+Move workflows policy to bottom.
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`b071807`](https://github.com/OZI-Project/OZI/commit/b071807b97dada21eefcd09fcfa2e1ee0e9b5dff))
+
+* Merge pull request #89 from OZI-Project/rjdbcm-patch-1
+
+:memo:: Update SECURITY.md ([`18b5819`](https://github.com/OZI-Project/OZI/commit/18b58193b3f67adc696d9e421bd1f9821e0d348c))
+
+* :memo:: Update SECURITY.md
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`aa9dfbd`](https://github.com/OZI-Project/OZI/commit/aa9dfbd801d5c4460969d7fa9d4ed0e5dd4de03f))
+
+## 0.0.259 (2024-01-21)
 
 ### :arrow_up:
 
@@ -51,6 +107,30 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`dcb65a1`](https://g
 * :hammer:: Implement hardened runner in workflow output. ([`5c47aff`](https://github.com/OZI-Project/OZI/commit/5c47aff6baa775a300c56b1317aef52180d7e0e9))
 
 ### Other
+
+* Merge pull request #88 from OZI-Project/main
+
+Merge pull request #87 from OZI-Project/0.0 ([`7271816`](https://github.com/OZI-Project/OZI/commit/7271816ec1308c35805b01218288c0d7f1308368))
+
+* Merge pull request #87 from OZI-Project/0.0
+
+Merge pull request #86 from OZI-Project/main ([`abdf6fb`](https://github.com/OZI-Project/OZI/commit/abdf6fb4d2a052b20eaa6500bdfb14787a63803a))
+
+* Merge pull request #86 from OZI-Project/main
+
+Reattempt 0.0.259 release ([`7a00073`](https://github.com/OZI-Project/OZI/commit/7a00073dd8f910f60b73286e938c27dd4b7dd71f))
+
+* Merge pull request #85 from OZI-Project/rjdbcm-dev
+
+:construction_worker:: Pin reusable SLSA generator version. ([`b06f854`](https://github.com/OZI-Project/OZI/commit/b06f85479a72010da40414d94b4b58d1e7e7d0b7))
+
+* Merge branch &#39;main&#39; into rjdbcm-dev ([`e94f33f`](https://github.com/OZI-Project/OZI/commit/e94f33f033e3f271305c47312df8acb922e5ff75))
+
+* Merge pull request #84 from OZI-Project/0.0
+
+0.0 ([`0be8725`](https://github.com/OZI-Project/OZI/commit/0be8725fb6b73d2dd63ac3dec6893e01db58f520))
+
+* :construction_worker:: Pin reusable SLSA generator version. ([`f54c869`](https://github.com/OZI-Project/OZI/commit/f54c869580c36732cf09f003b22941d5359a2d0e))
 
 * Merge pull request #83 from OZI-Project/main
 
