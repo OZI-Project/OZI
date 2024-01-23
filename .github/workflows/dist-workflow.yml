@@ -1,17 +1,6 @@
-# Copyright 2023 Ross J. Duff MSc
-# The copyright holder licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
-
-#   http://www.apache.org/licenses/LICENSE-2.0
-
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-# KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 name: OZI
 
 on:
@@ -26,7 +15,7 @@ permissions:
 jobs:
 
   checkpoint:
-    name: OZI ${{ matrix.ozi }} with ${{ matrix.py }} on ${{ matrix.os }}
+    name: "checkpoint-${{ matrix.ozi }} (Python ${{ matrix.py }} on ${{ matrix.os }})"
     runs-on: '${{ matrix.os }}'
     strategy:
       matrix:
@@ -83,7 +72,16 @@ jobs:
       - name: Harden Runner
         uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
         with:
-          egress-policy: audit
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            files.pythonhosted.org:443
+            fulcio.sigstore.dev:443
+            github.com:443
+            pypi.org:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
 
       - uses: OZI-Project/release@e8279fc939a671a1379226cce645fa1834c3f0d3
         id: release
@@ -92,7 +90,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   generate-provenance:
-    needs: [release]
+    needs: [release, checkpoint]
     name: Generate build provenance
     permissions:
       actions: read # To read the workflow path.
@@ -119,7 +117,12 @@ jobs:
     - name: Harden Runner
       uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
       with:
-        egress-policy: audit
+        disable-sudo: true
+        egress-policy: block
+        allowed-endpoints: >
+          api.github.com:443
+          upload.pypi.org:443
+          uploads.github.com:443
 
     - uses: OZI-Project/publish@37f120b2f1f8130d11e0d6c62b01ad2061187f59
       with:
