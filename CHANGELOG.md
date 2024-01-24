@@ -1,4 +1,44 @@
 # CHANGELOG
+## 0.0.261 (2024-01-23)
+
+### :hammer:
+
+* :hammer:: Merge pull request #100 from OZI-Project/0.0
+
+Merge pull request #99 from OZI-Project/main ([`a1cb31a`](https://github.com/OZI-Project/OZI/commit/a1cb31a8ed3f48ca0b09fabb57c2400414891195))
+
+### Other
+
+* Merge pull request #101 from OZI-Project/main
+
+:hammer:: Merge pull request #100 from OZI-Project/0.0 ([`a0b5c0a`](https://github.com/OZI-Project/OZI/commit/a0b5c0a24d009d51f3e38696391428a05a892a39))
+
+* Merge pull request #99 from OZI-Project/main
+
+Release changes to egress policy ([`e303fe9`](https://github.com/OZI-Project/OZI/commit/e303fe94c8d22cacd4219c71607f55fd35c28b12))
+
+* Merge pull request #98 from OZI-Project/rjdbcm-dev
+
+👷 🔨 : Add egress block allowlist for release and publish. ([`a737db0`](https://github.com/OZI-Project/OZI/commit/a737db01af15beb5fccc775c1066603f6c368b70))
+
+* Merge branch &#39;main&#39; into rjdbcm-dev ([`b9792e6`](https://github.com/OZI-Project/OZI/commit/b9792e65697f2ed8202762cb32d08d441496f9af))
+
+* 👷 🔨 : Add egress block allowlist for release and publish. ([`aac44be`](https://github.com/OZI-Project/OZI/commit/aac44be171446a04ee39dc42e7709a5922711044))
+
+* Merge pull request #96 from OZI-Project/0.0
+
+0.0 tags ([`d23aee1`](https://github.com/OZI-Project/OZI/commit/d23aee1d23331eb65d8faab505f0a75a0bf97deb))
+
+* Merge branch &#39;main&#39; into 0.0 ([`598b01b`](https://github.com/OZI-Project/OZI/commit/598b01b1373784bd992d8cd321603183b1c6559c))
+
+* Merge pull request #97 from OZI-Project/rjdbcm-patch-2
+
+:construction_worker:: Update dev-workflow.yml to run on all branches… ([`176941b`](https://github.com/OZI-Project/OZI/commit/176941baf9b3618150586295b73feec411d55b21))
+
+* :construction_worker:: Update dev-workflow.yml to run on all branches on PR.
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`c1796e9`](https://github.com/OZI-Project/OZI/commit/c1796e989d40731ba41b647cb25ad223beff6f35))
+
 ## 0.0.260 (2024-01-21)
 
 ### :hammer:
