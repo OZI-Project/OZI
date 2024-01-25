@@ -43,6 +43,9 @@ jobs:
             pypi.org:443
             registry.npmjs.org:443
             objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
 
       - uses: OZI-Project/checkpoint@a3c7a3e7986e682d485ada6243d40b51bc90c365
         with:
