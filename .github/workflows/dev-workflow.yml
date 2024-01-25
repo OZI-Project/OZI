@@ -45,7 +45,7 @@ jobs:
             registry.npmjs.org:443
             objects.githubusercontent.com:443
 
-      - uses: OZI-Project/checkpoint@581ee8e119ce1313abae9b7af15972c2f3c82a20
+      - uses: OZI-Project/checkpoint@03081e18a0a99f3e710a5e5187124f21c58a5dc5
         with:
           python-version: ${{ matrix.py }}
           suite: ${{ matrix.ozi }}
