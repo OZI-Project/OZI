@@ -30,6 +30,8 @@ jobs:
           - '3.11'
           - '3.12'
       fail-fast: false
+    permissions:
+      id-token: write
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
@@ -43,8 +45,11 @@ jobs:
             pypi.org:443
             registry.npmjs.org:443
             objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@581ee8e119ce1313abae9b7af15972c2f3c82a20
+      - uses: OZI-Project/checkpoint@a3c7a3e7986e682d485ada6243d40b51bc90c365
         with:
           python-version: ${{ matrix.py }}
           suite: ${{ matrix.ozi }}
@@ -83,7 +88,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/release@e8279fc939a671a1379226cce645fa1834c3f0d3
+      - uses: OZI-Project/release@0e6bbf31af68d4e104aa7b27a35b8f8118924985
         id: release
         with:
           python-dist: ${{ matrix.py }}
@@ -127,5 +132,3 @@ jobs:
     - uses: OZI-Project/publish@d9173e726b4cbb2ecd631fff0259656737e0dc23
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        ssh-public: ${{ env.SSH_PUBKEY }}
-        ssh-private: ${{ secrets.SSH_PRVKEY }}
