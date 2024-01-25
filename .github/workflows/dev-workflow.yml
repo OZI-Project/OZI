@@ -31,6 +31,8 @@ jobs:
           - '3.11'
           - '3.12'
       fail-fast: false
+    permissions:
+        id-token: write
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
@@ -44,8 +46,11 @@ jobs:
             pypi.org:443
             registry.npmjs.org:443
             objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@581ee8e119ce1313abae9b7af15972c2f3c82a20
+      - uses: OZI-Project/checkpoint@a3c7a3e7986e682d485ada6243d40b51bc90c365
         with:
           python-version: ${{ matrix.py }}
           suite: ${{ matrix.ozi }}
