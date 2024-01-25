@@ -35,8 +35,11 @@
             pypi.org:443
             registry.npmjs.org:443
             objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@581ee8e119ce1313abae9b7af15972c2f3c82a20
+      - uses: OZI-Project/checkpoint@a3c7a3e7986e682d485ada6243d40b51bc90c365
         with:
 {%- raw %}
           python-version: ${{ matrix.py }}
