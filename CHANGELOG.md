@@ -1,4 +1,127 @@
 # CHANGELOG
+## 0.0.262 (2024-01-25)
+
+### :hammer:
+
+* :hammer: Update dist-workflow.yml to latest release and publish.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`a09649b`](https://github.com/OZI-Project/OZI/commit/a09649b21c90986a6f880ea362f0fa87ac6398ac))
+
+* :hammer: Update checkpoint.yml.j2 to add signed log artifact.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`ee99788`](https://github.com/OZI-Project/OZI/commit/ee9978823e9da544f68ff43a9d9e977d1b3d199e))
+
+* :hammer: add ``id-token: write`` to checkpoint
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`5770594`](https://github.com/OZI-Project/OZI/commit/5770594fc342eec709043696601ff2e5812dcb51))
+
+### :pushpin:
+
+* :pushpin: Bump OZI-Project/publish
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 37f120b2f1f8130d11e0d6c62b01ad2061187f59 to d9173e726b4cbb2ecd631fff0259656737e0dc23.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/37f120b2f1f8130d11e0d6c62b01ad2061187f59...d9173e726b4cbb2ecd631fff0259656737e0dc23)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`e5d477c`](https://github.com/OZI-Project/OZI/commit/e5d477c3ea3faa9c282dcb1377ba004a3b74543a))
+
+### Other
+
+* Merge pull request #115 from OZI-Project/main
+
+Release 0.0.262 ([`352807b`](https://github.com/OZI-Project/OZI/commit/352807bc52bebf5654a03ac1f46af8251141af22))
+
+* Merge pull request #114 from OZI-Project/rjdbcm-patch-3
+
+Update dist-workflow.yml ([`5cba7d1`](https://github.com/OZI-Project/OZI/commit/5cba7d12fd74eddb2307f24a2d944183814f1d74))
+
+* Update publish.yml.j2
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`9def9ef`](https://github.com/OZI-Project/OZI/commit/9def9efaae3b3440939db57f3e4073ea060c1d48))
+
+* Update release.yml.j2 to 0.1.0-prealpha
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`b27c29a`](https://github.com/OZI-Project/OZI/commit/b27c29ace509452ad9e56bd711cbfbd6cf65f8a9))
+
+* Update dist-workflow.yml - add     permissions:         id-token: write
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`c7fd5d0`](https://github.com/OZI-Project/OZI/commit/c7fd5d03a9bfdd24a7a134f49961aa8266811eb2))
+
+* Update dev-workflow.yml - egress policy for signed checkpoints.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`120b783`](https://github.com/OZI-Project/OZI/commit/120b78304b21c83f787fc01ae1e3dc87a5f15fc6))
+
+* Update dist-workflow.yml - fix egress policy for signed checkpoints.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`6ee3c92`](https://github.com/OZI-Project/OZI/commit/6ee3c923ad4c2954817538298331733a910b080c))
+
+* Update dev-workflow.yml
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`629c3c9`](https://github.com/OZI-Project/OZI/commit/629c3c941b32c3e68f2b9b0d29c2325b00d17756))
+
+* Update dist-workflow.yml
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`5061a6c`](https://github.com/OZI-Project/OZI/commit/5061a6c3b55babfa9444a548a68e8faad5356c67))
+
+* Merge pull request #112 from OZI-Project/rjdbcm-patch-3
+
+Update dependabot.yml ([`f72b646`](https://github.com/OZI-Project/OZI/commit/f72b646bd3a5a92948e5e7289fffcb783fb465f6))
+
+* Update dependabot.yml
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`d9288e1`](https://github.com/OZI-Project/OZI/commit/d9288e1bf9a7db07963e73f4bfd1e60c0609dedd))
+
+* Merge pull request #110 from OZI-Project/dependabot/github_actions/OZI-Project/publish-d9173e726b4cbb2ecd631fff0259656737e0dc23
+
+:pushpin: Bump OZI-Project/publish from 37f120b2f1f8130d11e0d6c62b01ad2061187f59 to d9173e726b4cbb2ecd631fff0259656737e0dc23 ([`881075c`](https://github.com/OZI-Project/OZI/commit/881075c8f30de1c7a5bb74530b9226f9d5fc3d50))
+
+* Merge pull request #109 from OZI-Project/rjdbcm-patch-3
+
+Update dependabot.yml ([`8101e59`](https://github.com/OZI-Project/OZI/commit/8101e59cc696d9732ee00f333046c62aba7c882b))
+
+* Update dependabot.yml
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`3d1afce`](https://github.com/OZI-Project/OZI/commit/3d1afceec4651757cc0b797cd03e0e2c08c5074b))
+
+* Merge pull request #107 from OZI-Project/0.0
+
+0.0 changelog ([`f801bfa`](https://github.com/OZI-Project/OZI/commit/f801bfa43ad16d1a8c733dd1c53852176b12c770))
+
+* Merge branch &#39;main&#39; into 0.0 ([`d1016ce`](https://github.com/OZI-Project/OZI/commit/d1016ce7f225213ab7db5c82a205dc87b8aaf647))
+
+* Merge pull request #104 from OZI-Project/dependabot/github_actions/actions/upload-artifact-4.3.0
+
+Bump actions/upload-artifact from 4.2.0 to 4.3.0 ([`ac1d4f0`](https://github.com/OZI-Project/OZI/commit/ac1d4f0cfd30f762824ab87169f77a094fabff9d))
+
+* Bump actions/upload-artifact from 4.2.0 to 4.3.0
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.2.0 to 4.3.0.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/694cdabd8bdb0f10b2cea11669e1bf5453eed0a6...26f96dfa697d77e81fd5907df203aa23a56210a8)
+
+---
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`8f0aed0`](https://github.com/OZI-Project/OZI/commit/8f0aed074c61a065782ecfc5e71d42ee55ee780f))
+
+* Merge pull request #102 from OZI-Project/rjdbcm-patch-3
+
+:construction_worker: Update scorecard.yml ([`7dc764c`](https://github.com/OZI-Project/OZI/commit/7dc764c2feedbea8711370304b484af67b9559ef))
+
+* :construction_worker: Update scorecard.yml
+
+Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`3676437`](https://github.com/OZI-Project/OZI/commit/36764372a655d3d51960846270c50a788003cf08))
+
 ## 0.0.261 (2024-01-23)
 
 ### :hammer:
