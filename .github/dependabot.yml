@@ -14,3 +14,5 @@ updates:
     directory: /
     schedule:
       interval: daily
+    commit-message:
+      prefix: ":pushpin:"
