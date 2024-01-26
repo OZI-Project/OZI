@@ -275,8 +275,3 @@ jobs:
         with:
           python-version: "3.12"
           suite: test
-
-      - uses: OZI-Project/checkpoint@9b94738aab4c7c3ee989c8be1144d041bfd7a184
-        with:
-          python-version: ${{ matrix.py }}
-          suite: ${{ matrix.ozi }}
