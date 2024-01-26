@@ -1,4 +1,85 @@
 # CHANGELOG
+## 0.0.264 (2024-01-26)
+
+### :hammer:
+
+* :hammer: Update dist-workflow.yml
+
+Use separate jobs rather than matrix for checkpointing stability.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`afa4051`](https://github.com/OZI-Project/OZI/commit/afa4051d3963b808eb85b9402744ad911da79db3))
+
+* :hammer: Update dev-workflow.yml
+
+Can&#39;t use matrix actions because of artifact upload v4
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`6cf0dfb`](https://github.com/OZI-Project/OZI/commit/6cf0dfb420d8152c8ff840bd0ff89dd5252e5743))
+
+### :pushpin:
+
+* :pushpin: Bump OZI-Project/checkpoint from 0.1.1 to 0.1.2
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0.1.1 to 0.1.2.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/9f405918305aa607771282da4ae207589d0f23b8...9b94738aab4c7c3ee989c8be1144d041bfd7a184)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`cf9b587`](https://github.com/OZI-Project/OZI/commit/cf9b587f1a5dec70dae48210594047e5b41594fe))
+
+### Other
+
+* Merge pull request #122 from OZI-Project/main
+
+Changes to checkpoint workflow ([`53aab45`](https://github.com/OZI-Project/OZI/commit/53aab45cea4349f4542e87f01777123f6522fd4b))
+
+* Merge pull request #120 from OZI-Project/dependabot/github_actions/OZI-Project/checkpoint-0.1.2
+
+:pushpin: Bump OZI-Project/checkpoint from 0.1.1 to 0.1.2 ([`ddb9ae2`](https://github.com/OZI-Project/OZI/commit/ddb9ae20ac8cf3234063ee0ab09057e9d1857ef3))
+
+* Update requirements.in
+
+✏️ fix pin
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`eecc30e`](https://github.com/OZI-Project/OZI/commit/eecc30e12348206a7b066140eceff3e7c003c364))
+
+* Update checkpoint.yml.j2
+
+✏️ Fix missing step from checkpoint aggregator
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`4193fa2`](https://github.com/OZI-Project/OZI/commit/4193fa2c7fecd3049d453c89828b4e3c5cab19f0))
+
+* Update dist-workflow.yml
+
+✏️ Fix missing step from checkpoint aggregator
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`4476e61`](https://github.com/OZI-Project/OZI/commit/4476e61c08980bf8ccd5181dd9f910594fa9a2f7))
+
+* Update requirements.in
+
+📌 use ``black ~= 23`` stable version pin.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`7f08787`](https://github.com/OZI-Project/OZI/commit/7f087873d6644518915ac7e225f970108438ccd3))
+
+* Update checkpoint.yml.j2
+
+🔨  use unique checkpoint job ids.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`49b7b42`](https://github.com/OZI-Project/OZI/commit/49b7b427b5eeb9962b136fe2fef2249a901a85bf))
+
+* Merge pull request #121 from OZI-Project/rjdbcm-patch-3
+
+:hammer: Update dist-workflow.yml ([`d846d89`](https://github.com/OZI-Project/OZI/commit/d846d89e08820b7e69082c84acf4b154e446eac9))
+
+* Update dev-workflow.yml
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`3f8fe63`](https://github.com/OZI-Project/OZI/commit/3f8fe634567db3de054845f68ffa5a53e37c72c2))
+
 ## 0.0.263 (2024-01-26)
 
 ### :pushpin:
