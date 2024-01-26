@@ -49,7 +49,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@a3c7a3e7986e682d485ada6243d40b51bc90c365
+      - uses: OZI-Project/checkpoint@9f405918305aa607771282da4ae207589d0f23b8
         with:
           python-version: ${{ matrix.py }}
           suite: ${{ matrix.ozi }}
