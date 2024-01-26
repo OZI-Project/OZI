@@ -1,4 +1,36 @@
 # CHANGELOG
+## 0.0.263 (2024-01-26)
+
+### :pushpin:
+
+* :pushpin: Update dist-workflow.yml
+
+Update checkpoint pin to: 9f405918305aa607771282da4ae207589d0f23b8
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`fde0d36`](https://github.com/OZI-Project/OZI/commit/fde0d36a89fda57fe0307cfc681b9a3eeef9ca66))
+
+* :pushpin: Update dev-workflow.yml
+
+Update checkpoint pin to: 9f405918305aa607771282da4ae207589d0f23b8
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`c9b05e8`](https://github.com/OZI-Project/OZI/commit/c9b05e89f14885ec499d4b1baecc8cf88a0c6801))
+
+* :pushpin:: Update checkpoint.yml.j2
+
+Update version pin to: 9f405918305aa607771282da4ae207589d0f23b8
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`6d084a0`](https://github.com/OZI-Project/OZI/commit/6d084a0346883737ea82fb752d6ca06ef86ac056))
+
+### Other
+
+* Merge pull request #117 from OZI-Project/main
+
+Release 0.0.263 ([`196d378`](https://github.com/OZI-Project/OZI/commit/196d378ed7c0e58aadc7889f2b9135baa53ffd83))
+
+* Merge pull request #116 from OZI-Project/rjdbcm-patch-3
+
+:pushpin:: Update checkpoint.yml.j2 ([`f9c0975`](https://github.com/OZI-Project/OZI/commit/f9c0975eb4190a81602ec66c48a4b18a4ad019d6))
+
 ## 0.0.262 (2024-01-25)
 
 ### :hammer:
