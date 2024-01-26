@@ -4,24 +4,13 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
-  checkpoint:
-{%- raw %}
-    name: OZI ${{ matrix.ozi }} with ${{ matrix.py }} on ${{ matrix.os }}
-    runs-on: '${{ matrix.os }}'
-{%- endraw %}
+  checkpoint-dist-cp310-ubuntu-latest:
+    name: checkpoint-only-dist (Python 3.10 on ubuntu-latest)
+    runs-on: ubuntu-latest
     strategy:
-      matrix:
-        ozi:
-{%- for suite in spec.python.ci.checkpoint.suites %}
-          - {{ suite }}
-{%- endfor %}
-        os:
-          - ubuntu-latest
-        py:
-          - {{ spec.python.support.security }}
-          - {{ spec.python.support.bugfix2 }}
-          - {{ spec.python.support.bugfix1 }}
       fail-fast: false
+    permissions:
+        id-token: write
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
@@ -41,7 +30,247 @@
 
       - uses: OZI-Project/checkpoint@9f405918305aa607771282da4ae207589d0f23b8
         with:
-{%- raw %}
-          python-version: ${{ matrix.py }}
-          suite: ${{ matrix.ozi }}
-{%- endraw %}
+          python-version: "3.10"
+          suite: dist
+
+  checkpoint-dist-cp311-ubuntu-latest:
+    name: checkpoint-only-dist (Python 3.11 on ubuntu-latest)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    permissions:
+        id-token: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            oziproject.dev:443
+            pypi.org:443
+            registry.npmjs.org:443
+            objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
+
+      - uses: OZI-Project/checkpoint@9f405918305aa607771282da4ae207589d0f23b8
+        with:
+          python-version: "3.11"
+          suite: dist
+
+  checkpoint-dist-cp312-ubuntu-latest:
+    name: checkpoint-only-dist (Python 3.12 on ubuntu-latest)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    permissions:
+        id-token: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            oziproject.dev:443
+            pypi.org:443
+            registry.npmjs.org:443
+            objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
+
+      - uses: OZI-Project/checkpoint@9f405918305aa607771282da4ae207589d0f23b8
+        with:
+          python-version: "3.12"
+          suite: dist
+
+  checkpoint-lint-cp310-ubuntu-latest:
+    name: checkpoint-only-lint (Python 3.10 on ubuntu-latest)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    permissions:
+        id-token: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            oziproject.dev:443
+            pypi.org:443
+            registry.npmjs.org:443
+            objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
+
+      - uses: OZI-Project/checkpoint@9f405918305aa607771282da4ae207589d0f23b8
+        with:
+          python-version: "3.10"
+          suite: lint
+
+  checkpoint-lint-cp311-ubuntu-latest:
+    name: checkpoint-only-lint (Python 3.11 on ubuntu-latest)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    permissions:
+        id-token: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            oziproject.dev:443
+            pypi.org:443
+            registry.npmjs.org:443
+            objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
+
+      - uses: OZI-Project/checkpoint@9f405918305aa607771282da4ae207589d0f23b8
+        with:
+          python-version: "3.11"
+          suite: lint
+
+  checkpoint-lint-cp312-ubuntu-latest:
+    name: checkpoint-only-lint (Python 3.12 on ubuntu-latest)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    permissions:
+        id-token: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            oziproject.dev:443
+            pypi.org:443
+            registry.npmjs.org:443
+            objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
+
+      - uses: OZI-Project/checkpoint@9f405918305aa607771282da4ae207589d0f23b8
+        with:
+          python-version: "3.12"
+          suite: lint
+  
+  checkpoint-test-cp310-ubuntu-latest:
+    name: checkpoint-only-test (Python 3.10 on ubuntu-latest)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    permissions:
+        id-token: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            oziproject.dev:443
+            pypi.org:443
+            registry.npmjs.org:443
+            objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
+
+      - uses: OZI-Project/checkpoint@9f405918305aa607771282da4ae207589d0f23b8
+        with:
+          python-version: "3.10"
+          suite: test
+
+  checkpoint-test-cp311-ubuntu-latest:
+    name: checkpoint-only-test (Python 3.11 on ubuntu-latest)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    permissions:
+        id-token: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            oziproject.dev:443
+            pypi.org:443
+            registry.npmjs.org:443
+            objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
+
+      - uses: OZI-Project/checkpoint@9f405918305aa607771282da4ae207589d0f23b8
+        with:
+          python-version: "3.11"
+          suite: test
+
+  checkpoint-test-cp312-ubuntu-latest:
+    name: checkpoint-only-test (Python 3.12 on ubuntu-latest)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    permissions:
+        id-token: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            oziproject.dev:443
+            pypi.org:443
+            registry.npmjs.org:443
+            objects.githubusercontent.com:443
+            fulcio.sigstore.dev:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
+
+      - uses: OZI-Project/checkpoint@9f405918305aa607771282da4ae207589d0f23b8
+        with:
+          python-version: "3.12"
+          suite: test
+
+  checkpoint:
+    runs-on: ubuntu-latest
+    needs: [checkpoint-dist-cp310-ubuntu-latest, checkpoint-dist-cp311-ubuntu-latest, checkpoint-dist-cp312-ubuntu-latest, checkpoint-lint-cp310-ubuntu-latest, checkpoint-lint-cp311-ubuntu-latest, checkpoint-lint-cp312-ubuntu-latest, checkpoint-test-cp310-ubuntu-latest, checkpoint-test-cp311-ubuntu-latest, checkpoint-test-cp312-ubuntu-latest]
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          disable-sudo: true
+          egress-policy: block
