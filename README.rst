@@ -43,9 +43,9 @@ The OZI continuous integration strategy consists of:
 * code testing and coverage
 * distributing Python packages with Meson_
 * code linting and formatting
-
 2. Release drafting
-3. Publishing
+3. Provenance generation
+4. Publishing
 
 What OZI is **not**
 ###################
