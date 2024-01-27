@@ -108,6 +108,8 @@ Ross J. Duff MSc - help@oziproject.dev
 .. |SourceRank| image:: https://img.shields.io/librariesio/sourcerank/pypi/OZI?link=https%3A%2F%2Flibraries.io%2Fpypi%2FOZI%2Fsourcerank
     :target: https://libraries.io/pypi/OZI/sourcerank
 .. |OSSF-Scorecard| image:: https://img.shields.io/ossf-scorecard/github.com/OZI-Project/OZI?label=OpenSSF%20Scorecard
+    :target: https://securityscorecards.dev/viewer/?uri=github.com/OZI-Project/OZI&sort_by=risk-level&sort_direction=desc
+    :alt: Open Source Security Foundation Scorecard
 .. |osi-logo| image:: https://149753425.v2.pressablecdn.com/wp-content/uploads/2009/06/OSIApproved_100X125.png
  :height: 100
  :alt: OSI Approved Open Source License under Keyhole Logo
