@@ -11,7 +11,7 @@
 OZI
 ===
 
-|py-version-badge| |slsa-level3-badge| |openssf-badge| |OSSF-Scorecard| |SourceRank| |fossa-badge|
+|py-version-badge| |slsa-level3-badge| |openssf-badge| |OSSF-Scorecard| |SourceRank|
 
 .. image:: https://raw.githubusercontent.com/sigstore/community/main/artwork/badge/sigstore_codesigned_purple.png
  :align: right
@@ -101,9 +101,6 @@ Ross J. Duff MSc - help@oziproject.dev
 
 .. |py-version-badge| image:: https://img.shields.io/pypi/pyversions/ozi
     :alt: PyPI - Python Version
-.. |fossa-badge| image:: https://app.fossa.com/api/projects/git%2Bgithub.com%2Frjdbcm%2Fozi.svg?type=shield
-    :target: https://app.fossa.com/projects/git%2Bgithub.com%2Frjdbcm%2Fozi?ref=badge_large
-    :alt: License Compliance
 .. |slsa-level3-badge| image:: https://slsa.dev/images/gh-badge-level3.svg
 .. |openssf-badge| image:: https://bestpractices.coreinfrastructure.org/projects/7515/badge
     :target: https://bestpractices.coreinfrastructure.org/projects/7515
