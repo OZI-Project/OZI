@@ -11,8 +11,7 @@
 OZI
 ===
 
-|py-version-badge| |openssf-badge| |slsa-level3-badge| |fossa-badge| |semantic-release-badge|
-|bandit-badge| |black-badge| |isort-badge| |flake8-badge| |pyright-badge|
+|py-version-badge| |slsa-level3-badge| |openssf-badge| |OSSF-Scorecard| |SourceRank|
 
 .. image:: https://raw.githubusercontent.com/sigstore/community/main/artwork/badge/sigstore_codesigned_purple.png
  :align: right
@@ -44,9 +43,9 @@ The OZI continuous integration strategy consists of:
 * code testing and coverage
 * distributing Python packages with Meson_
 * code linting and formatting
-
 2. Release drafting
-3. Publishing
+3. Provenance generation
+4. Publishing
 
 What OZI is **not**
 ###################
@@ -102,30 +101,15 @@ Ross J. Duff MSc - help@oziproject.dev
 
 .. |py-version-badge| image:: https://img.shields.io/pypi/pyversions/ozi
     :alt: PyPI - Python Version
-.. |pylint-ckpt-badge| image:: https://img.shields.io/badge/linting-%E2%9C%94%20Pylint%3A%2010.00%2F10-informational
-.. |fossa-badge| image:: https://app.fossa.com/api/projects/git%2Bgithub.com%2Frjdbcm%2Fozi.svg?type=shield
-    :target: https://app.fossa.com/projects/git%2Bgithub.com%2Frjdbcm%2Fozi?ref=badge_large
-    :alt: License Compliance
-
 .. |slsa-level3-badge| image:: https://slsa.dev/images/gh-badge-level3.svg
 .. |openssf-badge| image:: https://bestpractices.coreinfrastructure.org/projects/7515/badge
     :target: https://bestpractices.coreinfrastructure.org/projects/7515
     :alt: Open Source Security Foundation self-certification status
-.. |semantic-release-badge| image:: https://img.shields.io/badge/semantic--release-gitmoji-e10079?logo=semantic-release
-    :target: https://github.com/python-semantic-release/python-semantic-release
-    :alt: Automatic Semantic Versioning for Python projects
-.. |bandit-badge| image:: https://img.shields.io/badge/security-%E2%9C%94%20bandit-yellow.svg
-    :target: https://github.com/PyCQA/bandit
-    :alt: Security Status
-.. |black-badge| image:: https://img.shields.io/badge/code%20style-%E2%9C%94%20black-000000.svg
-    :target: https://github.com/psf/black
-    :alt: The Uncompromising Code Formatter
-.. |flake8-badge| image:: https://img.shields.io/badge/code%20quality-%E2%9C%94%20Flake8-informational
-.. |isort-badge| image:: https://img.shields.io/badge/%20imports-%E2%9C%94%20isort-%231674b1?style=flat&labelColor=ef8336
-    :target: https://pycqa.github.io/isort/
-    :alt: isort your imports, so you don't have to.
-.. |pyright-badge| image:: https://img.shields.io/badge/typing-%E2%9C%94%20Pyright%3A%200%20e%2C%200%20w%2C%200%20i-informational
-
+.. |SourceRank| image:: https://img.shields.io/librariesio/sourcerank/pypi/OZI?link=https%3A%2F%2Flibraries.io%2Fpypi%2FOZI%2Fsourcerank
+    :target: https://libraries.io/pypi/OZI/sourcerank
+.. |OSSF-Scorecard| image:: https://img.shields.io/ossf-scorecard/github.com/OZI-Project/OZI?label=OpenSSF%20Scorecard
+    :target: https://securityscorecards.dev/viewer/?uri=github.com/OZI-Project/OZI&sort_by=risk-level&sort_direction=desc
+    :alt: Open Source Security Foundation Scorecard
 .. |osi-logo| image:: https://149753425.v2.pressablecdn.com/wp-content/uploads/2009/06/OSIApproved_100X125.png
  :height: 100
  :alt: OSI Approved Open Source License under Keyhole Logo
