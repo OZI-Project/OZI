@@ -45,7 +45,7 @@ The OZI continuous integration strategy consists of:
 * code linting and formatting
 
 2. Release drafting
-3. Provenance generation
+3. Provenance generation (SLSA v1.0 Level 3)
 4. Publishing
 
 What OZI is **not**

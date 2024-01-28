@@ -1,4 +1,82 @@
 # CHANGELOG
+## 0.0.265 (2024-01-28)
+
+### :lipstick:
+
+* :lipstick: Update README.rst
+
+Add little changes to the readme to target end-users better.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`0c57038`](https://github.com/OZI-Project/OZI/commit/0c570388f3dcf7e000b5f5062109bd4ee2402e90))
+
+### :pencil2:
+
+* :pencil2: Update README.rst (#132)
+
+Fix long_description format for twine. ([`5f457d6`](https://github.com/OZI-Project/OZI/commit/5f457d6757bb6a330c84982c7fe5efd5a1432fd7))
+
+* :pencil2: Update README.rst
+
+Fix long_description format for twine.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`510beaf`](https://github.com/OZI-Project/OZI/commit/510beafe506fb2b74a8d3bfd41866ca26fc74239))
+
+### Other
+
+* Retry 0.0.265 release (#133) ([`7b541b4`](https://github.com/OZI-Project/OZI/commit/7b541b48603d0c4451dddfc4608b89207b3f472e))
+
+* Rjdbcm patch 1 (#131) ([`510f41e`](https://github.com/OZI-Project/OZI/commit/510f41e3a65d46c8b492c4faa6dea0dfb01f2105))
+
+* Merge pull request #129 from OZI-Project/0.0
+
+Merge pull request #128 from OZI-Project/main ([`1f0aef8`](https://github.com/OZI-Project/OZI/commit/1f0aef871c8a2fa7cef2bfc8ac9e369031e02ec8))
+
+* Merge pull request #128 from OZI-Project/main
+
+Release 0.0.265 ([`3bd7e38`](https://github.com/OZI-Project/OZI/commit/3bd7e382476999d236659e6dbabc5e730bb271da))
+
+* Merge pull request #127 from OZI-Project/rjdbcm-patch-1
+
+Update README.rst ([`f2a8f6d`](https://github.com/OZI-Project/OZI/commit/f2a8f6d03ebed150dcc92b71ee77d0dac69c8f96))
+
+* Update README.rst
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`1e2bd2a`](https://github.com/OZI-Project/OZI/commit/1e2bd2a6dfdec3eb32c7be035786072bfc13a2de))
+
+* Merge pull request #126 from OZI-Project/rjdbcm-patch-1
+
+Update README.rst ([`9365dd7`](https://github.com/OZI-Project/OZI/commit/9365dd75c419439c87258d3bb29d56d0f71e9fb1))
+
+* Update README.rst
+
+:memo: Add provenance step to readme.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`22a05fe`](https://github.com/OZI-Project/OZI/commit/22a05fed214091911461247fe7e4c28e84dc2955))
+
+* Merge pull request #125 from OZI-Project/rjdbcm-patch-4
+
+Update README.rst ([`bb9873e`](https://github.com/OZI-Project/OZI/commit/bb9873e57ac219f38beef3d7b43d9e9d17679843))
+
+* Update README.rst
+
+:memo: Licensing scan monitor badge removed.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`8ae96d4`](https://github.com/OZI-Project/OZI/commit/8ae96d46193e2c69b64d5ebb11732af62ad68db3))
+
+* Merge pull request #124 from OZI-Project/rjdbcm-patch-3
+
+Update README.rst ([`6078ef1`](https://github.com/OZI-Project/OZI/commit/6078ef1a0d107f1a918d574a1dce6081f347e6f9))
+
+* Update README.rst
+
+:memo: Clean up badges to be more informative to potential users.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`881af21`](https://github.com/OZI-Project/OZI/commit/881af2105eed39177cf97057ae11b040f3067a0b))
+
+* Merge pull request #123 from OZI-Project/0.0
+
+0.0 changelog entries. ([`282c204`](https://github.com/OZI-Project/OZI/commit/282c204d5afc1805df4104c2060b4fa1ffe3e2c9))
+
 ## 0.0.264 (2024-01-26)
 
 ### :hammer:
