@@ -103,6 +103,8 @@ Ross J. Duff MSc - help@oziproject.dev
 .. |py-version-badge| image:: https://img.shields.io/pypi/pyversions/ozi
     :alt: PyPI - Python Version
 .. |slsa-level3-badge| image:: https://slsa.dev/images/gh-badge-level3.svg
+    :target: https://slsa.dev/spec/v1.0/levels#build-l3
+    :alt: Supply-chain Levels for Software Artifacts v1.0 Build L3
 .. |openssf-badge| image:: https://bestpractices.coreinfrastructure.org/projects/7515/badge
     :target: https://bestpractices.coreinfrastructure.org/projects/7515
     :alt: Open Source Security Foundation self-certification status
