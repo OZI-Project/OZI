@@ -9,7 +9,21 @@ Add little changes to the readme to target end-users better.
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`0c57038`](https://github.com/OZI-Project/OZI/commit/0c570388f3dcf7e000b5f5062109bd4ee2402e90))
 
+### :pencil2:
+
+* :pencil2: Update README.rst (#132)
+
+Fix long_description format for twine. ([`5f457d6`](https://github.com/OZI-Project/OZI/commit/5f457d6757bb6a330c84982c7fe5efd5a1432fd7))
+
+* :pencil2: Update README.rst
+
+Fix long_description format for twine.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`510beaf`](https://github.com/OZI-Project/OZI/commit/510beafe506fb2b74a8d3bfd41866ca26fc74239))
+
 ### Other
+
+* Retry 0.0.265 release (#133) ([`7b541b4`](https://github.com/OZI-Project/OZI/commit/7b541b48603d0c4451dddfc4608b89207b3f472e))
 
 * Rjdbcm patch 1 (#131) ([`510f41e`](https://github.com/OZI-Project/OZI/commit/510f41e3a65d46c8b492c4faa6dea0dfb01f2105))
 
