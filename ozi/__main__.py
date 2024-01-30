@@ -109,11 +109,11 @@ parser = argparse.ArgumentParser(
     formatter_class=argparse.RawDescriptionHelpFormatter,
 )  # pragma: no cover
 tools = parser.add_mutually_exclusive_group()  # pragma: no cover
-tools.add_argument(
+tools.add_argument(  # pragma: no cover
     '-fix',
     action='store_true',
 )
-tools.add_argument(
+tools.add_argument(  # pragma: no cover
     '-new',
     action='store_true',
 )
