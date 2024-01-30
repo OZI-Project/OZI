@@ -51,13 +51,6 @@ What OZI is
 
 * Checkpointed Python packaging for Meson projects focused on pure Python sources.
 
-Message from the Maintainer
-###########################
-
-I just wanted packaging to work without having to reorient myself to best practices every time. 
-This is a solution to help me package Python modules with Meson.
-OZI can also help to synchronize packaging practices across packages using it, helping to reduce maintenance time.
-
 Contributing
 ############
 
@@ -66,7 +59,7 @@ See the project `CONTRIBUTING.md <https://github.com/rjdbcm/OZI/blob/main/.githu
 Contact
 -------
 
-Ross J. Duff MSc - help@oziproject.dev
+Eden Rose Duff MSc - help@oziproject.dev
 
 .. image:: https://raw.githubusercontent.com/sigstore/community/main/artwork/badge/sigstore_codesigned_purple.png
  :align: center
