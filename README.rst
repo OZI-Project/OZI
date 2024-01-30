@@ -52,7 +52,7 @@ What OZI is
 * Checkpointed Python packaging for Meson projects focused on pure Python sources.
 
 Contributing
-############
+------------
 
 See the project `CONTRIBUTING.md <https://github.com/rjdbcm/OZI/blob/main/.github/CONTRIBUTING.md>`_
 
