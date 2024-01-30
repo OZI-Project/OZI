@@ -11,19 +11,14 @@
 OZI
 ===
 
-|py-version-badge| |License| |slsa-level3-badge| |openssf-badge| |OSSF-Scorecard| |SourceRank|
-
-.. image:: https://raw.githubusercontent.com/sigstore/community/main/artwork/badge/sigstore_codesigned_purple.png
- :align: right
- :height: 140
- :target: https://www.sigstore.dev/
+OZI is a set of publishing tools for creating and maintaining pure Python packages.
+See the `documentation <https://docs.oziproject.dev/>`_ for the project roadmap,
+API specification, Meson version support, and other project information.
 
 Project Information
 -------------------
 
-OZI is a set of publishing tools for creating and maintaining pure Python packages.
-See the `documentation <https://docs.oziproject.dev/>`_ for the project roadmap,
-API specification, Meson version support, and other project information.
+|py-version-badge| |License| |slsa-level3-badge| |openssf-badge| |OSSF-Scorecard| |SourceRank|
 
 Purpose
 ^^^^^^^
@@ -70,6 +65,11 @@ Contact
 -------
 
 Ross J. Duff MSc - help@oziproject.dev
+
+.. image:: https://raw.githubusercontent.com/sigstore/community/main/artwork/badge/sigstore_codesigned_purple.png
+ :align: center
+ :height: 140
+ :target: https://www.sigstore.dev/
 
 .. |py-version-badge| image:: https://img.shields.io/pypi/pyversions/ozi
     :target: https://pypi.org/search/?q=&o=-created&c=Programming+Language+%3A%3A+Python+%3A%3A+3&c=Programming+Language+%3A%3A+Python+%3A%3A+3+%3A%3A+Only&c=Programming+Language+%3A%3A+Python+%3A%3A+3.10&c=Programming+Language+%3A%3A+Python+%3A%3A+3.11&c=Programming+Language+%3A%3A+Python+%3A%3A+3.12&c=Programming+Language+%3A%3A+Python+%3A%3A+Implementation&c=Programming+Language+%3A%3A+Python+%3A%3A+Implementation+%3A%3A+CPython&c=Typing+%3A%3A+Typed
