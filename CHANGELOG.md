@@ -1,4 +1,102 @@
 # CHANGELOG
+## 0.0.267 (2024-01-30)
+
+### :hammer:
+
+* :hammer: Update meson.build (#151)
+
+Optimize requirements build loop. ([`16d2d4a`](https://github.com/OZI-Project/OZI/commit/16d2d4a71ccb1f151de1947600d95aa6ab7681ca))
+
+* :hammer: Update meson.build
+
+Optimize requirements build loop.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`7f7da94`](https://github.com/OZI-Project/OZI/commit/7f7da9429e4b2d58c572fd74e4346b3a2f015357))
+
+### :pencil2:
+
+* :pencil2: Update README.rst
+
+Contributing is its own section.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`7e5f5e8`](https://github.com/OZI-Project/OZI/commit/7e5f5e8cb38f7fe9f24f7da58958d8aebd44af65))
+
+* :pencil2: Update meson.build
+
+Fix missing variable suite set.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`1dc802b`](https://github.com/OZI-Project/OZI/commit/1dc802b77187ee6c61bdc42ac1c57a7d9a063f24))
+
+### Other
+
+* Release 0.0.267 (#153) ([`2a9cfde`](https://github.com/OZI-Project/OZI/commit/2a9cfde0bff7586f792fdafc61e3bb8d2a4da519))
+
+* :memo: Update README.rst (#152)
+
+touch up layout of readme. ([`9dba5e6`](https://github.com/OZI-Project/OZI/commit/9dba5e63c993540d06a0852e03b410e92537eb6b))
+
+* :memo: Update README.rst
+
+Moving message from maintainer to discussion board.
+Update my name.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`58eb2a2`](https://github.com/OZI-Project/OZI/commit/58eb2a27c345a2358227f0dfd4a02ba1bbd53365))
+
+* :memo: Update README.rst
+
+touch up layout of readme.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`76a9447`](https://github.com/OZI-Project/OZI/commit/76a94477f024458b079c81e43f563643f7b4ca6f))
+
+* :memo: Update README.rst (#150)
+
+Update Scorecard and best practices badges to use OpenSSF brand
+guideline livery. ([`1c1c7f8`](https://github.com/OZI-Project/OZI/commit/1c1c7f8583f896f96cfe166dac0f9a6265360ac3))
+
+* Merge branch &#39;main&#39; into rjdbcm-patch-1 ([`5ddef75`](https://github.com/OZI-Project/OZI/commit/5ddef75b6784ab95736f8dfc3fb11f33d05e21a8))
+
+* :memo: Update README.rst
+
+Separate external metrics from internal metadata badges.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`339ec48`](https://github.com/OZI-Project/OZI/commit/339ec48fc275ce6a856fe3f4697335c1eb9d646f))
+
+* :memo: Update pyproject.toml add Community Project URL
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`37f3a8c`](https://github.com/OZI-Project/OZI/commit/37f3a8cb99bbaeb46e0ff31db2ed01303eea390b))
+
+* :memo: Update README.rst
+
+Update Scorecard and best practices badges to use OpenSSF brand guideline livery.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`e35a8c8`](https://github.com/OZI-Project/OZI/commit/e35a8c839a25c2e986e1fe83c7cf232b75948721))
+
+* :memo: Update README.rst (#149)
+
+Add logo and clarify python version badge text ([`e6c9daa`](https://github.com/OZI-Project/OZI/commit/e6c9daaf7be046a3283175a9bb077f450427609f))
+
+* :memo: Update README.rst
+
+Add target links
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`e37de85`](https://github.com/OZI-Project/OZI/commit/e37de858c9db38bbd7206d211b7ad82acdd935ae))
+
+* :memo: Update README.rst
+
+Add logo and clarify python version badge text
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`282b535`](https://github.com/OZI-Project/OZI/commit/282b53526667c87f3a7138cf89e0f7dc505d3ed3))
+
+* :memo: Update README.rst (#148)
+
+Add libraries.io logo to badge ([`ea8cc2c`](https://github.com/OZI-Project/OZI/commit/ea8cc2c1f67f86b3f6a981349f3b2accf8e0b236))
+
+* :memo: Update README.rst
+
+Add libraries.io logo to badge
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`dca6005`](https://github.com/OZI-Project/OZI/commit/dca600591a08f7586e826b613704551fdaea295c))
+
 ## 0.0.266 (2024-01-30)
 
 ### :hammer:
