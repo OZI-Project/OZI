@@ -71,7 +71,7 @@ Ross J. Duff MSc - help@oziproject.dev
  :height: 140
  :target: https://www.sigstore.dev/
 
-.. |py-version-badge| image:: https://img.shields.io/pypi/pyversions/ozi
+.. |py-version-badge| image:: https://img.shields.io/pypi/pyversions/ozi?logo=python&label=Python%20Version
     :target: https://pypi.org/search/?q=&o=-created&c=Programming+Language+%3A%3A+Python+%3A%3A+3&c=Programming+Language+%3A%3A+Python+%3A%3A+3+%3A%3A+Only&c=Programming+Language+%3A%3A+Python+%3A%3A+3.10&c=Programming+Language+%3A%3A+Python+%3A%3A+3.11&c=Programming+Language+%3A%3A+Python+%3A%3A+3.12&c=Programming+Language+%3A%3A+Python+%3A%3A+Implementation&c=Programming+Language+%3A%3A+Python+%3A%3A+Implementation+%3A%3A+CPython&c=Typing+%3A%3A+Typed
     :alt: PyPI - Python Version
 .. |slsa-level3-badge| image:: https://slsa.dev/images/gh-badge-level3.svg
