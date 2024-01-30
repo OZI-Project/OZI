@@ -38,6 +38,7 @@ root_templates = [
     'pyright.pyproject.toml',
     'pytest.pyproject.toml',
     'pytest.meson.options',
+    'restructuredtext-lint.meson.options',
     'requirements.in.j2',
     'root.pyproject.toml',
     'ruff.pyproject.toml',
