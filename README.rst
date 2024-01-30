@@ -25,13 +25,8 @@ Project Information
 Purpose
 ^^^^^^^
 
-What OZI is
-###########
-
-* Checkpointed Python packaging for Meson projects focused on pure Python sources.
-
 OZI is meant for Python developers as a standardized and opinionated
-Python packaging style guide and checkpointing API using the Meson build system.
+Python packaging style guide and continuous integration checkpointing API using the Meson build system.
 
 The OZI continuous integration strategy consists of:
 
@@ -50,6 +45,11 @@ What OZI is **not**
 
 * A replacement for test environment managers like tox_, as a matter of fact OZI uses ``tox``.
 * A replacement for git hook package management tools like pre-commit_
+
+What OZI is
+###########
+
+* Checkpointed Python packaging for Meson projects focused on pure Python sources.
 
 Message from the Maintainer
 ###########################
