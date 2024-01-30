@@ -283,7 +283,7 @@ option('args-coverage', type: 'array', value: ['debug', 'config'], yield: false)
 option(
     'args-restructuredtext-lint',
     type: 'array',
-    value: ['--level=debug', 'README.rst'],
+    value: ['--level=warning', 'README.rst'],
     yield: false,
 )
 option(
