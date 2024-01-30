@@ -18,7 +18,9 @@ API specification, Meson version support, and other project information.
 Project Information
 -------------------
 
-|py-version-badge| |License| |slsa-level3-badge| |openssf-badge| |OSSF-Scorecard| |SourceRank|
+|py-version-badge| |License| |slsa-level3-badge|
+
+|openssf-badge| |OSSF-Scorecard| |SourceRank|
 
 Purpose
 ^^^^^^^
