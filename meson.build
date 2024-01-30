@@ -216,6 +216,7 @@ foreach name : namespace
     )
     suite = get_option(name)
     suite.enable_auto_if(dev.enabled())
+    set_variable(name, suite)
     foreach command : command_names
         if suite.enabled() and command not in plugin_only + module_only
             flag = find_program(
