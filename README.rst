@@ -80,8 +80,8 @@ Ross J. Duff MSc - help@oziproject.dev
 .. |openssf-badge| image:: https://bestpractices.coreinfrastructure.org/projects/7515/badge
     :target: https://bestpractices.coreinfrastructure.org/projects/7515
     :alt: Open Source Security Foundation self-certification status
-.. |SourceRank| image:: https://img.shields.io/librariesio/sourcerank/pypi/OZI?link=https%3A%2F%2Flibraries.io%2Fpypi%2FOZI%2Fsourcerank
-    :target: https://libraries.io/pypi/OZI/sourcerank
+.. |SourceRank| image:: https://img.shields.io/librariesio/sourcerank/pypi/ozi?logo=libraries.io&label=SourceRank&link=https%3A%2F%2Flibraries.io%2Fpypi%2FOZI%2Fsourcerank
+   :alt: Libraries.io SourceRank
 .. |OSSF-Scorecard| image:: https://img.shields.io/ossf-scorecard/github.com/OZI-Project/OZI?label=OpenSSF%20Scorecard
     :target: https://securityscorecards.dev/viewer/?uri=github.com/OZI-Project/OZI&sort_by=risk-level&sort_direction=desc
     :alt: Open Source Security Foundation Scorecard
