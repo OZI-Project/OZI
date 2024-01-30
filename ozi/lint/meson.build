@@ -9,6 +9,7 @@ source_child_lint_children = [
     'isort',
     'mypy',
     'pyright',
+    'restructuredtext-lint',
 ]
 foreach package : source_child_lint_children
     subdir(package)
