@@ -1,3 +1,4 @@
+
 # meson.options
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
@@ -109,6 +110,7 @@ option(
         'flake8-leading-blank-lines',
         'flake8-tidy-imports',
         'flake8-pyi',
+        'restructuredtext-lint',
     ],
 )
 option(
@@ -200,6 +202,7 @@ option(
         'isort',
         'pyright',
         'mypy',
+        'restructuredtext-lint',
     ],
 )
 # test application arguments
@@ -281,7 +284,7 @@ option('args-coverage', type: 'array', value: ['debug', 'config'], yield: false)
 option(
     'args-restructuredtext-lint',
     type: 'array',
-    value: ['--level=debug', '@project_name@'],
+    value: ['--level=debug', 'README.rst'],
     yield: false,
 )
 option(
