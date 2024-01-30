@@ -201,7 +201,6 @@ option(
         'isort',
         'pyright',
         'mypy',
-        'restructuredtext-lint',
     ],
 )
 # test application arguments
