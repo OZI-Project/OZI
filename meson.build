@@ -214,10 +214,10 @@ foreach name : namespace
         },
         section: ' '.join(emoji_setup, 'meson setup --reconfigure -D[option]'),
     )
+    suite = get_option(name)
+    suite.enable_auto_if(dev.enabled())
+    set_variable(name, suite)
     foreach command : command_names
-        suite = get_option(name)
-        suite.enable_auto_if(dev.enabled())
-        set_variable(name, suite)
         if suite.enabled() and command not in plugin_only + module_only
             flag = find_program(
                 command,
@@ -235,11 +235,7 @@ foreach name : namespace
             '-r',
             meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
         ]
-        if (
-            get_option('dev').enabled()
-            or get_variable(name).enabled()
-            and command not in plugin_only
-        )
+        if (get_option('dev').enabled() or suite.enabled()) and command not in plugin_only
             run_command(pip, requirements, check: true)
             if not flag.found() and command not in module_only
                 flag = find_program(
