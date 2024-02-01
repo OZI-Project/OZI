@@ -1,4 +1,170 @@
 # CHANGELOG
+## 0.0.268 (2024-02-01)
+
+### :pushpin:
+
+* :pushpin: Update checkpoint.yml.j2 harden-runner action. (#156) ([`259f334`](https://github.com/OZI-Project/OZI/commit/259f33421e7bf394d94a0d022fd7cd925d92b26a))
+
+* :pushpin: Update release.yml.j2 harden-runner to 2.7.0
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`a64333b`](https://github.com/OZI-Project/OZI/commit/a64333bde7bfa13d48d19a1d82adb646572fcee6))
+
+* :pushpin: Update publish.yml.j2 harden-runner to 2.7.0
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`afe0a3d`](https://github.com/OZI-Project/OZI/commit/afe0a3d8c256df0af1c6a3c26c294ec1f5a8b1fa))
+
+* :pushpin: Update checkpoint.yml.j2 harden-runner action.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`5ea1483`](https://github.com/OZI-Project/OZI/commit/5ea1483bc121869ecf38ffef24bfb0324eeca891))
+
+* :pushpin: Bump step-security/harden-runner from 2.6.1 to 2.7.0 (#155)
+
+Bumps
+[step-security/harden-runner](https://github.com/step-security/harden-runner)
+from 2.6.1 to 2.7.0.
+&lt;details&gt;
+&lt;summary&gt;Release notes&lt;/summary&gt;
+&lt;p&gt;&lt;em&gt;Sourced from &lt;a
+href=&#34;https://github.com/step-security/harden-runner/releases&#34;&gt;step-security/harden-runner&#39;s
+releases&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;v2.7.0&lt;/h2&gt;
+&lt;h2&gt;What&#39;s Changed&lt;/h2&gt;
+&lt;p&gt;Release 2.7.0 by &lt;a
+href=&#34;https://github.com/varunsh-coder&#34;&gt;&lt;code&gt;@​varunsh-coder&lt;/code&gt;&lt;/a&gt;
+and &lt;a href=&#34;https://github.com/h0x0er&#34;&gt;&lt;code&gt;@​h0x0er&lt;/code&gt;&lt;/a&gt; in &lt;a
+href=&#34;https://redirect.github.com/step-security/harden-runner/pull/376&#34;&gt;step-security/harden-runner#376&lt;/a&gt;
+This release:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Updates the node runtime to node20&lt;/li&gt;
+&lt;li&gt;Adds capability to inspect outbound HTTPS traffic on GitHub-hosted
+and self-hosted VM runners&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Full Changelog&lt;/strong&gt;: &lt;a
+href=&#34;https://github.com/step-security/harden-runner/compare/v2...v2.7.0&#34;&gt;https://github.com/step-security/harden-runner/compare/v2...v2.7.0&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Commits&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/step-security/harden-runner/commit/63c24ba6bd7ba022e95695ff85de572c04a18142&#34;&gt;&lt;code&gt;63c24ba&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/step-security/harden-runner/issues/376&#34;&gt;#376&lt;/a&gt;
+from step-security/rc-7&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/step-security/harden-runner/commit/95691d3d1cfc1f403f673ccbe70465d7c4254108&#34;&gt;&lt;code&gt;95691d3&lt;/code&gt;&lt;/a&gt;
+Update dist&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/step-security/harden-runner/commit/6339621ce7eb126e03da0cdd1e373bf4a86aa351&#34;&gt;&lt;code&gt;6339621&lt;/code&gt;&lt;/a&gt;
+Update to node20&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/step-security/harden-runner/commit/4a63cdab7412f310777ba8aba65aafca4c1dd47f&#34;&gt;&lt;code&gt;4a63cda&lt;/code&gt;&lt;/a&gt;
+Add tls-inspection capability (&lt;a
+href=&#34;https://redirect.github.com/step-security/harden-runner/issues/368&#34;&gt;#368&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/step-security/harden-runner/commit/dece11172ed6b762b5421b294513d628edad7f7d&#34;&gt;&lt;code&gt;dece111&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/step-security/harden-runner/issues/372&#34;&gt;#372&lt;/a&gt;
+from step-security/readme-update&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/step-security/harden-runner/commit/1952f970702453e198ed55b40944bf4ffc0ad992&#34;&gt;&lt;code&gt;1952f97&lt;/code&gt;&lt;/a&gt;
+Updates&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/step-security/harden-runner/commit/32f00ffb1b198fae962ae378ca876e01f367043f&#34;&gt;&lt;code&gt;32f00ff&lt;/code&gt;&lt;/a&gt;
+Update README.md&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/step-security/harden-runner/commit/ea8b747819ff6d82907eb4018229f1a75c174697&#34;&gt;&lt;code&gt;ea8b747&lt;/code&gt;&lt;/a&gt;
+Publish test results (&lt;a
+href=&#34;https://redirect.github.com/step-security/harden-runner/issues/363&#34;&gt;#363&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/step-security/harden-runner/commit/c0db65e1f64025718795419be8dbbf8c4050160f&#34;&gt;&lt;code&gt;c0db65e&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/step-security/harden-runner/issues/359&#34;&gt;#359&lt;/a&gt;
+from step-security/dependabot/github_actions/actions/...&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/step-security/harden-runner/commit/4151c053ff9c3daff63c12b5175c94870ec73b53&#34;&gt;&lt;code&gt;4151c05&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/step-security/harden-runner/issues/361&#34;&gt;#361&lt;/a&gt;
+from step-security/dependabot/github_actions/step-sec...&lt;/li&gt;
+&lt;li&gt;Additional commits viewable in &lt;a
+href=&#34;https://github.com/step-security/harden-runner/compare/eb238b55efaa70779f274895e782ed17c84f2895...63c24ba6bd7ba022e95695ff85de572c04a18142&#34;&gt;compare
+view&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;br /&gt;
+
+
+[![Dependabot compatibility
+score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=step-security/harden-runner&amp;package-manager=github_actions&amp;previous-version=2.6.1&amp;new-version=2.7.0)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don&#39;t
+alter it yourself. You can also trigger a rebase manually by commenting
+`@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+&lt;details&gt;
+&lt;summary&gt;Dependabot commands and options&lt;/summary&gt;
+&lt;br /&gt;
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits
+that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after
+your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge
+and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating
+it. You can achieve the same result by closing it manually
+- `@dependabot show &lt;dependency name&gt; ignore conditions` will show all
+of the ignore conditions of the specified dependency
+- `@dependabot ignore this major version` will close this PR and stop
+Dependabot creating any more for this major version (unless you reopen
+the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop
+Dependabot creating any more for this minor version (unless you reopen
+the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop
+Dependabot creating any more for this dependency (unless you reopen the
+PR or upgrade to it yourself)
+
+
+&lt;/details&gt; ([`751eec7`](https://github.com/OZI-Project/OZI/commit/751eec7ac326b904186bf875760bc8af7a98c4f0))
+
+* :pushpin: Bump step-security/harden-runner from 2.6.1 to 2.7.0
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.6.1 to 2.7.0.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/eb238b55efaa70779f274895e782ed17c84f2895...63c24ba6bd7ba022e95695ff85de572c04a18142)
+
+---
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`80d9aa6`](https://github.com/OZI-Project/OZI/commit/80d9aa6a5a4f844aaa143deb22f927492c03d5fe))
+
+### Other
+
+* Bump harden runner (#158)
+
+This makes our entire toolchain node20 ([`29bc7f9`](https://github.com/OZI-Project/OZI/commit/29bc7f9dea6082ee636c43056c71703f7da6a269))
+
+* :memo: Add logo for PyPI rendered readme. (#157) ([`aab9571`](https://github.com/OZI-Project/OZI/commit/aab9571238613f2e3f6b981d3e66284909a4220d))
+
+* :memo: Add logo for PyPI rendered readme.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`145dd51`](https://github.com/OZI-Project/OZI/commit/145dd51d1081d070bf2496f04da6972262bb4718))
+
 ## 0.0.267 (2024-01-30)
 
 ### :hammer:
