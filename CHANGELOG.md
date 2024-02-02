@@ -1,5 +1,41 @@
 # CHANGELOG
+## 0.0.269 (2024-02-02)
+
+### :hammer:
+
+* :hammer: Update __main__.py (#154)
+
+Add ``-new`` and ``-fix`` arguments to ``ozi`` ([`54b3758`](https://github.com/OZI-Project/OZI/commit/54b3758b5f2d29f7df792f3df80837a7da0f296f))
+
+* :hammer:: ``ozi-fix`` and ``ozi-new`` can now be accessed from the ``ozi`` entrypoint. ([`673f56c`](https://github.com/OZI-Project/OZI/commit/673f56ccf6ad760f07ea410903aee0677b232d14))
+
+### Other
+
+* Release (#159) ([`6768a42`](https://github.com/OZI-Project/OZI/commit/6768a42dcc123dfdd775db4de9738e39ce1dc0be))
+
+* Merge branch &#39;main&#39; into rjdbcm-patch-combine-cli-parsers ([`e7dbecb`](https://github.com/OZI-Project/OZI/commit/e7dbecb7ed5aa942ad91313ecf44e7d714821bd5))
+
+* :rotating_light: Fix lint issues. ([`10e7898`](https://github.com/OZI-Project/OZI/commit/10e7898adb24ff0f8d492d6dfaba85fbefd978d2))
+
+* :rotating_light: Run linters ([`d02dab7`](https://github.com/OZI-Project/OZI/commit/d02dab737a7abfbcc5a7d9bc7e80f4e26dd38a30))
+
 ## 0.0.268 (2024-02-01)
+
+### :hammer:
+
+* :hammer: Update __main__.py
+
+Add ``-new`` and ``-fix`` arguments to ``ozi``
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`956ab4f`](https://github.com/OZI-Project/OZI/commit/956ab4f118da940ae9f16b04259cc847b0793ce1))
+
+### :pencil2:
+
+* :pencil2: Update __main__.py
+
+add no cover comments to args.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`86544d3`](https://github.com/OZI-Project/OZI/commit/86544d3c86132b239d76937c4ee53d52f82788db))
 
 ### :pushpin:
 
