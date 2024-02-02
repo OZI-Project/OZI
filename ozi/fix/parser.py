@@ -131,5 +131,4 @@ tools = parser.add_mutually_exclusive_group()  # pragma: no cover
 tools.add_argument(  # pragma: no cover
     '-fix',
     action='store_true',
-
 )

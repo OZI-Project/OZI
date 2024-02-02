@@ -34,8 +34,8 @@ from packaging.version import Version  # pragma: no cover
 from packaging.version import parse  # pragma: no cover
 
 from ozi.actions import ExactMatch  # pragma: no cover
-from ozi.fix.__main__ import main as fix_main
-from ozi.new.__main__ import main as new_main
+from ozi.fix.__main__ import main as fix_main  # pragma: no cover
+from ozi.new.__main__ import main as new_main  # pragma: no cover
 from ozi.spdx import spdx_license_expression  # pragma: no cover
 from ozi.spec import Metadata  # pragma: no cover
 from ozi.tap import TAP  # pragma: no cover
