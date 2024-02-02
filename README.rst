@@ -15,6 +15,11 @@ OZI is a set of publishing tools for creating and maintaining pure Python packag
 See the `documentation <https://docs.oziproject.dev/>`_ for the project roadmap,
 API specification, Meson version support, and other project information.
 
+.. image:: https://www.oziproject.dev/ozi_logo_v2.png
+  :align: left
+  :height: 62
+  :target: https://www.oziproject.dev/
+
 Project Information
 -------------------
 
