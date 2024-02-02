@@ -127,3 +127,9 @@ missing_parser.add_argument(
     action=BooleanOptionalAction,
     help='pretty mode outputs indented json, default: --no-pretty',
 )
+tools = parser.add_mutually_exclusive_group()  # pragma: no cover
+tools.add_argument(  # pragma: no cover
+    '-fix',
+    action='store_true',
+
+)

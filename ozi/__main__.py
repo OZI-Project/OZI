@@ -29,12 +29,13 @@ from pyparsing import ParseException  # pragma: no cover
 if TYPE_CHECKING:
     from collections.abc import Collection
 
-
 import requests  # pragma: no cover
 from packaging.version import Version  # pragma: no cover
 from packaging.version import parse  # pragma: no cover
 
 from ozi.actions import ExactMatch  # pragma: no cover
+from ozi.fix.__main__ import main as fix_main
+from ozi.new.__main__ import main as new_main
 from ozi.spdx import spdx_license_expression  # pragma: no cover
 from ozi.spec import Metadata  # pragma: no cover
 from ozi.tap import TAP  # pragma: no cover
@@ -111,11 +112,15 @@ parser = argparse.ArgumentParser(
 tools = parser.add_mutually_exclusive_group()  # pragma: no cover
 tools.add_argument(  # pragma: no cover
     '-fix',
-    action='store_true',
+    action='store_const',
+    default=lambda: None,
+    const=fix_main,
 )
 tools.add_argument(  # pragma: no cover
     '-new',
-    action='store_true',
+    action='store_const',
+    default=lambda: None,
+    const=new_main,
 )
 helpers = parser.add_mutually_exclusive_group()  # pragma: no cover
 helpers.add_argument(
@@ -163,7 +168,7 @@ helpers.add_argument(  # pragma: no cover
 
 
 def main() -> None:  # pragma: no cover
-    ozi = parser.parse_args()
+    ozi, args = parser.parse_known_args()
     ozi.version()
     ozi.check_version()
     ozi.info()
@@ -171,6 +176,8 @@ def main() -> None:  # pragma: no cover
         list_available(ozi.list_available)
     elif ozi.license_expression:
         license_expression(ozi.license_expression)
+    ozi.fix()
+    ozi.new()
     parser.print_help()
 
 
