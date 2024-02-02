@@ -115,12 +115,14 @@ tools.add_argument(  # pragma: no cover
     action='store_const',
     default=lambda: None,
     const=fix_main,
+    help='alternate entrypoint for ozi-fix',
 )
 tools.add_argument(  # pragma: no cover
     '-new',
     action='store_const',
     default=lambda: None,
     const=new_main,
+    help='alternate entrypoint for ozi-new',
 )
 helpers = parser.add_mutually_exclusive_group()  # pragma: no cover
 helpers.add_argument(
