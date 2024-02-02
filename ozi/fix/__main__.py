@@ -341,7 +341,7 @@ def missing_required_files(
 
 def report_missing(
     target: Path,
-) -> tuple[str, Message | None, list[str], list[str], list[str]] | NoReturn:
+) -> tuple[str, Message | None, list[str], list[str], list[str]]:
     """Report missing OZI project files
     :param target: Relative path to target directory.
     :return: Normalized Name, PKG-INFO, found_root, found_sources, found_tests
