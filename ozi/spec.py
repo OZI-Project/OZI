@@ -115,9 +115,11 @@ class Default(_FactoryDataclass):
         all_fields = (
             (
                 f.name,
-                getattr(self, f.name)
-                if not isinstance(getattr(self, f.name), Default)
-                else getattr(self, f.name).asdict(),
+                (
+                    getattr(self, f.name)
+                    if not isinstance(getattr(self, f.name), Default)
+                    else getattr(self, f.name).asdict()
+                ),
             )
             for f in fields(self)
             if f.repr
