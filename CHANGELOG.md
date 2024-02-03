@@ -1,4 +1,28 @@
 # CHANGELOG
+## 0.0.273 (2024-02-03)
+
+### :lock:
+
+* :lock: Clarify reporting process for vulnerabilities. (#169) ([`be193f7`](https://github.com/OZI-Project/OZI/commit/be193f7ccc58e4b7e93e48511b5f9d6663acbb94))
+
+* :lock: Clarify reporting process for vulnerabilities.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`8b9a4de`](https://github.com/OZI-Project/OZI/commit/8b9a4de48c346df310d1eb15a612719a457f43aa))
+
+### Other
+
+* Update security policy and readme logo. (#170)
+
+Also tests out branch protection rules for pre-alpha release branch. ([`1710c19`](https://github.com/OZI-Project/OZI/commit/1710c19216a58b67131817413602e99a05d6c56b))
+
+* :memo: Normalize logo alignment by using a vector graphic. (#168) ([`b35c5d0`](https://github.com/OZI-Project/OZI/commit/b35c5d067fd8b9a1ce0ac959c288812d44ce4793))
+
+* :memo: Normalize logo alignment by using a vector graphic.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`1c8060a`](https://github.com/OZI-Project/OZI/commit/1c8060aa9da25d38158c1d298e541f7a0b8d6f14))
+
+* 0.0 (#167) ([`85c8f3c`](https://github.com/OZI-Project/OZI/commit/85c8f3cf847d80b8c34567133d8ee30c7e2060e1))
+
 ## 0.0.272 (2024-02-03)
 
 ### :hammer:
