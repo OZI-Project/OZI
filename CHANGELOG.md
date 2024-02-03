@@ -1,4 +1,24 @@
 # CHANGELOG
+## 0.0.271 (2024-02-03)
+
+### :hammer:
+
+* :hammer: Update spec.py (#163)
+
+Use black &lt;24
+Add restructuredtext-lint ([`a139d44`](https://github.com/OZI-Project/OZI/commit/a139d442814e3da26553b6f7ab3cd10cc689fd34))
+
+* :hammer: Update spec.py
+
+Use black &lt;24
+Add restructuredtext-lint
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`2638f6b`](https://github.com/OZI-Project/OZI/commit/2638f6b71c5e5d7b9b57c4be9bc1d63a3602aaa8))
+
+### Other
+
+* Release (#164) ([`b854829`](https://github.com/OZI-Project/OZI/commit/b854829acf64f4b12f11e79acef4ab17cfcb0bbf))
+
 ## 0.0.270 (2024-02-03)
 
 ### :hammer:
