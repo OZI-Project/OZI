@@ -1,4 +1,78 @@
 # CHANGELOG
+## 0.0.270 (2024-02-03)
+
+### :hammer:
+
+* :hammer: Update ozi/new/parser.py (#161)
+
+Remove ``-new`` help.
+Remove ``-fix`` help. ([`ff19cc1`](https://github.com/OZI-Project/OZI/commit/ff19cc1e2e1129e4595a3bf0f554acd60b18d1ec))
+
+* :hammer: Update ozi/__main__.py
+
+Add help explaining alternate entrypoints for ``ozi-fix`` and ``ozi-new``
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt;
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`0401adc`](https://github.com/OZI-Project/OZI/commit/0401adc33da19866e1cb46abb5b3e9f0b2df57d7))
+
+* :hammer: Update ozi/new/parser.py
+
+Remove ``-new`` help.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt;
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`c27c665`](https://github.com/OZI-Project/OZI/commit/c27c665ada465f00f68d83bb90f67ab167dd9148))
+
+* :hammer: Update ozi/__main__.py
+
+Add help explaining alternate entrypoints for ``ozi-fix`` and ``ozi-new``
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`5e6698b`](https://github.com/OZI-Project/OZI/commit/5e6698b4355115a25cea923bef99be60d8a8a531))
+
+* :hammer: Update ozi/new/parser.py
+
+Remove ``-new`` help.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`b1faaab`](https://github.com/OZI-Project/OZI/commit/b1faaab27f5e0c4a6342385f134076933a328622))
+
+### :pencil2:
+
+* :pencil2: fix missing import of argparse.
+Signed-off-by: Eden Rose Duff MSc
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`1184044`](https://github.com/OZI-Project/OZI/commit/1184044c1cf7d804ba601e44d1fb0424d8bd6ecb))
+
+* :pencil2: fix missing import of argparse.
+Signed-off-by: Eden Rose Duff MSc ([`692d8bd`](https://github.com/OZI-Project/OZI/commit/692d8bdf2822b86e0428d77ab18de7d2b3c0f110))
+
+### :pushpin:
+
+* :pushpin:(tox): pin tox black version to &lt;24.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`72f1ad1`](https://github.com/OZI-Project/OZI/commit/72f1ad1ac8cdeb84db7dd1d4c7784931821d638b))
+
+* :pushpin:(tox): pin tox black version to &lt;24. ([`d78543f`](https://github.com/OZI-Project/OZI/commit/d78543f04f84d82226819fb4a83757f5716aabb0))
+
+### Other
+
+* Release (#162) ([`adf2193`](https://github.com/OZI-Project/OZI/commit/adf219370722d17d1c587588f3a8c3d55af16e4b))
+
+* Merge branch &#39;rjdbcm-patch-1&#39; of https://github.com/rjdbcm/ozi into rjdbcm-patch-1 ([`ee2689f`](https://github.com/OZI-Project/OZI/commit/ee2689f0ccfa1fe827319d015b4ed440cb69e424))
+
+* :rotating_light:: reformat to black 2024 stable style.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`f5b0c21`](https://github.com/OZI-Project/OZI/commit/f5b0c21b4ae3ce17a34cf4e03d37a35429952b06))
+
+* Update parser.py
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt;
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`b992957`](https://github.com/OZI-Project/OZI/commit/b9929576c84cd161666ab65c139d95af3be9e91d))
+
+* :rotating_light:: reformat to black 2024 stable style. ([`eadf4d7`](https://github.com/OZI-Project/OZI/commit/eadf4d73d0ea17fe515633702f38acdd3464aa8f))
+
+* Update parser.py
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`099e281`](https://github.com/OZI-Project/OZI/commit/099e281a451f35ec17cc37dd69f5855f9e0a499a))
+
 ## 0.0.269 (2024-02-02)
 
 ### :hammer:
