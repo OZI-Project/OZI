@@ -16,7 +16,8 @@ All known security vulnerabilities must be disclosed publically within 30 days o
 
 ## Reporting a Vulnerability
 
-This can be done directly through GitHub or via help@oziproject.dev
+A security vulnerability must never be posted in Issues.
+This must be done directly through GitHub or via help@oziproject.dev
 
 ## Workflows
 
