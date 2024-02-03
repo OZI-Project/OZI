@@ -92,9 +92,11 @@ class _FactoryDataclass(Protocol):
 
     __dataclass_fields__: ClassVar[dict[str, _VT]]
 
-    def asdict(self: Self) -> dict[str, _VT]: ...
+    def asdict(self: Self) -> dict[str, _VT]:
+        ...
 
-    def __call__(self: Self) -> _FactoryMethod: ...
+    def __call__(self: Self) -> _FactoryMethod:
+        ...
 
 
 @dataclass(frozen=True)
