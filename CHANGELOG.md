@@ -1,4 +1,37 @@
 # CHANGELOG
+## 0.0.272 (2024-02-03)
+
+### :hammer:
+
+* :hammer: Update meson_setuptools_scm.py
+
+Validate user-supplied ``version_file``.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`9e91e71`](https://github.com/OZI-Project/OZI/commit/9e91e7183aaf89d942c8b9236642191e84e25161))
+
+* :hammer: Update meson_dist_setuptools_scm.py
+
+* User-provided ``version_file`` is now validated.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`a8ba231`](https://github.com/OZI-Project/OZI/commit/a8ba23106109ca96993d7206895e2d5afc442e1b))
+
+### :pencil2:
+
+* :pencil2: Update meson_dist_setuptools_scm.py
+
+Make file write dependent on a valid path.
+Fix error message to point to the ``version_file`` variable in pyproject.toml.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`697ad43`](https://github.com/OZI-Project/OZI/commit/697ad43f2cff68a29207f3368c530bf0dc0c6fa4))
+
+### Other
+
+* Release (#166) ([`7ae1a9c`](https://github.com/OZI-Project/OZI/commit/7ae1a9c630e74949ba769bb624444120ab3833e8))
+
+* Update scripts (#165)
+
+* Add path validation ([`1f27273`](https://github.com/OZI-Project/OZI/commit/1f27273dfa7546f4986be54148df69c42d1008d0))
+
 ## 0.0.271 (2024-02-03)
 
 ### :hammer:
