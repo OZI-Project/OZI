@@ -322,11 +322,12 @@ class ClassicLint(CheckpointSuite):
     utility: Mapping[str, str] = field(
         default_factory=lambda: {
             'bandit': 'bandit[toml]',
-            'black': 'black',
+            'black': 'black<24',
             'flake8': 'flake8',
             'isort': 'isort',
             'mypy': 'mypy',
             'pyright': 'pyright',
+            'restructuredtext-lint': 'restructuredtext-lint',
         },
     )
     plugin: Mapping[str, str] = field(
