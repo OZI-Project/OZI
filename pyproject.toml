@@ -407,7 +407,7 @@ commands =
 [testenv:fix]
 description = OZI project fix issues utility; runs black, isort, autoflake, and ruff
 deps = 
-     black
+     black<24
      isort
      autoflake
      ruff
