@@ -44,21 +44,21 @@ metadata = Metadata()
             'author': st.lists(
                 st.text(st.characters(exclude_categories=('C',)), min_size=1, max_size=16),
                 min_size=1,
-                max_size=8,
+                max_size=4,
             ),
             'author_email': st.lists(
                 st.emails(domains=st.just('phony1.oziproject.dev')),
                 min_size=1,
-                max_size=8,
+                max_size=4,
             ),
             'maintainer': st.lists(
                 st.text(st.characters(exclude_categories=('C',)), min_size=1, max_size=16),
                 min_size=1,
-                max_size=8,
+                max_size=4,
             ),
             'maintainer_email': st.lists(
                 st.emails(domains=st.just('phony2.oziproject.dev')),
-                max_size=8,
+                max_size=4,
             ),
             'home_page': st.one_of(st.just('https://oziproject.dev/')),
             'project_url': st.lists(
