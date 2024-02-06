@@ -3,6 +3,7 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 [build-system]
+backend-path  = "./subprojects/mesonpep517"
 build-backend = "mesonpep517.buildapi"
 requires      = [
     "mesonpep517>=0.2",
