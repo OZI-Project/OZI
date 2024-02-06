@@ -194,6 +194,7 @@ endforeach
 if false
     executable('root_files', root_files)
 endif
+subproject('mesonpep517')
 if get_option('ozi-blastpipe').enabled()
     # BEGIN BOOTSTRAP SCRIPT
     subproject('blastpipe')
