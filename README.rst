@@ -11,7 +11,7 @@
 OZI
 ===
 
-.. image:: https://www.oziproject.dev/ozi_logo_v2.svg
+.. image:: https://www.oziproject.dev/assets/brand/images/ozi_logo_v2.svg
   :align: left
   :height: 62
   :target: https://www.oziproject.dev/
