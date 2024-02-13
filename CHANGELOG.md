@@ -1,4 +1,402 @@
 # CHANGELOG
+## 0.0.274 (2024-02-13)
+
+### :lock:
+
+* :lock: Update SECURITY.md (#171)
+
+add @lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6 ([`60b1283`](https://github.com/OZI-Project/OZI/commit/60b1283212e9d070055dce2d175f9c03be134edf))
+
+* :lock: Update SECURITY.md
+
+add @lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`f863f32`](https://github.com/OZI-Project/OZI/commit/f863f3246e9edd092d0c76cf25a69b0794e8110e))
+
+### :pencil2:
+
+* :memo::pencil2: Update README.rst logo ref
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`22da779`](https://github.com/OZI-Project/OZI/commit/22da779551ba02a19b695c6c881c39aeefb1446d))
+
+* :pencil2: Remove dnspython pin.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`4d1a4ae`](https://github.com/OZI-Project/OZI/commit/4d1a4ae7b7b4c72381441cbf87f32f58e44b1387))
+
+### :pushpin:
+
+* :pushpin: Set requirements pins
+
+Set minimum/compatible pins for idna, jinja2, dnspython, GitPython, and pyparsing.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`494f176`](https://github.com/OZI-Project/OZI/commit/494f1767bd18002dff3d9c143fb146f7bfad80fa))
+
+* :pushpin: Bump actions/upload-artifact from 4.3.0 to 4.3.1 (#175)
+
+Bumps
+[actions/upload-artifact](https://github.com/actions/upload-artifact)
+from 4.3.0 to 4.3.1.
+&lt;details&gt;
+&lt;summary&gt;Release notes&lt;/summary&gt;
+&lt;p&gt;&lt;em&gt;Sourced from &lt;a
+href=&#34;https://github.com/actions/upload-artifact/releases&#34;&gt;actions/upload-artifact&#39;s
+releases&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;v4.3.1&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Bump &lt;code&gt;@​actions/artifacts&lt;/code&gt; to latest version to include
+&lt;a href=&#34;https://redirect.github.com/actions/toolkit/pull/1648&#34;&gt;updated
+GHES host check&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Commits&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/upload-artifact/commit/5d5d22a31266ced268874388b861e4b58bb5c2f3&#34;&gt;&lt;code&gt;5d5d22a&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/actions/upload-artifact/issues/515&#34;&gt;#515&lt;/a&gt;
+from actions/eggyhead/update-artifact-v2.1.1&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/upload-artifact/commit/f1e993d9663a03508e7fc0370c744c4b963f0044&#34;&gt;&lt;code&gt;f1e993d&lt;/code&gt;&lt;/a&gt;
+update artifact license&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/upload-artifact/commit/4881bfd3f27855c63733d8cfff17721cc0ad611f&#34;&gt;&lt;code&gt;4881bfd&lt;/code&gt;&lt;/a&gt;
+updating dist:&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/upload-artifact/commit/a30777e2653648a0a7bbd3efb5c96ef9131b96cc&#34;&gt;&lt;code&gt;a30777e&lt;/code&gt;&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eggyhead&#34;&gt;&lt;code&gt;@​eggyhead&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/upload-artifact/commit/3a8048248f2f288c271830f8ecf2a1c5d8eb0e9a&#34;&gt;&lt;code&gt;3a80482&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/actions/upload-artifact/issues/511&#34;&gt;#511&lt;/a&gt;
+from actions/robherley/migration-docs-typo&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/upload-artifact/commit/9d63e3f2f81d9dc4e13d83fc330408f8a94b79d1&#34;&gt;&lt;code&gt;9d63e3f&lt;/code&gt;&lt;/a&gt;
+Merge branch &#39;main&#39; into robherley/migration-docs-typo&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/upload-artifact/commit/dfa1ab292d2fdd78d056187f11c568c16ab53de9&#34;&gt;&lt;code&gt;dfa1ab2&lt;/code&gt;&lt;/a&gt;
+fix typo with v3 artifact downloads in migration guide&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/upload-artifact/commit/d00351bf698398c17253d21cf8f90e57a344e14b&#34;&gt;&lt;code&gt;d00351b&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/actions/upload-artifact/issues/509&#34;&gt;#509&lt;/a&gt;
+from markmssd/patch-1&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/upload-artifact/commit/707f5a7b71e0fb01c5df1e16e9679a3292606ef2&#34;&gt;&lt;code&gt;707f5a7&lt;/code&gt;&lt;/a&gt;
+Update limitation of &lt;code&gt;10&lt;/code&gt; artifacts upload to
+&lt;code&gt;500&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;See full diff in &lt;a
+href=&#34;https://github.com/actions/upload-artifact/compare/26f96dfa697d77e81fd5907df203aa23a56210a8...5d5d22a31266ced268874388b861e4b58bb5c2f3&#34;&gt;compare
+view&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;br /&gt;
+
+
+[![Dependabot compatibility
+score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=actions/upload-artifact&amp;package-manager=github_actions&amp;previous-version=4.3.0&amp;new-version=4.3.1)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don&#39;t
+alter it yourself. You can also trigger a rebase manually by commenting
+`@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+&lt;details&gt;
+&lt;summary&gt;Dependabot commands and options&lt;/summary&gt;
+&lt;br /&gt;
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits
+that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after
+your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge
+and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating
+it. You can achieve the same result by closing it manually
+- `@dependabot show &lt;dependency name&gt; ignore conditions` will show all
+of the ignore conditions of the specified dependency
+- `@dependabot ignore this major version` will close this PR and stop
+Dependabot creating any more for this major version (unless you reopen
+the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop
+Dependabot creating any more for this minor version (unless you reopen
+the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop
+Dependabot creating any more for this dependency (unless you reopen the
+PR or upgrade to it yourself)
+
+
+&lt;/details&gt; ([`eae4922`](https://github.com/OZI-Project/OZI/commit/eae4922951cc20ff4498f6a1afb28074bbed7e7b))
+
+* :pushpin: Bump actions/upload-artifact from 4.3.0 to 4.3.1
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.3.0 to 4.3.1.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/26f96dfa697d77e81fd5907df203aa23a56210a8...5d5d22a31266ced268874388b861e4b58bb5c2f3)
+
+---
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5130279`](https://github.com/OZI-Project/OZI/commit/513027952c25e69e46998dc4210aa4923c01a485))
+
+* :pushpin: Bump github/codeql-action from 3.23.2 to 3.24.0
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.23.2 to 3.24.0.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/b7bf0a3ed3ecfa44160715d7c442788f65f0f923...e8893c57a1f3a2b659b6b55564fdfdbbd2982911)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`c8886c3`](https://github.com/OZI-Project/OZI/commit/c8886c3db7e9ba49cad14a23b7c1f70dc43661d2))
+
+### Other
+
+* Merge pull request #181 from OZI-Project/main
+
+Release ([`fd13e3f`](https://github.com/OZI-Project/OZI/commit/fd13e3f4bcc47c821128116eb847af1d3c8ba654))
+
+* Merge pull request #180 from OZI-Project/rjdbcm-patch-3
+
+Update README ([`a6dc320`](https://github.com/OZI-Project/OZI/commit/a6dc320b2c8aeacfe2ca50f99ce557717c4453be))
+
+* Merge pull request #179 from OZI-Project/rjdbcm-patch-3
+
+Update requirements.in ([`0318d8a`](https://github.com/OZI-Project/OZI/commit/0318d8a3c5e235a4e96caffce091521ecfe6ddc4))
+
+* Merge pull request #178 from OZI-Project/rjdbcm-patch-3
+
+Update dependency-review.yml ([`74e5785`](https://github.com/OZI-Project/OZI/commit/74e5785b6f78c118a4abd5b279e31e333cb77f7f))
+
+* Update dependency-review.yml
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`f9359cd`](https://github.com/OZI-Project/OZI/commit/f9359cd1c24ad84e7fef05c97717467faf0ef586))
+
+* Merge pull request #177 from OZI-Project/rjdbcm-patch-3
+
+Update dependency-review.yml ([`6d1e2a5`](https://github.com/OZI-Project/OZI/commit/6d1e2a527302d573819aa8008e699781ac0c05e2))
+
+* Update dependency-review.yml
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`b273df2`](https://github.com/OZI-Project/OZI/commit/b273df246dc5a7c34ee7e4055db3a880893646a2))
+
+* Merge pull request #176 from OZI-Project/rjdbcm-patch-2
+
+Update dependency-review.yml ([`1ef6af0`](https://github.com/OZI-Project/OZI/commit/1ef6af0615646382104e76e0636c07cf760aa509))
+
+* Update dependency-review.yml
+
+Run check daily on a cron.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`4805b25`](https://github.com/OZI-Project/OZI/commit/4805b2576945d5c4435b88d5b4b92e2c4b4e1ab8))
+
+* Bump github/codeql-action from 3.23.2 to 3.24.0 (#172)
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action)
+from 3.23.2 to 3.24.0.
+&lt;details&gt;
+&lt;summary&gt;Changelog&lt;/summary&gt;
+&lt;p&gt;&lt;em&gt;Sourced from &lt;a
+href=&#34;https://github.com/github/codeql-action/blob/main/CHANGELOG.md&#34;&gt;github/codeql-action&#39;s
+changelog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h1&gt;CodeQL Action Changelog&lt;/h1&gt;
+&lt;p&gt;See the &lt;a
+href=&#34;https://github.com/github/codeql-action/releases&#34;&gt;releases
+page&lt;/a&gt; for the relevant changes to the CodeQL CLI and language
+packs.&lt;/p&gt;
+&lt;p&gt;Note that the only difference between &lt;code&gt;v2&lt;/code&gt; and
+&lt;code&gt;v3&lt;/code&gt; of the CodeQL Action is the node version they support,
+with &lt;code&gt;v3&lt;/code&gt; running on node 20 while we continue to release
+&lt;code&gt;v2&lt;/code&gt; to support running on node 16. For example
+&lt;code&gt;3.22.11&lt;/code&gt; was the first &lt;code&gt;v3&lt;/code&gt; release and is
+functionally identical to &lt;code&gt;2.22.11&lt;/code&gt;. This approach ensures an
+easy way to track exactly which features are included in different
+versions, indicated by the minor and patch version numbers.&lt;/p&gt;
+&lt;h2&gt;[UNRELEASED]&lt;/h2&gt;
+&lt;p&gt;No user facing changes.&lt;/p&gt;
+&lt;h2&gt;3.24.0 - 02 Feb 2024&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;CodeQL Python analysis will no longer install dependencies on GitHub
+Enterprise Server, as is already the case for GitHub.com. See &lt;a
+href=&#34;https://github.com/github/codeql-action/blob/main/#3230---08-jan-2024&#34;&gt;release
+notes for 3.23.0&lt;/a&gt; for more details. &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/pull/2106&#34;&gt;#2106&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3.23.2 - 26 Jan 2024&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;On Linux, the maximum possible value for the &lt;code&gt;--threads&lt;/code&gt;
+option now respects the CPU count as specified in &lt;code&gt;cgroup&lt;/code&gt;
+files to more accurately reflect the number of available cores when
+running in containers. &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/pull/2083&#34;&gt;#2083&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Update default CodeQL bundle version to 2.16.1. &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/pull/2096&#34;&gt;#2096&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3.23.1 - 17 Jan 2024&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Update default CodeQL bundle version to 2.16.0. &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/pull/2073&#34;&gt;#2073&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Change the retention period for uploaded debug artifacts to 7 days.
+Previously, this was whatever the repository default was. &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/pull/2079&#34;&gt;#2079&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3.23.0 - 08 Jan 2024&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;We are rolling out a feature in January 2024 that will disable
+Python dependency installation by default for all users. This improves
+the speed of analysis while having only a very minor impact on results.
+You can override this behavior by setting
+&lt;code&gt;CODEQL_ACTION_DISABLE_PYTHON_DEPENDENCY_INSTALLATION=false&lt;/code&gt;
+in your workflow, however we plan to remove this ability in future
+versions of the CodeQL Action. &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/pull/2031&#34;&gt;#2031&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The CodeQL Action now requires CodeQL version 2.11.6 or later. For
+more information, see &lt;a
+href=&#34;https://github.com/github/codeql-action/blob/main/#2227---16-nov-2023&#34;&gt;the
+corresponding changelog entry for CodeQL Action version 2.22.7&lt;/a&gt;. &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/pull/2009&#34;&gt;#2009&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3.22.12 - 22 Dec 2023&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Update default CodeQL bundle version to 2.15.5. &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/pull/2047&#34;&gt;#2047&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3.22.11 - 13 Dec 2023&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[v3+ only] The CodeQL Action now runs on Node.js v20. &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/pull/2006&#34;&gt;#2006&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2.22.10 - 12 Dec 2023&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Update default CodeQL bundle version to 2.15.4. &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/pull/2016&#34;&gt;#2016&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2.22.9 - 07 Dec 2023&lt;/h2&gt;
+&lt;p&gt;No user facing changes.&lt;/p&gt;
+&lt;h2&gt;2.22.8 - 23 Nov 2023&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Update default CodeQL bundle version to 2.15.3. &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/pull/2001&#34;&gt;#2001&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2.22.7 - 16 Nov 2023&lt;/h2&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;... (truncated)&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Commits&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/github/codeql-action/commit/e8893c57a1f3a2b659b6b55564fdfdbbd2982911&#34;&gt;&lt;code&gt;e8893c5&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/issues/2113&#34;&gt;#2113&lt;/a&gt;
+from github/update-v3.24.0-2db032717&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/github/codeql-action/commit/78d6c8e84d016cf4acb354a3303db8635054030f&#34;&gt;&lt;code&gt;78d6c8e&lt;/code&gt;&lt;/a&gt;
+Update changelog for v3.24.0&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/github/codeql-action/commit/2db03271718eb704357b7bbf29ef6876a898f966&#34;&gt;&lt;code&gt;2db0327&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/issues/2112&#34;&gt;#2112&lt;/a&gt;
+from github/henrymercer/status-report-handle-disk-fa...&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/github/codeql-action/commit/f9dea84e297d93b380c8e1fbee3b726ae2f9a0d1&#34;&gt;&lt;code&gt;f9dea84&lt;/code&gt;&lt;/a&gt;
+Status report: Handle failures determining disk usage&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/github/codeql-action/commit/81eb6b2bf41204db055248bd3f7a89f335b6e4d9&#34;&gt;&lt;code&gt;81eb6b2&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/issues/2108&#34;&gt;#2108&lt;/a&gt;
+from github/henrymercer/build-mode-input&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/github/codeql-action/commit/483bef1dab1b4345c7aaad6b5ab530b6296dc57e&#34;&gt;&lt;code&gt;483bef1&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/issues/2106&#34;&gt;#2106&lt;/a&gt;
+from github/rasmuswl/default-no-dep-inst&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/github/codeql-action/commit/b58c2f67a6ee7168ff2d21176f29c8e7a25f34f8&#34;&gt;&lt;code&gt;b58c2f6&lt;/code&gt;&lt;/a&gt;
+Detail requirements for different build modes&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/github/codeql-action/commit/f7d53249e3ff1b2d2bc99288527e155561d1ba90&#34;&gt;&lt;code&gt;f7d5324&lt;/code&gt;&lt;/a&gt;
+Update wording for CHANGELOG.md&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/github/codeql-action/commit/254b53d99969befd5b84fbe43df37bc8e9350bfc&#34;&gt;&lt;code&gt;254b53d&lt;/code&gt;&lt;/a&gt;
+Merge branch &#39;main&#39; into henrymercer/build-mode-input&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/github/codeql-action/commit/e34513334c80bc03203d626a9c14243c9bf67245&#34;&gt;&lt;code&gt;e345133&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/github/codeql-action/issues/2107&#34;&gt;#2107&lt;/a&gt;
+from github/henrymercer/refactor-config&lt;/li&gt;
+&lt;li&gt;Additional commits viewable in &lt;a
+href=&#34;https://github.com/github/codeql-action/compare/b7bf0a3ed3ecfa44160715d7c442788f65f0f923...e8893c57a1f3a2b659b6b55564fdfdbbd2982911&#34;&gt;compare
+view&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;br /&gt;
+
+
+[![Dependabot compatibility
+score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=github/codeql-action&amp;package-manager=github_actions&amp;previous-version=3.23.2&amp;new-version=3.24.0)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don&#39;t
+alter it yourself. You can also trigger a rebase manually by commenting
+`@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+&lt;details&gt;
+&lt;summary&gt;Dependabot commands and options&lt;/summary&gt;
+&lt;br /&gt;
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits
+that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after
+your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge
+and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating
+it. You can achieve the same result by closing it manually
+- `@dependabot show &lt;dependency name&gt; ignore conditions` will show all
+of the ignore conditions of the specified dependency
+- `@dependabot ignore this major version` will close this PR and stop
+Dependabot creating any more for this major version (unless you reopen
+the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop
+Dependabot creating any more for this minor version (unless you reopen
+the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop
+Dependabot creating any more for this dependency (unless you reopen the
+PR or upgrade to it yourself)
+
+
+&lt;/details&gt; ([`30f1750`](https://github.com/OZI-Project/OZI/commit/30f175039a23296acc20ec6bc01a5e9b20ccfbb5))
+
 ## 0.0.273 (2024-02-03)
 
 ### :lock:
