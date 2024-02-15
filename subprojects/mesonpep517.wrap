@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 [wrap-git]
 url = https://github.com/OZI-Project/mesonpep517.git
-revision = 0.2
+revision = head
 depth = 1
 
 [provide]
