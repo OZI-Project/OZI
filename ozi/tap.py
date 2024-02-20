@@ -64,9 +64,11 @@ class TAP(ContextDecorator):
 
     All TAP API calls reference the same thread context.
 
-    :note:`Subtests are not implemented.`
+    .. note::
+        Subtests are not implemented.
 
-    :note:`Not known to be thread-safe.`
+    .. note::
+        Not known to be thread-safe.
     """
 
     _formatwarning = staticmethod(warnings.formatwarning)
@@ -121,7 +123,8 @@ class TAP(ContextDecorator):
 
         and ALL output to stdout.
 
-        :note:`Does not suppress Python exceptions.`
+        .. note::
+            Does not suppress Python exceptions.
         """
         warnings.simplefilter('ignore')
         with Path(os.devnull).open('w') as null:
@@ -133,7 +136,8 @@ class TAP(ContextDecorator):
     @contextmanager
     def strict() -> Generator[None, Any, None]:  # pragma: no cover
         """Transform any ``warn()`` or ``TAP.not_ok()`` calls into Python errors.
-        :note:`Implies non-TAP output`.
+        .. note::
+            Implies non-TAP output.
         """
         warnings.simplefilter('error', category=RuntimeWarning, append=True)
         yield
