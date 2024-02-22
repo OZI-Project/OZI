@@ -3,9 +3,9 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 [build-system]
-build-backend = "mesonpep517.buildapi"
+build-backend = "ozi_build.buildapi"
 requires      = [
-    "mesonpep517>=0.2",
+    "OZI.build>=0.0.1",
     "meson[ninja]>=1.1.0",
     "pip-tools>=7",
     "setuptools>=64",
@@ -13,14 +13,14 @@ requires      = [
     'tomli>=2.0.0;python_version<"3.11"',
 ]
 
-[tool.mesonpep517.entry-points]
+[tool.ozi_build.entry-points]
 console_scripts = [
     "ozi = ozi.__main__:main",
     "ozi-new = ozi.new.__main__:main",
     "ozi-fix = ozi.fix.__main__:main",
 ]
 
-[tool.mesonpep517.metadata]
+[tool.ozi_build.metadata]
 pkg-info-file = 'build/PKG-INFO'
 summary = 'Packager for Python projects using Meson.'
 
@@ -32,7 +32,7 @@ before-build = [
      "pip install --upgrade pyc_wheel",
      "pip install --upgrade sigstore",
      "pip install --upgrade meson[ninja]>=1.1.0",
-     "pip install --upgrade mesonpep517",
+     "pip install --upgrade OZI.build",
      "pip install --upgrade setuptools_scm",
      "pip install --upgrade pip-tools",
      "meson setup build",

@@ -35,7 +35,7 @@ dev  = ["[{% for suite in spec.python.ci.checkpoint.suites %}{{ suite }},{% endf
 ]
 {%- endfor %}
 
-[tool.mesonpep517.metadata]
+[tool.ozi_build.metadata]
 pkg-info-file = 'build/PKG-INFO'
 summary = "{{ project.summary }}"
 

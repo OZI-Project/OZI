@@ -638,10 +638,10 @@ class PkgInfo(Default):
 class Build(Default):
     """Build backend and required packages for OZI."""
 
-    backend: str = 'mesonpep517.buildapi'
+    backend: str = 'ozi_build.buildapi'
     requires: Mapping[str, str] = field(
         default_factory=lambda: {
-            'mesonpep517': 'mesonpep517>=0.2',
+            'ozi_build': 'OZI.build>=0.0.1',
             'meson': 'meson[ninja]>=1.1.0',
             'pip-tools': 'pip-tools>=7',
             'setuptools': 'setuptools>=64',
