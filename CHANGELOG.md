@@ -1,4 +1,262 @@
 # CHANGELOG
+## 0.0.275 (2024-02-25)
+
+### :pencil2:
+
+* Revert &#34;:pencil2::memo: Fix note admonitions in TAP module.&#34;
+
+This reverts commit 2071ef108280c77461d707d990db64087b79ed40. ([`85fc874`](https://github.com/OZI-Project/OZI/commit/85fc87486349c599c62e49c6b98c1430f919d435))
+
+* :pencil2::memo: Fix note admonitions in TAP module.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`2071ef1`](https://github.com/OZI-Project/OZI/commit/2071ef108280c77461d707d990db64087b79ed40))
+
+* :pencil2::memo: Fix note admonitions in TAP module.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`ebbe334`](https://github.com/OZI-Project/OZI/commit/ebbe334168bb38c6e85d06324dee865e333c2f6e))
+
+### :pushpin:
+
+* Revert &#34;:pushpin: Bump github/codeql-action from 3.24.0 to 3.24.3&#34;
+
+This reverts commit 73d8025a8d11f7ce1a94b2d1cc07254258a86250. ([`ec637ea`](https://github.com/OZI-Project/OZI/commit/ec637ea8a741a74526bfae0ff1586a3e54267718))
+
+* Revert &#34;:pushpin: Bump actions/dependency-review-action from 4.0.0 to 4.1.1&#34;
+
+This reverts commit 72ed4c885eadd2105e9499a8aab6a0871ed688e0. ([`3e2be10`](https://github.com/OZI-Project/OZI/commit/3e2be1049b7f4a4143a1a7d3a38f6149cb6b16e9))
+
+* Revert &#34;:pushpin: Bump github/codeql-action from 3.24.3 to 3.24.4&#34;
+
+This reverts commit 670616c134c130c7fb157674b9abdfec7478f4d8. ([`32e2605`](https://github.com/OZI-Project/OZI/commit/32e2605d7c597df3f06b9dc3bd04b8fe4239894c))
+
+* Revert &#34;:pushpin: Bump github/codeql-action from 3.24.4 to 3.24.5&#34;
+
+This reverts commit 03c60761546ddfbbcc3ef690d9709138c81395e5. ([`67b17ab`](https://github.com/OZI-Project/OZI/commit/67b17ab8f49372225f949c7735e0550855d65af4))
+
+* Revert &#34;:pushpin: Bump actions/dependency-review-action from 4.1.1 to 4.1.3&#34;
+
+This reverts commit 5b2f33c67af4d2dac5b8044656ffd86053e3da8f. ([`3922a7b`](https://github.com/OZI-Project/OZI/commit/3922a7bf86be0ca9286730ddf196658d183c2c29))
+
+* :pushpin: Bump actions/dependency-review-action from 4.1.1 to 4.1.3
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.1.1 to 4.1.3.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/fd07d42ce87ab09f10c61a2d1a5e59e6c655620a...9129d7d40b8c12c1ed0f60400d00c92d437adcce)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5b2f33c`](https://github.com/OZI-Project/OZI/commit/5b2f33c67af4d2dac5b8044656ffd86053e3da8f))
+
+* :pushpin: Bump github/codeql-action from 3.24.4 to 3.24.5
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.4 to 3.24.5.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/e2e140ad1441662206e8f97754b166877dfa1c73...47b3d888fe66b639e431abf22ebca059152f1eea)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`03c6076`](https://github.com/OZI-Project/OZI/commit/03c60761546ddfbbcc3ef690d9709138c81395e5))
+
+* :pushpin: Bump github/codeql-action from 3.24.3 to 3.24.4
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.3 to 3.24.4.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/379614612a29c9e28f31f39a59013eb8012a51f0...e2e140ad1441662206e8f97754b166877dfa1c73)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`670616c`](https://github.com/OZI-Project/OZI/commit/670616c134c130c7fb157674b9abdfec7478f4d8))
+
+* :pushpin: Bump actions/dependency-review-action from 4.0.0 to 4.1.1
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.0.0 to 4.1.1.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/4901385134134e04cec5fbe5ddfe3b2c5bd5d976...fd07d42ce87ab09f10c61a2d1a5e59e6c655620a)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`72ed4c8`](https://github.com/OZI-Project/OZI/commit/72ed4c885eadd2105e9499a8aab6a0871ed688e0))
+
+* :pushpin: Bump github/codeql-action from 3.24.0 to 3.24.3
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.0 to 3.24.3.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/e8893c57a1f3a2b659b6b55564fdfdbbd2982911...379614612a29c9e28f31f39a59013eb8012a51f0)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`73d8025`](https://github.com/OZI-Project/OZI/commit/73d8025a8d11f7ce1a94b2d1cc07254258a86250))
+
+* :pushpin: Bump actions/dependency-review-action from 4.1.1 to 4.1.3
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.1.1 to 4.1.3.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/fd07d42ce87ab09f10c61a2d1a5e59e6c655620a...9129d7d40b8c12c1ed0f60400d00c92d437adcce)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`b938174`](https://github.com/OZI-Project/OZI/commit/b938174e2d22f9a2f536be661761b76c14e9a12f))
+
+* :pushpin: Bump github/codeql-action from 3.24.4 to 3.24.5
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.4 to 3.24.5.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/e2e140ad1441662206e8f97754b166877dfa1c73...47b3d888fe66b639e431abf22ebca059152f1eea)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`02c5c63`](https://github.com/OZI-Project/OZI/commit/02c5c63a4ede004260c1b4bd42d526a530f03755))
+
+* :pushpin: Bump github/codeql-action from 3.24.3 to 3.24.4
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.3 to 3.24.4.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/379614612a29c9e28f31f39a59013eb8012a51f0...e2e140ad1441662206e8f97754b166877dfa1c73)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5b30aa6`](https://github.com/OZI-Project/OZI/commit/5b30aa60196175e7ea136535f0cd55d3701c8b8d))
+
+* :pushpin: Bump actions/dependency-review-action from 4.0.0 to 4.1.1
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.0.0 to 4.1.1.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/4901385134134e04cec5fbe5ddfe3b2c5bd5d976...fd07d42ce87ab09f10c61a2d1a5e59e6c655620a)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`d3ca174`](https://github.com/OZI-Project/OZI/commit/d3ca17449e2cc02c4e348a25399e6d8f1a43523a))
+
+* :pushpin: Bump github/codeql-action from 3.24.0 to 3.24.3
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.0 to 3.24.3.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/e8893c57a1f3a2b659b6b55564fdfdbbd2982911...379614612a29c9e28f31f39a59013eb8012a51f0)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`6b31cec`](https://github.com/OZI-Project/OZI/commit/6b31cec6d324f0f31be3c40fb82740353bcb325f))
+
+### Other
+
+* Merge pull request #195 from OZI-Project/main
+
+Release ([`6593a90`](https://github.com/OZI-Project/OZI/commit/6593a90536523726d7121fdb37b6e033d9a45d09))
+
+* Merge pull request #194 from OZI-Project/revert-193-main
+
+Revert &#34;Release&#34; ([`3c8cc7e`](https://github.com/OZI-Project/OZI/commit/3c8cc7e757d572621c87f0d0d51c8940bfadc60b))
+
+* Revert &#34;:rotating_light: run black.&#34;
+
+This reverts commit fa7cb34a774934c63bc54a384185b39ef468db04. ([`8840595`](https://github.com/OZI-Project/OZI/commit/88405954530a91bbcdcb6fbc6fdc9f7f2c22eea7))
+
+* Revert &#34;Update dependabot.yml remove pushpin prefix.&#34;
+
+This reverts commit 5d480ad9f7ed734b8ed2fef3c3a677d35133052f. ([`136f198`](https://github.com/OZI-Project/OZI/commit/136f19852102425250d90119090b65e353b8a928))
+
+* Update dependabot.yml remove pushpin prefix.
+
+We manually manage actual dependency pins.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`5d480ad`](https://github.com/OZI-Project/OZI/commit/5d480ad9f7ed734b8ed2fef3c3a677d35133052f))
+
+* :rotating_light: run black. ([`fa7cb34`](https://github.com/OZI-Project/OZI/commit/fa7cb34a774934c63bc54a384185b39ef468db04))
+
+* Merge pull request #190 from OZI-Project/dependabot/github_actions/actions/dependency-review-action-4.1.3
+
+:pushpin: Bump actions/dependency-review-action from 4.1.1 to 4.1.3 ([`bec5455`](https://github.com/OZI-Project/OZI/commit/bec54550d9e647e63bfbfb6932a03309a71834a3))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/actions/dependency-review-action-4.1.3 ([`b890ba7`](https://github.com/OZI-Project/OZI/commit/b890ba794c607036f6572cc81fcd1c28b97db960))
+
+* Merge pull request #192 from OZI-Project/rjdbcm-patch-1
+
+Update dependabot config ([`80116d7`](https://github.com/OZI-Project/OZI/commit/80116d7a5e36d6b0183ed37b95b10441c7df53cd))
+
+* Update dependabot.yml remove pushpin prefix.
+
+We manually manage actual dependency pins.
+
+Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`e85e0f3`](https://github.com/OZI-Project/OZI/commit/e85e0f35327c09a5b47c48ddd0207f2f7752763a))
+
+* Merge pull request #191 from OZI-Project/dependabot/github_actions/github/codeql-action-3.24.5
+
+Bump github/codeql-action from 3.24.4 to 3.24.5 ([`681cdcd`](https://github.com/OZI-Project/OZI/commit/681cdcd7e0612b08825176a224d2a808b00cc734))
+
+* Merge pull request #186 from OZI-Project/dependabot/github_actions/actions/dependency-review-action-4.1.1 ([`beb3090`](https://github.com/OZI-Project/OZI/commit/beb309011de3eaed3c84cbaff9f71b6cbb2a0c70))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/actions/dependency-review-action-4.1.1 ([`1ab91a9`](https://github.com/OZI-Project/OZI/commit/1ab91a9b7b07c4be0514892e14a3e71cbac3a47c))
+
+* Merge pull request #189 from OZI-Project/dependabot/github_actions/github/codeql-action-3.24.4 ([`983d8d5`](https://github.com/OZI-Project/OZI/commit/983d8d55dd27e3fe8743640bb5385dbc48a250ca))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/actions/dependency-review-action-4.1.1 ([`30294b9`](https://github.com/OZI-Project/OZI/commit/30294b94d3537044ec343d9c7a2a9074f9084ce9))
+
+* Merge pull request #187 from OZI-Project/rjdbcm-patch-4 ([`3592099`](https://github.com/OZI-Project/OZI/commit/3592099503de795ed946ae64ddd50e4f510192ed))
+
+* :rotating_light: run black. ([`a8981da`](https://github.com/OZI-Project/OZI/commit/a8981da6f27052641e8b8e90aceeadc8e10da45c))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/actions/dependency-review-action-4.1.1 ([`74aae29`](https://github.com/OZI-Project/OZI/commit/74aae2929bcb47c00726a256fc2a0b4b1ab13e27))
+
+* Merge pull request #185 from OZI-Project/dependabot/github_actions/github/codeql-action-3.24.3
+
+:pushpin: Bump github/codeql-action from 3.24.0 to 3.24.3 ([`61fc1e1`](https://github.com/OZI-Project/OZI/commit/61fc1e1c336cb104cdab092484f0fbfacc84e673))
+
 ## 0.0.274 (2024-02-13)
 
 ### :lock:
