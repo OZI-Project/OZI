@@ -195,6 +195,14 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`6b31cec`](https://g
 
 ### Other
 
+* Merge pull request #198 from OZI-Project/main
+
+Merge pull request #197 from OZI-Project/0.0 ([`d32fcac`](https://github.com/OZI-Project/OZI/commit/d32fcac05df7fc8c475d805de17e7fbf7f41cac3))
+
+* Merge pull request #197 from OZI-Project/0.0
+
+0.0 ([`eebfd25`](https://github.com/OZI-Project/OZI/commit/eebfd25f3de7d4f213e39b018c5ac136ab4d3bbe))
+
 * Merge pull request #195 from OZI-Project/main
 
 Release ([`6593a90`](https://github.com/OZI-Project/OZI/commit/6593a90536523726d7121fdb37b6e033d9a45d09))
