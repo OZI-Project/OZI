@@ -67,7 +67,7 @@ class TAP(ContextDecorator):
     .. note::
         Subtests are not implemented.
 
-    .. note::
+    .. note:: 
         Not known to be thread-safe.
     """
 
