@@ -6,28 +6,23 @@
 #}
   publish:
     runs-on: ubuntu-latest
-    needs: release
+    needs: [release, generate-provenance]
     if: needs.release.outputs.drafted == 'true'
     permissions:
       contents: write
       id-token: write
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+      uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
       with:
-        egress-policy: audit
+        disable-sudo: true
+        egress-policy: block
+        allowed-endpoints: >
+          api.github.com:443
+          upload.pypi.org:443
+          uploads.github.com:443
 
-    # Currently this action needs to be referred by tag. More details at:
-    # https://github.com/slsa-framework/slsa-github-generator#verification-of-provenance
-    - uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@07e64b653f10a80b6510f4568f685f8b7b9ea830 # v1.9.0
-      with:
-{%- raw %}
-        provenance-name: provenance-${{ github.event.repository.name }}-${{ github.event.release.tag_name }}.intoto.jsonl
-        base64-subjects: "${{ needs.release.outputs.hashes }}"
-{%- endraw %}
-        upload-assets: true
-
-    - uses: OZI-Project/publish@37f120b2f1f8130d11e0d6c62b01ad2061187f59
+    - uses: OZI-Project/publish@d9173e726b4cbb2ecd631fff0259656737e0dc23
       with:
 {%- raw %}
         github-token: ${{ secrets.GITHUB_TOKEN }}

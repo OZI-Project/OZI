@@ -23,6 +23,8 @@ source = '/' / Path(
 with (source / 'pyproject.toml').open('rb') as project_file:
     pyproject_toml = toml.load(project_file)
 setuptools_scm = pyproject_toml.get('tool', {}).get('setuptools_scm', {})
-Path(source / setuptools_scm.get('version_file')).write_text(
-    setuptools_scm.get('version_file_template')
-)
+path = Path(source / setuptools_scm.get('version_file')).resolve()
+if path.parent != Path(source).resolve():
+    raise RuntimeError('Invalid version_file path in pyproject.toml')
+else:
+    path.write_text(setuptools_scm.get('version_file_template'))

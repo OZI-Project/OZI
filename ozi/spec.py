@@ -115,9 +115,11 @@ class Default(_FactoryDataclass):
         all_fields = (
             (
                 f.name,
-                getattr(self, f.name)
-                if not isinstance(getattr(self, f.name), Default)
-                else getattr(self, f.name).asdict(),
+                (
+                    getattr(self, f.name)
+                    if not isinstance(getattr(self, f.name), Default)
+                    else getattr(self, f.name).asdict()
+                ),
             )
             for f in fields(self)
             if f.repr
@@ -320,11 +322,12 @@ class ClassicLint(CheckpointSuite):
     utility: Mapping[str, str] = field(
         default_factory=lambda: {
             'bandit': 'bandit[toml]',
-            'black': 'black',
+            'black': 'black<24',
             'flake8': 'flake8',
             'isort': 'isort',
             'mypy': 'mypy',
             'pyright': 'pyright',
+            'restructuredtext-lint': 'restructuredtext-lint',
         },
     )
     plugin: Mapping[str, str] = field(

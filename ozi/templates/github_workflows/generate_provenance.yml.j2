@@ -1,0 +1,17 @@
+  generate-provenance:
+    needs: [release]
+    name: Generate build provenance
+    permissions:
+      actions: read # To read the workflow path.
+      id-token: write # To sign the provenance.
+      contents: write # To add assets to a release.
+    # Currently this action needs to be referred by tag. More details at:
+    # https://github.com/slsa-framework/slsa-github-generator#verification-of-provenance
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.9.0
+    with:
+{%- raw %}
+      provenance-name: provenance-${{ github.event.repository.name }}-${{ needs.release.outputs.tag }}.intoto.jsonl
+      base64-subjects: "${{ needs.release.outputs.hashes }}"
+      upload-tag-name: "${{ needs.release.outputs.tag }}"
+      upload-assets: true
+{%- endraw %}

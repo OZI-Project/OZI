@@ -20,17 +20,27 @@
 {%- raw %}
       drafted: ${{ steps.draft.outputs.created }}
       hashes: ${{ steps.release.outputs.hashes }}
+      tag: ${{ steps.release.outputs.tag }}
 {%- endraw %}
     permissions:
       contents: write
       id-token: write
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
         with:
-          egress-policy: audit
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            files.pythonhosted.org:443
+            fulcio.sigstore.dev:443
+            github.com:443
+            pypi.org:443
+            rekor.sigstore.dev:443
+            tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/release@ea7fca3a3bfa32ae33ae243229be27ecfb63cc08
+      - uses: OZI-Project/release@0e6bbf31af68d4e104aa7b27a35b8f8118924985
         id: release
         with:
 {%- raw %}

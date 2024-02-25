@@ -46,11 +46,12 @@ Version: @SCM_VERSION@
 Summary: Packager for Python projects using Meson.
 Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/@SCM_VERSION@.tar.gz
 Home-page: https://oziproject.dev/
-Author: Ross J. Duff MSc
+Author: Eden Rose Duff MSc
 Author-email: help@oziproject.dev
 License: @LICENSE@
 Keywords: meson,packaging,wheel
 Project-URL: Bug Tracker, https://github.com/rjdbcm/ozi/issues
+Project-URL: Community, https://github.com/orgs/OZI-Project/discussions
 @REQUIREMENTS_IN@
 Requires-External: git
 Requires-Python: >=3.10, <3.13
@@ -406,7 +407,7 @@ commands =
 [testenv:fix]
 description = OZI project fix issues utility; runs black, isort, autoflake, and ruff
 deps = 
-     black
+     black<24
      isort
      autoflake
      ruff

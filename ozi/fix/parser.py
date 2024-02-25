@@ -2,6 +2,7 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+import argparse
 import sys
 from argparse import SUPPRESS
 from argparse import ArgumentParser
@@ -126,4 +127,10 @@ missing_parser.add_argument(
     default=False,
     action=BooleanOptionalAction,
     help='pretty mode outputs indented json, default: --no-pretty',
+)
+tools = parser.add_mutually_exclusive_group()  # pragma: no cover
+tools.add_argument(  # pragma: no cover
+    '-fix',
+    action='store_true',
+    help=argparse.SUPPRESS,
 )

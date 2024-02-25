@@ -35,7 +35,7 @@ commands =
 [testenv:fix]
 description = quickly fix minor source issues 
 deps = 
-     black
+     black<24
      isort
      autoflake
      ruff

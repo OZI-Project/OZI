@@ -20,7 +20,6 @@ if TYPE_CHECKING:
     from argparse import Namespace
     from collections.abc import Sequence
     from typing import Callable
-    from typing import NoReturn
     from typing import TypeAlias
 
     from jinja2 import Environment
@@ -297,7 +296,7 @@ def wrap(project: Namespace) -> None:  # pragma: no cover
         f.write(template.render())
 
 
-def main() -> NoReturn | None:  # pragma: no cover
+def main() -> None:  # pragma: no cover
     """Main ozi.new entrypoint."""
     ozi_new = parser.parse_args()
     ozi_new.argv = shlex.join(sys.argv[1:])
