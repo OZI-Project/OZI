@@ -81,7 +81,7 @@ def query_simple(
     ast: CodeBlockNode,
     select: SelectValue = AssignmentNode,
     where: WhereValue = ArrayNode,
-) -> set[BaseNode]:
+) -> set[BaseNode]:  # pragma: no cover
     """Run a simplistic query with no node filtering.
 
     :param ast: The AST for a :file:`meson.build`.
