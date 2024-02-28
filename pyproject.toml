@@ -5,7 +5,7 @@
 [build-system]
 build-backend = "mesonpep517.buildapi"
 requires      = [
-    "mesonpep517>=0.2",
+    "mesonpep517==0.2",
     "meson[ninja]>=1.1.0",
     "pip-tools>=7",
     "setuptools>=64",

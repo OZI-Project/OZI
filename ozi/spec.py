@@ -641,7 +641,7 @@ class Build(Default):
     backend: str = 'mesonpep517.buildapi'
     requires: Mapping[str, str] = field(
         default_factory=lambda: {
-            'mesonpep517': 'mesonpep517>=0.2',
+            'mesonpep517': 'mesonpep517==0.2',
             'meson': 'meson[ninja]>=1.1.0',
             'pip-tools': 'pip-tools>=7',
             'setuptools': 'setuptools>=64',

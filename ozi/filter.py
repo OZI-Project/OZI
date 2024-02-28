@@ -16,28 +16,46 @@ from packaging.version import parse
 
 
 def current_date(_format: str) -> str:
-    """Filter to get the local date given format."""
+    """Get the local date in a given format.
+
+    :param _format: The date formatting template.
+    :type _format: str
+    :return: Formatted date
+    :rtype: str
+    """
     return datetime.now(tz=timezone.utc).date().strftime(_format)
 
 
 @lru_cache
 def underscorify(s: str) -> str:
-    """Filter to replace non-alphanumerics with underscores."""
+    """Replace non-alphanumerics with underscores for normalization (cached).
+
+    :param s: The text to be normalized
+    :type s: str
+    :return: The normalized text
+    :rtype: str
+    """
     return re.sub('[^0-9a-zA-Z]', '_', s)
 
 
 @lru_cache
 def wheel_repr(version: str) -> str:
-    """Filter to transform versions of the form "X.Y" into "pyXY"."""
+    """Transform versions of the form "X.Y" into "pyXY".
+
+    :param version: The version.
+    :type version: str
+    :return: The wheel tag version.
+    :rtype: str
+    """
     major, minor = version.split('.')
     return f'py{major}{minor}'
 
 
 @lru_cache
 def sha256sum(version: str) -> str:  # pragma: no cover
-    """Filter to transform OZI source version into a hash of the tarball.
+    """Filter to transform OZI source version into a hash of the tarball (cached).
     :param version: Version of OZI to get a hash for.
-    :returns:
+    :return: The corresponding SHA256 sum for the distribution tarball.
     """
     response = requests.get('https://pypi.org/pypi/OZI/json', timeout=30)
     match response.status_code:
@@ -69,7 +87,14 @@ def next_minor(version: str) -> str:
 
 
 @lru_cache
-def to_distribution(package: str) -> str | None:
-    """Returns the first distributed module name for a package."""
+def to_distribution(package: str) -> str:
+    """Returns the first distributed module name for a package (cached).
+
+    :param package: The PyPI package name.
+    :type package: str
+    :return: The first distributed module name or the package name unchanged if no
+             distribution is found.
+    :rtype: str
+    """
     distributions = {v[0]: k for k, v in packages_distributions().items()}
     return distributions.get(package, package)
