@@ -3,7 +3,35 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
-"""python template: check core metadata"""
+# /// script
+# requires-python = ">=3.10"
+# dependencies = [
+#   'tomli>=2;python_version<="3.11"',
+# ]
+# ///
+""":pep:`723` script template: check OZI core dependency metadata
+
+Input
+^^^^^
+
+#. Key name to match in ``project:optional_dependencies`` table
+
+Output
+^^^^^^
+
+* String representation of matched value(s) for a key.
+
+Environment Variables
+^^^^^^^^^^^^^^^^^^^^^
+
+* :envvar:`MESON_SOURCE_ROOT`
+
+``pyproject.toml`` Project Variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* ``project:optional_dependencies``
+
+"""
 import os
 import pathlib
 import sys
