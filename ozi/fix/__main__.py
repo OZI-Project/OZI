@@ -52,7 +52,7 @@ from pyparsing import oneOf
 
 from ozi.filter import underscorify
 from ozi.fix.parser import parser
-from ozi.meson import get_build_items
+from ozi.meson import get_items_by_suffix
 from ozi.meson import load_ast
 from ozi.meson import project_metadata
 from ozi.meson import query_build_value
@@ -255,7 +255,7 @@ def walk_build_definition(  # noqa: C901
         for directory in os.listdir(target / rel_path)
         if os.path.isdir(target / rel_path / directory)
     ]
-    children = get_build_items(str((target / rel_path)), 'children')
+    children = get_items_by_suffix(str((target / rel_path)), 'children')
     for directory in subdirs:
         if children and directory in children:  # pragma: defer to good-issue
             TAP.ok(str(rel_path / 'meson.build'), 'subdir', str(directory))

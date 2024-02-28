@@ -3,7 +3,36 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
-"""deploy python PKG-INFO template for meson based on pyproject file."""
+# /// script
+# requires-python = ">=3.10"
+# dependencies = [  # noqa: E800
+#   'tomli>=2;python_version<="3.11"',  # noqa: E800
+# ]  # noqa: E800
+# [tool.setuptools_scm]  # noqa: E800
+# version_file = "PKG-INFO"  # noqa: E800
+# ///
+""":pep:`723` script: deploy python PKG-INFO template for meson based on pyproject file.
+
+Side-effects
+^^^^^^^^^^^^
+
+* in :envvar:`MESON_DIST_ROOT` create
+   ``tool.setuptools_scm:version_file`` from ``tool.setuptools_scm:version_file_template``
+   found in the :file:`{MESON_BUILD_ROOT}/pyproject.toml`.
+
+Environment Variables
+^^^^^^^^^^^^^^^^^^^^^
+
+* :envvar:`MESON_BUILD_ROOT`
+* :envvar:`MESON_DIST_ROOT`
+
+``pyproject.toml`` Tool Table Variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* ``tool.setuptools_scm:version_file``
+* ``tool.setuptools_scm:version_file_template``
+
+"""
 
 import os
 import sys

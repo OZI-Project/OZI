@@ -39,6 +39,7 @@ from ozi.spec import Metadata
 from ozi.tap import TAP
 from ozi.vendor.email_validator import EmailNotValidError
 from ozi.vendor.email_validator import EmailSyntaxError
+from ozi.vendor.email_validator import ValidatedEmail
 from ozi.vendor.email_validator import validate_email
 
 metadata = Metadata()
@@ -69,6 +70,14 @@ def parse_spdx(expr: Any | ParseResults) -> Any | ParseResults:
     return expr
 
 
+def _validate_email(email: str, verify: bool = False) -> ValidatedEmail | None:
+    try:
+        return validate_email(email, check_deliverability=verify)
+    except (EmailNotValidError, EmailSyntaxError) as e:
+        TAP.not_ok(*str(e).split('\n'))
+        return None  # pragma: no cover
+
+
 def parse_email(
     author_email: list[str],
     maintainer_email: list[str],
@@ -77,16 +86,16 @@ def parse_email(
     _author_email = []
     _maintainer_email = []
     for email in set(author_email).union(maintainer_email):
-        try:
-            emailinfo = validate_email(email, check_deliverability=verify)
-            email_normalized = emailinfo.normalized
-            if email in author_email:
-                _author_email += [email_normalized]
-            if email in maintainer_email:
-                _maintainer_email += [email_normalized]
-            TAP.ok('Author-Email')
-        except (EmailNotValidError, EmailSyntaxError) as e:
-            TAP.not_ok(*str(e).split('\n'))
+        emailinfo = _validate_email(email, verify=verify)
+        match emailinfo:
+            case ValidatedEmail() if email in author_email:
+                _author_email += [emailinfo.normalized]
+                TAP.ok('Author-Email')
+            case ValidatedEmail() if email in maintainer_email:
+                _maintainer_email += [emailinfo.normalized]
+                TAP.ok('Maintainer-Email')
+            case None:  # pragma: no cover
+                continue
     return _author_email, _maintainer_email
 
 
@@ -223,13 +232,14 @@ def project_url(project: Namespace) -> Namespace:
         else:
             TAP.ok('Project-URL', 'name')
         parsed_url = urlparse(url)
-        if parsed_url.scheme != 'https':
-            TAP.diagnostic('only https:// url scheme is supported')
-            TAP.not_ok('Project-URL', 'url', 'scheme', 'unsupported')
-        if parsed_url.netloc == '':
-            TAP.not_ok('Project-URL', 'url', 'netloc', 'not parseable')
-        else:
-            TAP.ok('Project-URL', 'netloc')
+        match parsed_url:
+            case p if p.scheme != 'https':
+                TAP.diagnostic('only https:// url scheme is supported')
+                TAP.not_ok('Project-URL', 'url', 'scheme', 'unsupported')
+            case p if p.netloc == '':
+                TAP.not_ok('Project-URL', 'url', 'netloc', 'not parseable')
+            case _:
+                TAP.ok('Project-URL', 'netloc')
     return project
 
 
@@ -266,8 +276,8 @@ def project(project: Namespace) -> None:
         project_url,
         home_page,
         name,
-        maintainer_email,
         author_email,
+        maintainer_email,
         keywords,
         summary,
         license_expression,
