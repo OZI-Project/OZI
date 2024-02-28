@@ -5,9 +5,9 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 # /// script
 # requires-python = ">=3.10"
-# dependencies = [
-#   'tomli>=2;python_version<="3.11"',
-# ]
+# dependencies = [  # noqa: E800
+#   'tomli>=2;python_version<="3.11"',  # noqa: E800
+# ]  # noqa: E800
 # ///
 """:pep:`723` script template: check OZI core dependency metadata
 

@@ -5,11 +5,11 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 # /// script
 # requires-python = ">=3.10"
-# dependencies = [
-#   'tomli>=2;python_version<="3.11"',
-# ]
-# [tool.setuptools_scm]
-# version_file = "PKG-INFO"
+# dependencies = [  # noqa: E800
+#   'tomli>=2;python_version<="3.11"',  # noqa: E800
+# ]  # noqa: E800
+# [tool.setuptools_scm]  # noqa: E800
+# version_file = "PKG-INFO"  # noqa: E800
 # ///
 """:pep:`723` script: deploy python PKG-INFO template for meson based on pyproject file.
 
@@ -18,7 +18,7 @@ Side-effects
 
 * in :envvar:`MESON_BUILD_ROOT` create
    ``tool.setuptools_scm:version_file`` from ``tool.setuptools_scm:version_file_template``
-   found in the :envvar:`MESON_BUILD_ROOT` ``pyproject.toml``.
+   found in the :file:`{MESON_BUILD_ROOT}/pyproject.toml`.
 
 Environment Variables
 ^^^^^^^^^^^^^^^^^^^^^
