@@ -1,4 +1,56 @@
 # CHANGELOG
+## 0.0.276 (2024-02-28)
+
+### :bug:
+
+* :bug::hammer:(ozi-new): Fix call order.
+
+author email checks before maintainer email.
+
+Signed-off-by: Eden Rose Duff MSc ([`f005dd9`](https://github.com/OZI-Project/OZI/commit/f005dd900285073981a53b52df0a61b092871b54))
+
+### :hammer:
+
+* :hammer::rotating_light: Embed ``noqa: E800`` comments in PEP-723 embedded metadata.
+
+Signed-off-by: Eden Rose Duff MSc ([`cb8ef11`](https://github.com/OZI-Project/OZI/commit/cb8ef11e916b40446391aad7141e35f997b816ed))
+
+* :hammer::rotating_light: Embed ``noqa: E800`` comments in PEP-723 embedded metadata. ([`0dc540e`](https://github.com/OZI-Project/OZI/commit/0dc540e500da7b1acc793821fad39b892ef94862))
+
+### Other
+
+* Merge pull request #201 from OZI-Project/main
+
+Release draft ([`bb6a411`](https://github.com/OZI-Project/OZI/commit/bb6a411d509ad9536d6830be784ee73fd63ce3a4))
+
+* Merge pull request #200 from OZI-Project/dev
+
+Dev merge ([`7c6d46b`](https://github.com/OZI-Project/OZI/commit/7c6d46b8177bad1f33e5390a65764fa230abb375))
+
+* :rotating_light: Add no cover comment to query_simple.
+
+Signed-off-by: Eden Rose Duff MSc ([`7da7fff`](https://github.com/OZI-Project/OZI/commit/7da7fff43017da8fd692010b1c9d0f1e310d07b7))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`96fe8c8`](https://github.com/OZI-Project/OZI/commit/96fe8c8d467600b461004190e3cea56f8998e2c5))
+
+* :memo: Update script documentation.
+
+Signed-off-by: Eden Rose Duff MSc ([`01c9243`](https://github.com/OZI-Project/OZI/commit/01c924339c3dec58eedc9cb537ee0f2d9d7cd413))
+
+* :memo: Finish documenting the TAP module.
+
+Signed-off-by: Eden Rose Duff MSc ([`38599b6`](https://github.com/OZI-Project/OZI/commit/38599b6db6ee378ecd9edd57fc104bed2844e602))
+
+* :memo: Document meson module objects.
+
+Signed-off-by: Eden Rose Duff MSc ([`a285f90`](https://github.com/OZI-Project/OZI/commit/a285f906df1a5fda22bfa89eea9730d9d9458599))
+
+* :memo: Update docstrings for filters. ([`4cd54a6`](https://github.com/OZI-Project/OZI/commit/4cd54a6a881954c3eda66eb2fc059f07706cc122))
+
+* Merge pull request #199 from OZI-Project/main
+
+main line changes ([`f3cb953`](https://github.com/OZI-Project/OZI/commit/f3cb9531ae0eb467fcd44b654ca259966dfa3123))
+
 ## 0.0.275 (2024-02-25)
 
 ### :pencil2:
