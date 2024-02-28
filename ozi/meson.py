@@ -12,6 +12,7 @@ from mesonbuild.ast.interpreter import AstInterpreter
 from mesonbuild.interpreterbase.exceptions import InvalidArguments
 from mesonbuild.mparser import ArrayNode
 from mesonbuild.mparser import AssignmentNode
+from mesonbuild.mparser import BaseNode
 from mesonbuild.mparser import CodeBlockNode
 from mesonbuild.mparser import DictNode
 from mesonbuild.mparser import ElementaryNode
@@ -34,6 +35,13 @@ WhereItems: TypeAlias = type[IdNode]
 
 
 def load_ast(source_root: str) -> CodeBlockNode | None:  # pragma: no cover
+    """Load the :abbr:`AST (Abstract Syntax Tree)` from the root :file:`meson.build`.
+
+    :param source_root: Directory containing a top-level :file:`meson.build`.
+    :type source_root: str
+    :return: The AST for a meson build definition if one is available OR None.
+    :rtype: CodeBlockNode | None
+    """
     ast = AstInterpreter(source_root, '', '')
     try:
         ast.load_root_meson_file()
@@ -43,6 +51,13 @@ def load_ast(source_root: str) -> CodeBlockNode | None:  # pragma: no cover
 
 
 def project_metadata(ast: CodeBlockNode) -> tuple[str, str]:
+    """Extract project metadata from :file:`meson.build`
+
+    :param ast: The AST for a :file:`meson.build`.
+    :type ast: CodeBlockNode
+    :return: The project name and license identifier.
+    :rtype: tuple[str, str]
+    """
     project_args = ast.lines[0].args.arguments  # pyright: ignore
     default_options = ast.lines[0].args.kwargs  # pyright: ignore
     license_ = [
@@ -62,13 +77,23 @@ def project_metadata(ast: CodeBlockNode) -> tuple[str, str]:
 
 
 @lru_cache(typed=True)
-def value_query(
+def query_simple(
     ast: CodeBlockNode,
     select: SelectValue = AssignmentNode,
     where: WhereValue = ArrayNode,
-    get: type[ElementaryNode] = StringNode,
-) -> set[str]:  # pragma: no cover
-    assigments, *_ = (
+) -> set[BaseNode]:
+    """Run a simplistic query with no node filtering.
+
+    :param ast: The AST for a :file:`meson.build`.
+    :type ast: CodeBlockNode
+    :param select: Select node type, defaults to AssignmentNode
+    :type select: SelectValue, optional
+    :param where: Where node type, defaults to ArrayNode
+    :type where: WhereValue, optional
+    :return: Set of all nodes matching the selector.
+    :rtype: set[BaseNode]
+    """
+    matches, *_ = (
         (
             i.value.args.arguments
             for i in ast.lines
@@ -77,16 +102,61 @@ def value_query(
         if ast
         else (_ for _ in ())
     )
-    return {i.value for i in assigments if isinstance(i, get)}
+    return set(matches)
 
 
 @lru_cache(typed=True)
-def item_query(
+def query_complex(
+    ast: CodeBlockNode,
+    select: SelectValue = AssignmentNode,
+    where: WhereValue = ArrayNode,
+    get: type[ElementaryNode] = StringNode,
+) -> set[str]:  # pragma: no cover
+    """Run a complex (filtered) query of build item values.
+
+    :param ast: The AST for a :file:`meson.build`.
+    :type ast: CodeBlockNode
+    :param select: select type, defaults to AssignmentNode
+    :type select: SelectValue, optional
+    :param where: where type, defaults to ArrayNode
+    :type where: WhereValue, optional
+    :param get: get type, defaults to StringNode
+    :type get: type[ElementaryNode], optional
+    :return: A set of node values matching the selector
+    :rtype: set[str]
+    """
+    matches, *_ = (
+        (
+            i.value.args.arguments
+            for i in ast.lines
+            if isinstance(i, select) and isinstance(i.value, where)
+        )
+        if ast
+        else (_ for _ in ())
+    )
+    return {i.value for i in matches if isinstance(i, get)}
+
+
+@lru_cache(typed=True)
+def query_loop_assignments(
     ast: CodeBlockNode,
     select: SelectItems = ForeachClauseNode,
     where: type[ElementaryNode] = IdNode,
     get: type[ElementaryNode] = StringNode,
 ) -> set[str]:  # pragma: no cover
+    """Get a set of selected array items (must be assigned to a variable).
+
+    :param ast: The AST for a :file:`meson.build`.
+    :type ast: CodeBlockNode
+    :param select: Select node type, defaults to ForeachClauseNode
+    :type select: SelectItems, optional
+    :param where: Where node type, defaults to IdNode
+    :type where: WhereItems, optional
+    :param get: Query node type, defaults to StringNode
+    :type get: type[ElementaryNode], optional
+    :return: A set of query matches
+    :rtype: set[str]
+    """
     loop_vars = (
         (
             i.items.value
@@ -107,13 +177,28 @@ def item_query(
 
 
 @lru_cache(typed=True)
-def item_query_var_suffix(
+def query_var_suffix(
     ast: CodeBlockNode,
     var_suffix: str,
     select: SelectItems = ForeachClauseNode,
     where: type[ElementaryNode] = IdNode,
     get: type[ElementaryNode] = StringNode,
 ) -> set[str]:  # pragma: no cover
+    """Get a set of build items based on a variable name suffix.
+
+    :param ast: The AST for a :file:`meson.build`.
+    :type ast: CodeBlockNode
+    :param var_suffix: The text to look for.
+    :type var_suffix: str
+    :param select: Select node type, defaults to ForeachClauseNode
+    :type select: SelectItems, optional
+    :param where: Where node type, defaults to IdNode
+    :type where: WhereItems, optional
+    :param get: Query node type, defaults to StringNode
+    :type get: type[ElementaryNode], optional
+    :return: A set of query matches
+    :rtype: set[str] | None
+    """
     loop_vars = {
         i.items.value
         for i in ast.lines
@@ -137,26 +222,35 @@ def item_query_var_suffix(
 def query_build_value(
     source_root: str,
     query: str,
-    select: SelectValue = AssignmentNode,
-    where: WhereValue = ArrayNode,
-    get: type[ElementaryNode] = StringNode,
 ) -> bool | None:  # pragma: no cover
+    """Load a :file:`meson.build` project and check if a query exists in array assignments.
+    :param source_root: The path to directory containing a :file:`meson.build`
+    :type source_root: str
+    :param query: The text to look for.
+    :type query: str
+    :return: True if a query match is found, False if not, and None if the
+             :file:`meson.build` could not be loaded.
+    :rtype: set[str] | None
+    """
     ast = load_ast(source_root)
     if ast:
-        build_data = value_query(ast, select=select, where=where, get=get)  # type: ignore
+        build_data = query_complex(ast)
         return query in build_data
     return ast
 
 
-@lru_cache(typed=True)
-def get_build_items(
+def get_items_by_suffix(
     source_root: str,
     query: str,
-    select: SelectItems = ForeachClauseNode,
-    where: WhereItems = IdNode,
-    get: type[ElementaryNode] = StringNode,
 ) -> set[str] | None:  # pragma: no cover
+    """Load a :file:`meson.build` project and return build items.
+
+    :param source_root: The path to directory containing a :file:`meson.build`
+    :type source_root: str
+    :param query: The text to look for.
+    :type query: str
+    """
     ast = load_ast(source_root)
     if ast:
-        return item_query_var_suffix(ast, query, select=select, where=where, get=get)  # type: ignore
+        return query_var_suffix(ast, query)
     return ast
