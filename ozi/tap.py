@@ -31,7 +31,7 @@ NOT_OK = 'not_ok'
 SKIP = 'skip'
 
 
-def tap_warning_format(
+def _warn_format(
     message: Warning | str,
     category: type[Warning],
     filename: str,
@@ -42,7 +42,7 @@ def tap_warning_format(
     return f'# {category.__name__}\n'  # pragma: no cover
 
 
-def tap_warn(
+def _warn(
     message: Warning | str,
     category: type[Warning],
     filename: str,
@@ -77,6 +77,15 @@ class TAP(ContextDecorator):
 
     @classmethod
     def end(cls: type[Self], skip_reason: str = '') -> NoReturn:  # pragma: no cover
+        """End a TAP diagnostic.
+
+        :param cls: TAP
+        :type cls: type[Self]
+        :param skip_reason: A skip reason, optional, defaults to ''.
+        :type skip_reason: str, optional
+        :return: Exits the diagnostic.
+        :rtype: NoReturn
+        """
         skip = cls._count.pop(SKIP)
         count = cls._count.total()
         match [count, skip_reason, skip]:
@@ -145,6 +154,13 @@ class TAP(ContextDecorator):
 
     @classmethod
     def ok(cls: type[Self], *args: str, skip: bool = False) -> None:
+        """Mark a test result as successful.
+
+        :param cls: TAP
+        :type cls: type[Self]
+        :param skip: mark the test as skipped, defaults to False
+        :type skip: bool, optional
+        """
         cls._count[OK] += 1
         cls._count[SKIP] += 1 if skip else 0
         directive = '-' if not skip else '# SKIP'
@@ -155,12 +171,19 @@ class TAP(ContextDecorator):
 
     @classmethod
     def not_ok(cls: type[Self], *args: str, skip: bool = False) -> None:
+        """Mark a test result as :strong:`not` successful.
+
+        :param cls: TAP
+        :type cls: type[Self]
+        :param skip: mark the test as skipped, defaults to False
+        :type skip: bool, optional
+        """
         cls._count[NOT_OK] += 1
         cls._count[SKIP] += 1 if skip else 0
         directive = '-' if not skip else '# SKIP'
         formatted = ' - '.join(args).strip()
-        warnings.formatwarning = tap_warning_format
-        warnings.showwarning = tap_warn  # type: ignore
+        warnings.formatwarning = _warn_format
+        warnings.showwarning = _warn  # type: ignore
         warnings.warn(
             f'{cls._count.total() - cls._count[SKIP]} {directive} {formatted}',
             RuntimeWarning,
