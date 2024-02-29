@@ -7,11 +7,12 @@
 import os
 from pathlib import Path
 
-build = '/' / Path(
-    os.path.relpath(
-        Path('/', os.environ.get('MESON_BUILD_ROOT', Path('..').relative_to('.'))),
-        '/',
-    ),
-)
-file = build / 'pyproject.toml'
-file.write_text(file.read_text().replace('# target-version', 'target-version'))
+if __name__ == '__main__':
+    build = '/' / Path(
+        os.path.relpath(
+            Path('/', os.environ.get('MESON_BUILD_ROOT', Path('..').relative_to('.'))),
+            '/',
+        ),
+    )
+    file = build / 'pyproject.toml'
+    file.write_text(file.read_text().replace('# target-version', 'target-version'))

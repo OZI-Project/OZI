@@ -8,4 +8,5 @@
 # ///
 from importlib.metadata import packages_distributions
 
-print({v[0]: k for k, v in packages_distributions().items()}.get('@0@', '@0@'))
+if __name__ == '__main__':
+    print({v[0]: k for k, v in packages_distributions().items()}.get('@0@', '@0@'))

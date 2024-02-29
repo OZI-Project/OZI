@@ -10,4 +10,5 @@
 """python snippet: grab version info"""
 from setuptools_scm import get_version  # type: ignore
 
-print(get_version(normalize=False))
+if __name__ == '__main__':
+    print(get_version(normalize=False))
