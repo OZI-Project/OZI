@@ -1,4 +1,38 @@
 # CHANGELOG
+## 0.0.277 (2024-02-29)
+
+### :hammer:
+
+* :hammer: Add script guard to scripts in ``ozi/scripts``.
+
+Signed-off-by: Eden Rose Duff MSc ([`55ababf`](https://github.com/OZI-Project/OZI/commit/55ababf49578b6c366942f291dcef8543794c6a8))
+
+* :hammer: Update script PEP-723 metadata.
+
+Signed-off-by: Eden Rose Duff MSc ([`550eded`](https://github.com/OZI-Project/OZI/commit/550eded08a6fb98279a96cfb16fb835b6f4d7a57))
+
+### :pencil2:
+
+* :pencil2::memo: Fix docstring whitespace; cleanup defs.
+
+Signed-off-by: Eden Rose Duff MSc ([`ef2b469`](https://github.com/OZI-Project/OZI/commit/ef2b4692f7c9f33eb2bc9f6ff1af09c494d5ee31))
+
+### Other
+
+* Merge pull request #204 from OZI-Project/main
+
+Release merge ([`eb57f29`](https://github.com/OZI-Project/OZI/commit/eb57f2900ae216f5d9a0b44c4dfd8128ad27b297))
+
+* Merge pull request #203 from OZI-Project/dev
+
+Dev merge ([`cf97cb1`](https://github.com/OZI-Project/OZI/commit/cf97cb1b39bf6e88077078d3704a7e0b0c12e951))
+
+* Merge branch &#39;main&#39; into dev ([`cbe0d11`](https://github.com/OZI-Project/OZI/commit/cbe0d11d2358420b275883ca03f42768fa4b56eb))
+
+* Merge pull request #202 from OZI-Project/0.0
+
+0.0 changelogs ([`450f92e`](https://github.com/OZI-Project/OZI/commit/450f92e94836652c9ee2fc4e358a9be6c3a47c96))
+
 ## 0.0.276 (2024-02-28)
 
 ### :bug:
