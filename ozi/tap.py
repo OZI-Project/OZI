@@ -79,8 +79,6 @@ class TAP(ContextDecorator):
     def end(cls: type[Self], skip_reason: str = '') -> NoReturn:  # pragma: no cover
         """End a TAP diagnostic.
 
-        :param cls: TAP
-        :type cls: type[Self]
         :param skip_reason: A skip reason, optional, defaults to ''.
         :type skip_reason: str, optional
         :return: Exits the diagnostic.
@@ -126,6 +124,7 @@ class TAP(ContextDecorator):
         """Suppress output from TAP Producers.
 
         Suppresses the following output to stderr:
+
         * ``warnings.warn``
         * ``TAP.bail_out``
         * ``TAP.diagnostic``
@@ -145,6 +144,7 @@ class TAP(ContextDecorator):
     @contextmanager
     def strict() -> Generator[None, Any, None]:  # pragma: no cover
         """Transform any ``warn()`` or ``TAP.not_ok()`` calls into Python errors.
+
         .. note::
             Implies non-TAP output.
         """
@@ -156,8 +156,6 @@ class TAP(ContextDecorator):
     def ok(cls: type[Self], *args: str, skip: bool = False) -> None:
         """Mark a test result as successful.
 
-        :param cls: TAP
-        :type cls: type[Self]
         :param skip: mark the test as skipped, defaults to False
         :type skip: bool, optional
         """
@@ -173,8 +171,6 @@ class TAP(ContextDecorator):
     def not_ok(cls: type[Self], *args: str, skip: bool = False) -> None:
         """Mark a test result as :strong:`not` successful.
 
-        :param cls: TAP
-        :type cls: type[Self]
         :param skip: mark the test as skipped, defaults to False
         :type skip: bool, optional
         """

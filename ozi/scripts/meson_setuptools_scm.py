@@ -42,17 +42,18 @@ if sys.version_info >= (3, 11):  # pragma: no cover
 elif sys.version_info < (3, 11):  # pragma: no cover
     import tomli as toml
 
-source = '/' / Path(
-    os.path.relpath(
-        os.path.join('/', os.environ.get('MESON_BUILD_ROOT', os.path.relpath('..'))),
-        '/',
-    ),
-)
-with (source / 'pyproject.toml').open('rb') as project_file:
-    pyproject_toml = toml.load(project_file)
-setuptools_scm = pyproject_toml.get('tool', {}).get('setuptools_scm', {})
-path = Path(source / setuptools_scm.get('version_file')).resolve()
-if path.parent != Path(source).resolve():
-    raise RuntimeError('Invalid version_file path in pyproject.toml')
-else:
-    path.write_text(setuptools_scm.get('version_file_template'))
+if __name__ == '__main__':
+    source = '/' / Path(
+        os.path.relpath(
+            os.path.join('/', os.environ.get('MESON_BUILD_ROOT', os.path.relpath('..'))),
+            '/',
+        ),
+    )
+    with (source / 'pyproject.toml').open('rb') as project_file:
+        pyproject_toml = toml.load(project_file)
+    setuptools_scm = pyproject_toml.get('tool', {}).get('setuptools_scm', {})
+    path = Path(source / setuptools_scm.get('version_file')).resolve()
+    if path.parent != Path(source).resolve():
+        raise RuntimeError('Invalid version_file path in pyproject.toml')
+    else:
+        path.write_text(setuptools_scm.get('version_file_template'))
