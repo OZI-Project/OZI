@@ -17,8 +17,8 @@ Side-effects
 ^^^^^^^^^^^^
 
 * in :envvar:`MESON_BUILD_ROOT` create
-   ``tool.setuptools_scm:version_file`` from ``tool.setuptools_scm:version_file_template``
-   found in the :file:`{MESON_BUILD_ROOT}/pyproject.toml`.
+  ``tool.setuptools_scm:version_file`` from ``tool.setuptools_scm:version_file_template``
+  found in the :file:`{MESON_BUILD_ROOT}/pyproject.toml`.
 
 Environment Variables
 ^^^^^^^^^^^^^^^^^^^^^
