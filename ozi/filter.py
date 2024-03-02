@@ -54,8 +54,10 @@ def wheel_repr(version: str) -> str:
 @lru_cache
 def sha256sum(version: str) -> str:  # pragma: no cover
     """Filter to transform OZI source version into a hash of the tarball (cached).
+
     :param version: Version of OZI to get a hash for.
     :return: The corresponding SHA256 sum for the distribution tarball.
+    :rtype: str
     """
     response = requests.get('https://pypi.org/pypi/OZI/json', timeout=30)
     match response.status_code:
@@ -82,6 +84,13 @@ def sha256sum(version: str) -> str:  # pragma: no cover
 
 
 def next_minor(version: str) -> str:
+    """Given a Python version, determine the next minor version.
+
+    :param version: Python version string
+    :type version: str
+    :return: The next minor version
+    :rtype: str
+    """
     major, minor, *_ = map(int, version.split('.'))
     return f'{major}.{minor + 1}'
 
