@@ -12,7 +12,7 @@
 Output
 ^^^^^^
 
-* String representation of the current :emphasis:`non-normalized` project version 
+* String representation of the current :emphasis:`non-normalized` project version
 
 ``pyproject.toml`` Tool Table Variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
