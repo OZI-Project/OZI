@@ -224,6 +224,7 @@ def query_build_value(
     query: str,
 ) -> bool | None:  # pragma: no cover
     """Load a :file:`meson.build` project and check if a query exists in array assignments.
+
     :param source_root: The path to directory containing a :file:`meson.build`
     :type source_root: str
     :param query: The text to look for.

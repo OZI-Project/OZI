@@ -38,7 +38,15 @@ env.globals = env.globals | metadata.asdict()
 
 def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -> str:
     """Render CI files based on the ci_provider for target in env.
-    Return the ci_user of the target repository.
+
+    :param env: the OZI project file rendering environment
+    :type env: jinja2.Environment
+    :param target: directory path to render the project
+    :type target: Path
+    :param ci_provider: the name of the project continuous integration provider
+    :type ci_provider: str
+    :return: the ci_user of the target repository for the continuous integration provider
+    :rtype: str
     """
     match ci_provider:
         case 'github':
@@ -60,7 +68,15 @@ def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -
 
 
 def render_project_files(env: Environment, target: Path, name: str) -> None:
-    """Render the primary new project files(excluding CI)."""
+    """Render the primary new project files(excluding CI).
+
+    :param env: the OZI project file rendering environment
+    :type env: jinja2.Environment
+    :param target: directory path to render the project
+    :type target: Path
+    :param name: the canonical project name (without normalization)
+    :type name: str
+    """
     Path(target, underscorify(name)).mkdir()
     Path(target, 'subprojects').mkdir()
     Path(target, 'tests').mkdir()

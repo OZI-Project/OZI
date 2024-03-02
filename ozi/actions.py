@@ -84,7 +84,7 @@ class ExactMatch:
 
 
 class CloseMatch(Action):
-    """Special choices action. Warn the user if a close match could not be found."""
+    """Special argparse choices action. Warn the user if a close match could not be found."""
 
     exact_match = ExactMatch()
 
@@ -107,7 +107,15 @@ class CloseMatch(Action):
         key: str,
         value: Sequence[str],
     ) -> Sequence[str]:
-        """Get a single close match for a class attribute."""
+        """Get a close matches for a Python project packaging core metadata key.
+
+        :param key: Python project packaging core metadata key name (normalized)
+        :type key: str
+        :param value: the value to query a close match for
+        :type value: Sequence[str]
+        :return: sequence with the best match or an empty sequence
+        :rtype: Sequence[str]
+        """
         if value is None:
             return []  # pragma: defer to good-first-issue
         try:
