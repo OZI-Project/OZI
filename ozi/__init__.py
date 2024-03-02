@@ -6,5 +6,5 @@
 from .spec import current_version
 
 __version__ = current_version()
-__author__ = 'Ross J. Duff MSc'
+__author__ = 'Eden Rose Duff MSc'
 __all__ = ('__version__', '__author__', '__doc__')

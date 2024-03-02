@@ -108,13 +108,21 @@ class TAP(ContextDecorator):
 
     @staticmethod
     def diagnostic(*message: str) -> None:
-        """Print a diagnostic message."""
+        r"""Print a diagnostic message.
+
+        :param \*message: messages to print to TAP output
+        :type \*message: tuple[str]
+        """
         formatted = ' - '.join(message).strip()
         sys.stderr.write(f'# {formatted}\n')  # pragma: no cover
 
     @staticmethod
     def bail_out(*message: str) -> NoReturn:
-        """Print a bail out message and exit."""
+        r"""Print a bail out message and exit.
+
+        :param \*message: messages to print to TAP output
+        :type \*message: tuple[str]
+        """
         print('Bail out!', *message, file=sys.stderr)
         sys.exit(1)
 
@@ -153,31 +161,35 @@ class TAP(ContextDecorator):
         warnings.resetwarnings()
 
     @classmethod
-    def ok(cls: type[Self], *args: str, skip: bool = False) -> None:
-        """Mark a test result as successful.
+    def ok(cls: type[Self], *message: str, skip: bool = False) -> None:
+        r"""Mark a test result as successful.
 
+        :param \*message: messages to print to TAP output
+        :type \*message: tuple[str]
         :param skip: mark the test as skipped, defaults to False
         :type skip: bool, optional
         """
         cls._count[OK] += 1
         cls._count[SKIP] += 1 if skip else 0
         directive = '-' if not skip else '# SKIP'
-        formatted = ' - '.join(args).strip()
+        formatted = ' - '.join(message).strip()
         sys.stdout.write(
             f'ok {cls._count.total() - cls._count[SKIP]} {directive} {formatted}\n',
         )
 
     @classmethod
-    def not_ok(cls: type[Self], *args: str, skip: bool = False) -> None:
-        """Mark a test result as :strong:`not` successful.
+    def not_ok(cls: type[Self], *message: str, skip: bool = False) -> None:
+        r"""Mark a test result as :strong:`not` successful.
 
+        :param \*message: messages to print to TAP output
+        :type \*message: tuple[str]
         :param skip: mark the test as skipped, defaults to False
         :type skip: bool, optional
         """
         cls._count[NOT_OK] += 1
         cls._count[SKIP] += 1 if skip else 0
         directive = '-' if not skip else '# SKIP'
-        formatted = ' - '.join(args).strip()
+        formatted = ' - '.join(message).strip()
         warnings.formatwarning = _warn_format
         warnings.showwarning = _warn  # type: ignore
         warnings.warn(
