@@ -6,7 +6,19 @@
 # /// script
 # requires-python = ">=3.10"
 # ///
-"""python template: check package version."""
+""":pep:`723` template script: check installed Python package version.
+
+Input
+^^^^^
+
+#. Name of an installed package to check.
+
+Output
+^^^^^^
+
+* String representation of the current version for a package.
+
+"""
 from importlib.metadata import version
 
 if __name__ == '__main__':
