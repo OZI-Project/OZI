@@ -2,6 +2,16 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 requirements = ['requirements.in']
+nodejs = find_program('node', version: '>12', required: false)
+if not nodejs.found()
+    warning(
+        'node version',
+        '>12',
+        'required by pyright version',
+        '>=1.1.352',
+        'not found'
+    )
+endif
 configure_file(
     input: requirements,
     output: 'requirements.txt',
