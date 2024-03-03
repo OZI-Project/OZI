@@ -1,4 +1,142 @@
 # CHANGELOG
+## 0.0.279 (2024-03-03)
+
+### :pushpin:
+
+* :pushpin: Add a check of node.js version for pyright. (#208)
+
+* pins pyright to &gt;=1.1.352, the version that pinned node &gt;12
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`bf776f2`](https://github.com/OZI-Project/OZI/commit/bf776f2a53c28d672259d099ce9a9b60ea467d93))
+
+### Other
+
+* Merge pull request #209 from OZI-Project/main
+
+Release ([`30cf830`](https://github.com/OZI-Project/OZI/commit/30cf83079a18fc1ee20c36a99f86df0ac1103bf5))
+
+## 0.0.278 (2024-03-02)
+
+### :arrow_up:
+
+* :arrow_up: Bump github/codeql-action from 3.24.5 to 3.24.6
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.5 to 3.24.6.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/47b3d888fe66b639e431abf22ebca059152f1eea...8a470fddafa5cbb6266ee11b37ef4d8aae19c571)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`50ffecf`](https://github.com/OZI-Project/OZI/commit/50ffecfcc502300271d7e242931d6eaefad91282))
+
+### :hammer:
+
+* :hammer: Add pep-723 metadata.
+
+Signed-off-by: Eden Rose Duff MSc &lt;help@oziproject.dev&gt; ([`962f91b`](https://github.com/OZI-Project/OZI/commit/962f91b7da73d076d6a858b672a7d8fc14003729))
+
+### :pencil2:
+
+* :pencil2: Shorten PEP-723 metadata.
+
+This requires less ``# noqa: E800`` additions.
+
+Signed-off-by: Eden Rose Duff MSc &lt;help@oziproject.dev&gt; ([`2dab3b3`](https://github.com/OZI-Project/OZI/commit/2dab3b3b716d9b3fe5da3100d0a5b1ed10e27ddf))
+
+* :pencil2: Fix docstring whitespace.
+
+Signed-off-by: Eden Rose Duff MSc &lt;help@oziproject.dev&gt; ([`60e227a`](https://github.com/OZI-Project/OZI/commit/60e227a538dacdac3bb2e3a8f3e83ff86eb5d1a7))
+
+* :pencil2::memo: Fix line continuation.
+
+Signed-off-by: Eden Rose Duff MSc &lt;help@oziproject.dev&gt; ([`5e77cfa`](https://github.com/OZI-Project/OZI/commit/5e77cfafd3c0c03be61c0731c5fd43a7f653dac4))
+
+### Other
+
+* Merge pull request #207 from OZI-Project/main
+
+Release merge ([`fa009eb`](https://github.com/OZI-Project/OZI/commit/fa009ebfd9ad250004cc79f2bd22f79ad1333e12))
+
+* Merge pull request #205 from OZI-Project/dependabot/github_actions/github/codeql-action-3.24.6
+
+⬆️ Bump github/codeql-action from 3.24.5 to 3.24.6 ([`d7256d3`](https://github.com/OZI-Project/OZI/commit/d7256d3aaa0bf8d1c235c638d67baddded0918ff))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/github/codeql-action-3.24.6 ([`95f075f`](https://github.com/OZI-Project/OZI/commit/95f075f7586188b3b631e3f942fee3f72e8b9f14))
+
+* Merge pull request #206 from OZI-Project/dev
+
+Dev merge ([`0b8f6a2`](https://github.com/OZI-Project/OZI/commit/0b8f6a213f338ec68464342ca13e63589bb3f9ec))
+
+* Merge branch &#39;main&#39; into dev ([`a6e8cf2`](https://github.com/OZI-Project/OZI/commit/a6e8cf2cd76ca8a976c15673d382cfa1babc5156))
+
+* :rotating_light: Fix trailing whitespace.
+
+Signed-off-by: Eden Rose Duff &lt;rjdbcm@outlook.com&gt; ([`2a73a02`](https://github.com/OZI-Project/OZI/commit/2a73a021267246a4f35e4bd4cebafd6508073615))
+
+* :memo: Finish adding script docstrings.
+
+Signed-off-by: Eden Rose Duff MSc &lt;help@oziproject.dev&gt; ([`acbeeda`](https://github.com/OZI-Project/OZI/commit/acbeedaeba847f1109bfebd37675eac217fe6b90))
+
+* :memo: Update __author__ name.
+
+Signed-off-by: Eden Rose Duff MSc &lt;help@oziproject.dev&gt; ([`39687fb`](https://github.com/OZI-Project/OZI/commit/39687fb0ad02acffb7c942e3151f6b602e26901a))
+
+* :memo: Add spdx module docstring.
+
+Signed-off-by: Eden Rose Duff MSc &lt;help@oziproject.dev&gt; ([`ffe26b4`](https://github.com/OZI-Project/OZI/commit/ffe26b492c5893bd88e8c6fb7f9de618222b1cdb))
+
+* :memo: Add render module docstrings.
+
+Signed-off-by: Eden Rose Duff MSc &lt;help@oziproject.dev&gt; ([`7b47d52`](https://github.com/OZI-Project/OZI/commit/7b47d5244897bcaba6fd19130af7e0635ff15e61))
+
+* :memo: Document actions module.
+
+Signed-off-by: Eden Rose Duff MSc &lt;help@oziproject.dev&gt; ([`f33118f`](https://github.com/OZI-Project/OZI/commit/f33118f788d90ba3e68df9caac8618cf4270f2cf))
+
+* :memo: Add variable args to docstrings.
+
+Signed-off-by: Eden Rose Duff MSc &lt;help@oziproject.dev&gt; ([`a5171bd`](https://github.com/OZI-Project/OZI/commit/a5171bdba35220c58c343d2d38b751199a9bb12d))
+
+## 0.0.277 (2024-02-29)
+
+### :hammer:
+
+* :hammer: Add script guard to scripts in ``ozi/scripts``.
+
+Signed-off-by: Eden Rose Duff MSc ([`55ababf`](https://github.com/OZI-Project/OZI/commit/55ababf49578b6c366942f291dcef8543794c6a8))
+
+* :hammer: Update script PEP-723 metadata.
+
+Signed-off-by: Eden Rose Duff MSc ([`550eded`](https://github.com/OZI-Project/OZI/commit/550eded08a6fb98279a96cfb16fb835b6f4d7a57))
+
+### :pencil2:
+
+* :pencil2::memo: Fix docstring whitespace; cleanup defs.
+
+Signed-off-by: Eden Rose Duff MSc ([`ef2b469`](https://github.com/OZI-Project/OZI/commit/ef2b4692f7c9f33eb2bc9f6ff1af09c494d5ee31))
+
+### Other
+
+* Merge pull request #204 from OZI-Project/main
+
+Release merge ([`eb57f29`](https://github.com/OZI-Project/OZI/commit/eb57f2900ae216f5d9a0b44c4dfd8128ad27b297))
+
+* Merge pull request #203 from OZI-Project/dev
+
+Dev merge ([`cf97cb1`](https://github.com/OZI-Project/OZI/commit/cf97cb1b39bf6e88077078d3704a7e0b0c12e951))
+
+* Merge branch &#39;main&#39; into dev ([`cbe0d11`](https://github.com/OZI-Project/OZI/commit/cbe0d11d2358420b275883ca03f42768fa4b56eb))
+
+* Merge pull request #202 from OZI-Project/0.0
+
+0.0 changelogs ([`450f92e`](https://github.com/OZI-Project/OZI/commit/450f92e94836652c9ee2fc4e358a9be6c3a47c96))
+
 ## 0.0.276 (2024-02-28)
 
 ### :bug:
