@@ -245,11 +245,43 @@ IGNORE_MISSING = {
 }
 
 
-def walk_build_definition(  # noqa: C901
+def process_build_definition(
     target: Path,
     rel_path: Path,
     found_files: list[str] | None = None,
 ) -> None:  # pragma: no cover
+    """Process an OZI project build definition's files."""
+    extra_files = [
+        file
+        for file in os.listdir(target / rel_path)
+        if os.path.isfile(target / rel_path / file)
+    ]
+    found_files = found_files if found_files else []
+    extra_files = list(set(extra_files).symmetric_difference(set(found_files)))
+    build_files = [str(rel_path / 'meson.build'), str(rel_path / 'meson.options')]
+    for file in extra_files:  # pragma: no cover
+        found_literal = query_build_value(
+            str((target / rel_path / file).parent),
+            file,
+        )
+        if found_literal:
+            build_file = str((rel_path / file).parent / 'meson.build')
+            TAP.ok(f'{build_file} lists {rel_path / file}')
+            build_files += [str(rel_path / file)]
+        if str(rel_path / file) not in build_files and file not in found_files:
+            build_file = str(rel_path / 'meson.build')
+            TAP.not_ok('MISSING', f'{build_file}: {rel_path / file!s}')
+        if str(file).endswith('.py'):  # pragma: no cover
+            with open(target.joinpath(rel_path) / file) as g:
+                comment_diagnostic(g.readlines(), rel_path / file)
+
+
+def walk_build_definition(
+    target: Path,
+    rel_path: Path,
+    found_files: list[str] | None = None,
+) -> None:  # pragma: no cover
+    """Walk an OZI standard build definition's directories."""
     subdirs = [
         directory
         for directory in os.listdir(target / rel_path)
@@ -277,29 +309,7 @@ def walk_build_definition(  # noqa: C901
                 'IGNORED',
                 skip=True,
             )
-    extra_files = [
-        file
-        for file in os.listdir(target / rel_path)
-        if os.path.isfile(target / rel_path / file)
-    ]
-    found_files = found_files if found_files else []
-    extra_files = list(set(extra_files).symmetric_difference(set(found_files)))
-    build_files = [str(rel_path / 'meson.build'), str(rel_path / 'meson.options')]
-    for file in extra_files:  # pragma: no cover
-        found_literal = query_build_value(
-            str((target / rel_path / file).parent),
-            file,
-        )
-        if found_literal:
-            build_file = str((rel_path / file).parent / 'meson.build')
-            TAP.ok(f'{build_file} lists {rel_path / file}')
-            build_files += [str(rel_path / file)]
-        if str(rel_path / file) not in build_files and file not in found_files:
-            build_file = str(rel_path / 'meson.build')
-            TAP.not_ok('MISSING', f'{build_file}: {rel_path / file!s}')
-        if str(file).endswith('.py'):  # pragma: no cover
-            with open(target.joinpath(rel_path) / file) as g:
-                comment_diagnostic(g.readlines(), rel_path / file)
+    process_build_definition(target, rel_path, found_files)
 
 
 def missing_required_files(
