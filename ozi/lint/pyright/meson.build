@@ -12,6 +12,9 @@ if not nodejs.found()
         'not found'
     )
 endif
+if nodejs.version().version_compare('<=20') and nodejs.version().version_compare('!=18')
+    warning('node version', nodejs.version(), 'is deprecated')
+endif
 configure_file(
     input: requirements,
     output: 'requirements.txt',
