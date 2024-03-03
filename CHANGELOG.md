@@ -1,4 +1,20 @@
 # CHANGELOG
+## 0.0.279 (2024-03-03)
+
+### :pushpin:
+
+* :pushpin: Add a check of node.js version for pyright. (#208)
+
+* pins pyright to &gt;=1.1.352, the version that pinned node &gt;12
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`bf776f2`](https://github.com/OZI-Project/OZI/commit/bf776f2a53c28d672259d099ce9a9b60ea467d93))
+
+### Other
+
+* Merge pull request #209 from OZI-Project/main
+
+Release ([`30cf830`](https://github.com/OZI-Project/OZI/commit/30cf83079a18fc1ee20c36a99f86df0ac1103bf5))
+
 ## 0.0.278 (2024-03-02)
 
 ### :arrow_up:
