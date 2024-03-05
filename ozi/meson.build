@@ -7,6 +7,7 @@ python_files = [
     '__main__.py',
     'actions.py',
     'filter.py',
+    'pkg_extra.py',
     'spec.py',
     'render.py',
     'spdx.py',
