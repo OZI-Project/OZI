@@ -5,6 +5,8 @@
 config_files = [
     '__init__.py',
     '__main__.py',
+    'build_definition.py',
+    'missing.py',
     'parser.py',
 ]
 foreach file: config_files
