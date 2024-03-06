@@ -30,14 +30,14 @@ metadata = Metadata()
 
 def render_requirements(target: Path) -> str:
     """Render requirements.in as it would appear in PKG-INFO"""
-    requirements = target.joinpath('requirements.in').read_text().splitlines()
-    required = []
-    for req in requirements:
-        if req.startswith('#') or req == '\n':  # pragma: no cover
-            pass
-        else:  # pragma: defer to good-issue
-            required += [f'Requires-Dist: {req}\n']
-    return ''.join(required)
+    requirements = (
+        r.partition('#')[0]
+        for r in filter(
+            lambda r: not (r.startswith('#') or r == '\n'),
+            target.joinpath('requirements.in').read_text().splitlines(),
+        )
+    )
+    return ''.join([f'Requires-Dist: {req}\n' for req in requirements])
 
 
 def missing_python_support(pkg_info: Message) -> set[tuple[str, str]]:  # pragma: no cover
