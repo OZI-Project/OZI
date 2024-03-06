@@ -30,10 +30,13 @@ metadata = Metadata()
 
 def render_requirements(target: Path) -> str:
     """Render requirements.in as it would appear in PKG-INFO"""
-    requirements = (r.partition('#')[0] for r in filter(
-        lambda r: not (r.startswith('#') or r == '\n'),
-        target.joinpath('requirements.in').read_text().splitlines(),
-    ))
+    requirements = (
+        r.partition('#')[0]
+        for r in filter(
+            lambda r: not (r.startswith('#') or r == '\n'),
+            target.joinpath('requirements.in').read_text().splitlines(),
+        )
+    )
     return ''.join([f'Requires-Dist: {req}\n' for req in requirements])
 
 
