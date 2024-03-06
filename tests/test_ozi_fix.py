@@ -17,6 +17,7 @@ from hypothesis import strategies as st
 
 import ozi.fix.__main__
 import ozi.new.__main__
+import ozi.pkg_extra
 from ozi.render import env
 from ozi.spec import Metadata
 
@@ -340,7 +341,7 @@ def test_fuzz_preprocess_existing_target(
 @settings(deadline=timedelta(milliseconds=500))
 @given(payload=st.text(max_size=65535).map(header.__add__), as_message=st.booleans())
 def test_fuzz_pkg_info_extra(payload: str, as_message: bool) -> None:
-    ozi.fix.__main__.pkg_info_extra(payload=payload, as_message=as_message)
+    ozi.pkg_extra._pkg_info_extra(payload=payload, as_message=as_message)  # noqa: SLF001
 
 
 @given(s=st.from_regex(r'^([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9._-]*[A-Za-z0-9])$'))

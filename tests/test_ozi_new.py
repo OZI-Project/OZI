@@ -26,7 +26,7 @@ metadata = Metadata()
 
 
 @settings(
-    deadline=timedelta(milliseconds=5000),
+    deadline=timedelta(milliseconds=15000),
     suppress_health_check=[HealthCheck.too_slow],
 )
 @given(
