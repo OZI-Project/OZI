@@ -1,4 +1,32 @@
 # CHANGELOG
+## 0.0.282 (2024-03-07)
+
+### :hammer:
+
+* * :hammer: Add render_requirements.py script.
+
+* :hammer: Add render_requirements.py script.
+
+This strips comments from requirements.in
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`9b187e3`](https://github.com/OZI-Project/OZI/commit/9b187e3601014347bcc5999001f1f9f769b6826d))
+
+* :hammer:: Escape comment characters for CodeQL
+
+Signed-off-by: rjdcm &lt;rjdbcm@mail.umkc.edu&gt; ([`fb2ab5a`](https://github.com/OZI-Project/OZI/commit/fb2ab5a7238568bd72b1b10378916705b1e30f80))
+
+### Other
+
+* Merge pull request #219 from OZI-Project/main
+
+Release ([`bbf553d`](https://github.com/OZI-Project/OZI/commit/bbf553db35da59b85e92e9cb1f2ec97b2b5b642e))
+
+* Merge pull request #217 from OZI-Project/dev
+
+dev merge ([`e256e1b`](https://github.com/OZI-Project/OZI/commit/e256e1bda8bd6083edb717b64654c634e6755626))
+
+* Merge branch &#39;main&#39; into dev ([`e899254`](https://github.com/OZI-Project/OZI/commit/e899254f2bdf40c171e73f1ac1f2a4abd56b3350))
+
 ## 0.0.281 (2024-03-06)
 
 ### :alembic:
@@ -22,6 +50,10 @@ Extract pkg_extra, fix.build_definition, and fix.missing
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`278e1bf`](https://github.com/OZI-Project/OZI/commit/278e1bf466240041e548e8a5d94121ef5767a306))
 
 ### Other
+
+* Merge pull request #216 from OZI-Project/0.0
+
+0.0 changes ([`ac34886`](https://github.com/OZI-Project/OZI/commit/ac34886cf6501a5eceb6faa6bd321113c4f34f9a))
 
 * Merge pull request #215 from OZI-Project/main
 
