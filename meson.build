@@ -66,13 +66,16 @@ python = pymod.find_installation(
     required: true,
     disabler: true,
 )
-pkg_info_req = 'Requires-Dist: @0@'
-required = []
-foreach requirement : fs.read('requirements.in').split('\n')
-    if requirement != '' and not requirement.startswith('#')
-        required += pkg_info_req.format(requirement)
-    endif
-endforeach
+render_requirements = run_command(
+    python,
+    [
+        '-c',
+        python_readlines.format(
+            scripts / 'render_requirements.py',
+        ),
+    ],
+    check: true,
+).stdout()
 pyproject_config.set(
     'PYTHON_VERSION_DIST',
     'py' + ''.join(python.language_version().split('.')),
@@ -80,7 +83,11 @@ pyproject_config.set(
 pyproject_config.set('SCM_VERSION', meson.project_version())
 pyproject_config.set('VCS_TAG', '@VCS_TAG@')
 pyproject_config.set('README_TEXT', fs.read('README.rst'))
-pyproject_config.set('REQUIREMENTS_IN', '\n'.join(required))
+pyproject_config.set('REQUIREMENTS_IN', 
+    run_command(
+        python, ['-c', render_requirements], check: true
+    ).stdout().strip()
+)
 pyproject_config.set('PROJECT_NAME', project_name)
 pyproject_config.set('LICENSE', meson.project_license()[0])
 configure_file(
@@ -160,7 +167,7 @@ pip = find_program('pip', required: true, disabler: true)
 pip_compile = find_program('pip-compile', required: true)
 requirements = ['requirements.in']
 custom_target(
-    'requirements-ozi',
+    'requirements.txt',
     input: requirements,
     output: 'requirements.txt',
     build_always_stale: true,
