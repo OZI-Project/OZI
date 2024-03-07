@@ -1,4 +1,36 @@
 # CHANGELOG
+## 0.0.280 (2024-03-03)
+
+### :hammer:
+
+* :hammer:(ozi-fix): Extract ``process_build_definition`` from ``walk_build_definition``.
+
+This should make the whole unit more maintainable.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`822dc7f`](https://github.com/OZI-Project/OZI/commit/822dc7f5375f20571464c86172a2e1501f34c514))
+
+* :hammer: Add warning for deprecated nodejs.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`ab35f02`](https://github.com/OZI-Project/OZI/commit/ab35f023fa6b03607ffa25225e78b84648a4601f))
+
+### Other
+
+* Merge pull request #212 from OZI-Project/main
+
+Release ([`72ac014`](https://github.com/OZI-Project/OZI/commit/72ac014b606994bb430168df3dec6e4e270d2ff0))
+
+* Merge pull request #211 from OZI-Project/dev
+
+Dev merge ([`85c968a`](https://github.com/OZI-Project/OZI/commit/85c968a21f895942058f8985cc5de5648041b45b))
+
+* Merge branch &#39;main&#39; into dev
+
+Signed-off-by: Eden Rose, MSc &lt;rjdbcm@outlook.com&gt; ([`08802fc`](https://github.com/OZI-Project/OZI/commit/08802fc06d1a2a4c107d044f917094806e24754b))
+
+* Merge pull request #210 from OZI-Project/0.0
+
+0.0 changelogs ([`acf7eac`](https://github.com/OZI-Project/OZI/commit/acf7eacb88c83163117b779991b5b0dfe4af4b64))
+
 ## 0.0.279 (2024-03-03)
 
 ### :pushpin:
@@ -9,11 +41,19 @@
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`bf776f2`](https://github.com/OZI-Project/OZI/commit/bf776f2a53c28d672259d099ce9a9b60ea467d93))
 
+* :pushpin: Add a check of node.js version for pyright.
+
+* pins pyright to &gt;=1.1.352, the version that pinned node &gt;12
+
+Signed-off-by: rjdbcm &lt;rjdbcm@outlook.com&gt; ([`e4da4ba`](https://github.com/OZI-Project/OZI/commit/e4da4bae7d7fb3792915fb2b556c1aa0774a60b9))
+
 ### Other
 
 * Merge pull request #209 from OZI-Project/main
 
 Release ([`30cf830`](https://github.com/OZI-Project/OZI/commit/30cf83079a18fc1ee20c36a99f86df0ac1103bf5))
+
+* Merge branch &#39;main&#39; into dev ([`9827a53`](https://github.com/OZI-Project/OZI/commit/9827a5305cd2cf7d47b1450a69b9f6a3601b027c))
 
 ## 0.0.278 (2024-03-02)
 
