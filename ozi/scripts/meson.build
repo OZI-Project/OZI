@@ -10,6 +10,7 @@ config_files = [
     'version_metadata_template.py',
     'replace_ruff_target_version.py',
     'to_distribution_template.py',
+    'render_requirements.py',
 ]
 foreach file: config_files
     python.install_sources(file, subdir: 'ozi'/'scripts')
