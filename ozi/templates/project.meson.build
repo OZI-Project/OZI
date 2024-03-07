@@ -53,17 +53,17 @@ pyproject_config.set('PROJECT_NAME', project_name)
 pyproject_config.set('README_TEXT', fs.read('README.rst'))
 pyproject_config.set('REQUIREMENTS_IN', 
     run_command(
-        python, ['-c', """import os;import pathlib
+        python, ['-c', '''import os;import pathlib
 requirements = (
-        r.partition('\u0023')[0]
-        for r in filter(
-            lambda r: not (r.startswith('\u0023') or r == '\n'),
-            pathlib.Path('./requirements.in').read_text('utf-8').splitlines(),
-        )
+    r.partition(\'\u0023\')[0]
+    for r in filter(
+        lambda r: not (r.startswith(\'\u0023\') or r == \'\n\'),
+        pathlib.Path(\'./requirements.in\').read_text(\'utf-8\').splitlines(),
     )
+)
 for req in requirements:
-    print(f'Requires-Dist: {req}')
-"""], check: true
+    print(f\'Requires-Dist: {req}\')
+'''], check: true
     ).stdout().strip()
 )
 pyproject_config.set('LICENSE', meson.project_license()[0])
