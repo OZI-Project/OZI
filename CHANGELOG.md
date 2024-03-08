@@ -1,4 +1,78 @@
 # CHANGELOG
+## 0.0.282 (2024-03-07)
+
+### :hammer:
+
+* * :hammer: Add render_requirements.py script.
+
+* :hammer: Add render_requirements.py script.
+
+This strips comments from requirements.in
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`9b187e3`](https://github.com/OZI-Project/OZI/commit/9b187e3601014347bcc5999001f1f9f769b6826d))
+
+* :hammer:: Escape comment characters for CodeQL
+
+Signed-off-by: rjdcm &lt;rjdbcm@mail.umkc.edu&gt; ([`fb2ab5a`](https://github.com/OZI-Project/OZI/commit/fb2ab5a7238568bd72b1b10378916705b1e30f80))
+
+### Other
+
+* Merge pull request #219 from OZI-Project/main
+
+Release ([`bbf553d`](https://github.com/OZI-Project/OZI/commit/bbf553db35da59b85e92e9cb1f2ec97b2b5b642e))
+
+* Merge pull request #217 from OZI-Project/dev
+
+dev merge ([`e256e1b`](https://github.com/OZI-Project/OZI/commit/e256e1bda8bd6083edb717b64654c634e6755626))
+
+* Merge branch &#39;main&#39; into dev ([`e899254`](https://github.com/OZI-Project/OZI/commit/e899254f2bdf40c171e73f1ac1f2a4abd56b3350))
+
+## 0.0.281 (2024-03-06)
+
+### :alembic:
+
+* :alembic: Increase deadline for ``ozi-new`` fuzzer to 15s.
+
+Signed-off-by:  rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`1813073`](https://github.com/OZI-Project/OZI/commit/1813073353fa82f2a893031288fd2adfa3258b43))
+
+### :hammer:
+
+* :hammer:(ozi.fix.missing): update ``render_requirements()``
+
+Strip line end comments.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.ukmc.edu&gt; ([`34cd4b5`](https://github.com/OZI-Project/OZI/commit/34cd4b57b59b6dd042cec4e1a16c74ca98e684da))
+
+* :hammer:(ozi-fix) Refactor
+
+Extract pkg_extra, fix.build_definition, and fix.missing
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`278e1bf`](https://github.com/OZI-Project/OZI/commit/278e1bf466240041e548e8a5d94121ef5767a306))
+
+### Other
+
+* Merge pull request #216 from OZI-Project/0.0
+
+0.0 changes ([`ac34886`](https://github.com/OZI-Project/OZI/commit/ac34886cf6501a5eceb6faa6bd321113c4f34f9a))
+
+* Merge pull request #215 from OZI-Project/main
+
+Release ([`d6bb22e`](https://github.com/OZI-Project/OZI/commit/d6bb22e7671fcf73e90afc55e93e9b61d26d6c65))
+
+* Merge pull request #214 from OZI-Project/dev
+
+Dev merge ([`2132a13`](https://github.com/OZI-Project/OZI/commit/2132a130824b3d363745aeb444c2c329994c75f2))
+
+* Merge branch &#39;main&#39; into dev ([`25fd362`](https://github.com/OZI-Project/OZI/commit/25fd362ff349b55d3df5e6f4719d4a540fda14e7))
+
+* Merge pull request #213 from OZI-Project/dev
+
+Dev merge ([`3b412bc`](https://github.com/OZI-Project/OZI/commit/3b412bce5c200a3fd3eec383a490232e3957430e))
+
+* Merge branch &#39;main&#39; into dev ([`3417e8d`](https://github.com/OZI-Project/OZI/commit/3417e8d0a3c34eb6aa0f2048b22b7b7ec27f9224))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`0fc5fdc`](https://github.com/OZI-Project/OZI/commit/0fc5fdc6e28fd5eef19efa1bd85e031909adf8e0))
+
 ## 0.0.280 (2024-03-03)
 
 ### :hammer:
