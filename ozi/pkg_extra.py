@@ -68,7 +68,9 @@ def parse_extra_pkg_info(
     """Get extra Classifiers tacked onto the PKG-INFO payload by OZI."""
     errstr = None
     try:
-        extra_pkg_info = dict(_pkg_info_extra(pkg_info.get_payload()))  # pyright: ignore
+        extra_pkg_info = dict(
+            _pkg_info_extra(str(pkg_info.get_payload())),
+        )  # pyright: ignore
     except ParseException as e:  # pragma: defer to good-first-issue
         extra_pkg_info = {}
         newline = '\n'

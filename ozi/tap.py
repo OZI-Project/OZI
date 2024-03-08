@@ -117,7 +117,7 @@ class TAP(ContextDecorator):
         sys.stderr.write(f'# {formatted}\n')  # pragma: no cover
 
     @staticmethod
-    def bail_out(*message: str) -> NoReturn:
+    def bail_out(*message: str) -> NoReturn:  # pragma: no cover
         r"""Print a bail out message and exit.
 
         :param \*message: messages to print to TAP output
