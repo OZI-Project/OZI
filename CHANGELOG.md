@@ -1,4 +1,72 @@
 # CHANGELOG
+## 0.0.283 (2024-03-08)
+
+### :hammer:
+
+* :hammer: Force release commit re-parse
+
+Add ozi/comment.py module.
+
+Signed-off-by: Eden Rose, MSc &lt;rjdbcm@outlook.com&gt; ([`a18121a`](https://github.com/OZI-Project/OZI/commit/a18121abb4ffda9b484257c08b770f374b2fb094))
+
+### Other
+
+* Merge pull request #224 from OZI-Project/main
+
+Release ([`7088979`](https://github.com/OZI-Project/OZI/commit/70889796618d73b57dda991420ed34699107d021))
+
+* Merge pull request #223 from OZI-Project/rjdbcm-patch-1
+
+:hammer: Force release commit re-parse ([`8d7aa5a`](https://github.com/OZI-Project/OZI/commit/8d7aa5a6bb00bbbc8214297e611ce94c1e96c959))
+
+* Dev merge (#221) (#222)
+
+* :hammer: Add render_requirements.py script.
+
+This strips comments from requirements.in
+
+
+
+* Escape quotes in meson.build template.
+
+
+
+* :hammer: add ozi/comment.py
+
+This module handles linter comment diagnostics.
+
+
+
+---------
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`87a2360`](https://github.com/OZI-Project/OZI/commit/87a23607a6514c83459dfb5c4fd68e20cad520dd))
+
+* Dev merge (#221)
+
+* :hammer: Add render_requirements.py script.
+
+This strips comments from requirements.in
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt;
+
+* Escape quotes in meson.build template.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt;
+
+* :hammer: add ozi/comment.py
+
+This module handles linter comment diagnostics.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt;
+
+---------
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`5235c33`](https://github.com/OZI-Project/OZI/commit/5235c33496380fbc1c70fd681fb1f57c9742e9b8))
+
+* Merge pull request #220 from OZI-Project/0.0
+
+0.0 changelogs ([`d092e94`](https://github.com/OZI-Project/OZI/commit/d092e947912bee48bf7e9047bfbee5ae150e9ef1))
+
 ## 0.0.282 (2024-03-07)
 
 ### :hammer:
