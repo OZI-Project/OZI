@@ -177,12 +177,9 @@ def query_loop_assignments(
 
 
 @lru_cache(typed=True)
-def query_var_suffix(
+def find_var_suffix(
     ast: CodeBlockNode,
     var_suffix: str,
-    select: SelectItems = ForeachClauseNode,
-    where: type[ElementaryNode] = IdNode,
-    get: type[ElementaryNode] = StringNode,
 ) -> set[str]:  # pragma: no cover
     """Get a set of build items based on a variable name suffix.
 
@@ -190,20 +187,14 @@ def query_var_suffix(
     :type ast: CodeBlockNode
     :param var_suffix: The text to look for.
     :type var_suffix: str
-    :param select: Select node type, defaults to ForeachClauseNode
-    :type select: SelectItems, optional
-    :param where: Where node type, defaults to IdNode
-    :type where: WhereItems, optional
-    :param get: Query node type, defaults to StringNode
-    :type get: type[ElementaryNode], optional
     :return: A set of query matches
     :rtype: set[str] | None
     """
     loop_vars = {
         i.items.value
         for i in ast.lines
-        if isinstance(i, select)
-        and isinstance(i.items, where)
+        if isinstance(i, ForeachClauseNode)
+        and isinstance(i.items, IdNode)
         and i.items.value.endswith(var_suffix)
     }
     assigned = [
@@ -214,7 +205,7 @@ def query_var_suffix(
         and isinstance(i.value, ArrayNode)
     ]
     if len(assigned) > 0:  # pragma: defer to good-issue
-        return {i.value for i in assigned[0] if isinstance(i, get)}
+        return {i.value for i in assigned[0] if isinstance(i, StringNode)}
     else:
         return set()
 
@@ -253,5 +244,5 @@ def get_items_by_suffix(
     """
     ast = load_ast(source_root)
     if ast:
-        return query_var_suffix(ast, query)
+        return find_var_suffix(ast, query)
     return ast
