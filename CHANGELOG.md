@@ -1,4 +1,30 @@
 # CHANGELOG
+## 0.0.284 (2024-03-08)
+
+### :hammer:
+
+* :hammer: Move Rewriter and RewriteCommand to ozi.fix.rewrite_command
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`f4f528f`](https://github.com/OZI-Project/OZI/commit/f4f528f8e23a3d46b466be15401f3ddaf03d5295))
+
+* :hammer: Rename ozi.meson:query_var_suffix to find_var_suffix
+
+Also reduces the argument number to 2: The AST, and the suffix.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`06d43e5`](https://github.com/OZI-Project/OZI/commit/06d43e558543ca4555ad4e6066c7ac62f6b9941b))
+
+### Other
+
+* Merge branch &#39;main&#39; into 0.0 ([`e91a782`](https://github.com/OZI-Project/OZI/commit/e91a782552845545148822a9251c39e480fc7e72))
+
+* Merge pull request #225 from OZI-Project/dev
+
+Dev merge ([`544f220`](https://github.com/OZI-Project/OZI/commit/544f220c832f8dc8719d738f6c3e759c759c88de))
+
+* Merge branch &#39;main&#39; into dev ([`581b790`](https://github.com/OZI-Project/OZI/commit/581b790e0d3ff28fff5e41aa3952da2591a5d65e))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`612865a`](https://github.com/OZI-Project/OZI/commit/612865a355d9b56eb7ed378062bbfab8c26c8812))
+
 ## 0.0.283 (2024-03-08)
 
 ### :hammer:
@@ -8,6 +34,12 @@
 Add ozi/comment.py module.
 
 Signed-off-by: Eden Rose, MSc &lt;rjdbcm@outlook.com&gt; ([`a18121a`](https://github.com/OZI-Project/OZI/commit/a18121abb4ffda9b484257c08b770f374b2fb094))
+
+* :hammer: add ozi/comment.py
+
+This module handles linter comment diagnostics.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`7da2167`](https://github.com/OZI-Project/OZI/commit/7da21677b13a85a696dbcfef91ae445551467f02))
 
 ### Other
 
@@ -63,9 +95,13 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt;
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`5235c33`](https://github.com/OZI-Project/OZI/commit/5235c33496380fbc1c70fd681fb1f57c9742e9b8))
 
+* Merge branch &#39;main&#39; into dev ([`c666030`](https://github.com/OZI-Project/OZI/commit/c666030bcacc7b37c762978399f4b5670364d4a5))
+
 * Merge pull request #220 from OZI-Project/0.0
 
 0.0 changelogs ([`d092e94`](https://github.com/OZI-Project/OZI/commit/d092e947912bee48bf7e9047bfbee5ae150e9ef1))
+
+* Merge branch &#39;main&#39; into dev ([`1092a42`](https://github.com/OZI-Project/OZI/commit/1092a42e8d726bac24b88604eb7e6bdddd2ddf65))
 
 ## 0.0.282 (2024-03-07)
 
@@ -79,6 +115,12 @@ This strips comments from requirements.in
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`9b187e3`](https://github.com/OZI-Project/OZI/commit/9b187e3601014347bcc5999001f1f9f769b6826d))
 
+* :hammer: Add render_requirements.py script.
+
+This strips comments from requirements.in
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`09e3fb9`](https://github.com/OZI-Project/OZI/commit/09e3fb93860a4fdd68c8d6ffb06ac42a4afcff66))
+
 * :hammer:: Escape comment characters for CodeQL
 
 Signed-off-by: rjdcm &lt;rjdbcm@mail.umkc.edu&gt; ([`fb2ab5a`](https://github.com/OZI-Project/OZI/commit/fb2ab5a7238568bd72b1b10378916705b1e30f80))
@@ -88,6 +130,14 @@ Signed-off-by: rjdcm &lt;rjdbcm@mail.umkc.edu&gt; ([`fb2ab5a`](https://github.co
 * Merge pull request #219 from OZI-Project/main
 
 Release ([`bbf553d`](https://github.com/OZI-Project/OZI/commit/bbf553db35da59b85e92e9cb1f2ec97b2b5b642e))
+
+* Merge branch &#39;main&#39; into dev ([`c839a24`](https://github.com/OZI-Project/OZI/commit/c839a24248c791aca7acfbddb376048683188605))
+
+* Escape quotes in meson.build template.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`4ffb8b5`](https://github.com/OZI-Project/OZI/commit/4ffb8b52edb4c3ba81c96fb10477e9da770966af))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`0594a71`](https://github.com/OZI-Project/OZI/commit/0594a710be88dd1c9396575331d29940bcd1a2ca))
 
 * Merge pull request #217 from OZI-Project/dev
 
