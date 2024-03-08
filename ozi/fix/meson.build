@@ -8,6 +8,7 @@ config_files = [
     'build_definition.py',
     'missing.py',
     'parser.py',
+    'rewrite_command.py',
 ]
 foreach file: config_files
     python.install_sources(file, subdir: 'ozi'/'fix')
