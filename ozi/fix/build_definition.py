@@ -4,15 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Build definition check utilities."""
 import os
-import re
-import sys
 from pathlib import Path
 
-if sys.version_info >= (3, 11):  # pragma: no cover
-    pass
-elif sys.version_info < (3, 11):  # pragma: no cover
-    pass
-
+from ozi import comment
 from ozi.meson import get_items_by_suffix
 from ozi.meson import query_build_value
 from ozi.spec import Metadata
@@ -20,47 +14,7 @@ from ozi.spec import PythonSupport
 from ozi.tap import TAP
 
 python_support = PythonSupport()
-
 metadata = Metadata()
-
-
-def comment_diagnostic(
-    lines: list[str],
-    rel_path: Path,
-) -> None:  # pragma: defer to TAP-Consumer
-    for i, line in enumerate(lines, start=1):
-        if s := re.search(
-            metadata.spec.python.src.comments.noqa.encode('raw_unicode_escape').decode(
-                'unicode_escape',
-            ),
-            line,
-        ):  # pragma: defer to TAP-Consumer
-            TAP.diagnostic('noqa  ', f'{rel_path!s}:{i}', s[0].strip())
-            continue
-        if s := re.search(
-            metadata.spec.python.src.comments.type.encode('raw_unicode_escape').decode(
-                'unicode_escape',
-            ),
-            line,
-        ):  # pragma: defer to TAP-Consumer
-            TAP.diagnostic('type  ', f'{rel_path!s}:{i}', s[0].strip())
-            continue
-        if s := re.search(
-            metadata.spec.python.src.comments.pragma_defer_to.encode(
-                'raw_unicode_escape',
-            ).decode('unicode_escape'),
-            line,
-        ):  # pragma: defer to TAP-Consumer
-            TAP.diagnostic('defer ', f'{rel_path!s}:{i}', s[0].strip())
-            continue
-        if s := re.search(
-            metadata.spec.python.src.comments.pragma_no_cover.encode(
-                'raw_unicode_escape',
-            ).decode('unicode_escape'),
-            line,
-        ):  # pragma: defer to TAP-Consumer
-            TAP.diagnostic('no cov', f'{rel_path!s}:{i}', s[0].strip())
-            continue
 
 
 IGNORE_MISSING = {
@@ -99,7 +53,7 @@ def process(
             TAP.not_ok('MISSING', f'{build_file}: {rel_path / file!s}')
         if str(file).endswith('.py'):  # pragma: no cover
             with open(target.joinpath(rel_path) / file) as g:
-                comment_diagnostic(g.readlines(), rel_path / file)
+                comment.diagnostic(g.readlines(), rel_path / file)
 
 
 def walk(
