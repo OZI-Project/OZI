@@ -6,6 +6,7 @@ python_files = [
     '__init__.py',
     '__main__.py',
     'actions.py',
+    'comment.py',
     'filter.py',
     'pkg_extra.py',
     'spec.py',
