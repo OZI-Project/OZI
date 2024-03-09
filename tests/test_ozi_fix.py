@@ -14,12 +14,13 @@ import pytest
 from hypothesis import given
 from hypothesis import settings
 from hypothesis import strategies as st
+from jinja2 import Environment
 
 import ozi.fix.__main__
 import ozi.fix.rewrite_command
 import ozi.new.__main__
 import ozi.pkg_extra
-from ozi.render import env
+from ozi.render import load_environment
 from ozi.spec import Metadata
 
 metadata = Metadata()
@@ -70,6 +71,8 @@ bad_namespace = argparse.Namespace(
     allow_file=[],
     missing=True,
 )
+
+env = load_environment(vars(bad_namespace))
 
 
 @pytest.fixture()
@@ -145,12 +148,9 @@ def test_fuzz_RewriteCommand(
     commands=st.lists(st.dictionaries(keys=st.text(), values=st.text())),
 )
 def test_fuzz_Rewriter(
-    target: str,
-    name: str,
-    fix: str,
-    commands: list[dict[str, str]],
+    target: str, name: str, fix: str, commands: list[dict[str, str]],
 ) -> None:
-    ozi.fix.rewrite_command.Rewriter(target=target, name=name, fix=fix, commands=commands)
+    ozi.fix.rewrite_command.Rewriter(target=target, name=name, fix=fix, commands=commands, env=env)
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
@@ -158,9 +158,11 @@ def test_Rewriter_bad_project__iadd__dir_nested_warns(
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
-    env.globals = env.globals | {'project': vars(bad_namespace)}
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
     )
     with pytest.warns(RuntimeWarning):
         rewriter += ['foo/foo/baz/']
@@ -171,9 +173,11 @@ def test_Rewriter_bad_project__iadd__dir(
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
-    env.globals = env.globals | {'project': vars(bad_namespace)}
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
     )
     rewriter += ['foo/']
     assert len(rewriter.commands) == 1
@@ -182,9 +186,11 @@ def test_Rewriter_bad_project__iadd__dir(
 def test_Rewriter_bad_project__iadd__bad_fix(
     bad_project: pytest.FixtureRequest,
 ) -> None:
-    env.globals = env.globals | {'project': vars(bad_namespace)}
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=''
+        target=str(bad_project),
+        name='ozi_phony',
+        fix='',
+        env=env,
     )
     with pytest.warns(RuntimeWarning):
         rewriter += ['foo/']
@@ -194,9 +200,8 @@ def test_Rewriter_bad_project__iadd__bad_fix(
 def test_Rewriter_bad_project__isub__bad_fix(
     bad_project: pytest.FixtureRequest,
 ) -> None:
-    env.globals = env.globals | {'project': vars(bad_namespace)}
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=''
+        target=str(bad_project), name='ozi_phony', fix='', env=env
     )
     rewriter -= ['foo.py']
     assert len(rewriter.commands) == 1
@@ -207,9 +212,8 @@ def test_Rewriter_bad_project__isub__non_existing_child(
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
-    env.globals = env.globals | {'project': vars(bad_namespace)}
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix
+        target=str(bad_project), name='ozi_phony', fix=fix, env=env
     )
     with pytest.raises(RuntimeWarning):
         rewriter -= ['foo/']
@@ -221,9 +225,8 @@ def test_Rewriter_bad_project__isub__child(
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
-    env.globals = env.globals | {'project': vars(bad_namespace)}
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix
+        target=str(bad_project), name='ozi_phony', fix=fix, env=env
     )
     if fix == 'root':
         pathlib.Path(str(bad_project), 'foo').mkdir()
@@ -240,9 +243,8 @@ def test_Rewriter_bad_project__isub__python_file(
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
-    env.globals = env.globals | {'project': vars(bad_namespace)}
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix
+        target=str(bad_project), name='ozi_phony', fix=fix, env=env
     )
     if fix == 'root':
         pathlib.Path(str(bad_project), 'foo.py').touch()
@@ -259,9 +261,8 @@ def test_Rewriter_bad_project__isub__file(
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
-    env.globals = env.globals | {'project': vars(bad_namespace)}
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix
+        target=str(bad_project), name='ozi_phony', fix=fix, env=env
     )
     if fix == 'root':
         pathlib.Path(str(bad_project), 'foo').touch()
@@ -278,9 +279,8 @@ def test_Rewriter_bad_project__iadd__file(
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
-    env.globals.update({'project': vars(bad_namespace)})
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix
+        target=str(bad_project), name='ozi_phony', fix=fix, env=env
     )
     rewriter += ['foo.py']
     assert len(rewriter.commands) == 1
@@ -291,9 +291,11 @@ def test_Rewriter_bad_project__iadd__file_from_template(
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
-    env.globals.update({'project': vars(bad_namespace)})
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
     )
     pathlib.Path(bad_project / 'templates').mkdir()
     pathlib.Path(bad_project / 'templates' / 'foo.py').touch()
@@ -310,9 +312,8 @@ def test_Rewriter_bad_project__iadd__non_python_file(
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
-    env.globals.update({'project': vars(bad_namespace)})
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix
+        target=str(bad_project), name='ozi_phony', fix=fix, env=env
     )
     rewriter += ['foo']
     assert len(rewriter.commands) == 1
