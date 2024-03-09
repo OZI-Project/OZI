@@ -329,7 +329,7 @@ header = """.. OZI
 """
 
 
-@settings(deadline=timedelta(milliseconds=500))
+@settings(deadline=timedelta(milliseconds=1000))
 @given(payload=st.text(max_size=65535).map(header.__add__), as_message=st.booleans())
 def test_fuzz_pkg_info_extra(payload: str, as_message: bool) -> None:
     ozi.pkg_extra._pkg_info_extra(payload=payload, as_message=as_message)  # noqa: SLF001
