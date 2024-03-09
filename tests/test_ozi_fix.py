@@ -14,7 +14,6 @@ import pytest
 from hypothesis import given
 from hypothesis import settings
 from hypothesis import strategies as st
-from jinja2 import Environment
 
 import ozi.fix.__main__
 import ozi.fix.rewrite_command
@@ -148,9 +147,14 @@ def test_fuzz_RewriteCommand(
     commands=st.lists(st.dictionaries(keys=st.text(), values=st.text())),
 )
 def test_fuzz_Rewriter(
-    target: str, name: str, fix: str, commands: list[dict[str, str]],
+    target: str,
+    name: str,
+    fix: str,
+    commands: list[dict[str, str]],
 ) -> None:
-    ozi.fix.rewrite_command.Rewriter(target=target, name=name, fix=fix, commands=commands, env=env)
+    ozi.fix.rewrite_command.Rewriter(
+        target=target, name=name, fix=fix, commands=commands, env=env
+    )
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
