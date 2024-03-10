@@ -1,4 +1,12 @@
 # CHANGELOG
+## 0.0.286 (2024-03-10)
+
+### :hammer:
+
+* :hammer: Rendering environment is now cached. (#234)
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`4209d18`](https://github.com/OZI-Project/OZI/commit/4209d189618c63ce1ffdcd8c17e240be0151ef3a))
+
 ## 0.0.285 (2024-03-10)
 
 ### :hammer:
