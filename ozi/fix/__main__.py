@@ -2,6 +2,7 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+"""ozi-fix entrypoint script."""
 from __future__ import annotations
 
 import json
@@ -13,7 +14,7 @@ from ozi.filter import underscorify
 from ozi.fix.missing import report_missing
 from ozi.fix.parser import parser
 from ozi.fix.rewrite_command import Rewriter
-from ozi.render import env
+from ozi.render import load_environment
 from ozi.spec import Metadata
 from ozi.spec import PythonSupport
 from ozi.tap import TAP
@@ -35,7 +36,7 @@ def main() -> NoReturn:  # pragma: no cover
     project.add = list(set(project.add))
     project.remove.remove('ozi.phony')
     project.remove = list(set(project.remove))
-    env.globals = env.globals | {'project': vars(project)}
+    env = load_environment(vars(project))
 
     match [project.missing, project.strict]:
         case [True, False]:
@@ -52,7 +53,7 @@ def main() -> NoReturn:  # pragma: no cover
                     f'See {project.license_file} in the project root for details.',
                 ],
             )
-            rewriter = Rewriter(str(project.target), project.name, project.fix)
+            rewriter = Rewriter(str(project.target), project.name, project.fix, env)
             rewriter += project.add
             rewriter -= project.remove
             print(json.dumps(rewriter.commands, indent=4 if project.pretty else None))

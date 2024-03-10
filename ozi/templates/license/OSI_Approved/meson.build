@@ -25,6 +25,7 @@ children = [
     'GNU_Lesser_General_Public_License_v2_or_later__LGPLv2__',
     'GNU_Lesser_General_Public_License_v3__LGPLv3_',
     'GNU_Lesser_General_Public_License_v3_or_later__LGPLv3__',
+    'GNU_Library_or_Lesser_General_Public_License__LGPL_',
     'ISC_License__ISCL_',
     'MIT_License',
     'MIT_No_Attribution_License__MIT_0_',

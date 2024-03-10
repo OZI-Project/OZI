@@ -2,6 +2,7 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+"""Rendering utilities for the OZI project templates."""
 from pathlib import Path
 from warnings import warn
 
@@ -19,21 +20,54 @@ from ozi.filter import to_distribution
 from ozi.filter import underscorify
 from ozi.filter import wheel_repr
 from ozi.spec import Metadata
+from ozi.tap import TAP
 
 metadata = Metadata()
-env = Environment(
-    loader=PackageLoader('ozi'),
-    autoescape=select_autoescape(),
-    enable_async=True,
-)
-env.filters['next_minor'] = next_minor
-env.filters['to_distribution'] = to_distribution
-env.filters['underscorify'] = underscorify
-env.filters['zip'] = zip
-env.filters['sha256sum'] = sha256sum
-env.filters['wheel_repr'] = wheel_repr
-env.filters['current_date'] = current_date
-env.globals = env.globals | metadata.asdict()
+
+
+def load_environment(project: dict[str, str]) -> Environment:
+    """Load the rendering environment for templates.
+
+    :return: jinja2 rendering environment for OZI
+    :rtype: Environment
+    """
+    env = Environment(
+        loader=PackageLoader('ozi'),
+        autoescape=select_autoescape(),
+        enable_async=True,
+    )
+    env.filters['next_minor'] = next_minor
+    env.filters['to_distribution'] = to_distribution
+    env.filters['underscorify'] = underscorify
+    env.filters['zip'] = zip
+    env.filters['sha256sum'] = sha256sum
+    env.filters['wheel_repr'] = wheel_repr
+    env.filters['current_date'] = current_date
+    env.globals = env.globals | metadata.asdict()
+    env.globals = env.globals | {'project': project}
+    return env
+
+
+def find_user_template(target: str, file: str, fix: str) -> str | None:
+    """Find a user-defined project template file e.g. :file:`{target}/templates/{fix}/{file}`.
+
+    :param target: path to an OZI project directory
+    :type target: Path
+    :param file: filename
+    :type file: str
+    :param fix: template directory fix path
+    :type fix: str
+    :return: a user-defined template as a string
+    :rtype: str | None
+    """
+    fp = Path(target, 'templates', fix, file)
+    if fp.exists():
+        with open(fp) as template:
+            user_template = template.read()
+    else:
+        TAP.diagnostic('User tempate not found', str(fp))
+        user_template = None
+    return user_template
 
 
 def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -> str:

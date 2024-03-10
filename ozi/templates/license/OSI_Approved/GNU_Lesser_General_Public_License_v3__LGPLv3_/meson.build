@@ -2,7 +2,8 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 files = [
-    'lgpl-3.0-only.txt'
+    'lgpl-3.0-only.txt',
+    'lgpl-3.0-or-later.txt',
 ]
 foreach file: files
     fs.copyfile(file)
