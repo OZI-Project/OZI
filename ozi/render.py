@@ -3,8 +3,10 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Rendering utilities for the OZI project templates."""
+from functools import _lru_cache_wrapper
 from functools import lru_cache
 from pathlib import Path
+from types import FunctionType
 from warnings import warn
 
 from git import InvalidGitRepositoryError
@@ -24,17 +26,36 @@ from ozi.spec import Metadata
 from ozi.tap import TAP
 
 metadata = Metadata()
+FILTERS = (
+    next_minor,
+    to_distribution,
+    underscorify,
+    zip,
+    sha256sum,
+    wheel_repr,
+    current_date,
+)
 
 
 @lru_cache
 def _init_environment() -> Environment:
-    """Initialize the rendering environment."""
-    return Environment(
+    """Initialize the rendering environment, set filters, and set global metadata."""
+    env = Environment(
         loader=PackageLoader('ozi'),
         autoescape=select_autoescape(),
         enable_async=True,
         auto_reload=False,
     )
+    for f in FILTERS:
+        match f:
+            case type():
+                env.filters.setdefault(f.__name__, f)
+            case FunctionType():
+                env.filters.setdefault(f.__name__, f)
+            case _lru_cache_wrapper():  # pragma: defer to pyright,mypy
+                env.filters.setdefault(f.__wrapped__.__name__, f)
+    env.globals = env.globals | metadata.asdict()
+    return env
 
 
 def load_environment(project: dict[str, str]) -> Environment:
@@ -44,14 +65,6 @@ def load_environment(project: dict[str, str]) -> Environment:
     :rtype: Environment
     """
     env = _init_environment()
-    env.filters['next_minor'] = next_minor
-    env.filters['to_distribution'] = to_distribution
-    env.filters['underscorify'] = underscorify
-    env.filters['zip'] = zip
-    env.filters['sha256sum'] = sha256sum
-    env.filters['wheel_repr'] = wheel_repr
-    env.filters['current_date'] = current_date
-    env.globals = env.globals | metadata.asdict()
     env.globals = env.globals | {'project': project}
     return env
 
