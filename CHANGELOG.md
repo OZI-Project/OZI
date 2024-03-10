@@ -1,4 +1,24 @@
 # CHANGELOG
+## 0.0.288 (2024-03-10)
+
+### :hammer:
+
+* :hammer: Refactor spec module for easier maint.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`5701985`](https://github.com/OZI-Project/OZI/commit/570198597e30a0f1580fbedf5f86edf7f2f5dd5b))
+
+### Other
+
+* Merge pull request #240 from OZI-Project/main
+
+Release ([`4b955a9`](https://github.com/OZI-Project/OZI/commit/4b955a9a57524d322f386f478aa55a90a6dc6fb0))
+
+* Merge pull request #239 from OZI-Project/dev
+
+Dev ([`6b313a0`](https://github.com/OZI-Project/OZI/commit/6b313a0346fba10b91fbb8dff94b36c2e75e9d6c))
+
+* Merge branch &#39;main&#39; into dev ([`8426c85`](https://github.com/OZI-Project/OZI/commit/8426c85e1fd6476df405fc2920c48887eede34a9))
+
 ## 0.0.287 (2024-03-10)
 
 ### :hammer:
@@ -9,6 +29,40 @@
 
 Signed-off-by: Eden Rose, MSc &lt;rjdbcm@outlook.com&gt; ([`4753bba`](https://github.com/OZI-Project/OZI/commit/4753bba898b28fb442856fcf3052086e04b8b9b5))
 
+* :hammer: Cache rendering filters and metadata globals.
+
+* :rotating_light: Render filters assigned by matching type. This makes pyright and mypy happy.
+
+---------
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`0e27ae5`](https://github.com/OZI-Project/OZI/commit/0e27ae507560e8031d37ea5548003615559d9988))
+
+* :hammer: Cache rendering filters and metadata globals.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`c5b2bc0`](https://github.com/OZI-Project/OZI/commit/c5b2bc010163429749cec086a51a0f83beb9e0bd))
+
+### Other
+
+* Dev merge resolve (#238) ([`8761582`](https://github.com/OZI-Project/OZI/commit/876158257331b7279aaa27ef5cea8bb4303bbf58))
+
+* Merge branch &#39;main&#39; into dev ([`53417db`](https://github.com/OZI-Project/OZI/commit/53417db21d0536924e60b7a7fbaab0da87521f3c))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`6a3078c`](https://github.com/OZI-Project/OZI/commit/6a3078c642b1208aac473824b78d05a036ee5680))
+
+* Merge branch &#39;0.0&#39; of https://github.com/rjdbcm/ozi into dev ([`32e92ec`](https://github.com/OZI-Project/OZI/commit/32e92ec04bd3a59520b8adc9d73adf68aa3003fc))
+
+* Merge branch &#39;main&#39; into dev ([`674f5b8`](https://github.com/OZI-Project/OZI/commit/674f5b8808e8fd1083e5781f839065b054b26ce3))
+
+* Add pragma defer
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`6a339e2`](https://github.com/OZI-Project/OZI/commit/6a339e20296d072e2982c0f284a181b60d434ce6))
+
+* :rotating_light: Render filters assigned by matching type.
+
+This makes pyright and mypy happy.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`01443d0`](https://github.com/OZI-Project/OZI/commit/01443d0fb4cb130ebb457749eaa0a8f7ecf843f1))
+
 ## 0.0.286 (2024-03-10)
 
 ### :hammer:
@@ -16,6 +70,24 @@ Signed-off-by: Eden Rose, MSc &lt;rjdbcm@outlook.com&gt; ([`4753bba`](https://gi
 * :hammer: Rendering environment is now cached. (#234)
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`4209d18`](https://github.com/OZI-Project/OZI/commit/4209d189618c63ce1ffdcd8c17e240be0151ef3a))
+
+* :hammer: Rendering environment is now cached.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`08c2cdb`](https://github.com/OZI-Project/OZI/commit/08c2cdb906d915987327b019199cf250e1f650f3))
+
+### Other
+
+* Merge pull request #233 from OZI-Project/dev
+
+Dev merge ([`8d06b82`](https://github.com/OZI-Project/OZI/commit/8d06b823685478891ab63d3e20c9e6d226122bdb))
+
+* Merge branch &#39;main&#39; into dev ([`7a8939b`](https://github.com/OZI-Project/OZI/commit/7a8939be9830309a33cba0cab0d4666a83bcc98e))
+
+* Merge pull request #232 from OZI-Project/0.0
+
+0.0 changes ([`77b2da6`](https://github.com/OZI-Project/OZI/commit/77b2da6ceafe1291a3cc92aa50abb9467c3ee6b0))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`f65d94a`](https://github.com/OZI-Project/OZI/commit/f65d94a8b71cecf2384dabdf4b8bcdd41d88890e))
 
 ## 0.0.285 (2024-03-10)
 
