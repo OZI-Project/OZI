@@ -1,4 +1,76 @@
 # CHANGELOG
+## 0.0.285 (2024-03-10)
+
+### :hammer:
+
+* :hammer: Removed all duplicated license templates.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`fc3555f`](https://github.com/OZI-Project/OZI/commit/fc3555f20ea205c78f2927eddfb97d000bc5602e))
+
+* :hammer:: Add a load_environment function to render module.
+
+Also extract find_user_template into render module and document.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`3b26c34`](https://github.com/OZI-Project/OZI/commit/3b26c3445257b4d85424ce78955d29f2a712c4ff))
+
+### Other
+
+* Merge pull request #231 from OZI-Project/main
+
+Release ([`c6738e7`](https://github.com/OZI-Project/OZI/commit/c6738e75cdfedd43ed9ef3fc5c7b1f6e168eac3b))
+
+* Merge pull request #230 from OZI-Project/dev
+
+Removed all duplicated license files. ([`1f6bed2`](https://github.com/OZI-Project/OZI/commit/1f6bed2463d197795292bf75dfde2d0fd94b42f4))
+
+* Merge branch &#39;main&#39; into dev ([`cd42b0d`](https://github.com/OZI-Project/OZI/commit/cd42b0db850f38a43fb0a52693ccdb7cfe93e96c))
+
+* Merge pull request #229 from OZI-Project/dev
+
+Dev ([`b8ed7fd`](https://github.com/OZI-Project/OZI/commit/b8ed7fd00827d6b3984541489bdd35818f8e3749))
+
+* Merge branch &#39;main&#39; into dev ([`8801263`](https://github.com/OZI-Project/OZI/commit/8801263a77bea951ac5f21e6f743e91b6bf45522))
+
+* fix missing license file.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`da07bf2`](https://github.com/OZI-Project/OZI/commit/da07bf2c3d375692621dc31829eb9497887cdf0d))
+
+* Use a 15 minute test timeout
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`c7cd242`](https://github.com/OZI-Project/OZI/commit/c7cd2427b360fba6acfe37b7e70a55be700f98d3))
+
+* Increase test timeout multiplier.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`e2a26da`](https://github.com/OZI-Project/OZI/commit/e2a26dad3cf9bed0b3448a495bcb1e7c99718696))
+
+* :white_check_mark: Increase test_fuzz_pkg_info_extra deadline to 1000ms.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`18243d2`](https://github.com/OZI-Project/OZI/commit/18243d2d13fc87a723870e3b51d82591ab8993df))
+
+* :white_check_mark: Added several missing licenses.
+
+This may be the source of the flaky test timings.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`1908fb6`](https://github.com/OZI-Project/OZI/commit/1908fb680558f0fd673dc82e885f222459c1acd3))
+
+* :memo: add docstring to filter module.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`97f8132`](https://github.com/OZI-Project/OZI/commit/97f8132f2cdcbbcc2218bf875180bee82b685562))
+
+* Merge pull request #228 from OZI-Project/rjdbcm-patch-1
+
+Update dependency-review.yml ([`2d25390`](https://github.com/OZI-Project/OZI/commit/2d2539082a57c57c6ec16d32ce193ce20c86d6ad))
+
+* Update dependency-review.yml
+
+add head-ref arg to fix cronjob
+
+Signed-off-by: Eden Rose, MSc &lt;rjdbcm@outlook.com&gt; ([`86c3414`](https://github.com/OZI-Project/OZI/commit/86c34149f453503937d4e9efa28d6c89891d9464))
+
+* Merge pull request #227 from OZI-Project/0.0
+
+0.0 changes ([`783ce0c`](https://github.com/OZI-Project/OZI/commit/783ce0cfc2c79d7a020e1d241e4b960ab79a61d7))
+
 ## 0.0.284 (2024-03-08)
 
 ### :hammer:
