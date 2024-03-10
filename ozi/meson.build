@@ -8,13 +8,12 @@ python_files = [
     'actions.py',
     'comment.py',
     'filter.py',
+    'meson.py',
     'pkg_extra.py',
-    'spec.py',
+    'py.typed',
     'render.py',
     'spdx.py',
     'tap.py',
-    'meson.py',
-    'py.typed',
 ]
 foreach file : files(python_files)
     fs.copyfile(file)
@@ -24,14 +23,15 @@ if false
     executable('source_files', python_files)
 endif
 source_children = [
-    'templates',
-    'scripts',
-    'vendor',
-    'new',
-    'fix',
     'dist',
+    'fix',
     'lint',
-    'test'
+    'new',
+    'scripts',
+    'spec',
+    'templates',
+    'test',
+    'vendor',
 ]
 foreach child: source_children
     subdir(child)
