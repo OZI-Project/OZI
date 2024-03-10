@@ -24,17 +24,30 @@ from ozi.spec import Metadata
 from ozi.tap import TAP
 
 metadata = Metadata()
+FILTERS = (
+    next_minor,
+    to_distribution,
+    underscorify,
+    zip,
+    sha256sum,
+    wheel_repr,
+    current_date,
+)
 
 
 @lru_cache
 def _init_environment() -> Environment:
-    """Initialize the rendering environment."""
-    return Environment(
+    """Initialize the rendering environment, set filters, and set global metadata."""
+    env = Environment(
         loader=PackageLoader('ozi'),
         autoescape=select_autoescape(),
         enable_async=True,
         auto_reload=False,
     )
+    for f in FILTERS:
+        env.filters.setdefault(f.__name__, f)
+    env.globals = env.globals | metadata.asdict()
+    return env
 
 
 def load_environment(project: dict[str, str]) -> Environment:
@@ -44,14 +57,6 @@ def load_environment(project: dict[str, str]) -> Environment:
     :rtype: Environment
     """
     env = _init_environment()
-    env.filters['next_minor'] = next_minor
-    env.filters['to_distribution'] = to_distribution
-    env.filters['underscorify'] = underscorify
-    env.filters['zip'] = zip
-    env.filters['sha256sum'] = sha256sum
-    env.filters['wheel_repr'] = wheel_repr
-    env.filters['current_date'] = current_date
-    env.globals = env.globals | metadata.asdict()
     env.globals = env.globals | {'project': project}
     return env
 
