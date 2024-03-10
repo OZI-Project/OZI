@@ -1,4 +1,14 @@
 # CHANGELOG
+## 0.0.287 (2024-03-10)
+
+### :hammer:
+
+* :hammer: Cache rendering filters and metadata globals.
+
+* :rotating_light: Render filters assigned by matching type. This makes pyright and mypy happy.
+
+Signed-off-by: Eden Rose, MSc &lt;rjdbcm@outlook.com&gt; ([`4753bba`](https://github.com/OZI-Project/OZI/commit/4753bba898b28fb442856fcf3052086e04b8b9b5))
+
 ## 0.0.286 (2024-03-10)
 
 ### :hammer:
