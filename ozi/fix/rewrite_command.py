@@ -2,6 +2,7 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+"""Primitives for generating meson rewrite commands."""
 from __future__ import annotations
 
 from dataclasses import asdict
@@ -14,11 +15,14 @@ from typing import Annotated
 from typing import Union
 from warnings import warn
 
+from ozi.render import find_user_template
+
 if TYPE_CHECKING:
     import sys
     from collections.abc import Callable
     from collections.abc import Mapping
 
+    from jinja2 import Environment
     from jinja2 import Template
 
     if sys.version_info >= (3, 11):
@@ -26,12 +30,10 @@ if TYPE_CHECKING:
     elif sys.version_info < (3, 11):
         from typing_extensions import Self
 
-from ozi.render import env
 from ozi.spec import Metadata
 from ozi.spec import PythonSupport
 
 python_support = PythonSupport()
-
 metadata = Metadata()
 
 
@@ -87,11 +89,12 @@ class RewriteCommand:  # pragma: defer to meson
 
 @dataclass
 class Rewriter:
-    """Container for Meson rewriter commands."""
+    """Container for Meson rewriter commands for OZI projects."""
 
     target: str
     name: str
     fix: str
+    env: Environment
     commands: list[dict[str, str]] = field(default_factory=list)
     path_map: Mapping[str, Callable[[str], Path]] = field(init=False)
     base_templates: dict[
@@ -107,18 +110,10 @@ class Rewriter:
             'root': partial(Path, self.target),
         }
         self.base_templates = {
-            'root': env.get_template(metadata.spec.python.src.template.add_root),
-            'source': env.get_template(metadata.spec.python.src.template.add_source),
-            'test': env.get_template(metadata.spec.python.src.template.add_root),
+            'root': self.env.get_template(metadata.spec.python.src.template.add_root),
+            'source': self.env.get_template(metadata.spec.python.src.template.add_source),
+            'test': self.env.get_template(metadata.spec.python.src.template.add_root),
         }
-
-    def find_user_templates(self: Rewriter, file: str) -> str | None:
-        try:
-            with open(Path(self.target, 'templates', self.fix, file)) as template:
-                user_template = template.read()
-        except OSError:
-            user_template = None
-        return user_template
 
     def _add(  # noqa: C901
         self: Rewriter,
@@ -142,7 +137,7 @@ class Rewriter:
                 )
             else:
                 with open((child / 'meson.build'), 'x') as f:
-                    f.write(env.get_template('new_child.j2').render(parent=parent))
+                    f.write(self.env.get_template('new_child.j2').render(parent=parent))
             if self.fix == 'source':
                 if len(heirs) > 1:
                     warn(
@@ -156,8 +151,12 @@ class Rewriter:
                         'x',
                     ) as f:
                         f.write(
-                            env.get_template('project.name/__init__.py.j2').render(
-                                user_template=self.find_user_templates(file),
+                            self.env.get_template('project.name/__init__.py.j2').render(
+                                user_template=find_user_template(
+                                    self.target,
+                                    file,
+                                    self.fix,
+                                ),
                             ),
                         )
                     cmd_children.add(self.fix, 'children', parent)
@@ -169,9 +168,9 @@ class Rewriter:
                     self.fix,
                     self.base_templates.setdefault(
                         self.fix,
-                        env.get_template('project.name/new_module.py.j2'),
+                        self.env.get_template('project.name/new_module.py.j2'),
                     ),
-                ).render(user_template=self.find_user_templates(file)),
+                ).render(user_template=find_user_template(self.target, file, self.fix)),
             )
             cmd_files.add(self.fix, 'files', str(Path(file)))
         else:

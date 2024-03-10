@@ -2,6 +2,8 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 files = [
+    'lgpl-2.0-only.txt',
+    'lgpl-2.1-or-later.txt',
     'lgpl-3.0-only.txt',
     'lgpl-3.0-or-later.txt',
 ]

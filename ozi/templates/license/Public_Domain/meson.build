@@ -4,6 +4,7 @@
 files = [
     'cc0-1.0.txt',
     'unlicense.txt',
+    'licenseref-public-domain.txt',
 ]
 foreach file: files
     fs.copyfile(file)

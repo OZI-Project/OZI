@@ -2,6 +2,7 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+"""ozi-new entrypoint script."""
 from __future__ import annotations
 
 import re
@@ -31,7 +32,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from ozi.new.parser import parser
-from ozi.render import env
+from ozi.render import load_environment
 from ozi.render import render_ci_files_set_user
 from ozi.render import render_project_files
 from ozi.spdx import spdx_license_expression
@@ -294,13 +295,13 @@ def project(project: Namespace) -> None:
     project.target = Path(project.target)
     project.topic = list(set(project.topic))
     project.dist_requires = list(set(project.dist_requires))
-    env.globals = env.globals | {'project': vars(project)}
+    env = load_environment(vars(project))
     create_project_files(project, env)
 
 
 def wrap(project: Namespace) -> None:  # pragma: no cover
     """Create a new wrap file for publishing. Not a public function."""
-    env.globals = env.globals | {'project': vars(project)}
+    env = load_environment(vars(project))
     template = env.get_template('ozi.wrap.j2')
     with open('ozi.wrap', 'w') as f:
         f.write(template.render())
