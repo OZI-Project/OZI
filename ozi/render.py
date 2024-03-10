@@ -52,7 +52,7 @@ def _init_environment() -> Environment:
                 env.filters.setdefault(f.__name__, f)
             case FunctionType():
                 env.filters.setdefault(f.__name__, f)
-            case _lru_cache_wrapper():
+            case _lru_cache_wrapper():  # pragma: defer to pyright,mypy
                 env.filters.setdefault(f.__wrapped__.__name__, f)
     env.globals = env.globals | metadata.asdict()
     return env
