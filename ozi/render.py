@@ -3,6 +3,7 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Rendering utilities for the OZI project templates."""
+from functools import lru_cache
 from pathlib import Path
 from warnings import warn
 
@@ -25,17 +26,24 @@ from ozi.tap import TAP
 metadata = Metadata()
 
 
+@lru_cache
+def _init_environment() -> Environment:
+    """Initialize the rendering environment."""
+    return Environment(
+        loader=PackageLoader('ozi'),
+        autoescape=select_autoescape(),
+        enable_async=True,
+        auto_reload=False,
+    )
+
+
 def load_environment(project: dict[str, str]) -> Environment:
     """Load the rendering environment for templates.
 
     :return: jinja2 rendering environment for OZI
     :rtype: Environment
     """
-    env = Environment(
-        loader=PackageLoader('ozi'),
-        autoescape=select_autoescape(),
-        enable_async=True,
-    )
+    env = _init_environment()
     env.filters['next_minor'] = next_minor
     env.filters['to_distribution'] = to_distribution
     env.filters['underscorify'] = underscorify
