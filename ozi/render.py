@@ -3,8 +3,10 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Rendering utilities for the OZI project templates."""
+from functools import _lru_cache_wrapper
 from functools import lru_cache
 from pathlib import Path
+from types import FunctionType
 from warnings import warn
 
 from git import InvalidGitRepositoryError
@@ -45,7 +47,13 @@ def _init_environment() -> Environment:
         auto_reload=False,
     )
     for f in FILTERS:
-        env.filters.setdefault(f.__name__, f)
+        match f:
+            case type():
+                env.filters.setdefault(f.__name__, f)
+            case FunctionType():
+                env.filters.setdefault(f.__name__, f)
+            case _lru_cache_wrapper():
+                env.filters.setdefault(f.__wrapped__.__name__, f)
     env.globals = env.globals | metadata.asdict()
     return env
 
