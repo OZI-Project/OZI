@@ -262,6 +262,7 @@ def create_project_files(
 
 def compose(*functions: Composable) -> Composable:
     """Compose pure functions of :ref:`argparse.Namespace`"""
+
     def inner(f: Composable, g: Composable) -> Composable:
         """The inner function to be reduced."""
 
