@@ -36,14 +36,12 @@ from ozi.render import load_environment
 from ozi.render import render_ci_files_set_user
 from ozi.render import render_project_files
 from ozi.spdx import spdx_license_expression
-from ozi.spec import Metadata
+from ozi.spec import METADATA
 from ozi.tap import TAP
 from ozi.vendor.email_validator import EmailNotValidError
 from ozi.vendor.email_validator import EmailSyntaxError
 from ozi.vendor.email_validator import ValidatedEmail
 from ozi.vendor.email_validator import validate_email
-
-metadata = Metadata()
 
 
 def parse_project_name(name: str | ParseResults) -> str | ParseResults:
@@ -115,12 +113,12 @@ def copyright_head(project: Namespace) -> Namespace:
 
 def license_(project: Namespace) -> Namespace:
     """PKG-INFO:License"""
-    possible_spdx: Sequence[str] = metadata.spec.python.pkg.license.ambiguous.get(
+    possible_spdx: Sequence[str] = METADATA.spec.python.pkg.license.ambiguous.get(
         project.license,
         (),
     )
     if (
-        project.license in iter(metadata.spec.python.pkg.license.ambiguous)
+        project.license in iter(METADATA.spec.python.pkg.license.ambiguous)
         and project.license_expression.split(' ')[0] not in possible_spdx
     ):
         spdx_licenses = ', '.join(possible_spdx)

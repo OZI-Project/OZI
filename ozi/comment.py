@@ -9,12 +9,8 @@ from pathlib import Path  # noqa: TC003, RUF100
 from typing import Generator
 from typing import Sequence
 
-from ozi.spec import Metadata
-from ozi.spec import PythonSupport
+from ozi.spec import METADATA
 from ozi.tap import TAP
-
-python_support = PythonSupport()
-metadata = Metadata()
 
 
 @lru_cache
@@ -26,7 +22,7 @@ def pattern_cache(key: str) -> re.Pattern[str]:
     :return: compiled regular expression pattern
     :rtype: re.Pattern[str]
     """
-    if pattern := metadata.spec.python.src.comments.asdict().get(key):
+    if pattern := METADATA.spec.python.src.comments.asdict().get(key):
         return re.compile(str(pattern).encode('raw_unicode_escape').decode('unicode_escape'))
     return re.Pattern()  # pragma: no cover
 
@@ -41,7 +37,7 @@ def pattern_search(
     :yield: key, match for key in :ref:`ozi.spec.CommentPatterns` excluding ``help``
     :rtype: Generator[tuple[str, str], None, None]
     """
-    for key in metadata.spec.python.src.comments.asdict().keys():
+    for key in METADATA.spec.python.src.comments.asdict().keys():
         if found := key != 'help' and re.search(pattern_cache(key), line):
             yield key, found[0].strip()  # pragma: defer to TAP-Consumer
 

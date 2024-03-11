@@ -30,11 +30,7 @@ if TYPE_CHECKING:
     elif sys.version_info < (3, 11):
         from typing_extensions import Self
 
-from ozi.spec import Metadata
-from ozi.spec import PythonSupport
-
-python_support = PythonSupport()
-metadata = Metadata()
+from ozi.spec import METADATA
 
 
 @dataclass
@@ -110,9 +106,9 @@ class Rewriter:
             'root': partial(Path, self.target),
         }
         self.base_templates = {
-            'root': self.env.get_template(metadata.spec.python.src.template.add_root),
-            'source': self.env.get_template(metadata.spec.python.src.template.add_source),
-            'test': self.env.get_template(metadata.spec.python.src.template.add_root),
+            'root': self.env.get_template(METADATA.spec.python.src.template.add_root),
+            'source': self.env.get_template(METADATA.spec.python.src.template.add_source),
+            'test': self.env.get_template(METADATA.spec.python.src.template.add_root),
         }
 
     def _add(  # noqa: C901

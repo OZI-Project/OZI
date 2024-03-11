@@ -2,6 +2,7 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+"""Find missing OZI project files."""
 import re
 import sys
 from email import message_from_string
@@ -19,12 +20,8 @@ from ozi.fix.build_definition import walk
 from ozi.meson import load_ast
 from ozi.meson import project_metadata
 from ozi.pkg_extra import parse_extra_pkg_info
-from ozi.spec import Metadata
-from ozi.spec import PythonSupport
+from ozi.spec import METADATA
 from ozi.tap import TAP
-
-python_support = PythonSupport()
-metadata = Metadata()
 
 
 def render_requirements(target: Path) -> str:
@@ -44,9 +41,9 @@ def missing_python_support(pkg_info: Message) -> set[tuple[str, str]]:  # pragma
     remaining_pkg_info = {
         (k, v)
         for k, v in pkg_info.items()
-        if k not in metadata.spec.python.pkg.info.required
+        if k not in METADATA.spec.python.pkg.info.required
     }
-    for k, v in iter(python_support.classifiers[:4]):
+    for k, v in iter(METADATA.ozi.python_support.classifiers[:4]):
         if (k, v) in remaining_pkg_info:
             TAP.ok(k, v)
         else:
@@ -57,7 +54,7 @@ def missing_python_support(pkg_info: Message) -> set[tuple[str, str]]:  # pragma
 def missing_ozi_required(pkg_info: Message) -> dict[str, str]:  # pragma: no cover
     """Check missing required OZI extra PKG-INFO"""
     remaining_pkg_info = missing_python_support(pkg_info)
-    remaining_pkg_info.difference_update(set(iter(python_support.classifiers)))
+    remaining_pkg_info.difference_update(set(iter(METADATA.ozi.python_support.classifiers)))
     for k, v in iter(remaining_pkg_info):
         TAP.ok(k, v)
     extra_pkg_info, errstr = parse_extra_pkg_info(pkg_info)
@@ -89,7 +86,7 @@ def missing_required(
             .replace('@SCM_VERSION@', '{version}'),
         )
         TAP.ok('setuptools_scm', 'PKG-INFO', 'template')
-    for i in metadata.spec.python.pkg.info.required:
+    for i in METADATA.spec.python.pkg.info.required:
         v = pkg_info.get(i, None)
         if v is not None:
             TAP.ok(i, v)
@@ -116,13 +113,13 @@ def missing_required_files(
     match kind:
         case 'test':
             rel_path = Path('tests')
-            expected_files = metadata.spec.python.src.required.test
+            expected_files = METADATA.spec.python.src.required.test
         case 'root':
             rel_path = Path('.')
-            expected_files = metadata.spec.python.src.required.root
+            expected_files = METADATA.spec.python.src.required.root
         case 'source':
             rel_path = Path(underscorify(name))
-            expected_files = metadata.spec.python.src.required.source
+            expected_files = METADATA.spec.python.src.required.source
         case _:  # pragma: no cover
             rel_path = Path('.')
             expected_files = ()

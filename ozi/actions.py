@@ -30,7 +30,7 @@ from warnings import warn
 from spdx_license_list import LICENSES
 from trove_classifiers import classifiers
 
-from ozi.spec import License
+from ozi.spec import METADATA
 
 CLASSIFIER_RE = re.compile(r'^([\w\s]*\s\:\:\s)?')
 
@@ -78,7 +78,7 @@ class ExactMatch:
     license_id: tuple[str, ...] = tuple(
         k for k, v in LICENSES.items() if v.deprecated_id is False
     )
-    license_exception_id: tuple[str, ...] = License().exceptions
+    license_exception_id: tuple[str, ...] = METADATA.spec.python.pkg.license.exceptions
     status: tuple[str, ...] = from_prefix(_prefix.status)
     topic: tuple[str, ...] = from_prefix(_prefix.topic)
 

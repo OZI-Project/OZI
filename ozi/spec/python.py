@@ -43,7 +43,7 @@ DEPRECATION_DELTA_WEEKS = 104
 
 @dataclass(frozen=True, slots=True, eq=True)
 class PythonSupport(Default):
-    """Datatype for OZI Python version support."""
+    """Python version support for the OZI toolchain."""
 
     deprecation_schedule: dict[int, str] = field(
         default_factory=lambda: {
@@ -163,18 +163,24 @@ class PythonSupport(Default):
         return classifiers
 
 
+_python_support = PythonSupport()
+
+
 @dataclass(slots=True, frozen=True, eq=True)
 class Support(Default):
-    """Python implementation and version support info for OZI."""
+    """Python implementation and version support info for OZI-packaged projects."""
 
+    classifiers: Sequence[tuple[str, str]] = field(
+        default_factory=lambda: _python_support.classifiers,
+    )
     implementations: tuple[str, ...] = ('CPython',)
     metadata_version: str = '2.1'
     major: str = '3'
-    prerelease: str = PythonSupport().prerelease
-    bugfix1: str = PythonSupport().bugfix1
-    bugfix2: str = PythonSupport().bugfix2
-    security: str = PythonSupport().security
+    prerelease: str = _python_support.prerelease
+    bugfix1: str = _python_support.bugfix1
+    bugfix2: str = _python_support.bugfix2
+    security: str = _python_support.security
     deprecation_schedule: Mapping[int, str] = field(
-        default_factory=lambda: PythonSupport().deprecation_schedule,
+        default_factory=lambda: _python_support.deprecation_schedule,
     )
     deprecation_delta_weeks: int = DEPRECATION_DELTA_WEEKS

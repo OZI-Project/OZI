@@ -8,9 +8,8 @@ import argparse
 import sys
 
 from ozi.actions import CloseMatch
-from ozi.spec import Metadata
+from ozi.spec import METADATA
 
-metadata = Metadata()
 parser = argparse.ArgumentParser(
     prog='ozi-new',
     description=sys.modules[__name__].__doc__,
@@ -44,7 +43,7 @@ ozi_defaults.add_argument(
     '--ci-provider',
     type=str,
     default='github',
-    choices=frozenset(metadata.spec.python.ci.providers),
+    choices=frozenset(METADATA.spec.python.ci.providers),
     metavar='github',
     help='continuous integration and release provider',
 )
@@ -120,7 +119,7 @@ defaults.add_argument(
     '--intended-audience',
     type=str,
     help='Classifier: Intended Audience (Multiple Use)(default: ["Other Audience"])',
-    default=metadata.spec.python.pkg.info.classifiers.intended_audience,
+    default=METADATA.spec.python.pkg.info.classifiers.intended_audience,
     nargs='?',
     action=CloseMatch,
 )
@@ -130,11 +129,11 @@ defaults.add_argument(
     choices=frozenset(('Typed', 'Stubs Only')),
     nargs='?',
     help='Classifier: Typing (Multiple Use)(default: [Typed])',
-    default=metadata.spec.python.pkg.info.classifiers.typing,
+    default=METADATA.spec.python.pkg.info.classifiers.typing,
 )
 defaults.add_argument(
     '--environment',
-    default=metadata.spec.python.pkg.info.classifiers.environment,
+    default=METADATA.spec.python.pkg.info.classifiers.environment,
     help='Classifier: Environment (Multiple Use)(default: ["Other Environment"])',
     action=CloseMatch,
     nargs='?',
@@ -203,7 +202,7 @@ defaults.add_argument(
     '--status',
     '--development-status',
     action=CloseMatch,
-    default=metadata.spec.python.pkg.info.classifiers.development_status,
+    default=METADATA.spec.python.pkg.info.classifiers.development_status,
     help='Classifier: Development Status (Single Use)(default: "1 - Planning")',
     type=str,
 )
@@ -236,7 +235,7 @@ ozi_defaults.add_argument(
     action='append',
     type=str,
     nargs='?',
-    default=metadata.spec.python.src.allow_files,
+    default=METADATA.spec.python.src.allow_files,
 )
 tools = parser.add_mutually_exclusive_group()  # pragma: no cover
 tools.add_argument(  # pragma: no cover
