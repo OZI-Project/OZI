@@ -93,6 +93,7 @@ def list_available(key: str) -> NoReturn:  # pragma: no cover
 
 
 def license_expression(expr: str) -> NoReturn:  # pragma: no cover
+    """Validate a SPDX license expression."""
     try:
         spdx_license_expression.parse_string(expr, parse_all=True)
         TAP.ok(expr, 'parsed successfully')
@@ -168,6 +169,7 @@ helpers.add_argument(  # pragma: no cover
 
 
 def main() -> None:  # pragma: no cover
+    """``ozi`` script entrypoint."""
     ozi, args = parser.parse_known_args()
     ozi.version()
     ozi.check_version()

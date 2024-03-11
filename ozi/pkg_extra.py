@@ -2,6 +2,7 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+"""Extra packaging metadata used by OZI."""
 from email.message import Message
 from typing import Any
 
@@ -51,6 +52,7 @@ pep639_headers.set_parse_action(_str_dict_union).set_name('pep639')
 
 
 def _pkg_info_extra(payload: str, as_message: bool = True) -> dict[str, str] | Message:
+    """Extra PKG-INFO parsers."""
     extras: dict[str, str] = extra_classifiers_comment.parse_string(payload)[
         0
     ]  # pyright: ignore

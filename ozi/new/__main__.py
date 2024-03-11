@@ -45,6 +45,7 @@ from ozi.vendor.email_validator import validate_email
 
 
 def parse_project_name(name: str | ParseResults) -> str | ParseResults:
+    """Validate a project name."""
     try:
         Regex('^([A-Z]|[A-Z][A-Z0-9._-]*[A-Z0-9])$', re.IGNORECASE).set_name(
             'Package-Index-Name',
@@ -56,6 +57,7 @@ def parse_project_name(name: str | ParseResults) -> str | ParseResults:
 
 
 def parse_spdx(expr: Any | ParseResults) -> Any | ParseResults:
+    """Validate a SPDX license expression."""
     try:
         expr = Combine(
             spdx_license_expression,
@@ -70,6 +72,7 @@ def parse_spdx(expr: Any | ParseResults) -> Any | ParseResults:
 
 
 def _validate_email(email: str, verify: bool = False) -> ValidatedEmail | None:
+    """Validate a single email address."""
     try:
         return validate_email(email, check_deliverability=verify)
     except (EmailNotValidError, EmailSyntaxError) as e:
@@ -82,6 +85,7 @@ def parse_email(
     maintainer_email: list[str],
     verify: bool,
 ) -> tuple[list[str], list[str]]:
+    """Validate lists of author and maintainer emails."""
     _author_email = []
     _maintainer_email = []
     for email in set(author_email).union(maintainer_email):
@@ -257,6 +261,7 @@ def create_project_files(
 
 
 def compose(*functions: Composable) -> Composable:
+    """Compose pure functions of :ref:`argparse.Namespace`"""
     def inner(f: Composable, g: Composable) -> Composable:
         """The inner function to be reduced."""
 
