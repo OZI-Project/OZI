@@ -15,12 +15,7 @@ from ozi.fix.missing import report_missing
 from ozi.fix.parser import parser
 from ozi.fix.rewrite_command import Rewriter
 from ozi.render import load_environment
-from ozi.spec import Metadata
-from ozi.spec import PythonSupport
 from ozi.tap import TAP
-
-python_support = PythonSupport()
-metadata = Metadata()
 
 
 def main() -> NoReturn:  # pragma: no cover

@@ -14,6 +14,7 @@ python_files = [
     'render.py',
     'spdx.py',
     'tap.py',
+    'trove.py',
 ]
 foreach file : files(python_files)
     fs.copyfile(file)

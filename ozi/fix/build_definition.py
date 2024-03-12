@@ -9,19 +9,14 @@ from pathlib import Path
 from ozi import comment
 from ozi.meson import get_items_by_suffix
 from ozi.meson import query_build_value
-from ozi.spec import Metadata
-from ozi.spec import PythonSupport
+from ozi.spec import METADATA
 from ozi.tap import TAP
-
-python_support = PythonSupport()
-metadata = Metadata()
-
 
 IGNORE_MISSING = {
     'subprojects',
-    *metadata.spec.python.src.repo.hidden_dirs,
-    *metadata.spec.python.src.repo.ignore_dirs,
-    *metadata.spec.python.src.allow_files,
+    *METADATA.spec.python.src.repo.hidden_dirs,
+    *METADATA.spec.python.src.repo.ignore_dirs,
+    *METADATA.spec.python.src.allow_files,
 }
 
 

@@ -20,9 +20,7 @@ import ozi.fix.rewrite_command
 import ozi.new.__main__
 import ozi.pkg_extra
 from ozi.render import load_environment
-from ozi.spec import Metadata
-
-metadata = Metadata()
+from ozi.spec import METADATA
 
 required_pkg_info_patterns = (
     'Author',
@@ -86,7 +84,7 @@ def bad_project(tmp_path_factory: pytest.TempPathFactory) -> pathlib.Path:
 
 @pytest.mark.parametrize(
     'key',
-    [i for i in metadata.spec.python.src.required.root if i not in ['PKG-INFO']],
+    [i for i in METADATA.spec.python.src.required.root if i not in ['PKG-INFO']],
 )
 def test_report_missing_required_root_file(
     bad_project: pathlib.Path,
@@ -98,7 +96,7 @@ def test_report_missing_required_root_file(
         ozi.fix.__main__.report_missing(bad_project)
 
 
-@pytest.mark.parametrize('key', metadata.spec.python.src.required.test)
+@pytest.mark.parametrize('key', METADATA.spec.python.src.required.test)
 def test_report_missing_required_test_file(bad_project: pathlib.Path, key: str) -> None:
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath('tests') / key)
@@ -106,7 +104,7 @@ def test_report_missing_required_test_file(bad_project: pathlib.Path, key: str) 
         ozi.fix.__main__.report_missing(bad_project)
 
 
-@pytest.mark.parametrize('key', metadata.spec.python.src.required.source)
+@pytest.mark.parametrize('key', METADATA.spec.python.src.required.source)
 def test_report_missing_required_source_file(bad_project: pathlib.Path, key: str) -> None:
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath('ozi_phony') / key)

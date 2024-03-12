@@ -20,9 +20,7 @@ from hypothesis import strategies as st
 import ozi.actions
 import ozi.fix.__main__
 import ozi.new.__main__
-from ozi.spec import Metadata
-
-metadata = Metadata()
+from ozi.spec import METADATA
 
 
 @settings(
@@ -119,13 +117,13 @@ def test_fuzz_new_project_good_namespace(
         st.one_of(
             [
                 st.just(k)
-                for k, v in metadata.spec.python.pkg.license.ambiguous.items()
+                for k, v in METADATA.spec.python.pkg.license.ambiguous.items()
                 if len(v) != 0 and k not in ['Private']
             ],
         ),
     )
     project['license_id'] = license_id.draw(
-        st.one_of(map(st.just, metadata.spec.python.pkg.license.ambiguous.get(project['license']))),  # type: ignore
+        st.one_of(map(st.just, METADATA.spec.python.pkg.license.ambiguous.get(project['license']))),  # type: ignore
     )
     project['license_expression'] = license_expression.draw(st.just(project['license_id']))
     namespace = argparse.Namespace(**project)

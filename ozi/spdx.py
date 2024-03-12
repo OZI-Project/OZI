@@ -10,17 +10,18 @@ from pyparsing import ZeroOrMore
 from pyparsing import oneOf
 from spdx_license_list import LICENSES
 
-from ozi.spec import License
+from ozi.spec import METADATA
 
-pep639_spdx = [
-    'LicenseRef-Public-Domain',
-    'LicenseRef-Proprietary',
-]
 spdx_license_expression = Forward()
 spdx_license_expression <<= oneOf(
-    pep639_spdx + [lic.id for lic in LICENSES.values() if not lic.deprecated_id],
+    [
+        'LicenseRef-Public-Domain',
+        'LicenseRef-Proprietary',
+    ]
+    + [lic.id for lic in LICENSES.values() if not lic.deprecated_id],
 ).set_name('License-ID') + ZeroOrMore(
-    Keyword('WITH') + oneOf(License().exceptions).set_name('License-Exception-ID')
+    Keyword('WITH')
+    + oneOf(METADATA.spec.python.pkg.license.exceptions).set_name('License-Exception-ID')
     | Keyword('AND') + spdx_license_expression
     | Keyword('OR') + spdx_license_expression,
 ) | Literal(
