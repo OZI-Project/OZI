@@ -175,7 +175,7 @@ def valid_project_name(name: str | ParseResults) -> None:
         TAP.not_ok(*str(e).split('\n'))
 
 
-def valid_spdx(expr: Any | ParseResults) -> Any | ParseResults:
+def valid_spdx(expr: Any | ParseResults) -> None:
     """Validate a SPDX license expression."""
     try:
         expr = Combine(
@@ -187,7 +187,6 @@ def valid_spdx(expr: Any | ParseResults) -> Any | ParseResults:
         TAP.ok('License-Expression')
     except ParseException as e:  # pragma: defer to good-issue
         TAP.not_ok(*str(e).split('\n'))
-    return expr
 
 
 def valid_email(email: str, verify: bool = False) -> ValidatedEmail | None:
