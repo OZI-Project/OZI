@@ -16,9 +16,9 @@ from hypothesis import given
 from hypothesis import settings
 from hypothesis import strategies as st
 
-import ozi.actions
-import ozi.new.__main__
-from ozi.spec import METADATA
+import ozi.actions  # pyright: ignore
+import ozi.new.__main__  # pyright: ignore
+from ozi.spec import METADATA  # pyright: ignore
 
 
 @settings(
@@ -37,7 +37,7 @@ from ozi.spec import METADATA
                 fullmatch=True,
             ),
             'author': st.lists(
-                st.text(st.characters(exclude_categories=('C',)), min_size=1, max_size=16),
+                st.text(st.characters(exclude_categories=['C']), min_size=1, max_size=16),
                 min_size=1,
                 max_size=8,
             ),
@@ -47,7 +47,7 @@ from ozi.spec import METADATA
                 max_size=8,
             ),
             'maintainer': st.lists(
-                st.text(st.characters(exclude_categories=('C',)), min_size=1, max_size=16),
+                st.text(st.characters(exclude_categories=['C']), min_size=1, max_size=16),
                 min_size=1,
                 max_size=8,
             ),
@@ -60,22 +60,22 @@ from ozi.spec import METADATA
                 st.just('A, https://oziproject.dev'),
                 max_size=1,
             ),
-            'summary': st.text(st.characters(exclude_categories=('C',)), max_size=255),
+            'summary': st.text(st.characters(exclude_categories=['C']), max_size=255),
             'copyright_head': st.text(
-                st.characters(exclude_categories=('C',)),
+                st.characters(exclude_categories=['C']),
                 max_size=255,
             ),
             'license_file': st.just('LICENSE.txt'),
             'license_exception_id': st.one_of(
-                list(map(st.just, ozi.actions.ExactMatch().license_exception_id)),
+                list(map(st.just, ozi.actions.ExactMatch().license_exception_id)),  # type: ignore
             ),
-            'topic': st.one_of(list(map(st.just, ozi.actions.ExactMatch().topic))),
-            'audience': st.one_of(list(map(st.just, ozi.actions.ExactMatch().audience))),
-            'framework': st.one_of(list(map(st.just, ozi.actions.ExactMatch().framework))),
+            'topic': st.one_of(list(map(st.just, ozi.actions.ExactMatch().topic))),  # type: ignore
+            'audience': st.one_of(list(map(st.just, ozi.actions.ExactMatch().audience))),  # type: ignore
+            'framework': st.one_of(list(map(st.just, ozi.actions.ExactMatch().framework))),  # type: ignore
             'environment': st.one_of(
-                list(map(st.just, ozi.actions.ExactMatch().environment)),
+                list(map(st.just, ozi.actions.ExactMatch().environment)),  # type: ignore
             ),
-            'status': st.one_of(list(map(st.just, ozi.actions.ExactMatch().status))),
+            'status': st.one_of(list(map(st.just, ozi.actions.ExactMatch().status))),  # type: ignore
             'dist_requires': st.lists(
                 st.from_regex(
                     r'^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9]){1,80}$',
@@ -89,10 +89,10 @@ from ozi.spec import METADATA
     license_expression=st.data(),
     license_id=st.data(),
 )
-def test_fuzz_new_project_good_namespace(
+def test_fuzz_new_project_good_namespace(  # noqa: DC102, RUF100
     tmp_path_factory: pytest.TempPathFactory,
-    project: dict,
-    license: typing.Any,
+    project: dict[str, typing.Any],
+    license: typing.Any,  # noqa: A002
     license_id: typing.Any,
     license_expression: typing.Any,
 ) -> None:
@@ -168,8 +168,8 @@ def test_fuzz_new_project_good_namespace(
         },
     ],
 )
-def test_new_project_bad_args(
-    item: dict,
+def test_new_project_bad_args(  # noqa: DC102, RUF100
+    item: dict[str, typing.Any],
     tmp_path_factory: pytest.TempPathFactory,
 ) -> None:
     project_dict = {
@@ -204,11 +204,11 @@ def test_new_project_bad_args(
     namespace = argparse.Namespace(**project_dict)
     with pytest.raises(RuntimeWarning):
         ozi.new.__main__.postprocess_arguments(
-            ozi.new.__main__.preprocess_arguments(namespace)
+            ozi.new.__main__.preprocess_arguments(namespace),
         )
 
 
-def test_new_project_bad_target_not_empty(
+def test_new_project_bad_target_not_empty(  # noqa: DC102, RUF100
     tmp_path_factory: pytest.TempPathFactory,
 ) -> None:
     project_dict = {
@@ -239,11 +239,11 @@ def test_new_project_bad_target_not_empty(
         'dist_requires': [],
         'allow_file': [],
     }
-    (project_dict['target'] / 'foobar').touch()
+    (project_dict['target'] / 'foobar').touch()  # type: ignore
     namespace = argparse.Namespace(**project_dict)
     with pytest.raises(RuntimeWarning):
         ozi.new.__main__.postprocess_arguments(
-            ozi.new.__main__.preprocess_arguments(namespace)
+            ozi.new.__main__.preprocess_arguments(namespace),
         )
 
 
@@ -264,7 +264,7 @@ def test_new_project_bad_target_not_empty(
     nargs=st.one_of(st.none()),
     data=st.data(),
 )
-def test_fuzz_CloseMatch_nargs_None(
+def test_fuzz_CloseMatch_nargs_None(  # noqa: N802, DC102, RUF100
     option_strings: str,
     dest: str,
     nargs: int | str | None,
@@ -302,7 +302,7 @@ def test_fuzz_CloseMatch_nargs_None(
     nargs=st.one_of(st.just('?')),
     data=st.data(),
 )
-def test_fuzz_CloseMatch_nargs_append(
+def test_fuzz_CloseMatch_nargs_append(  # noqa: N802, DC102, RUF100
     option_strings: str,
     dest: str,
     nargs: int | str | None,
@@ -339,7 +339,7 @@ def test_fuzz_CloseMatch_nargs_append(
     nargs=st.one_of(st.just('?')),
     data=st.none(),
 )
-def test_fuzz_CloseMatch_nargs_append_None_values(
+def test_fuzz_CloseMatch_nargs_append_None_values(  # noqa: N802, DC102, RUF100
     option_strings: str,
     dest: str,
     nargs: int | str | None,
@@ -370,7 +370,7 @@ def test_fuzz_CloseMatch_nargs_append_None_values(
     nargs=st.one_of(st.just('?')),
     data=st.text(min_size=100),
 )
-def test_fuzz_CloseMatch_nargs_append_warns(
+def test_fuzz_CloseMatch_nargs_append_warns(  # noqa: N802, DC102, RUF100
     option_strings: str,
     dest: str,
     nargs: int | str | None,
@@ -402,7 +402,7 @@ def test_fuzz_CloseMatch_nargs_append_warns(
     nargs=st.one_of(st.just('*')),
     data=st.text(min_size=100),
 )
-def test_fuzz_CloseMatch_nargs_invalid(
+def test_fuzz_CloseMatch_nargs_invalid(  # noqa: N802, DC102, RUF100
     option_strings: str,
     dest: str,
     nargs: int | str | None,
