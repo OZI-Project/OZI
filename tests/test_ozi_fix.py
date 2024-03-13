@@ -152,7 +152,11 @@ def test_fuzz_Rewriter(  # noqa: N802, DC102, RUF100
     commands: list[dict[str, str]],
 ) -> None:
     ozi.fix.rewrite_command.Rewriter(
-        target=target, name=name, fix=fix, commands=commands, env=env,
+        target=target,
+        name=name,
+        fix=fix,
+        commands=commands,
+        env=env,
     )
 
 
@@ -204,7 +208,10 @@ def test_Rewriter_bad_project__isub__bad_fix(  # noqa: N802, DC102, RUF100
     bad_project: pytest.FixtureRequest,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix='', env=env,
+        target=str(bad_project),
+        name='ozi_phony',
+        fix='',
+        env=env,
     )
     rewriter -= ['foo.py']
     assert len(rewriter.commands) == 1
@@ -216,7 +223,10 @@ def test_Rewriter_bad_project__isub__non_existing_child(  # noqa: N802, DC102, R
     fix: str,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix, env=env,
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
     )
     with pytest.raises(RuntimeWarning):
         rewriter -= ['foo/']
@@ -229,7 +239,10 @@ def test_Rewriter_bad_project__isub__child(  # noqa: N802, DC102, RUF100
     fix: str,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix, env=env,
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
     )
     if fix == 'root':
         pathlib.Path(str(bad_project), 'foo').mkdir()
@@ -247,7 +260,10 @@ def test_Rewriter_bad_project__isub__python_file(  # noqa: N802, DC102, RUF100
     fix: str,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix, env=env,
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
     )
     if fix == 'root':
         pathlib.Path(str(bad_project), 'foo.py').touch()
@@ -265,7 +281,10 @@ def test_Rewriter_bad_project__isub__file(  # noqa: N802, DC102, RUF100
     fix: str,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix, env=env,
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
     )
     if fix == 'root':
         pathlib.Path(str(bad_project), 'foo').touch()
@@ -283,7 +302,10 @@ def test_Rewriter_bad_project__iadd__file(  # noqa: N802, DC102, RUF100
     fix: str,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix, env=env,
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
     )
     rewriter += ['foo.py']
     assert len(rewriter.commands) == 1
@@ -316,7 +338,10 @@ def test_Rewriter_bad_project__iadd__non_python_file(  # noqa: N802, DC102, RUF1
     fix: str,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix, env=env,
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
     )
     rewriter += ['foo']
     assert len(rewriter.commands) == 1
