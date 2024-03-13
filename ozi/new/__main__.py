@@ -42,12 +42,8 @@ def create_project_files(
 ) -> None:
     """Create the actual project."""
     project.allow_file = set(map(Path, project.allow_file))
-    iterdir = (i for i in project.target.iterdir() if i not in project.allow_file)
-    if any(iterdir):  # defer to good-issue
-        TAP.not_ok('target directory not empty', 'no files will be created', skip=True)
-    else:
-        project.ci_user = render_ci_files_set_user(env, project.target, project.ci_provider)
-        render_project_files(env, project.target, project.name)
+    project.ci_user = render_ci_files_set_user(env, project.target, project.ci_provider)
+    render_project_files(env, project.target, project.name)
 
 
 def _valid_project(project: Namespace) -> Namespace:
@@ -96,6 +92,17 @@ def postprocess_arguments(project: Namespace) -> Namespace:
     project.target = Path(project.target)
     project.topic = list(set(project.topic))
     project.dist_requires = list(set(project.dist_requires))
+    if any(
+        i for i in project.target.iterdir() if i not in project.allow_file
+    ):  # defer to good-issue
+        TAP.not_ok('target directory not empty', 'no files will be created', skip=True)
+    match project.ci_provider:
+        case 'github':
+            ...
+        case _:
+            TAP.not_ok(
+                f'--ci-provider "{project.ci_provider}" unrecognized. ci_user will not be set.',
+            )
     return project
 
 

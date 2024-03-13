@@ -11,21 +11,18 @@ from datetime import timedelta
 from itertools import zip_longest
 
 import pytest
-from hypothesis import HealthCheck
 from hypothesis import assume
 from hypothesis import given
 from hypothesis import settings
 from hypothesis import strategies as st
 
 import ozi.actions
-import ozi.fix.__main__
 import ozi.new.__main__
 from ozi.spec import METADATA
 
 
 @settings(
     deadline=timedelta(milliseconds=15000),
-    suppress_health_check=[HealthCheck.too_slow],
 )
 @given(
     project=st.fixed_dictionaries(
@@ -127,7 +124,7 @@ def test_fuzz_new_project_good_namespace(
     )
     project['license_expression'] = license_expression.draw(st.just(project['license_id']))
     namespace = argparse.Namespace(**project)
-    ozi.new.__main__.project(project=namespace)
+    ozi.new.__main__.postprocess_arguments(ozi.new.__main__.preprocess_arguments(namespace))
 
 
 @pytest.mark.parametrize(
@@ -206,7 +203,9 @@ def test_new_project_bad_args(
     project_dict.update(item)
     namespace = argparse.Namespace(**project_dict)
     with pytest.raises(RuntimeWarning):
-        ozi.new.__main__.project(project=namespace)
+        ozi.new.__main__.postprocess_arguments(
+            ozi.new.__main__.preprocess_arguments(namespace)
+        )
 
 
 def test_new_project_bad_target_not_empty(
@@ -243,7 +242,9 @@ def test_new_project_bad_target_not_empty(
     (project_dict['target'] / 'foobar').touch()
     namespace = argparse.Namespace(**project_dict)
     with pytest.raises(RuntimeWarning):
-        ozi.new.__main__.project(project=namespace)
+        ozi.new.__main__.postprocess_arguments(
+            ozi.new.__main__.preprocess_arguments(namespace)
+        )
 
 
 @settings(deadline=timedelta(milliseconds=500))
