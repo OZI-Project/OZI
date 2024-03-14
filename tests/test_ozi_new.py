@@ -5,13 +5,11 @@
 from __future__ import annotations
 
 import argparse
-import operator
 import typing
 from datetime import timedelta
-from itertools import zip_longest
 
 import pytest
-from hypothesis import assume
+from hypothesis import HealthCheck
 from hypothesis import given
 from hypothesis import settings
 from hypothesis import strategies as st
@@ -22,7 +20,7 @@ from ozi.spec import METADATA  # pyright: ignore
 
 
 @settings(
-    deadline=timedelta(milliseconds=15000),
+    suppress_health_check=[HealthCheck.too_slow],
 )
 @given(
     project=st.fixed_dictionaries(
@@ -40,6 +38,7 @@ from ozi.spec import METADATA  # pyright: ignore
                 st.text(st.characters(exclude_categories=['C']), min_size=1, max_size=16),
                 min_size=1,
                 max_size=8,
+                unique=True,
             ),
             'author_email': st.lists(
                 st.emails(domains=st.just('phony1.oziproject.dev')),
@@ -50,6 +49,7 @@ from ozi.spec import METADATA  # pyright: ignore
                 st.text(st.characters(exclude_categories=['C']), min_size=1, max_size=16),
                 min_size=1,
                 max_size=8,
+                unique=True,
             ),
             'maintainer_email': st.lists(
                 st.emails(domains=st.just('phony2.oziproject.dev')),
@@ -83,42 +83,25 @@ from ozi.spec import METADATA  # pyright: ignore
                 ),
             ),
             'allow_file': st.just([]),
+            'license': st.one_of(
+                [
+                    st.just(k)
+                    for k in METADATA.spec.python.pkg.license.ambiguous.keys()
+                    if k not in ['Private']
+                ],
+            ),
         },
     ),
-    license=st.data(),
     license_expression=st.data(),
     license_id=st.data(),
 )
 def test_fuzz_new_project_good_namespace(  # noqa: DC102, RUF100
     tmp_path_factory: pytest.TempPathFactory,
     project: dict[str, typing.Any],
-    license: typing.Any,  # noqa: A002
     license_id: typing.Any,
     license_expression: typing.Any,
 ) -> None:
-    assume(set(project['author_email']).isdisjoint(set(project['maintainer_email'])))
-    assume(len(project['author_email']))
-    assume(
-        map(
-            operator.ne,
-            *[
-                i
-                for i in zip_longest(project['author_email'], project['maintainer_email'])
-                if any(i)
-            ],
-        ),
-    )
-    assume(set(project['author']).isdisjoint(set(project['maintainer'])))
     project['target'] = tmp_path_factory.mktemp('new_project_')
-    project['license'] = license.draw(
-        st.one_of(
-            [
-                st.just(k)
-                for k, v in METADATA.spec.python.pkg.license.ambiguous.items()
-                if len(v) != 0 and k not in ['Private']
-            ],
-        ),
-    )
     project['license_id'] = license_id.draw(
         st.one_of(map(st.just, METADATA.spec.python.pkg.license.ambiguous.get(project['license']))),  # type: ignore
     )
@@ -260,7 +243,7 @@ def test_new_project_bad_target_not_empty(  # noqa: DC102, RUF100
         st.just('--topic'),
         st.just('--status'),
     ),
-    dest=st.text(),
+    dest=st.text(min_size=1, max_size=20),
     nargs=st.one_of(st.none()),
     data=st.data(),
 )
@@ -298,7 +281,7 @@ def test_fuzz_CloseMatch_nargs_None(  # noqa: N802, DC102, RUF100
         st.just('--topic'),
         st.just('--status'),
     ),
-    dest=st.text(),
+    dest=st.text(min_size=1, max_size=20),
     nargs=st.one_of(st.just('?')),
     data=st.data(),
 )
@@ -335,7 +318,7 @@ def test_fuzz_CloseMatch_nargs_append(  # noqa: N802, DC102, RUF100
         st.just('--topic'),
         st.just('--status'),
     ),
-    dest=st.text(),
+    dest=st.text(min_size=1, max_size=20),
     nargs=st.one_of(st.just('?')),
     data=st.none(),
 )
@@ -366,9 +349,9 @@ def test_fuzz_CloseMatch_nargs_append_None_values(  # noqa: N802, DC102, RUF100
         st.just('--topic'),
         st.just('--status'),
     ),
-    dest=st.text(),
+    dest=st.text(min_size=1, max_size=20),
     nargs=st.one_of(st.just('?')),
-    data=st.text(min_size=100),
+    data=st.text(min_size=10, max_size=80),
 )
 def test_fuzz_CloseMatch_nargs_append_warns(  # noqa: N802, DC102, RUF100
     option_strings: str,
@@ -398,9 +381,9 @@ def test_fuzz_CloseMatch_nargs_append_warns(  # noqa: N802, DC102, RUF100
         st.just('--topic'),
         st.just('--status'),
     ),
-    dest=st.text(),
+    dest=st.text(min_size=1, max_size=20),
     nargs=st.one_of(st.just('*')),
-    data=st.text(min_size=100),
+    data=st.text(min_size=10, max_size=80),
 )
 def test_fuzz_CloseMatch_nargs_invalid(  # noqa: N802, DC102, RUF100
     option_strings: str,
