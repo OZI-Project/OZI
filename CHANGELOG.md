@@ -1,4 +1,112 @@
 # CHANGELOG
+## 0.0.289 (2024-03-14)
+
+### :hammer:
+
+* :hammer: refactor entrypoint for ``ozi-new``. ([`4f91ede`](https://github.com/OZI-Project/OZI/commit/4f91ede3bf07cb82e61b42881af6573a9e6983d1))
+
+* :hammer: Extract ``ozi.new.validate`` from ``ozi.new.__main__``
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`d8d58bf`](https://github.com/OZI-Project/OZI/commit/d8d58bf16a0a8b32929562ce1010cde8431ae6c0))
+
+* :hammer: Extract trove module from actions.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`9121ed4`](https://github.com/OZI-Project/OZI/commit/9121ed41f93e269ff439b49ed297e2104615dfe8))
+
+* :hammer: Switch to constant metadata reference throughout the module.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`8ae282e`](https://github.com/OZI-Project/OZI/commit/8ae282ecb9b6126f8a43555e1767720af189b6a3))
+
+### Other
+
+* Merge pull request #246 from OZI-Project/main
+
+Release ([`ea1fdaf`](https://github.com/OZI-Project/OZI/commit/ea1fdafc650872d5d85aab755c2c56f82f159592))
+
+* Merge pull request #244 from OZI-Project/dependabot/github_actions/github/codeql-action-3.24.7
+
+Bump github/codeql-action from 3.24.6 to 3.24.7 ([`6ba09c0`](https://github.com/OZI-Project/OZI/commit/6ba09c07073dc92a859a7e3655b5db0f029e71c9))
+
+* Bump github/codeql-action from 3.24.6 to 3.24.7
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.6 to 3.24.7.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/8a470fddafa5cbb6266ee11b37ef4d8aae19c571...3ab4101902695724f9365a384f86c1074d94e18c)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5b49626`](https://github.com/OZI-Project/OZI/commit/5b4962671a53af8956fb559cbc4551ddb3826028))
+
+* Merge pull request #243 from OZI-Project/dependabot/github_actions/actions/checkout-4.1.2
+
+Bump actions/checkout from 4.1.1 to 4.1.2 ([`2da2693`](https://github.com/OZI-Project/OZI/commit/2da2693ca68276996f0b5d843d3c8e2be1110f65))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/actions/checkout-4.1.2 ([`1e1c13f`](https://github.com/OZI-Project/OZI/commit/1e1c13fb1aaebd4e81870a2a764817e54b6ddeb4))
+
+* Merge pull request #245 from OZI-Project/dev
+
+Dev merge ([`fc58dc9`](https://github.com/OZI-Project/OZI/commit/fc58dc9bf4b3c90472332fe535b09ed569c79b6f))
+
+* :rotating_light: Run black on tests.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`f482499`](https://github.com/OZI-Project/OZI/commit/f482499c9541cbd92d862109cbdefac86f9d7d08))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`1d5d067`](https://github.com/OZI-Project/OZI/commit/1d5d06789b441f724dbb8f9ca5a2f9494360549c))
+
+* :rotating_light: Clean up linter complaints in tests.
+
+Signed-off-by: Eden Rose MSc &lt;rjdbcm@outlook.com&gt; ([`31515e6`](https://github.com/OZI-Project/OZI/commit/31515e653c3fd0381cc870884855739fb20c3495))
+
+* Merge branch &#39;main&#39; into dev ([`ad91bd9`](https://github.com/OZI-Project/OZI/commit/ad91bd9f270330439cd1587d4817739c748b70d0))
+
+* :rotating_light: Clean up linter complaints in tests.
+
+Signed-off-by: Eden Rose MSc &lt;rjdbcm@outlook.com&gt; ([`d58a76a`](https://github.com/OZI-Project/OZI/commit/d58a76aaf076cc0d1febeeb49d53bec8870652d2))
+
+* :white_check_mark: refactor ``ozi-new`` to reduce filesystem usage during testing.
+
+This allows removal of the suppressed HealthCheck.too_slow
+
+Signed-off-by: Eden Rose Duff MSc &lt;rjdbcm@outlook.com&gt; ([`acf950f`](https://github.com/OZI-Project/OZI/commit/acf950fe5549477ced203651674f7866be7e7f60))
+
+* Bump actions/checkout from 4.1.1 to 4.1.2
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.1 to 4.1.2.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/b4ffde65f46336ab88eb53be808477a3936bae11...9bb56186c3b09b4f86b1c65136769dd318469633)
+
+---
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`4eb056e`](https://github.com/OZI-Project/OZI/commit/4eb056eeb972c2e086089bd084134338dfc2a2fa))
+
+* Merge pull request #242 from OZI-Project/dev
+
+Dev merge ([`11e2ea6`](https://github.com/OZI-Project/OZI/commit/11e2ea60f5d830189094bbc9146b655274de1a9b))
+
+* Merge branch &#39;main&#39; into dev ([`42365d4`](https://github.com/OZI-Project/OZI/commit/42365d452fb0fa9efcdc285fb8c4ae39dc38f5f2))
+
+* Merge pull request #241 from OZI-Project/dev
+
+Dev merge ([`03db7b7`](https://github.com/OZI-Project/OZI/commit/03db7b7220deaac962e7a48570a43762bd791838))
+
+* Merge branch &#39;main&#39; into dev ([`3d99675`](https://github.com/OZI-Project/OZI/commit/3d9967504ad1376699f33d9ca8f8e13d1d591fec))
+
+* :memo: Add missing docstrings.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`6514216`](https://github.com/OZI-Project/OZI/commit/6514216aca3fe6176bcc62252daa5018890539da))
+
 ## 0.0.288 (2024-03-10)
 
 ### :hammer:
