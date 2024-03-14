@@ -22,10 +22,9 @@ from ozi.filter import sha256sum
 from ozi.filter import to_distribution
 from ozi.filter import underscorify
 from ozi.filter import wheel_repr
-from ozi.spec import Metadata
+from ozi.spec import METADATA
 from ozi.tap import TAP
 
-metadata = Metadata()
 FILTERS = (
     next_minor,
     to_distribution,
@@ -54,7 +53,7 @@ def _init_environment() -> Environment:
                 env.filters.setdefault(f.__name__, f)
             case _lru_cache_wrapper():  # pragma: defer to pyright,mypy
                 env.filters.setdefault(f.__wrapped__.__name__, f)
-    env.globals = env.globals | metadata.asdict()
+    env.globals = env.globals | METADATA.asdict()
     return env
 
 
@@ -113,12 +112,8 @@ def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -
             template = env.get_template('github_workflows/ozi.yml.j2')
             with open(Path(target, '.github', 'workflows', 'ozi.yml'), 'w') as f:
                 f.write(template.render())
-        case _:
+        case _:  # pragma: no cover
             ci_user = ''
-            warn(
-                f'--ci-provider "{ci_provider}" unrecognized. ci_user could not be set.',
-                RuntimeWarning,
-            )
     return ci_user
 
 
@@ -135,7 +130,7 @@ def render_project_files(env: Environment, target: Path, name: str) -> None:
     Path(target, underscorify(name)).mkdir()
     Path(target, 'subprojects').mkdir()
     Path(target, 'tests').mkdir()
-    templates = metadata.spec.python.src.template
+    templates = METADATA.spec.python.src.template
     for filename in templates.root:
         template = env.get_template(f'{filename}.j2')
         try:

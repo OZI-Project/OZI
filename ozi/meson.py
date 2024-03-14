@@ -42,7 +42,7 @@ def load_ast(source_root: str) -> CodeBlockNode | None:  # pragma: no cover
     :return: The AST for a meson build definition if one is available OR None.
     :rtype: CodeBlockNode | None
     """
-    ast = AstInterpreter(source_root, '', '')
+    ast = AstInterpreter(source_root, '', '')  # pyright: ignore
     try:
         ast.load_root_meson_file()
     except InvalidArguments:  # pragma: no cover

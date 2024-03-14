@@ -100,12 +100,29 @@ class SrcTemplate(Default):
 class CommentPatterns(Default):
     """Search patterns for source comments."""
 
-    pragma_no_cover: str = r'^.*#\\s*(pragma|PRAGMA)[:\\s]?\\s*(no|NO)\\s*(cover|COVER)'
+    flake8_noqa: str = r'^.*#\\s*(flake8|FLAKE8)[:\\s]?\\s(noqa|NOQA)'
+    fmt_off: str = r'^.*#\\s*(fmt|FMT)[:\\s]?\\s(off|OFF)'
+    fmt_on: str = r'^.*#\\s*(fmt|FMT)[:\\s]?\\s(on|ON)'
+    fmt_skip: str = r'^.*#\\s*(fmt|FMT)[:\\s]?\\s(skip|SKIP)'
+    isort_dont_add_import: str = (
+        r'^.*#\\s*(isort|ISORT)[:\\s]?\\s(dont_add_import|DONT_ADD_IMPORT):\\s'
+    )
+    isort_dont_add_imports: str = (
+        r'^.*#\\s*(isort|ISORT)[:\\s]?\\s(dont_add_imports|DONT_ADD_IMPORTS)'
+    )
+    isort_off: str = r'^.*#\\s*(isort|ISORT)[:\\s]?\\s(off|OFF)'
+    isort_on: str = r'^.*#\\s*(isort|ISORT)[:\\s]?\\s(on|ON)'
+    isort_skip_file: str = r'^.*#\\s*(isort|ISORT)[:\\s]?\\s(skip_file|SKIP-FILE)'
+    isort_split: str = r'^.*#\\s*(isort|ISORT)[:\\s]?\\s(split|SPLIT)'
+    mypy: str = r'^.*#\\s*(mypy|MYPY)[:\\s]?\\s[a-zA-Z0-9_-]*'
+    noqa: str = r'^.*#\\s*(noqa|NOQA)[:\\s]?\\s[a-zA-Z0-9_]*'
+    nosec: str = r'^.*#\\s*(nosec|NOSEC)'
     pragma_defer_to: str = (
         r'^.*#\\s*(pragma|PRAGMA)[:\\s]?\\s*(defer|DEFER)\\s*(to|TO)\\s*[a-zA-Z0-9_-]*'
     )
-    noqa: str = r'^.*#\\s*(noqa|NOQA)[:\\s]?\\s*[a-zA-Z0-9_]*'
-    type: str = r'^.*#\\s*(type|TYPE)[:\\s]?\\s(ignore|IGNORE)'
+    pragma_no_cover: str = r'^.*#\\s*(pragma|PRAGMA)[:\\s]?\\s*(no|NO)\\s*(cover|COVER)'
+    pyright_ignore: str = r'^.*#\\s*(pyright|PYRIGHT)[:\\s]?\\s(ignore|IGNORE)'
+    type_ignore: str = r'^.*#\\s*(type|TYPE)[:\\s]?\\s(ignore|IGNORE)'
 
 
 @dataclass(slots=True, frozen=True, eq=True)

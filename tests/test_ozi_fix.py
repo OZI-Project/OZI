@@ -1,4 +1,5 @@
 # noqa: INP001
+# ruff: noqa: S101; flake8: DC102
 """Unit and fuzz tests for ``ozi-fix`` utility script"""
 # Part of ozi.
 # See LICENSE.txt in the project root for details.
@@ -15,14 +16,12 @@ from hypothesis import given
 from hypothesis import settings
 from hypothesis import strategies as st
 
-import ozi.fix.__main__
-import ozi.fix.rewrite_command
-import ozi.new.__main__
-import ozi.pkg_extra
-from ozi.render import load_environment
-from ozi.spec import Metadata
-
-metadata = Metadata()
+import ozi.fix.__main__  # pyright: ignore  # pyright: ignore
+import ozi.fix.rewrite_command  # pyright: ignore  # pyright: ignore
+import ozi.new.__main__  # pyright: ignore  # pyright: ignore
+import ozi.pkg_extra  # pyright: ignore  # pyright: ignore
+from ozi.render import load_environment  # pyright: ignore  # pyright: ignore
+from ozi.spec import METADATA  # pyright: ignore  # pyright: ignore
 
 required_pkg_info_patterns = (
     'Author',
@@ -86,7 +85,7 @@ def bad_project(tmp_path_factory: pytest.TempPathFactory) -> pathlib.Path:
 
 @pytest.mark.parametrize(
     'key',
-    [i for i in metadata.spec.python.src.required.root if i not in ['PKG-INFO']],
+    [i for i in METADATA.spec.python.src.required.root if i not in ['PKG-INFO']],
 )
 def test_report_missing_required_root_file(
     bad_project: pathlib.Path,
@@ -98,7 +97,7 @@ def test_report_missing_required_root_file(
         ozi.fix.__main__.report_missing(bad_project)
 
 
-@pytest.mark.parametrize('key', metadata.spec.python.src.required.test)
+@pytest.mark.parametrize('key', METADATA.spec.python.src.required.test)
 def test_report_missing_required_test_file(bad_project: pathlib.Path, key: str) -> None:
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath('tests') / key)
@@ -106,7 +105,7 @@ def test_report_missing_required_test_file(bad_project: pathlib.Path, key: str) 
         ozi.fix.__main__.report_missing(bad_project)
 
 
-@pytest.mark.parametrize('key', metadata.spec.python.src.required.source)
+@pytest.mark.parametrize('key', METADATA.spec.python.src.required.source)
 def test_report_missing_required_source_file(bad_project: pathlib.Path, key: str) -> None:
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath('ozi_phony') / key)
@@ -122,8 +121,8 @@ def test_report_missing_required_source_file(bad_project: pathlib.Path, key: str
     subdir=st.just(''),
     target_type=st.just('executable'),
 )
-def test_fuzz_RewriteCommand(
-    type: str,
+def test_fuzz_RewriteCommand(  # noqa: N802, DC102, RUF100
+    type: str,  # noqa: A002
     target: str,
     operation: str,
     sources: list[str],
@@ -146,19 +145,23 @@ def test_fuzz_RewriteCommand(
     fix=st.sampled_from(('test', 'source', 'root')),
     commands=st.lists(st.dictionaries(keys=st.text(), values=st.text())),
 )
-def test_fuzz_Rewriter(
+def test_fuzz_Rewriter(  # noqa: N802, DC102, RUF100
     target: str,
     name: str,
     fix: str,
     commands: list[dict[str, str]],
 ) -> None:
     ozi.fix.rewrite_command.Rewriter(
-        target=target, name=name, fix=fix, commands=commands, env=env
+        target=target,
+        name=name,
+        fix=fix,
+        commands=commands,
+        env=env,
     )
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
-def test_Rewriter_bad_project__iadd__dir_nested_warns(
+def test_Rewriter_bad_project__iadd__dir_nested_warns(  # noqa: N802, DC102, RUF100
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
@@ -173,7 +176,7 @@ def test_Rewriter_bad_project__iadd__dir_nested_warns(
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
-def test_Rewriter_bad_project__iadd__dir(
+def test_Rewriter_bad_project__iadd__dir(  # noqa: N802, DC102, RUF100
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
@@ -187,7 +190,7 @@ def test_Rewriter_bad_project__iadd__dir(
     assert len(rewriter.commands) == 1
 
 
-def test_Rewriter_bad_project__iadd__bad_fix(
+def test_Rewriter_bad_project__iadd__bad_fix(  # noqa: N802, DC102, RUF100
     bad_project: pytest.FixtureRequest,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
@@ -201,23 +204,29 @@ def test_Rewriter_bad_project__iadd__bad_fix(
     assert len(rewriter.commands) == 0
 
 
-def test_Rewriter_bad_project__isub__bad_fix(
+def test_Rewriter_bad_project__isub__bad_fix(  # noqa: N802, DC102, RUF100
     bad_project: pytest.FixtureRequest,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix='', env=env
+        target=str(bad_project),
+        name='ozi_phony',
+        fix='',
+        env=env,
     )
     rewriter -= ['foo.py']
     assert len(rewriter.commands) == 1
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
-def test_Rewriter_bad_project__isub__non_existing_child(
+def test_Rewriter_bad_project__isub__non_existing_child(  # noqa: N802, DC102, RUF100
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix, env=env
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
     )
     with pytest.raises(RuntimeWarning):
         rewriter -= ['foo/']
@@ -225,12 +234,15 @@ def test_Rewriter_bad_project__isub__non_existing_child(
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
-def test_Rewriter_bad_project__isub__child(
+def test_Rewriter_bad_project__isub__child(  # noqa: N802, DC102, RUF100
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix, env=env
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
     )
     if fix == 'root':
         pathlib.Path(str(bad_project), 'foo').mkdir()
@@ -243,12 +255,15 @@ def test_Rewriter_bad_project__isub__child(
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
-def test_Rewriter_bad_project__isub__python_file(
+def test_Rewriter_bad_project__isub__python_file(  # noqa: N802, DC102, RUF100
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix, env=env
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
     )
     if fix == 'root':
         pathlib.Path(str(bad_project), 'foo.py').touch()
@@ -261,12 +276,15 @@ def test_Rewriter_bad_project__isub__python_file(
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
-def test_Rewriter_bad_project__isub__file(
+def test_Rewriter_bad_project__isub__file(  # noqa: N802, DC102, RUF100
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix, env=env
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
     )
     if fix == 'root':
         pathlib.Path(str(bad_project), 'foo').touch()
@@ -279,19 +297,7 @@ def test_Rewriter_bad_project__isub__file(
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
-def test_Rewriter_bad_project__iadd__file(
-    bad_project: pytest.FixtureRequest,
-    fix: str,
-) -> None:
-    rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix, env=env
-    )
-    rewriter += ['foo.py']
-    assert len(rewriter.commands) == 1
-
-
-@pytest.mark.parametrize('fix', ['test', 'root', 'source'])
-def test_Rewriter_bad_project__iadd__file_from_template(
+def test_Rewriter_bad_project__iadd__file(  # noqa: N802, DC102, RUF100
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
@@ -301,23 +307,41 @@ def test_Rewriter_bad_project__iadd__file_from_template(
         fix=fix,
         env=env,
     )
-    pathlib.Path(bad_project / 'templates').mkdir()
-    pathlib.Path(bad_project / 'templates' / 'foo.py').touch()
-    pathlib.Path(bad_project / 'templates' / 'source').mkdir()
-    pathlib.Path(bad_project / 'templates' / 'source' / 'foo.py').touch()
-    pathlib.Path(bad_project / 'templates' / 'test').mkdir()
-    pathlib.Path(bad_project / 'templates' / 'test' / 'foo.py').touch()
     rewriter += ['foo.py']
     assert len(rewriter.commands) == 1
 
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
-def test_Rewriter_bad_project__iadd__non_python_file(
+def test_Rewriter_bad_project__iadd__file_from_template(  # noqa: N802, DC102, RUF100
     bad_project: pytest.FixtureRequest,
     fix: str,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
-        target=str(bad_project), name='ozi_phony', fix=fix, env=env
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
+    )
+    pathlib.Path(bad_project / 'templates').mkdir()  # pyright: ignore
+    pathlib.Path(bad_project / 'templates' / 'foo.py').touch()  # pyright: ignore
+    pathlib.Path(bad_project / 'templates' / 'source').mkdir()  # pyright: ignore
+    pathlib.Path(bad_project / 'templates' / 'source' / 'foo.py').touch()  # pyright: ignore
+    pathlib.Path(bad_project / 'templates' / 'test').mkdir()  # pyright: ignore
+    pathlib.Path(bad_project / 'templates' / 'test' / 'foo.py').touch()  # pyright: ignore
+    rewriter += ['foo.py']
+    assert len(rewriter.commands) == 1
+
+
+@pytest.mark.parametrize('fix', ['test', 'root', 'source'])
+def test_Rewriter_bad_project__iadd__non_python_file(  # noqa: N802, DC102, RUF100
+    bad_project: pytest.FixtureRequest,
+    fix: str,
+) -> None:
+    rewriter = ozi.fix.rewrite_command.Rewriter(
+        target=str(bad_project),
+        name='ozi_phony',
+        fix=fix,
+        env=env,
     )
     rewriter += ['foo']
     assert len(rewriter.commands) == 1
@@ -331,10 +355,10 @@ header = """.. OZI
 
 @settings(deadline=timedelta(milliseconds=1000))
 @given(payload=st.text(max_size=65535).map(header.__add__), as_message=st.booleans())
-def test_fuzz_pkg_info_extra(payload: str, as_message: bool) -> None:
+def test_fuzz_pkg_info_extra(payload: str, as_message: bool) -> None:  # noqa: DC102, RUF100
     ozi.pkg_extra._pkg_info_extra(payload=payload, as_message=as_message)  # noqa: SLF001
 
 
 @given(s=st.from_regex(r'^([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9._-]*[A-Za-z0-9])$'))
-def test_fuzz_underscorify(s: str) -> None:
+def test_fuzz_underscorify(s: str) -> None:  # noqa: DC102, RUF100
     ozi.fix.__main__.underscorify(s=s)

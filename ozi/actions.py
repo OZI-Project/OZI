@@ -5,13 +5,12 @@
 """Parsing actions for the OZI commandline interface."""
 from __future__ import annotations
 
-import re
 from argparse import Action
-from dataclasses import asdict
 from dataclasses import dataclass
-from functools import lru_cache
+from difflib import get_close_matches
 from typing import TYPE_CHECKING
 from typing import Any
+from warnings import warn
 
 if TYPE_CHECKING:
     import sys
@@ -24,52 +23,19 @@ if TYPE_CHECKING:
     elif sys.version_info < (3, 11):
         from typing_extensions import Self
 
-from difflib import get_close_matches
-from warnings import warn
-
 from spdx_license_list import LICENSES
-from trove_classifiers import classifiers
 
-from ozi.spec import License
-
-CLASSIFIER_RE = re.compile(r'^([\w\s]*\s\:\:\s)?')
-
-
-@lru_cache
-def get_trove_prefix(text: str) -> str | None:
-    if m := re.match(CLASSIFIER_RE, text):
-        return str(m[0])
-    return None  # pragma: no cover
-
-
-valid_trove_prefixes = set(map(get_trove_prefix, classifiers))
-
-
-@dataclass(frozen=True, slots=True, eq=True)
-class Prefix:
-    audience: str = 'Intended Audience :: '
-    environment: str = 'Environment :: '
-    framework: str = 'Framework :: '
-    language: str = 'Natural Language :: '
-    license: str = 'License :: '
-    status: str = 'Development Status :: '
-    topic: str = 'Topic :: '
-
-    def __post_init__(self: Self) -> None:
-        if not valid_trove_prefixes.issuperset(asdict(self).values()):  # pragma: no cover
-            warn('Possible deprecated Classifier prefix literal.', FutureWarning)
-
-
-@lru_cache
-def from_prefix(prefix: str) -> tuple[str, ...]:
-    return tuple(i[len(prefix) :].lstrip() for i in classifiers if i.startswith(str(prefix)))
-
+from ozi.spec import METADATA
+from ozi.trove import Prefix
+from ozi.trove import from_prefix
 
 _prefix = Prefix()
 
 
 @dataclass
 class ExactMatch:
+    """Exact matches data for packaging core metadata."""
+
     audience: tuple[str, ...] = from_prefix(_prefix.audience)
     language: tuple[str, ...] = from_prefix(_prefix.language)
     framework: tuple[str, ...] = from_prefix(_prefix.framework)
@@ -78,7 +44,7 @@ class ExactMatch:
     license_id: tuple[str, ...] = tuple(
         k for k, v in LICENSES.items() if v.deprecated_id is False
     )
-    license_exception_id: tuple[str, ...] = License().exceptions
+    license_exception_id: tuple[str, ...] = METADATA.spec.python.pkg.license.exceptions
     status: tuple[str, ...] = from_prefix(_prefix.status)
     topic: tuple[str, ...] = from_prefix(_prefix.topic)
 

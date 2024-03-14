@@ -35,6 +35,8 @@ class Spec(Default):
 
 @dataclass(slots=True, frozen=True, eq=True)
 class Experimental(Default):
+    """Experimental OZI specifications."""
+
     ruff: RuffLint = RuffLint()
 
 

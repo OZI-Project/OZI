@@ -37,15 +37,13 @@ from ozi.actions import ExactMatch  # pragma: no cover
 from ozi.fix.__main__ import main as fix_main  # pragma: no cover
 from ozi.new.__main__ import main as new_main  # pragma: no cover
 from ozi.spdx import spdx_license_expression  # pragma: no cover
-from ozi.spec import Metadata  # pragma: no cover
+from ozi.spec import METADATA  # pragma: no cover
 from ozi.tap import TAP  # pragma: no cover
-
-metadata = Metadata()  # pragma: no cover
 
 
 def print_version() -> NoReturn:  # pragma: no cover
     """Print out the current version and exit."""
-    print(metadata.ozi.version)
+    print(METADATA.ozi.version)
     sys.exit(0)
 
 
@@ -73,7 +71,7 @@ def check_version() -> NoReturn:  # pragma: defer to PyPI
     match response.status_code:
         case 200:
             check_for_update(
-                current_version=parse(Metadata().ozi.version),
+                current_version=parse(METADATA.ozi.version),
                 releases=set(map(parse, response.json()['releases'].keys())),
             )
             TAP.end()
@@ -86,7 +84,7 @@ def check_version() -> NoReturn:  # pragma: defer to PyPI
 
 def info() -> NoReturn:  # pragma: no cover
     """Print all metadata as JSON and exit."""
-    sys.exit(print(json.dumps(metadata.asdict(), indent=2)))
+    sys.exit(print(json.dumps(METADATA.asdict(), indent=2)))
 
 
 def list_available(key: str) -> NoReturn:  # pragma: no cover
@@ -95,6 +93,7 @@ def list_available(key: str) -> NoReturn:  # pragma: no cover
 
 
 def license_expression(expr: str) -> NoReturn:  # pragma: no cover
+    """Validate a SPDX license expression."""
     try:
         spdx_license_expression.parse_string(expr, parse_all=True)
         TAP.ok(expr, 'parsed successfully')
@@ -170,6 +169,7 @@ helpers.add_argument(  # pragma: no cover
 
 
 def main() -> None:  # pragma: no cover
+    """``ozi`` script entrypoint."""
     ozi, args = parser.parse_known_args()
     ozi.version()
     ozi.check_version()

@@ -6,6 +6,7 @@ config_files = [
     '__init__.py',
     '__main__.py',
     'parser.py',
+    'validate.py',
 ]
 foreach file: config_files
     python.install_sources(file, subdir: 'ozi'/'new')
