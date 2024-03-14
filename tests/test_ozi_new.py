@@ -21,6 +21,7 @@ from ozi.spec import METADATA  # pyright: ignore
 
 @settings(
     suppress_health_check=[HealthCheck.too_slow],
+    deadline=timedelta(milliseconds=1000),
 )
 @given(
     project=st.fixed_dictionaries(
