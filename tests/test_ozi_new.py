@@ -74,17 +74,15 @@ from ozi.tap import TAP  # pyright: ignore
             'license_exception_id': st.one_of(
                 list(map(st.just, ozi.actions.ExactMatch().license_exception_id)),  # type: ignore
             ),
-            'topic': st.lists(st.one_of(list(map(st.just, ozi.actions.ExactMatch().topic)))),  # type: ignore
-            'audience': st.lists(st.one_of(list(map(st.just, ozi.actions.ExactMatch().audience)))),  # type: ignore
+            'topic': st.lists(list(map(st.just, ozi.actions.ExactMatch().topic))),  # type: ignore
+            'audience': st.lists(list(map(st.just, ozi.actions.ExactMatch().audience))),  # type: ignore
             'framework': st.lists(
-                st.one_of(list(map(st.just, ozi.actions.ExactMatch().framework))),  # type: ignore
+                list(map(st.just, ozi.actions.ExactMatch().framework)),  # type: ignore
             ),
             'environment': st.lists(
-                st.one_of(
                     list(map(st.just, ozi.actions.ExactMatch().environment)),  # type: ignore
-                ),
             ),
-            'status': st.lists(st.one_of(list(map(st.just, ozi.actions.ExactMatch().status)))),  # type: ignore
+            'status': st.lists(list(map(st.just, ozi.actions.ExactMatch().status))),  # type: ignore
             'dist_requires': st.lists(
                 st.from_regex(
                     r'^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9]){1,80}$',
