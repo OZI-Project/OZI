@@ -80,7 +80,7 @@ from ozi.tap import TAP  # pyright: ignore
                 list(map(st.just, ozi.actions.ExactMatch().framework)),  # type: ignore
             ),
             'environment': st.lists(
-                    list(map(st.just, ozi.actions.ExactMatch().environment)),  # type: ignore
+                list(map(st.just, ozi.actions.ExactMatch().environment)),  # type: ignore
             ),
             'status': st.lists(list(map(st.just, ozi.actions.ExactMatch().status))),  # type: ignore
             'dist_requires': st.lists(
