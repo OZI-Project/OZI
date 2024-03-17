@@ -16,18 +16,22 @@ from hypothesis import strategies as st
 
 import ozi.actions  # pyright: ignore
 import ozi.new.__main__  # pyright: ignore
+from ozi.fix.missing import missing_required  # pyright: ignore
+from ozi.fix.missing import missing_required_files  # pyright: ignore
+from ozi.render import load_environment  # pyright: ignore
 from ozi.spec import METADATA  # pyright: ignore
+from ozi.tap import TAP  # pyright: ignore
 
 
 @settings(
     suppress_health_check=[HealthCheck.too_slow],
-    deadline=timedelta(milliseconds=1000),
+    deadline=timedelta(seconds=10),
 )
 @given(
     project=st.fixed_dictionaries(
         {
             'verify_email': st.just(False),
-            'strict': st.just(False),
+            'strict': st.booleans(),
             'target': st.data(),
             'keywords': st.from_regex(r'^(([a-z_]*[a-z0-9],)*){2,650}$', fullmatch=True),
             'ci_provider': st.just('github'),
@@ -108,7 +112,22 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102, RUF100
     )
     project['license_expression'] = license_expression.draw(st.just(project['license_id']))
     namespace = argparse.Namespace(**project)
-    ozi.new.__main__.postprocess_arguments(ozi.new.__main__.preprocess_arguments(namespace))
+    preprocessed = ozi.new.__main__.preprocess_arguments(namespace)
+    postprocessed = ozi.new.__main__.postprocess_arguments(preprocessed)
+    ozi.new.__main__.create_project_files(
+        postprocessed,
+        env=load_environment(vars(postprocessed)),
+    )
+    name, _ = missing_required(postprocessed.target)
+    missing_required_files('root', postprocessed.target, postprocessed.name)
+    missing_required_files('test', postprocessed.target, postprocessed.name)
+    missing_required_files(
+        'source',
+        postprocessed.target,
+        postprocessed.name,
+    )
+    with pytest.raises(SystemExit):
+        TAP.end()
 
 
 @pytest.mark.parametrize(

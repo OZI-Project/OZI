@@ -66,7 +66,7 @@ def _pkg_info_extra(payload: str, as_message: bool = True) -> dict[str, str] | M
 
 def parse_extra_pkg_info(
     pkg_info: Message,
-) -> tuple[dict[str, str], str | None]:  # pragma: no cover
+) -> tuple[dict[str, str], str | None]:
     """Get extra Classifiers tacked onto the PKG-INFO payload by OZI."""
     errstr = None
     try:

@@ -108,8 +108,9 @@ def postprocess_arguments(project: Namespace) -> Namespace:
 
 def project(project: Namespace) -> None:
     """Create a new project in a target directory."""
+    project = postprocess_arguments(preprocess_arguments(project))
     create_project_files(
-        project=postprocess_arguments(preprocess_arguments(project)),
+        project=project,
         env=load_environment(vars(project)),
     )
 

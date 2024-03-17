@@ -36,7 +36,7 @@ def render_requirements(target: Path) -> str:
     return ''.join([f'Requires-Dist: {req}\n' for req in requirements])
 
 
-def missing_python_support(pkg_info: Message) -> set[tuple[str, str]]:  # pragma: no cover
+def missing_python_support(pkg_info: Message) -> set[tuple[str, str]]:
     """Check PKG-INFO Message for python support."""
     remaining_pkg_info = {
         (k, v)
@@ -44,21 +44,21 @@ def missing_python_support(pkg_info: Message) -> set[tuple[str, str]]:  # pragma
         if k not in METADATA.spec.python.pkg.info.required
     }
     for k, v in iter(METADATA.ozi.python_support.classifiers[:4]):
-        if (k, v) in remaining_pkg_info:
+        if (k, v) in remaining_pkg_info:  # pragma: no cover
             TAP.ok(k, v)
         else:
             TAP.not_ok('MISSING', v)  # pragma: defer to good-issue
     return remaining_pkg_info
 
 
-def missing_ozi_required(pkg_info: Message) -> dict[str, str]:  # pragma: no cover
+def missing_ozi_required(pkg_info: Message) -> dict[str, str]:
     """Check missing required OZI extra PKG-INFO"""
     remaining_pkg_info = missing_python_support(pkg_info)
     remaining_pkg_info.difference_update(set(iter(METADATA.ozi.python_support.classifiers)))
     for k, v in iter(remaining_pkg_info):
         TAP.ok(k, v)
     extra_pkg_info, errstr = parse_extra_pkg_info(pkg_info)
-    if errstr not in ('', None):  # pragma: defer to good-issue
+    if errstr not in ('', None):  # pragma: no cover
         TAP.not_ok('MISSING', str(errstr))
     return extra_pkg_info
 
@@ -90,24 +90,24 @@ def missing_required(
         v = pkg_info.get(i, None)
         if v is not None:
             TAP.ok(i, v)
-        else:
-            TAP.not_ok('MISSING', i)  # pragma: defer to good-issue
-    extra_pkg_info = missing_ozi_required(pkg_info)  # pragma: defer to good-issue
+        else:  # pragma: no cover
+            TAP.not_ok('MISSING', i)
+    extra_pkg_info = missing_ozi_required(pkg_info)
     name = re.sub(
         r'[-_.]+',
         '-',
         pkg_info.get('Name', ''),
-    ).lower()  # pragma: defer to good-issue
-    for k, v in extra_pkg_info.items():  # pragma: defer to good-issue
+    ).lower()
+    for k, v in extra_pkg_info.items():
         TAP.ok(k, v)
-    return name, extra_pkg_info  # pragma: defer to good-issue
+    return name, extra_pkg_info
 
 
 def missing_required_files(
     kind: str,
     target: Path,
     name: str,
-) -> list[str]:  # pragma: no cover
+) -> list[str]:
     """Count missing files required by OZI"""
     found_files = []
     match kind:
@@ -130,7 +130,14 @@ def missing_required_files(
             continue  # pragma: defer to https://github.com/nedbat/coveragepy/issues/198
         if str(f).endswith('.py'):
             with open(target.joinpath(f)) as fh:
-                comment.diagnostic(fh.readlines(), f)
+                count = comment.diagnostic(fh.readlines(), f)
+            if count.total() > 0:  # pragma: no cover
+                TAP.diagnostic(str(rel_path), *(f'{k}: {v}' for k, v in count.items()))
+            TAP.diagnostic(
+                str(f),
+                'quality score',
+                f'{comment.score_file(f, count)}/5.0',
+            )
         TAP.ok(str(f))
         found_files.append(file)
     walk(target, rel_path, found_files=found_files)
