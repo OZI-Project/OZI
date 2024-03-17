@@ -1,4 +1,44 @@
 # CHANGELOG
+## 0.0.290 (2024-03-17)
+
+### :hammer:
+
+* :hammer:: Add a comment scoring rubric to ``ozi-fix``.
+
+Also add a TAP tests module. ([`77f5fba`](https://github.com/OZI-Project/OZI/commit/77f5fbaf1f3b4f06d929f5147e8eaf040872536e))
+
+### Other
+
+* Merge pull request #248 from OZI-Project/main
+
+Release ([`296ec5a`](https://github.com/OZI-Project/OZI/commit/296ec5a9d7884ea577ca7f9215a90c321f0fbd66))
+
+* Merge pull request #247 from OZI-Project/dev
+
+Dev merge ([`1dd1d30`](https://github.com/OZI-Project/OZI/commit/1dd1d3059927a1fd071b47c8dba6ff8e54dda260))
+
+* use sampled_from. ([`a1f407a`](https://github.com/OZI-Project/OZI/commit/a1f407aeaac7d1508cab5ce1ead442ba1cf25fc1))
+
+* fix lint. ([`0bf8f5a`](https://github.com/OZI-Project/OZI/commit/0bf8f5a622f7bab79f344b818aea9de874c49617))
+
+* Fix fuzzer input. ([`42a9125`](https://github.com/OZI-Project/OZI/commit/42a9125fc213fcae07473b0a864bf1403ddd0f19))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`fc3289f`](https://github.com/OZI-Project/OZI/commit/fc3289f50fbad443cb534b2a40636def101491f7))
+
+* Fix fuzzer inputs.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`33b3a25`](https://github.com/OZI-Project/OZI/commit/33b3a2536bdbedb8f4fa1ab127ca5105aaccd2a6))
+
+* Merge branch &#39;main&#39; into dev ([`fb09763`](https://github.com/OZI-Project/OZI/commit/fb0976356cf1078d36142c2c4d020df987ee5225))
+
+* :white_check_mark: 1s deadline for good_namespace checks.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`2f4dbf6`](https://github.com/OZI-Project/OZI/commit/2f4dbf6bd011d864edc92d1e78a3fb9b2aec1f82))
+
+* :white_check_mark: Optimize test example size.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`90ad8e1`](https://github.com/OZI-Project/OZI/commit/90ad8e1b54975c567954e9c554adff9a126c468f))
+
 ## 0.0.289 (2024-03-14)
 
 ### :hammer:
