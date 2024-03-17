@@ -39,16 +39,23 @@ def inspect_files(
         if str(rel_path / file) not in build_files and file not in found_files:
             build_file = str(rel_path / 'meson.build')
             TAP.not_ok('MISSING', f'{build_file}: {rel_path / file!s}')
-        if str(file).endswith('.py'):  # pragma: no cover
+        if str(file).endswith('.py'):
             with open(target.joinpath(rel_path) / file, 'r') as g:
-                comment.diagnostic(g.readlines(), rel_path / file)
+                count = comment.diagnostic(g.readlines(), rel_path / file)
+            if count.total() > 0:
+                TAP.diagnostic(str(rel_path), *(f'{k}: {v}' for k, v in count.items()))
+            TAP.diagnostic(
+                str(rel_path / file),
+                'quality score',
+                f'{comment.score_file(rel_path / file, count)}/5.0',
+            )
 
 
 def process(
     target: Path,
     rel_path: Path,
     found_files: list[str] | None = None,
-) -> None:  # pragma: no cover
+) -> None:
     """Process an OZI project build definition's files."""
     extra_files = [
         file
@@ -85,7 +92,7 @@ def validate(
                 'MISSING',
                 skip=True,
             )
-        else:  # pragma: no cover
+        else:
             TAP.ok(
                 str(rel_path / 'meson.build'),
                 'subdir',
@@ -99,7 +106,7 @@ def walk(
     target: Path,
     rel_path: Path,
     found_files: list[str] | None = None,
-) -> None:  # pragma: no cover
+) -> None:
     """Walk an OZI standard build definition's directories."""
     validate(
         target,

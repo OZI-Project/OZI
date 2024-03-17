@@ -77,7 +77,7 @@ class TAP(ContextDecorator):
     _count = Counter(ok=0, not_ok=0, skip=0)
 
     @classmethod
-    def end(cls: type[Self], skip_reason: str = '') -> NoReturn:  # pragma: no cover
+    def end(cls: type[Self], skip_reason: str = '') -> NoReturn:
         """End a TAP diagnostic.
 
         :param skip_reason: A skip reason, optional, defaults to ''.
@@ -85,26 +85,29 @@ class TAP(ContextDecorator):
         :return: Exits the diagnostic.
         :rtype: NoReturn
         """
-        skip = cls._count.pop(SKIP)
+        try:
+            skip = cls._count.pop(SKIP)
+        except KeyError:  # pragma: no cover
+            TAP.diagnostic('Possible thread violation by TAP producer.')
+            skip = 0
         count = cls._count.total()
         match [count, skip_reason, skip]:
-            case [0, reason, s] if [reason, s] and reason != '' and skip > 0:
-                sys.stdout.write(f'1..{count} # SKIP {reason}\n')
+            case [n, r, s] if r == '' and s > 0:  # type: ignore
+                TAP.diagnostic('items skipped', str(s))
+                sys.stdout.write(f'1..{n}\n')
                 sys.exit(0)
-            case [0, reason, s] if [reason, s] and reason == '' and skip > 0:
-                sys.stdout.write(f'1..{count} # SKIP no "skip_reason" provided\n')
+            case [n, r, s] if r != '' and s > 0:  # type: ignore
+                TAP.diagnostic('items skipped', str(s))
+                sys.stdout.write(f'1..{n} # SKIP {r}\n')
                 sys.exit(0)
-            case [n, reason, s] if [reason, s] and reason == '' and skip > 0:
-                sys.stdout.write(f'1..{count}\n')
+            case [n, r, s] if r != '' and s == 0:
+                TAP.diagnostic('unnecessary argument "skip_reason" to TAP.end')
+                sys.stdout.write(f'1..{n}\n')
                 sys.exit(0)
-            case [n, reason, 0] if [n, reason] and reason != '' and count > 0:
-                TAP.diagnostic('unecessary argument "skip_reason" to TAP.end')
-                sys.stdout.write(f'1..{count}\n')
+            case [n, r, s] if r == '' and s == 0:
+                sys.stdout.write(f'1..{n}\n')
                 sys.exit(0)
-            case [n, reason, 0] if [n, reason] and reason == '' and count > 0:
-                sys.stdout.write(f'1..{count}\n')
-                sys.exit(0)
-            case _:
+            case _:  # pragma: no cover
                 TAP.bail_out('TAP.end failed due to invalid arguments.')
 
     @staticmethod
@@ -115,10 +118,10 @@ class TAP(ContextDecorator):
         :type \*message: tuple[str]
         """
         formatted = ' - '.join(message).strip()
-        sys.stderr.write(f'# {formatted}\n')  # pragma: no cover
+        sys.stderr.write(f'# {formatted}\n')
 
     @staticmethod
-    def bail_out(*message: str) -> NoReturn:  # pragma: no cover
+    def bail_out(*message: str) -> NoReturn:
         r"""Print a bail out message and exit.
 
         :param \*message: messages to print to TAP output
@@ -129,7 +132,7 @@ class TAP(ContextDecorator):
 
     @staticmethod
     @contextmanager
-    def suppress() -> Generator[None, Any, None]:  # pragma: no cover
+    def suppress() -> Generator[None, Any, None]:  # pragma: defer to python
         """Suppress output from TAP Producers.
 
         Suppresses the following output to stderr:
@@ -151,7 +154,7 @@ class TAP(ContextDecorator):
 
     @staticmethod
     @contextmanager
-    def strict() -> Generator[None, Any, None]:  # pragma: no cover
+    def strict() -> Generator[None, Any, None]:
         """Transform any ``warn()`` or ``TAP.not_ok()`` calls into Python errors.
 
         .. note::
