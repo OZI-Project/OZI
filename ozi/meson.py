@@ -25,6 +25,8 @@ from mesonbuild.mparser import PlusAssignmentNode
 from mesonbuild.mparser import StringNode
 from mesonbuild.mparser import UMinusNode
 
+from ozi.tap import TAP
+
 SelectValue: TypeAlias = type[AssignmentNode | PlusAssignmentNode | NotNode | UMinusNode]
 
 SelectItems: TypeAlias = type[ForeachClauseNode]
@@ -34,7 +36,7 @@ WhereValue: TypeAlias = type[ArrayNode | DictNode | MethodNode | FunctionNode]
 WhereItems: TypeAlias = type[IdNode]
 
 
-def load_ast(source_root: str) -> CodeBlockNode | None:  # pragma: no cover
+def load_ast(source_root: str) -> CodeBlockNode | None:
     """Load the :abbr:`AST (Abstract Syntax Tree)` from the root :file:`meson.build`.
 
     :param source_root: Directory containing a top-level :file:`meson.build`.
@@ -68,6 +70,10 @@ def project_metadata(ast: CodeBlockNode) -> tuple[str, str]:
 
     if isinstance(license_, ArrayNode):  # pragma: no cover
         license_ = license_.args.arguments[0]
+        TAP.diagnostic(
+            'Found an array of licenses in meson.build, OZI will only use the first: ',
+            license_.value,  # pyright: ignore
+        )
 
     license_ = license_.value  # pyright: ignore
 

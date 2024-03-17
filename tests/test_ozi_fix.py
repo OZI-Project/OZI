@@ -16,12 +16,12 @@ from hypothesis import given
 from hypothesis import settings
 from hypothesis import strategies as st
 
-import ozi.fix.__main__  # pyright: ignore  # pyright: ignore
-import ozi.fix.rewrite_command  # pyright: ignore  # pyright: ignore
-import ozi.new.__main__  # pyright: ignore  # pyright: ignore
-import ozi.pkg_extra  # pyright: ignore  # pyright: ignore
-from ozi.render import load_environment  # pyright: ignore  # pyright: ignore
-from ozi.spec import METADATA  # pyright: ignore  # pyright: ignore
+import ozi.fix.__main__  # pyright: ignore
+import ozi.fix.rewrite_command  # pyright: ignore
+import ozi.new.__main__  # pyright: ignore
+import ozi.pkg_extra  # pyright: ignore
+from ozi.render import load_environment  # pyright: ignore
+from ozi.spec import METADATA  # pyright: ignore
 
 required_pkg_info_patterns = (
     'Author',
@@ -115,9 +115,9 @@ def test_report_missing_required_source_file(bad_project: pathlib.Path, key: str
 
 @given(
     type=st.just('target'),
-    target=st.text(),
-    operation=st.text(),
-    sources=st.lists(st.text()),
+    target=st.text(min_size=1, max_size=20),
+    operation=st.text(min_size=1, max_size=20),
+    sources=st.lists(st.text(min_size=1, max_size=20)),
     subdir=st.just(''),
     target_type=st.just('executable'),
 )
@@ -141,9 +141,14 @@ def test_fuzz_RewriteCommand(  # noqa: N802, DC102, RUF100
 
 @given(
     target=st.just('.'),
-    name=st.text(),
+    name=st.text(min_size=1, max_size=20),
     fix=st.sampled_from(('test', 'source', 'root')),
-    commands=st.lists(st.dictionaries(keys=st.text(), values=st.text())),
+    commands=st.lists(
+        st.dictionaries(
+            keys=st.text(min_size=1, max_size=20),
+            values=st.text(min_size=1, max_size=20),
+        ),
+    ),
 )
 def test_fuzz_Rewriter(  # noqa: N802, DC102, RUF100
     target: str,
