@@ -94,7 +94,7 @@ def test_report_missing_required_root_file(
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath(key))
     with pytest.raises(RuntimeWarning):
-        ozi.fix.__main__.report_missing(bad_project)
+        ozi.fix.__main__.report(bad_project)
 
 
 @pytest.mark.parametrize('key', METADATA.spec.python.src.required.test)
@@ -102,7 +102,7 @@ def test_report_missing_required_test_file(bad_project: pathlib.Path, key: str) 
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath('tests') / key)
     with pytest.raises(RuntimeWarning):
-        ozi.fix.__main__.report_missing(bad_project)
+        ozi.fix.__main__.report(bad_project)
 
 
 @pytest.mark.parametrize('key', METADATA.spec.python.src.required.source)
@@ -110,7 +110,7 @@ def test_report_missing_required_source_file(bad_project: pathlib.Path, key: str
     """Check that we warn on missing files."""
     os.remove(bad_project.joinpath('ozi_phony') / key)
     with pytest.raises(RuntimeWarning):
-        ozi.fix.__main__.report_missing(bad_project)
+        ozi.fix.__main__.report(bad_project)
 
 
 @given(

@@ -36,7 +36,24 @@ def render_requirements(target: Path) -> str:
     return ''.join([f'Requires-Dist: {req}\n' for req in requirements])
 
 
-def missing_python_support(pkg_info: Message) -> set[tuple[str, str]]:
+def render_pkg_info(target: Path, name: str, _license: str) -> Message:
+    """Render PKG-INFO as it would be produced during packaging."""
+    with target.joinpath('pyproject.toml').open('rb') as f:
+        setuptools_scm = toml.load(f).get('tool', {}).get('setuptools_scm', {})
+        return message_from_string(
+            setuptools_scm.get('version_file_template', '@README_TEXT@')
+            .replace(
+                '@README_TEXT@',
+                target.joinpath('README.rst').read_text(),
+            )
+            .replace('@PROJECT_NAME@', name)
+            .replace('@LICENSE@', _license)
+            .replace('@REQUIREMENTS_IN@\n', render_requirements(target))
+            .replace('@SCM_VERSION@', '{version}'),
+        )
+
+
+def python_support(pkg_info: Message) -> set[tuple[str, str]]:
     """Check PKG-INFO Message for python support."""
     remaining_pkg_info = {
         (k, v)
@@ -51,9 +68,9 @@ def missing_python_support(pkg_info: Message) -> set[tuple[str, str]]:
     return remaining_pkg_info
 
 
-def missing_ozi_required(pkg_info: Message) -> dict[str, str]:
+def required_extra_pkg_info(pkg_info: Message) -> dict[str, str]:
     """Check missing required OZI extra PKG-INFO"""
-    remaining_pkg_info = missing_python_support(pkg_info)
+    remaining_pkg_info = python_support(pkg_info)
     remaining_pkg_info.difference_update(set(iter(METADATA.ozi.python_support.classifiers)))
     for k, v in iter(remaining_pkg_info):
         TAP.ok(k, v)
@@ -63,7 +80,7 @@ def missing_ozi_required(pkg_info: Message) -> dict[str, str]:
     return extra_pkg_info
 
 
-def missing_required(
+def required_pkg_info(
     target: Path,
 ) -> tuple[str, dict[str, str]]:
     """Find missing required PKG-INFO"""
@@ -72,38 +89,22 @@ def missing_required(
     license_ = ''
     if ast:
         name, license_ = project_metadata(ast)
-    with target.joinpath('pyproject.toml').open('rb') as f:
-        setuptools_scm = toml.load(f).get('tool', {}).get('setuptools_scm', {})
-        pkg_info = message_from_string(
-            setuptools_scm.get('version_file_template', '@README_TEXT@')
-            .replace(
-                '@README_TEXT@',
-                target.joinpath('README.rst').read_text(),
-            )
-            .replace('@PROJECT_NAME@', name)
-            .replace('@LICENSE@', license_)
-            .replace('@REQUIREMENTS_IN@\n', render_requirements(target))
-            .replace('@SCM_VERSION@', '{version}'),
-        )
-        TAP.ok('setuptools_scm', 'PKG-INFO', 'template')
+    pkg_info = render_pkg_info(target, name, license_)
+    TAP.ok('setuptools_scm', 'PKG-INFO', 'template')
     for i in METADATA.spec.python.pkg.info.required:
         v = pkg_info.get(i, None)
         if v is not None:
             TAP.ok(i, v)
         else:  # pragma: no cover
             TAP.not_ok('MISSING', i)
-    extra_pkg_info = missing_ozi_required(pkg_info)
-    name = re.sub(
-        r'[-_.]+',
-        '-',
-        pkg_info.get('Name', ''),
-    ).lower()
+    extra_pkg_info = required_extra_pkg_info(pkg_info)
+    name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', '')).lower()
     for k, v in extra_pkg_info.items():
         TAP.ok(k, v)
     return name, extra_pkg_info
 
 
-def missing_required_files(
+def required_files(
     kind: str,
     target: Path,
     name: str,
@@ -149,7 +150,7 @@ def missing_required_files(
     return found_files
 
 
-def report_missing(
+def report(
     target: Path,
 ) -> tuple[str, Message | None, list[str], list[str], list[str]]:
     """Report missing OZI project files
@@ -161,21 +162,21 @@ def report_missing(
     pkg_info = None
     extra_pkg_info: dict[str, str] = {}
     try:
-        name, extra_pkg_info = missing_required(target)
+        name, extra_pkg_info = required_pkg_info(target)
     except FileNotFoundError:
         name = ''
         TAP.not_ok('MISSING', 'PKG-INFO')
-    found_source_files = missing_required_files(
+    found_source_files = required_files(
         'source',
         target,
         name,
     )  # pragma: defer to good-issue
-    found_test_files = missing_required_files(
+    found_test_files = required_files(
         'test',
         target,
         name,
     )  # pragma: defer to good-issue
-    found_root_files = missing_required_files(
+    found_root_files = required_files(
         'root',
         target,
         name,

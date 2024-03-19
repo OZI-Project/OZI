@@ -16,8 +16,8 @@ from hypothesis import strategies as st
 
 import ozi.actions  # pyright: ignore
 import ozi.new.__main__  # pyright: ignore
-from ozi.fix.missing import missing_required  # pyright: ignore
-from ozi.fix.missing import missing_required_files  # pyright: ignore
+from ozi.fix.missing import required_files  # pyright: ignore
+from ozi.fix.missing import required_pkg_info  # pyright: ignore
 from ozi.render import load_environment  # pyright: ignore
 from ozi.spec import METADATA  # pyright: ignore
 from ozi.tap import TAP  # pyright: ignore
@@ -124,10 +124,10 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102, RUF100
         postprocessed,
         env=load_environment(vars(postprocessed)),
     )
-    name, _ = missing_required(postprocessed.target)
-    missing_required_files('root', postprocessed.target, postprocessed.name)
-    missing_required_files('test', postprocessed.target, postprocessed.name)
-    missing_required_files(
+    name, _ = required_pkg_info(postprocessed.target)
+    required_files('root', postprocessed.target, postprocessed.name)
+    required_files('test', postprocessed.target, postprocessed.name)
+    required_files(
         'source',
         postprocessed.target,
         postprocessed.name,

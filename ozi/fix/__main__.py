@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import NoReturn
 
 from ozi.filter import underscorify
-from ozi.fix.missing import report_missing
+from ozi.fix.missing import report
 from ozi.fix.parser import parser
 from ozi.fix.rewrite_command import Rewriter
 from ozi.render import load_environment
@@ -35,11 +35,11 @@ def main() -> NoReturn:  # pragma: no cover
 
     match [project.missing, project.strict]:
         case [True, False]:
-            name, *_ = report_missing(project.target)
+            name, *_ = report(project.target)
             TAP.end()
         case [False, _]:
             with TAP.suppress():
-                name, *_ = report_missing(project.target)
+                name, *_ = report(project.target)
             project.name = underscorify(name)
             project.license_file = 'LICENSE.txt'
             project.copyright_head = '\n'.join(
@@ -54,7 +54,7 @@ def main() -> NoReturn:  # pragma: no cover
             print(json.dumps(rewriter.commands, indent=4 if project.pretty else None))
         case [True, True]:
             with TAP.strict():
-                name, *_ = report_missing(project.target)
+                name, *_ = report(project.target)
             TAP.end()
         case [_, _]:
             TAP.bail_out('Name discovery failed.')
