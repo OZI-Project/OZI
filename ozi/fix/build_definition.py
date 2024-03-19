@@ -5,6 +5,7 @@
 """Build definition check utilities."""
 import os
 from pathlib import Path
+from typing import Generator
 
 from ozi import comment
 from ozi.meson import get_items_by_suffix
@@ -43,8 +44,13 @@ def inspect_files(
             with open(target.joinpath(rel_path) / file, 'r') as g:
                 count = comment.diagnostic(g.readlines(), rel_path / file)
             if count.total() > 0:
-                TAP.diagnostic(str(rel_path), *(f'{k}: {v}' for k, v in count.items()))
+                TAP.diagnostic(
+                    'comment_diagnostic',
+                    str(rel_path / file),
+                    *(f'{k}: {v}' for k, v in count.items()),
+                )
             TAP.diagnostic(
+                'comment_diagnostic',
                 str(rel_path / file),
                 'quality score',
                 f'{comment.score_file(rel_path / file, count)}/5.0',
@@ -77,13 +83,11 @@ def validate(
     rel_path: Path,
     subdirs: list[str],
     children: set[str] | None,
-) -> None:
+) -> Generator[Path, None, None]:
     """Validate an OZI standard build definition's directories."""
     for directory in subdirs:
         if children and directory in children:  # pragma: defer to good-issue
             TAP.ok(str(rel_path / 'meson.build'), 'subdir', str(directory))
-            if rel_path != Path('.'):
-                walk(target / rel_path, Path(directory))
         elif children and directory not in IGNORE_MISSING:  # pragma: defer to good-issue
             TAP.not_ok(
                 str(rel_path / 'meson.build'),
@@ -97,9 +101,9 @@ def validate(
                 str(rel_path / 'meson.build'),
                 'subdir',
                 str(directory),
-                'IGNORED',
-                skip=True,
             )
+            if directory not in IGNORE_MISSING:
+                yield Path(rel_path / directory)
 
 
 def walk(
@@ -108,14 +112,18 @@ def walk(
     found_files: list[str] | None = None,
 ) -> None:
     """Walk an OZI standard build definition's directories."""
-    validate(
-        target,
-        rel_path,
-        subdirs=[
-            directory
-            for directory in os.listdir(target / rel_path)
-            if os.path.isdir(target / rel_path / directory)
-        ],
-        children=get_items_by_suffix(str((target / rel_path)), 'children'),
+    children = list(
+        validate(
+            target,
+            rel_path,
+            subdirs=[
+                directory
+                for directory in os.listdir(target / rel_path)
+                if os.path.isdir(target / rel_path / directory)
+            ],
+            children=get_items_by_suffix(str((target / rel_path)), 'children'),
+        ),
     )
     process(target, rel_path, found_files)
+    for child in children:
+        walk(target, child)

@@ -132,6 +132,6 @@ class Src(Default):
     format: SrcFormat = SrcFormat()
     required: SrcRequired = SrcRequired()
     template: SrcTemplate = field(default_factory=SrcTemplate)
-    allow_files: tuple[str, ...] = ('templates', '.git')
+    allow_files: tuple[str, ...] = ('templates', '.git', '.pre-commit-config.yaml')
     repo: SrcRepo = SrcRepo()
     comments: CommentPatterns = CommentPatterns()
