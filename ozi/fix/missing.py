@@ -132,8 +132,13 @@ def missing_required_files(
             with open(target.joinpath(f)) as fh:
                 count = comment.diagnostic(fh.readlines(), f)
             if count.total() > 0:  # pragma: no cover
-                TAP.diagnostic(str(rel_path), *(f'{k}: {v}' for k, v in count.items()))
+                TAP.diagnostic(
+                    'comment_diagnostic',
+                    str(f),
+                    *(f'{k}: {v}' for k, v in count.items()),
+                )
             TAP.diagnostic(
+                'comment_diagnostic',
                 str(f),
                 'quality score',
                 f'{comment.score_file(f, count)}/5.0',
