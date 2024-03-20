@@ -129,21 +129,7 @@ def required_files(
         if not target.joinpath(f).exists():
             TAP.not_ok('MISSING', str(f))
             continue  # pragma: defer to https://github.com/nedbat/coveragepy/issues/198
-        if str(f).endswith('.py'):
-            with open(target.joinpath(f)) as fh:
-                count = comment.diagnostic(fh.readlines(), f)
-            if count.total() > 0:  # pragma: no cover
-                TAP.diagnostic(
-                    'comment_diagnostic',
-                    str(f),
-                    *(f'{k}: {v}' for k, v in count.items()),
-                )
-            TAP.diagnostic(
-                'comment_diagnostic',
-                str(f),
-                'quality score',
-                f'{comment.score_file(f, count)}/5.0',
-            )
+        comment.comment_diagnostic(target, rel_path, file)
         TAP.ok(str(f))
         found_files.append(file)
     walk(target, rel_path, found_files=found_files)
