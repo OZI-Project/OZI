@@ -85,15 +85,16 @@ class CloseMatch(Action):
         if value is None:
             return []  # pragma: defer to good-first-issue
         no_match = False
-        matches: list[str]
+        matches: list[str] | str = []
         if hasattr(self.exact_match, key):
-            matches = get_close_matches(  # type: ignore
+            matches = get_close_matches(
                 value,
                 self.exact_match.__getattribute__(key),
                 cutoff=0.40,
             )
-            no_match = no_match if len(matches) else True
+            no_match = False if len(matches) else True
         else:  # pragma: no cover
+            matches = [value]
             no_match = True
         if no_match:
             warn(
