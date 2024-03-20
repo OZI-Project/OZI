@@ -40,21 +40,7 @@ def inspect_files(
         if str(rel_path / file) not in build_files and file not in found_files:
             build_file = str(rel_path / 'meson.build')
             TAP.not_ok('MISSING', f'{build_file}: {rel_path / file!s}')
-        if str(file).endswith('.py'):
-            with open(target.joinpath(rel_path) / file, 'r') as g:
-                count = comment.diagnostic(g.readlines(), rel_path / file)
-            if count.total() > 0:
-                TAP.diagnostic(
-                    'comment_diagnostic',
-                    str(rel_path / file),
-                    *(f'{k}: {v}' for k, v in count.items()),
-                )
-            TAP.diagnostic(
-                'comment_diagnostic',
-                str(rel_path / file),
-                'quality score',
-                f'{comment.score_file(rel_path / file, count)}/5.0',
-            )
+        comment.comment_diagnostic(target, rel_path, file)
 
 
 def process(
