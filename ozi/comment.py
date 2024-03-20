@@ -168,3 +168,24 @@ def score_file(rel_path: Path, count: Counter[str]) -> float:
     t2 = sum(count[i] for i in TIER2_COMMENTS)
     t3 = sum(count[i] for i in TIER3_COMMENTS)
     return calculate_score(count['lines'], t1, t2, t3)
+
+
+def comment_diagnostic(target: Path, rel_path: Path, file: str) -> None:
+    """Run a scored comment diagnostic on a python file."""
+    if str(file).endswith('.py'):
+        with open(target.joinpath(rel_path) / file, 'r') as g:
+            count = diagnostic(g.readlines(), rel_path / file)
+            if count.total() > 0:
+                TAP.diagnostic(
+                    'comment_diagnostic',
+                    str(rel_path / file),
+                    *(f'{k}: {v}' for k, v in count.items()),
+                )
+            else:  # pragma: no cover
+                pass
+            TAP.diagnostic(
+                'comment_diagnostic',
+                str(rel_path / file),
+                'quality score',
+                f'{score_file(rel_path / file, count)}/5.0',
+            )
