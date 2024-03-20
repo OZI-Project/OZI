@@ -71,7 +71,7 @@ class CloseMatch(Action):
     def close_matches(
         self: Self,
         key: str,
-        value: Sequence[str],
+        value: str,
     ) -> Sequence[str]:
         """Get a close matches for a Python project packaging core metadata key.
 
@@ -84,13 +84,18 @@ class CloseMatch(Action):
         """
         if value is None:
             return []  # pragma: defer to good-first-issue
-        try:
-            value = get_close_matches(
+        no_match = False
+        matches: list[str]
+        if hasattr(self.exact_match, key):
+            matches = get_close_matches(  # type: ignore
                 value,
                 self.exact_match.__getattribute__(key),
                 cutoff=0.40,
-            )[0]
-        except (IndexError, AttributeError):
+            )
+            no_match = no_match if len(matches) else True
+        else:  # pragma: no cover
+            no_match = True
+        if no_match:
             warn(
                 f'No {key} choice matching "{value}" available.'
                 'To list available options:'
@@ -98,7 +103,20 @@ class CloseMatch(Action):
                 RuntimeWarning,
                 stacklevel=0,
             )
-        return value
+        return matches
+
+    def _set_matches(
+        self: Self,
+        key: str,
+        values: str | Sequence[str],
+        namespace: Namespace,
+    ) -> None:
+        """Set the matches for a key in namespace."""
+        match self.nargs:
+            case '?':
+                setattr(namespace, self.dest, [self.close_matches(key, v) for v in values])
+            case _:
+                setattr(namespace, self.dest, self.close_matches(key, str(values)))
 
     def __call__(
         self: Self,
@@ -114,13 +132,4 @@ class CloseMatch(Action):
             key = option_string.lstrip('-').replace('-', '_')
         else:
             key = ''  # pragma: defer to good-first-issue
-
-        if self.nargs == '?':
-            matches: list[str] = []
-            for v in values:
-                v = self.close_matches(key, v)  # type: ignore
-                matches += v
-            setattr(namespace, self.dest, matches)
-        else:
-            values = self.close_matches(key, values)
-            setattr(namespace, self.dest, values)
+        self._set_matches(key, values, namespace)
