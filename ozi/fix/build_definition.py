@@ -86,24 +86,29 @@ def validate(
 ) -> Generator[Path, None, None]:
     """Validate an OZI standard build definition's directories."""
     for directory in subdirs:
-        if children and directory in children:  # pragma: defer to good-issue
-            TAP.ok(str(rel_path / 'meson.build'), 'subdir', str(directory))
-        elif children and directory not in IGNORE_MISSING:  # pragma: defer to good-issue
-            TAP.not_ok(
-                str(rel_path / 'meson.build'),
-                'subdir',
-                str(directory),
-                'MISSING',
-                skip=True,
-            )
-        else:
-            TAP.ok(
-                str(rel_path / 'meson.build'),
-                'subdir',
-                str(directory),
-            )
-            if directory not in IGNORE_MISSING:
+        match directory, children:
+            case directory, children if children and directory in children:
+                TAP.ok(  # pragma: no cover
+                    str(rel_path / 'meson.build'),
+                    'subdir',
+                    str(directory),
+                )
+            case directory, _ if directory not in IGNORE_MISSING:
+                TAP.ok(
+                    str(rel_path / 'meson.build'),
+                    'subdir',
+                    str(directory),
+                )
                 yield Path(rel_path / directory)
+            case directory, _:
+                TAP.ok(
+                    str(rel_path / 'meson.build'),
+                    'subdir',
+                    str(directory),
+                    skip=True,
+                )
+            case _:  # pragma: no cover
+                TAP.diagnostic('build_definition.validate', 'invalid arguments')
 
 
 def walk(
