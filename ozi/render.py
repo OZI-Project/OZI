@@ -90,6 +90,30 @@ def find_user_template(target: str, file: str, fix: str) -> str | None:
     return user_template
 
 
+def build_child(env: Environment, parent: str, child: Path) -> None:
+    """Add a child directory to a parent in an existing OZI-style project.
+
+    :param env: the OZI project file rendering environment
+    :type env: jinja2.Environment
+    :param parent: existing directory name in project
+    :type parent: str
+    :param child: path to a new child directory
+    :type child: Path
+    """
+    child.mkdir(parents=True)
+    parent = parent.rstrip('/')
+    heirs = parent.split('/')
+    if len(heirs) > 1:
+        warn(
+            'Nested folder creation not supported.',
+            RuntimeWarning,
+            stacklevel=0,
+        )
+    else:
+        with open((child / 'meson.build'), 'x') as f:
+            f.write(env.get_template('new_child.j2').render(parent=parent))
+
+
 def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -> str:
     """Render CI files based on the ci_provider for target in env.
 
