@@ -16,8 +16,19 @@ from typing import Sequence
 from ozi.spec import METADATA
 from ozi.tap import TAP
 
-TIER1_COMMENTS = [
+TIER3_COMMENTS = [
+    'nosec',
+    'pragma_defer_to',
+    'pragma_no_cover',
+    'type_ignore',
+    'mypy',
+    'pyright_ignore',
+]
+TIER2_COMMENTS = [
     'flake8_noqa',
+    'noqa',
+]
+TIER1_COMMENTS = [
     'fmt_off',
     'fmt_on',
     'fmt_skip',
@@ -27,26 +38,15 @@ TIER1_COMMENTS = [
     'isort_on',
     'isort_skip_file',
     'isort_split',
-    'noqa',
-]
-TIER2_COMMENTS = [
-    'mypy',
-    'pyright_ignore',
-]
-TIER3_COMMENTS = [
-    'nosec',
-    'pragma_defer_to',
-    'pragma_no_cover',
-    'type_ignore',
 ]
 
 
 class CommentQuality(IntFlag):
-    """Comment badness tiers for scoring project quality."""
+    """Comment tiers for scoring project quality."""
 
-    TIER1 = 1
+    TIER1 = 11
     TIER2 = 2
-    TIER3 = 11
+    TIER3 = 1
 
 
 def calculate_score(lines: int, t1: int, t2: int, t3: int) -> float:
@@ -68,12 +68,12 @@ def calculate_score(lines: int, t1: int, t2: int, t3: int) -> float:
     x = log(lines, b) - log10(
         lines
         ** (
-            log10(CommentQuality.TIER1 + t1 + 1)
-            - log10(CommentQuality.TIER1)
+            log10(CommentQuality.TIER3 + t3 + 1)
+            - log10(CommentQuality.TIER3)
             + log10(log10(CommentQuality.TIER2 + t2 + 1))
             - log10(log10(CommentQuality.TIER2))
-            + log10(log10(log10(CommentQuality.TIER3 + t3 + 1)))
-            - log10(log10(log10(CommentQuality.TIER3)))
+            + log10(log10(log10(CommentQuality.TIER1 + t1 + 1)))
+            - log10(log10(log10(CommentQuality.TIER1)))
         ),
     )
     if x > 0:
@@ -168,3 +168,24 @@ def score_file(rel_path: Path, count: Counter[str]) -> float:
     t2 = sum(count[i] for i in TIER2_COMMENTS)
     t3 = sum(count[i] for i in TIER3_COMMENTS)
     return calculate_score(count['lines'], t1, t2, t3)
+
+
+def comment_diagnostic(target: Path, rel_path: Path, file: str) -> None:
+    """Run a scored comment diagnostic on a python file."""
+    if str(file).endswith('.py'):
+        with open(target.joinpath(rel_path) / file, 'r') as g:
+            count = diagnostic(g.readlines(), rel_path / file)
+            if count.total() > 0:
+                TAP.diagnostic(
+                    'comment_diagnostic',
+                    str(rel_path / file),
+                    *(f'{k}: {v}' for k, v in count.items()),
+                )
+            else:  # pragma: no cover
+                pass
+            TAP.diagnostic(
+                'comment_diagnostic',
+                str(rel_path / file),
+                'quality score',
+                f'{score_file(rel_path / file, count)}/5.0',
+            )

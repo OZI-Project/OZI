@@ -5,6 +5,7 @@
 """Build definition check utilities."""
 import os
 from pathlib import Path
+from typing import Generator
 
 from ozi import comment
 from ozi.meson import get_items_by_suffix
@@ -39,16 +40,7 @@ def inspect_files(
         if str(rel_path / file) not in build_files and file not in found_files:
             build_file = str(rel_path / 'meson.build')
             TAP.not_ok('MISSING', f'{build_file}: {rel_path / file!s}')
-        if str(file).endswith('.py'):
-            with open(target.joinpath(rel_path) / file, 'r') as g:
-                count = comment.diagnostic(g.readlines(), rel_path / file)
-            if count.total() > 0:
-                TAP.diagnostic(str(rel_path), *(f'{k}: {v}' for k, v in count.items()))
-            TAP.diagnostic(
-                str(rel_path / file),
-                'quality score',
-                f'{comment.score_file(rel_path / file, count)}/5.0',
-            )
+        comment.comment_diagnostic(target, rel_path, file)
 
 
 def process(
@@ -77,29 +69,32 @@ def validate(
     rel_path: Path,
     subdirs: list[str],
     children: set[str] | None,
-) -> None:
+) -> Generator[Path, None, None]:
     """Validate an OZI standard build definition's directories."""
     for directory in subdirs:
-        if children and directory in children:  # pragma: defer to good-issue
-            TAP.ok(str(rel_path / 'meson.build'), 'subdir', str(directory))
-            if rel_path != Path('.'):
-                walk(target / rel_path, Path(directory))
-        elif children and directory not in IGNORE_MISSING:  # pragma: defer to good-issue
-            TAP.not_ok(
-                str(rel_path / 'meson.build'),
-                'subdir',
-                str(directory),
-                'MISSING',
-                skip=True,
-            )
-        else:
-            TAP.ok(
-                str(rel_path / 'meson.build'),
-                'subdir',
-                str(directory),
-                'IGNORED',
-                skip=True,
-            )
+        match directory, children:
+            case directory, children if children and directory in children:
+                TAP.ok(  # pragma: no cover
+                    str(rel_path / 'meson.build'),
+                    'subdir',
+                    str(directory),
+                )
+            case directory, _ if directory not in IGNORE_MISSING:
+                TAP.ok(
+                    str(rel_path / 'meson.build'),
+                    'subdir',
+                    str(directory),
+                )
+                yield Path(rel_path / directory)
+            case directory, _:
+                TAP.ok(
+                    str(rel_path / 'meson.build'),
+                    'subdir',
+                    str(directory),
+                    skip=True,
+                )
+            case _:  # pragma: no cover
+                TAP.diagnostic('build_definition.validate', 'invalid arguments')
 
 
 def walk(
@@ -108,14 +103,18 @@ def walk(
     found_files: list[str] | None = None,
 ) -> None:
     """Walk an OZI standard build definition's directories."""
-    validate(
-        target,
-        rel_path,
-        subdirs=[
-            directory
-            for directory in os.listdir(target / rel_path)
-            if os.path.isdir(target / rel_path / directory)
-        ],
-        children=get_items_by_suffix(str((target / rel_path)), 'children'),
+    children = list(
+        validate(
+            target,
+            rel_path,
+            subdirs=[
+                directory
+                for directory in os.listdir(target / rel_path)
+                if os.path.isdir(target / rel_path / directory)
+            ],
+            children=get_items_by_suffix(str((target / rel_path)), 'children'),
+        ),
     )
     process(target, rel_path, found_files)
+    for child in children:
+        walk(target, child)
