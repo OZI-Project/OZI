@@ -1,4 +1,217 @@
 # CHANGELOG
+
+## 0.0.290 (2024-03-17)
+
+### :hammer:
+
+* :hammer:: Add a comment scoring rubric to ``ozi-fix``.
+
+Also add a TAP tests module. ([`77f5fba`](https://github.com/OZI-Project/OZI/commit/77f5fbaf1f3b4f06d929f5147e8eaf040872536e))
+
+### Other
+
+* Merge pull request #248 from OZI-Project/main
+
+Release ([`296ec5a`](https://github.com/OZI-Project/OZI/commit/296ec5a9d7884ea577ca7f9215a90c321f0fbd66))
+
+* Merge pull request #247 from OZI-Project/dev
+
+Dev merge ([`1dd1d30`](https://github.com/OZI-Project/OZI/commit/1dd1d3059927a1fd071b47c8dba6ff8e54dda260))
+
+* use sampled_from. ([`a1f407a`](https://github.com/OZI-Project/OZI/commit/a1f407aeaac7d1508cab5ce1ead442ba1cf25fc1))
+
+* fix lint. ([`0bf8f5a`](https://github.com/OZI-Project/OZI/commit/0bf8f5a622f7bab79f344b818aea9de874c49617))
+
+* Fix fuzzer input. ([`42a9125`](https://github.com/OZI-Project/OZI/commit/42a9125fc213fcae07473b0a864bf1403ddd0f19))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`fc3289f`](https://github.com/OZI-Project/OZI/commit/fc3289f50fbad443cb534b2a40636def101491f7))
+
+* Fix fuzzer inputs.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`33b3a25`](https://github.com/OZI-Project/OZI/commit/33b3a2536bdbedb8f4fa1ab127ca5105aaccd2a6))
+
+* Merge branch &#39;main&#39; into dev ([`fb09763`](https://github.com/OZI-Project/OZI/commit/fb0976356cf1078d36142c2c4d020df987ee5225))
+
+* :white_check_mark: 1s deadline for good_namespace checks.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`2f4dbf6`](https://github.com/OZI-Project/OZI/commit/2f4dbf6bd011d864edc92d1e78a3fb9b2aec1f82))
+
+* :white_check_mark: Optimize test example size.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`90ad8e1`](https://github.com/OZI-Project/OZI/commit/90ad8e1b54975c567954e9c554adff9a126c468f))
+
+## 0.0.289 (2024-03-14)
+
+### :hammer:
+
+* :hammer: refactor entrypoint for ``ozi-new``. ([`4f91ede`](https://github.com/OZI-Project/OZI/commit/4f91ede3bf07cb82e61b42881af6573a9e6983d1))
+
+* :hammer: Extract ``ozi.new.validate`` from ``ozi.new.__main__``
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`d8d58bf`](https://github.com/OZI-Project/OZI/commit/d8d58bf16a0a8b32929562ce1010cde8431ae6c0))
+
+* :hammer: Extract trove module from actions.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`9121ed4`](https://github.com/OZI-Project/OZI/commit/9121ed41f93e269ff439b49ed297e2104615dfe8))
+
+* :hammer: Switch to constant metadata reference throughout the module.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`8ae282e`](https://github.com/OZI-Project/OZI/commit/8ae282ecb9b6126f8a43555e1767720af189b6a3))
+
+### Other
+
+* Merge pull request #246 from OZI-Project/main
+
+Release ([`ea1fdaf`](https://github.com/OZI-Project/OZI/commit/ea1fdafc650872d5d85aab755c2c56f82f159592))
+
+* Merge pull request #244 from OZI-Project/dependabot/github_actions/github/codeql-action-3.24.7
+
+Bump github/codeql-action from 3.24.6 to 3.24.7 ([`6ba09c0`](https://github.com/OZI-Project/OZI/commit/6ba09c07073dc92a859a7e3655b5db0f029e71c9))
+
+* Bump github/codeql-action from 3.24.6 to 3.24.7
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.6 to 3.24.7.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/8a470fddafa5cbb6266ee11b37ef4d8aae19c571...3ab4101902695724f9365a384f86c1074d94e18c)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5b49626`](https://github.com/OZI-Project/OZI/commit/5b4962671a53af8956fb559cbc4551ddb3826028))
+
+* Merge pull request #243 from OZI-Project/dependabot/github_actions/actions/checkout-4.1.2
+
+Bump actions/checkout from 4.1.1 to 4.1.2 ([`2da2693`](https://github.com/OZI-Project/OZI/commit/2da2693ca68276996f0b5d843d3c8e2be1110f65))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/actions/checkout-4.1.2 ([`1e1c13f`](https://github.com/OZI-Project/OZI/commit/1e1c13fb1aaebd4e81870a2a764817e54b6ddeb4))
+
+* Merge pull request #245 from OZI-Project/dev
+
+Dev merge ([`fc58dc9`](https://github.com/OZI-Project/OZI/commit/fc58dc9bf4b3c90472332fe535b09ed569c79b6f))
+
+* :rotating_light: Run black on tests.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`f482499`](https://github.com/OZI-Project/OZI/commit/f482499c9541cbd92d862109cbdefac86f9d7d08))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`1d5d067`](https://github.com/OZI-Project/OZI/commit/1d5d06789b441f724dbb8f9ca5a2f9494360549c))
+
+* :rotating_light: Clean up linter complaints in tests.
+
+Signed-off-by: Eden Rose MSc &lt;rjdbcm@outlook.com&gt; ([`31515e6`](https://github.com/OZI-Project/OZI/commit/31515e653c3fd0381cc870884855739fb20c3495))
+
+* Merge branch &#39;main&#39; into dev ([`ad91bd9`](https://github.com/OZI-Project/OZI/commit/ad91bd9f270330439cd1587d4817739c748b70d0))
+
+* :rotating_light: Clean up linter complaints in tests.
+
+Signed-off-by: Eden Rose MSc &lt;rjdbcm@outlook.com&gt; ([`d58a76a`](https://github.com/OZI-Project/OZI/commit/d58a76aaf076cc0d1febeeb49d53bec8870652d2))
+
+* :white_check_mark: refactor ``ozi-new`` to reduce filesystem usage during testing.
+
+This allows removal of the suppressed HealthCheck.too_slow
+
+Signed-off-by: Eden Rose Duff MSc &lt;rjdbcm@outlook.com&gt; ([`acf950f`](https://github.com/OZI-Project/OZI/commit/acf950fe5549477ced203651674f7866be7e7f60))
+
+* Bump actions/checkout from 4.1.1 to 4.1.2
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.1 to 4.1.2.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/b4ffde65f46336ab88eb53be808477a3936bae11...9bb56186c3b09b4f86b1c65136769dd318469633)
+
+---
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`4eb056e`](https://github.com/OZI-Project/OZI/commit/4eb056eeb972c2e086089bd084134338dfc2a2fa))
+
+* Merge pull request #242 from OZI-Project/dev
+
+Dev merge ([`11e2ea6`](https://github.com/OZI-Project/OZI/commit/11e2ea60f5d830189094bbc9146b655274de1a9b))
+
+* Merge branch &#39;main&#39; into dev ([`42365d4`](https://github.com/OZI-Project/OZI/commit/42365d452fb0fa9efcdc285fb8c4ae39dc38f5f2))
+
+* Merge pull request #241 from OZI-Project/dev
+
+Dev merge ([`03db7b7`](https://github.com/OZI-Project/OZI/commit/03db7b7220deaac962e7a48570a43762bd791838))
+
+* Merge branch &#39;main&#39; into dev ([`3d99675`](https://github.com/OZI-Project/OZI/commit/3d9967504ad1376699f33d9ca8f8e13d1d591fec))
+
+* :memo: Add missing docstrings.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`6514216`](https://github.com/OZI-Project/OZI/commit/6514216aca3fe6176bcc62252daa5018890539da))
+
+## 0.0.288 (2024-03-10)
+
+### :hammer:
+
+* :hammer: Refactor spec module for easier maint.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`5701985`](https://github.com/OZI-Project/OZI/commit/570198597e30a0f1580fbedf5f86edf7f2f5dd5b))
+
+### Other
+
+* Merge pull request #240 from OZI-Project/main
+
+Release ([`4b955a9`](https://github.com/OZI-Project/OZI/commit/4b955a9a57524d322f386f478aa55a90a6dc6fb0))
+
+* Merge pull request #239 from OZI-Project/dev
+
+Dev ([`6b313a0`](https://github.com/OZI-Project/OZI/commit/6b313a0346fba10b91fbb8dff94b36c2e75e9d6c))
+
+* Merge branch &#39;main&#39; into dev ([`8426c85`](https://github.com/OZI-Project/OZI/commit/8426c85e1fd6476df405fc2920c48887eede34a9))
+
+## 0.0.287 (2024-03-10)
+
+### :hammer:
+
+* :hammer: Cache rendering filters and metadata globals.
+
+* :rotating_light: Render filters assigned by matching type. This makes pyright and mypy happy.
+
+Signed-off-by: Eden Rose, MSc &lt;rjdbcm@outlook.com&gt; ([`4753bba`](https://github.com/OZI-Project/OZI/commit/4753bba898b28fb442856fcf3052086e04b8b9b5))
+
+* :hammer: Cache rendering filters and metadata globals.
+
+* :rotating_light: Render filters assigned by matching type. This makes pyright and mypy happy.
+
+---------
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`0e27ae5`](https://github.com/OZI-Project/OZI/commit/0e27ae507560e8031d37ea5548003615559d9988))
+
+* :hammer: Cache rendering filters and metadata globals.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`c5b2bc0`](https://github.com/OZI-Project/OZI/commit/c5b2bc010163429749cec086a51a0f83beb9e0bd))
+
+### Other
+
+* Dev merge resolve (#238) ([`8761582`](https://github.com/OZI-Project/OZI/commit/876158257331b7279aaa27ef5cea8bb4303bbf58))
+
+* Merge branch &#39;main&#39; into dev ([`53417db`](https://github.com/OZI-Project/OZI/commit/53417db21d0536924e60b7a7fbaab0da87521f3c))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`6a3078c`](https://github.com/OZI-Project/OZI/commit/6a3078c642b1208aac473824b78d05a036ee5680))
+
+* Merge branch &#39;0.0&#39; of https://github.com/rjdbcm/ozi into dev ([`32e92ec`](https://github.com/OZI-Project/OZI/commit/32e92ec04bd3a59520b8adc9d73adf68aa3003fc))
+
+* Merge branch &#39;main&#39; into dev ([`674f5b8`](https://github.com/OZI-Project/OZI/commit/674f5b8808e8fd1083e5781f839065b054b26ce3))
+
+* Add pragma defer
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`6a339e2`](https://github.com/OZI-Project/OZI/commit/6a339e20296d072e2982c0f284a181b60d434ce6))
+
+* :rotating_light: Render filters assigned by matching type.
+
+This makes pyright and mypy happy.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`01443d0`](https://github.com/OZI-Project/OZI/commit/01443d0fb4cb130ebb457749eaa0a8f7ecf843f1))
+
 ## 0.0.286 (2024-03-10)
 
 ### :hammer:
@@ -6,6 +219,24 @@
 * :hammer: Rendering environment is now cached. (#234)
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`4209d18`](https://github.com/OZI-Project/OZI/commit/4209d189618c63ce1ffdcd8c17e240be0151ef3a))
+
+* :hammer: Rendering environment is now cached.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`08c2cdb`](https://github.com/OZI-Project/OZI/commit/08c2cdb906d915987327b019199cf250e1f650f3))
+
+### Other
+
+* Merge pull request #233 from OZI-Project/dev
+
+Dev merge ([`8d06b82`](https://github.com/OZI-Project/OZI/commit/8d06b823685478891ab63d3e20c9e6d226122bdb))
+
+* Merge branch &#39;main&#39; into dev ([`7a8939b`](https://github.com/OZI-Project/OZI/commit/7a8939be9830309a33cba0cab0d4666a83bcc98e))
+
+* Merge pull request #232 from OZI-Project/0.0
+
+0.0 changes ([`77b2da6`](https://github.com/OZI-Project/OZI/commit/77b2da6ceafe1291a3cc92aa50abb9467c3ee6b0))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`f65d94a`](https://github.com/OZI-Project/OZI/commit/f65d94a8b71cecf2384dabdf4b8bcdd41d88890e))
 
 ## 0.0.285 (2024-03-10)
 
