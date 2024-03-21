@@ -117,7 +117,7 @@ class CloseMatch(Action):
             case '?':
                 setattr(namespace, self.dest, [self.close_matches(key, v) for v in values])
             case _:
-                setattr(namespace, self.dest, self.close_matches(key, str(values)))
+                setattr(namespace, self.dest, self.close_matches(key, str(values[0])))
 
     def __call__(
         self: Self,
