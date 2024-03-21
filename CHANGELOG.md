@@ -1,4 +1,48 @@
 # CHANGELOG
+## 0.0.292 (2024-03-21)
+
+### :bug:
+
+* :bug:: Fix closematch output.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`8fbb373`](https://github.com/OZI-Project/OZI/commit/8fbb373c2a4a40ff25578fcd5601ddc54dacd021))
+
+* :bug: [e2e] Fix our new project entrypoint.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`66c2f54`](https://github.com/OZI-Project/OZI/commit/66c2f543cdd7bf0174603424404539dbbaa57500))
+
+* :bug: [e2e] Fix our new project entrypoint. ([`1442acb`](https://github.com/OZI-Project/OZI/commit/1442acbab6d17700e7e8b5f1a857ebab92febd7d))
+
+### :hammer:
+
+* :hammer:: Refactor Rewriter methods.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`5080b4f`](https://github.com/OZI-Project/OZI/commit/5080b4fe5575a9bab75b6cd140f3411f63f2fb7e))
+
+### Other
+
+* Merge pull request #264 from OZI-Project/main
+
+Release ([`06e6ab9`](https://github.com/OZI-Project/OZI/commit/06e6ab94fb42de7c06a8ad8aa15d01eb318ba71a))
+
+* Merge pull request #263 from OZI-Project/dev
+
+Dev merge ([`d620101`](https://github.com/OZI-Project/OZI/commit/d62010117305e72fb3aeaef026a178e678e35e9c))
+
+* Merge branch &#39;main&#39; into dev ([`adb056b`](https://github.com/OZI-Project/OZI/commit/adb056b0c9cca971b7d4df0d6e54be287323b0fd))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`49275f3`](https://github.com/OZI-Project/OZI/commit/49275f305dbc85ac6431e6202f46c43694b2b261))
+
+* Merge pull request #262 from OZI-Project/dev
+
+Dev merge ([`7ccee54`](https://github.com/OZI-Project/OZI/commit/7ccee5462b8a8dc2f36bd05450603de110787c38))
+
+* Merge branch &#39;main&#39; into dev ([`507d4e3`](https://github.com/OZI-Project/OZI/commit/507d4e377a20d50064cbdb984586f5d979f46e46))
+
+* Merge pull request #259 from OZI-Project/dependabot/github_actions/actions/dependency-review-action-4.2.3
+
+Bump actions/dependency-review-action from 4.1.3 to 4.2.3 ([`2a39a37`](https://github.com/OZI-Project/OZI/commit/2a39a374345c7af27a009a3928210129957e446c))
+
 ## 0.0.291 (2024-03-21)
 
 ### :bug:
@@ -34,6 +78,21 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`fb96c58`](https://github.c
 * Merge pull request #261 from OZI-Project/main
 
 Release ([`846fe01`](https://github.com/OZI-Project/OZI/commit/846fe01f7f357cee015876cca9048fee296a4469))
+
+* Bump actions/dependency-review-action from 4.1.3 to 4.2.3
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.1.3 to 4.2.3.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/9129d7d40b8c12c1ed0f60400d00c92d437adcce...0fa40c3c10055986a88de3baa0d6ec17c5a894b3)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`becda60`](https://github.com/OZI-Project/OZI/commit/becda606aa2cd031a000b2a8b6e6443500d5815e))
 
 * Merge pull request #260 from OZI-Project/bump-slsa-generator
 
