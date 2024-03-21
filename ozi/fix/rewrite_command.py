@@ -15,6 +15,7 @@ from typing import Annotated
 from typing import Union
 from warnings import warn
 
+from ozi.render import build_child
 from ozi.render import find_user_template
 
 if TYPE_CHECKING:
@@ -111,54 +112,43 @@ class Rewriter:
             'test': self.env.get_template(METADATA.spec.python.src.template.add_root),
         }
 
-    def _add(  # noqa: C901
+    def _add_dunder_init(self: Self, filename: str) -> None:
+        """Render a :file:`{filename}/__init__.py`."""
+        with open(
+            (
+                self.path_map.get(self.fix, partial(Path))(
+                    *filename.rstrip('/').split('/'),
+                )
+                / '__init__.py'
+            ),
+            'x',
+        ) as f:
+            f.write(
+                self.env.get_template('project.name/__init__.py.j2').render(
+                    user_template=find_user_template(
+                        self.target,
+                        filename,
+                        self.fix,
+                    ),
+                ),
+            )
+
+    def _add(
         self: Rewriter,
         child: Path,
-        file: str,
-        cmd_files: RewriteCommand,
-        cmd_children: RewriteCommand,
+        filename: str,
+        cmd_files_children: tuple[RewriteCommand, RewriteCommand],
     ) -> tuple[RewriteCommand, RewriteCommand]:
         """Add items to OZI Rewriter"""
+        cmd_files, cmd_children = cmd_files_children
         if self.fix not in ['source', 'test', 'root']:
             warn('Invalid fix mode nothing will be added.', RuntimeWarning, stacklevel=0)
-        elif file.endswith('/'):
-            child.mkdir(parents=True)
-            parent = file.rstrip('/')
-            heirs = parent.split('/')
-            if len(heirs) > 1:
-                warn(
-                    'Nested folder creation not supported.',
-                    RuntimeWarning,
-                    stacklevel=0,
-                )
-            else:
-                with open((child / 'meson.build'), 'x') as f:
-                    f.write(self.env.get_template('new_child.j2').render(parent=parent))
+        elif filename.endswith('/'):
+            build_child(self.env, filename, child)
             if self.fix == 'source':
-                if len(heirs) > 1:
-                    warn(
-                        'Nested folder creation not supported.',
-                        RuntimeWarning,
-                        stacklevel=0,
-                    )
-                else:
-                    with open(
-                        (self.path_map.get(self.fix, partial(Path))(*heirs) / '__init__.py'),
-                        'x',
-                    ) as f:
-                        f.write(
-                            self.env.get_template('project.name/__init__.py.j2').render(
-                                user_template=find_user_template(
-                                    self.target,
-                                    file,
-                                    self.fix,
-                                ),
-                            ),
-                        )
-                    cmd_children.add(self.fix, 'children', parent)
-            else:
-                cmd_children.add(self.fix, 'children', parent)
-        elif file.endswith('.py'):
+                self._add_dunder_init(filename)
+            cmd_children.add(self.fix, 'children', filename.rstrip('/'))
+        elif filename.endswith('.py'):
             child.write_text(
                 self.base_templates.get(
                     self.fix,
@@ -166,12 +156,12 @@ class Rewriter:
                         self.fix,
                         self.env.get_template('project.name/new_module.py.j2'),
                     ),
-                ).render(user_template=find_user_template(self.target, file, self.fix)),
+                ).render(user_template=find_user_template(self.target, filename, self.fix)),
             )
-            cmd_files.add(self.fix, 'files', str(Path(file)))
+            cmd_files.add(self.fix, 'files', str(Path(filename)))
         else:
             child.touch()
-            cmd_files.add(self.fix, 'files', str(Path(file)))
+            cmd_files.add(self.fix, 'files', str(Path(filename)))
         return cmd_files, cmd_children
 
     def __iadd__(self: Self, other: list[str]) -> Self:
@@ -179,9 +169,9 @@ class Rewriter:
         cmd_files = RewriteCommand()
         cmd_children = RewriteCommand()
 
-        for file in other:
-            child = self.path_map.get(self.fix, partial(Path))(file)
-            cmd_files, cmd_children = self._add(child, file, cmd_files, cmd_children)
+        for filename in other:
+            child = self.path_map.get(self.fix, partial(Path))(filename)
+            cmd_files, cmd_children = self._add(child, filename, (cmd_files, cmd_children))
         if cmd_files.active:
             self.commands += [{k: v for k, v in asdict(cmd_files).items() if k != 'active'}]
         if cmd_children.active:
@@ -193,27 +183,27 @@ class Rewriter:
     def _sub(
         self: Rewriter,
         child: Path,
-        file: str,
-        cmd_files: RewriteCommand,
-        cmd_children: RewriteCommand,
+        filename: str,
+        cmd_files_children: tuple[RewriteCommand, RewriteCommand],
     ) -> tuple[RewriteCommand, RewriteCommand]:
         """Remove items from OZI Rewriter"""
-        if file.endswith('/'):
+        cmd_files, cmd_children = cmd_files_children
+        if filename.endswith('/'):
             cmd_children.rem(self.fix, 'children', str(child / 'meson.build'))
-        elif file.endswith('.py'):
-            cmd_files.rem(self.fix, 'files', str(Path(file)))
+        elif filename.endswith('.py'):
+            cmd_files.rem(self.fix, 'files', str(Path(filename)))
         else:
-            cmd_files.rem(self.fix, 'files', str(Path(file)))
+            cmd_files.rem(self.fix, 'files', str(Path(filename)))
         return cmd_files, cmd_children
 
     def __isub__(self: Self, other: list[str]) -> Self:
         """Remove a list of paths"""
         cmd_files = RewriteCommand()
         cmd_children = RewriteCommand()
-        for file in other:
-            child = self.path_map.get(self.fix, partial(Path))(file)
-            cmd_files, cmd_children = self._sub(child, file, cmd_files, cmd_children)
-            self.__rm_dir(file, child)
+        for filename in other:
+            child = self.path_map.get(self.fix, partial(Path))(filename)
+            cmd_files, cmd_children = self._sub(child, filename, (cmd_files, cmd_children))
+            self.__rm_dir(filename, child)
         if cmd_files.active:
             self.commands += [{k: v for k, v in asdict(cmd_files).items() if k != 'active'}]
         if cmd_children.active:
@@ -222,9 +212,9 @@ class Rewriter:
             ]
         return self
 
-    def __rm_dir(self: Self, file: str, child: Path) -> None:
+    def __rm_dir(self: Self, filename: str, child: Path) -> None:
         """Try to remove a directory if empty."""
-        if file.endswith('/'):
+        if filename.endswith('/'):
             try:
                 child.rmdir()
             except OSError:
