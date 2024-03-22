@@ -40,17 +40,17 @@ def main() -> NoReturn:  # pragma: no cover
         case [False, _]:
             with TAP.suppress():
                 name, *_ = report(project.target)
-            project.name = underscorify(name)
-            project.license_file = 'LICENSE.txt'
-            project.copyright_head = '\n'.join(
-                [
-                    f'Part of {name}.',
-                    f'See {project.license_file} in the project root for details.',
-                ],
-            )
-            rewriter = Rewriter(str(project.target), project.name, project.fix, env)
-            rewriter += project.add
-            rewriter -= project.remove
+                project.name = underscorify(name)
+                project.license_file = 'LICENSE.txt'
+                project.copyright_head = '\n'.join(
+                    [
+                        f'Part of {name}.',
+                        f'See {project.license_file} in the project root for details.',
+                    ],
+                )
+                rewriter = Rewriter(str(project.target), project.name, project.fix, env)
+                rewriter += project.add
+                rewriter -= project.remove
             print(json.dumps(rewriter.commands, indent=4 if project.pretty else None))
         case [True, True]:
             with TAP.strict():
