@@ -11,6 +11,7 @@ import warnings
 from collections import Counter
 from contextlib import ContextDecorator
 from contextlib import contextmanager
+from contextlib import redirect_stderr
 from contextlib import redirect_stdout
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -147,9 +148,11 @@ class TAP(ContextDecorator):
             Does not suppress Python exceptions.
         """
         warnings.simplefilter('ignore')
-        with Path(os.devnull).open('w') as null:
-            with redirect_stdout(null):
+        null = Path(os.devnull).open('w')
+        with redirect_stdout(null):
+            with redirect_stderr(null):
                 yield
+        null.close()
         warnings.resetwarnings()
 
     @staticmethod
