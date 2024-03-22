@@ -112,7 +112,7 @@ def valid_contact_info(  # noqa: C901
         TAP.ok('Author provided.')
 
 
-def valid_license(_license: str, license_expression: str) -> None:
+def valid_license(_license: str, license_expression: str) -> str:
     """Validate license and check against license expression."""
     if isinstance(_license, list):  # pragma: no cover
         TAP.diagnostic('multiple license matches', *_license, 'only using the first')
@@ -138,6 +138,7 @@ def valid_license(_license: str, license_expression: str) -> None:
 
     else:
         TAP.ok('License')
+    return _license
 
 
 def valid_copyright_head(copyright_head: str, project_name: str, license_file: str) -> str:

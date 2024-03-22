@@ -50,7 +50,7 @@ def _valid_project(project: Namespace) -> Namespace:
     """Validate a project namespace."""
     valid_project_name(name=project.name)
     valid_summary(project.summary)
-    valid_license(
+    project.license = valid_license(
         _license=project.license,
         license_expression=project.license_expression,
     )
