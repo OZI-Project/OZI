@@ -1,4 +1,24 @@
 # CHANGELOG
+## 0.0.297 (2024-03-22)
+
+### :bug:
+
+* :bug: [e2e] suppress TAP diagnostic output for ``ozi-fix`` in add and remove mode.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`e47f3f5`](https://github.com/OZI-Project/OZI/commit/e47f3f57c3d47ce56983664de594fbbaa2af06ae))
+
+### Other
+
+* Merge pull request #275 from OZI-Project/main
+
+Release ([`ed816e5`](https://github.com/OZI-Project/OZI/commit/ed816e59dc0205e408b0a414c570c37831af11ab))
+
+* Merge pull request #274 from OZI-Project/dev
+
+[e2e] suppress TAP diagnostic output for ``ozi-fix`` ([`290099e`](https://github.com/OZI-Project/OZI/commit/290099ee21260063a7225f81ca136af91a9fbbcd))
+
+* Merge branch &#39;main&#39; into dev ([`e23ebb1`](https://github.com/OZI-Project/OZI/commit/e23ebb1bb1a273208e5066c4a8221e22dcdf3211))
+
 ## 0.0.296 (2024-03-22)
 
 ### :arrow_up:
