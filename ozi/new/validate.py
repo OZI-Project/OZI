@@ -114,6 +114,9 @@ def valid_contact_info(  # noqa: C901
 
 def valid_license(_license: str, license_expression: str) -> None:
     """Validate license and check against license expression."""
+    if isinstance(_license, list):  # pragma: no cover
+        TAP.diagnostic('multiple license matches', _license, 'only using the first')
+        _license, *_ = _license
     possible_spdx: Sequence[str] = METADATA.spec.python.pkg.license.ambiguous.get(
         _license,
         (),
