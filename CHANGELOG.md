@@ -1,4 +1,24 @@
 # CHANGELOG
+## 0.0.293 (2024-03-22)
+
+### :bug:
+
+* :bug: [e2e] fix entrypoint closematch for license.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`178f9e8`](https://github.com/OZI-Project/OZI/commit/178f9e865a89d2efc94f2ffe7e9e2e77ae74d0da))
+
+### Other
+
+* Merge pull request #266 from OZI-Project/main
+
+Release ([`a609637`](https://github.com/OZI-Project/OZI/commit/a609637d8d0394bcd6a852a6ba31e931a8df5097))
+
+* Merge pull request #265 from OZI-Project/dev
+
+Dev Merge ([`3d6c2e9`](https://github.com/OZI-Project/OZI/commit/3d6c2e9519c937c18e8216a34a3dfc0cee859208))
+
+* Merge branch &#39;main&#39; into dev ([`9b96582`](https://github.com/OZI-Project/OZI/commit/9b96582c51c762cdfff662061027065da3e8850f))
+
 ## 0.0.292 (2024-03-21)
 
 ### :bug:
