@@ -1,4 +1,24 @@
 # CHANGELOG
+## 0.0.295 (2024-03-22)
+
+### :bug:
+
+* :bug: [e2e] Fix license classifier validation.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`538ee1c`](https://github.com/OZI-Project/OZI/commit/538ee1c771a76599914108cbc6a5a5ba904752ae))
+
+### Other
+
+* Merge pull request #270 from OZI-Project/main
+
+Release ([`3768486`](https://github.com/OZI-Project/OZI/commit/376848658d0f2713726891cce674c4aae9ccf0e7))
+
+* Merge pull request #269 from OZI-Project/dev
+
+Fix license classifier validation. ([`0ef78ad`](https://github.com/OZI-Project/OZI/commit/0ef78ade9792a3618573c1c71435e1fe664e1ed0))
+
+* Merge branch &#39;main&#39; into dev ([`0c24998`](https://github.com/OZI-Project/OZI/commit/0c24998d12c0a7dfbaf45717d72b9ad6795ef9e5))
+
 ## 0.0.294 (2024-03-22)
 
 ### :bug:
