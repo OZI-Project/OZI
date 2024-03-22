@@ -1,4 +1,24 @@
 # CHANGELOG
+## 0.0.294 (2024-03-22)
+
+### :bug:
+
+* :bug: [e2e] fix license close matches unpacking in diagnostic.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`f04555d`](https://github.com/OZI-Project/OZI/commit/f04555dab2053a26fe0f7af6390550d1a3e6eb0c))
+
+### Other
+
+* Merge pull request #268 from OZI-Project/main
+
+Release ([`18883b3`](https://github.com/OZI-Project/OZI/commit/18883b3d2bd58cdff4ea79da83d818c7cf842fd1))
+
+* Merge pull request #267 from OZI-Project/dev
+
+:bug: [e2e] fix license close matches unpacking in diagnostic. ([`8528913`](https://github.com/OZI-Project/OZI/commit/8528913737c40f0e5aa1aaa2a1c35d374f26925f))
+
+* Merge branch &#39;main&#39; into dev ([`e976b5f`](https://github.com/OZI-Project/OZI/commit/e976b5f7964a5df9961e5f0f54bf5e00f55926e3))
+
 ## 0.0.293 (2024-03-22)
 
 ### :bug:
