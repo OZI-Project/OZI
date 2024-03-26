@@ -70,7 +70,7 @@ option(
     'dist-suite',
     type: 'array',
     description: '--setup=dist',
-    value: ['pyc_wheel', 'semantic_release', 'sigstore'],
+    value: ['semantic_release', 'sigstore'],
 )
 option(
     'docs-suite',
@@ -170,7 +170,6 @@ option(
     type: 'array',
     description: 'no packaged version metadata',
     value: [
-        'pyc_wheel',
         'pytest-asyncio',
         'pytest-tcpclient',
         'pytest-randomly',
@@ -188,7 +187,6 @@ option(
     description: 'no application - python module entry point only',
     value: [
         'semantic_release',
-        'pyc_wheel',
         'sigstore',
         'sphinxawesome-codelinter',
         'sphinxawesome-theme',
