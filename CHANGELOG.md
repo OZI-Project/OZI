@@ -1,4 +1,34 @@
 # CHANGELOG
+## 0.0.299 (2024-03-26)
+
+### :pushpin:
+
+* :pushpin: Update release workflow pin
+
+0.0 changes ([`2684c75`](https://github.com/OZI-Project/OZI/commit/2684c750d340e1f6b06f3c14f4bef753a9a1cde2))
+
+### Other
+
+* Merge pull request #293 from OZI-Project/main
+
+Release ([`ac8a5a6`](https://github.com/OZI-Project/OZI/commit/ac8a5a6d8494ba7ad7387a1b647e3493830716d8))
+
+* Merge pull request #291 from OZI-Project/main
+
+Release ([`8d73590`](https://github.com/OZI-Project/OZI/commit/8d735909c363eac8446423ea004c2c6187d98a24))
+
+* Merge pull request #290 from OZI-Project/bump-release
+
+:pushpin: Bump release to 0.1.9 ([`84e731f`](https://github.com/OZI-Project/OZI/commit/84e731fed30a008cb4d671501f519228f07d1698))
+
+* Update release.yml.j2 - bump release to 0.1.9
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`dc8cc69`](https://github.com/OZI-Project/OZI/commit/dc8cc69e07d93e5edb2aba4277ef580df9843c74))
+
+* Update dist-workflow.yml - bump release to 0.1.9
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`9028f91`](https://github.com/OZI-Project/OZI/commit/9028f919ea91bad30933733332403e12c46df7af))
+
 ## 0.0.298 (2024-03-26)
 
 ### :arrow_up:
