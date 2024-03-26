@@ -80,6 +80,22 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`8427854`](https://github.c
 
 ### Other
 
+* Merge pull request #289 from OZI-Project/main
+
+Release ([`9fdd306`](https://github.com/OZI-Project/OZI/commit/9fdd306d311dcd5e20cf8c029106465a779a15eb))
+
+* Merge pull request #288 from OZI-Project/bump-release
+
+:pushpin: Bump release to 0.1.8 ([`f912b4d`](https://github.com/OZI-Project/OZI/commit/f912b4d2734949638acf7d6408c25faa38991301))
+
+* Update dist-workflow.yml - bump release to 0.1.8
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`e185b0f`](https://github.com/OZI-Project/OZI/commit/e185b0f9c745051f16eb81cabaf898d0e7543470))
+
+* Update release.yml.j2 release to 0.1.8
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`c763cad`](https://github.com/OZI-Project/OZI/commit/c763cad757ea160072788771828fbc61fb82336b))
+
 * Merge pull request #287 from OZI-Project/main
 
 Release ([`85fca0c`](https://github.com/OZI-Project/OZI/commit/85fca0cf1544a1bbf36a575c55cdec416ccffd67))
