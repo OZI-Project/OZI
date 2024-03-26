@@ -20,11 +20,41 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`b7600f5`](https://g
 
 ### :hammer:
 
+* :hammer: Update meson.options
+
+Drop pyc_wheel test
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`8dc2e4e`](https://github.com/OZI-Project/OZI/commit/8dc2e4e01e1765869cbb3fc34c136972f0fe97ff))
+
 * :hammer::construction_worker: Add OZI-Project/pyc_wheel release action version 0.1.4
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`b3d16f1`](https://github.com/OZI-Project/OZI/commit/b3d16f1bcb4526f6b9e48f9387b9a935106733f2))
 
+### :pushpin:
+
+* :pushpin: Bump release to 0.1.5
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`8427854`](https://github.com/OZI-Project/OZI/commit/84278543018de407d685588e71993936f2c2a9b2))
+
 ### Other
+
+* Merge pull request #282 from OZI-Project/main
+
+Release ([`77f7e68`](https://github.com/OZI-Project/OZI/commit/77f7e68b7299fed7cfc99db08f09ce8a9646ee8d))
+
+* Merge pull request #281 from OZI-Project/dev
+
+Dev merge ([`59ab5d2`](https://github.com/OZI-Project/OZI/commit/59ab5d2a1b843e6e39160cc5d2904a286b0a9d15))
+
+* Merge pull request #280 from OZI-Project/main
+
+Merge pull request #279 from OZI-Project/dev ([`951a44b`](https://github.com/OZI-Project/OZI/commit/951a44bf9979206e39b068cd5d2147f2e3a164fd))
+
+* Merge pull request #279 from OZI-Project/dev
+
+Dev merge ([`ae98db4`](https://github.com/OZI-Project/OZI/commit/ae98db40e03c3dd01f0417192b602aa533023d51))
+
+* Merge branch &#39;main&#39; into dev ([`aafb523`](https://github.com/OZI-Project/OZI/commit/aafb52306dd711d60a30736f57d2940ecd222ca8))
 
 * Merge pull request #278 from OZI-Project/main
 
