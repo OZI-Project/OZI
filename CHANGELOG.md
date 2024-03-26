@@ -3,6 +3,36 @@
 
 ### :arrow_up:
 
+* :arrow_up: Bump OZI-Project/release from 0.1.5 to 0.1.6
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.1.5 to 0.1.6.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/a443e522f64ad355f93ef88ee5e03e819a4dd451...12ac0a7c0e46ad84222a238e40e5a8fb87df3b56)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`45ade1c`](https://github.com/OZI-Project/OZI/commit/45ade1cf371d1e2aefcc795220343fffa34f4623))
+
+* :arrow_up: Bump actions/dependency-review-action from 4.2.4 to 4.2.5
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.2.4 to 4.2.5.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/733dd5d4a5203f238c33806593ec0f5fc5343d8c...5bbc3ba658137598168acb2ab73b21c432dd411b)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`7de8319`](https://github.com/OZI-Project/OZI/commit/7de831999d4c0a9092ab669be383a675be7e261e))
+
 * :arrow_up: Bump actions/dependency-review-action from 4.2.3 to 4.2.4
 
 Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.2.3 to 4.2.4.
@@ -32,11 +62,25 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`b3d16f1`](https://github.c
 
 ### :pushpin:
 
+* :pushpin: Update release workflow pin
+
+⬆️ Bump OZI-Project/release from 0.1.5 to 0.1.6 ([`e29a7c0`](https://github.com/OZI-Project/OZI/commit/e29a7c0807085e84e550e5667d6ad1cd19903d00))
+
 * :pushpin: Bump release to 0.1.5
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`8427854`](https://github.com/OZI-Project/OZI/commit/84278543018de407d685588e71993936f2c2a9b2))
 
 ### Other
+
+* Merge pull request #285 from OZI-Project/main
+
+Release ([`9d15008`](https://github.com/OZI-Project/OZI/commit/9d15008a428d821aaf894ec289b70bb593c9bddc))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/OZI-Project/release-0.1.6 ([`8af43b5`](https://github.com/OZI-Project/OZI/commit/8af43b5c750084258c1b6758eec438408baa4ffe))
+
+* Merge pull request #283 from OZI-Project/dependabot/github_actions/actions/dependency-review-action-4.2.5
+
+⬆️ Bump actions/dependency-review-action from 4.2.4 to 4.2.5 ([`20e4c43`](https://github.com/OZI-Project/OZI/commit/20e4c43c4f23b09253ae3907d3c75eee4dd7a29b))
 
 * Merge pull request #282 from OZI-Project/main
 
