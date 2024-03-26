@@ -62,6 +62,14 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`b3d16f1`](https://github.c
 
 ### :pushpin:
 
+* :pushpin: Bump release workflow to 0.1.7
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`c3dfe48`](https://github.com/OZI-Project/OZI/commit/c3dfe48e0542894a2cf399d9474556a89aed3216))
+
+* :pushpin: Pin release to 0.1.7
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`0444866`](https://github.com/OZI-Project/OZI/commit/0444866e15137c486aab7c4b7104ba16c3d07b32))
+
 * :pushpin: Update release workflow pin
 
 ⬆️ Bump OZI-Project/release from 0.1.5 to 0.1.6 ([`e29a7c0`](https://github.com/OZI-Project/OZI/commit/e29a7c0807085e84e550e5667d6ad1cd19903d00))
@@ -71,6 +79,14 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`b3d16f1`](https://github.c
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`8427854`](https://github.com/OZI-Project/OZI/commit/84278543018de407d685588e71993936f2c2a9b2))
 
 ### Other
+
+* Merge pull request #287 from OZI-Project/main
+
+Release ([`85fca0c`](https://github.com/OZI-Project/OZI/commit/85fca0cf1544a1bbf36a575c55cdec416ccffd67))
+
+* Merge pull request #286 from OZI-Project/bump-release
+
+Bump release workflow ([`ef5f177`](https://github.com/OZI-Project/OZI/commit/ef5f177ef9447ef9daedfe09f88b21456a16debd))
 
 * Merge pull request #285 from OZI-Project/main
 
