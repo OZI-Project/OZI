@@ -318,7 +318,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/release@0376c4a07d8d0427f6285c053b3cdc4514717445
+      - uses: OZI-Project/release@2e3c30f4687ad027cb99dcf4e43ce9d0fd1fc570
         id: release
         with:
           python-dist: ${{ matrix.py }}
