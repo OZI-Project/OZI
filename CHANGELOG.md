@@ -1,4 +1,45 @@
 # CHANGELOG
+## 0.0.298 (2024-03-26)
+
+### :arrow_up:
+
+* :arrow_up: Bump actions/dependency-review-action from 4.2.3 to 4.2.4
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.2.3 to 4.2.4.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/0fa40c3c10055986a88de3baa0d6ec17c5a894b3...733dd5d4a5203f238c33806593ec0f5fc5343d8c)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`b7600f5`](https://github.com/OZI-Project/OZI/commit/b7600f5136ccaa06c2340a2c8579ad8be692f021))
+
+### :hammer:
+
+* :hammer::construction_worker: Add OZI-Project/pyc_wheel release action version 0.1.4
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`b3d16f1`](https://github.com/OZI-Project/OZI/commit/b3d16f1bcb4526f6b9e48f9387b9a935106733f2))
+
+### Other
+
+* Merge pull request #278 from OZI-Project/main
+
+Release ([`95d3e76`](https://github.com/OZI-Project/OZI/commit/95d3e7604b128f1fb7b69d3a5a92e0507722349e))
+
+* Merge pull request #277 from OZI-Project/dev
+
+Dev merge ([`c05237c`](https://github.com/OZI-Project/OZI/commit/c05237ceac29e904e0574826e65ba48d99c761fe))
+
+* Merge branch &#39;main&#39; into dev ([`bb66e8c`](https://github.com/OZI-Project/OZI/commit/bb66e8c187a77fade3bffd4fbaac367e608ce890))
+
+* Merge pull request #276 from OZI-Project/dependabot/github_actions/actions/dependency-review-action-4.2.4
+
+⬆️ Bump actions/dependency-review-action from 4.2.3 to 4.2.4 ([`ac5dc31`](https://github.com/OZI-Project/OZI/commit/ac5dc31e0aab44d74236ea7cb9306e1260c8b862))
+
 ## 0.0.297 (2024-03-22)
 
 ### :bug:
@@ -6446,7 +6487,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 * PKG-INFO Updated ([`e8b8e71`](https://github.com/OZI-Project/OZI/commit/e8b8e71fdb4df3c2f6c9f0cf896fc6145eb4b5e1))
 
-## 0.0.25 (2023-08-06)
+## 0.0.25 (2023-08-05)
 
 ### Other
 
@@ -6460,7 +6501,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 * PKG-INFO Updated ([`167694d`](https://github.com/OZI-Project/OZI/commit/167694d1d78f9b40a3b65f57466e389a84c040d0))
 
-## 0.0.24 (2023-07-13)
+## 0.0.24 (2023-07-12)
 
 ### Other
 
@@ -6492,13 +6533,13 @@ Added human-centered messaging. ([`8d7d0a6`](https://github.com/OZI-Project/OZI/
 
 * PKG-INFO Updated ([`e4feee9`](https://github.com/OZI-Project/OZI/commit/e4feee97a6e7c6ce0eebd879c4770bbe9267ccaf))
 
-## 0.0.23 (2023-07-06)
+## 0.0.23 (2023-07-05)
 
 ### :pencil2:
 
 * :pencil2: blastpipe provides blastpipe. ([`68f1897`](https://github.com/OZI-Project/OZI/commit/68f1897671398b9a52ca42f3df6a15192950eba1))
 
-## 0.0.22 (2023-07-06)
+## 0.0.22 (2023-07-05)
 
 ### Other
 
@@ -6552,7 +6593,7 @@ This allows support of hashed version pins. ([`baaf291`](https://github.com/OZI-
 
 * PKG-INFO Updated ([`0877e63`](https://github.com/OZI-Project/OZI/commit/0877e63c615d2e39630dc3e0dcb08729c1854c40))
 
-## 0.0.21 (2023-07-02)
+## 0.0.21 (2023-07-01)
 
 ### Other
 
@@ -6594,7 +6635,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 * PKG-INFO Updated ([`c1c04d9`](https://github.com/OZI-Project/OZI/commit/c1c04d9bd89823b9d8c48eb422c5bc6a8360e883))
 
-## 0.0.20 (2023-06-25)
+## 0.0.20 (2023-06-24)
 
 ### Other
 
@@ -6604,25 +6645,25 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 * PKG-INFO Updated ([`5de6296`](https://github.com/OZI-Project/OZI/commit/5de6296f33c58f751c97551b9b69f1f786c04409))
 
-## 0.0.19 (2023-06-25)
+## 0.0.19 (2023-06-24)
 
 ### Other
 
 * 🔨 stash after push release. ([`4169813`](https://github.com/OZI-Project/OZI/commit/4169813270f1e6783da08a914904b53776b3b49c))
 
-## 0.0.18 (2023-06-25)
+## 0.0.18 (2023-06-24)
 
 ### Other
 
 * 🔨 turn back on repo build. ([`4137e1e`](https://github.com/OZI-Project/OZI/commit/4137e1e2822dfce5eb0d47ac23519515422181db))
 
-## 0.0.17 (2023-06-25)
+## 0.0.17 (2023-06-24)
 
 ### Other
 
 * 🔊 Add changes for 0.0.16. ([`62e9641`](https://github.com/OZI-Project/OZI/commit/62e9641e4e0505e664449110d0a46b5e3a1f794f))
 
-## 0.0.16 (2023-06-25)
+## 0.0.16 (2023-06-24)
 
 ### Other
 
@@ -6698,7 +6739,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 * PKG-INFO Updated ([`1db763d`](https://github.com/OZI-Project/OZI/commit/1db763d5e978742e1848b0cf83b773e39a9efe98))
 
-## 0.0.7 (2023-06-24)
+## 0.0.7 (2023-06-23)
 
 ### Other
 
@@ -6706,7 +6747,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 * PKG-INFO Updated ([`88d8722`](https://github.com/OZI-Project/OZI/commit/88d87224d4e8b5c734ef0791c5707df0f3441dd1))
 
-## 0.0.6 (2023-06-24)
+## 0.0.6 (2023-06-23)
 
 ### :pencil2:
 
@@ -6734,7 +6775,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 * PKG-INFO Updated ([`c9f3a62`](https://github.com/OZI-Project/OZI/commit/c9f3a62e30f9deda448bd245ff71e6813fd84c2d))
 
-## 0.0.5 (2023-06-24)
+## 0.0.5 (2023-06-23)
 
 ### :pencil2:
 
@@ -6744,7 +6785,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 * 🙈 add .gitignore!!! ([`04e2eb4`](https://github.com/OZI-Project/OZI/commit/04e2eb40a954935a251f8c65574187c013448a74))
 
-## 0.0.4 (2023-06-24)
+## 0.0.4 (2023-06-23)
 
 ### Other
 
