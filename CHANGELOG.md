@@ -1,4 +1,26 @@
 # CHANGELOG
+## 0.0.302 (2024-03-27)
+
+### :pushpin:
+
+* :pushpin: Pin black to &gt;=24.3.
+
+This mitigates a known REDOS vulnerability.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`403fd1f`](https://github.com/OZI-Project/OZI/commit/403fd1fb4b17beebdd678f9b41725bfe82502f79))
+
+### Other
+
+* Merge pull request #301 from OZI-Project/main
+
+Release ([`acd7e51`](https://github.com/OZI-Project/OZI/commit/acd7e51d5023ad790592a11d5c35bbe9ce4aad95))
+
+* Merge pull request #300 from OZI-Project/dev
+
+Dev merge ([`cc23d18`](https://github.com/OZI-Project/OZI/commit/cc23d185defc23dd3b5d0945624f2bbc78bbf9e4))
+
+* Merge branch &#39;main&#39; into dev ([`e44ae0c`](https://github.com/OZI-Project/OZI/commit/e44ae0c817d2d939033f8cf0540b69f48d67d3f1))
+
 ## 0.0.301 (2024-03-27)
 
 ### :hammer:
