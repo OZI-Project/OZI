@@ -1,4 +1,455 @@
 # CHANGELOG
+## 0.0.298 (2024-03-26)
+
+### :arrow_up:
+
+* :arrow_up: Bump OZI-Project/release from 0.1.5 to 0.1.6
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.1.5 to 0.1.6.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/a443e522f64ad355f93ef88ee5e03e819a4dd451...12ac0a7c0e46ad84222a238e40e5a8fb87df3b56)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`45ade1c`](https://github.com/OZI-Project/OZI/commit/45ade1cf371d1e2aefcc795220343fffa34f4623))
+
+* :arrow_up: Bump actions/dependency-review-action from 4.2.4 to 4.2.5
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.2.4 to 4.2.5.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/733dd5d4a5203f238c33806593ec0f5fc5343d8c...5bbc3ba658137598168acb2ab73b21c432dd411b)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`7de8319`](https://github.com/OZI-Project/OZI/commit/7de831999d4c0a9092ab669be383a675be7e261e))
+
+* :arrow_up: Bump actions/dependency-review-action from 4.2.3 to 4.2.4
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.2.3 to 4.2.4.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/0fa40c3c10055986a88de3baa0d6ec17c5a894b3...733dd5d4a5203f238c33806593ec0f5fc5343d8c)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`b7600f5`](https://github.com/OZI-Project/OZI/commit/b7600f5136ccaa06c2340a2c8579ad8be692f021))
+
+### :hammer:
+
+* :hammer: Update meson.options
+
+Drop pyc_wheel test
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`8dc2e4e`](https://github.com/OZI-Project/OZI/commit/8dc2e4e01e1765869cbb3fc34c136972f0fe97ff))
+
+* :hammer::construction_worker: Add OZI-Project/pyc_wheel release action version 0.1.4
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`b3d16f1`](https://github.com/OZI-Project/OZI/commit/b3d16f1bcb4526f6b9e48f9387b9a935106733f2))
+
+### :pushpin:
+
+* :pushpin: Bump release workflow to 0.1.7
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`c3dfe48`](https://github.com/OZI-Project/OZI/commit/c3dfe48e0542894a2cf399d9474556a89aed3216))
+
+* :pushpin: Pin release to 0.1.7
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`0444866`](https://github.com/OZI-Project/OZI/commit/0444866e15137c486aab7c4b7104ba16c3d07b32))
+
+* :pushpin: Update release workflow pin
+
+⬆️ Bump OZI-Project/release from 0.1.5 to 0.1.6 ([`e29a7c0`](https://github.com/OZI-Project/OZI/commit/e29a7c0807085e84e550e5667d6ad1cd19903d00))
+
+* :pushpin: Bump release to 0.1.5
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`8427854`](https://github.com/OZI-Project/OZI/commit/84278543018de407d685588e71993936f2c2a9b2))
+
+### Other
+
+* Merge pull request #289 from OZI-Project/main
+
+Release ([`9fdd306`](https://github.com/OZI-Project/OZI/commit/9fdd306d311dcd5e20cf8c029106465a779a15eb))
+
+* Merge pull request #288 from OZI-Project/bump-release
+
+:pushpin: Bump release to 0.1.8 ([`f912b4d`](https://github.com/OZI-Project/OZI/commit/f912b4d2734949638acf7d6408c25faa38991301))
+
+* Update dist-workflow.yml - bump release to 0.1.8
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`e185b0f`](https://github.com/OZI-Project/OZI/commit/e185b0f9c745051f16eb81cabaf898d0e7543470))
+
+* Update release.yml.j2 release to 0.1.8
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`c763cad`](https://github.com/OZI-Project/OZI/commit/c763cad757ea160072788771828fbc61fb82336b))
+
+* Merge pull request #287 from OZI-Project/main
+
+Release ([`85fca0c`](https://github.com/OZI-Project/OZI/commit/85fca0cf1544a1bbf36a575c55cdec416ccffd67))
+
+* Merge pull request #286 from OZI-Project/bump-release
+
+Bump release workflow ([`ef5f177`](https://github.com/OZI-Project/OZI/commit/ef5f177ef9447ef9daedfe09f88b21456a16debd))
+
+* Merge pull request #285 from OZI-Project/main
+
+Release ([`9d15008`](https://github.com/OZI-Project/OZI/commit/9d15008a428d821aaf894ec289b70bb593c9bddc))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/OZI-Project/release-0.1.6 ([`8af43b5`](https://github.com/OZI-Project/OZI/commit/8af43b5c750084258c1b6758eec438408baa4ffe))
+
+* Merge pull request #283 from OZI-Project/dependabot/github_actions/actions/dependency-review-action-4.2.5
+
+⬆️ Bump actions/dependency-review-action from 4.2.4 to 4.2.5 ([`20e4c43`](https://github.com/OZI-Project/OZI/commit/20e4c43c4f23b09253ae3907d3c75eee4dd7a29b))
+
+* Merge pull request #282 from OZI-Project/main
+
+Release ([`77f7e68`](https://github.com/OZI-Project/OZI/commit/77f7e68b7299fed7cfc99db08f09ce8a9646ee8d))
+
+* Merge pull request #281 from OZI-Project/dev
+
+Dev merge ([`59ab5d2`](https://github.com/OZI-Project/OZI/commit/59ab5d2a1b843e6e39160cc5d2904a286b0a9d15))
+
+* Merge pull request #280 from OZI-Project/main
+
+Merge pull request #279 from OZI-Project/dev ([`951a44b`](https://github.com/OZI-Project/OZI/commit/951a44bf9979206e39b068cd5d2147f2e3a164fd))
+
+* Merge pull request #279 from OZI-Project/dev
+
+Dev merge ([`ae98db4`](https://github.com/OZI-Project/OZI/commit/ae98db40e03c3dd01f0417192b602aa533023d51))
+
+* Merge branch &#39;main&#39; into dev ([`aafb523`](https://github.com/OZI-Project/OZI/commit/aafb52306dd711d60a30736f57d2940ecd222ca8))
+
+* Merge pull request #278 from OZI-Project/main
+
+Release ([`95d3e76`](https://github.com/OZI-Project/OZI/commit/95d3e7604b128f1fb7b69d3a5a92e0507722349e))
+
+* Merge pull request #277 from OZI-Project/dev
+
+Dev merge ([`c05237c`](https://github.com/OZI-Project/OZI/commit/c05237ceac29e904e0574826e65ba48d99c761fe))
+
+* Merge branch &#39;main&#39; into dev ([`bb66e8c`](https://github.com/OZI-Project/OZI/commit/bb66e8c187a77fade3bffd4fbaac367e608ce890))
+
+* Merge pull request #276 from OZI-Project/dependabot/github_actions/actions/dependency-review-action-4.2.4
+
+⬆️ Bump actions/dependency-review-action from 4.2.3 to 4.2.4 ([`ac5dc31`](https://github.com/OZI-Project/OZI/commit/ac5dc31e0aab44d74236ea7cb9306e1260c8b862))
+
+## 0.0.297 (2024-03-22)
+
+### :bug:
+
+* :bug: [e2e] suppress TAP diagnostic output for ``ozi-fix`` in add and remove mode.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`e47f3f5`](https://github.com/OZI-Project/OZI/commit/e47f3f57c3d47ce56983664de594fbbaa2af06ae))
+
+### Other
+
+* Merge pull request #275 from OZI-Project/main
+
+Release ([`ed816e5`](https://github.com/OZI-Project/OZI/commit/ed816e59dc0205e408b0a414c570c37831af11ab))
+
+* Merge pull request #274 from OZI-Project/dev
+
+[e2e] suppress TAP diagnostic output for ``ozi-fix`` ([`290099e`](https://github.com/OZI-Project/OZI/commit/290099ee21260063a7225f81ca136af91a9fbbcd))
+
+* Merge branch &#39;main&#39; into dev ([`e23ebb1`](https://github.com/OZI-Project/OZI/commit/e23ebb1bb1a273208e5066c4a8221e22dcdf3211))
+
+## 0.0.296 (2024-03-22)
+
+### :arrow_up:
+
+* :arrow_up: Bump github/codeql-action from 3.24.8 to 3.24.9
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.8 to 3.24.9.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/05963f47d870e2cb19a537396c1f668a348c7d8f...1b1aada464948af03b950897e5eb522f92603cc2)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`c0b97e1`](https://github.com/OZI-Project/OZI/commit/c0b97e1cc1c2c4661ae740eab3fbef1ff9a21dc7))
+
+### :bug:
+
+* :bug: [e2e] Correctly suppress stderr in ozi-fix.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`2b92f76`](https://github.com/OZI-Project/OZI/commit/2b92f7603d10b66a01e0cea2483a6d1d22f57474))
+
+### Other
+
+* Merge pull request #273 from OZI-Project/main
+
+Release ([`27a4866`](https://github.com/OZI-Project/OZI/commit/27a4866088ec862a0150b283a867cf4a9fdd67ce))
+
+* Merge pull request #272 from OZI-Project/dependabot/github_actions/github/codeql-action-3.24.9
+
+⬆️ Bump github/codeql-action from 3.24.8 to 3.24.9 ([`123b70e`](https://github.com/OZI-Project/OZI/commit/123b70e3ca785872858c46e970d035d34e139d05))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/github/codeql-action-3.24.9 ([`3677f0d`](https://github.com/OZI-Project/OZI/commit/3677f0d3b0b5490e6cb24fbc32112986474f512b))
+
+* Merge pull request #271 from OZI-Project/dev
+
+Correctly suppress stderr in ozi-fix. ([`cf0e9a6`](https://github.com/OZI-Project/OZI/commit/cf0e9a6e516eb8d1ca793eaa1cc3e85a952b87f5))
+
+* Merge branch &#39;main&#39; into dev ([`7de2841`](https://github.com/OZI-Project/OZI/commit/7de2841c8989bdee40c756f129ceff804988b90d))
+
+## 0.0.295 (2024-03-22)
+
+### :bug:
+
+* :bug: [e2e] Fix license classifier validation.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`538ee1c`](https://github.com/OZI-Project/OZI/commit/538ee1c771a76599914108cbc6a5a5ba904752ae))
+
+### Other
+
+* Merge pull request #270 from OZI-Project/main
+
+Release ([`3768486`](https://github.com/OZI-Project/OZI/commit/376848658d0f2713726891cce674c4aae9ccf0e7))
+
+* Merge pull request #269 from OZI-Project/dev
+
+Fix license classifier validation. ([`0ef78ad`](https://github.com/OZI-Project/OZI/commit/0ef78ade9792a3618573c1c71435e1fe664e1ed0))
+
+* Merge branch &#39;main&#39; into dev ([`0c24998`](https://github.com/OZI-Project/OZI/commit/0c24998d12c0a7dfbaf45717d72b9ad6795ef9e5))
+
+## 0.0.294 (2024-03-22)
+
+### :bug:
+
+* :bug: [e2e] fix license close matches unpacking in diagnostic.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`f04555d`](https://github.com/OZI-Project/OZI/commit/f04555dab2053a26fe0f7af6390550d1a3e6eb0c))
+
+### Other
+
+* Merge pull request #268 from OZI-Project/main
+
+Release ([`18883b3`](https://github.com/OZI-Project/OZI/commit/18883b3d2bd58cdff4ea79da83d818c7cf842fd1))
+
+* Merge pull request #267 from OZI-Project/dev
+
+:bug: [e2e] fix license close matches unpacking in diagnostic. ([`8528913`](https://github.com/OZI-Project/OZI/commit/8528913737c40f0e5aa1aaa2a1c35d374f26925f))
+
+* Merge branch &#39;main&#39; into dev ([`e976b5f`](https://github.com/OZI-Project/OZI/commit/e976b5f7964a5df9961e5f0f54bf5e00f55926e3))
+
+## 0.0.293 (2024-03-22)
+
+### :bug:
+
+* :bug: [e2e] fix entrypoint closematch for license.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`178f9e8`](https://github.com/OZI-Project/OZI/commit/178f9e865a89d2efc94f2ffe7e9e2e77ae74d0da))
+
+### Other
+
+* Merge pull request #266 from OZI-Project/main
+
+Release ([`a609637`](https://github.com/OZI-Project/OZI/commit/a609637d8d0394bcd6a852a6ba31e931a8df5097))
+
+* Merge pull request #265 from OZI-Project/dev
+
+Dev Merge ([`3d6c2e9`](https://github.com/OZI-Project/OZI/commit/3d6c2e9519c937c18e8216a34a3dfc0cee859208))
+
+* Merge branch &#39;main&#39; into dev ([`9b96582`](https://github.com/OZI-Project/OZI/commit/9b96582c51c762cdfff662061027065da3e8850f))
+
+## 0.0.292 (2024-03-21)
+
+### :bug:
+
+* :bug:: Fix closematch output.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`8fbb373`](https://github.com/OZI-Project/OZI/commit/8fbb373c2a4a40ff25578fcd5601ddc54dacd021))
+
+* :bug: [e2e] Fix our new project entrypoint.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`66c2f54`](https://github.com/OZI-Project/OZI/commit/66c2f543cdd7bf0174603424404539dbbaa57500))
+
+* :bug: [e2e] Fix our new project entrypoint. ([`1442acb`](https://github.com/OZI-Project/OZI/commit/1442acbab6d17700e7e8b5f1a857ebab92febd7d))
+
+### :hammer:
+
+* :hammer:: Refactor Rewriter methods.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`5080b4f`](https://github.com/OZI-Project/OZI/commit/5080b4fe5575a9bab75b6cd140f3411f63f2fb7e))
+
+### Other
+
+* Merge pull request #264 from OZI-Project/main
+
+Release ([`06e6ab9`](https://github.com/OZI-Project/OZI/commit/06e6ab94fb42de7c06a8ad8aa15d01eb318ba71a))
+
+* Merge pull request #263 from OZI-Project/dev
+
+Dev merge ([`d620101`](https://github.com/OZI-Project/OZI/commit/d62010117305e72fb3aeaef026a178e678e35e9c))
+
+* Merge branch &#39;main&#39; into dev ([`adb056b`](https://github.com/OZI-Project/OZI/commit/adb056b0c9cca971b7d4df0d6e54be287323b0fd))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`49275f3`](https://github.com/OZI-Project/OZI/commit/49275f305dbc85ac6431e6202f46c43694b2b261))
+
+* Merge pull request #262 from OZI-Project/dev
+
+Dev merge ([`7ccee54`](https://github.com/OZI-Project/OZI/commit/7ccee5462b8a8dc2f36bd05450603de110787c38))
+
+* Merge branch &#39;main&#39; into dev ([`507d4e3`](https://github.com/OZI-Project/OZI/commit/507d4e377a20d50064cbdb984586f5d979f46e46))
+
+* Merge pull request #259 from OZI-Project/dependabot/github_actions/actions/dependency-review-action-4.2.3
+
+Bump actions/dependency-review-action from 4.1.3 to 4.2.3 ([`2a39a37`](https://github.com/OZI-Project/OZI/commit/2a39a374345c7af27a009a3928210129957e446c))
+
+## 0.0.291 (2024-03-21)
+
+### :bug:
+
+* :bug: Fix validate branching in ``build_definition``.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`9cde43f`](https://github.com/OZI-Project/OZI/commit/9cde43fcdbd842283ab60cd1947968da7953c13a))
+
+### :hammer:
+
+* :hammer:: Bump SLSA provenance generator.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`53b590d`](https://github.com/OZI-Project/OZI/commit/53b590da5f64e3729da96503a5a3b1b7218da1a9))
+
+* :hammer: refactor ``ozi.actions`` module
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`7d66e1f`](https://github.com/OZI-Project/OZI/commit/7d66e1feb5a1ff95aa85bed7e6328891ae23c51a))
+
+* :hammer:: Extract a ``comment_diagnostic`` function from ``ozi.comment``.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`98f8e0f`](https://github.com/OZI-Project/OZI/commit/98f8e0fef85be409fcc7d5e1d4cc4583a8d15bd7))
+
+* :hammer: Refactor ``ozi.fix.missing`` object names.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`cdf8d61`](https://github.com/OZI-Project/OZI/commit/cdf8d61f06ad39abe94fd4a6ce5530557a8fa856))
+
+* :hammer: ``ozi -fix missing ...`` now walks the full build dir. Fix comment scoring tiers.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`fb96c58`](https://github.com/OZI-Project/OZI/commit/fb96c589d4b6ae485ec4ae672b97fd5b422f05d1))
+
+### Other
+
+* Merge pull request #261 from OZI-Project/main
+
+Release ([`846fe01`](https://github.com/OZI-Project/OZI/commit/846fe01f7f357cee015876cca9048fee296a4469))
+
+* Bump actions/dependency-review-action from 4.1.3 to 4.2.3
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.1.3 to 4.2.3.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/9129d7d40b8c12c1ed0f60400d00c92d437adcce...0fa40c3c10055986a88de3baa0d6ec17c5a894b3)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`becda60`](https://github.com/OZI-Project/OZI/commit/becda606aa2cd031a000b2a8b6e6443500d5815e))
+
+* Merge pull request #260 from OZI-Project/bump-slsa-generator
+
+:hammer:: Bump SLSA provenance workflow to 1.9.10. ([`118f709`](https://github.com/OZI-Project/OZI/commit/118f709ddfd2fe61b20994fd65bbe647718030a5))
+
+* Merge pull request #258 from OZI-Project/0.0
+
+0.0 changes ([`9b05018`](https://github.com/OZI-Project/OZI/commit/9b05018958498b55a4b2d7c5e36b425bacc0e4a0))
+
+* Merge pull request #257 from OZI-Project/main
+
+Release ([`b71e475`](https://github.com/OZI-Project/OZI/commit/b71e475f753100d064289efd376a69d96f3833ca))
+
+* Merge pull request #256 from OZI-Project/rjdbcm-patch-1 ([`53eaaf4`](https://github.com/OZI-Project/OZI/commit/53eaaf4c51a27317aaba7bed0198e6be9fccca4f))
+
+* Update CHANGELOG.md - revert release of 0.0.291
+
+Signed-off-by: Eden Rose, MSc &lt;rjdbcm@outlook.com&gt; ([`f1159a0`](https://github.com/OZI-Project/OZI/commit/f1159a053f7c767734046ec5c0a662d8f08d69b7))
+
+* Update dist-workflow.yml and bump build generator.
+
+Signed-off-by: Eden Rose, MSc &lt;rjdbcm@outlook.com&gt; ([`a75f83b`](https://github.com/OZI-Project/OZI/commit/a75f83b7308d9a577801e7a968fafc9493b1d26e))
+
+* Merge pull request #255 from OZI-Project/main
+
+Release ([`1f3a32f`](https://github.com/OZI-Project/OZI/commit/1f3a32f48a4cfb076b4c562002f64925a1409309))
+
+* Merge pull request #254 from OZI-Project/dev
+
+Dev merge ([`d7424c3`](https://github.com/OZI-Project/OZI/commit/d7424c3248bd402323595d373a242dc0d81d3323))
+
+* Merge branch &#39;main&#39; into dev ([`9b8533f`](https://github.com/OZI-Project/OZI/commit/9b8533fa96302b7ef1cbf276177048412e157398))
+
+* Fix type issues.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`3541843`](https://github.com/OZI-Project/OZI/commit/35418434df9ec78c2367ae69aa19d90da455c257))
+
+* Merge pull request #250 from OZI-Project/dependabot/github_actions/github/codeql-action-3.24.8
+
+Bump github/codeql-action from 3.24.7 to 3.24.8 ([`cb81603`](https://github.com/OZI-Project/OZI/commit/cb81603330a2cef9af3c6460623c4a68c61b57e8))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/github/codeql-action-3.24.8 ([`2fe8e26`](https://github.com/OZI-Project/OZI/commit/2fe8e267cbddfa6de5a09f51579a7f1759e79ccc))
+
+* Merge pull request #253 from OZI-Project/dev
+
+Dev merge ([`80fe04b`](https://github.com/OZI-Project/OZI/commit/80fe04bd4938c0064067bf2be42237aeaeabbf99))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/github/codeql-action-3.24.8 ([`18b397e`](https://github.com/OZI-Project/OZI/commit/18b397e66e2c6b8ad66ecb26247b71d9873d350b))
+
+* Merge branch &#39;main&#39; into dev ([`017f8e1`](https://github.com/OZI-Project/OZI/commit/017f8e125f9b85b8cba0796c6b1c75049f2dcf26))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`a8cfe96`](https://github.com/OZI-Project/OZI/commit/a8cfe963a4a41a30d0dea2f8191d426b0239c870))
+
+* Merge pull request #252 from OZI-Project/dev
+
+Dev merge ([`e7210d3`](https://github.com/OZI-Project/OZI/commit/e7210d3fd48231cf07fa852357d5ee07c0953b83))
+
+* Merge branch &#39;main&#39; into dev ([`94ad660`](https://github.com/OZI-Project/OZI/commit/94ad660e912633c6386c62d54c10c4c4c42fda63))
+
+* Merge pull request #251 from OZI-Project/dev
+
+Dev merge ([`3bf08b8`](https://github.com/OZI-Project/OZI/commit/3bf08b8ca66c728b5bef60e9abab52b2010133be))
+
+* Merge branch &#39;main&#39; into dev ([`d477d04`](https://github.com/OZI-Project/OZI/commit/d477d04d398a1893446d71e7f64a9c51b268fedc))
+
+* Bump github/codeql-action from 3.24.7 to 3.24.8
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.7 to 3.24.8.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/3ab4101902695724f9365a384f86c1074d94e18c...05963f47d870e2cb19a537396c1f668a348c7d8f)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5174685`](https://github.com/OZI-Project/OZI/commit/5174685a78f7b13b08c5d91f94b929ef58c84b84))
+
+* Merge pull request #249 from OZI-Project/dev
+
+Dev Merge ([`7c78d61`](https://github.com/OZI-Project/OZI/commit/7c78d6182f156efc53cd610aa2dc73ca1782b655))
+
+* Merge branch &#39;main&#39; into dev ([`6f0943d`](https://github.com/OZI-Project/OZI/commit/6f0943d7d26d4d13aea71157baa1a7e011c6bccb))
 
 ## 0.0.290 (2024-03-17)
 
@@ -6142,7 +6593,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 * PKG-INFO Updated ([`e8b8e71`](https://github.com/OZI-Project/OZI/commit/e8b8e71fdb4df3c2f6c9f0cf896fc6145eb4b5e1))
 
-## 0.0.25 (2023-08-06)
+## 0.0.25 (2023-08-05)
 
 ### Other
 
@@ -6156,7 +6607,7 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 * PKG-INFO Updated ([`167694d`](https://github.com/OZI-Project/OZI/commit/167694d1d78f9b40a3b65f57466e389a84c040d0))
 
-## 0.0.24 (2023-07-13)
+## 0.0.24 (2023-07-12)
 
 ### Other
 
@@ -6188,13 +6639,13 @@ Added human-centered messaging. ([`8d7d0a6`](https://github.com/OZI-Project/OZI/
 
 * PKG-INFO Updated ([`e4feee9`](https://github.com/OZI-Project/OZI/commit/e4feee97a6e7c6ce0eebd879c4770bbe9267ccaf))
 
-## 0.0.23 (2023-07-06)
+## 0.0.23 (2023-07-05)
 
 ### :pencil2:
 
 * :pencil2: blastpipe provides blastpipe. ([`68f1897`](https://github.com/OZI-Project/OZI/commit/68f1897671398b9a52ca42f3df6a15192950eba1))
 
-## 0.0.22 (2023-07-06)
+## 0.0.22 (2023-07-05)
 
 ### Other
 
@@ -6248,7 +6699,7 @@ This allows support of hashed version pins. ([`baaf291`](https://github.com/OZI-
 
 * PKG-INFO Updated ([`0877e63`](https://github.com/OZI-Project/OZI/commit/0877e63c615d2e39630dc3e0dcb08729c1854c40))
 
-## 0.0.21 (2023-07-02)
+## 0.0.21 (2023-07-01)
 
 ### Other
 
@@ -6290,7 +6741,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 * PKG-INFO Updated ([`c1c04d9`](https://github.com/OZI-Project/OZI/commit/c1c04d9bd89823b9d8c48eb422c5bc6a8360e883))
 
-## 0.0.20 (2023-06-25)
+## 0.0.20 (2023-06-24)
 
 ### Other
 
@@ -6300,25 +6751,25 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 * PKG-INFO Updated ([`5de6296`](https://github.com/OZI-Project/OZI/commit/5de6296f33c58f751c97551b9b69f1f786c04409))
 
-## 0.0.19 (2023-06-25)
+## 0.0.19 (2023-06-24)
 
 ### Other
 
 * 🔨 stash after push release. ([`4169813`](https://github.com/OZI-Project/OZI/commit/4169813270f1e6783da08a914904b53776b3b49c))
 
-## 0.0.18 (2023-06-25)
+## 0.0.18 (2023-06-24)
 
 ### Other
 
 * 🔨 turn back on repo build. ([`4137e1e`](https://github.com/OZI-Project/OZI/commit/4137e1e2822dfce5eb0d47ac23519515422181db))
 
-## 0.0.17 (2023-06-25)
+## 0.0.17 (2023-06-24)
 
 ### Other
 
 * 🔊 Add changes for 0.0.16. ([`62e9641`](https://github.com/OZI-Project/OZI/commit/62e9641e4e0505e664449110d0a46b5e3a1f794f))
 
-## 0.0.16 (2023-06-25)
+## 0.0.16 (2023-06-24)
 
 ### Other
 
@@ -6394,7 +6845,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 * PKG-INFO Updated ([`1db763d`](https://github.com/OZI-Project/OZI/commit/1db763d5e978742e1848b0cf83b773e39a9efe98))
 
-## 0.0.7 (2023-06-24)
+## 0.0.7 (2023-06-23)
 
 ### Other
 
@@ -6402,7 +6853,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 * PKG-INFO Updated ([`88d8722`](https://github.com/OZI-Project/OZI/commit/88d87224d4e8b5c734ef0791c5707df0f3441dd1))
 
-## 0.0.6 (2023-06-24)
+## 0.0.6 (2023-06-23)
 
 ### :pencil2:
 
@@ -6430,7 +6881,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 * PKG-INFO Updated ([`c9f3a62`](https://github.com/OZI-Project/OZI/commit/c9f3a62e30f9deda448bd245ff71e6813fd84c2d))
 
-## 0.0.5 (2023-06-24)
+## 0.0.5 (2023-06-23)
 
 ### :pencil2:
 
@@ -6440,7 +6891,7 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 * 🙈 add .gitignore!!! ([`04e2eb4`](https://github.com/OZI-Project/OZI/commit/04e2eb40a954935a251f8c65574187c013448a74))
 
-## 0.0.4 (2023-06-24)
+## 0.0.4 (2023-06-23)
 
 ### Other
 
