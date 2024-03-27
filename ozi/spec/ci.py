@@ -97,7 +97,7 @@ class ClassicLint(CheckpointSuite):
     utility: Mapping[str, str] = field(
         default_factory=lambda: {
             'bandit': 'bandit[toml]',
-            'black': 'black<24',
+            'black': 'black>=24.3',
             'flake8': 'flake8',
             'isort': 'isort',
             'mypy': 'mypy',

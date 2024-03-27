@@ -21,7 +21,7 @@ ci   = [
 {%- endfor %}
 ]
 # tox -e fix
-fix  = ["black", "ruff>=0.1.6", "autoflake", "isort"]
+fix  = ["black>=24.3", "ruff>=0.1.6", "autoflake", "isort"]
 # Default meson test setup
 dev  = ["[{% for suite in spec.python.ci.checkpoint.suites %}{{ suite }},{% endfor %}]"]
 {%- for suite in spec.python.ci.checkpoint.suites %}
