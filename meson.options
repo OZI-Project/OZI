@@ -210,8 +210,6 @@ option(
     yield: false,
 )
 
-option('args-pyc_wheel', type: 'array', value: ['-h'], yield: false)
-
 option(
     'args-doc8',
     type: 'array',

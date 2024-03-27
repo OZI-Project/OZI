@@ -3,7 +3,6 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 source_child_dist_children = [
-    'pyc_wheel',
     'semantic_release',
     'sigstore'
 ]
