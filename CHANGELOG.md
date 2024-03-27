@@ -3,9 +3,23 @@
 
 ### :pushpin:
 
+* :pushpin: Bump release workflow to 0.1.11 ([`efefcb5`](https://github.com/OZI-Project/OZI/commit/efefcb5adc796725c6ddfdb62c8a503d6496ec3e))
+
 * :pushpin: Bump release to 0.1.10 ([`2f0476b`](https://github.com/OZI-Project/OZI/commit/2f0476bcee156f169d206f4dde4f40bd1797e701))
 
 ### Other
+
+* Merge pull request #297 from OZI-Project/main
+
+Release ([`900ade0`](https://github.com/OZI-Project/OZI/commit/900ade0c01ed627d9858231b60500aa9e78de936))
+
+* Update release.yml.j2 - bump release action to 0.1.11
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`5b4db63`](https://github.com/OZI-Project/OZI/commit/5b4db635daa8266a8ee175dc148c79ca4ff832d3))
+
+* Update dist-workflow.yml - bump release to 0.1.11
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`870b99e`](https://github.com/OZI-Project/OZI/commit/870b99e5730155fab61e1cb2930868371de818b1))
 
 * Merge pull request #295 from OZI-Project/main
 
