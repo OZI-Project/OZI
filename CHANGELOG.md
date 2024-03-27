@@ -1,4 +1,24 @@
 # CHANGELOG
+## 0.0.301 (2024-03-27)
+
+### :hammer:
+
+* :hammer: purge pyc_wheel package references
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`1d563a9`](https://github.com/OZI-Project/OZI/commit/1d563a94af503b4275b36aadb0c26258a22d0935))
+
+### Other
+
+* Merge pull request #299 from OZI-Project/main
+
+Release ([`4720b50`](https://github.com/OZI-Project/OZI/commit/4720b50a5003b3b07e5c93d515d9b68d834b59a0))
+
+* Merge pull request #298 from OZI-Project/dev
+
+Dev merge ([`f062338`](https://github.com/OZI-Project/OZI/commit/f0623382122ccdfe487d6654c02346f58c42ed79))
+
+* Merge branch &#39;main&#39; into dev ([`e1e2319`](https://github.com/OZI-Project/OZI/commit/e1e2319c3a573a449c87085b5d592ad328c73125))
+
 ## 0.0.300 (2024-03-27)
 
 ### :pushpin:
