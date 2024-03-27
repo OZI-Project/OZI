@@ -29,7 +29,6 @@ build-frontend = "build"
 before-build = [
      "pip install --upgrade pip",
      "pip install --upgrade build",
-     "pip install --upgrade pyc_wheel",
      "pip install --upgrade sigstore",
      "pip install --upgrade meson[ninja]>=1.1.0",
      "pip install --upgrade mesonpep517",
@@ -97,7 +96,7 @@ fix  = ["black", "ruff>=0.1.6", "autoflake", "isort"]
 # Default meson test setup
 dev  = ["[dist,lint,test]"]
 ## Packaging Setup
-dist = ["pyc_wheel", "python-semantic-release", "sigstore"]
+dist = ["python-semantic-release", "sigstore"]
 ## Documentation Setup
 docs = ["doc8", "pydocstyle[toml]", "Pygments", "pyparsing", "sphinx",
         "sphinx-design", "sphinxawesome-codelinter", "sphinxawesome-theme ~= 5.0.0b2"]

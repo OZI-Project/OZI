@@ -154,10 +154,9 @@ class ClassicTest(CheckpointSuite):
 class ClassicDist(CheckpointSuite):
     """OZI standard publishing and distribution."""
 
-    module: tuple[str, ...] = ('pyc_wheel', 'python-semantic-release', 'sigstore')
+    module: tuple[str, ...] = ('python-semantic-release', 'sigstore')
     utility: Mapping[str, str] = field(
         default_factory=lambda: {
-            'pyc_wheel': 'pyc_wheel',
             'python-semantic-release': 'python-semantic-release',
             'sigstore': 'sigstore',
         },

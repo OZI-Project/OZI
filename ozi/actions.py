@@ -5,15 +5,18 @@
 """Parsing actions for the OZI commandline interface."""
 from __future__ import annotations
 
+import json
+import sys
 from argparse import Action
 from dataclasses import dataclass
 from difflib import get_close_matches
 from typing import TYPE_CHECKING
 from typing import Any
+from typing import Collection
+from typing import NoReturn
 from warnings import warn
 
 if TYPE_CHECKING:
-    import sys
     from argparse import ArgumentParser
     from argparse import Namespace
     from collections.abc import Sequence
@@ -23,9 +26,15 @@ if TYPE_CHECKING:
     elif sys.version_info < (3, 11):
         from typing_extensions import Self
 
+import requests
+from packaging.version import Version
+from packaging.version import parse
+from pyparsing import ParseException
 from spdx_license_list import LICENSES
 
+from ozi.spdx import spdx_license_expression
 from ozi.spec import METADATA
+from ozi.tap import TAP
 from ozi.trove import Prefix
 from ozi.trove import from_prefix
 
@@ -141,3 +150,64 @@ class CloseMatch(Action):
         else:
             key = ''  # pragma: defer to good-first-issue
         self._set_matches(key, values, namespace)
+
+
+def print_version() -> NoReturn:  # pragma: no cover
+    """Print out the current version and exit."""
+    print(METADATA.ozi.version)
+    sys.exit(0)
+
+
+def check_for_update(
+    current_version: Version,
+    releases: Collection[Version],
+) -> None:  # pragma: defer to python
+    """Issue a warning if installed version of OZI is not up to date."""
+    match max(releases):
+        case latest if latest > current_version:
+            TAP.not_ok(
+                f'Newer version of OZI ({latest} > {current_version})',
+                'available to download on PyPI',
+                'https://pypi.org/project/OZI/',
+            )
+        case latest if latest < current_version:
+            TAP.ok('OZI package is development version', str(current_version))
+        case latest if latest == current_version:
+            TAP.ok('OZI package is up to date', str(current_version))
+
+
+def check_version() -> NoReturn:  # pragma: defer to PyPI
+    """Check for a newer version of OZI and exit."""
+    response = requests.get('https://pypi.org/pypi/OZI/json', timeout=30)
+    match response.status_code:
+        case 200:
+            check_for_update(
+                current_version=parse(METADATA.ozi.version),
+                releases=set(map(parse, response.json()['releases'].keys())),
+            )
+            TAP.end()
+        case _:
+            TAP.end(
+                skip_reason='OZI package version check failed with status code'
+                f' {response.status_code}.',
+            )
+
+
+def info() -> NoReturn:  # pragma: no cover
+    """Print all metadata as JSON and exit."""
+    sys.exit(print(json.dumps(METADATA.asdict(), indent=2)))
+
+
+def list_available(key: str) -> NoReturn:  # pragma: no cover
+    """Print a list of valid values for a key and exit."""
+    sys.exit(print(*sorted(getattr(ExactMatch, key.replace('-', '_'))), sep='\n'))
+
+
+def license_expression(expr: str) -> NoReturn:  # pragma: no cover
+    """Validate a SPDX license expression."""
+    try:
+        spdx_license_expression.parse_string(expr, parse_all=True)
+        TAP.ok(expr, 'parsed successfully')
+    except ParseException as e:
+        TAP.not_ok(expr, str(e))
+    TAP.end()
