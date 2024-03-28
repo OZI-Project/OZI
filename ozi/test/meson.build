@@ -4,5 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 source_child_test_children = ['coverage', 'pytest']
 foreach package : source_child_test_children
+  message('configuring', package)
   subdir(package)
 endforeach
