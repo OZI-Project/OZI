@@ -5,7 +5,6 @@
 """Trove packaging classifiers interface."""
 from __future__ import annotations
 
-import re
 from dataclasses import asdict
 from dataclasses import dataclass
 from functools import lru_cache
@@ -22,8 +21,6 @@ if TYPE_CHECKING:
 
 from trove_classifiers import classifiers
 
-CLASSIFIER_RE = re.compile(r'^([\w\s]*\s\:\:\s)?')
-
 
 @lru_cache
 def get_trove_prefix(text: str) -> str | None:
@@ -34,8 +31,9 @@ def get_trove_prefix(text: str) -> str | None:
     :return: the prefix if the classifier text is valid otherwise None
     :rtype: str | None
     """
-    if m := re.match(CLASSIFIER_RE, text):
-        return str(m[0])
+    prefix, partition, _ = text.partition(' :: ')
+    if partition:
+        return prefix + partition
     return None  # pragma: no cover
 
 

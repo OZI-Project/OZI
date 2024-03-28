@@ -12,5 +12,6 @@ source_child_lint_children = [
     'restructuredtext-lint',
 ]
 foreach package : source_child_lint_children
+    message('configuring', package)
     subdir(package)
 endforeach
