@@ -6,7 +6,6 @@
 from __future__ import annotations
 
 import hashlib
-import re
 from datetime import datetime
 from datetime import timezone
 from functools import lru_cache
@@ -14,6 +13,7 @@ from importlib.metadata import packages_distributions
 
 import requests
 from packaging.version import parse
+from pyparsing import alphanums
 
 
 def current_date(_format: str) -> str:
@@ -36,7 +36,7 @@ def underscorify(s: str) -> str:
     :return: The normalized text
     :rtype: str
     """
-    return re.sub('[^0-9a-zA-Z]', '_', s)
+    return ''.join([c if c in alphanums else '_' for c in s])
 
 
 @lru_cache
