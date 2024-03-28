@@ -1,4 +1,38 @@
 # CHANGELOG
+## 0.0.303 (2024-03-28)
+
+### :hammer:
+
+* :hammer: Remove some regexes in favor of simple hard-coded algorithms.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`3258401`](https://github.com/OZI-Project/OZI/commit/32584018af03c9e804362bd1a59357d65cb5c45a))
+
+* :hammer: Clarify build configuration output.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`1fa90be`](https://github.com/OZI-Project/OZI/commit/1fa90bee9b8cfc69eb50755b485615b501f3faf5))
+
+### :pushpin:
+
+* :pushpin: Update dist-workflow.yml - release action 0.1.12
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`213c1fd`](https://github.com/OZI-Project/OZI/commit/213c1fd5df5ed54bfac8e31dfb7a274f740f0c0b))
+
+### Other
+
+* Merge pull request #303 from OZI-Project/main
+
+Release ([`0aa2718`](https://github.com/OZI-Project/OZI/commit/0aa2718ddc5b7e24594361e337f753d35aa30bbf))
+
+* Merge pull request #302 from OZI-Project/dev
+
+Dev merge ([`4f31d75`](https://github.com/OZI-Project/OZI/commit/4f31d7599b36a8ec476ec49b75c0a39fa8f19eb5))
+
+* Merge branch &#39;main&#39; into dev ([`f46c5b5`](https://github.com/OZI-Project/OZI/commit/f46c5b58f3fa8c0965a4ebab94144977b8722c22))
+
+* Update release.yml.j2 - release action 0.1.12
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`1dd7aba`](https://github.com/OZI-Project/OZI/commit/1dd7aba4c8da7b0394f3735de181628b4ccce438))
+
 ## 0.0.302 (2024-03-27)
 
 ### :pushpin:
