@@ -7,5 +7,6 @@ source_child_dist_children = [
     'sigstore'
 ]
 foreach package : source_child_dist_children
+    message('configuring', package)
     subdir(package)
 endforeach
