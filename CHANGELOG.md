@@ -1,4 +1,26 @@
 # CHANGELOG
+## 0.0.304 (2024-03-28)
+
+### :pushpin:
+
+* :pushpin: Update dist-workflow.yml release to 0.1.13
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`e4bebe6`](https://github.com/OZI-Project/OZI/commit/e4bebe62095d089aab02fd55800aa7b3ddcef2c4))
+
+### Other
+
+* Merge pull request #305 from OZI-Project/main
+
+Release ([`13b9127`](https://github.com/OZI-Project/OZI/commit/13b9127ae7d3b7d6b585c758512a9d2ee0dc8e30))
+
+* Merge pull request #304 from OZI-Project/bump-release
+
+Bump release ([`ac47030`](https://github.com/OZI-Project/OZI/commit/ac47030e6b30a81c90de33bc73eb5c41d844fc69))
+
+* Update release.yml.j2 to 0.1.13
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`46def0a`](https://github.com/OZI-Project/OZI/commit/46def0aa92030c3d2786fa8465fc4f2a7d8ed754))
+
 ## 0.0.303 (2024-03-28)
 
 ### :hammer:
