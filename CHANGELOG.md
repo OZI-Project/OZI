@@ -1,4 +1,166 @@
 # CHANGELOG
+## 0.0.304 (2024-03-28)
+
+### :pushpin:
+
+* :pushpin: Update dist-workflow.yml release to 0.1.13
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`e4bebe6`](https://github.com/OZI-Project/OZI/commit/e4bebe62095d089aab02fd55800aa7b3ddcef2c4))
+
+### Other
+
+* Merge pull request #305 from OZI-Project/main
+
+Release ([`13b9127`](https://github.com/OZI-Project/OZI/commit/13b9127ae7d3b7d6b585c758512a9d2ee0dc8e30))
+
+* Merge pull request #304 from OZI-Project/bump-release
+
+Bump release ([`ac47030`](https://github.com/OZI-Project/OZI/commit/ac47030e6b30a81c90de33bc73eb5c41d844fc69))
+
+* Update release.yml.j2 to 0.1.13
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`46def0a`](https://github.com/OZI-Project/OZI/commit/46def0aa92030c3d2786fa8465fc4f2a7d8ed754))
+
+## 0.0.303 (2024-03-28)
+
+### :hammer:
+
+* :hammer: Remove some regexes in favor of simple hard-coded algorithms.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`3258401`](https://github.com/OZI-Project/OZI/commit/32584018af03c9e804362bd1a59357d65cb5c45a))
+
+* :hammer: Clarify build configuration output.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`1fa90be`](https://github.com/OZI-Project/OZI/commit/1fa90bee9b8cfc69eb50755b485615b501f3faf5))
+
+### :pushpin:
+
+* :pushpin: Update dist-workflow.yml - release action 0.1.12
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`213c1fd`](https://github.com/OZI-Project/OZI/commit/213c1fd5df5ed54bfac8e31dfb7a274f740f0c0b))
+
+### Other
+
+* Merge pull request #303 from OZI-Project/main
+
+Release ([`0aa2718`](https://github.com/OZI-Project/OZI/commit/0aa2718ddc5b7e24594361e337f753d35aa30bbf))
+
+* Merge pull request #302 from OZI-Project/dev
+
+Dev merge ([`4f31d75`](https://github.com/OZI-Project/OZI/commit/4f31d7599b36a8ec476ec49b75c0a39fa8f19eb5))
+
+* Merge branch &#39;main&#39; into dev ([`f46c5b5`](https://github.com/OZI-Project/OZI/commit/f46c5b58f3fa8c0965a4ebab94144977b8722c22))
+
+* Update release.yml.j2 - release action 0.1.12
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`1dd7aba`](https://github.com/OZI-Project/OZI/commit/1dd7aba4c8da7b0394f3735de181628b4ccce438))
+
+## 0.0.302 (2024-03-27)
+
+### :pushpin:
+
+* :pushpin: Pin black to &gt;=24.3.
+
+This mitigates a known REDOS vulnerability.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`403fd1f`](https://github.com/OZI-Project/OZI/commit/403fd1fb4b17beebdd678f9b41725bfe82502f79))
+
+### Other
+
+* Merge pull request #301 from OZI-Project/main
+
+Release ([`acd7e51`](https://github.com/OZI-Project/OZI/commit/acd7e51d5023ad790592a11d5c35bbe9ce4aad95))
+
+* Merge pull request #300 from OZI-Project/dev
+
+Dev merge ([`cc23d18`](https://github.com/OZI-Project/OZI/commit/cc23d185defc23dd3b5d0945624f2bbc78bbf9e4))
+
+* Merge branch &#39;main&#39; into dev ([`e44ae0c`](https://github.com/OZI-Project/OZI/commit/e44ae0c817d2d939033f8cf0540b69f48d67d3f1))
+
+## 0.0.301 (2024-03-27)
+
+### :hammer:
+
+* :hammer: purge pyc_wheel package references
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`1d563a9`](https://github.com/OZI-Project/OZI/commit/1d563a94af503b4275b36aadb0c26258a22d0935))
+
+### Other
+
+* Merge pull request #299 from OZI-Project/main
+
+Release ([`4720b50`](https://github.com/OZI-Project/OZI/commit/4720b50a5003b3b07e5c93d515d9b68d834b59a0))
+
+* Merge pull request #298 from OZI-Project/dev
+
+Dev merge ([`f062338`](https://github.com/OZI-Project/OZI/commit/f0623382122ccdfe487d6654c02346f58c42ed79))
+
+* Merge branch &#39;main&#39; into dev ([`e1e2319`](https://github.com/OZI-Project/OZI/commit/e1e2319c3a573a449c87085b5d592ad328c73125))
+
+## 0.0.300 (2024-03-27)
+
+### :pushpin:
+
+* :pushpin: Bump release workflow to 0.1.11 ([`efefcb5`](https://github.com/OZI-Project/OZI/commit/efefcb5adc796725c6ddfdb62c8a503d6496ec3e))
+
+* :pushpin: Bump release to 0.1.10 ([`2f0476b`](https://github.com/OZI-Project/OZI/commit/2f0476bcee156f169d206f4dde4f40bd1797e701))
+
+### Other
+
+* Merge pull request #297 from OZI-Project/main
+
+Release ([`900ade0`](https://github.com/OZI-Project/OZI/commit/900ade0c01ed627d9858231b60500aa9e78de936))
+
+* Update release.yml.j2 - bump release action to 0.1.11
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`5b4db63`](https://github.com/OZI-Project/OZI/commit/5b4db635daa8266a8ee175dc148c79ca4ff832d3))
+
+* Update dist-workflow.yml - bump release to 0.1.11
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`870b99e`](https://github.com/OZI-Project/OZI/commit/870b99e5730155fab61e1cb2930868371de818b1))
+
+* Merge pull request #295 from OZI-Project/main
+
+Release ([`a99956e`](https://github.com/OZI-Project/OZI/commit/a99956e573bb784325d292c9dbe1cf85f22d3a8a))
+
+* Update dist-workflow.yml - bump release to 0.1.10
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`0793dcb`](https://github.com/OZI-Project/OZI/commit/0793dcb031a4cf4625fbc5ea6d8b8f223b4f738c))
+
+* Update release.yml.j2 - bump release to 0.1.10
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`93f02ca`](https://github.com/OZI-Project/OZI/commit/93f02ca572ef1c966294309aa056be21aef624dc))
+
+## 0.0.299 (2024-03-26)
+
+### :pushpin:
+
+* :pushpin: Update release workflow pin
+
+0.0 changes ([`2684c75`](https://github.com/OZI-Project/OZI/commit/2684c750d340e1f6b06f3c14f4bef753a9a1cde2))
+
+### Other
+
+* Merge pull request #293 from OZI-Project/main
+
+Release ([`ac8a5a6`](https://github.com/OZI-Project/OZI/commit/ac8a5a6d8494ba7ad7387a1b647e3493830716d8))
+
+* Merge pull request #291 from OZI-Project/main
+
+Release ([`8d73590`](https://github.com/OZI-Project/OZI/commit/8d735909c363eac8446423ea004c2c6187d98a24))
+
+* Merge pull request #290 from OZI-Project/bump-release
+
+:pushpin: Bump release to 0.1.9 ([`84e731f`](https://github.com/OZI-Project/OZI/commit/84e731fed30a008cb4d671501f519228f07d1698))
+
+* Update release.yml.j2 - bump release to 0.1.9
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`dc8cc69`](https://github.com/OZI-Project/OZI/commit/dc8cc69e07d93e5edb2aba4277ef580df9843c74))
+
+* Update dist-workflow.yml - bump release to 0.1.9
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`9028f91`](https://github.com/OZI-Project/OZI/commit/9028f919ea91bad30933733332403e12c46df7af))
+
 ## 0.0.298 (2024-03-26)
 
 ### :arrow_up:
