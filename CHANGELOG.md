@@ -1,5 +1,9 @@
 # CHANGELOG
-## 0.0.304 (2024-03-28)
+## 0.0.304 (2024-03-29)
+
+### :hammer:
+
+* :hammer: Merge pull request #306 from OZI-Project/0.0 retry 0.0.304 release ([`5074b56`](https://github.com/OZI-Project/OZI/commit/5074b5696a5c22ea58a49d4d8d4978573a60cad9))
 
 ### :pushpin:
 
@@ -8,6 +12,10 @@
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`e4bebe6`](https://github.com/OZI-Project/OZI/commit/e4bebe62095d089aab02fd55800aa7b3ddcef2c4))
 
 ### Other
+
+* Merge pull request #307 from OZI-Project/main
+
+Release ([`8089f46`](https://github.com/OZI-Project/OZI/commit/8089f4678b7ad96b36808f60650d9a320f5a675c))
 
 * Merge pull request #305 from OZI-Project/main
 
