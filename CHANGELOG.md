@@ -3,6 +3,10 @@
 
 ### :hammer:
 
+* :hammer: retry release
+
+0.0 changes ([`f42e78e`](https://github.com/OZI-Project/OZI/commit/f42e78e77726165754dc34a79a093663f0d4dc44))
+
 * :hammer: Force retry release
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`9e78fdd`](https://github.com/OZI-Project/OZI/commit/9e78fddc8950b1367caa1bef298416f453063934))
@@ -20,6 +24,10 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`85e6ad8`](https
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`e4bebe6`](https://github.com/OZI-Project/OZI/commit/e4bebe62095d089aab02fd55800aa7b3ddcef2c4))
 
 ### Other
+
+* Merge pull request #314 from OZI-Project/main
+
+:hammer: retry release ([`da1f82d`](https://github.com/OZI-Project/OZI/commit/da1f82dac1af85fb4c9c010748fb356256fafa46))
 
 * Merge pull request #312 from OZI-Project/main
 
