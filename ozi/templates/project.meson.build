@@ -75,7 +75,7 @@ configure_file(
 {#- END config MESON_BUILD_ROOT/pyproject.toml #}
 
 {#- BEGIN config MESON_SOURCE_ROOT/PKG-INFO #}
-vcs_tag(input: 'pyproject.toml', output: 'pyproject.toml')
+vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
 {#- END config MESON_SOURCE_ROOT/PKG-INFO #}
 
 dev = subproject('ozi')
