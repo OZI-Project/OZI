@@ -40,7 +40,7 @@
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/release@9a404fb06ef2b5c1634518720f8cdafa41539f77
+      - uses: OZI-Project/release@{{ spec.python.ci.release.version }}
         id: release
         with:
 {%- raw %}
