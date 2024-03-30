@@ -1,4 +1,30 @@
 # CHANGELOG
+## 0.0.305 (2024-03-30)
+
+### :bug:
+
+* :bug::pushpin: Fix Spec should pin workflow versions #103
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`417ee26`](https://github.com/OZI-Project/OZI/commit/417ee261477f34b7039ba22e487b3ccff08bce4a))
+
+* :bug: Fix OZI meson.build configuration step overwrites pyproject.toml. #52
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`4fe2b9a`](https://github.com/OZI-Project/OZI/commit/4fe2b9a0560f9ed0693a051044cd3e2e50f31787))
+
+### Other
+
+* Merge pull request #316 from OZI-Project/main
+
+Release ([`65336ee`](https://github.com/OZI-Project/OZI/commit/65336ee12b800d5f1af64f43917ae40db0982e8d))
+
+* Merge pull request #315 from OZI-Project/dev
+
+Dev merge ([`9f126ae`](https://github.com/OZI-Project/OZI/commit/9f126ae274cc5f503cc13fbd8070d4f306e06dd4))
+
+* Merge branch &#39;main&#39; into dev
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`0376458`](https://github.com/OZI-Project/OZI/commit/0376458d10da1484dbc034d502157f57deb85624))
+
 ## 0.0.304 (2024-03-29)
 
 ### :hammer:
