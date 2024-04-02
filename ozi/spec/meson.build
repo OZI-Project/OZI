@@ -14,7 +14,9 @@ config_files = [
     'src.py',
 ]
 foreach file: config_files
-    python.install_sources(file, subdir: 'ozi'/'spec')
+    if not meson.is_subproject()
+        python.install_sources(file, subdir: 'ozi'/'spec')
+    endif
     fs.copyfile(file)
 endforeach
 if false
