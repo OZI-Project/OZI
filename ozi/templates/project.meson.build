@@ -78,12 +78,6 @@ configure_file(
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
 {#- END config MESON_SOURCE_ROOT/PKG-INFO #}
 
-dev = subproject('ozi')
-foreach var : get_option('variables')
-    name = var.replace('-', '_')
-    set_variable(name, dev.get_variable(name))
-endforeach
-
 root_files = [
 {%- for required_root_dist in spec.python.pkg.required.root %}
 {%- if required_root_dist not in ['pyproject.toml'] %}
@@ -108,3 +102,10 @@ endforeach
 if false
     executable('root_children', root_children)
 endif
+dev = subproject('ozi')
+foreach var : get_option('variables')
+    name = var.replace('-', '_')
+    set_variable(name, dev.get_variable(name))
+endforeach
+meson.add_dist_script(dev.get_variable('pip'), 'install', 'tomli>=2.0.0')
+meson.add_dist_script(python, '-c', dev.get_variable('meson_dist_setuptools_scm'))
