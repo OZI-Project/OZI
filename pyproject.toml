@@ -165,6 +165,7 @@ ignore = [
     "FBT",
     "PGH003",
     "PLR",
+    "PT001",
     "RET",
     "EM",
     "PLW",

@@ -73,7 +73,7 @@ bad_namespace = argparse.Namespace(
 env = load_environment(vars(bad_namespace))
 
 
-@pytest.fixture()
+@pytest.fixture
 def bad_project(tmp_path_factory: pytest.TempPathFactory) -> pathlib.Path:
     """Fixture to wrap the ``ozi-new project`` functionality."""
     fn = tmp_path_factory.mktemp('project_')
