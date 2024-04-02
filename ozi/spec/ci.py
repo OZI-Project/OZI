@@ -97,7 +97,7 @@ class ClassicLint(CheckpointSuite):
 
     ignore: tuple[str, ...] = ('E203', 'E501', 'TC007', 'TC008')
     module: tuple[str, ...] = ('bandit', 'black', 'flake8', 'isort', 'mypy', 'pyright')
-    exclude: tuple[str, ...] = ('venv', 'meson-private')
+    exclude: tuple[str, ...] = ('venv', 'meson-private', 'subprojects')
     utility: Mapping[str, str] = field(
         default_factory=lambda: {
             'bandit': 'bandit[toml]',

@@ -396,19 +396,21 @@ foreach name : namespace
         command_args = []
         test_app_args = {}
         foreach arg : _args
-            if arg.startswith('@') and (arg.endswith('@') or arg.endswith('@/'))
+            if arg.startswith('@') and (arg.endswith('@') or arg.endswith('@/') or arg.endswith('@/test'))
                 arg = arg.strip('@')
                 if is_variable(arg)
                     arg = get_variable(arg)
                 elif arg.endswith('@/')
                     arg = get_variable(arg.replace('@/', '')) + '/'
+                elif arg.endswith('@/test')
+                    arg = get_variable(arg.replace('@/test', '')) + '/tests'
                 else
                     warning(arg + ' unknown')
                 endif
             endif
             command_args += arg
         endforeach
-        if command in ['pytest']
+        if command in ['pytest'] and not meson.is_subproject()
             test_paths = []
             foreach file : test_files
                 test_paths += ['tests' / file]
