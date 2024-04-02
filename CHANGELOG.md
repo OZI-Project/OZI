@@ -1,4 +1,22 @@
 # CHANGELOG
+## 0.0.307 (2024-04-02)
+
+### :hammer:
+
+* :hammer: Update templates with blastpipe integration discoveries. ([`fc8424f`](https://github.com/OZI-Project/OZI/commit/fc8424f6c35b16aabd9c6955f0ee75435407bb81))
+
+### Other
+
+* Merge pull request #320 from OZI-Project/main
+
+Release ([`434f664`](https://github.com/OZI-Project/OZI/commit/434f66467dd4c2f5d9372fc6c273a92c65c41a25))
+
+* Merge pull request #319 from OZI-Project/dev
+
+:hammer: Update templates with blastpipe integration discoveries. ([`926545a`](https://github.com/OZI-Project/OZI/commit/926545a9cfdabc873d62a1519172e68650c4478f))
+
+* Merge branch &#39;main&#39; into dev ([`005763c`](https://github.com/OZI-Project/OZI/commit/005763cf4d81370814cbcdc0f69bd1006a7a46fa))
+
 ## 0.0.306 (2024-04-02)
 
 ### :bug:
