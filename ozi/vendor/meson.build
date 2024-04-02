@@ -7,7 +7,9 @@ python_files = [
 ]
 foreach file : files(python_files)
     fs.copyfile(file)
-    python.install_sources(file, pure: true, subdir: 'ozi' / 'vendor')
+    if not meson.is_subproject()
+        python.install_sources(file, pure: true, subdir: 'ozi' / 'vendor')
+    endif
 endforeach
 if false
     executable('source_files', python_files)

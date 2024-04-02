@@ -22,10 +22,12 @@ files = [
 ]
 foreach file : files
     fs.copyfile(file)
-    python.install_sources(
-        file,
-        subdir: 'ozi' / 'templates' / 'license',
-    )
+    if not meson.is_subproject()
+        python.install_sources(
+            file,
+            subdir: 'ozi' / 'templates' / 'license',
+        )
+    endif
 endforeach
 children = [
     'CC0_1_0_Universal__CC0_1_0__Public_Domain_Dedication',

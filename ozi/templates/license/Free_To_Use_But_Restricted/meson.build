@@ -7,7 +7,9 @@ files = [
 ]
 foreach file: files
     fs.copyfile(file)
-    python.install_sources(
-        file, 
-        subdir: 'ozi'/'templates'/'license'/fs.name(meson.current_source_dir()))
+    if not meson.is_subproject()
+        python.install_sources(
+            file, 
+            subdir: 'ozi'/'templates'/'license'/fs.name(meson.current_source_dir()))
+    endif
 endforeach

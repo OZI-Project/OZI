@@ -9,7 +9,9 @@ config_files = [
     'validate.py',
 ]
 foreach file: config_files
-    python.install_sources(file, subdir: 'ozi'/'new')
+    if not meson.is_subproject()
+        python.install_sources(file, subdir: 'ozi'/'new')
+    endif
     fs.copyfile(file)
 endforeach
 if false
