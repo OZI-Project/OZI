@@ -8,7 +8,8 @@ option('args-pytest',
     description: 'application',
     type: 'array',
     value: [
-        '--basetemp=temp'
+        '@build_root@/test',
+        '--basetemp=temp',
         '--exitfirst',
         '--cov-config=pyproject.toml',
         '@opt_cov_eq_project_name@',

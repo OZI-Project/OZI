@@ -13,6 +13,8 @@ option(
         '*.pyi',
         '--extend-skip', 
         'meson-private/pycompile.py',
+        '--extend-skip-glob',
+        'subprojects/*',
         '@build_root@'
     ],
 )
