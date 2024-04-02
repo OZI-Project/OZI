@@ -31,7 +31,7 @@ option(
     type: 'array',
     description: '--setup=dev',
     value: ['dist', 'docs', 'lint', 'test'],
-    yield: false,
+    yield: true,
 )
 
 option(
@@ -202,29 +202,29 @@ option(
     ],
 )
 # test application arguments
-option('args-sigstore', type: 'array', value: ['--version'], yield: false)
+option('args-sigstore', type: 'array', value: ['--version'], yield: true)
 option(
     'args-semantic_release',
     type: 'array',
     value: ['version', '--print'],
-    yield: false,
+    yield: true,
 )
 
 option(
     'args-doc8',
     type: 'array',
     value: ['--config', 'pyproject.toml', '@docs_source@'],
-    yield: false,
+    yield: true,
 )
 
 option(
     'args-pydocstyle',
     type: 'array',
     value: ['-v', '-d', '--config=pyproject.toml', '@docs_source@'],
-    yield: false,
+    yield: true,
 )
 
-option('args-sphinx-build', type: 'array', value: ['--version'], yield: false)
+option('args-sphinx-build', type: 'array', value: ['--version'], yield: true)
 option('args-mypy', type: 'array', value: ['@build_root@'])
 option(
    'args-bandit',
@@ -247,7 +247,7 @@ option(
         '--no-color',
         '@build_root@',
     ],
-    yield: false,
+    yield: true,
 )
 option(
     'args-isort',
@@ -260,9 +260,9 @@ option(
         'meson-private/pycompile.py',
         '@build_root@',
     ],
-    yield: false,
+    yield: true,
 )
-option('args-pylint', type: 'array', value: ['@project_name@'], yield: false)
+option('args-pylint', type: 'array', value: ['@project_name@'], yield: true)
 option(
    'args-pyright',
    type: 'array', 
@@ -272,14 +272,14 @@ option(
       '--verbose',
       '@build_root@',
    ],
-   yield: false
+   yield: true
 )
-option('args-coverage', type: 'array', value: ['debug', 'config'], yield: false)
+option('args-coverage', type: 'array', value: ['debug', 'config'], yield: true)
 option(
     'args-restructuredtext-lint',
     type: 'array',
     value: ['--level=warning', 'README.rst'],
-    yield: false,
+    yield: true,
 )
 option(
     'args-flake8',
@@ -293,9 +293,9 @@ option(
         '--show-source',
         '@build_root@/',
     ],
-    yield: false,
+    yield: true,
 )
-option('args-Flake8-pyproject', type: 'array', value: [], yield: false)
+option('args-Flake8-pyproject', type: 'array', value: [], yield: true)
 option(
     'args-pytest',
     type: 'array',
@@ -309,7 +309,7 @@ option(
         '--exitfirst',
         '--cov-config=pyproject.toml' 
     ],
-    yield: false,
+    yield: true,
 )
 option('emoji-metadata-version', type: 'string', value: '📦')
 option('emoji-no-version', type: 'string', value: '📡')
