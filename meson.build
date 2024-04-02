@@ -207,9 +207,11 @@ if get_option('ozi-blastpipe').enabled()
     # END BOOTSTRAP SCRIPT
 endif
 root_children = ['ozi', 'tests']
-foreach child : root_children
-    subdir(child)
-endforeach
+if not meson.is_subproject()
+    foreach child : root_children
+        subdir(child)
+    endforeach
+endif
 
 # BEGIN checkpoint-suite-install
 modules = []
