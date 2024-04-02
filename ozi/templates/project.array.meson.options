@@ -11,6 +11,7 @@ option(
 {%- for suite in spec.python.ci.checkpoint.suites %}
         '{{ suite }}',
 {%- endfor %}
+        'docs',
     ]
 )
 option(
