@@ -1,4 +1,28 @@
 # CHANGELOG
+## 0.0.306 (2024-04-02)
+
+### :bug:
+
+* :wrench::bug: ``args-`` options now yield to the superproject anytime OZI is a subproject.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`4d678a1`](https://github.com/OZI-Project/OZI/commit/4d678a12059d688d4693ef30b6100f686ab12282))
+
+### Other
+
+* Merge pull request #318 from OZI-Project/main
+
+Release ([`e83c534`](https://github.com/OZI-Project/OZI/commit/e83c53414a08beaeade55d55d868b45560c8c44e))
+
+* Merge pull request #317 from OZI-Project/dev
+
+Dev merge ([`50a3647`](https://github.com/OZI-Project/OZI/commit/50a3647f22f7fffad3e761e5191d45938806b368))
+
+* Merge branch &#39;main&#39; into dev ([`c6285ed`](https://github.com/OZI-Project/OZI/commit/c6285ed2e6bb056bf014ca44c0ed223af5ef592a))
+
+* :rotating_light: Fix for PT001 changes in flake8-pytest-style 2.0.0
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`289255f`](https://github.com/OZI-Project/OZI/commit/289255f1871091e39e6f0dbecb820a78ba3009cd))
+
 ## 0.0.305 (2024-03-30)
 
 ### :bug:
