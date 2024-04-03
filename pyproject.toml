@@ -399,7 +399,7 @@ deps =
      tomli >= 2.0.0
      -r requirements.in
 commands =
-     meson setup {env_tmp_dir} -Dtest=enabled
+     meson setup {env_tmp_dir} -Dtest=enabled -Dozi-blastpipe=enabled
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
      meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=test
@@ -426,4 +426,3 @@ commands =
      {env_python} -m setuptools_scm ls
 
 """
-# -Dblastpipe:dev=enabled -Dozi-blastpipe=enabled
