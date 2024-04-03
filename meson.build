@@ -83,10 +83,13 @@ pyproject_config.set(
 pyproject_config.set('SCM_VERSION', meson.project_version())
 pyproject_config.set('VCS_TAG', '@VCS_TAG@')
 pyproject_config.set('README_TEXT', fs.read('README.rst'))
-pyproject_config.set('REQUIREMENTS_IN', 
+pyproject_config.set(
+    'REQUIREMENTS_IN',
     run_command(
-        python, ['-c', render_requirements], check: true
-    ).stdout().strip()
+        python,
+        ['-c', render_requirements],
+        check: true,
+    ).stdout().strip(),
 )
 pyproject_config.set('PROJECT_NAME', project_name)
 pyproject_config.set('LICENSE', meson.project_license()[0])
@@ -190,7 +193,10 @@ install = ['install']
 build_commands = {'dev': []}
 test_app_args = {}
 pip_repr = pip.full_path()
-configure_file(command: [python, '-c', meson_setuptools_scm], output: 'PKG-INFO')
+configure_file(
+    command: [python, '-c', meson_setuptools_scm],
+    output: 'PKG-INFO',
+)
 meson.add_dist_script(pip, 'install', 'tomli>=2.0.0')
 meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
@@ -225,24 +231,22 @@ foreach name : namespace
     suite.enable_auto_if(dev.enabled())
     set_variable(name, suite)
     foreach command : command_names
-        if suite.enabled() and command not in plugin_only + module_only
-            flag = find_program(
-                command,
-                required: false,
-                disabler: true,
-            )
-        elif suite.enabled() and command in module_only
+        if suite.enabled()
+            message('installing', command)
+        endif
+        if suite.enabled() and command in module_only
             modules += [command]
-            flag = disabler()
-        else
-            flag = disabler()
         endif
         requirements = [
             'install',
             '-r',
             meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
         ]
-        if (get_option('dev').enabled() or suite.enabled()) and command not in plugin_only
+        flag = disabler()
+        if (
+            (get_option('dev').enabled() or suite.enabled())
+            and command not in plugin_only
+        )
             run_command(pip, requirements, check: true)
             if not flag.found() and command not in module_only
                 flag = find_program(
@@ -396,7 +400,14 @@ foreach name : namespace
         command_args = []
         test_app_args = {}
         foreach arg : _args
-            if arg.startswith('@') and (arg.endswith('@') or arg.endswith('@/') or arg.endswith('@/test'))
+            if (
+                arg.startswith('@')
+                and (
+                    arg.endswith('@')
+                    or arg.endswith('@/')
+                    or arg.endswith('@/test')
+                )
+            )
                 arg = arg.strip('@')
                 if is_variable(arg)
                     arg = get_variable(arg)
@@ -480,3 +491,35 @@ foreach dir : display_dirs
         section: '〽️ meson install -C @0@'.format(build_root),
     )
 endforeach
+summary(
+    '📁 python.install_dir',
+    python.get_install_dir(),
+    section: '〽️ meson install -C @0@'.format(build_root),
+)
+summary('version', python.language_version(), section: 'Python')
+summary('path', python.full_path(), section: 'Python')
+foreach line : run_command('pip', 'freeze', check: true).stdout().split('\n')
+    if line == ''
+        continue
+    endif
+    if not line.contains('@')
+        package = line.split('==')
+    else
+        package = line.split('@')
+    endif
+    if (
+        package[0] not in get_option('test-suite')
+        and package[0] not in get_option('lint-suite')
+        and package[0] not in get_option('dist-suite')
+    )
+        summary(package[0], package[1], section: 'Python packages')
+    endif
+endforeach
+pip_version = run_command(pip, '-V', check: true).stdout().split()
+setuptools_version = run_command(
+    python,
+    ['-c', metadata_version.format('setuptools')],
+    kwargs: no_check,
+).stdout().strip()
+summary(pip_version[0], pip_version[1], section: 'Python packages')
+summary('setuptools', setuptools_version, section: 'Python packages')

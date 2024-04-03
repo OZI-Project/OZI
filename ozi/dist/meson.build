@@ -6,7 +6,9 @@ source_child_dist_children = [
     'semantic_release',
     'sigstore'
 ]
-foreach package : source_child_dist_children
-    message('configuring', package)
-    subdir(package)
-endforeach
+if (get_option('dev').enabled() or get_option('dist').enabled())
+    foreach package : source_child_dist_children
+        message('configuring', package)
+        subdir(package)
+    endforeach
+endif
