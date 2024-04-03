@@ -374,7 +374,7 @@ endforeach
 # END checkpoint-suite-version-check
 
 # BEGIN checkpoint-suite-invocation
-add_test_setup('dev', is_default: true, env: env)
+add_test_setup('dev', is_default: not meson.is_subproject(), env: env)
 env.append('TESTS_BUILDDIR', build_root)
 no_check = {'check': false, 'env': env}
 opt_cov_eq_project_name = '--cov=' + project_name
