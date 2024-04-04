@@ -9,6 +9,7 @@ option(
     description: 'blastpipe integration tests package',
 )
 option('dev', type: 'feature', value: 'auto')
+option('install-subprojects', type: 'feature', value: 'disabled')
 option('source-to-build', type: 'feature', value: 'auto')
 option('build-dir', type: 'feature', value: 'auto')
 option('project-name', type: 'feature', value: 'auto')

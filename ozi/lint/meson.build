@@ -11,7 +11,9 @@ source_child_lint_children = [
     'pyright',
     'restructuredtext-lint',
 ]
-foreach package : source_child_lint_children
-    message('configuring', package)
-    subdir(package)
-endforeach
+if (get_option('dev').enabled() or get_option('lint').enabled())
+    foreach package : source_child_lint_children
+        message('configuring', package)
+        subdir(package)
+    endforeach
+endif

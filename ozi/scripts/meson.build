@@ -13,7 +13,9 @@ config_files = [
     'render_requirements.py',
 ]
 foreach file: config_files
-    python.install_sources(file, subdir: 'ozi'/'scripts')
+    if not meson.is_subproject() or get_option('install-subprojects').enabled()
+        python.install_sources(file, subdir: 'ozi'/'scripts')
+    endif
     fs.copyfile(file)
 endforeach
 if false

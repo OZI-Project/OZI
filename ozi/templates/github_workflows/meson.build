@@ -11,7 +11,9 @@ workflows = [
 ]
 foreach file: workflows
     fs.copyfile(file)
-    python.install_sources(file, subdir: 'ozi'/'templates'/'github_workflows')
+    if not meson.is_subproject() or get_option('install-subprojects').enabled()
+        python.install_sources(file, subdir: 'ozi'/'templates'/'github_workflows')
+    endif
 endforeach
 if false
     executable('source_files_child_templates_child_github_workflows', workflows)

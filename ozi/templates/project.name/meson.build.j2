@@ -16,7 +16,9 @@ source_files = [
 ]
 foreach file: source_files
     fs.copyfile(file)
-    python.install_sources(file, subdir: '{{ project.name|underscorify }}')
+    if not meson.is_subproject() or get_option('install-subprojects').enabled()
+        python.install_sources(file, subdir: '{{ project.name|underscorify }}')
+    endif
 endforeach
 if false
     executable('source_files', source_files)
