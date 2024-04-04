@@ -1,4 +1,24 @@
 # CHANGELOG
+## 0.0.310 (2024-04-04)
+
+### :bug:
+
+* :bug: [e2e] Fix invalid target_type key in rewriter output.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`7de6edf`](https://github.com/OZI-Project/OZI/commit/7de6edf142c1147911eb2ad02b5b24b31abde65f))
+
+### Other
+
+* Merge pull request #331 from OZI-Project/main
+
+Release ([`8e7f760`](https://github.com/OZI-Project/OZI/commit/8e7f760744707d707e3108c9bdcfae3e4b85ea0b))
+
+* Merge pull request #330 from OZI-Project/dev
+
+:bug: [e2e] Fix invalid target_type key in rewriter output. ([`b4ce554`](https://github.com/OZI-Project/OZI/commit/b4ce5547801f79af1022b4c3b5f3c55ae49b1177))
+
+* Merge branch &#39;main&#39; into dev ([`860007f`](https://github.com/OZI-Project/OZI/commit/860007fb15583b33520bef5f2616d8ecb6e9d74d))
+
 ## 0.0.309 (2024-04-04)
 
 ### :bug:
