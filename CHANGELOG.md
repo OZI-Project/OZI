@@ -1,4 +1,86 @@
 # CHANGELOG
+## 0.0.308 (2024-04-04)
+
+### :bug:
+
+* :bug:: setuptools found by pip-freeze. ([`1f00096`](https://github.com/OZI-Project/OZI/commit/1f000964c495d3adbdc701db532cb6bd7a346246))
+
+### :hammer:
+
+* :hammer: Add ``install-subprojects`` feature option defaulting to disabled.
+
+Default is to not install python sources when an OZI project is run as a subproject.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`4e87f13`](https://github.com/OZI-Project/OZI/commit/4e87f13d84e41a49cf9a2ed5843012d7d51a77d2))
+
+* :hammer:: Only compile requirements for suite option that is selected.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`7b8e45c`](https://github.com/OZI-Project/OZI/commit/7b8e45c8cc25e7b6da666f4802b577855db284b3))
+
+* :hammer: Add blastpipe bootstrap integration in ``tox -e test`` for OZI. ([`65f3405`](https://github.com/OZI-Project/OZI/commit/65f340542eb87aa6af2e0e16dfdb853d57b83329))
+
+* :hammer: final changes to integrate blastpipe
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`202fd6b`](https://github.com/OZI-Project/OZI/commit/202fd6b1ad59cebbea0b835873cab99d138d81af))
+
+* :hammer: Turn off ``python.install_sources`` if OZI is a subproject.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`ee24d5f`](https://github.com/OZI-Project/OZI/commit/ee24d5f042fe05db2cdf9c47fc626081cefb8ccc))
+
+* :hammer:: Add dist scripts to project template.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`ff0359e`](https://github.com/OZI-Project/OZI/commit/ff0359ee6051910d831f60c92d8decf643e0a0e6))
+
+* :hammer:: Add check ``not meson.is_subproject()`` to install OZI files.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`4de5304`](https://github.com/OZI-Project/OZI/commit/4de530455b1ebe5e7a2340e497538212e0e58c0b))
+
+### Other
+
+* Merge pull request #327 from OZI-Project/main
+
+Release ([`d9253ff`](https://github.com/OZI-Project/OZI/commit/d9253ff337502a9abc789442c9633c1067b64e21))
+
+* Merge pull request #326 from OZI-Project/dev
+
+Dev merge ([`c3b3a30`](https://github.com/OZI-Project/OZI/commit/c3b3a30d592e95e92fe08587d17638cb9480ac5d))
+
+* Merge branch &#39;main&#39; into dev ([`fc92f59`](https://github.com/OZI-Project/OZI/commit/fc92f599c592964ee67a914d7181d0d1545b44a8))
+
+* Merge pull request #325 from OZI-Project/dev
+
+Dev merge ([`1d782c0`](https://github.com/OZI-Project/OZI/commit/1d782c0de3dd367ea96a481398bdf917206d88f4))
+
+* Merge branch &#39;main&#39; into dev ([`3b8743e`](https://github.com/OZI-Project/OZI/commit/3b8743e7bca5268d101f6ea2f0df662a050417c2))
+
+* :white_check_mark: Increase deadline to 30s for the new project fuzzer.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`3622015`](https://github.com/OZI-Project/OZI/commit/362201583a53704e1660c016ab29f749783829c7))
+
+* Merge pull request #324 from OZI-Project/dev
+
+:hammer: Add blastpipe bootstrap integration in ``tox -e test`` for OZI. ([`f0d9bbb`](https://github.com/OZI-Project/OZI/commit/f0d9bbb4ab2d56c2193b20d856ed3557a22448e7))
+
+* Merge branch &#39;main&#39; into dev ([`a95302f`](https://github.com/OZI-Project/OZI/commit/a95302f4a14a9e4139aabf5b49a1340ba4ad19ee))
+
+* Merge pull request #323 from OZI-Project/dev
+
+Dev merge ([`d90d633`](https://github.com/OZI-Project/OZI/commit/d90d6336697c78d20581f114a458c4874f36f695))
+
+* Merge branch &#39;main&#39; into dev ([`776299e`](https://github.com/OZI-Project/OZI/commit/776299e9009e170c2b2021e4ec25d7667d2291e6))
+
+* Merge pull request #322 from OZI-Project/dev
+
+:hammer: Turn off ``python.install_sources`` if OZI is a subproject. ([`3f32687`](https://github.com/OZI-Project/OZI/commit/3f32687edc7936f025aebab97fc4232ef985efe8))
+
+* Merge branch &#39;main&#39; into dev ([`b96a1af`](https://github.com/OZI-Project/OZI/commit/b96a1af84b7f30e82d16e49317304b805d7712cb))
+
+* Merge pull request #321 from OZI-Project/dev
+
+Dev merge ([`696e38b`](https://github.com/OZI-Project/OZI/commit/696e38b8046598d8b83ee0eeaafee44370ef0b62))
+
+* Merge branch &#39;main&#39; into dev ([`fe5b396`](https://github.com/OZI-Project/OZI/commit/fe5b396e476b718aa0549b872f7398568f9d8d7b))
+
 ## 0.0.307 (2024-04-02)
 
 ### :hammer:
