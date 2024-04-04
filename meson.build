@@ -516,10 +516,4 @@ foreach line : run_command('pip', 'freeze', check: true).stdout().split('\n')
     endif
 endforeach
 pip_version = run_command(pip, '-V', check: true).stdout().split()
-setuptools_version = run_command(
-    python,
-    ['-c', metadata_version.format('setuptools')],
-    kwargs: no_check,
-).stdout().strip()
 summary(pip_version[0], pip_version[1], section: 'Python packages')
-summary('setuptools', setuptools_version, section: 'Python packages')
