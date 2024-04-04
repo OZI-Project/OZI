@@ -1,4 +1,24 @@
 # CHANGELOG
+## 0.0.309 (2024-04-04)
+
+### :bug:
+
+* :bug: Fix missing ``install-subprojects`` option check in template output.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`9bd910a`](https://github.com/OZI-Project/OZI/commit/9bd910ac41354f085d669c98ee5fc8316dfc53ff))
+
+### Other
+
+* Merge pull request #329 from OZI-Project/main
+
+Release ([`9d9db08`](https://github.com/OZI-Project/OZI/commit/9d9db08830676c2e4f35371a64c15d664e7451ba))
+
+* Merge pull request #328 from OZI-Project/dev
+
+Dev merge ([`2b10e52`](https://github.com/OZI-Project/OZI/commit/2b10e523fcf4b88ffd5da604e57e2f5edd9031ee))
+
+* Merge branch &#39;main&#39; into dev ([`2ded345`](https://github.com/OZI-Project/OZI/commit/2ded345ea432cd8907093be11705120271e8e1f1))
+
 ## 0.0.308 (2024-04-04)
 
 ### :bug:
