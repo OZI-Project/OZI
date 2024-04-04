@@ -19,11 +19,13 @@
 {{ '# ozi-fix -> meson rewrite is the standard editing pipeline.' }}
 {{ parent }}_files = [{%- if project.fix == 'source' %}'__init__.py'{% endif %}]
 foreach file: {{ parent }}_files
-  fs.copyfile(file)
-  python.install_sources(file, subdir: '{{ folder }}' / '{{ parent }}')
+    fs.copyfile(file)
+    if not meson.is_subproject() or get_option('install-subprojects').enabled()
+        python.install_sources(file, subdir: '{{ folder }}' / '{{ parent }}')
+    endif
 endforeach
 if false
-  executable('{{ parent }}_files', {{ parent }}_files)
+    executable('{{ parent }}_files', {{ parent }}_files)
 endif
 {{ parent }}_children = []
 foreach child: {{ parent }}_children
