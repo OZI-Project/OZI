@@ -13,7 +13,9 @@
 config_files = []
 foreach file: config_files
   fs.copyfile(file)
-  python.install_sources(file, subdir: '{{ project.name|underscorify }}' / 'tests')
+  if not meson.is_subproject() or get_option('install-subprojects').enabled()
+    python.install_sources(file, subdir: '{{ project.name|underscorify }}' / 'tests')
+  endif
 endforeach
 if false
   executable('test_files', config_files)

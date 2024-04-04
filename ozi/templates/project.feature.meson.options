@@ -4,6 +4,7 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
+option('install-subprojects', type: 'feature', value: 'disabled')
 option('source-to-build', type: 'feature', value: 'auto')
 option('build-dir', type: 'feature',  value: 'auto')
 option('project-name', type: 'feature', value: 'auto')

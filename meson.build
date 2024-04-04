@@ -498,6 +498,7 @@ summary(
 )
 summary('version', python.language_version(), section: 'Python')
 summary('path', python.full_path(), section: 'Python')
+installed_packages = []
 foreach line : run_command('pip', 'freeze', check: true).stdout().split('\n')
     if line == ''
         continue
@@ -512,7 +513,22 @@ foreach line : run_command('pip', 'freeze', check: true).stdout().split('\n')
         and package[0] not in get_option('lint-suite')
         and package[0] not in get_option('dist-suite')
     )
+        installed_packages += package[0]
         summary(package[0], package[1], section: 'Python packages')
+    endif
+endforeach
+# Prior to Python 3.12 these would not be included in pip freeze
+# See: https://github.com/pypa/pip/pull/12032
+foreach legacy_package: ['wheel', 'setuptools', 'distribute']
+    if legacy_package not in installed_packages
+        legacy_package_version = run_command(
+            python,
+            ['-c', metadata_version.format(legacy_package)],
+            kwargs: no_check,
+        ).stdout().strip()
+        if legacy_package_version != ''
+            summary(legacy_package, legacy_package_version, section: 'Python packages')
+        endif
     endif
 endforeach
 pip_version = run_command(pip, '-V', check: true).stdout().split()

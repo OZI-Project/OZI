@@ -14,7 +14,7 @@ config_files = [
     'src.py',
 ]
 foreach file: config_files
-    if not meson.is_subproject()
+    if not meson.is_subproject() or get_option('install-subprojects').enabled()
         python.install_sources(file, subdir: 'ozi'/'spec')
     endif
     fs.copyfile(file)
