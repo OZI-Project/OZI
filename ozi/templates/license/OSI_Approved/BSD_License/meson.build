@@ -10,7 +10,7 @@ files = [
 ]
 foreach file: files
     fs.copyfile(file)
-    if not meson.is_subproject()
+    if not meson.is_subproject() or get_option('install-subprojects').enabled()
         python.install_sources(
             file, 
             subdir: 'ozi'/'templates'/'license'/'OSI_Approved'/fs.name(meson.current_source_dir()))
