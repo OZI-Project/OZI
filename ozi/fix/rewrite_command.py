@@ -44,7 +44,7 @@ class RewriteCommand:  # pragma: defer to meson
     operation: str = ''
     sources: list[str] = field(default_factory=list)
     subdir: str = ''
-    target_type: str = ''
+    target_type: str = 'executable'
 
     def add(
         self: RewriteCommand,
