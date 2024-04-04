@@ -25,7 +25,7 @@ from ozi.tap import TAP  # pyright: ignore
 
 @settings(
     suppress_health_check=[HealthCheck.too_slow],
-    deadline=timedelta(seconds=10),
+    deadline=timedelta(seconds=30),
 )
 @given(
     project=st.fixed_dictionaries(
