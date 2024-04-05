@@ -1,4 +1,24 @@
 # CHANGELOG
+## 0.0.313 (2024-04-05)
+
+### :bug:
+
+* :bug: Fix doubled comment diagnostics.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`bddc1ff`](https://github.com/OZI-Project/OZI/commit/bddc1ff723166fea7f5e14e8ba1689d28a33f26f))
+
+### Other
+
+* Merge pull request #337 from OZI-Project/main
+
+Release ([`6ec314c`](https://github.com/OZI-Project/OZI/commit/6ec314cf8faa5432e639891bbef6a760a89fe9ec))
+
+* Merge pull request #336 from OZI-Project/dev
+
+:bug: Fix doubled comment diagnostics. ([`ab3f121`](https://github.com/OZI-Project/OZI/commit/ab3f121c8c4a46aa4e9511b33876edbe5f750c52))
+
+* Merge branch &#39;main&#39; into dev ([`80f5231`](https://github.com/OZI-Project/OZI/commit/80f52311be686a13b518e7ed63979c720330f0c8))
+
 ## 0.0.312 (2024-04-05)
 
 ### :bug:
