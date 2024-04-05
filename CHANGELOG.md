@@ -1,4 +1,30 @@
 # CHANGELOG
+## 0.0.311 (2024-04-05)
+
+### :bug:
+
+* :bug: Fix inspect_files queries subdirectory meson.build.
+
+Now only queries values from the project root ``meson.build``.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`721aecc`](https://github.com/OZI-Project/OZI/commit/721aeccb01848696f86a34b0d10861c22d626668))
+
+* :bug: [e2e] Fix meson rewriter not working for ozi-fix source and test add.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`57e3672`](https://github.com/OZI-Project/OZI/commit/57e36720da5e1fcd9e56d9b2698071df8221da2a))
+
+### Other
+
+* Merge pull request #333 from OZI-Project/main
+
+Release ([`745bab0`](https://github.com/OZI-Project/OZI/commit/745bab0fc3178f0ec2f49c8290ac5f46eacc78a8))
+
+* Merge pull request #332 from OZI-Project/dev
+
+Dev merge ([`7b99497`](https://github.com/OZI-Project/OZI/commit/7b99497edbeb426d61c260d9d72d9bb2007256bb))
+
+* Merge branch &#39;main&#39; into dev ([`314a7c9`](https://github.com/OZI-Project/OZI/commit/314a7c9662aba53b5df840b85e9d9d02bdb26b6d))
+
 ## 0.0.310 (2024-04-04)
 
 ### :bug:
