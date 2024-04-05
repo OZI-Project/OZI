@@ -14,7 +14,6 @@ if sys.version_info >= (3, 11):  # pragma: no cover
 elif sys.version_info < (3, 11):  # pragma: no cover
     import tomli as toml
 
-from ozi import comment
 from ozi.filter import underscorify
 from ozi.fix.build_definition import walk
 from ozi.meson import load_ast
@@ -129,7 +128,6 @@ def required_files(
         if not target.joinpath(f).exists():
             TAP.not_ok('MISSING', str(f))
             continue  # pragma: defer to https://github.com/nedbat/coveragepy/issues/198
-        comment.comment_diagnostic(target, rel_path, file)
         TAP.ok(str(f))
         found_files.append(file)
     walk(target, rel_path, found_files=found_files)
