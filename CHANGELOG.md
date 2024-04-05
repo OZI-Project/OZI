@@ -1,4 +1,30 @@
 # CHANGELOG
+## 0.0.312 (2024-04-05)
+
+### :bug:
+
+* :bug: Fix double-printing of comment diagnostic for found files.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`a0fb5ff`](https://github.com/OZI-Project/OZI/commit/a0fb5ffbea84cb6f2847f82abdfbcd5e7f67d816))
+
+### :speech_balloon:
+
+* :speech_balloon: clarify license validation diagnostics.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`25726dc`](https://github.com/OZI-Project/OZI/commit/25726dc8834021930949764bc68fc61123f0885e))
+
+### Other
+
+* Merge pull request #335 from OZI-Project/main
+
+Release ([`b1f335b`](https://github.com/OZI-Project/OZI/commit/b1f335ba1e2aebe9768ac5f706bd9a76ecfb68f3))
+
+* Merge pull request #334 from OZI-Project/dev
+
+Dev merge ([`dc0d60b`](https://github.com/OZI-Project/OZI/commit/dc0d60bfa4234d34acacb94d1f810abd6395b44e))
+
+* Merge branch &#39;main&#39; into dev ([`bc3f0a7`](https://github.com/OZI-Project/OZI/commit/bc3f0a7bb50f64fc2c5e90f18ec8c0303b9766e4))
+
 ## 0.0.311 (2024-04-05)
 
 ### :bug:
