@@ -85,22 +85,25 @@ root_files = [
 {%- endif %}
 {%- endfor %}
 ]
+source_files = ['__init__.py', 'py.typed']
+test_files = []
 foreach source : root_files
     fs.copyfile(source)
 endforeach
 run_command(python, ['-c', sync_pkg_readme], check: true)
-if false
-    executable('root_files', root_files)
-endif
-root_children = [
-    '{{ project.name|underscorify }}',
-    'tests',
-]
+root_children = ['{{ project.name|underscorify }}', 'tests']
+source_children = []
+test_children = []
 foreach child: root_children
     subdir(child)
 endforeach
 if false
+    executable('root_files', root_files)
+    executable('source_files', source_files)
+    executable('test_files', test_files)
     executable('root_children', root_children)
+    executable('source_children', source_children)
+    executable('test_children', test_children)
 endif
 dev = subproject('ozi')
 foreach var : get_option('variables')

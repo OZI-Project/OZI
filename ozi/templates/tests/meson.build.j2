@@ -10,20 +10,12 @@
 {%- endfor %}
 {{ '# DO NOT EDIT BY HAND - This file was generated for use with OZI tools.' }}
 {{ '# ozi-fix -> meson rewrite is the standard editing pipeline.' }}
-config_files = []
-foreach file: config_files
+foreach file: test_files
   fs.copyfile(file)
   if not meson.is_subproject() or get_option('install-subprojects').enabled()
     python.install_sources(file, subdir: '{{ project.name|underscorify }}' / 'tests')
   endif
 endforeach
-if false
-  executable('test_files', config_files)
-endif
-children = []
-foreach child: children
+foreach child: test_children
     subdir(child)
 endforeach
-if false
-    executable('test_children', children)
-endif

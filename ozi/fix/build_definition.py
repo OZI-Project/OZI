@@ -30,7 +30,7 @@ def inspect_files(
     build_files = [str(rel_path / 'meson.build'), str(rel_path / 'meson.options')]
     for file in extra_files:  # pragma: no cover
         found_literal = query_build_value(
-            str((target / rel_path / file).parent),
+            str(target),
             file,
         )
         if found_literal:
@@ -39,7 +39,6 @@ def inspect_files(
             build_files += [str(rel_path / file)]
         if str(rel_path / file) not in build_files and file not in found_files:
             build_file = str(rel_path / 'meson.build')
-            TAP.not_ok('MISSING', f'{build_file}: {rel_path / file!s}')
         comment.comment_diagnostic(target, rel_path, file)
 
 
