@@ -115,8 +115,10 @@ def valid_contact_info(  # noqa: C901
 def valid_license(_license: str, license_expression: str) -> str:
     """Validate license and check against license expression."""
     if isinstance(_license, list):  # pragma: no cover
-        TAP.diagnostic('multiple license matches', *_license, 'only using the first')
-        _license, *_ = _license
+        TAP.diagnostic('multiple license matches', 'only selected the first')
+        TAP.diagnostic(_license[0], '<selected>')
+        tuple(map(TAP.diagnostic, _license[1:]))
+        _license = _license[0]
     possible_spdx: Sequence[str] = METADATA.spec.python.pkg.license.ambiguous.get(
         _license,
         (),
@@ -125,17 +127,12 @@ def valid_license(_license: str, license_expression: str) -> str:
         _license in iter(METADATA.spec.python.pkg.license.ambiguous)
         and license_expression.split(' ')[0] not in possible_spdx
     ):  # pragma: no cover
-        spdx_licenses = ', '.join(possible_spdx)
-        TAP.diagnostic(
-            'ambiguous license',
-            'for more information see: https://github.com/pypa/trove-classifiers/issues/17',
-        )
-        TAP.diagnostic(
-            f'set --license-expression to one of: {spdx_licenses}',
-            'OR to a license expression based on one of these.',
-        )
+        TAP.diagnostic('ambiguous license')
+        TAP.diagnostic('set --license-expression to one of:')
+        tuple(map(TAP.diagnostic, possible_spdx))
+        TAP.diagnostic('OR to a license expression based on one of these.')
+        TAP.diagnostic('See also: https://github.com/pypa/trove-classifiers/issues/17')
         TAP.not_ok('License', 'ambiguous per PEP 639', _license)
-
     else:
         TAP.ok('License')
     return _license

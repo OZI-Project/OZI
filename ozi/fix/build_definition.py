@@ -39,7 +39,8 @@ def inspect_files(
             build_files += [str(rel_path / file)]
         if str(rel_path / file) not in build_files and file not in found_files:
             build_file = str(rel_path / 'meson.build')
-        comment.comment_diagnostic(target, rel_path, file)
+        if file not in found_files:
+            comment.comment_diagnostic(target, rel_path, file)
 
 
 def process(
