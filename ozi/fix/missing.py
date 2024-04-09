@@ -130,7 +130,7 @@ def required_files(
             continue  # pragma: defer to https://github.com/nedbat/coveragepy/issues/198
         TAP.ok(str(f))
         found_files.append(file)
-    walk(target, rel_path, found_files=found_files)
+    walk(target, rel_path, found_files=found_files, project_name=underscorify(name))
     return found_files
 
 

@@ -13,13 +13,7 @@ foreach file: test_files
     python.install_sources(file, subdir: 'ozi'/'tests')
   endif
 endforeach
-if false
-  executable('test_files', test_files)
-endif
-children = []
-foreach child: children
+test_children = []
+foreach child: test_children
     subdir(child)
 endforeach
-if false
-    executable('test_children', children)
-endif

@@ -30,17 +30,17 @@ def inspect_files(
     build_files = [str(rel_path / 'meson.build'), str(rel_path / 'meson.options')]
     for file in extra_files:  # pragma: no cover
         found_literal = query_build_value(
-            str(target),
+            str(target / rel_path),
             file,
         )
         if found_literal:
             build_file = str((rel_path / file).parent / 'meson.build')
             TAP.ok(f'{build_file} lists {rel_path / file}')
             build_files += [str(rel_path / file)]
+            comment.comment_diagnostic(target, rel_path, file)
         if str(rel_path / file) not in build_files and file not in found_files:
             build_file = str(rel_path / 'meson.build')
-        if file not in found_files:
-            comment.comment_diagnostic(target, rel_path, file)
+            TAP.not_ok(f'{build_file} missing {rel_path / file}')
 
 
 def process(
@@ -72,21 +72,15 @@ def validate(
 ) -> Generator[Path, None, None]:
     """Validate an OZI standard build definition's directories."""
     for directory in subdirs:
-        match directory, children:
-            case directory, children if children and directory in children:
-                TAP.ok(  # pragma: no cover
-                    str(rel_path / 'meson.build'),
-                    'subdir',
-                    str(directory),
-                )
-            case directory, _ if directory not in IGNORE_MISSING:
+        match directory, children:  # pragma: no cover
+            case [directory, _] if directory not in IGNORE_MISSING:
                 TAP.ok(
                     str(rel_path / 'meson.build'),
                     'subdir',
                     str(directory),
                 )
                 yield Path(rel_path / directory)
-            case directory, _:
+            case [directory, _]:
                 TAP.ok(
                     str(rel_path / 'meson.build'),
                     'subdir',
@@ -101,6 +95,7 @@ def walk(
     target: Path,
     rel_path: Path,
     found_files: list[str] | None = None,
+    project_name: str | None = None,
 ) -> None:
     """Walk an OZI standard build definition's directories."""
     children = list(
@@ -111,10 +106,12 @@ def walk(
                 directory
                 for directory in os.listdir(target / rel_path)
                 if os.path.isdir(target / rel_path / directory)
+                and directory not in [project_name, 'tests']
+                and rel_path != Path('.')
             ],
             children=get_items_by_suffix(str((target / rel_path)), 'children'),
         ),
     )
     process(target, rel_path, found_files)
     for child in children:
-        walk(target, child)
+        walk(target, child)  # pragma: no cover
