@@ -85,15 +85,11 @@ root_files = [
 {%- endif %}
 {%- endfor %}
 ]
-source_files = ['__init__.py', 'py.typed']
-test_files = []
 foreach source : root_files
     fs.copyfile(source)
 endforeach
 run_command(python, ['-c', sync_pkg_readme], check: true)
 root_children = ['{{ project.name|underscorify }}', 'tests']
-source_children = []
-test_children = []
 foreach child: root_children
     subdir(child)
 endforeach
