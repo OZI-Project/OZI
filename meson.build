@@ -200,13 +200,11 @@ configure_file(
 meson.add_dist_script(pip, 'install', 'tomli>=2.0.0')
 meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
+message('backed up pyproject.toml as pyproject.orig.toml')
 root_files = ['README.rst', 'CHANGELOG.md', 'LICENSE.txt']
 foreach source : root_files
     fs.copyfile(source)
 endforeach
-if false
-    executable('root_files', root_files)
-endif
 if get_option('ozi-blastpipe').enabled()
     # BEGIN BOOTSTRAP SCRIPT
     subproject('blastpipe')
@@ -216,6 +214,13 @@ root_children = ['ozi', 'tests']
 foreach child : root_children
     subdir(child)
 endforeach
+if false
+    executable('root_files', root_files)
+    executable('source_files', source_files)
+    executable('source_children', source_children)
+    executable('test_files', test_files)
+    executable('test_children', test_children)
+endif
 
 # BEGIN checkpoint-suite-install
 modules = []
