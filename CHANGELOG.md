@@ -1,4 +1,48 @@
 # CHANGELOG
+## 0.0.314 (2024-04-09)
+
+### :arrow_up:
+
+* :arrow_up: Bump github/codeql-action from 3.24.9 to 3.24.10
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.9 to 3.24.10.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/1b1aada464948af03b950897e5eb522f92603cc2...4355270be187e1b672a7a1c7c7bae5afdc1ab94a)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`1f454f1`](https://github.com/OZI-Project/OZI/commit/1f454f175e9103cb05dee6ec8a79da85b7de9554))
+
+### :bug:
+
+* :bug:: Fix build definition introspection.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`fd4c33b`](https://github.com/OZI-Project/OZI/commit/fd4c33b8e1aaf9d2817eb7bf7c8a2600bd8c14cc))
+
+### Other
+
+* Merge pull request #340 from OZI-Project/main
+
+Release ([`5256cd9`](https://github.com/OZI-Project/OZI/commit/5256cd9b4060b23712d6d8dc75977f94f8949d46))
+
+* Merge pull request #338 from OZI-Project/dependabot/github_actions/github/codeql-action-3.24.10
+
+⬆️ Bump github/codeql-action from 3.24.9 to 3.24.10 ([`b338689`](https://github.com/OZI-Project/OZI/commit/b3386892017804b32ba5572084632f68b7daa6ad))
+
+* Merge branch &#39;main&#39; into dependabot/github_actions/github/codeql-action-3.24.10 ([`4a4a3fe`](https://github.com/OZI-Project/OZI/commit/4a4a3fea17b7f7cd6435321a810fdd6a3b9e2232))
+
+* Merge pull request #339 from OZI-Project/dev
+
+Dev merge ([`bb6dd5f`](https://github.com/OZI-Project/OZI/commit/bb6dd5f5fa4e32f3b9241045602ba973b527c88b))
+
+* Merge branch &#39;main&#39; into dev ([`82efa0f`](https://github.com/OZI-Project/OZI/commit/82efa0fc6f8c8fb7e6444e4c9435af8ea62fa5d0))
+
 ## 0.0.313 (2024-04-05)
 
 ### :bug:
