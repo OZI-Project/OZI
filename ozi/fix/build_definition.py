@@ -45,7 +45,6 @@ def inspect_files(
             _found_files.append(file)
     return _found_files
 
-
 def process(
     target: Path,
     rel_path: Path,
