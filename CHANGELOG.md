@@ -1,4 +1,40 @@
 # CHANGELOG
+## 0.0.316 (2024-04-10)
+
+### :bug:
+
+* :bug: Fix double missing file counting in root project folder.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`ca0421a`](https://github.com/OZI-Project/OZI/commit/ca0421a5a460be47b62c72118f393f4426a8af1e))
+
+* :bug: Fix double missing file counting in root project folder.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`df514de`](https://github.com/OZI-Project/OZI/commit/df514de907b07c7a94a8db71bb9a20cba2cd6546))
+
+### :pencil2:
+
+* :rotating_light::pencil2: Linted with black 2024
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`3551fc9`](https://github.com/OZI-Project/OZI/commit/3551fc9fa1752a03d87dc8063f583c74713b8e1c))
+
+### Other
+
+* Merge pull request #344 from OZI-Project/main
+
+Release ([`be99860`](https://github.com/OZI-Project/OZI/commit/be998608484c9dadc986ee7f369799a3b281f138))
+
+* Merge pull request #343 from OZI-Project/dev
+
+Dev merge ([`fca3324`](https://github.com/OZI-Project/OZI/commit/fca332402c924c561fe9c468cb355b6a305d7450))
+
+* Merge branch &#39;main&#39; into dev ([`cef2ba5`](https://github.com/OZI-Project/OZI/commit/cef2ba5608573aacb0182da52ca5c1d8401f7ff7))
+
+* :rotating_light: run black
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`bfff664`](https://github.com/OZI-Project/OZI/commit/bfff664594276fb5f1583907b62faa53b3f3d82f))
+
+* Merge branch &#39;dev&#39; of https://github.com/rjdbcm/ozi into dev ([`0198a42`](https://github.com/OZI-Project/OZI/commit/0198a42677764a2f21bddbcc85fa23d029eee769))
+
 ## 0.0.315 (2024-04-10)
 
 ### :bug:
