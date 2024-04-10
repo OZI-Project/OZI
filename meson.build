@@ -201,8 +201,10 @@ meson.add_dist_script(pip, 'install', 'tomli>=2.0.0')
 meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
 message('backed up pyproject.toml as pyproject.orig.toml')
-foreach source : [root_files[0], root_files[1], root_files[2]]
-    fs.copyfile(source)
+foreach source : root_files
+    if source not in ['.gitignore', 'pyproject.toml']
+        fs.copyfile(source)
+    endif
 endforeach
 if get_option('ozi-blastpipe').enabled()
     # BEGIN BOOTSTRAP SCRIPT
