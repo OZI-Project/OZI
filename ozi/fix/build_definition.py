@@ -34,7 +34,7 @@ def inspect_files(
             str(target / rel_path),
             file,
         )
-        if found_literal:
+        if found_literal and file not in found_files:
             build_file = str((rel_path / file).parent / 'meson.build')
             TAP.ok(f'{build_file} lists {rel_path / file}')
             build_files += [str(rel_path / file)]
