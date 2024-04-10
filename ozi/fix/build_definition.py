@@ -34,11 +34,12 @@ def inspect_files(
             str(target / rel_path),
             file,
         )
-        if found_literal and file not in found_files:
+        if found_literal and file not in _found_files:
             build_file = str((rel_path / file).parent / 'meson.build')
             TAP.ok(f'{build_file} lists {rel_path / file}')
             build_files += [str(rel_path / file)]
             comment.comment_diagnostic(target, rel_path, file)
+            _found_files.append(file)
         if str(rel_path / file) not in build_files and file not in found_files:
             build_file = str(rel_path / 'meson.build')
             TAP.not_ok(f'{build_file} missing {rel_path / file}')
