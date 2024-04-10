@@ -83,7 +83,7 @@ def validate(
             case [directory, _]:
                 TAP.ok(
                     str(rel_path / 'meson.build'),
-                    'subdir',
+                    'missing',
                     str(directory),
                     skip=True,
                 )
@@ -98,6 +98,7 @@ def walk(
     project_name: str | None = None,
 ) -> None:
     """Walk an OZI standard build definition's directories."""
+    process(target, rel_path, found_files)
     children = list(
         validate(
             target,
@@ -112,6 +113,7 @@ def walk(
             children=get_items_by_suffix(str((target / rel_path)), 'children'),
         ),
     )
-    process(target, rel_path, found_files)
+    if rel_path == Path('.') and project_name:
+        children += [Path('.')]
     for child in children:
         walk(target, child)  # pragma: no cover
