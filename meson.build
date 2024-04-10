@@ -315,7 +315,7 @@ foreach name : namespace
                     if fallback_version.length() > 2
                         fallback_version = fallback_version[1].split(':')[1].strip()
                     else
-                        fallback_version = 'unknown'
+                        fallback_version = 'unknown (see ' + emoji_generic + 'Python packages)' 
                     endif
                     if app in no_version
                         if packaged_version == ''
@@ -358,7 +358,7 @@ foreach name : namespace
                     if fallback_version.length() > 2
                         fallback_version = fallback_version[1].split(':')[1].strip()
                     else
-                        fallback_version = 'unknown'
+                        fallback_version = 'unknown (see ' + emoji_generic + ' Python packages)'
                     endif
                     if app in no_version
                         summary(
@@ -472,7 +472,7 @@ summary(
     {
         emoji_no_version: 'non-standard PyPA version metadata',
         emoji_metadata_version: 'standard PyPA version metadata',
-        emoji_directory: 'install directory',
+        emoji_directory: 'filesystem directory',
         emoji_setup: 'developer setup invocations (dev)',
         emoji_dist: 'distribution               (dist)',
         emoji_docs: 'documentation              (docs)',
@@ -493,17 +493,23 @@ display_dirs = [
 ]
 foreach dir : display_dirs
     summary(
-        {'📁 ' + dir: get_option(dir)},
-        section: '〽️ meson install -C @0@'.format(build_root),
+        {'⟡ ' + dir: get_option(dir)},
+        section: emoji_generic + ' meson install -C @0@'.format(build_root),
     )
 endforeach
 summary(
-    '📁 python.install_dir',
+    '⟡ python.install_dir',
     python.get_install_dir(),
-    section: '〽️ meson install -C @0@'.format(build_root),
+    section: emoji_generic + ' meson install -C @0@'.format(build_root),
 )
-summary('version', python.language_version(), section: 'Python')
-summary('path', python.full_path(), section: 'Python')
+summary(emoji_dist + ' version', python.language_version(), section: emoji_generic + ' Python')
+summary(emoji_directory + ' path', python.full_path(), section: emoji_generic + ' Python')
+emoji_selected = ''
+foreach name: namespace
+    if get_variable(name).enabled()
+        emoji_selected += get_variable('emoji_' + name)
+    endif
+endforeach
 installed_packages = []
 foreach line : run_command('pip', 'freeze', check: true).stdout().split('\n')
     if line == ''
@@ -520,9 +526,10 @@ foreach line : run_command('pip', 'freeze', check: true).stdout().split('\n')
         and package[0] not in get_option('dist-suite')
     )
         installed_packages += package[0]
-        summary(package[0], package[1], section: 'Python packages')
+        summary(' '.join(([emoji_selected, package[0]])).strip(), package[1].strip(), section: emoji_generic + ' Python packages')
     endif
 endforeach
+
 # Prior to Python 3.12 these would not be included in pip freeze
 # See: https://github.com/pypa/pip/pull/12032
 foreach legacy_package: ['wheel', 'setuptools', 'distribute']
@@ -533,9 +540,9 @@ foreach legacy_package: ['wheel', 'setuptools', 'distribute']
             kwargs: no_check,
         ).stdout().strip()
         if legacy_package_version != ''
-            summary(legacy_package, legacy_package_version, section: 'Python packages')
+            summary(legacy_package, legacy_package_version, section: emoji_generic + ' Python packages')
         endif
     endif
 endforeach
 pip_version = run_command(pip, '-V', check: true).stdout().split()
-summary(pip_version[0], pip_version[1], section: 'Python packages')
+summary(pip_version[0], pip_version[1], section: emoji_generic + ' Python packages')
