@@ -26,8 +26,9 @@ def inspect_files(
     rel_path: Path,
     found_files: list[str],
     extra_files: list[str],
-) -> None:
+) -> list[str]:
     build_files = [str(rel_path / 'meson.build'), str(rel_path / 'meson.options')]
+    _found_files = []
     for file in extra_files:  # pragma: no cover
         found_literal = query_build_value(
             str(target / rel_path),
@@ -41,13 +42,15 @@ def inspect_files(
         if str(rel_path / file) not in build_files and file not in found_files:
             build_file = str(rel_path / 'meson.build')
             TAP.not_ok(f'{build_file} missing {rel_path / file}')
+            _found_files.append(file)
+    return _found_files
 
 
 def process(
     target: Path,
     rel_path: Path,
     found_files: list[str] | None = None,
-) -> None:
+) -> list[str]:
     """Process an OZI project build definition's files."""
     extra_files = [
         file
@@ -56,7 +59,7 @@ def process(
     ]
     found_files = found_files if found_files else []
     extra_files = list(set(extra_files).symmetric_difference(set(found_files)))
-    inspect_files(
+    return inspect_files(
         target=target,
         rel_path=rel_path,
         found_files=found_files,
@@ -97,8 +100,8 @@ def walk(
     found_files: list[str] | None = None,
     project_name: str | None = None,
 ) -> None:
-    """Walk an OZI standard build definition's directories."""
-    process(target, rel_path, found_files)
+    """Walk an OZI standard build definition directory."""
+    found_files = process(target, rel_path, found_files)
     children = list(
         validate(
             target,
@@ -116,4 +119,4 @@ def walk(
     if rel_path == Path('.') and project_name:
         children += [Path('.')]
     for child in children:
-        walk(target, child)  # pragma: no cover
+        walk(target, child, found_files=found_files)  # pragma: no cover
