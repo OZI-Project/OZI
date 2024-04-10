@@ -23,10 +23,19 @@ fs = import('fs')
 pymod = import('python')
 project_name = meson.project_name()
 pip_compile = find_program('pip-compile', required: true)
-requirements = ['requirements.in']
+root_files = [
+{%- for required_root_dist in spec.python.pkg.required.root %}
+{%- if required_root_dist not in ['pyproject.toml'] %}
+    '{{ required_root_dist }}',
+{%- endif %}
+{%- endfor %}
+    'requirements.in',
+    'pyproject.toml',
+    '.gitignore',
+]
 custom_target(
     'requirements-{{ project.name }}',
-    input: requirements,
+    input: root_files[3],
     output: 'requirements.txt',
     build_always_stale: true,
     build_by_default: true,
@@ -78,15 +87,10 @@ configure_file(
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
 {#- END config MESON_SOURCE_ROOT/PKG-INFO #}
 
-root_files = [
-{%- for required_root_dist in spec.python.pkg.required.root %}
-{%- if required_root_dist not in ['pyproject.toml'] %}
-    '{{ required_root_dist }}',
-{%- endif %}
-{%- endfor %}
-]
 foreach source : root_files
-    fs.copyfile(source)
+    if source not in ['pyproject.toml', 'requirements.in', '.gitignore']
+        fs.copyfile(source)
+    endif
 endforeach
 run_command(python, ['-c', sync_pkg_readme], check: true)
 root_children = ['{{ project.name|underscorify }}', 'tests']

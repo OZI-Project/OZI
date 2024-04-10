@@ -93,9 +93,10 @@ pyproject_config.set(
 )
 pyproject_config.set('PROJECT_NAME', project_name)
 pyproject_config.set('LICENSE', meson.project_license()[0])
+root_files = ['README.rst', 'CHANGELOG.md', 'LICENSE.txt', 'requirements.in', 'pyproject.toml', '.gitignore']
 configure_file(
-    input: 'pyproject.toml',
-    output: 'pyproject.toml',
+    input: root_files[4],
+    output: root_files[4],
     configuration: pyproject_config,
 )
 meson_setuptools_scm = run_command(
@@ -168,10 +169,9 @@ replace_ruff_target_version = run_command(
 run_command(python, ['-c', replace_ruff_target_version], check: true)
 pip = find_program('pip', required: true, disabler: true)
 pip_compile = find_program('pip-compile', required: true)
-requirements = ['requirements.in']
 custom_target(
     'requirements.txt',
-    input: requirements,
+    input: root_files[3],
     output: 'requirements.txt',
     build_always_stale: true,
     build_by_default: true,
@@ -201,8 +201,7 @@ meson.add_dist_script(pip, 'install', 'tomli>=2.0.0')
 meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
 message('backed up pyproject.toml as pyproject.orig.toml')
-root_files = ['README.rst', 'CHANGELOG.md', 'LICENSE.txt']
-foreach source : root_files
+foreach source : [root_files[0], root_files[1], root_files[2]]
     fs.copyfile(source)
 endforeach
 if get_option('ozi-blastpipe').enabled()
