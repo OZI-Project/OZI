@@ -1,4 +1,24 @@
 # CHANGELOG
+## 0.0.318 (2024-04-10)
+
+### :bug:
+
+* :bug: Real fix duplicate found files.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`5597986`](https://github.com/OZI-Project/OZI/commit/5597986180001cec3f0bb9743157f8e624964260))
+
+### Other
+
+* Merge pull request #348 from OZI-Project/main
+
+Release ([`91fd5e5`](https://github.com/OZI-Project/OZI/commit/91fd5e5791d1ad79d76540d2b41d49f8c558ac24))
+
+* Merge pull request #347 from OZI-Project/dev
+
+Dev merge ([`22b11b8`](https://github.com/OZI-Project/OZI/commit/22b11b8961fc7ed88ce84ac5763751d16fb82190))
+
+* Merge branch &#39;main&#39; into dev ([`436db1a`](https://github.com/OZI-Project/OZI/commit/436db1a88cba9c128864ce3b2e344abbfa8f042c))
+
 ## 0.0.317 (2024-04-10)
 
 ### :bug:
