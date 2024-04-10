@@ -1,4 +1,30 @@
 # CHANGELOG
+## 0.0.315 (2024-04-10)
+
+### :bug:
+
+* :bug: Update ``meson.build`` template root_files to include the default root files.
+
+Now ``ozi -fix missing`` will succeed without warning.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`e42f97f`](https://github.com/OZI-Project/OZI/commit/e42f97f18e2759232720023def745a96dac828c1))
+
+* :bug: Fix root project folder introspection.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`e2aa569`](https://github.com/OZI-Project/OZI/commit/e2aa569da36f6643d8ac95907c8159656637f8af))
+
+### Other
+
+* Merge pull request #342 from OZI-Project/main
+
+Release ([`cf612de`](https://github.com/OZI-Project/OZI/commit/cf612de8e8ab09b7e3826cfdcbe63a8207103293))
+
+* Merge pull request #341 from OZI-Project/dev
+
+Dev merge ([`5361520`](https://github.com/OZI-Project/OZI/commit/5361520177f1cfc079350766d3c3e23ece656c14))
+
+* Merge branch &#39;main&#39; into dev ([`81d976f`](https://github.com/OZI-Project/OZI/commit/81d976fc07b9900aa0172872bf057022b8f9e0d0))
+
 ## 0.0.314 (2024-04-09)
 
 ### :arrow_up:
