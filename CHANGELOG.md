@@ -1,4 +1,24 @@
 # CHANGELOG
+## 0.0.317 (2024-04-10)
+
+### :bug:
+
+* :bug: Fix duplicate count of non-missing files.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`9e4237e`](https://github.com/OZI-Project/OZI/commit/9e4237ef451956ceb870cfe124b9b37f26cbb54c))
+
+### Other
+
+* Merge pull request #346 from OZI-Project/main
+
+Release ([`d1c20fb`](https://github.com/OZI-Project/OZI/commit/d1c20fb1912e652cefd52be843ce4bf133e68d09))
+
+* Merge pull request #345 from OZI-Project/dev
+
+Dev merge ([`05bf836`](https://github.com/OZI-Project/OZI/commit/05bf8360fc6348b480d050fcd5d917b69216a59e))
+
+* Merge branch &#39;main&#39; into dev ([`14c5623`](https://github.com/OZI-Project/OZI/commit/14c5623bf069d954652c86444b2e90399c18be13))
+
 ## 0.0.316 (2024-04-10)
 
 ### :bug:
