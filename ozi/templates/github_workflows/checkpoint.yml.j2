@@ -30,7 +30,7 @@
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@checkpoint@{{ spec.python.ci.checkpoint.version }}
+      - uses: OZI-Project/checkpoint@{{ spec.python.ci.checkpoint.version }}
         with:
           python-version: "{{ python_version }}"
           suite: {{ suite }}
