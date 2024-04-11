@@ -1,4 +1,22 @@
 # CHANGELOG
+## 0.0.320 (2024-04-11)
+
+### :pencil2:
+
+* :pencil2: Fix workflow name
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`dc8c3bd`](https://github.com/OZI-Project/OZI/commit/dc8c3bdd23229bac2d32065888e5294b066e11d2))
+
+### :pushpin:
+
+* :pushpin: bump release to 0.1.14
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`8c684c3`](https://github.com/OZI-Project/OZI/commit/8c684c346a570ffa5bfe25b28dd02ab1a579f155))
+
+* :pushpin: Set workflow version pins
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`ed57c62`](https://github.com/OZI-Project/OZI/commit/ed57c62ba8efb9aee234a4e535e80e2ab655ff5f))
+
 ## 0.0.319 (2024-04-10)
 
 ### :wrench:
