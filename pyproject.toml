@@ -149,7 +149,9 @@ omit = [
 [tool.ruff]
 line-length = 93
 extend-exclude = ["meson-private", "scripts", "vendor"]
-select = ["ALL"]
+# target-version = "@PYTHON_VERSION_DIST@"
+
+[tool.ruff.lint]
 ignore = [
     "A003",
     "ARG",
@@ -180,7 +182,7 @@ ignore = [
     "UP",
     "PERF203",
 ]
-# target-version = "@PYTHON_VERSION_DIST@"
+select = ["ALL"]
 
 [tool.ruff.lint.mccabe]
 max-complexity = 6
@@ -189,7 +191,7 @@ max-complexity = 6
 line-ending = "lf"
 quote-style = "single"
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 force-single-line = true
 
 [tool.ruff.lint.pycodestyle]
@@ -346,64 +348,45 @@ upload_to_vcs_release = true
 legacy_tox_ini = """
 [tox]
 skipsdist = True
-envlist = py3{10,11,12}
+env_list =
+     dist
+     lint
+     test
 
 [gh]
 python =
-     3.12 = py312
-     3.11 = py311
-     3.10 = py310
+     3.12 = dist,lint,test
+     3.11 = dist,lint,test
+     3.10 = dist,lint,test
+
+[testenv]
+allowlist_externals = rm
+package = wheel
+deps =
+     meson >= 1.1.0
+     ninja >= 1.8.2
+     pip-tools
+     setuptools_scm[toml]
+     tomli >= 2.0.0
+     -r requirements.in
+commands =
+     meson compile -C {env_tmp_dir}
+     rm -rf {env_tmp_dir}/.gitignore
 
 [testenv:dist]
 description = OZI distribution checkpoint
-allowlist_externals = rm
-package = wheel
-deps =
-     meson >= 1.1.0
-     ninja >= 1.8.2
-     pip-tools
-     setuptools_scm[toml]
-     tomli >= 2.0.0
-    -r requirements.in
-commands =
-     meson setup {env_tmp_dir} -Ddist=enabled
-     meson compile -C {env_tmp_dir}
-     rm -rf {env_tmp_dir}/.gitignore
-     meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=dist
+commands_pre = meson setup {env_tmp_dir} -Ddist=enabled
+commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=dist
 
 [testenv:lint]
 description = OZI format/lint checkpoint
-allowlist_externals = rm
-package = wheel
-deps =
-     meson >= 1.1.0
-     ninja >= 1.8.2
-     pip-tools
-     setuptools_scm[toml]
-     tomli >= 2.0.0
-     -r requirements.in
-commands =
-     meson setup {env_tmp_dir} -Dlint=enabled
-     meson compile -C {env_tmp_dir}
-     rm -rf {env_tmp_dir}/.gitignore
-     meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=lint
+commands_pre = meson setup {env_tmp_dir} -Dlint=enabled
+commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=lint
 
 [testenv:test]
 description = OZI unit tests checkpoint
-allowlist_externals = rm
-package = wheel
-deps =
-     meson >= 1.1.0
-     ninja >= 1.8.2
-     pip-tools
-     setuptools_scm[toml]
-     tomli >= 2.0.0
-     -r requirements.in
-commands =
-     meson setup {env_tmp_dir} -Dtest=enabled -Dozi-blastpipe=enabled
-     meson compile -C {env_tmp_dir}
-     rm -rf {env_tmp_dir}/.gitignore
-     meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=test
+commands_pre = meson setup {env_tmp_dir} -Dtest=enabled -Dozi-blastpipe=enabled
+commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=test
 
 [testenv:fix]
 description = OZI project fix issues utility (black, isort, autoflake, ruff)
@@ -414,10 +397,10 @@ deps =
      ruff
 skip_install = true
 commands =
-     black -v -S .
-     isort .
-     autoflake -i -vv -r .
-     ruff check ozi --fix
+     {env_python} -m black -S .
+     {env_python} -m isort .
+     {env_python} -m autoflake -i -r .
+     {env_python} -m ruff check ozi --fix
 
 [testenv:scm]
 description = OZI supply chain management (setuptools_scm)

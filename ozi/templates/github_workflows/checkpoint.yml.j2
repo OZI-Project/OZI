@@ -5,9 +5,8 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
 {%- for python_version in [spec.python.support.security, spec.python.support.bugfix2, spec.python.support.bugfix1] %}
-{%- for suite in spec.python.ci.checkpoint.suites %}
-  checkpoint-{{ suite }}-{{ python_version|wheel_repr|replace('py', 'cp') }}-ubuntu-latest:
-    name: checkpoint-only-{{ suite }} (Python {{ python_version }} on ubuntu-latest)
+  checkpoint-{{ python_version|wheel_repr|replace('py', 'cp') }}-ubuntu-latest:
+    name: checkpoint (Python {{ python_version }} on ubuntu-latest)
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -33,14 +32,11 @@
       - uses: OZI-Project/checkpoint@{{ spec.python.ci.checkpoint.version }}
         with:
           python-version: "{{ python_version }}"
-          suite: {{ suite }}
-
-{% endfor %}
-{%- endfor %}
+{% endfor -%}
 
   checkpoint:
     runs-on: ubuntu-latest
-    needs: [{%- for python_version in [spec.python.support.security, spec.python.support.bugfix2, spec.python.support.bugfix1] %}{%- for suite in spec.python.ci.checkpoint.suites %}checkpoint-{{ suite }}-{{ python_version|wheel_repr|replace('py', 'cp') }}-ubuntu-latest, {% endfor %}{%- endfor %}]
+    needs: [{%- for python_version in [spec.python.support.security, spec.python.support.bugfix2, spec.python.support.bugfix1] %}checkpoint-{{ python_version|wheel_repr|replace('py', 'cp') }}-ubuntu-latest, {%- endfor %}]
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
