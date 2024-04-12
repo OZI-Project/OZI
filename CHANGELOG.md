@@ -1,4 +1,18 @@
 # CHANGELOG
+## 0.0.321 (2024-04-12)
+
+### :children_crossing:
+
+* :hammer::children_crossing: Simplify OZI output, remove emoji.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`df8dc06`](https://github.com/OZI-Project/OZI/commit/df8dc06dff6d8101a4ee451484a6e09f3372bdfd))
+
+### :hammer:
+
+* :hammer::construction_worker: Simplify checkpoint runs.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`097aeec`](https://github.com/OZI-Project/OZI/commit/097aeec20eb4ad4b2e2e29c866feec67faba1292))
+
 ## 0.0.320 (2024-04-11)
 
 ### :pencil2:
