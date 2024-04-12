@@ -8,16 +8,15 @@
 legacy_tox_ini = """
 [tox]
 skipsdist = True
-envlist = {{ spec.python.support.security|wheel_repr }},{{ spec.python.support.bugfix2|wheel_repr }},{{ spec.python.support.bugfix1|wheel_repr }}
+envlist = {% for suite in spec.python.ci.checkpoint.suites %}{{ suite }},{% endfor %}
 
 [gh]
 python =
-   {{ spec.python.support.bugfix1 }} = {{ spec.python.support.bugfix1|wheel_repr }}
-   {{ spec.python.support.bugfix2 }} = {{ spec.python.support.bugfix2|wheel_repr }}
-   {{ spec.python.support.security }} = {{ spec.python.support.security|wheel_repr }}
+   {{ spec.python.support.bugfix1 }} = {% for suite in spec.python.ci.checkpoint.suites %}{{ suite }},{% endfor %}
+   {{ spec.python.support.bugfix2 }} = {% for suite in spec.python.ci.checkpoint.suites %}{{ suite }},{% endfor %}
+   {{ spec.python.support.security }} = {% for suite in spec.python.ci.checkpoint.suites %}{{ suite }},{% endfor %}
 
-{%- for suite in spec.python.ci.checkpoint.suites %}
-[testenv:{{ suite }}]
+[testenv]
 allowlist_externals = rm
 package = wheel
 deps =
@@ -26,10 +25,13 @@ deps =
 {%- endfor %}
    -r requirements.in
 commands =
-   meson setup {env_tmp_dir} -Dozi:{{ suite }}=enabled --reconfigure
    meson compile -C {env_tmp_dir}
    rm -rf {env_tmp_dir}/.gitignore
-   meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup={{ suite }}
+
+{%- for suite in spec.python.ci.checkpoint.suites %}
+[testenv:{{ suite }}]
+commands_pre = meson setup {env_tmp_dir} -Dozi:{{ suite }}=enabled --reconfigure
+commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup={{ suite }}
 {%- endfor %}
 
 [testenv:fix]
@@ -41,8 +43,8 @@ deps =
      ruff
 skip_install = true
 commands =
-     black -v -S .
-     isort .
-     autoflake -i -vv -r .
-     ruff check {{ project.name|underscorify }} --fix
+     {env_python} -m black -S .
+     {env_python} -m isort .
+     {env_python} -m autoflake -i -r .
+     {env_python} -m ruff check {{ project.name|underscorify }} --fix
 """

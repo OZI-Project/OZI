@@ -22,16 +22,6 @@ fs = import('fs')
 pymod = import('python')
 pyproject_config = configuration_data()
 
-# emoji
-emoji_no_version = get_option('emoji-no-version')
-emoji_metadata_version = get_option('emoji-metadata-version')
-emoji_directory = get_option('emoji-directory')
-emoji_generic = get_option('emoji-generic')
-emoji_setup = get_option('emoji-setup')
-emoji_dist = get_option('emoji-dist')
-emoji_docs = get_option('emoji-docs')
-emoji_lint = get_option('emoji-lint')
-emoji_test = get_option('emoji-test')
 # prescript arrays
 no_version = get_option('no-version')
 unhashable = get_option('unhashable')
@@ -228,10 +218,9 @@ modules = []
 foreach name : namespace
     command_names = get_option(name + '-suite')
     summary(
-        {
-            get_variable('emoji_' + name) + ' @0@=auto'.format(name): '[auto|enabled|disabled]',
-        },
-        section: ' '.join(emoji_setup, 'meson setup --reconfigure -D[option]'),
+        name,
+        get_option(name),
+        section: ' '.join('$', 'meson setup --reconfigure -D[option]'),
     )
     suite = get_option(name)
     suite.enable_auto_if(dev.enabled())
@@ -243,17 +232,20 @@ foreach name : namespace
         if suite.enabled() and command in module_only
             modules += [command]
         endif
-        requirements = [
-            'install',
-            '-r',
-            meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
-        ]
         flag = disabler()
         if (
             (get_option('dev').enabled() or suite.enabled())
             and command not in plugin_only
         )
-            run_command(pip, requirements, check: true)
+            run_command(
+                pip,
+                [
+                    'install',
+                    '-r',
+                    meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
+                ],
+                check: true
+            )
             if not flag.found() and command not in module_only
                 flag = find_program(
                     command,
@@ -287,15 +279,14 @@ foreach name : namespace
             if app in done
                 continue
             endif
-            emoji = get_variable('emoji_' + suite)
-            header = [emoji, 'meson', 'test', '--suite=@0@'.format(suite)]
+            header = ['$', 'meson', 'test', '--suite=@0@'.format(suite)]
             feature = get_variable(suite)
             if feature.enabled()
                 if app not in plugin_only + module_only
                     if app not in no_version
                         summary(
                             {
-                                ' '.join(emoji_metadata_version, app): get_variable(
+                                app: get_variable(
                                     app.replace('-', '_'),
                                 ).version(),
                             },
@@ -315,14 +306,12 @@ foreach name : namespace
                     if fallback_version.length() > 2
                         fallback_version = fallback_version[1].split(':')[1].strip()
                     else
-                        fallback_version = 'unknown (see ' + emoji_generic + 'Python packages)' 
+                        fallback_version = 'unknown (see Python packages)' 
                     endif
                     if app in no_version
                         if packaged_version == ''
-                            app = ' '.join(emoji_no_version, app)
                             version = fallback_version
                         else
-                            app = ' '.join(emoji_metadata_version, app)
                             version = packaged_version
                         endif
                         if app not in done
@@ -358,19 +347,19 @@ foreach name : namespace
                     if fallback_version.length() > 2
                         fallback_version = fallback_version[1].split(':')[1].strip()
                     else
-                        fallback_version = 'unknown (see ' + emoji_generic + ' Python packages)'
+                        fallback_version = 'unknown (see Python packages)'
                     endif
                     if app in no_version
                         summary(
                             {
-                                ' '.join(emoji_metadata_version, app): fallback_version,
+                                app: fallback_version,
                             },
                             section: ' '.join(header),
                         )
                     else
                         summary(
                             {
-                                ' '.join(emoji_metadata_version, app): packaged_version,
+                                app: packaged_version,
                             },
                             section: ' '.join(header),
                         )
@@ -468,48 +457,24 @@ foreach name : namespace
 endforeach
 # END checkpoint-suite-invocation
 
-summary(
-    {
-        emoji_no_version: 'non-standard PyPA version metadata',
-        emoji_metadata_version: 'standard PyPA version metadata',
-        emoji_directory: 'filesystem directory',
-        emoji_setup: 'developer setup invocations (dev)',
-        emoji_dist: 'distribution               (dist)',
-        emoji_docs: 'documentation              (docs)',
-        emoji_lint: 'linting & typechecking     (lint)',
-        emoji_test: 'testing & checkpointing    (test)',
-    },
-    section: ' '.join(emoji_generic, 'Configuration Legend'),
-)
 display_dirs = [
-    'prefix',
     'bindir',
-    'libdir',
     'datadir',
+    'libdir',
     'localedir',
-    'python.install_env',
-    'python.platlibdir',
-    'python.purelibdir',
+    'prefix',
 ]
 foreach dir : display_dirs
     summary(
-        {'⟡ ' + dir: get_option(dir)},
-        section: emoji_generic + ' meson install -C @0@'.format(build_root),
+        {dir: get_option(dir)},
+        section: '$ meson install -C @0@'.format(build_root),
     )
 endforeach
-summary(
-    '⟡ python.install_dir',
-    python.get_install_dir(),
-    section: emoji_generic + ' meson install -C @0@'.format(build_root),
-)
-summary(emoji_dist + ' version', python.language_version(), section: emoji_generic + ' Python')
-summary(emoji_directory + ' path', python.full_path(), section: emoji_generic + ' Python')
-emoji_selected = ''
-foreach name: namespace
-    if get_variable(name).enabled()
-        emoji_selected += get_variable('emoji_' + name)
-    endif
-endforeach
+summary('install_dir', python.get_install_dir(), section: 'Python')
+summary('install_env', get_option('python.install_env'), section: 'Python')
+summary('path', python.full_path(), section: 'Python')
+summary('version', python.language_version(), section: 'Python')
+
 installed_packages = []
 foreach line : run_command('pip', 'freeze', check: true).stdout().split('\n')
     if line == ''
@@ -526,7 +491,7 @@ foreach line : run_command('pip', 'freeze', check: true).stdout().split('\n')
         and package[0] not in get_option('dist-suite')
     )
         installed_packages += package[0]
-        summary(' '.join(([emoji_selected, package[0]])).strip(), package[1].strip(), section: emoji_generic + ' Python packages')
+        summary(package[0], package[1].strip(), section: 'Python packages')
     endif
 endforeach
 
@@ -540,9 +505,9 @@ foreach legacy_package: ['wheel', 'setuptools', 'distribute']
             kwargs: no_check,
         ).stdout().strip()
         if legacy_package_version != ''
-            summary(legacy_package, legacy_package_version, section: emoji_generic + ' Python packages')
+            summary(legacy_package, legacy_package_version, section: 'Python packages')
         endif
     endif
 endforeach
 pip_version = run_command(pip, '-V', check: true).stdout().split()
-summary(pip_version[0], pip_version[1], section: emoji_generic + ' Python packages')
+summary(pip_version[0], pip_version[1], section: 'Python packages')
