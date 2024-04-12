@@ -372,7 +372,7 @@ commands =
      meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=dist
 
 [testenv:lint]
-description = OZI source formatting and linting checkpoint
+description = OZI format/lint checkpoint
 allowlist_externals = rm
 package = wheel
 deps =
@@ -406,7 +406,7 @@ commands =
      meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=test
 
 [testenv:fix]
-description = OZI project fix issues utility; runs black, isort, autoflake, and ruff
+description = OZI project fix issues utility (black, isort, autoflake, ruff)
 deps = 
      black>=24.3
      isort
@@ -419,11 +419,11 @@ commands =
      autoflake -i -vv -r .
      ruff check ozi --fix
 
-[testenv:ls]
-description = OZI list all SCM tracked files.
+[testenv:scm]
+description = OZI supply chain management (setuptools_scm)
 deps =
      setuptools_scm[toml]>=8
 commands =
-     {env_python} -m setuptools_scm ls
+     {env_python} -m setuptools_scm {posargs}
 
 """
