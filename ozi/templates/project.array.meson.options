@@ -52,11 +52,7 @@ option(
     type: 'array',
     value: [
 {%- for utility in spec.python.get(suite).utility.keys() %}
-{%- if utility in spec.python.get(suite).module %}
-        '{{ utility|to_distribution }}',
-{%- else %}
         '{{ utility }}',
-{%- endif %}
 {%- endfor %}
 {%- for plugin in spec.python.get(suite).plugin.keys() %}
         '{{ plugin }}',
