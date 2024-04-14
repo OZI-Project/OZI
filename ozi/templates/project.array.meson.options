@@ -36,11 +36,6 @@ option(
         'unhashable',
         'plugin-only',
         'no-version',
-        'emoji-dist',
-        'emoji-lint',
-        'emoji-test',
-        'emoji-no-version',
-        'emoji-metadata-version',
         'dist-exclude-suites',
         'lint-exclude-suites',
         'test-exclude-suites'
