@@ -1,4 +1,70 @@
 # CHANGELOG
+## 0.0.324 (2024-04-15)
+
+### :hammer:
+
+* :hammer::construction_worker: Run checkpoints in parallel by default.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7633795`](https://github.com/OZI-Project/OZI/commit/763379518b85d7ffb09b39a4ddc9a24ea620ae59))
+
+### :pencil2:
+
+* :pencil2: Fix hash reference to checkpoint workflow.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f1ff80f`](https://github.com/OZI-Project/OZI/commit/f1ff80fc7544d6b52a155b54f66a03ff17cb2a14))
+
+## 0.0.323 (2024-04-15)
+
+### :bug:
+
+* :bug: Fix missing help in ozi-fix.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f94b65e`](https://github.com/OZI-Project/OZI/commit/f94b65e639fb68e20c1d20585a08817147d556db))
+
+## 0.0.322 (2024-04-15)
+
+### :bug:
+
+* :bug: Delete emoji variables from option template.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`a3c4be1`](https://github.com/OZI-Project/OZI/commit/a3c4be18b5d60704e9286d8196449ca29cb49176))
+
+* :bug: Fix incorrectly rendering sanity-check modules.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`4d305a5`](https://github.com/OZI-Project/OZI/commit/4d305a52dd1cb168b2faf5a7815f90f8c433ab7d))
+
+## 0.0.321 (2024-04-12)
+
+### :children_crossing:
+
+* :hammer::children_crossing: Simplify OZI output, remove emoji.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`df8dc06`](https://github.com/OZI-Project/OZI/commit/df8dc06dff6d8101a4ee451484a6e09f3372bdfd))
+
+### :hammer:
+
+* :hammer::construction_worker: Simplify checkpoint runs.
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`097aeec`](https://github.com/OZI-Project/OZI/commit/097aeec20eb4ad4b2e2e29c866feec67faba1292))
+
+## 0.0.320 (2024-04-11)
+
+### :pencil2:
+
+* :pencil2: Fix workflow name
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`dc8c3bd`](https://github.com/OZI-Project/OZI/commit/dc8c3bdd23229bac2d32065888e5294b066e11d2))
+
+### :pushpin:
+
+* :pushpin: bump release to 0.1.14
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`8c684c3`](https://github.com/OZI-Project/OZI/commit/8c684c346a570ffa5bfe25b28dd02ab1a579f155))
+
+* :pushpin: Set workflow version pins
+
+Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`ed57c62`](https://github.com/OZI-Project/OZI/commit/ed57c62ba8efb9aee234a4e535e80e2ab655ff5f))
+
 ## 0.0.319 (2024-04-10)
 
 ### :wrench:
