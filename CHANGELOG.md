@@ -1,4 +1,16 @@
 # CHANGELOG
+## 0.0.322 (2024-04-15)
+
+### :bug:
+
+* :bug: Delete emoji variables from option template.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`a3c4be1`](https://github.com/OZI-Project/OZI/commit/a3c4be18b5d60704e9286d8196449ca29cb49176))
+
+* :bug: Fix incorrectly rendering sanity-check modules.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`4d305a5`](https://github.com/OZI-Project/OZI/commit/4d305a52dd1cb168b2faf5a7815f90f8c433ab7d))
+
 ## 0.0.321 (2024-04-12)
 
 ### :children_crossing:
