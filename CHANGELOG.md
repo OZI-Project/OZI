@@ -1,4 +1,18 @@
 # CHANGELOG
+## 0.0.324 (2024-04-15)
+
+### :hammer:
+
+* :hammer::construction_worker: Run checkpoints in parallel by default.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7633795`](https://github.com/OZI-Project/OZI/commit/763379518b85d7ffb09b39a4ddc9a24ea620ae59))
+
+### :pencil2:
+
+* :pencil2: Fix hash reference to checkpoint workflow.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f1ff80f`](https://github.com/OZI-Project/OZI/commit/f1ff80fc7544d6b52a155b54f66a03ff17cb2a14))
+
 ## 0.0.323 (2024-04-15)
 
 ### :bug:
