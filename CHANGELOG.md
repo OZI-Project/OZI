@@ -1,4 +1,12 @@
 # CHANGELOG
+## 0.0.323 (2024-04-15)
+
+### :bug:
+
+* :bug: Fix missing help in ozi-fix.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f94b65e`](https://github.com/OZI-Project/OZI/commit/f94b65e639fb68e20c1d20585a08817147d556db))
+
 ## 0.0.322 (2024-04-15)
 
 ### :bug:
