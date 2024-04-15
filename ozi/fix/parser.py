@@ -12,15 +12,52 @@ from argparse import BooleanOptionalAction
 parser = ArgumentParser(description=sys.modules[__name__].__doc__, add_help=False)
 subparser = parser.add_subparsers(help='source & test fix', dest='fix')
 parser.add_argument('target', type=str, help='target OZI project directory')
+
+helpers = parser.add_mutually_exclusive_group()
+helpers.add_argument('-h', '--help', action='help', help='show this help message and exit')
+missing_parser = subparser.add_parser(
+    'missing',
+    aliases=['m'],
+    allow_abbrev=True,
+    help='Check for missing files in an OZI project.',
+)
+missing_parser.add_argument(
+    '--add',
+    nargs='?',
+    action='append',
+    default=['ozi.phony'],
+    help=SUPPRESS,
+)
+missing_parser.add_argument(
+    '--remove',
+    nargs='?',
+    action='append',
+    default=['ozi.phony'],
+    help=SUPPRESS,
+)
+missing_parser.add_argument(
+    '--strict',
+    default=False,
+    action=BooleanOptionalAction,
+    help='strict mode raises warnings to errors default: --no-strict',
+)
+missing_parser.add_argument(
+    '--pretty',
+    default=False,
+    action=BooleanOptionalAction,
+    help='pretty mode outputs indented json, default: --no-pretty',
+)
 source_parser = subparser.add_parser(
     'source',
     aliases=['s'],
-    description='Create a new Python source in an OZI project.',
+    allow_abbrev=True,
+    help='Create a new Python source in an OZI project.',
 )
 test_parser = subparser.add_parser(
     'test',
     aliases=['t'],
-    description='Create a new Python test in an OZI project.',
+    allow_abbrev=True,
+    help='Create a new Python test in an OZI project.',
 )
 source_parser.add_argument(
     '-a',
@@ -93,41 +130,6 @@ test_output.add_argument(
     '--pretty',
     action='store_true',
     help='pretty print JSON output',
-)
-
-helpers = parser.add_mutually_exclusive_group()
-helpers.add_argument('-h', '--help', action='help', help='show this help message and exit')
-missing_parser = subparser.add_parser(
-    'missing',
-    aliases=['m'],
-    allow_abbrev=True,
-    description='Check for missing files and run utilities (optional) in an OZI project.',
-)
-missing_parser.add_argument(
-    '--add',
-    nargs='?',
-    action='append',
-    default=['ozi.phony'],
-    help=SUPPRESS,
-)
-missing_parser.add_argument(
-    '--remove',
-    nargs='?',
-    action='append',
-    default=['ozi.phony'],
-    help=SUPPRESS,
-)
-missing_parser.add_argument(
-    '--strict',
-    default=False,
-    action=BooleanOptionalAction,
-    help='strict mode raises warnings to errors default: --no-strict',
-)
-missing_parser.add_argument(
-    '--pretty',
-    default=False,
-    action=BooleanOptionalAction,
-    help='pretty mode outputs indented json, default: --no-pretty',
 )
 tools = parser.add_mutually_exclusive_group()  # pragma: no cover
 tools.add_argument(  # pragma: no cover
