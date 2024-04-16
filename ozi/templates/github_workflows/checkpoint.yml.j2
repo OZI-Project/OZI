@@ -32,7 +32,7 @@
       - uses: OZI-Project/checkpoint@{{ spec.python.ci.checkpoint.version }}
         with:
           python-version: "{{ python_version }}"
-{% endfor -%}
+{% endfor %}
 
   checkpoint:
     runs-on: ubuntu-latest
