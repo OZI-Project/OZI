@@ -281,6 +281,11 @@ match = "0.0"
 prerelease_token = "alpha"
 prerelease = false
 
+[tool.semantic_release.branches."release/0.1"]
+match = "0.1"
+prerelease_token = "alpha"
+prerelease = false
+
 [tool.semantic_release.commit_parser_options]
 major_tags = [":boom:"]
 minor_tags = [
