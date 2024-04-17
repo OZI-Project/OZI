@@ -23,7 +23,7 @@ class Publish(Default):
 class Release(Default):
     """Release patterns for packaged project."""
 
-    version: str = '0.1.14'
+    version: str = '0.1.15'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
