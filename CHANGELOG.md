@@ -1,4 +1,63 @@
 # CHANGELOG
+## 0.1.0 (2024-04-17)
+
+### :arrow_up:
+
+* :pushpin::arrow_up: bump OZI-Project/release to 0.1.15
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1388162`](https://github.com/OZI-Project/OZI/commit/138816200ea49d6dcd69734be97fa91cab2418d7))
+
+* :arrow_up: Bump github/codeql-action from 3.24.10 to 3.25.0
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.10 to 3.25.0.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/4355270be187e1b672a7a1c7c7bae5afdc1ab94a...df5a14dc28094dc936e103b37d749c6628682b60)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`bee54e1`](https://github.com/OZI-Project/OZI/commit/bee54e1af6ee0e4afb536cbbe46643acbb21c38c))
+
+* :arrow_up: Bump OZI-Project/release from 0.1.14 to 0.1.15
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.1.14 to 0.1.15.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/945b312031019d0d85c5674721327f894131d898...f0e0a8b837c2d247b920fbc1997a8d3247b14455)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f0505f3`](https://github.com/OZI-Project/OZI/commit/f0505f3988eab6f28878503d966d6695af1cc270))
+
+### :bug:
+
+* :bug: Fix indent level in workflow template rendering.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f59ece7`](https://github.com/OZI-Project/OZI/commit/f59ece7f5bb8b10e6694a0cf3efb8b14556157d0))
+
+### :sparkles:
+
+* :sparkles: Bump release status to Alpha.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`c1adec3`](https://github.com/OZI-Project/OZI/commit/c1adec3056ba53147aa60a27ed5d489ef5f38dba))
+
+### Other
+
+* add branch pattern ([`5e09ca7`](https://github.com/OZI-Project/OZI/commit/5e09ca78306187675b278109e5de45f7afd5cd24))
+
+* Add release branch group.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`2c18522`](https://github.com/OZI-Project/OZI/commit/2c185225a5f6c0a1f4f1cefc6abdfe7826e46a6e))
+
 ## 0.0.324 (2024-04-15)
 
 ### :hammer:
