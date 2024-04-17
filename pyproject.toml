@@ -282,7 +282,7 @@ prerelease_token = "alpha"
 prerelease = false
 
 [tool.semantic_release.branches."release/0.1"]
-match = "0.1"
+match = "release/0.1"
 prerelease_token = "alpha"
 prerelease = false
 
