@@ -64,7 +64,7 @@ class CloseMatch(Action):
     exact_match = ExactMatch()
 
     def __init__(
-        self: Self,
+        self: Self,  # pyright: ignore
         option_strings: list[str],
         dest: str,
         nargs: int | str | None = None,
