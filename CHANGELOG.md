@@ -1,4 +1,102 @@
 # CHANGELOG
+## 1.0.0 (2024-04-22)
+
+### :arrow_up:
+
+* :arrow_up: Merge pull request #388 from OZI-Project/main ([`4b7d4c4`](https://github.com/OZI-Project/OZI/commit/4b7d4c427fec29794a71229872ff84359f2ce4fa))
+
+* :arrow_up: Bump checkpoint and publish workflows.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`cfd93d5`](https://github.com/OZI-Project/OZI/commit/cfd93d5dd1ad928bea93fa4f0b73031224a34dba))
+
+* :arrow_up: Bump OZI-Project/release from 0.1.15 to 0.1.16
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.1.15 to 0.1.16.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/f0e0a8b837c2d247b920fbc1997a8d3247b14455...cde80205350cc9bd7c00c042b788136b36bd1828)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`37245e5`](https://github.com/OZI-Project/OZI/commit/37245e5dd7cc4e7d9d97236cca37796bc9a78d41))
+
+* :arrow_up: Bump actions/checkout from 4.1.2 to 4.1.3
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.2 to 4.1.3.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/9bb56186c3b09b4f86b1c65136769dd318469633...1d96c772d19495a3b5c517cd2bc0cb401ea0529f)
+
+---
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`582ddba`](https://github.com/OZI-Project/OZI/commit/582ddba31ca6c76838d82f2a18d30285de10be5d))
+
+* :arrow_up: Bump actions/upload-artifact from 4.3.1 to 4.3.2
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.3.1 to 4.3.2.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/5d5d22a31266ced268874388b861e4b58bb5c2f3...1746f4ab65b179e0ea60a494b83293b640dd5bba)
+
+---
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`9f18589`](https://github.com/OZI-Project/OZI/commit/9f185893519834f9575a941b9b5335e8d6fe1c38))
+
+* :arrow_up: Bump github/codeql-action from 3.25.0 to 3.25.1
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.0 to 3.25.1.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/df5a14dc28094dc936e103b37d749c6628682b60...c7f9125735019aa87cfc361530512d50ea439c71)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`e8565e1`](https://github.com/OZI-Project/OZI/commit/e8565e1823c056d441c8afe89f6c40067d128282))
+
+### :boom:
+
+* :boom: Add 1.0 semantic-release branch.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f1159cc`](https://github.com/OZI-Project/OZI/commit/f1159cc2af50ac766b0ba6718266b7bb520fc38d))
+
+### :bug:
+
+* :bug: fix version bump.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`e518299`](https://github.com/OZI-Project/OZI/commit/e518299b62831f3674aecb5eda9e671f3de87aee))
+
+* :bug: Fix escaped characters in requirements rendering.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`0cea39f`](https://github.com/OZI-Project/OZI/commit/0cea39f1724bda25b63abfe482aa6302f968277d))
+
+* :bug: move rendered ``requirements.in`` to the end of PKG-INFO header in template.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d60f5d5`](https://github.com/OZI-Project/OZI/commit/d60f5d5dda02ebde070e5fc9b47efd6737241073))
+
+### Other
+
+* :rotating_light: ignore pyright misfire
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`612adc5`](https://github.com/OZI-Project/OZI/commit/612adc51f0d33291d91b42c92c98f241c3dfb0c6))
+
 ## 0.1.0 (2024-04-17)
 
 ### :arrow_up:
@@ -38,7 +136,22 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f0505f3`](https://github.com/OZI-Project/OZI/commit/f0505f3988eab6f28878503d966d6695af1cc270))
 
+### :sparkles:
+
+* :sparkles: Bump release status to Alpha.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`c1adec3`](https://github.com/OZI-Project/OZI/commit/c1adec3056ba53147aa60a27ed5d489ef5f38dba))
+
+### Other
+
+* add branch pattern ([`5e09ca7`](https://github.com/OZI-Project/OZI/commit/5e09ca78306187675b278109e5de45f7afd5cd24))
+
+* Add release branch group.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`2c18522`](https://github.com/OZI-Project/OZI/commit/2c185225a5f6c0a1f4f1cefc6abdfe7826e46a6e))
+
 ## 0.0.325 (2024-04-16)
+
 ### :bug:
 
 * :bug: Fix indent level in workflow template rendering.
