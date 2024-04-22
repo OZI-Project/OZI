@@ -23,7 +23,7 @@ class Publish(Default):
 class Release(Default):
     """Release patterns for packaged project."""
 
-    version: str = '0.1.15'
+    version: str = '0.1.16'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -31,7 +31,7 @@ class Checkpoint(Default):
     """Checkpoint suites to run."""
 
     suites: tuple[str, ...] = ('dist', 'lint', 'test')
-    version: str = '0.1.4'
+    version: str = '0.1.5'
 
 
 @dataclass(kw_only=True, frozen=True, eq=True)

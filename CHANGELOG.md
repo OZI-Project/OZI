@@ -38,25 +38,12 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f0505f3`](https://github.com/OZI-Project/OZI/commit/f0505f3988eab6f28878503d966d6695af1cc270))
 
+## 0.0.325 (2024-04-16)
 ### :bug:
 
 * :bug: Fix indent level in workflow template rendering.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f59ece7`](https://github.com/OZI-Project/OZI/commit/f59ece7f5bb8b10e6694a0cf3efb8b14556157d0))
-
-### :sparkles:
-
-* :sparkles: Bump release status to Alpha.
-
-Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`c1adec3`](https://github.com/OZI-Project/OZI/commit/c1adec3056ba53147aa60a27ed5d489ef5f38dba))
-
-### Other
-
-* add branch pattern ([`5e09ca7`](https://github.com/OZI-Project/OZI/commit/5e09ca78306187675b278109e5de45f7afd5cd24))
-
-* Add release branch group.
-
-Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`2c18522`](https://github.com/OZI-Project/OZI/commit/2c185225a5f6c0a1f4f1cefc6abdfe7826e46a6e))
 
 ## 0.0.324 (2024-04-15)
 
