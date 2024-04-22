@@ -57,7 +57,6 @@ Classifier: Framework :: {{ framework }}
 {%- for environment in project.environment %}
 Classifier: Environment :: {{ environment }}
 {%- endfor %}
-@REQUIREMENTS_IN@
 {%- if project.requires_external|length %}
 Requires-External: {{ project.requires_external|join(',') }}
 {%- endif %}
@@ -65,5 +64,6 @@ Requires-External: {{ project.requires_external|join(',') }}
 Project-URL: {{ project_url }}
 {%- endfor %}
 Description-Content-Type: text/x-rst
+@REQUIREMENTS_IN@
 
 @README_TEXT@
