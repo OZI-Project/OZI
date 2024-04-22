@@ -268,7 +268,7 @@ log_cli_level = "INFO"
 
 [tool.semantic_release]
 commit_parser = "emoji"
-major_on_zero = false
+major_on_zero = true
 tag_format = "{version}"
 
 [tool.semantic_release.branches.main]
