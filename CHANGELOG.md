@@ -1,4 +1,12 @@
 # CHANGELOG
+## 0.0.325 (2024-04-16)
+
+### :bug:
+
+* :bug: Fix indent level in workflow template rendering.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f59ece7`](https://github.com/OZI-Project/OZI/commit/f59ece7f5bb8b10e6694a0cf3efb8b14556157d0))
+
 ## 0.0.324 (2024-04-15)
 
 ### :hammer:
