@@ -1,4 +1,100 @@
 # CHANGELOG
+## 1.1.0 (2024-04-23)
+
+### :arrow_up:
+
+* :arrow_up: Bump slsa-framework/slsa-github-generator
+
+Bumps [slsa-framework/slsa-github-generator](https://github.com/slsa-framework/slsa-github-generator) from 1.10.0 to 2.0.0.
+- [Release notes](https://github.com/slsa-framework/slsa-github-generator/releases)
+- [Changelog](https://github.com/slsa-framework/slsa-github-generator/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/slsa-framework/slsa-github-generator/compare/v1.10.0...v2.0.0)
+
+---
+updated-dependencies:
+- dependency-name: slsa-framework/slsa-github-generator
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`613e61e`](https://github.com/OZI-Project/OZI/commit/613e61ece9249db1d341d2ca3bd5ee9af4aa9032))
+
+* :arrow_up: Bump OZI-Project/checkpoint from 0.1.4 to 0.1.5
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0.1.4 to 0.1.5.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/8b7d897024b918d4bb4d44bbaec23a22f357182e...a6290f1edcd89a03dca8d123327e25f0c3bfc91c)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`d8b8bf4`](https://github.com/OZI-Project/OZI/commit/d8b8bf4d88e7727bc54ab5b07851233425d8bdf9))
+
+* :arrow_up: Bump slsa-framework/slsa-github-generator
+
+Bumps [slsa-framework/slsa-github-generator](https://github.com/slsa-framework/slsa-github-generator) from 1.10.0 to 2.0.0.
+- [Release notes](https://github.com/slsa-framework/slsa-github-generator/releases)
+- [Changelog](https://github.com/slsa-framework/slsa-github-generator/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/slsa-framework/slsa-github-generator/compare/v1.10.0...v2.0.0)
+
+---
+updated-dependencies:
+- dependency-name: slsa-framework/slsa-github-generator
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`4c36d99`](https://github.com/OZI-Project/OZI/commit/4c36d99b912e91369441143dee2ce4031e9df5ca))
+
+* :arrow_up: Bump github/codeql-action from 3.25.1 to 3.25.2
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.1 to 3.25.2.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/c7f9125735019aa87cfc361530512d50ea439c71...8f596b4ae3cb3c588a5c46780b86dd53fef16c52)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`e5c1cbe`](https://github.com/OZI-Project/OZI/commit/e5c1cbe8c62c08a43c224c0a8a5ccc444fd0d382))
+
+* :arrow_up: Bump actions/upload-artifact from 4.3.2 to 4.3.3
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.3.2 to 4.3.3.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/1746f4ab65b179e0ea60a494b83293b640dd5bba...65462800fd760344b1a7b4382951275a0abb4808)
+
+---
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`7ac5bb8`](https://github.com/OZI-Project/OZI/commit/7ac5bb8ab6e962f843538809d11bda1835a635f0))
+
+### :sparkles:
+
+* :sparkles: Add 1.1 release branch group. ([`02ee683`](https://github.com/OZI-Project/OZI/commit/02ee683996ad5bbdf5b8289f490f9ce7bef34f13))
+
+* :sparkles: Alpha release/1.1
+
+Release/1.0 ([`2caf7b7`](https://github.com/OZI-Project/OZI/commit/2caf7b7650a911ab299f3e5997f5034362ad11fd))
+
+* :sparkles: SLSA provenance builder updated in template.
+
+2.0.0&gt;1.10.0
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`8235263`](https://github.com/OZI-Project/OZI/commit/8235263028a1b0ff389cbedaf316597ff609c83b))
+
 ## 1.0.0 (2024-04-22)
 
 ### :arrow_up:
