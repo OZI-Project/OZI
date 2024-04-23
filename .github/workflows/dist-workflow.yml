@@ -38,7 +38,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@8b7d897024b918d4bb4d44bbaec23a22f357182e
+      - uses: OZI-Project/checkpoint@a6290f1edcd89a03dca8d123327e25f0c3bfc91c
         with:
           python-version: "3.10"
 
@@ -66,7 +66,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@8b7d897024b918d4bb4d44bbaec23a22f357182e
+      - uses: OZI-Project/checkpoint@a6290f1edcd89a03dca8d123327e25f0c3bfc91c
         with:
           python-version: "3.11"
 
@@ -94,7 +94,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@8b7d897024b918d4bb4d44bbaec23a22f357182e
+      - uses: OZI-Project/checkpoint@a6290f1edcd89a03dca8d123327e25f0c3bfc91c
         with:
           python-version: "3.12"
 
@@ -157,7 +157,7 @@ jobs:
       contents: write # To add assets to a release.
     # Currently this action needs to be referred by tag. More details at:
     # https://github.com/slsa-framework/slsa-github-generator#verification-of-provenance
-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.10.0
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v2.0.0
     with:
       provenance-name: provenance-${{ github.event.repository.name }}-${{ needs.release.outputs.tag }}.intoto.jsonl
       base64-subjects: "${{ needs.release.outputs.hashes }}"
