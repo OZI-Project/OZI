@@ -5,7 +5,8 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -#}
 """{{ project.name }} module"""
-{%- for line in project.copyright_head.split('\n') %}
+
+{% for line in project.copyright_head.split('\n') %}
 {{ '# ' ~ line }}
 {%- endfor %}
 {%- if user_template %}

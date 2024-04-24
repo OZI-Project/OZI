@@ -18,8 +18,8 @@ option(
     'python-dependencies', 
     type: 'array',
     value: [
-{%- for requires in spec.python.build.requires %}
-    '{{ requires|to_distribution }}',
+{%- for requires in spec.python.build.requires.keys() %}
+    '{{ requires }}',
 {%- endfor %}
     ]
 )
