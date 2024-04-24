@@ -1,4 +1,35 @@
 # CHANGELOG
+## 1.1.5 (2024-04-24)
+
+### :arrow_up:
+
+* :arrow_up: Bump release to 0.1.17
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`eca9b71`](https://github.com/OZI-Project/OZI/commit/eca9b713ea773157c3912eca2fb4d87ff38d0ef5))
+
+* :arrow_up: Bump OZI-Project/release from 0.1.16 to 0.1.17
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.1.16 to 0.1.17.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/cde80205350cc9bd7c00c042b788136b36bd1828...ceffb3c8beef212a5abaffeac486d67fb247381b)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5bd1337`](https://github.com/OZI-Project/OZI/commit/5bd1337de8893888ea714f9d361a9d287d2caabc))
+
+### :hammer:
+
+* :hammer: Correct pytest ``--cov=`` argument.
+
+Use the normalized module name in the template.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`aaaa7c3`](https://github.com/OZI-Project/OZI/commit/aaaa7c30ecd16040224e0933bbef26d0ab45347e))
+
 ## 1.1.4 (2024-04-24)
 
 ### :bug:
