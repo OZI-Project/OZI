@@ -1,4 +1,18 @@
 # CHANGELOG
+## 1.1.3 (2024-04-24)
+
+### :hammer:
+
+* :hammer: retry release
+
+Merge pull request #411 from OZI-Project/release/1.1 ([`5eef90b`](https://github.com/OZI-Project/OZI/commit/5eef90b471611999873de5fca990e687823c1246))
+
+### Other
+
+* :rotating_light: Fix project template lint.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`e946042`](https://github.com/OZI-Project/OZI/commit/e9460422674d666cb62f314a6d5dced9004fdd93))
+
 ## 1.1.2 (2024-04-24)
 
 ### :bug:
