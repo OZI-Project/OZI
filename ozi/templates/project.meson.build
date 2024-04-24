@@ -52,6 +52,7 @@ custom_target(
 )
 
 {#- BEGIN config MESON_BUILD_ROOT/pyproject.toml #}
+pyproject_config = configuration_data()
 pyproject_config.set(
     'PYTHON_VERSION_DIST',
     'py'+''.join(python.language_version().split('.'))
