@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.1.4 (2024-04-24)
+
+### :bug:
+
+* :bug::hammer: Fix pytest-args for coverage.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1193781`](https://github.com/OZI-Project/OZI/commit/119378168e8e56096e05751b170fcd29a23e676b))
+
 ## 1.1.3 (2024-04-24)
 
 ### :hammer:
