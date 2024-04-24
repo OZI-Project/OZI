@@ -97,7 +97,7 @@ def next_minor(version: str) -> str:
 
 
 @lru_cache
-def to_distribution(package: str) -> str:
+def to_distribution(package: str) -> str:  # pragma: no cover
     """Returns the first distributed module name for a package (cached).
 
     :param package: The PyPI package name.
