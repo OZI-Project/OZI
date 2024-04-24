@@ -21,6 +21,13 @@ project(
 )
 fs = import('fs')
 pymod = import('python')
+python_dependencies = get_option('python-dependencies')
+python = pymod.find_installation(
+    'python3',
+    modules: python_dependencies,
+    required: false,
+    disabler: true,
+)
 project_name = meson.project_name()
 pip_compile = find_program('pip-compile', required: true)
 root_files = [
@@ -93,7 +100,6 @@ foreach source : root_files
         fs.copyfile(source)
     endif
 endforeach
-run_command(python, ['-c', sync_pkg_readme], check: true)
 root_children = ['{{ project.name|underscorify }}', 'tests']
 foreach child: root_children
     subdir(child)
