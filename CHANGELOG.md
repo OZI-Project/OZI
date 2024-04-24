@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.1.1 (2024-04-24)
+
+### :bug:
+
+* :bug: Fix pyproject_config missing in root ``meson.build`` template.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`99b6528`](https://github.com/OZI-Project/OZI/commit/99b652818efae3f303897f27dcebb27d817574ec))
+
 ## 1.1.0 (2024-04-23)
 
 ### :arrow_up:
