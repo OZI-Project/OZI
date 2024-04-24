@@ -1,4 +1,22 @@
 # CHANGELOG
+## 1.1.2 (2024-04-24)
+
+### :bug:
+
+* :bug: Fix failing project build.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`c87cbfd`](https://github.com/OZI-Project/OZI/commit/c87cbfd2219b46704324e22f16ca7bf8ddc93c2f))
+
+### Other
+
+* :rotating_light: no cover to_distribution.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`cb4faba`](https://github.com/OZI-Project/OZI/commit/cb4faba04318b956c75a656a882d48a8ddecf4c1))
+
+* Only run checkpoints on PR
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1c28263`](https://github.com/OZI-Project/OZI/commit/1c2826321397784873ac366777ff2df1dd039038))
+
 ## 1.1.1 (2024-04-24)
 
 ### :bug:
