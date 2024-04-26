@@ -4,9 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Rendering utilities for the OZI project templates."""
 from functools import _lru_cache_wrapper
-from functools import lru_cache
 from pathlib import Path
 from types import FunctionType
+from typing import Any
 from warnings import warn
 
 from git import InvalidGitRepositoryError
@@ -36,8 +36,7 @@ FILTERS = (
 )
 
 
-@lru_cache
-def _init_environment() -> Environment:
+def _init_environment(_globals: dict[str, Any]) -> Environment:
     """Initialize the rendering environment, set filters, and set global metadata."""
     env = Environment(
         loader=PackageLoader('ozi'),
@@ -53,17 +52,17 @@ def _init_environment() -> Environment:
                 env.filters.setdefault(f.__name__, f)
             case _lru_cache_wrapper():  # pragma: defer to pyright,mypy
                 env.filters.setdefault(f.__wrapped__.__name__, f)
-    env.globals = env.globals | METADATA.asdict()
+    env.globals = env.globals | _globals
     return env
 
 
-def load_environment(project: dict[str, str]) -> Environment:
+def load_environment(project: dict[str, str], _globals: dict[str, Any]) -> Environment:
     """Load the rendering environment for templates.
 
     :return: jinja2 rendering environment for OZI
     :rtype: Environment
     """
-    env = _init_environment()
+    env = _init_environment(_globals)
     env.globals = env.globals | {'project': project}
     return env
 
