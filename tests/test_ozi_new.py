@@ -41,7 +41,7 @@ from ozi.tap import TAP  # pyright: ignore
             ),
             'author': st.lists(
                 st.text(
-                    st.characters(exclude_categories=['C'], exclude_characters=['\\']),
+                    st.characters(exclude_categories=['C'], exclude_characters='\\"'),
                     min_size=1,
                     max_size=16,
                 ),
@@ -56,7 +56,7 @@ from ozi.tap import TAP  # pyright: ignore
             ),
             'maintainer': st.lists(
                 st.text(
-                    st.characters(exclude_categories=['C'], exclude_characters=['\\']),
+                    st.characters(exclude_categories=['C'], exclude_characters='\\"'),
                     min_size=1,
                     max_size=16,
                 ),
@@ -74,11 +74,11 @@ from ozi.tap import TAP  # pyright: ignore
                 max_size=1,
             ),
             'summary': st.text(
-                st.characters(exclude_categories=['C'], exclude_characters=['\\']),
+                st.characters(exclude_categories=['C'], exclude_characters='\\"'),
                 max_size=255,
             ),
             'copyright_head': st.text(
-                st.characters(exclude_categories=['C'], exclude_characters=['\\']),
+                st.characters(exclude_categories=['C'], exclude_characters='\\"'),
                 max_size=255,
             ),
             'license_file': st.just('LICENSE.txt'),
