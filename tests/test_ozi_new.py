@@ -40,7 +40,11 @@ from ozi.tap import TAP  # pyright: ignore
                 fullmatch=True,
             ),
             'author': st.lists(
-                st.text(st.characters(exclude_categories=['C'], exclude_characters=['\\']), min_size=1, max_size=16),
+                st.text(
+                    st.characters(exclude_categories=['C'], exclude_characters=['\\']),
+                    min_size=1,
+                    max_size=16,
+                ),
                 min_size=1,
                 max_size=8,
                 unique=True,
@@ -51,7 +55,11 @@ from ozi.tap import TAP  # pyright: ignore
                 max_size=8,
             ),
             'maintainer': st.lists(
-                st.text(st.characters(exclude_categories=['C'], exclude_characters=['\\']), min_size=1, max_size=16),
+                st.text(
+                    st.characters(exclude_categories=['C'], exclude_characters=['\\']),
+                    min_size=1,
+                    max_size=16,
+                ),
                 min_size=1,
                 max_size=8,
                 unique=True,
@@ -65,7 +73,10 @@ from ozi.tap import TAP  # pyright: ignore
                 st.just('A, https://oziproject.dev'),
                 max_size=1,
             ),
-            'summary': st.text(st.characters(exclude_categories=['C'], exclude_characters=['\\']), max_size=255),
+            'summary': st.text(
+                st.characters(exclude_categories=['C'], exclude_characters=['\\']),
+                max_size=255,
+            ),
             'copyright_head': st.text(
                 st.characters(exclude_categories=['C'], exclude_characters=['\\']),
                 max_size=255,
