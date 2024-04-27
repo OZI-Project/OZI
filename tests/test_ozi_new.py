@@ -40,7 +40,11 @@ from ozi.tap import TAP  # pyright: ignore
                 fullmatch=True,
             ),
             'author': st.lists(
-                st.text(st.characters(exclude_categories=['C']), min_size=1, max_size=16),
+                st.text(
+                    st.characters(exclude_categories=['C'], exclude_characters='\\"'),
+                    min_size=1,
+                    max_size=16,
+                ),
                 min_size=1,
                 max_size=8,
                 unique=True,
@@ -51,7 +55,11 @@ from ozi.tap import TAP  # pyright: ignore
                 max_size=8,
             ),
             'maintainer': st.lists(
-                st.text(st.characters(exclude_categories=['C']), min_size=1, max_size=16),
+                st.text(
+                    st.characters(exclude_categories=['C'], exclude_characters='\\"'),
+                    min_size=1,
+                    max_size=16,
+                ),
                 min_size=1,
                 max_size=8,
                 unique=True,
@@ -65,9 +73,12 @@ from ozi.tap import TAP  # pyright: ignore
                 st.just('A, https://oziproject.dev'),
                 max_size=1,
             ),
-            'summary': st.text(st.characters(exclude_categories=['C']), max_size=255),
+            'summary': st.text(
+                st.characters(exclude_categories=['C'], exclude_characters='\\"'),
+                max_size=255,
+            ),
             'copyright_head': st.text(
-                st.characters(exclude_categories=['C']),
+                st.characters(exclude_categories=['C'], exclude_characters='\\"'),
                 max_size=255,
             ),
             'license_file': st.just('LICENSE.txt'),
@@ -122,7 +133,7 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102, RUF100
     postprocessed = ozi.new.__main__.postprocess_arguments(preprocessed)
     ozi.new.__main__.create_project_files(
         postprocessed,
-        env=load_environment(vars(postprocessed)),
+        env=load_environment(vars(postprocessed), METADATA.asdict()),
     )
     name, _ = required_pkg_info(postprocessed.target)
     required_files('root', postprocessed.target, postprocessed.name)

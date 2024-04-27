@@ -70,7 +70,7 @@ bad_namespace = argparse.Namespace(
     missing=True,
 )
 
-env = load_environment(vars(bad_namespace))
+env = load_environment(vars(bad_namespace), METADATA.asdict())
 
 
 @pytest.fixture

@@ -15,6 +15,7 @@ from ozi.fix.missing import report
 from ozi.fix.parser import parser
 from ozi.fix.rewrite_command import Rewriter
 from ozi.render import load_environment
+from ozi.spec import METADATA
 from ozi.tap import TAP
 
 
@@ -31,7 +32,7 @@ def main() -> NoReturn:  # pragma: no cover
     project.add = list(set(project.add))
     project.remove.remove('ozi.phony')
     project.remove = list(set(project.remove))
-    env = load_environment(vars(project))
+    env = load_environment(vars(project), METADATA.asdict())
 
     match [project.missing, project.strict]:
         case [True, False]:

@@ -11,6 +11,8 @@ import sys
 from pathlib import Path
 from typing import TYPE_CHECKING
 
+from ozi.spec import METADATA
+
 if TYPE_CHECKING:
     from argparse import Namespace
     from typing import Callable
@@ -111,13 +113,13 @@ def project(project: Namespace) -> None:
     project = postprocess_arguments(preprocess_arguments(project))
     create_project_files(
         project=project,
-        env=load_environment(vars(project)),
+        env=load_environment(vars(project), METADATA.asdict()),
     )
 
 
 def wrap(project: Namespace) -> None:  # pragma: no cover
     """Create a new wrap file for publishing. Not a public function."""
-    env = load_environment(vars(project))
+    env = load_environment(vars(project), METADATA.asdict())
     template = env.get_template('ozi.wrap.j2')
     with open('ozi.wrap', 'w') as f:
         f.write(template.render())
