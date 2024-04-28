@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import NoReturn
 
 from blastpipe.ozi_templates import load_environment
-from blastpipe.ozi_templates.filter import underscorify
+from blastpipe.ozi_templates.filter import underscorify  # pyright: ignore
 
 from ozi.fix.missing import report
 from ozi.fix.parser import parser

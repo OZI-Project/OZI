@@ -6,7 +6,7 @@
 from pathlib import Path
 from warnings import warn
 
-from blastpipe.ozi_templates.filter import underscorify
+from blastpipe.ozi_templates.filter import underscorify  # pyright: ignore
 from git import InvalidGitRepositoryError
 from git import Repo
 from jinja2 import Environment
