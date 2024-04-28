@@ -10,11 +10,12 @@ import os
 from pathlib import Path
 from typing import NoReturn
 
-from ozi.filter import underscorify
+from blastpipe.ozi_templates import load_environment
+from blastpipe.ozi_templates.filter import underscorify  # pyright: ignore
+
 from ozi.fix.missing import report
 from ozi.fix.parser import parser
 from ozi.fix.rewrite_command import Rewriter
-from ozi.render import load_environment
 from ozi.spec import METADATA
 from ozi.tap import TAP
 

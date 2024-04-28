@@ -1,1 +1,0 @@
-{% include 'license/gpl-3.0.txt' %}

@@ -1,1 +1,0 @@
-{% include 'license/cc0-1.0.txt' %}

@@ -1,1 +1,0 @@
-{% include 'license/bsd-3-clause.txt' %}
