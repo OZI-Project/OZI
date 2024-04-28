@@ -7,7 +7,6 @@ source_files = [
     '__main__.py',
     'actions.py',
     'comment.py',
-    'filter.py',
     'meson.py',
     'pkg_extra.py',
     'py.typed',
@@ -29,7 +28,6 @@ source_children = [
     'new',
     'scripts',
     'spec',
-    'templates',
     'test',
     'vendor',
 ]

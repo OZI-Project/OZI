@@ -1,3 +1,4 @@
+blastpipe>=2024.2.5
 GitPython>=3
 dnspython
 idna>=2

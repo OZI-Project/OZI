@@ -9,6 +9,7 @@ import typing
 from datetime import timedelta
 
 import pytest
+from blastpipe.ozi_templates import load_environment  # pyright: ignore
 from hypothesis import HealthCheck
 from hypothesis import given
 from hypothesis import settings
@@ -18,7 +19,6 @@ import ozi.actions  # pyright: ignore
 import ozi.new.__main__  # pyright: ignore
 from ozi.fix.missing import required_files  # pyright: ignore
 from ozi.fix.missing import required_pkg_info  # pyright: ignore
-from ozi.render import load_environment  # pyright: ignore
 from ozi.spec import METADATA  # pyright: ignore
 from ozi.tap import TAP  # pyright: ignore
 

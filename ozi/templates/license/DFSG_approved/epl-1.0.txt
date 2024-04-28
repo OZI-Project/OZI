@@ -1,1 +1,0 @@
-{% include 'license/epl-1.0.txt' %}

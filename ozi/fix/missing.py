@@ -14,7 +14,8 @@ if sys.version_info >= (3, 11):  # pragma: no cover
 elif sys.version_info < (3, 11):  # pragma: no cover
     import tomli as toml
 
-from ozi.filter import underscorify
+from blastpipe.ozi_templates.filter import underscorify
+
 from ozi.fix.build_definition import walk
 from ozi.meson import load_ast
 from ozi.meson import project_metadata
