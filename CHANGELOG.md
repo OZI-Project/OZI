@@ -1,4 +1,111 @@
 # CHANGELOG
+## 1.1.6 (2024-04-27)
+
+### :alembic:
+
+* :alembic:(``ozi.render.load_environment``): Add globals dict argument.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`eaac863`](https://github.com/OZI-Project/OZI/commit/eaac8633e08b2f345333e4a4bfdf0b350ce7966d))
+
+### :arrow_up:
+
+* :arrow_up: Bump github/codeql-action from 3.25.2 to 3.25.3
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.2 to 3.25.3.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/8f596b4ae3cb3c588a5c46780b86dd53fef16c52...d39d31e687223d841ef683f52467bd88e9b21c14)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`e7888b0`](https://github.com/OZI-Project/OZI/commit/e7888b059f9223008680a7d9dfd28e01a07205ba))
+
+* :arrow_up: Bump actions/checkout from 4.1.3 to 4.1.4
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.3 to 4.1.4.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/1d96c772d19495a3b5c517cd2bc0cb401ea0529f...0ad4b8fadaa221de15dcec353f45205ec38ea70b)
+
+---
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`41251c9`](https://github.com/OZI-Project/OZI/commit/41251c94d744593a3931d1d5acd70ac18f2838e5))
+
+### :bug:
+
+* :bug: exclude double quotes from fuzzer input.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`361a75a`](https://github.com/OZI-Project/OZI/commit/361a75a9e1b63dc6ad12b24cf85f9762a213c8a7))
+
+### Other
+
+* :rotating_light: run ``black -S tests``
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`fdd8fe2`](https://github.com/OZI-Project/OZI/commit/fdd8fe2fdbe6b7941972efc33aa77ee1707dae5a))
+
+## 1.1.5 (2024-04-24)
+
+### :arrow_up:
+
+* :arrow_up: Bump release to 0.1.17
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`eca9b71`](https://github.com/OZI-Project/OZI/commit/eca9b713ea773157c3912eca2fb4d87ff38d0ef5))
+
+* :arrow_up: Bump OZI-Project/release from 0.1.16 to 0.1.17
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.1.16 to 0.1.17.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/cde80205350cc9bd7c00c042b788136b36bd1828...ceffb3c8beef212a5abaffeac486d67fb247381b)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5bd1337`](https://github.com/OZI-Project/OZI/commit/5bd1337de8893888ea714f9d361a9d287d2caabc))
+
+### :hammer:
+
+* :hammer: Correct pytest ``--cov=`` argument.
+
+Use the normalized module name in the template.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`aaaa7c3`](https://github.com/OZI-Project/OZI/commit/aaaa7c30ecd16040224e0933bbef26d0ab45347e))
+
+## 1.1.4 (2024-04-24)
+
+### :bug:
+
+* :bug::hammer: Fix pytest-args for coverage.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1193781`](https://github.com/OZI-Project/OZI/commit/119378168e8e56096e05751b170fcd29a23e676b))
+
+## 1.1.3 (2024-04-24)
+
+### :hammer:
+
+* :hammer: retry release
+
+Merge pull request #411 from OZI-Project/release/1.1 ([`5eef90b`](https://github.com/OZI-Project/OZI/commit/5eef90b471611999873de5fca990e687823c1246))
+
+### Other
+
+* :rotating_light: Fix project template lint.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`e946042`](https://github.com/OZI-Project/OZI/commit/e9460422674d666cb62f314a6d5dced9004fdd93))
+
 ## 1.1.2 (2024-04-24)
 
 ### :bug:
