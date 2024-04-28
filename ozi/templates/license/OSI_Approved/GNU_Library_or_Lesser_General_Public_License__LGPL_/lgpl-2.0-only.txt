@@ -1,1 +1,0 @@
-{% include 'license/lgpl-2.0.txt' %}

@@ -12,6 +12,7 @@ from copy import deepcopy
 from datetime import timedelta
 
 import pytest
+from blastpipe.ozi_templates import load_environment  # pyright: ignore
 from hypothesis import given
 from hypothesis import settings
 from hypothesis import strategies as st
@@ -20,7 +21,6 @@ import ozi.fix.__main__  # pyright: ignore
 import ozi.fix.rewrite_command  # pyright: ignore
 import ozi.new.__main__  # pyright: ignore
 import ozi.pkg_extra  # pyright: ignore
-from ozi.render import load_environment  # pyright: ignore
 from ozi.spec import METADATA  # pyright: ignore
 
 required_pkg_info_patterns = (

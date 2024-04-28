@@ -1,1 +1,0 @@
-{% include 'license/apache-2.0.txt' %}

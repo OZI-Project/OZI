@@ -11,8 +11,6 @@ import sys
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from ozi.spec import METADATA
-
 if TYPE_CHECKING:
     from argparse import Namespace
     from typing import Callable
@@ -21,6 +19,8 @@ if TYPE_CHECKING:
     from jinja2 import Environment
 
     Composable: TypeAlias = Callable[[Namespace], Namespace]
+
+from blastpipe.ozi_templates import load_environment
 
 from ozi.new.parser import parser
 from ozi.new.validate import valid_contact_info
@@ -32,9 +32,9 @@ from ozi.new.validate import valid_project_name
 from ozi.new.validate import valid_project_url
 from ozi.new.validate import valid_spdx
 from ozi.new.validate import valid_summary
-from ozi.render import load_environment
 from ozi.render import render_ci_files_set_user
 from ozi.render import render_project_files
+from ozi.spec import METADATA
 from ozi.tap import TAP
 
 
