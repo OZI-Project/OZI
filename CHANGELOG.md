@@ -1,4 +1,31 @@
 # CHANGELOG
+## 1.2.0 (2024-04-28)
+
+### :pushpin:
+
+* :pushpin: set blastpipe pin to 2024.2.6.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7ed571c`](https://github.com/OZI-Project/OZI/commit/7ed571c12c8e8b91082cbf7044f0ce28a7d63090))
+
+### :sparkles:
+
+* :sparkles: Reduce the overall repo size.
+
+Move templates to the blastpipe repo.
+Make blastpipe a dependency.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`cfd1234`](https://github.com/OZI-Project/OZI/commit/cfd123435aaf83b4be871c1e42ea99c183e87999))
+
+### Other
+
+* :rotating_light: add ``# pyright: ignore`` to blastpipe filter imports.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`580750b`](https://github.com/OZI-Project/OZI/commit/580750b20cbf62152d81e7c0c91e94084349feed))
+
+* add 1.2 release branch pattern
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7c78a1e`](https://github.com/OZI-Project/OZI/commit/7c78a1e4d8a76db1091851de9084af6a6f50ccd9))
+
 ## 1.1.6 (2024-04-27)
 
 ### :alembic:
