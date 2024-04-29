@@ -2,7 +2,12 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
-"""Rendering utilities for the OZI project templates."""
+"""Rendering utilities for the OZI project templates.
+
+.. versionremoved:: 1.2
+   The function ``load_environment`` was moved to ``blastpipe.ozi_templates``
+
+"""
 from pathlib import Path
 from warnings import warn
 
