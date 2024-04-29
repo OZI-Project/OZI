@@ -1,4 +1,22 @@
 # CHANGELOG
+## 1.2.1 (2024-04-28)
+
+### :arrow_up:
+
+* :arrow_up: Bump OZI-Project/release 0.1.18 &gt; 0.1.17
+
+* :arrow_up: Update dist-workflow.yml - release 0.1.18 &gt; 0.1.17
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
+
+* :arrow_up: bump release to 0.1.18
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
+
+---------
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`656c609`](https://github.com/OZI-Project/OZI/commit/656c609ec37886c31679b7be6de2a08d9a950c0b))
+
 ## 1.2.0 (2024-04-28)
 
 ### :pushpin:
