@@ -1,4 +1,44 @@
 # CHANGELOG
+## 1.2.2 (2024-04-30)
+
+### :arrow_up:
+
+* :arrow_up: Bump step-security/harden-runner from 2.7.0 to 2.7.1
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.7.0 to 2.7.1.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/63c24ba6bd7ba022e95695ff85de572c04a18142...a4aa98b93cab29d9b1101a6143fb8bce00e2eac4)
+
+---
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`3184386`](https://github.com/OZI-Project/OZI/commit/3184386d8308b4604d6f6c832940045176ec1e2d))
+
+* :arrow_up: Bump actions/dependency-review-action from 4.2.5 to 4.3.1
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.2.5 to 4.3.1.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/5bbc3ba658137598168acb2ab73b21c432dd411b...e58c696e52cac8e62d61cc21fda89565d71505d7)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`1f7e9f1`](https://github.com/OZI-Project/OZI/commit/1f7e9f199315405bc2a17af147c41047ace16aa3))
+
+### Other
+
+* :memo: update docstrings for 1.2 (#429)
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d72f67c`](https://github.com/OZI-Project/OZI/commit/d72f67c298a0dee02ad6abc3006b875b3067b397))
+
 ## 1.2.1 (2024-04-28)
 
 ### :arrow_up:
