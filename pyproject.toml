@@ -21,7 +21,7 @@ console_scripts = [
 ]
 
 [tool.ozi-build.metadata]
-pkg-info-file = 'build/PKG-INFO'
+pkg-info-file = 'PKG-INFO'
 summary = 'Packager for Python projects using Meson.'
 
 [tool.cibuildwheel]
