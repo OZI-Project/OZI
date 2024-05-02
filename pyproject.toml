@@ -22,6 +22,7 @@ console_scripts = [
 
 [tool.ozi-build.metadata]
 summary = 'Packager for Python projects using Meson.'
+pkg-info-file = 'build/PKG-INFO'
 
 [tool.cibuildwheel]
 build-frontend = "build"
