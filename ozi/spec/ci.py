@@ -23,7 +23,7 @@ class Publish(Default):
 class Release(Default):
     """Release patterns for packaged project."""
 
-    version: str = '0.1.18'
+    version: str = '0.2.0'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -171,10 +171,10 @@ class ClassicDist(CheckpointSuite):
 class Build(Default):
     """Build backend and required packages for OZI."""
 
-    backend: str = 'mesonpep517.buildapi'
+    backend: str = 'ozi_build.buildapi'
     requires: Mapping[str, str] = field(
         default_factory=lambda: {
-            'mesonpep517': 'mesonpep517==0.2',
+            'OZI.build': 'OZI.build==0.0.7',
             'meson': 'meson[ninja]>=1.1.0',
             'pip-tools': 'pip-tools>=7',
             'setuptools': 'setuptools>=64',
