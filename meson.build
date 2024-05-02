@@ -187,6 +187,8 @@ configure_file(
     command: [python, '-c', meson_setuptools_scm],
     output: 'PKG-INFO',
 )
+meson.add_dist_script(pip, 'install', 'tomli>=2.0.0')
+meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
 message('backed up pyproject.toml as pyproject.orig.toml')
 foreach source : root_files

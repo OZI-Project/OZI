@@ -58,6 +58,8 @@ if __name__ == '__main__':
         pyproject_toml = toml.load(project_file)
     setuptools_scm = pyproject_toml.get('tool', {}).get('setuptools_scm', {})
     path = Path(dist / setuptools_scm.get('version_file')).resolve()
+    if path.exists():
+        path.unlink()
     if path.parent != Path(dist).resolve():
         raise RuntimeError('Invalid version_file path in pyproject.toml')
     else:
