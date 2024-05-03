@@ -198,7 +198,8 @@ foreach source : root_files
 endforeach
 if get_option('ozi-blastpipe').enabled()
     # BEGIN BOOTSTRAP SCRIPT
-    subproject('blastpipe')
+    # subproject('blastpipe')
+    message('blastpipe bootstrap unavailable')
     # END BOOTSTRAP SCRIPT
 endif
 root_children = ['ozi', 'tests']
