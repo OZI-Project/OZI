@@ -1,4 +1,41 @@
 # CHANGELOG
+## 1.3.1 (2024-05-03)
+
+### :bug:
+
+* :bug: OZI.build 0.0.11 fixes for in-situ metadata generation
+
+* :arrow_up: OZI.build 0.0.9 for correct wheel names.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
+
+* :arrow_up::bug: Fix ``pyproject.toml:tool.ozi-build.metadata`` rendering.
+
+Also updates the blastpipe pin to ``&gt;=2024.4``
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
+
+* :bug: fix pin
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
+
+* :arrow_up::bug: Fix OZI.build missing builddir in checkpoint runs.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
+
+* :bug::arrow_up: OZI.build 0.0.11 fixes for in-situ metadata generation.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
+
+* :bug: revert blastpipe pin
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
+
+---------
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`f800863`](https://github.com/OZI-Project/OZI/commit/f80086322ef1adee703fe006c313bec5690910c2))
+
 ## 1.3.0 (2024-05-03)
 
 ### :arrow_up:
