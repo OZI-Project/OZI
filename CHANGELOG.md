@@ -1,6 +1,12 @@
 # CHANGELOG
 ## 1.3.1 (2024-05-03)
 
+### :arrow_up:
+
+* :bug::arrow_up: Bump OZI.build 0.0.12
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`4d24665`](https://github.com/OZI-Project/OZI/commit/4d24665dabab58f19119bae5c25581c98fdfe32c))
+
 ### :bug:
 
 * :bug: OZI.build 0.0.11 fixes for in-situ metadata generation
