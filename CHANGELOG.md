@@ -3,6 +3,10 @@
 
 ### :arrow_up:
 
+* :arrow_up: OZI.build 0.0.9 for correct wheel names. (#457)
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`adde41a`](https://github.com/OZI-Project/OZI/commit/adde41a9dd0eadcea050905799dc0509b3fb7e24))
+
 * :arrow_up: OZI-Project/release 0.2.4
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`cefd702`](https://github.com/OZI-Project/OZI/commit/cefd702d81b1e0b9428d67b78c10a8cebcc1b3ef))
