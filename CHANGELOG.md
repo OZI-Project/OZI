@@ -1,7 +1,72 @@
 # CHANGELOG
+## 1.3.1 (2024-05-03)
+
+### :arrow_up:
+
+* :bug::arrow_up: Bump OZI.build 0.0.12
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`4d24665`](https://github.com/OZI-Project/OZI/commit/4d24665dabab58f19119bae5c25581c98fdfe32c))
+
+### :bug:
+
+* :bug: OZI.build 0.0.11 fixes for in-situ metadata generation
+
+* :arrow_up: OZI.build 0.0.9 for correct wheel names.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
+
+* :arrow_up::bug: Fix ``pyproject.toml:tool.ozi-build.metadata`` rendering.
+
+Also updates the blastpipe pin to ``&gt;=2024.4``
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
+
+* :bug: fix pin
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
+
+* :arrow_up::bug: Fix OZI.build missing builddir in checkpoint runs.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
+
+* :bug::arrow_up: OZI.build 0.0.11 fixes for in-situ metadata generation.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
+
+* :bug: revert blastpipe pin
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
+
+---------
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`f800863`](https://github.com/OZI-Project/OZI/commit/f80086322ef1adee703fe006c313bec5690910c2))
+
 ## 1.3.0 (2024-05-03)
 
 ### :arrow_up:
+
+* :arrow_up: OZI.build 0.0.9 for correct wheel names. (#457)
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`adde41a`](https://github.com/OZI-Project/OZI/commit/adde41a9dd0eadcea050905799dc0509b3fb7e24))
+
+* :arrow_up: OZI-Project/release 0.2.4
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`cefd702`](https://github.com/OZI-Project/OZI/commit/cefd702d81b1e0b9428d67b78c10a8cebcc1b3ef))
+
+* :arrow_up: OZI-Project/release 0.2.2
+
+* Update ci.py 
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
+
+* Update dist-workflow.yml
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
+
+---------
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`28a1e70`](https://github.com/OZI-Project/OZI/commit/28a1e70a41dfe62a94e124790ec34ba592c9d773))
 
 * :arrow_up: release 0.2.1
 
@@ -68,6 +133,18 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`fd418e4`](https
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`c957112`](https://github.com/OZI-Project/OZI/commit/c9571120ba6765801e8f0447f60af0b5cead88b3))
 
 ### Other
+
+* OZI-Project/release 0.2.5
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`e3801f4`](https://github.com/OZI-Project/OZI/commit/e3801f4161facecbb31385c933bfd0e90dd7bb83))
+
+* Update dist-workflow.yml
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`65b7b67`](https://github.com/OZI-Project/OZI/commit/65b7b672b70a5791fbc76807b1dbcc3ed3036961))
+
+* Update ci.py
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`924cd7e`](https://github.com/OZI-Project/OZI/commit/924cd7ee3cbb700cb55d772b06a2a8752fb2abcd))
 
 * use pkg-info-file
 
