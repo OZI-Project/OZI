@@ -1,4 +1,64 @@
 # CHANGELOG
+## 1.3.0 (2024-05-03)
+
+### :arrow_up:
+
+* :arrow_up: OZI.build 0.0.7 in spec
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1e3a51d`](https://github.com/OZI-Project/OZI/commit/1e3a51dfd7fc140e122a999ae92e642a84cea822))
+
+* :arrow_up: OZI-Project/release 0.2.0 for OZI.build backend change.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`24e23ba`](https://github.com/OZI-Project/OZI/commit/24e23baf1d795ee265580c84c721d55b6d7f037f))
+
+* :arrow_up: OZI.build 0.0.7
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`817265b`](https://github.com/OZI-Project/OZI/commit/817265bd093260eda4e6ad1136fd87552a2657b5))
+
+* :arrow_up: OZI.build 0.0.6
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`958b39a`](https://github.com/OZI-Project/OZI/commit/958b39aad552d2bc91520c2320c9fa94a1df4c09))
+
+### :hammer:
+
+* :hammer: unlink extant PKG-INFO during dist.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7b99c62`](https://github.com/OZI-Project/OZI/commit/7b99c62023ab54f2c6b9da017f1cbdcce5f2f949))
+
+* :hammer: remove monkey-patched setuptools_scm dist script. ([`0505516`](https://github.com/OZI-Project/OZI/commit/050551600633572a647e239ebcfcadd5904c1c7f))
+
+* :hammer: auto pkg-info
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`dc0ee47`](https://github.com/OZI-Project/OZI/commit/dc0ee47ef9789fabadbd63fee08ba62093bf719b))
+
+* :hammer: revert pkg-info move
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`ff8356f`](https://github.com/OZI-Project/OZI/commit/ff8356f4fab00fd9b632f4fae356c1c5632a94b7))
+
+* :hammer: change metadata pkg-info-file
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`84a6b13`](https://github.com/OZI-Project/OZI/commit/84a6b13c8d8b86b925c0c014b6d863caf5c5df2e))
+
+* :hammer: Implement OZI.build
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7a25a87`](https://github.com/OZI-Project/OZI/commit/7a25a870cefee7ad5bf054c152bd81d59f177055))
+
+### :sparkles:
+
+* :sparkles: Add 1.3 release group!
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`fd418e4`](https://github.com/OZI-Project/OZI/commit/fd418e4b7ca008b63f62da106f9f7d5bf020d80d))
+
+* :sparkles: OZI 1.3
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`c957112`](https://github.com/OZI-Project/OZI/commit/c9571120ba6765801e8f0447f60af0b5cead88b3))
+
+### Other
+
+* use pkg-info-file
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1f09610`](https://github.com/OZI-Project/OZI/commit/1f096107ab8818f5e7d72c181a41cf29971573a5))
+
 ## 1.2.2 (2024-04-30)
 
 ### :arrow_up:
