@@ -3,6 +3,10 @@
 
 ### :arrow_up:
 
+* :arrow_up: OZI-Project/release 0.2.4
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`cefd702`](https://github.com/OZI-Project/OZI/commit/cefd702d81b1e0b9428d67b78c10a8cebcc1b3ef))
+
 * :arrow_up: OZI-Project/release 0.2.2
 
 * Update ci.py 
