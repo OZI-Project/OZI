@@ -83,6 +83,14 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`c957112`](https
 
 ### Other
 
+* Update dist-workflow.yml
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`65b7b67`](https://github.com/OZI-Project/OZI/commit/65b7b672b70a5791fbc76807b1dbcc3ed3036961))
+
+* Update ci.py
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`924cd7e`](https://github.com/OZI-Project/OZI/commit/924cd7ee3cbb700cb55d772b06a2a8752fb2abcd))
+
 * use pkg-info-file
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1f09610`](https://github.com/OZI-Project/OZI/commit/1f096107ab8818f5e7d72c181a41cf29971573a5))
