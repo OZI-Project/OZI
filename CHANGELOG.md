@@ -1,4 +1,32 @@
 # CHANGELOG
+## 1.3.2 (2024-05-03)
+
+### :arrow_up:
+
+* :arrow_up: Update blastpipe pin to 2024.4.0
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`bfea6bf`](https://github.com/OZI-Project/OZI/commit/bfea6bf78717dcc41ed8e96d4333c792d0a061dd))
+
+### :bug:
+
+* :bug: Update meson.build fix blastpipe already being built.
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`7b5cf04`](https://github.com/OZI-Project/OZI/commit/7b5cf046d3bb6b76515273fc7fd16d0584e44698))
+
+* :bug: fix OZI.build
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`6f9cb08`](https://github.com/OZI-Project/OZI/commit/6f9cb08f9f6ce7622bea8ddf0ab0fdb02361240e))
+
+* :bug: Fix OZI.build
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`9cd8447`](https://github.com/OZI-Project/OZI/commit/9cd8447a4045c9688f79c18578fce36549613949))
+
+### Other
+
+* Update requirements.in - rollback blastpipe to stable version
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`49bfb81`](https://github.com/OZI-Project/OZI/commit/49bfb815003ffa930911686b296fe2874d664549))
+
 ## 1.3.1 (2024-05-03)
 
 ### :arrow_up:
