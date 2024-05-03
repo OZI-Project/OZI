@@ -3,6 +3,20 @@
 
 ### :arrow_up:
 
+* :arrow_up: OZI-Project/release 0.2.2
+
+* Update ci.py 
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
+
+* Update dist-workflow.yml
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
+
+---------
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`28a1e70`](https://github.com/OZI-Project/OZI/commit/28a1e70a41dfe62a94e124790ec34ba592c9d773))
+
 * :arrow_up: release 0.2.1
 
 * Update dist-workflow.yml - release 0.2.1
