@@ -87,6 +87,10 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`c957112`](https
 
 ### Other
 
+* OZI-Project/release 0.2.5
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`e3801f4`](https://github.com/OZI-Project/OZI/commit/e3801f4161facecbb31385c933bfd0e90dd7bb83))
+
 * Update dist-workflow.yml
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`65b7b67`](https://github.com/OZI-Project/OZI/commit/65b7b672b70a5791fbc76807b1dbcc3ed3036961))
