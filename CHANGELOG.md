@@ -1,4 +1,37 @@
 # CHANGELOG
+## 1.4.0 (2024-05-04)
+
+### :sparkles:
+
+* :sparkles: OZI-Project/release 0.3.0 and OZI.build 0.0.14 (#478)
+
+* Update pyproject.toml - OZI.build 0.0.14
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
+
+* Update ci.py
+
+OZI-Project/OZI.build 0.0.14
+OZI-Project/release 0.3.0
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
+
+* Update dist-workflow.yml
+
+Bump to 0.3.0 sha256:3067778a8ac4622c1075321b46b7a7333bea64a0
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
+
+---------
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`83b8027`](https://github.com/OZI-Project/OZI/commit/83b80271f90a51b4b97914c4eb48bbde9b7f87c7))
+
+### Other
+
+* Update pyproject.toml - add 1.4 branch
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`40954c3`](https://github.com/OZI-Project/OZI/commit/40954c3fa1ed1a850eb5b1d18874b1dfe46cae9d))
+
 ## 1.3.3 (2024-05-04)
 
 ### :arrow_up:
@@ -105,6 +138,21 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`f800863`](https
 * :arrow_up: OZI.build 0.0.9 for correct wheel names. (#457)
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`adde41a`](https://github.com/OZI-Project/OZI/commit/adde41a9dd0eadcea050905799dc0509b3fb7e24))
+
+* :arrow_up: Bump actions/dependency-review-action from 4.3.1 to 4.3.2
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.3.1 to 4.3.2.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/e58c696e52cac8e62d61cc21fda89565d71505d7...0c155c5e8556a497adf53f2c18edabf945ed8e70)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`7b83047`](https://github.com/OZI-Project/OZI/commit/7b830474618e3dd1778c8498ffbef75939ebd274))
 
 * :arrow_up: OZI-Project/release 0.2.4
 
