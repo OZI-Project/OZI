@@ -159,22 +159,24 @@ replace_ruff_target_version = run_command(
 run_command(python, ['-c', replace_ruff_target_version], check: true)
 pip = find_program('pip', required: true, disabler: true)
 pip_compile = find_program('pip-compile', required: true)
-custom_target(
-    'requirements.txt',
-    input: root_files[3],
-    output: 'requirements.txt',
-    build_always_stale: true,
-    build_by_default: true,
-    command: [
-        'pip-compile',
-        '--allow-unsafe',
-        '--strip-extras',
-        '-q',
-        '--generate-hashes',
-        '-o', '@OUTPUT@',
-        '@INPUT@',
-    ],
-)
+if not meson.is_subproject()
+    custom_target(
+        'requirements.txt',
+        input: root_files[3],
+        output: 'requirements.txt',
+        build_always_stale: true,
+        build_by_default: true,
+        command: [
+            'pip-compile',
+            '--allow-unsafe',
+            '--strip-extras',
+            '-q',
+            '--generate-hashes',
+            '-o', '@OUTPUT@',
+            '@INPUT@',
+        ],
+    )
+endif
 source_to_build.enable_auto_if(source_to_build.auto())
 docs_source = 'docs'
 test_source = 'tests'
@@ -198,7 +200,8 @@ foreach source : root_files
 endforeach
 if get_option('ozi-blastpipe').enabled()
     # BEGIN BOOTSTRAP SCRIPT
-    subproject('blastpipe')
+    # subproject('blastpipe')
+    message('blastpipe bootstrap unavailable')
     # END BOOTSTRAP SCRIPT
 endif
 root_children = ['ozi', 'tests']
