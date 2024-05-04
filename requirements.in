@@ -1,4 +1,4 @@
-blastpipe==2024.4.2
+blastpipe==2024.4.3
 GitPython>=3
 dnspython
 idna>=2
