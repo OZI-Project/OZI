@@ -23,7 +23,7 @@ class Publish(Default):
 class Release(Default):
     """Release patterns for packaged project."""
 
-    version: str = '0.2.5'
+    version: str = '0.3.0'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -174,7 +174,7 @@ class Build(Default):
     backend: str = 'ozi_build.buildapi'
     requires: Mapping[str, str] = field(
         default_factory=lambda: {
-            'OZI.build': 'OZI.build==0.0.13',
+            'OZI.build': 'OZI.build==0.0.14',
             'meson': 'meson[ninja]>=1.1.0',
             'pip-tools': 'pip-tools>=7',
             'setuptools': 'setuptools>=64',
