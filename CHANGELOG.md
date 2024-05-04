@@ -1,4 +1,32 @@
 # CHANGELOG
+## 1.3.3 (2024-05-04)
+
+### :arrow_up:
+
+* :arrow_up: Update requirements.in, bump blastpipe.
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`effa8a7`](https://github.com/OZI-Project/OZI/commit/effa8a7f7018d64200888e4351f85b25bda44b09))
+
+### :bug:
+
+* :bug: Update meson.build - dont build requirements during bootstrap.
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`33468ef`](https://github.com/OZI-Project/OZI/commit/33468ef723579b8505c47d2fb0dabfd55fb87688))
+
+* :bug: Update requirements.in
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`117fc93`](https://github.com/OZI-Project/OZI/commit/117fc939ca84bf0c038298d6282b046fb29f3d9e))
+
+* :bug: remove blastpipe wrapfile.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d9bae28`](https://github.com/OZI-Project/OZI/commit/d9bae287ee6ad5a852cfb51a5636987ebb368d84))
+
+### :pushpin:
+
+* :pushpin: Update requirements.in - blastpipe 2024.4.3
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`0d4a8a3`](https://github.com/OZI-Project/OZI/commit/0d4a8a34cfdf2761559c3435da4eeda6276311d4))
+
 ## 1.3.2 (2024-05-03)
 
 ### :arrow_up:
