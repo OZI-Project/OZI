@@ -76,15 +76,15 @@ class PythonSupport(Default):
         )
         ozi_support_eol = python3_eol - timedelta(weeks=DEPRECATION_DELTA_WEEKS)
         if datetime.now(tz=timezone.utc).date() > python3_eol:  # pragma: no cover
-            text = (
-                f'Python {pymajor}.{pyminor}.{pypatch} is not supported as of {python3_eol}.'
+            warn(
+                f'Python {pymajor}.{pyminor}.{pypatch} is not supported as of {python3_eol}.',
+                DeprecationWarning,
             )
-            raise RuntimeError(text)
         elif datetime.now(tz=timezone.utc).date() > ozi_support_eol:  # pragma: no cover
             warn(
-                f'Python {pymajor}.{pyminor}.{pypatch} support is deprecated '
+                f'Python {pymajor}.{pyminor}.{pypatch} support is pending deprecation '
                 f'as of {ozi_support_eol}.',
-                DeprecationWarning,
+                PendingDeprecationWarning,
             )
 
     @cached_property
