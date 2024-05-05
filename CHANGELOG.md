@@ -1,4 +1,25 @@
 # CHANGELOG
+## 1.4.1 (2024-05-05)
+
+### :bug:
+
+* :bug: Update ozi.spec.python
+
+PendingDeprecationWarning 52 weeks prior to python end-of-life
+DeprecationWarning instead of RuntimeError if python end-of-life reached.
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`b2ffa99`](https://github.com/OZI-Project/OZI/commit/b2ffa995cd3b907d5a9db8e4606f01db3c09ca56))
+
+### Other
+
+* Update ci.py
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`54917ec`](https://github.com/OZI-Project/OZI/commit/54917eca88d25e2e2ecc567cbd50965407c86689))
+
+* Update pyproject.toml
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`4dfc574`](https://github.com/OZI-Project/OZI/commit/4dfc5749b8b59a112a498c6aa0385fe1b6e6ae66))
+
 ## 1.4.0 (2024-05-04)
 
 ### :sparkles:
