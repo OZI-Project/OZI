@@ -1,4 +1,14 @@
 # CHANGELOG
+## 1.4.2 (2024-05-05)
+
+### :bug:
+
+* :bug: correct deprecated Python warnings.
+
+User-facing deprecation warnings should always use FutureWarning.
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`df2de03`](https://github.com/OZI-Project/OZI/commit/df2de0354a546f6a092c277a479b2e0fa6b2edb5))
+
 ## 1.4.1 (2024-05-05)
 
 ### :bug:
