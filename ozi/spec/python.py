@@ -78,13 +78,13 @@ class PythonSupport(Default):
         if datetime.now(tz=timezone.utc).date() > python3_eol:  # pragma: no cover
             warn(
                 f'Python {pymajor}.{pyminor}.{pypatch} is not supported as of {python3_eol}.',
-                DeprecationWarning,
+                RuntimeWarning,
             )
         elif datetime.now(tz=timezone.utc).date() > ozi_support_eol:  # pragma: no cover
             warn(
                 f'Python {pymajor}.{pyminor}.{pypatch} support is pending deprecation '
                 f'as of {ozi_support_eol}.',
-                PendingDeprecationWarning,
+                RuntimeWarning,
             )
 
     @cached_property
