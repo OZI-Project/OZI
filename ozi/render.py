@@ -3,19 +3,17 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Rendering utilities for the OZI project templates.
-
-.. versionremoved:: 1.2
-   The function ``load_environment`` was moved to ``blastpipe.ozi_templates``
-
 """
 from pathlib import Path
+from typing import TYPE_CHECKING
 from warnings import warn
 
 from blastpipe.ozi_templates.filter import underscorify  # pyright: ignore
 from git import InvalidGitRepositoryError
 from git import Repo
-from jinja2 import Environment
-from jinja2 import TemplateNotFound
+
+if TYPE_CHECKING:
+    from jinja2 import Environment
 
 from ozi.spec import METADATA
 from ozi.tap import TAP
@@ -112,7 +110,7 @@ def render_project_files(env: Environment, target: Path, name: str) -> None:
         template = env.get_template(f'{filename}.j2')
         try:
             content = template.render(filename=filename)
-        except TemplateNotFound:  # pragma: defer to good-first-issue
+        except LookupError:  # pragma: defer to good-first-issue
             content = f'template "{filename}" failed to render.'
             warn(content, RuntimeWarning, stacklevel=0)
         with open(target / filename, 'w') as f:
