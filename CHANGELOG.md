@@ -1,4 +1,48 @@
 # CHANGELOG
+## 1.4.3 (2024-05-08)
+
+### :arrow_up:
+
+* :arrow_up: Bump OZI-Project workflow actions
+
+* OZI-Project/checkpoint 0.1.6
+* OZI-Project/release 0.3.2
+* OZI-Project/release 0.1.1
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`fb19e5a`](https://github.com/OZI-Project/OZI/commit/fb19e5a1140d3a8fc617d7d3cdca0b8880e1e465))
+
+* :arrow_up: Bump actions/checkout from 4.1.4 to 4.1.5
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.4 to 4.1.5.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/0ad4b8fadaa221de15dcec353f45205ec38ea70b...44c2b7a8a4ea60a981eaca3cf939b5f4305c123b)
+
+---
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`971c548`](https://github.com/OZI-Project/OZI/commit/971c5483215457df5c70d99bcf34bb7513622882))
+
+### :hammer:
+
+* :hammer: clean up jinja2 import.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`b6e6f50`](https://github.com/OZI-Project/OZI/commit/b6e6f505c8221bcab9e2f80ea44de65505cdc6ae))
+
+### :pencil2:
+
+* :pencil2: missing ``from __future__ import annotations``
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`508291a`](https://github.com/OZI-Project/OZI/commit/508291ade1880fdd0e96aeefb78d43265126f600))
+
+* :pencil2: fix RuntimeWarning that should be FutureWarning
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`0f23f31`](https://github.com/OZI-Project/OZI/commit/0f23f3121e2434cbe509b1230735c8a6dba56cd9))
+
 ## 1.4.2 (2024-05-05)
 
 ### :bug:
