@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Rendering utilities for the OZI project templates.
 """
+from __future__ import annotations
+
 from pathlib import Path
 from typing import TYPE_CHECKING
 from warnings import warn
