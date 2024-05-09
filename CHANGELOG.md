@@ -1,4 +1,39 @@
 # CHANGELOG
+## 1.5.0 (2024-05-09)
+
+### :arrow_up:
+
+* :arrow_up: Bump github/codeql-action from 3.25.3 to 3.25.4
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.3 to 3.25.4.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/d39d31e687223d841ef683f52467bd88e9b21c14...ccf74c947955fd1cf117aef6a0e4e66191ef6f61)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`8e83edb`](https://github.com/OZI-Project/OZI/commit/8e83edbd2c514fa57bb9cccf51730f9eebc6a6e8))
+
+### :sparkles:
+
+* :sparkles:  Add cython extensions with ``ozi-fix``
+
+Also add ``--[no-]enable-cython`` to ``ozi-new``.
+:arrow_up: blastpipe 2024.5
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`407db9b`](https://github.com/OZI-Project/OZI/commit/407db9b1abc53b30e9aa73ab589a2e5b0056f726))
+
+### :wrench:
+
+* :wrench: add 1.5 release branch group
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`fa09315`](https://github.com/OZI-Project/OZI/commit/fa09315597531d789b1a364e35bdb3885e20e301))
+
 ## 1.4.3 (2024-05-08)
 
 ### :arrow_up:
