@@ -16,6 +16,7 @@ from typing import Union
 from warnings import warn
 
 from ozi.render import build_child
+from ozi.render import build_file
 from ozi.render import find_user_template
 
 if TYPE_CHECKING:
@@ -114,24 +115,41 @@ class Rewriter:
 
     def _add_dunder_init(self: Self, filename: str) -> None:
         """Render a :file:`{filename}/__init__.py`."""
-        with open(
-            (
-                self.path_map.get(self.fix, partial(Path))(
-                    *filename.rstrip('/').split('/'),
-                )
-                / '__init__.py'
-            ),
-            'x',
-        ) as f:
-            f.write(
-                self.env.get_template('project.name/__init__.py.j2').render(
-                    user_template=find_user_template(
-                        self.target,
-                        filename,
-                        self.fix,
-                    ),
-                ),
+        build_file(
+            self.env,
+            self.fix,
+            self.path_map.get(self.fix, partial(Path))(
+                *filename.rstrip('/').split('/'),
             )
+            / '__init__.py',
+            find_user_template(
+                self.target,
+                filename,
+                self.fix,
+            ),
+        )
+
+    def _add_files(
+        self: Self,
+        child: Path,
+        filename: str,
+        cmd_files: RewriteCommand,
+    ) -> RewriteCommand:
+        """add files to a project if they do not exist."""
+        if child.exists():  # pragma: no cover
+            pass
+        else:
+            build_file(
+                self.env,
+                self.fix,
+                child,
+                user_template=find_user_template(self.target, filename, self.fix),
+            )
+        if filename.endswith('.pyx'):  # pragma: no cover
+            cmd_files.add('ext', 'files', str(Path(filename)))
+        else:
+            cmd_files.add(self.fix, 'files', str(Path(filename)))
+        return cmd_files
 
     def _add(
         self: Rewriter,
@@ -144,24 +162,15 @@ class Rewriter:
         if self.fix not in ['source', 'test', 'root']:
             warn('Invalid fix mode nothing will be added.', RuntimeWarning, stacklevel=0)
         elif filename.endswith('/'):
-            build_child(self.env, filename, child)
-            if self.fix == 'source':
-                self._add_dunder_init(filename)
+            if child.exists():  # pragma: no cover
+                pass
+            else:
+                build_child(self.env, filename, child)
+                if self.fix == 'source':
+                    self._add_dunder_init(filename)
             cmd_children.add(self.fix, 'children', filename.rstrip('/'))
-        elif filename.endswith('.py'):
-            child.write_text(
-                self.base_templates.get(
-                    self.fix,
-                    self.base_templates.setdefault(
-                        self.fix,
-                        self.env.get_template('project.name/new_module.py.j2'),
-                    ),
-                ).render(user_template=find_user_template(self.target, filename, self.fix)),
-            )
-            cmd_files.add(self.fix, 'files', str(Path(filename)))
         else:
-            child.touch()
-            cmd_files.add(self.fix, 'files', str(Path(filename)))
+            cmd_files = self._add_files(child, filename, cmd_files)
         return cmd_files, cmd_children
 
     def __iadd__(self: Self, other: list[str]) -> Self:
@@ -190,8 +199,6 @@ class Rewriter:
         cmd_files, cmd_children = cmd_files_children
         if filename.endswith('/'):
             cmd_children.rem(self.fix, 'children', str(child / 'meson.build'))
-        elif filename.endswith('.py'):
-            cmd_files.rem(self.fix, 'files', str(Path(filename)))
         else:
             cmd_files.rem(self.fix, 'files', str(Path(filename)))
         return cmd_files, cmd_children
