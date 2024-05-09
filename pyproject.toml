@@ -45,7 +45,7 @@ Version: @SCM_VERSION@
 Summary: Packager for Python projects using Meson.
 Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/@SCM_VERSION@.tar.gz
 Home-page: https://oziproject.dev/
-Author: Eden Rose Duff MSc
+Author: Eden Ross Duff MSc
 Author-email: help@oziproject.dev
 License: @LICENSE@
 Keywords: meson,packaging,wheel
@@ -153,33 +153,34 @@ extend-exclude = ["meson-private", "scripts", "vendor"]
 [tool.ruff.lint]
 ignore = [
     "A003",
-    "ARG",
     "ANN401",
-    "TRY003",
+    "ARG",
     "B028",
     "B905",
     "D1",
-    "D2",
     "D101",
+    "D2",
     "D4",
-    "FLY",
+    "EM",
     "FBT",
+    "FLY",
+    "PERF203",
     "PGH003",
     "PLR",
-    "PT001",
-    "RET",
-    "EM",
     "PLW",
+    "PT001",
     "PTH",
+    "RET",
     "RUF009",
     "RUF012",
     "RUF015",
+    "RUF200",
     "SIM",
     "T201",
     "TCH002",
     "TCH004",
+    "TRY003",
     "UP",
-    "PERF203",
 ]
 select = ["ALL"]
 

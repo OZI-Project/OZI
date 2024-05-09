@@ -8,6 +8,8 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import TYPE_CHECKING
+from typing import AnyStr
+from typing import Literal
 from warnings import warn
 
 from blastpipe.ozi_templates.filter import underscorify  # pyright: ignore
@@ -41,6 +43,67 @@ def find_user_template(target: str, file: str, fix: str) -> str | None:
         TAP.diagnostic('User tempate not found', str(fp))
         user_template = None
     return user_template
+
+
+def map_to_template(
+    fix: Literal['source', 'root', 'test'] | AnyStr,
+    filename: str,
+) -> str:
+    """Map an appropriate template for an ozi-fix mode and filename.
+
+    .. versionadded:: 1.5
+
+    :param fix: ozi-fix mode setting
+    :type fix: Literal[&#39;source&#39;, &#39;root&#39;, &#39;test&#39;] | AnyStr
+    :param filename: name with file extension
+    :type filename: str
+    :return: template path
+    :rtype: str
+    """
+    match fix, filename:
+        case ['test' | 'root', f] if f.endswith('.py'):
+            x = 'tests/new_test.py.j2'
+        case ['source', f] if f.endswith('.py'):
+            x = 'project.name/new_module.py.j2'
+        case ['source', f] if f.endswith('.pyx'):  # pragma: no cover
+            x = 'project.name/new_ext.pyx.j2'
+        case ['root', f]:
+            x = f'{f}.j2'
+        case ['source', f]:
+            x = f'project.name/{f}.j2'
+        case ['test', f]:
+            x = f'tests/{f}.j2'
+        case [_, _]:  # pragma: no cover
+            x = ''
+    return x
+
+
+def build_file(
+    env: Environment,
+    fix: Literal['source', 'root', 'test'] | AnyStr,
+    path: Path,
+    user_template: str | None,
+) -> None:
+    """Render project file based on OZI templates.
+
+    .. versionadded:: 1.5
+
+    :param env: rendering environment
+    :type env: Environment
+    :param fix: ozi-fix setting
+    :type fix: Literal[&#39;source&#39;, &#39;root&#39;, &#39;test&#39;] | AnyStr
+    :param path: full path of file to be rendered
+    :type path: Path
+    :param user_template: path to a user template to extend
+    :type user_template: str | None
+    """
+    try:
+        template = env.get_template(map_to_template(fix, path.name)).render(
+            user_template=user_template,
+        )
+        path.write_text(template)
+    except LookupError as e:
+        warn(str(e), RuntimeWarning)
 
 
 def build_child(env: Environment, parent: str, child: Path) -> None:
@@ -119,15 +182,21 @@ def render_project_files(env: Environment, target: Path, name: str) -> None:
             f.write(content)
 
     for filename in templates.source:
-        template = env.get_template(f'{filename}.j2')
         filename = filename.replace('project.name', underscorify(name).lower())
-        with open(target / filename, 'w') as f:
-            f.write(template.render())
+        build_file(
+            env,
+            'source',
+            target / filename,
+            find_user_template(str(target), filename, 'source'),
+        )
 
     for filename in templates.test:
-        template = env.get_template(f'{filename}.j2')
-        with open(target / filename, 'w') as f:
-            f.write(template.render())
+        build_file(
+            env,
+            'test',
+            target / filename,
+            find_user_template(str(target), filename, 'test'),
+        )
 
     template = env.get_template('project.ozi.wrap.j2')
     with open(target / 'subprojects' / 'ozi.wrap', 'w') as f:
