@@ -318,7 +318,7 @@ def test_Rewriter_bad_project__iadd__file(  # noqa: N802, DC102, RUF100
 
 @pytest.mark.parametrize('fix', ['test', 'root', 'source'])
 def test_Rewriter_bad_project__iadd__file_from_template(  # noqa: N802, DC102, RUF100
-    bad_project: pytest.FixtureRequest,
+    bad_project: pytest.FixtureRequest | pathlib.Path,
     fix: str,
 ) -> None:
     rewriter = ozi.fix.rewrite_command.Rewriter(
@@ -348,7 +348,8 @@ def test_Rewriter_bad_project__iadd__non_python_file(  # noqa: N802, DC102, RUF1
         fix=fix,
         env=env,
     )
-    rewriter += ['foo']
+    with pytest.warns(RuntimeWarning):
+        rewriter += ['foo']
     assert len(rewriter.commands) == 1
 
 
