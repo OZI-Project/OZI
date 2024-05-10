@@ -16,9 +16,13 @@ from ozi.spec.base import Default
 
 @dataclass(slots=True, frozen=True, eq=True)
 class PkgVersion(Default):
-    """Versioning metadata (aligns with python-semantic-release 8 emoji parser)."""
+    """Versioning metadata.
 
-    semantic: str = 'emoji'
+    .. versionchanged:: 1.5
+       default to `angular` semantic instead of `emoji`
+    """
+
+    semantic: str = 'angular'
     major_tags: tuple[str] = (':boom:',)
     minor_tags: tuple[str] = (':sparkles:',)
     patch_tags: tuple[str, ...] = (
