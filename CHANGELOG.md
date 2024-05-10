@@ -1,4 +1,18 @@
 # CHANGELOG
+## 1.5.1 (2024-05-10)
+
+### :pencil2:
+
+* :pencil2: fix docstring raw html escapes
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`ef63113`](https://github.com/OZI-Project/OZI/commit/ef63113a8f60366fff120b28cf1a2e9f3382183f))
+
+### :pushpin:
+
+* :pushpin: Set blastpipe 2024.5 as the compatible version.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1b33b6c`](https://github.com/OZI-Project/OZI/commit/1b33b6c3a58e9069b83a1ac94dc46c541a68aead))
+
 ## 1.5.0 (2024-05-09)
 
 ### :arrow_up:
