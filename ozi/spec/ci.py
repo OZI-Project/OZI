@@ -20,10 +20,17 @@ class Publish(Default):
 
 
 @dataclass(slots=True, frozen=True, eq=True)
+class Draft(Default):
+    """Draft release patterns for packaged project."""
+
+    version: str = '0.1.0'
+
+
+@dataclass(slots=True, frozen=True, eq=True)
 class Release(Default):
     """Release patterns for packaged project."""
 
-    version: str = '0.3.2'
+    version: str = '0.4.0'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -192,6 +199,7 @@ class CI(Default):
         default_factory=lambda: {'tox': 'tox>4', 'tox-gh': 'tox-gh>1.2'},
     )
     checkpoint: Checkpoint = Checkpoint()
+    draft: Draft = Draft()
     release: Release = Release()
     publish: Publish = Publish()
     providers: tuple[str, ...] = ('github',)
