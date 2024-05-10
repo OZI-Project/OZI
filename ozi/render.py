@@ -54,7 +54,7 @@ def map_to_template(
     .. versionadded:: 1.5
 
     :param fix: ozi-fix mode setting
-    :type fix: Literal[&#39;source&#39;, &#39;root&#39;, &#39;test&#39;] | AnyStr
+    :type fix: Literal['source', 'root', 'test'] | AnyStr
     :param filename: name with file extension
     :type filename: str
     :return: template path
@@ -91,7 +91,7 @@ def build_file(
     :param env: rendering environment
     :type env: Environment
     :param fix: ozi-fix setting
-    :type fix: Literal[&#39;source&#39;, &#39;root&#39;, &#39;test&#39;] | AnyStr
+    :type fix: Literal['source', 'root', 'test'] | AnyStr
     :param path: full path of file to be rendered
     :type path: Path
     :param user_template: path to a user template to extend
