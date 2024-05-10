@@ -1,4 +1,40 @@
 # CHANGELOG
+## 1.6.0 (2024-05-10)
+
+### :arrow_up:
+
+* :arrow_up: Update blastpipe~=2024.6.3
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`45d855c`](https://github.com/OZI-Project/OZI/commit/45d855ca84f9c68b38e80d530c66d2ae3021fc31))
+
+* :arrow_up: Bump ossf/scorecard-action from 2.3.1 to 2.3.3
+
+Bumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.3.1 to 2.3.3.
+- [Release notes](https://github.com/ossf/scorecard-action/releases)
+- [Changelog](https://github.com/ossf/scorecard-action/blob/main/RELEASE.md)
+- [Commits](https://github.com/ossf/scorecard-action/compare/0864cf19026789058feabb7e87baa5f140aac736...dc50aa9510b46c811795eb24b2f1ba02a914e534)
+
+---
+updated-dependencies:
+- dependency-name: ossf/scorecard-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`a081ae5`](https://github.com/OZI-Project/OZI/commit/a081ae5d80107471828f40c0486c7a6df181ee89))
+
+### :sparkles:
+
+* :sparkles: update spec version to 0.2
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`b9decce`](https://github.com/OZI-Project/OZI/commit/b9decce98202932032ddb937263450bb462d52c3))
+
+### Other
+
+* :memo: Update pyproject.toml add branch release pattern.
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`e27296a`](https://github.com/OZI-Project/OZI/commit/e27296ac8e6cbb2152dd121ebb817392e20f19c7))
+
 ## 1.5.1 (2024-05-10)
 
 ### :pencil2:
