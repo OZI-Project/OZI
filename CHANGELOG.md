@@ -1,4 +1,18 @@
 # CHANGELOG
+## 1.6.1 (2024-05-12)
+
+### :speech_balloon:
+
+* :speech_balloon: clean up package maintainer names.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`286cfea`](https://github.com/OZI-Project/OZI/commit/286cfea531180021b788072ae55e330a9885d965))
+
+### Other
+
+* Update scorecard.yml
+
+Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`efd87cd`](https://github.com/OZI-Project/OZI/commit/efd87cdfd4401b03dd6d01ece19279ce02574507))
+
 ## 1.6.0 (2024-05-10)
 
 ### :arrow_up:
