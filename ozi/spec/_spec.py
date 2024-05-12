@@ -29,7 +29,7 @@ def current_version() -> str:
 class Spec(Default):
     """OZI Specification metadata."""
 
-    version: str = field(default='0.2', init=False)
+    version: str = '0.2'
     python: PythonProject = ClassicProject()
 
 
