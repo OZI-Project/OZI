@@ -5,7 +5,7 @@
 [build-system]
 build-backend = "ozi_build.buildapi"
 requires      = [
-    "OZI.build>=0.0.15",
+    "OZI.build>=0.0.18",
     "meson[ninja]>=1.1.0",
     "pip-tools>=7",
     "setuptools>=64",
@@ -22,7 +22,7 @@ console_scripts = [
 
 [tool.ozi-build.metadata]
 summary = 'Packager for Python projects using Meson.'
-pkg-info-file = 'build/PKG-INFO'
+pkg-info-file = 'PKG-INFO'
 
 [tool.cibuildwheel]
 build-frontend = "build"
@@ -34,7 +34,6 @@ before-build = [
      "pip install --upgrade OZI.build",
      "pip install --upgrade setuptools_scm",
      "pip install --upgrade pip-tools",
-     "meson setup build",
 ]
 
 [tool.setuptools_scm]
@@ -42,7 +41,7 @@ version_file_template = """
 Metadata-Version: 2.1
 Name: @PROJECT_NAME@
 Version: @SCM_VERSION@
-Summary: Packager for Python projects using Meson.
+Summary: Package Python projects with Meson.
 Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/@SCM_VERSION@.tar.gz
 Home-page: https://oziproject.dev/
 Author: Eden Ross Duff MSc
@@ -198,7 +197,7 @@ force-single-line = true
 max-line-length = 102
 
 [tool.ruff.lint.flake8-copyright]
-author="Ross J. Duff MSc"
+author="Eden Ross Duff MSc"
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "single"
