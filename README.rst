@@ -63,7 +63,7 @@ See the project `CONTRIBUTING.md <https://github.com/rjdbcm/OZI/blob/main/.githu
 Contact
 -------
 
-Eden Rose Duff MSc - help@oziproject.dev
+Eden Ross Duff MSc - help@oziproject.dev
 
 .. image:: https://raw.githubusercontent.com/sigstore/community/main/artwork/badge/sigstore_codesigned_purple.png
  :align: center

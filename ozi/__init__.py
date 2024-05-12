@@ -11,5 +11,5 @@
 from .spec import current_version
 
 __version__ = current_version()
-__author__ = 'Eden Rose Duff MSc'
+__author__ = 'Eden Ross Duff MSc'
 __all__ = ('__version__', '__author__', '__doc__')
