@@ -1,4 +1,55 @@
 # CHANGELOG
+## 1.6.4 (2024-05-13)
+
+### :bug:
+
+* :bug: Parsers default to target the current working dir.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7628281`](https://github.com/OZI-Project/OZI/commit/7628281ade6849d747f797ad7e29816c0fa7561a))
+
+### Other
+
+* run black ([`18f2ad8`](https://github.com/OZI-Project/OZI/commit/18f2ad80aecb5a7209ba9499673ceae6e1bfb978))
+
+* run black
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`344ad5d`](https://github.com/OZI-Project/OZI/commit/344ad5da25b74f6b7b5edfa6077a1149ded15440))
+
+## 1.6.3 (2024-05-13)
+
+### :arrow_up:
+
+* :arrow_up: Bump OZI-Project/draft from 0.1.0 to 0.1.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.1.0 to 0.1.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/12b9a4f0d4e25ff5466bf2b0486d11aa4f3bf30d...7fb25933b941dc9531abb0809d0be0c79404b351)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`c7d8ba4`](https://github.com/OZI-Project/OZI/commit/c7d8ba484043458621d0696a4010f2e249410fae))
+
+### Other
+
+* Update ci.py
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`7e71362`](https://github.com/OZI-Project/OZI/commit/7e71362bba2fbf422a9a7f29954a027fd506cd0c))
+
+## 1.6.2 (2024-05-13)
+
+### :pencil2:
+
+* :pencil2: fix version pin ([`ed5e623`](https://github.com/OZI-Project/OZI/commit/ed5e6230852b419e5a33841eda212c99c8839413))
+
+* :pencil2::pushpin: add ``packaging`` as dependency.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1978a4c`](https://github.com/OZI-Project/OZI/commit/1978a4cf21eeb0b44643f609f3a382c5e4a550ec))
+
 ## 1.6.1 (2024-05-12)
 
 ### :speech_balloon:
