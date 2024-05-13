@@ -1,4 +1,29 @@
 # CHANGELOG
+## 1.6.3 (2024-05-13)
+
+### :arrow_up:
+
+* :arrow_up: Bump OZI-Project/draft from 0.1.0 to 0.1.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.1.0 to 0.1.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/12b9a4f0d4e25ff5466bf2b0486d11aa4f3bf30d...7fb25933b941dc9531abb0809d0be0c79404b351)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`c7d8ba4`](https://github.com/OZI-Project/OZI/commit/c7d8ba484043458621d0696a4010f2e249410fae))
+
+### Other
+
+* Update ci.py
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`7e71362`](https://github.com/OZI-Project/OZI/commit/7e71362bba2fbf422a9a7f29954a027fd506cd0c))
+
 ## 1.6.2 (2024-05-13)
 
 ### :pencil2:
