@@ -11,7 +11,7 @@ from argparse import BooleanOptionalAction
 
 parser = ArgumentParser(description=sys.modules[__name__].__doc__, add_help=False)
 subparser = parser.add_subparsers(help='source & test fix', dest='fix')
-parser.add_argument('target', type=str, help='target OZI project directory')
+parser.add_argument('target', type=str, nargs='?', default='.', help='target OZI project directory')
 
 helpers = parser.add_mutually_exclusive_group()
 helpers.add_argument('-h', '--help', action='help', help='show this help message and exit')
