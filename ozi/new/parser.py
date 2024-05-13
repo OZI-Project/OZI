@@ -111,6 +111,8 @@ required.add_argument(
 ozi_required.add_argument(
     'target',
     type=str,
+    nargs='?',
+    default='.',
     help='target directory for new project',
 )
 project_output = project_parser.add_mutually_exclusive_group()
