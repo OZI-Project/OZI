@@ -1,4 +1,20 @@
 # CHANGELOG
+## 1.6.4 (2024-05-13)
+
+### :bug:
+
+* :bug: Parsers default to target the current working dir.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7628281`](https://github.com/OZI-Project/OZI/commit/7628281ade6849d747f797ad7e29816c0fa7561a))
+
+### Other
+
+* run black ([`18f2ad8`](https://github.com/OZI-Project/OZI/commit/18f2ad80aecb5a7209ba9499673ceae6e1bfb978))
+
+* run black
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`344ad5d`](https://github.com/OZI-Project/OZI/commit/344ad5da25b74f6b7b5edfa6077a1149ded15440))
+
 ## 1.6.3 (2024-05-13)
 
 ### :arrow_up:
