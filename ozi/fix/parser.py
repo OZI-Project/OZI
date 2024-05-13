@@ -12,7 +12,11 @@ from argparse import BooleanOptionalAction
 parser = ArgumentParser(description=sys.modules[__name__].__doc__, add_help=False)
 subparser = parser.add_subparsers(help='source & test fix', dest='fix')
 parser.add_argument(
-    'target', type=str, nargs='?', default='.', help='target OZI project directory',
+    'target',
+    type=str,
+    nargs='?',
+    default='.',
+    help='target OZI project directory',
 )
 
 helpers = parser.add_mutually_exclusive_group()
