@@ -1,4 +1,14 @@
 # CHANGELOG
+## 1.6.2 (2024-05-13)
+
+### :pencil2:
+
+* :pencil2: fix version pin ([`ed5e623`](https://github.com/OZI-Project/OZI/commit/ed5e6230852b419e5a33841eda212c99c8839413))
+
+* :pencil2::pushpin: add ``packaging`` as dependency.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1978a4c`](https://github.com/OZI-Project/OZI/commit/1978a4cf21eeb0b44643f609f3a382c5e4a550ec))
+
 ## 1.6.1 (2024-05-12)
 
 ### :speech_balloon:
