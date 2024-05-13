@@ -11,13 +11,6 @@ from argparse import BooleanOptionalAction
 
 parser = ArgumentParser(description=sys.modules[__name__].__doc__, add_help=False)
 subparser = parser.add_subparsers(help='source & test fix', dest='fix')
-parser.add_argument(
-    'target',
-    type=str,
-    nargs='?',
-    default='.',
-    help='target OZI project directory',
-)
 
 helpers = parser.add_mutually_exclusive_group()
 helpers.add_argument('-h', '--help', action='help', help='show this help message and exit')
@@ -52,6 +45,13 @@ missing_parser.add_argument(
     default=False,
     action=BooleanOptionalAction,
     help='pretty mode outputs indented json, default: --no-pretty',
+)
+missing_parser.add_argument(
+    'target',
+    type=str,
+    nargs='?',
+    default='.',
+    help='target OZI project directory',
 )
 source_parser = subparser.add_parser(
     'source',
@@ -88,6 +88,13 @@ source_parser.add_argument(
     help='copyright header string',
     metavar='Part of the NAME project.\\nSee LICENSE...',
 )
+source_parser.add_argument(
+    'target',
+    type=str,
+    nargs='?',
+    default='.',
+    help='target OZI project directory',
+)
 source_output = source_parser.add_argument_group('output')
 source_output.add_argument(
     '--strict',
@@ -123,6 +130,13 @@ test_parser.add_argument(
     default='',
     help='copyright header string',
     metavar='Part of the NAME project.\\nSee LICENSE...',
+)
+test_parser.add_argument(
+    'target',
+    type=str,
+    nargs='?',
+    default='.',
+    help='target OZI project directory',
 )
 test_output = test_parser.add_argument_group('output')
 test_output.add_argument(
