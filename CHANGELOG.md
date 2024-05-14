@@ -1,4 +1,14 @@
 # CHANGELOG
+## 1.6.5 (2024-05-13)
+
+### :bug:
+
+* :bug: Fix bug introduced in ``ozi-fix`` 1.6.4.
+
+missing target positional argument.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`335558d`](https://github.com/OZI-Project/OZI/commit/335558da5eda61d230990d4429d816455372e143))
+
 ## 1.6.4 (2024-05-13)
 
 ### :bug:
