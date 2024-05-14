@@ -1,4 +1,18 @@
 # CHANGELOG
+## 1.7.0 (2024-05-14)
+
+### :sparkles:
+
+* :sparkles: markdown and plaintext readmes.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`bf5f5ac`](https://github.com/OZI-Project/OZI/commit/bf5f5ac5c4824b82be8b29b496025b28a6b3ffce))
+
+### Other
+
+* Update pyproject.toml
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`2e4d278`](https://github.com/OZI-Project/OZI/commit/2e4d2781177aead20e41ea24cd9586e30113f361))
+
 ## 1.6.5 (2024-05-13)
 
 ### :bug:
