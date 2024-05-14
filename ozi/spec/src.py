@@ -32,7 +32,7 @@ class SrcRequired(Default):
     """Required files for OZI to output with ``ozi-new``."""
 
     root: tuple[str, ...] = (
-        'README.rst',
+        'README',
         '.gitignore',
         'pyproject.toml',
         'meson.build',
@@ -77,7 +77,7 @@ class SrcTemplate(Default):
         'meson.build',
         'meson.options',
         'pyproject.toml',
-        'README.rst',
+        'README',
         'LICENSE.txt',
         'requirements.in',
         'CHANGELOG.md',

@@ -44,7 +44,7 @@ def render_pkg_info(target: Path, name: str, _license: str) -> Message:
             setuptools_scm.get('version_file_template', '@README_TEXT@')
             .replace(
                 '@README_TEXT@',
-                target.joinpath('README.rst').read_text(),
+                target.joinpath('README').read_text(),
             )
             .replace('@PROJECT_NAME@', name)
             .replace('@LICENSE@', _license)
@@ -126,7 +126,7 @@ def required_files(
             expected_files = ()
     for file in expected_files:
         f = rel_path / file
-        if not target.joinpath(f).exists():
+        if not target.joinpath(f).exists():  # pragma: no cover
             TAP.not_ok('MISSING', str(f))
             continue  # pragma: defer to https://github.com/nedbat/coveragepy/issues/198
         TAP.ok(str(f))

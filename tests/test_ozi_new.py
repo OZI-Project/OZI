@@ -112,6 +112,7 @@ from ozi.tap import TAP  # pyright: ignore
                     if k not in ['Private']
                 ],
             ),
+            'long_description_content_type': st.sampled_from(['rst', 'md', 'txt']),
         },
     ),
     license_expression=st.data(),
@@ -219,6 +220,7 @@ def test_new_project_bad_args(  # noqa: DC102, RUF100
         'status': ['1 - Planning'],
         'dist_requires': [],
         'allow_file': [],
+        'long_description_content_type': 'rst',
     }
     project_dict.update(item)
     namespace = argparse.Namespace(**project_dict)
@@ -258,6 +260,7 @@ def test_new_project_bad_target_not_empty(  # noqa: DC102, RUF100
         'status': ['1 - Planning'],
         'dist_requires': [],
         'allow_file': [],
+        'long_description_content_type': 'rst',
     }
     (project_dict['target'] / 'foobar').touch()  # type: ignore
     namespace = argparse.Namespace(**project_dict)

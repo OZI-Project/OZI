@@ -113,7 +113,7 @@ class ClassicLint(CheckpointSuite):
             'isort': 'isort',
             'mypy': 'mypy',
             'pyright': 'pyright',
-            'restructuredtext-lint': 'restructuredtext-lint',
+            'readme-renderer': 'readme-renderer',
         },
     )
     plugin: Mapping[str, str] = field(

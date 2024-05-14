@@ -78,7 +78,7 @@ class PkgRequired(Default):
     """Required files for OZI project publishing."""
 
     root: tuple[str, ...] = (
-        'README.rst',
+        'README',
         'CHANGELOG.md',
         'pyproject.toml',
         'LICENSE.txt',
