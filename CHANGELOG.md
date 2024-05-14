@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.7.1 (2024-05-14)
+
+### :pushpin:
+
+* :pushpin: Spec version set to 0.3
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d007b1e`](https://github.com/OZI-Project/OZI/commit/d007b1e55cbf68488ca97f4594f03beec2f39a04))
+
 ## 1.7.0 (2024-05-14)
 
 ### :sparkles:
