@@ -233,7 +233,7 @@ foreach name : namespace
             message('installing', command)
         endif
         if suite.enabled() and command in module_only
-            modules += [command]
+            modules += [command.underscorify()]  # we should collapse repeated `_`
         endif
         flag = disabler()
         if (

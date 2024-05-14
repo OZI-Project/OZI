@@ -214,6 +214,13 @@ defaults.add_argument(
     help='Classifier: Development Status (Single Use)(default: "1 - Planning")',
     type=str,
 )
+defaults.add_argument(
+    '--long-description-content-type',
+    '--readme-type',
+    default='rst',
+    choices=('rst', 'md', 'txt'),
+    help='Description-Content-Type',
+)
 optional.add_argument(
     '-r',
     '--dist-requires',

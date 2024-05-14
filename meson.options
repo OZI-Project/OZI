@@ -110,7 +110,7 @@ option(
         'flake8-leading-blank-lines',
         'flake8-tidy-imports',
         'flake8-pyi',
-        'restructuredtext-lint',
+        'readme-renderer',
     ],
 )
 option(
@@ -200,6 +200,7 @@ option(
         'isort',
         'pyright',
         'mypy',
+        'readme-renderer',
     ],
 )
 # test application arguments
@@ -277,9 +278,9 @@ option(
 )
 option('args-coverage', type: 'array', value: ['debug', 'config'], yield: true)
 option(
-    'args-restructuredtext-lint',
+    'args-readme-renderer',
     type: 'array',
-    value: ['--level=warning', 'README.rst'],
+    value: ['README.rst'],
     yield: true,
 )
 option(

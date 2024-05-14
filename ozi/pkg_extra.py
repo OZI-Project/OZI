@@ -23,6 +23,7 @@ sspace = Suppress(White(' ', exact=1))
 dcolon = sspace + Suppress(Literal('::')) + sspace
 classifier = Suppress(White(' ', min=2)) + Suppress(Literal('Classifier:')) + sspace
 pep639_headers = Forward()
+pep639_headers_md = Forward()
 license_expression = classifier + (
     Keyword('License-Expression')
     + dcolon
@@ -32,11 +33,32 @@ license_file = classifier + (
     Keyword('License-File') + dcolon + oneOf(['LICENSE', 'LICENSE.txt'])
 ).set_parse_action(lambda t: {str(t[0]): str(t[1])})
 pep639_headers <<= license_expression + license_file
+pep639_headers_md <<= (
+    Suppress(
+        Keyword('[comment]') + Literal('#') + Literal('('),
+    )
+    + license_expression
+    + Suppress(Literal(')'))
+    + Suppress(
+        Keyword('[comment]') + Literal('#') + Literal('('),
+    )
+    + license_file
+    + Suppress(Literal(')'))
+)
 extra_classifiers_comment = (
     Suppress(
         Keyword('..') + CaselessKeyword('ozi'),
     )
     + pep639_headers
+    | Suppress(
+        Keyword('[comment]')
+        + Keyword('#')
+        + Literal('(')
+        + Keyword('..')
+        + CaselessKeyword('ozi')
+        + Literal(')'),
+    )
+    + pep639_headers_md
 )
 
 
