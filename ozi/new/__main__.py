@@ -6,8 +6,6 @@
 from __future__ import annotations
 
 import re
-import shlex
-import sys
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -128,7 +126,6 @@ def wrap(project: Namespace) -> None:  # pragma: no cover
 def main() -> None:  # pragma: no cover
     """Main ozi.new entrypoint."""
     ozi_new = parser.parse_args()
-    ozi_new.argv = shlex.join(sys.argv[1:])
     match ozi_new:
         case ozi_new if ozi_new.new in ['p', 'project']:
             project(ozi_new)
