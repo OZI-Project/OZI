@@ -1,4 +1,32 @@
 # CHANGELOG
+## 1.7.2 (2024-05-16)
+
+### :arrow_up:
+
+* :arrow_up: Bump github/codeql-action from 3.25.4 to 3.25.5
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.4 to 3.25.5.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/ccf74c947955fd1cf117aef6a0e4e66191ef6f61...b7cec7526559c32f1616476ff32d17ba4c59b2d6)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`601250f`](https://github.com/OZI-Project/OZI/commit/601250f26f2ad97f20e9fb8ad8c718dfca60e1c3))
+
+### :bug:
+
+* :bug: fix imports. ([`bf0ac1f`](https://github.com/OZI-Project/OZI/commit/bf0ac1f6c577eb1976d1de4927c2d89e2dcd3170))
+
+* :bug: remove offset argv in ``ozi-new``
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`a27b2a5`](https://github.com/OZI-Project/OZI/commit/a27b2a5db40454fc8d212f9aa1f8070f62914bc0))
+
 ## 1.7.1 (2024-05-14)
 
 ### :pushpin:
