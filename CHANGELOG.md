@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.7.3 (2024-05-16)
+
+### :bug:
+
+* :bug: Fix entrypoint arg conflict.
+
+``ozi --license-expression`` is now ``ozi --check-license-expr`` ([`e13d0ed`](https://github.com/OZI-Project/OZI/commit/e13d0eddb98513b6646e20c8cb10f2ed2bfec6b2))
+
 ## 1.7.2 (2024-05-16)
 
 ### :arrow_up:
