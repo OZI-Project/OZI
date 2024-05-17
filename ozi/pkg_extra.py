@@ -3,6 +3,8 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Extra packaging metadata used by OZI."""
+from __future__ import annotations
+
 from email.message import Message
 from typing import Any
 

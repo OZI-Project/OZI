@@ -158,6 +158,7 @@ replace_ruff_target_version = run_command(
 ).stdout()
 run_command(python, ['-c', replace_ruff_target_version], check: true)
 pip = find_program('pip', required: true, disabler: true)
+pipx = find_program('pipx', required: true, disabler: true)
 pip_compile = find_program('pip-compile', required: true)
 if not meson.is_subproject()
     custom_target(
@@ -240,20 +241,36 @@ foreach name : namespace
             (get_option('dev').enabled() or suite.enabled())
             and command not in plugin_only
         )
-            run_command(
-                pip,
-                [
-                    'install',
-                    '-r',
-                    meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
-                ],
-                check: true
-            )
+            if command not in module_only and get_option('tox-env-dir') != ''
+                run_command(
+                    pipx,
+                    [
+                        'runpip',
+                        'meson',
+                        '--python', python,
+                        'install',
+                        '-r',
+                        meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
+                    ],
+                    check: true
+                )
+            else
+                run_command(
+                    pip,
+                    [
+                        'install',
+                        '-r',
+                        meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
+                    ],
+                    check: true
+                )
+            endif
             if not flag.found() and command not in module_only
                 flag = find_program(
                     command,
                     required: false,
                     disabler: true,
+                    dirs: [get_option('tox-env-dir') / 'bin']
                 )
             elif command in module_only
                 command = command.replace('-', '_')

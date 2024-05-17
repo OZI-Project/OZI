@@ -3,16 +3,19 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Find missing OZI project files."""
+from __future__ import annotations
+
 import re
 import sys
 from email import message_from_string
-from email.message import Message  # noqa: TC003, RUF100
 from pathlib import Path
 
 if sys.version_info >= (3, 11):  # pragma: no cover
     import tomllib as toml
 elif sys.version_info < (3, 11):  # pragma: no cover
     import tomli as toml
+
+from typing import TYPE_CHECKING
 
 from blastpipe.ozi_templates.filter import underscorify  # pyright: ignore
 
@@ -22,6 +25,9 @@ from ozi.meson import project_metadata
 from ozi.pkg_extra import parse_extra_pkg_info
 from ozi.spec import METADATA
 from ozi.tap import TAP
+
+if TYPE_CHECKING:
+    from email.message import Message
 
 
 def render_requirements(target: Path) -> str:

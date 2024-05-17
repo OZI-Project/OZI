@@ -3,6 +3,8 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Build definition check utilities."""
+from __future__ import annotations
+
 import os
 from pathlib import Path
 from typing import Generator

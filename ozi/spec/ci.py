@@ -3,6 +3,7 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Continuous integration specification."""
+from __future__ import annotations
 
 from collections.abc import Mapping  # noqa: TCH003,TC003,RUF100
 from dataclasses import dataclass
