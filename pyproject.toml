@@ -8,7 +8,7 @@ requires      = [
     "OZI.build>=0.0.18",
     "pip-tools>=7",
     "pipx~=1.5",
-    "setuptools_scm>=8.0",
+    "setuptools_scm[toml]~=8.0",
 ]
 
 [tool.ozi-build.entry-points]
