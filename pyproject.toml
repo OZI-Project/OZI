@@ -308,6 +308,11 @@ match = "release/1.7"
 prerelease_token = "alpha"
 prerelease = false
 
+[tool.semantic_release.branches."release/1.7"]
+match = "release/1.8"
+prerelease_token = "alpha"
+prerelease = false
+
 [tool.semantic_release.commit_parser_options]
 major_tags = [":boom:"]
 minor_tags = [
