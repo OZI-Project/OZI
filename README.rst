@@ -34,15 +34,16 @@ Python packaging style guide and continuous integration checkpointing API using 
 
 The OZI continuous integration strategy consists of:
 
-1. The following checkpointed environments:
+1. The following isolated checkpoint environments:
 
 * code testing and coverage
 * distributing Python packages with Meson_
 * code linting and formatting
 
 2. Release drafting
-3. Provenance generation (`SLSA v1.0 - Level 3 <https://slsa.dev/spec/v1.0/levels#build-l3>`_)
-4. Publishing
+3. Building of releases
+4. Provenance generation (`SLSA v1.0 - Level 3 <https://slsa.dev/spec/v1.0/levels#build-l3>`_)
+5. Publishing
 
 What OZI is **not**
 ###################
