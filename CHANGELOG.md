@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.8.1 (2024-05-18)
+
+### :arrow_up:
+
+* :arrow_up::pushpin: blastpipe~=2024.8
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`d356293`](https://github.com/OZI-Project/OZI/commit/d3562932378ce2c11ef72e9e01e414dfab0f6db3))
+
 ## 1.8.0 (2024-05-18)
 
 ### :arrow_up:
