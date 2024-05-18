@@ -1,4 +1,97 @@
 # CHANGELOG
+## 1.7.4 (2024-05-18)
+
+### :arrow_up:
+
+* :arrow_up: Bump OZI-Project/draft from 0.1.1 to 0.1.2
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.1.1 to 0.1.2.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/7fb25933b941dc9531abb0809d0be0c79404b351...574ec018b98bb323c079a826b54247c78cc4abac)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`b285fdc`](https://github.com/OZI-Project/OZI/commit/b285fdc6eb8628e49e498da3ee2b6a110ef32b88))
+
+* :arrow_up: Bump actions/checkout from 4.1.5 to 4.1.6
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.5 to 4.1.6.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/44c2b7a8a4ea60a981eaca3cf939b5f4305c123b...a5ac7e51b41094c92402da3b24376905380afc29)
+
+---
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f6daa93`](https://github.com/OZI-Project/OZI/commit/f6daa9357359255cbc1b53076448bb95c6dc2048))
+
+## 1.7.3 (2024-05-16)
+
+### :bug:
+
+* :bug: Fix entrypoint arg conflict.
+
+``ozi --license-expression`` is now ``ozi --check-license-expr`` ([`e13d0ed`](https://github.com/OZI-Project/OZI/commit/e13d0eddb98513b6646e20c8cb10f2ed2bfec6b2))
+
+## 1.7.2 (2024-05-16)
+
+### :arrow_up:
+
+* :arrow_up: Bump github/codeql-action from 3.25.4 to 3.25.5
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.4 to 3.25.5.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/ccf74c947955fd1cf117aef6a0e4e66191ef6f61...b7cec7526559c32f1616476ff32d17ba4c59b2d6)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`601250f`](https://github.com/OZI-Project/OZI/commit/601250f26f2ad97f20e9fb8ad8c718dfca60e1c3))
+
+### :bug:
+
+* :bug: fix imports. ([`bf0ac1f`](https://github.com/OZI-Project/OZI/commit/bf0ac1f6c577eb1976d1de4927c2d89e2dcd3170))
+
+* :bug: remove offset argv in ``ozi-new``
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`a27b2a5`](https://github.com/OZI-Project/OZI/commit/a27b2a5db40454fc8d212f9aa1f8070f62914bc0))
+
+## 1.7.1 (2024-05-14)
+
+### :pushpin:
+
+* :pushpin: Spec version set to 0.3
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d007b1e`](https://github.com/OZI-Project/OZI/commit/d007b1e55cbf68488ca97f4594f03beec2f39a04))
+
+## 1.7.0 (2024-05-14)
+
+### :sparkles:
+
+* :sparkles: markdown and plaintext readmes.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`bf5f5ac`](https://github.com/OZI-Project/OZI/commit/bf5f5ac5c4824b82be8b29b496025b28a6b3ffce))
+
+### Other
+
+* Update pyproject.toml
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`2e4d278`](https://github.com/OZI-Project/OZI/commit/2e4d2781177aead20e41ea24cd9586e30113f361))
+
 ## 1.6.5 (2024-05-13)
 
 ### :bug:
