@@ -409,21 +409,21 @@ commands =
 [testenv:dist]
 description = OZI distribution checkpoint
 commands_pre =
-    pipx install meson --force
+    pipx reinstall --python=python meson
     meson setup {env_tmp_dir} -Ddist=enabled -Dtox-env-dir={env_dir}
 commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=dist
 
 [testenv:lint]
 description = OZI format/lint checkpoint
 commands_pre =
-    pipx install meson --force
+    pipx reinstall --python=python meson
     meson setup {env_tmp_dir} -Dlint=enabled -Dtox-env-dir={env_dir}
 commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=lint
 
 [testenv:test]
 description = OZI unit tests checkpoint
 commands_pre =
-    pipx install meson --force
+    pipx reinstall --python=python meson
     meson setup {env_tmp_dir} -Dtest=enabled -Dozi-blastpipe=enabled -Dtox-env-dir={env_dir}
 commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=test
 
