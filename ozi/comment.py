@@ -3,18 +3,23 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Linter comment check utilities."""
+from __future__ import annotations
+
 import re
 from collections import Counter
 from enum import IntFlag
 from functools import lru_cache
 from math import log
 from math import log10
-from pathlib import Path  # noqa: TC003, RUF100
+from typing import TYPE_CHECKING
 from typing import Generator
 from typing import Sequence
 
 from ozi.spec import METADATA
 from ozi.tap import TAP
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 TIER3_COMMENTS = [
     'nosec',

@@ -3,6 +3,7 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """Continuous integration specification."""
+from __future__ import annotations
 
 from collections.abc import Mapping  # noqa: TCH003,TC003,RUF100
 from dataclasses import dataclass
@@ -16,21 +17,21 @@ class Publish(Default):
     """Publishing patterns for packaged project."""
 
     include: tuple[str, ...] = ('*.tar.gz', '*.whl', 'sig/*')
-    version: str = '0.1.1'
+    version: str = '0.1.2'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
 class Draft(Default):
     """Draft release patterns for packaged project."""
 
-    version: str = '0.1.1'
+    version: str = '0.1.2'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
 class Release(Default):
     """Release patterns for packaged project."""
 
-    version: str = '0.4.0'
+    version: str = '0.4.1'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -38,7 +39,7 @@ class Checkpoint(Default):
     """Checkpoint suites to run."""
 
     suites: tuple[str, ...] = ('dist', 'lint', 'test')
-    version: str = '0.1.6'
+    version: str = '0.1.7'
 
 
 @dataclass(kw_only=True, frozen=True, eq=True)
@@ -113,7 +114,7 @@ class ClassicLint(CheckpointSuite):
             'isort': 'isort',
             'mypy': 'mypy',
             'pyright': 'pyright',
-            'readme-renderer': 'readme-renderer',
+            'readme-renderer': 'readme-renderer[md]',
         },
     )
     plugin: Mapping[str, str] = field(
@@ -181,12 +182,10 @@ class Build(Default):
     backend: str = 'ozi_build.buildapi'
     requires: Mapping[str, str] = field(
         default_factory=lambda: {
-            'OZI.build': 'OZI.build>=0.0.15',
-            'meson': 'meson[ninja]>=1.1.0',
+            'OZI.build': 'OZI.build>=0.0.18',
             'pip-tools': 'pip-tools>=7',
-            'setuptools': 'setuptools>=64',
-            'setuptools_scm': 'setuptools_scm>=8.0',
-            'tomli': 'tomli>=2.0.0;python_version<"3.11"',
+            'pipx': 'pipx~=1.5',
+            'setuptools_scm': 'setuptools_scm[toml]~=8.0',
         },
     )
 

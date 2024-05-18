@@ -6,11 +6,9 @@
 build-backend = "ozi_build.buildapi"
 requires      = [
     "OZI.build>=0.0.18",
-    "meson[ninja]>=1.1.0",
     "pip-tools>=7",
-    "setuptools>=64",
-    "setuptools_scm>=8.0",
-    'tomli>=2.0.0;python_version<"3.11"',
+    "pipx~=1.5",
+    "setuptools_scm[toml]~=8.0",
 ]
 
 [tool.ozi-build.entry-points]
@@ -21,20 +19,7 @@ console_scripts = [
 ]
 
 [tool.ozi-build.metadata]
-summary = 'Packager for Python projects using Meson.'
 pkg-info-file = 'PKG-INFO'
-
-[tool.cibuildwheel]
-build-frontend = "build"
-before-build = [
-     "pip install --upgrade pip",
-     "pip install --upgrade build",
-     "pip install --upgrade sigstore",
-     "pip install --upgrade meson[ninja]>=1.1.0",
-     "pip install --upgrade OZI.build",
-     "pip install --upgrade setuptools_scm",
-     "pip install --upgrade pip-tools",
-]
 
 [tool.setuptools_scm]
 version_file_template = """
@@ -83,8 +68,6 @@ dependencies = { file = ["requirements.in"] }
 [project]
 dynamic = ["dependencies", "version"]
 license = {file = "LICENSE.txt"}
-readme = "README.rst"
-requires-python = ">=3.10, <3.13"
 
 [project.optional_dependencies] # also meson test suite names
 # continuous integration
@@ -325,6 +308,11 @@ match = "release/1.7"
 prerelease_token = "alpha"
 prerelease = false
 
+[tool.semantic_release.branches."release/1.8"]
+match = "release/1.8"
+prerelease_token = "alpha"
+prerelease = false
+
 [tool.semantic_release.commit_parser_options]
 major_tags = [":boom:"]
 minor_tags = [
@@ -404,47 +392,49 @@ python =
      3.10 = dist,lint,test
 
 [testenv]
-allowlist_externals = rm
+allowlist_externals = 
+    rm
+    pipx
+    meson
+    python
 package = wheel
 deps =
-     meson >= 1.1.0
-     ninja >= 1.8.2
-     pip-tools
-     setuptools_scm[toml]
-     tomli >= 2.0.0
      -r requirements.in
+     virtualenv
 commands =
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
 
 [testenv:dist]
 description = OZI distribution checkpoint
-commands_pre = meson setup {env_tmp_dir} -Ddist=enabled
+commands_pre =
+    pipx install --python=python meson
+    meson setup {env_tmp_dir} -Ddist=enabled -Dtox-env-dir={env_dir}
 commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=dist
 
 [testenv:lint]
 description = OZI format/lint checkpoint
-commands_pre = meson setup {env_tmp_dir} -Dlint=enabled
+commands_pre =
+    pipx install --python=python meson
+    meson setup {env_tmp_dir} -Dlint=enabled -Dtox-env-dir={env_dir}
 commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=lint
 
 [testenv:test]
 description = OZI unit tests checkpoint
-commands_pre = meson setup {env_tmp_dir} -Dtest=enabled -Dozi-blastpipe=enabled
+commands_pre =
+    pipx install --python=python meson
+    meson setup {env_tmp_dir} -Dtest=enabled -Dozi-blastpipe=enabled -Dtox-env-dir={env_dir}
 commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=test
 
 [testenv:fix]
 description = OZI project fix issues utility (black, isort, autoflake, ruff)
-deps = 
-     black>=24.3
-     isort
-     autoflake
-     ruff
+deps = pipx
 skip_install = true
 commands =
-     {env_python} -m black -S .
-     {env_python} -m isort .
-     {env_python} -m autoflake -i -r .
-     {env_python} -m ruff check ozi --fix
+     pipx run --python {env_python} black -S .
+     pipx run --python {env_python} isort .
+     pipx run --python {env_python} autoflake -i -r .
+     pipx run --python {env_python} ruff check ozi --fix
 
 [testenv:scm]
 description = OZI supply chain management (setuptools_scm)

@@ -181,25 +181,20 @@ option(
         'flake8-comprehensions',
     ],
 )
-
+option(
+    'tox-env-dir',
+    type: 'string',
+    value: ''
+)
 option(
     'module-only',
     type: 'array',
     description: 'no application - python module entry point only',
     value: [
         'semantic_release',
-        'sigstore',
         'sphinxawesome-codelinter',
         'sphinxawesome-theme',
-        'Flake8-pyproject',
         'pytest',
-        'coverage',
-        'flake8',
-        'bandit',
-        'black',
-        'isort',
-        'pyright',
-        'mypy',
         'readme-renderer',
     ],
 )
