@@ -308,7 +308,7 @@ match = "release/1.7"
 prerelease_token = "alpha"
 prerelease = false
 
-[tool.semantic_release.branches."release/1.7"]
+[tool.semantic_release.branches."release/1.8"]
 match = "release/1.8"
 prerelease_token = "alpha"
 prerelease = false
