@@ -1,4 +1,52 @@
 # CHANGELOG
+## 1.8.0 (2024-05-18)
+
+### :arrow_up:
+
+* :arrow_up: OZI-Project/checkpoint 0.2.0
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`1cc5620`](https://github.com/OZI-Project/OZI/commit/1cc5620f3bea66a56247a7ad61f9f854926b0286))
+
+### :pushpin:
+
+* :pushpin: Update ozi/spec/ci.py - checkpoint 0.2.0
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`48b4cf6`](https://github.com/OZI-Project/OZI/commit/48b4cf699fd69af3ae5d152beeb80a43184352a2))
+
+### :sparkles:
+
+* :sparkles: Update README.rst for 1.8
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`31f26dd`](https://github.com/OZI-Project/OZI/commit/31f26dd17f6ed28adf0250e9f4725a93696742d4))
+
+### Other
+
+* Feature/1.8 pipx integration (#540)
+
+* :sparkles: Enable pipx isolation of apps.
+* :hammer: Update spec files.
+* :arrow_up: OZI Spec v0.4
+* :wrench: add 1.8 release branch pattern.
+
+The following are no longer in ``meson.options:module-only``:
+* sigstore
+* Flake8-pyproject
+* coverage
+* flake8
+* bandit
+* black
+* isort
+* pyright
+* mypy
+
+---------
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`50d4509`](https://github.com/OZI-Project/OZI/commit/50d450935d3333a58c98c8dbf19d594620adce36))
+
+* Update dist-workflow.yml checkpoint 0.2.0
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`a155b06`](https://github.com/OZI-Project/OZI/commit/a155b0627a82cf6d9868b13b74f7697568cbbfd5))
+
 ## 1.7.4 (2024-05-18)
 
 ### :arrow_up:
