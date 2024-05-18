@@ -396,6 +396,7 @@ allowlist_externals = rm
 package = wheel
 deps =
      -r requirements.in
+     virtualenv
 commands =
      pipx run --python {env_python} -q meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
