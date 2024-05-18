@@ -396,6 +396,8 @@ allowlist_externals =
     rm
     pipx
     meson
+    python
+    pip
 package = wheel
 deps =
      -r requirements.in
