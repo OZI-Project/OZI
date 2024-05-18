@@ -392,7 +392,9 @@ python =
      3.10 = dist,lint,test
 
 [testenv]
-allowlist_externals = rm
+allowlist_externals = 
+    rm
+    pipx
 package = wheel
 deps =
      -r requirements.in
