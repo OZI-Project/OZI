@@ -5,12 +5,14 @@
 """Specification API for OZI Metadata."""
 from ozi.spec._spec import OZI
 from ozi.spec._spec import Metadata
+from ozi.spec._spec import Spec
 from ozi.spec._spec import current_version
 
 __all__ = (
     'METADATA',
     'Metadata',
     'OZI',
+    'Spec',
     'current_version',
 )
 
