@@ -5,6 +5,7 @@
 """Base dataclasses for OZI Metadata."""
 from __future__ import annotations
 
+import reprlib
 from typing import TYPE_CHECKING
 from typing import ClassVar
 from typing import Protocol
@@ -70,6 +71,9 @@ class Default(_FactoryDataclass):
         return dict(all_fields) | {
             'help': str(self.__class__.__doc__).replace('\n   ', ''),
         }
+
+    def __repr__(self: Self) -> str:
+        return reprlib.repr(self)
 
     def __len__(self: Self) -> int:  # pragma: defer to python
         return len(list(iter(asdict(self))))
