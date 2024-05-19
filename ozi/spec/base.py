@@ -42,7 +42,7 @@ class _FactoryDataclass(Protocol):
     def __call__(self: Self) -> _FactoryMethod: ...
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, repr=False)
 class Default(_FactoryDataclass):
     """A dataclass that, when called, returns it's own default factory method."""
 
