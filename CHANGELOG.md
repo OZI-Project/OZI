@@ -7,6 +7,12 @@
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`d356293`](https://github.com/OZI-Project/OZI/commit/d3562932378ce2c11ef72e9e01e414dfab0f6db3))
 
+### Other
+
+* Update README.rst
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`a1fd7f8`](https://github.com/OZI-Project/OZI/commit/a1fd7f828180302789e242564c5b34bc7df7244b))
+
 ## 1.8.0 (2024-05-18)
 
 ### :arrow_up:
