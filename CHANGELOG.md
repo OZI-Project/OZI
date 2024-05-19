@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.8.3 (2024-05-19)
+
+### :bug:
+
+* :bug: fix unimplemented repr in ``ozi.spec.base.Default``
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`e7791d0`](https://github.com/OZI-Project/OZI/commit/e7791d017cf770d47fe847bc8d949d634e81ce95))
+
 ## 1.8.2 (2024-05-19)
 
 ### :children_crossing:
