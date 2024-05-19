@@ -1,4 +1,10 @@
 # CHANGELOG
+## 1.8.2 (2024-05-19)
+
+### :children_crossing:
+
+* :children_crossing: truncated ``ozi.spec`` repr. ([`a5a3bd6`](https://github.com/OZI-Project/OZI/commit/a5a3bd605c33aad9c0431ff1ac983f8e32357634))
+
 ## 1.8.1 (2024-05-18)
 
 ### :arrow_up:
