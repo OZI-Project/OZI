@@ -18,7 +18,7 @@ from ozi.spec.python import Support
 from ozi.spec.src import Src
 
 
-@dataclass(slots=True, frozen=True, eq=True)
+@dataclass(slots=True, frozen=True, eq=True, repr=False)
 class PythonProject(Default):
     """Base class for Python Project specification metadata."""
 
@@ -32,12 +32,12 @@ class PythonProject(Default):
     src: Src = Src()
 
 
-@dataclass(slots=True, frozen=True, eq=True)
+@dataclass(slots=True, frozen=True, eq=True, repr=False)
 class ClassicProject(PythonProject):
     """OZI project using classic Python checkpoint toolchains."""
 
 
-@dataclass(slots=True, frozen=True, eq=True)
+@dataclass(slots=True, frozen=True, eq=True, repr=False)
 class RuffProject(PythonProject):
     """Alternative to classic project using ruff for linting and formatting."""
 
