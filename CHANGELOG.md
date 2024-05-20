@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.8.4 (2024-05-20)
+
+### :bug:
+
+* :bug: Shorten reprs of pkg and project spec.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`0dc3f21`](https://github.com/OZI-Project/OZI/commit/0dc3f21e2a61d02ca7af9ffdbf60644dfa4ac511))
+
 ## 1.8.3 (2024-05-19)
 
 ### :bug:
