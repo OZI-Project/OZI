@@ -31,7 +31,7 @@ class Draft(Default):
 class Release(Default):
     """Release patterns for packaged project."""
 
-    version: str = '0.5.9'
+    version: str = '0.5.10'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
