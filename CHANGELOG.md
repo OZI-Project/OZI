@@ -25,6 +25,14 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`a4cf2cf`](
 
 ### Other
 
+* retry release
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b7c73b5`](https://github.com/OZI-Project/OZI/commit/b7c73b541123c82bc2f5dd95d4d6f94385433232))
+
+* Update dist-workflow.yml allow objects.githubusercontent.com:443
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`20e6a5b`](https://github.com/OZI-Project/OZI/commit/20e6a5bababb0806fcd51fc5b8adbf4a5caa6ce1))
+
 * Update dist-workflow.yml - allow API endpoint
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`a488a66`](https://github.com/OZI-Project/OZI/commit/a488a66a359e0e73da4a5a614032253dadf983f7))
