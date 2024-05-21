@@ -3,6 +3,10 @@
 
 ### :pushpin:
 
+* :pushpin: Update ci.py - Release 0.5.10 
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`d827e33`](https://github.com/OZI-Project/OZI/commit/d827e33cd45396c97efd62585ca7e3239239b05f))
+
 * :pushpin: blastpipe~=2024.9
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`00051ee`](https://github.com/OZI-Project/OZI/commit/00051ee3461002fc0432fe91529069316212dc32))
@@ -24,6 +28,10 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`ff90526`](https://githu
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`a4cf2cf`](https://github.com/OZI-Project/OZI/commit/a4cf2cfcbfff42e1e57c112d2a51a3578a0080cb))
 
 ### Other
+
+* Update dist-workflow.yml - release 0.5.10
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`828b086`](https://github.com/OZI-Project/OZI/commit/828b086498838db0686a532a37d1b5232f56f8b5))
 
 * retry release
 
