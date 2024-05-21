@@ -30,6 +30,7 @@ jobs:
           allowed-endpoints: >
             files.pythonhosted.org:443
             github.com:443
+            api.github.com:443
             oziproject.dev:443
             pypi.org:443
             registry.npmjs.org:443
@@ -58,6 +59,7 @@ jobs:
           allowed-endpoints: >
             files.pythonhosted.org:443
             github.com:443
+            api.github.com:443
             oziproject.dev:443
             pypi.org:443
             registry.npmjs.org:443
@@ -86,6 +88,7 @@ jobs:
           allowed-endpoints: >
             files.pythonhosted.org:443
             github.com:443
+            api.github.com:443
             oziproject.dev:443
             pypi.org:443
             registry.npmjs.org:443
@@ -142,9 +145,10 @@ jobs:
     strategy:
       matrix:
         py:
-          - 'py310'
-          - 'py311'
-          - 'py312'
+          - 'security'
+          - 'bugfix2'
+          - 'bugfix1'
+          - 'prerelease'
       fail-fast: true
       max-parallel: 1
     outputs:
