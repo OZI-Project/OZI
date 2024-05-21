@@ -167,7 +167,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/release@033e98adfa7086d1b1273bcc80b0576297e733bd
+      - uses: OZI-Project/release@55a13af9e74df2e501d8e2ad6ee23cd425e59cd8
         id: release
         with:
           tag: ${{ needs.draft.outputs.tag }}
