@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.9.2 (2024-05-22)
+
+### :hammer:
+
+* :hammer::memo: update docstrings and CLI helps.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`adb9487`](https://github.com/OZI-Project/OZI/commit/adb948737e942d6c954e4896f2e0e9bef7192908))
+
 ## 1.9.1 (2024-05-22)
 
 ### :pushpin:
