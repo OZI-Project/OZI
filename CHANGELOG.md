@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.9.3 (2024-05-22)
+
+### :bug:
+
+* :bug: revert change to list-available arg.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`49afaaf`](https://github.com/OZI-Project/OZI/commit/49afaaf1ba03fdb878ef4a33a9880071176b2169))
+
 ## 1.9.2 (2024-05-22)
 
 ### :hammer:
