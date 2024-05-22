@@ -1,4 +1,25 @@
 # CHANGELOG
+## 1.9.1 (2024-05-22)
+
+### :pushpin:
+
+* :pushpin: blastpipe~=2024.9.1
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`327ca80`](https://github.com/OZI-Project/OZI/commit/327ca800aa85921aa5bb8b32a09179846183e224))
+
+### Other
+
+* 
+
+---
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`62af563`](https://github.com/OZI-Project/OZI/commit/62af563627568d412ef4a1ef01899b1da0487b89))
+
 ## 1.9.0 (2024-05-21)
 
 ### :pushpin:
