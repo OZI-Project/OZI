@@ -3,10 +3,6 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """``ozi-new`` argparse argument parser.
-
-    .. versionchanged:: 1.5
-       Added `--[no-]enable-cython` argument. Default: `--no-enable-cython`
-
 """
 from __future__ import annotations
 

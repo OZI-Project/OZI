@@ -77,7 +77,9 @@ helpers.add_argument(  # pragma: no cover
 helpers.add_argument(  # pragma: no cover
     '-e',
     '--check-license-expr',
-    action='store',
+    action='store_const',
+    default=lambda: None,
+    const=license_expression,
 )
 helpers.add_argument(  # pragma: no cover
     '-i',
@@ -91,7 +93,9 @@ helpers.add_argument(  # pragma: no cover
     '-l',
     '--list-available',
     help=list_available.__doc__,
-    action='store',
+    default=lambda: None,
+    const=list_available,
+    action='store_const',
     choices={i.name.replace('_', '-') for i in fields(ExactMatch) if i.repr},
 )
 
@@ -102,10 +106,8 @@ def main() -> None:  # pragma: no cover
     ozi.version()
     ozi.check_version()
     ozi.info()
-    if ozi.list_available:
-        list_available(ozi.list_available)
-    elif ozi.check_license_expr:
-        license_expression(ozi.check_license_expr)
+    ozi.list_available()
+    ozi.check_license_expr()
     ozi.fix()
     ozi.new()
     parser.print_help()
