@@ -1,4 +1,54 @@
 # CHANGELOG
+## 1.8.5 (2024-05-21)
+
+### :arrow_up:
+
+* :arrow_up: Bump OZI-Project/publish from 0.1.1 to 0.1.2
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.1 to 0.1.2.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/87aae4bed7ea3ab8b864689945200ecd71ecc29f...e0a606616e2ff69a1b564f151f1061601683668f)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`a7903eb`](https://github.com/OZI-Project/OZI/commit/a7903eb30aec3bc1afd7a90b3f641bc59a30945c))
+
+* :arrow_up: Bump OZI-Project/release from 0.4.0 to 0.4.1
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.4.0 to 0.4.1.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/8b5e46e9d8899289f676ca2b432a63fe2faa93f9...033e98adfa7086d1b1273bcc80b0576297e733bd)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`04a849d`](https://github.com/OZI-Project/OZI/commit/04a849d5ffc200d5f5f609dcee64fcde0f516a9d))
+
+## 1.8.4 (2024-05-20)
+
+### :bug:
+
+* :bug: Shorten reprs of pkg and project spec.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`0dc3f21`](https://github.com/OZI-Project/OZI/commit/0dc3f21e2a61d02ca7af9ffdbf60644dfa4ac511))
+
+## 1.8.3 (2024-05-19)
+
+### :bug:
+
+* :bug: fix unimplemented repr in ``ozi.spec.base.Default``
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`e7791d0`](https://github.com/OZI-Project/OZI/commit/e7791d017cf770d47fe847bc8d949d634e81ce95))
+
 ## 1.8.2 (2024-05-19)
 
 ### :children_crossing:
