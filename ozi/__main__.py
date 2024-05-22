@@ -93,9 +93,8 @@ helpers.add_argument(  # pragma: no cover
     '-l',
     '--list-available',
     help=list_available.__doc__,
-    default=lambda: None,
-    const=list_available,
-    action='store_const',
+    default=None,
+    action='store',
     choices={i.name.replace('_', '-') for i in fields(ExactMatch) if i.repr},
 )
 
@@ -106,7 +105,8 @@ def main() -> None:  # pragma: no cover
     ozi.version()
     ozi.check_version()
     ozi.info()
-    ozi.list_available()
+    if ozi.list_available:
+        list_available(ozi.list_available)
     ozi.check_license_expr()
     ozi.fix()
     ozi.new()
