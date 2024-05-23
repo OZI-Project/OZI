@@ -19,7 +19,7 @@ from ozi.actions import print_version  # pragma: no cover
 from ozi.fix.__main__ import main as fix_main  # pragma: no cover
 from ozi.new.__main__ import main as new_main  # pragma: no cover
 
-EPILOG = """  # pragma: no cover
+EPILOG = """
 METADATA_FIELD choices:
   | audience
   | environment
@@ -44,7 +44,7 @@ continuous integration checkpoints:
   | tox -e lint        run formatting, linting, and typechecking.
   | tox -e test        run testing and coverage.
   | tox -e dist        run distribution and packaging.
-"""
+"""  # pragma: no cover
 
 parser = argparse.ArgumentParser(
     prog='ozi',
