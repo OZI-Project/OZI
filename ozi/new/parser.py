@@ -16,7 +16,7 @@ parser = argparse.ArgumentParser(
     prog='ozi-new',
     description=sys.modules[__name__].__doc__,
     add_help=False,
-    usage='%(prog)s [options] [PKG-INFO required] [PKG-INFO optional] [PKG-INFO defaults] [defaults] target',  # noqa: B950,E501,RUF100
+    usage='%(prog)s [options] | [positional args]',  # noqa: B950,E501,RUF100
 )
 subparser = parser.add_subparsers(help='create new projects, sources, & tests', dest='new')
 project_parser = subparser.add_parser(
@@ -24,6 +24,8 @@ project_parser = subparser.add_parser(
     aliases=['p'],
     description='Create a new Python project with OZI.',
     add_help=False,
+    prog='ozi-new project',
+    usage='%(prog)s [options] [PKG-INFO required] [PKG-INFO optional] [PKG-INFO defaults] [defaults] target',  # noqa: B950,E501,RUF100
 )
 wrap_parser = subparser.add_parser(
     'wrap',
