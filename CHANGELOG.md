@@ -1,4 +1,10 @@
 # CHANGELOG
+## 1.9.10 (2024-05-23)
+
+### :bug:
+
+* :bug: fix bad default value for ``--check-license-expr`` ([`d5a7609`](https://github.com/OZI-Project/OZI/commit/d5a7609c080a28881de6d33944b158df793a17bd))
+
 ## 1.9.9 (2024-05-23)
 
 ### :bug:
