@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.9.5 (2024-05-23)
+
+### :bug:
+
+* :bug: clean up CLI help and options printout.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`ede0289`](https://github.com/OZI-Project/OZI/commit/ede0289fd95dd70bb349a985d35a5e4bbaf4d4cb))
+
 ## 1.9.4 (2024-05-23)
 
 ### :hammer:
