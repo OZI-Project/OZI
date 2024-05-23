@@ -2,7 +2,7 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
-"""``ozi-fix`` argparse argument parser."""
+"""``ozi-fix`` console application."""
 import argparse
 import sys
 from argparse import SUPPRESS
@@ -15,14 +15,14 @@ parser = ArgumentParser(
     add_help=False,
     usage='%(prog)s [options] | [positional arguments]',
 )
-subparser = parser.add_subparsers(help='source & test fix', dest='fix')
+subparser = parser.add_subparsers(help='', metavar='', dest='fix')
 
 helpers = parser.add_mutually_exclusive_group()
 helpers.add_argument('-h', '--help', action='help', help='show this help message and exit')
 missing_parser = subparser.add_parser(
     'missing',
     prog='ozi-fix missing',
-    aliases=['m'],
+    aliases=['m', 'mis'],
     usage='%(prog)s [options] [output] target',
     allow_abbrev=True,
     help='Check for missing files in an OZI project.',
@@ -43,17 +43,18 @@ missing_parser.add_argument(
     default=['ozi.phony'],
     help=SUPPRESS,
 )
-missing_parser.add_argument(
+missing_output = missing_parser.add_argument_group('output')
+missing_output.add_argument(
     '--strict',
     default=False,
     action=BooleanOptionalAction,
-    help='strict mode raises warnings to errors default: --no-strict',
+    help='strict mode raises warnings to errors default: ``--no-strict``',
 )
-missing_parser.add_argument(
+missing_output.add_argument(
     '--pretty',
     default=False,
     action=BooleanOptionalAction,
-    help='pretty mode outputs indented json, default: --no-pretty',
+    help='pretty mode outputs indented json, default: ``--no-pretty``',
 )
 missing_parser.add_argument(
     'target',
@@ -64,7 +65,7 @@ missing_parser.add_argument(
 )
 source_parser = subparser.add_parser(
     'source',
-    aliases=['s'],
+    aliases=['s', 'src'],
     prog='ozi-fix source',
     usage='%(prog)s [options] [output] target',
     allow_abbrev=True,
@@ -74,7 +75,7 @@ test_parser = subparser.add_parser(
     'test',
     prog='ozi-fix test',
     usage='%(prog)s [options] [output] target',
-    aliases=['t'],
+    aliases=['t', 'tests'],
     allow_abbrev=True,
     help='Create a new Python test in an OZI project.',
 )
