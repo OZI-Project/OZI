@@ -96,7 +96,6 @@ helpers.add_argument(  # pragma: no cover
     '--check-license-expr',
     metavar='LICENSE_EXPR',
     action='store',
-    default=lambda: None,
     help=license_expression.__doc__,
 )
 helpers.add_argument(  # pragma: no cover
