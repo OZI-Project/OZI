@@ -1,4 +1,121 @@
 # CHANGELOG
+## 1.9.4 (2024-05-23)
+
+### :hammer:
+
+* :hammer::memo: add LICENSE_EXPR metavar and doc
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1614d31`](https://github.com/OZI-Project/OZI/commit/1614d310bc660ed62097389febb180a2ac5c53f8))
+
+* :hammer::memo: fix ``--list-available`` doc presentation.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1c48693`](https://github.com/OZI-Project/OZI/commit/1c48693cbb1e39a28d3aafcc919f5ad8cfddc59a))
+
+## 1.9.3 (2024-05-22)
+
+### :bug:
+
+* :bug: revert change to list-available arg.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`49afaaf`](https://github.com/OZI-Project/OZI/commit/49afaaf1ba03fdb878ef4a33a9880071176b2169))
+
+## 1.9.2 (2024-05-22)
+
+### :hammer:
+
+* :hammer::memo: update docstrings and CLI helps.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`adb9487`](https://github.com/OZI-Project/OZI/commit/adb948737e942d6c954e4896f2e0e9bef7192908))
+
+## 1.9.1 (2024-05-22)
+
+### :pushpin:
+
+* :pushpin: blastpipe~=2024.9.1
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`327ca80`](https://github.com/OZI-Project/OZI/commit/327ca800aa85921aa5bb8b32a09179846183e224))
+
+### Other
+
+* 
+
+---
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`62af563`](https://github.com/OZI-Project/OZI/commit/62af563627568d412ef4a1ef01899b1da0487b89))
+
+## 1.9.0 (2024-05-21)
+
+### :pushpin:
+
+* :pushpin: Update ci.py - Release 0.5.10 
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`d827e33`](https://github.com/OZI-Project/OZI/commit/d827e33cd45396c97efd62585ca7e3239239b05f))
+
+* :pushpin: blastpipe~=2024.9
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`00051ee`](https://github.com/OZI-Project/OZI/commit/00051ee3461002fc0432fe91529069316212dc32))
+
+### :sparkles:
+
+* :sparkles: Use oziproject.dev API workflows.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`967c5d2`](https://github.com/OZI-Project/OZI/commit/967c5d2d10bc1f0bfb3b16b1f926d5e51e6a5b7d))
+
+### :wrench:
+
+* :wrench: add 1.9 branch pattern
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`ff90526`](https://github.com/OZI-Project/OZI/commit/ff905266ca2b558b071849c218edc32ffa90f1d8))
+
+* :wrench::construction_worker: Update dev-workflow.yml
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`a4cf2cf`](https://github.com/OZI-Project/OZI/commit/a4cf2cfcbfff42e1e57c112d2a51a3578a0080cb))
+
+### Other
+
+* Update dist-workflow.yml - release 0.5.10
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`828b086`](https://github.com/OZI-Project/OZI/commit/828b086498838db0686a532a37d1b5232f56f8b5))
+
+* retry release
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b7c73b5`](https://github.com/OZI-Project/OZI/commit/b7c73b541123c82bc2f5dd95d4d6f94385433232))
+
+* Update dist-workflow.yml allow objects.githubusercontent.com:443
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`20e6a5b`](https://github.com/OZI-Project/OZI/commit/20e6a5bababb0806fcd51fc5b8adbf4a5caa6ce1))
+
+* Update dist-workflow.yml - allow API endpoint
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`a488a66`](https://github.com/OZI-Project/OZI/commit/a488a66a359e0e73da4a5a614032253dadf983f7))
+
+* Update dist-workflow.yml
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`8649788`](https://github.com/OZI-Project/OZI/commit/8649788d9fc20ba203da61fea22ad87a7ec94f50))
+
+* ---
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`0a8d598`](https://github.com/OZI-Project/OZI/commit/0a8d59830717469c99e479a350aecbe3304cafa5))
+
+* ---
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`7ec3682`](https://github.com/OZI-Project/OZI/commit/7ec36822d1deeb25835e157b28a2a273e00656db))
+
 ## 1.8.5 (2024-05-21)
 
 ### :arrow_up:
@@ -32,6 +149,30 @@ updated-dependencies:
 ...
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`04a849d`](https://github.com/OZI-Project/OZI/commit/04a849d5ffc200d5f5f609dcee64fcde0f516a9d))
+
+### Other
+
+* 
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`b5f2ce9`](https://github.com/OZI-Project/OZI/commit/b5f2ce9dee8273df8fb78225f2a0fae4cc27d616))
+
+* 
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`c3fe678`](https://github.com/OZI-Project/OZI/commit/c3fe678ea94dd230d7c4a74c173919b4ffc1970d))
 
 ## 1.8.4 (2024-05-20)
 
