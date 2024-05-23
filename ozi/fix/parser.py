@@ -22,6 +22,7 @@ missing_parser = subparser.add_parser(
 )
 missing_parser.add_argument(
     '--add',
+    metavar='FILENAME',
     nargs='?',
     action='append',
     default=['ozi.phony'],
@@ -29,6 +30,7 @@ missing_parser.add_argument(
 )
 missing_parser.add_argument(
     '--remove',
+    metavar='FILENAME',
     nargs='?',
     action='append',
     default=['ozi.phony'],
@@ -68,6 +70,7 @@ test_parser = subparser.add_parser(
 source_parser.add_argument(
     '-a',
     '--add',
+    metavar='FILENAME',
     nargs='?',
     action='append',
     default=['ozi.phony'],
@@ -76,17 +79,19 @@ source_parser.add_argument(
 source_parser.add_argument(
     '-r',
     '--remove',
+    metavar='FILENAME',
     nargs='?',
     action='append',
     default=['ozi.phony'],
     help='remove file or dir/ from project',
 )
 source_parser.add_argument(
+    '-c',
     '--copyright-head',
+    metavar='HEADER',
     type=str,
     default='',
     help='copyright header string',
-    metavar='Part of the NAME project.\\nSee LICENSE...',
 )
 source_parser.add_argument(
     'target',
@@ -111,6 +116,7 @@ source_output.add_argument(
 test_parser.add_argument(
     '-a',
     '--add',
+    metavar='FILENAME',
     nargs='?',
     action='append',
     default=['ozi.phony'],
@@ -119,17 +125,19 @@ test_parser.add_argument(
 test_parser.add_argument(
     '-r',
     '--remove',
+    metavar='FILENAME',
     nargs='?',
     action='append',
     default=['ozi.phony'],
     help='remove file or dir/ from project',
 )
 test_parser.add_argument(
+    '-c',
     '--copyright-head',
+    metavar='HEADER',
     type=str,
     default='',
     help='copyright header string',
-    metavar='Part of the NAME project.\\nSee LICENSE...',
 )
 test_parser.add_argument(
     'target',
