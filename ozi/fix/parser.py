@@ -9,14 +9,21 @@ from argparse import SUPPRESS
 from argparse import ArgumentParser
 from argparse import BooleanOptionalAction
 
-parser = ArgumentParser(description=sys.modules[__name__].__doc__, add_help=False)
+parser = ArgumentParser(
+    prog='ozi-fix',
+    description=sys.modules[__name__].__doc__,
+    add_help=False,
+    usage='%(prog)s [options] | [positional arguments]',
+)
 subparser = parser.add_subparsers(help='source & test fix', dest='fix')
 
 helpers = parser.add_mutually_exclusive_group()
 helpers.add_argument('-h', '--help', action='help', help='show this help message and exit')
 missing_parser = subparser.add_parser(
     'missing',
+    prog='ozi-fix missing',
     aliases=['m'],
+    usage='%(prog)s [options] [output] target',
     allow_abbrev=True,
     help='Check for missing files in an OZI project.',
 )
@@ -58,11 +65,15 @@ missing_parser.add_argument(
 source_parser = subparser.add_parser(
     'source',
     aliases=['s'],
+    prog='ozi-fix source',
+    usage='%(prog)s [options] [output] target',
     allow_abbrev=True,
     help='Create a new Python source in an OZI project.',
 )
 test_parser = subparser.add_parser(
     'test',
+    prog='ozi-fix test',
+    usage='%(prog)s [options] [output] target',
     aliases=['t'],
     allow_abbrev=True,
     help='Create a new Python test in an OZI project.',
