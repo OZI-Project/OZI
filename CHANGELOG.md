@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.9.7 (2024-05-23)
+
+### :bug:
+
+* :bug::memo: fix ``ozi-new project`` parser docs
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`fdcd0cd`](https://github.com/OZI-Project/OZI/commit/fdcd0cd8d65806be5be415593af1c81195c368de))
+
 ## 1.9.6 (2024-05-23)
 
 ### :bug:
