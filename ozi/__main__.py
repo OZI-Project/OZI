@@ -95,6 +95,7 @@ helpers.add_argument(  # pragma: no cover
     action='store_const',
     default=lambda: None,
     const=license_expression,
+    help=license_expression.__doc__,
 )
 helpers.add_argument(  # pragma: no cover
     '-i',
