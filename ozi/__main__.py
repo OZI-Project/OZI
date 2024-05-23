@@ -14,6 +14,17 @@ continuous integration checkpoints:
   tox -e lint        run formatting, linting, and typechecking.
   tox -e test        run testing and coverage.
   tox -e dist        run distribution and packaging.
+
+METADATA_FIELD choices:
+  audience
+  environment
+  framework
+  language
+  license
+  license-exception-id
+  license-id
+  status
+  topic
 """  # pragma: no cover
 from __future__ import annotations  # pragma: no cover
 
@@ -94,6 +105,7 @@ helpers.add_argument(  # pragma: no cover
     '--list-available',
     help=list_available.__doc__,
     default=None,
+    metavar='METADATA_FIELD',
     action='store',
     choices={i.name.replace('_', '-') for i in fields(ExactMatch) if i.repr},
 )
