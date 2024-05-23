@@ -1,4 +1,10 @@
 # CHANGELOG
+## 1.9.9 (2024-05-23)
+
+### :bug:
+
+* :bug::memo: fix no cover showing up in docs ([`231625c`](https://github.com/OZI-Project/OZI/commit/231625c85234be3a212dbaeee7b55ea0a78ef767))
+
 ## 1.9.8 (2024-05-23)
 
 ### :bug:
