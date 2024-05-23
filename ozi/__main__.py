@@ -25,6 +25,9 @@ METADATA_FIELD choices:
   license-id
   status
   topic
+
+LICENSE_EXPR:
+  see https://spdx.github.io/spdx-spec/v2-draft/SPDX-license-expressions/
 """  # pragma: no cover
 from __future__ import annotations  # pragma: no cover
 
@@ -88,6 +91,7 @@ helpers.add_argument(  # pragma: no cover
 helpers.add_argument(  # pragma: no cover
     '-e',
     '--check-license-expr',
+    metavar='LICENSE_EXPR',
     action='store_const',
     default=lambda: None,
     const=license_expression,
