@@ -1,4 +1,58 @@
 # CHANGELOG
+## 1.9.10 (2024-05-23)
+
+### :bug:
+
+* :bug: fix bad default value for ``--check-license-expr`` ([`d5a7609`](https://github.com/OZI-Project/OZI/commit/d5a7609c080a28881de6d33944b158df793a17bd))
+
+## 1.9.9 (2024-05-23)
+
+### :bug:
+
+* :bug::memo: fix no cover showing up in docs ([`231625c`](https://github.com/OZI-Project/OZI/commit/231625c85234be3a212dbaeee7b55ea0a78ef767))
+
+## 1.9.8 (2024-05-23)
+
+### :bug:
+
+* :bug: fix ``--check-license-expression`` wasnt accepting args.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f858e41`](https://github.com/OZI-Project/OZI/commit/f858e41e6243aa33ab7a0a450b93672df9562f20))
+
+### Other
+
+* no cover
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`28a9602`](https://github.com/OZI-Project/OZI/commit/28a9602f8fae2a65d081fbca9337ce71b47ac659))
+
+## 1.9.7 (2024-05-23)
+
+### :bug:
+
+* :bug::memo: fix ``ozi-new project`` parser docs
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`fdcd0cd`](https://github.com/OZI-Project/OZI/commit/fdcd0cd8d65806be5be415593af1c81195c368de))
+
+## 1.9.6 (2024-05-23)
+
+### :bug:
+
+* :bug::memo: Clean up documentation of CLI.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`a5aa0c2`](https://github.com/OZI-Project/OZI/commit/a5aa0c20fd51509e7ee67003f7096785413aea8a))
+
+### Other
+
+* flake8 ignore long format string ([`a3ff071`](https://github.com/OZI-Project/OZI/commit/a3ff071b034646d5c30a66bc24a94b69e344038b))
+
+## 1.9.5 (2024-05-23)
+
+### :bug:
+
+* :bug: clean up CLI help and options printout.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`ede0289`](https://github.com/OZI-Project/OZI/commit/ede0289fd95dd70bb349a985d35a5e4bbaf4d4cb))
+
 ## 1.9.4 (2024-05-23)
 
 ### :hammer:
