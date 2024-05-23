@@ -1,4 +1,16 @@
 # CHANGELOG
+## 1.9.6 (2024-05-23)
+
+### :bug:
+
+* :bug::memo: Clean up documentation of CLI.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`a5aa0c2`](https://github.com/OZI-Project/OZI/commit/a5aa0c20fd51509e7ee67003f7096785413aea8a))
+
+### Other
+
+* flake8 ignore long format string ([`a3ff071`](https://github.com/OZI-Project/OZI/commit/a3ff071b034646d5c30a66bc24a94b69e344038b))
+
 ## 1.9.5 (2024-05-23)
 
 ### :bug:
