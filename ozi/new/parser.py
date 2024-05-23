@@ -35,11 +35,12 @@ ozi_defaults = project_parser.add_argument_group('defaults')
 optional = project_parser.add_argument_group('PKG-INFO optional')
 defaults = project_parser.add_argument_group('PKG-INFO defaults')
 ozi_defaults.add_argument(
+    '-c',
     '--copyright-head',
     type=str,
     default='',
     help='copyright header string',
-    metavar='Part of the NAME project.\\nSee LICENSE...',
+    metavar='HEADER',
 )
 ozi_defaults.add_argument(
     '--ci-provider',
@@ -64,6 +65,7 @@ required.add_argument(
     required=True,
     action='append',
     default=[],
+    metavar='AUTHOR_NAMES',
     nargs='?',
 )
 required.add_argument(
@@ -73,6 +75,7 @@ required.add_argument(
     help='Author-email (Multiple Use, Single output)',
     required=True,
     default=[],
+    metavar='AUTHOR_EMAILS',
     nargs='?',
     action='append',
 )
@@ -109,7 +112,7 @@ ozi_required.add_argument(
     type=str,
     nargs='?',
     default='.',
-    help='target directory for new project',
+    help='directory path for new project',
 )
 project_output = project_parser.add_mutually_exclusive_group()
 project_output.add_argument(
@@ -121,6 +124,7 @@ project_output.add_argument(
 defaults.add_argument(
     '--audience',
     '--intended-audience',
+    metavar='AUDIENCE_NAMES',
     type=str,
     help='Classifier: Intended Audience (Multiple Use)(default: ["Other Audience"])',
     default=METADATA.spec.python.pkg.info.classifiers.intended_audience,
@@ -132,11 +136,13 @@ defaults.add_argument(
     type=str,
     choices=frozenset(('Typed', 'Stubs Only')),
     nargs='?',
+    metavar='PY_TYPED_OR_STUBS',
     help='Classifier: Typing (Multiple Use)(default: [Typed])',
     default=METADATA.spec.python.pkg.info.classifiers.typing,
 )
 defaults.add_argument(
     '--environment',
+    metavar='ENVIRONMENT_NAMES',
     default=METADATA.spec.python.pkg.info.classifiers.environment,
     help='Classifier: Environment (Multiple Use)(default: ["Other Environment"])',
     action=CloseMatch,
@@ -146,6 +152,7 @@ defaults.add_argument(
 defaults.add_argument(
     '--license-file',
     default='LICENSE.txt',
+    metavar='LICENSE_FILENAME',
     choices=frozenset(('LICENSE.txt',)),
     help='Classifier: License File (Single Use)(default: LICENSE.txt)',
     type=str,
@@ -161,18 +168,21 @@ optional.add_argument(
     default=[],
     action='append',
     nargs='?',
+    metavar='MAINTAINER_NAMES',
     help='Maintainer (Multiple Use, Single output, if different from Author)',
 )
 optional.add_argument(
     '--maintainer-email',
     help='Maintainer-Email (Multiple Use, Single output, if different from Author-Email)',
     action='append',
+    metavar='MAINTAINER_EMAILS',
     default=[],
     nargs='?',
 )
 optional.add_argument(
     '--framework',
     help='Classifier: Framework (Multiple Use)',
+    metavar='FRAMEWORK_NAMES',
     action=CloseMatch,
     type=str,
     nargs='?',
@@ -182,12 +192,14 @@ optional.add_argument(
     '--project-url',
     help='Project-URL (Multiple Use, Comma-separated Tuple[name, url])',
     action='append',
+    metavar='PROJECT_URLS',
     default=[],
     nargs='?',
 )
 defaults.add_argument(
     '--language',
     '--natural-language',
+    metavar='LANGUAGE_NAMES',
     default=['English'],
     help='Classifier: Natural Language (Multiple Use)(default: [English])',
     action=CloseMatch,
@@ -198,6 +210,7 @@ optional.add_argument(
     '--topic',
     help='Classifier: Topic (Multiple Use)',
     nargs='?',
+    metavar='TOPIC_NAMES',
     action=CloseMatch,
     type=str,
     default=[],
@@ -213,6 +226,7 @@ defaults.add_argument(
 defaults.add_argument(
     '--long-description-content-type',
     '--readme-type',
+    metavar='README_TYPE',
     default='rst',
     choices=('rst', 'md', 'txt'),
     help='Description-Content-Type',
@@ -225,6 +239,7 @@ optional.add_argument(
     type=str,
     nargs='?',
     default=[],
+    metavar='DIST_REQUIRES',
 )
 output = parser.add_mutually_exclusive_group()
 output.add_argument('-h', '--help', action='help', help='show this help message and exit')
@@ -252,6 +267,7 @@ ozi_defaults.add_argument(
     action='append',
     type=str,
     nargs='?',
+    metavar='ALLOW_FILE_PATTERNS',
     default=METADATA.spec.python.src.allow_files,
 )
 tools = parser.add_mutually_exclusive_group()  # pragma: no cover
