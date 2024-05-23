@@ -16,6 +16,7 @@ parser = argparse.ArgumentParser(
     prog='ozi-new',
     description=sys.modules[__name__].__doc__,
     add_help=False,
+    usage='%(prog)s [options] [PKG-INFO required] [PKG-INFO optional] [PKG-INFO defaults] [defaults] target',
 )
 subparser = parser.add_subparsers(help='create new projects, sources, & tests', dest='new')
 project_parser = subparser.add_parser(
@@ -30,10 +31,10 @@ wrap_parser = subparser.add_parser(
     description='Create a new OZI wrapdb file.',
 )
 required = project_parser.add_argument_group('PKG-INFO required')
-ozi_required = project_parser.add_argument_group('required')
-ozi_defaults = project_parser.add_argument_group('defaults')
 optional = project_parser.add_argument_group('PKG-INFO optional')
 defaults = project_parser.add_argument_group('PKG-INFO defaults')
+ozi_defaults = project_parser.add_argument_group('defaults')
+ozi_required = project_parser.add_argument_group('required')
 ozi_defaults.add_argument(
     '-c',
     '--copyright-head',
