@@ -2,7 +2,7 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
-"""``ozi-new`` argparse argument parser.
+"""``ozi-new`` console application.
 """
 from __future__ import annotations
 
@@ -18,19 +18,14 @@ parser = argparse.ArgumentParser(
     add_help=False,
     usage='%(prog)s [options] | [positional args]',  # noqa: B950,E501,RUF100
 )
-subparser = parser.add_subparsers(help='create new projects, sources, & tests', dest='new')
+subparser = parser.add_subparsers(help='', metavar='', dest='new')
 project_parser = subparser.add_parser(
     'project',
     aliases=['p'],
     description='Create a new Python project with OZI.',
-    add_help=False,
+    help='create new OZI project',
     prog='ozi-new project',
     usage='%(prog)s [options] [PKG-INFO required] [PKG-INFO optional] [PKG-INFO defaults] [defaults] target',  # noqa: B950,E501,RUF100
-)
-wrap_parser = subparser.add_parser(
-    'wrap',
-    aliases=['w'],
-    description='Create a new OZI wrapdb file.',
 )
 required = project_parser.add_argument_group('PKG-INFO required')
 optional = project_parser.add_argument_group('PKG-INFO optional')
@@ -116,13 +111,6 @@ ozi_required.add_argument(
     nargs='?',
     default='.',
     help='directory path for new project',
-)
-project_output = project_parser.add_mutually_exclusive_group()
-project_output.add_argument(
-    '-h',
-    '--help',
-    action='help',
-    help='show this help message and exit',
 )
 defaults.add_argument(
     '--audience',
@@ -250,23 +238,23 @@ ozi_defaults.add_argument(
     '--verify-email',
     default=False,
     action=argparse.BooleanOptionalAction,
-    help='verify email domain deliverability(default: --no-verify-email)',
+    help='verify email domain deliverability(default: ``--no-verify-email``)',
 )
 ozi_defaults.add_argument(
     '--enable-cython',
     default=False,
     action=argparse.BooleanOptionalAction,
-    help='build extension module with Cython(default: --no-enable-cython)',
+    help='build extension module with Cython(default: ``--no-enable-cython``)',
 )
 ozi_defaults.add_argument(
     '--strict',
     default=False,
     action=argparse.BooleanOptionalAction,
-    help='strict mode raises warnings to errors(default: --strict)',
+    help='strict mode raises warnings to errors(default: ``--strict``)',
 )
 ozi_defaults.add_argument(
     '--allow-file',
-    help='Add a file to the allow list for new project target folder(default: [templates, .git])',
+    help='Add a file to the allow list for new project target folder(default: [templates,.git])',
     action='append',
     type=str,
     nargs='?',

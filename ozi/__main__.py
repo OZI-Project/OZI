@@ -2,32 +2,7 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
-"""OZI - Python Project Packaging console application.
-
-project authoring console application:
-  ozi-new -h         show help for the ozi-new command.
-
-project maintainence console application:
-  ozi-fix -h         show help for the ozi-fix command.
-
-continuous integration checkpoints:
-  tox -e lint        run formatting, linting, and typechecking.
-  tox -e test        run testing and coverage.
-  tox -e dist        run distribution and packaging.
-
-METADATA_FIELD choices:
-  audience
-  environment
-  framework
-  language
-  license
-  license-exception-id
-  license-id
-  status
-  topic
-
-LICENSE_EXPR:
-  see https://spdx.github.io/spdx-spec/v2-draft/SPDX-license-expressions/
+"""``ozi`` console application.
 """  # pragma: no cover
 from __future__ import annotations  # pragma: no cover
 
@@ -44,11 +19,39 @@ from ozi.actions import print_version  # pragma: no cover
 from ozi.fix.__main__ import main as fix_main  # pragma: no cover
 from ozi.new.__main__ import main as new_main  # pragma: no cover
 
+EPILOG = """
+METADATA_FIELD choices:
+  | audience
+  | environment
+  | framework
+  | language
+  | license
+  | license-exception-id
+  | license-id
+  | status
+  | topic
+
+LICENSE_EXPR:
+  | See https://spdx.github.io/spdx-spec/v2-draft/SPDX-license-expressions/
+
+project authoring console application:
+  | ozi-new -h         show help for the ozi-new command.
+
+project maintainence console application:
+  | ozi-fix -h         show help for the ozi-fix command.
+
+continuous integration checkpoints:
+  | tox -e lint        run formatting, linting, and typechecking.
+  | tox -e test        run testing and coverage.
+  | tox -e dist        run distribution and packaging.
+"""
+
 parser = argparse.ArgumentParser(
     prog='ozi',
     description=sys.modules[__name__].__doc__,
     add_help=False,
     formatter_class=argparse.RawDescriptionHelpFormatter,
+    epilog=EPILOG,
 )  # pragma: no cover
 tools = parser.add_mutually_exclusive_group()  # pragma: no cover
 tools.add_argument(  # pragma: no cover
@@ -92,9 +95,8 @@ helpers.add_argument(  # pragma: no cover
     '-e',
     '--check-license-expr',
     metavar='LICENSE_EXPR',
-    action='store_const',
+    action='store',
     default=lambda: None,
-    const=license_expression,
     help=license_expression.__doc__,
 )
 helpers.add_argument(  # pragma: no cover
@@ -124,7 +126,8 @@ def main() -> None:  # pragma: no cover
     ozi.info()
     if ozi.list_available:
         list_available(ozi.list_available)
-    ozi.check_license_expr()
+    if ozi.check_license_expr:
+        license_expression(ozi.check_license_expr)
     ozi.fix()
     ozi.new()
     parser.print_help()
