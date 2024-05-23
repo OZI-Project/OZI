@@ -1,4 +1,16 @@
 # CHANGELOG
+## 1.9.4 (2024-05-23)
+
+### :hammer:
+
+* :hammer::memo: add LICENSE_EXPR metavar and doc
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1614d31`](https://github.com/OZI-Project/OZI/commit/1614d310bc660ed62097389febb180a2ac5c53f8))
+
+* :hammer::memo: fix ``--list-available`` doc presentation.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1c48693`](https://github.com/OZI-Project/OZI/commit/1c48693cbb1e39a28d3aafcc919f5ad8cfddc59a))
+
 ## 1.9.3 (2024-05-22)
 
 ### :bug:
