@@ -1,4 +1,18 @@
 # CHANGELOG
+## 1.9.8 (2024-05-23)
+
+### :bug:
+
+* :bug: fix ``--check-license-expression`` wasnt accepting args.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f858e41`](https://github.com/OZI-Project/OZI/commit/f858e41e6243aa33ab7a0a450b93672df9562f20))
+
+### Other
+
+* no cover
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`28a9602`](https://github.com/OZI-Project/OZI/commit/28a9602f8fae2a65d081fbca9337ce71b47ac659))
+
 ## 1.9.7 (2024-05-23)
 
 ### :bug:
