@@ -123,6 +123,7 @@ jobs:
             fulcio.sigstore.dev:443
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
+            index.crates.io:443
 
       - uses: OZI-Project/checkpoint@0c54a8e9bbbe5817b8c75a97b4cd6871a64f65f7
         with:
