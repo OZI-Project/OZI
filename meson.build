@@ -230,9 +230,6 @@ foreach name : namespace
     suite.enable_auto_if(dev.enabled())
     set_variable(name, suite)
     foreach command : command_names
-        if suite.enabled()
-            message('installing', command)
-        endif
         if suite.enabled() and command in module_only
             modules += [command.underscorify()]  # we should collapse repeated `_`
         endif
@@ -242,6 +239,7 @@ foreach name : namespace
             and command not in plugin_only
         )
             if command not in module_only and get_option('tox-env-dir') != ''
+                message('install', command, 'with pipx')
                 run_command(
                     pipx,
                     [
@@ -249,16 +247,19 @@ foreach name : namespace
                         'meson',
                         '--python', python,
                         'install',
+                        get_option('install-args-'+command),
                         '-r',
                         meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
                     ],
                     check: true
                 )
             else
+                message('install', command, 'with pip')
                 run_command(
                     pip,
                     [
                         'install',
+                        get_option('install-args-'+command),
                         '-r',
                         meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
                     ],
