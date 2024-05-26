@@ -78,9 +78,6 @@ fix  = ["black", "ruff>=0.1.6", "autoflake", "isort"]
 dev  = ["[dist,lint,test]"]
 ## Packaging Setup
 dist = ["python-semantic-release", "sigstore"]
-## Documentation Setup
-docs = ["doc8", "pydocstyle[toml]", "Pygments", "pyparsing", "sphinx",
-        "sphinx-design", "sphinxawesome-codelinter", "sphinxawesome-theme ~= 5.0.0b2"]
 ## Linting and Formatting Setup
 lint = ["bandit[toml]", "black", "flake8", "flake8-quotes",
         "flake8-pytest-style", "flake8-type-checking", "flake8-annotations",
