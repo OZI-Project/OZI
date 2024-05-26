@@ -8,7 +8,14 @@ project(
         'python3', # scm_version_snip
         [
             '-c',
-            'from setuptools_scm import get_version;print(get_version(normalize=False))',
+'''from setuptools_scm import get_version
+from packaging.version import Version
+v = get_version(normalize=False)
+if Version(v) < Version("0.1"):
+    print("0.4")
+else:
+    print(v)
+''',
         ],
         check: true,
     ).stdout().strip(),
