@@ -1,7 +1,30 @@
 # CHANGELOG
+## 1.10.1 (2024-05-27)
+
+### :pushpin:
+
+* :pushpin: OZI-Project/publish@0.1.3 in spec
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`1b00586`](https://github.com/OZI-Project/OZI/commit/1b005868ab6eb32f6f131db6f09a49063b3bfcba))
+
 ## 1.10.0 (2024-05-27)
 
 ### :arrow_up:
+
+* :arrow_up: Bump OZI-Project/publish from 0.1.2 to 0.1.3
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.2 to 0.1.3.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/e0a606616e2ff69a1b564f151f1061601683668f...f5d14bfb29fd5daa0fd3002a9c57f863e86ddf93)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`6823b84`](https://github.com/OZI-Project/OZI/commit/6823b84627acfb2511685963846ceb3a079d6a4c))
 
 * :arrow_up: OZI-Project/checkpoint-0.4.0
 
