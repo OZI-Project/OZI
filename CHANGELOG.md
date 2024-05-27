@@ -1,4 +1,52 @@
 # CHANGELOG
+## 1.10.0 (2024-05-27)
+
+### :arrow_up:
+
+* :arrow_up: OZI-Project/checkpoint-0.4.0
+
+Now accepting args for tox posargs.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`eb1cee9`](https://github.com/OZI-Project/OZI/commit/eb1cee92ca8ac576cca50a28f85fded3bf820dda))
+
+### :hammer:
+
+* :hammer: accept posargs to checkpoint suites
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`912e394`](https://github.com/OZI-Project/OZI/commit/912e394cfa2f969f4b49ee5fea1e019063544190))
+
+* :hammer: Display spec version of OZI when tag history not found.
+
+This mainly applies when OZI is invoked as a wrapdb or subproject.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`976d574`](https://github.com/OZI-Project/OZI/commit/976d574ad7d2c733656ce86e5aa170cbc07f134e))
+
+* :hammer: remove docs setup, clarify meson config messages.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`bbfb9c5`](https://github.com/OZI-Project/OZI/commit/bbfb9c5bc175fb60b07984231170f97fd61e83b9))
+
+### :sparkles:
+
+* :sparkles::pushpin: blastpipe~=2024.9.3
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`2a3c4d1`](https://github.com/OZI-Project/OZI/commit/2a3c4d1565a243f610ba81def6271ba443399dcb))
+
+### :wrench:
+
+* :wrench: bump checkpoint in spec and add 1.10 branch pattern
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7dfca03`](https://github.com/OZI-Project/OZI/commit/7dfca03a5166961bee35cedaa545479ee2f1829a))
+
+* :wrench: configure step options for each checkpoint utility.
+
+Uses ``config-args-`` prefix, does not include plugins, as these share a requirements input with their parent module.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`3f509e6`](https://github.com/OZI-Project/OZI/commit/3f509e66c3d38f0a714a4afa1aea2ba1f7af9311))
+
+* :wrench: add install options for each checkpoint command.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`223ad2f`](https://github.com/OZI-Project/OZI/commit/223ad2fabd420a36d8f57343b1cffb4a4641fe81))
+
 ## 1.9.10 (2024-05-23)
 
 ### :bug:
