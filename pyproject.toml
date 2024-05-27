@@ -78,9 +78,6 @@ fix  = ["black", "ruff>=0.1.6", "autoflake", "isort"]
 dev  = ["[dist,lint,test]"]
 ## Packaging Setup
 dist = ["python-semantic-release", "sigstore"]
-## Documentation Setup
-docs = ["doc8", "pydocstyle[toml]", "Pygments", "pyparsing", "sphinx",
-        "sphinx-design", "sphinxawesome-codelinter", "sphinxawesome-theme ~= 5.0.0b2"]
 ## Linting and Formatting Setup
 lint = ["bandit[toml]", "black", "flake8", "flake8-quotes",
         "flake8-pytest-style", "flake8-type-checking", "flake8-annotations",
@@ -318,6 +315,11 @@ match = "release/1.9"
 prerelease_token = "alpha"
 prerelease = false
 
+[tool.semantic_release.branches."release/1.10"]
+match = "release/1.10"
+prerelease_token = "alpha"
+prerelease = false
+
 [tool.semantic_release.commit_parser_options]
 major_tags = [":boom:"]
 minor_tags = [
@@ -415,20 +417,20 @@ description = OZI distribution checkpoint
 commands_pre =
     pipx install --python=python meson
     meson setup {env_tmp_dir} -Ddist=enabled -Dtox-env-dir={env_dir}
-commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=dist
+commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=dist {posargs}
 
 [testenv:lint]
 description = OZI format/lint checkpoint
 commands_pre =
     pipx install --python=python meson
     meson setup {env_tmp_dir} -Dlint=enabled -Dtox-env-dir={env_dir}
-commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=lint
+commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=lint {posargs}
 
 [testenv:test]
 description = OZI unit tests checkpoint
 commands_pre =
     pipx install --python=python meson
-    meson setup {env_tmp_dir} -Dtest=enabled -Dozi-blastpipe=enabled -Dtox-env-dir={env_dir}
+    meson setup {env_tmp_dir} -Dtest=enabled -Dozi-blastpipe=enabled -Dtox-env-dir={env_dir} {posargs}
 commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=test
 
 [testenv:fix]

@@ -77,13 +77,7 @@ option(
     'docs-suite',
     type: 'array',
     description: '--setup=docs',
-    value: [
-        'doc8',
-        'pydocstyle',
-        'sphinx-build',
-        'sphinxawesome-codelinter',
-        'sphinxawesome-theme',
-    ],
+    value: [],
 )
 option(
     'lint-suite',
@@ -181,11 +175,7 @@ option(
         'flake8-comprehensions',
     ],
 )
-option(
-    'tox-env-dir',
-    type: 'string',
-    value: ''
-)
+option('tox-env-dir', type: 'string', value: '')
 option(
     'module-only',
     type: 'array',
@@ -198,43 +188,74 @@ option(
         'readme-renderer',
     ],
 )
-# test application arguments
+# utility application arguments
 option('args-sigstore', type: 'array', value: ['--version'], yield: true)
+option(
+    'config-args-sigstore',
+    description: 'pip-compile args',
+    type: 'array',
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
+    yield: true,
+)
+option('install-args-sigstore', type: 'array', value: [], yield: true)
 option(
     'args-semantic_release',
     type: 'array',
     value: ['version', '--print'],
     yield: true,
 )
-
 option(
-    'args-doc8',
+    'config-args-semantic_release',
+    description: 'pip-compile args',
     type: 'array',
-    value: ['--config', 'pyproject.toml', '@docs_source@'],
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
     yield: true,
 )
-
+option('install-args-semantic_release', description: 'pipx install args', type: 'array', value: [], yield: true)
+option('args-mypy', type: 'array', value: ['@build_root@'], yield: true)
 option(
-    'args-pydocstyle',
+    'config-args-mypy',
+    description: 'pip-compile args',
     type: 'array',
-    value: ['-v', '-d', '--config=pyproject.toml', '@docs_source@'],
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
     yield: true,
 )
-
-option('args-sphinx-build', type: 'array', value: ['--version'], yield: true)
-option('args-mypy', type: 'array', value: ['@build_root@'])
 option(
-   'args-bandit',
-   description: 'application',
-   type: 'array',
-   value: [
-      '--configfile', 'pyproject.toml',
-      '--ignore-nosec',
-      '-r', '@build_root@'
-   ]
+    'install-args-mypy',
+    description: 'pipx install args',
+    type: 'array',
+    value: [],
+    yield: true,
+)
+option(
+    'args-bandit',
+    description: 'application args',
+    type: 'array',
+    value: [
+        '--configfile',
+        'pyproject.toml',
+        '--ignore-nosec',
+        '-r',
+        '@build_root@',
+    ],
+)
+option(
+    'config-args-bandit',
+    description: 'pip-compile args',
+    type: 'array',
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
+    yield: true,
+)
+option(
+    'install-args-bandit',
+    description: 'pipx install args',
+    type: 'array',
+    value: [],
+    yield: true,
 )
 option(
     'args-black',
+    description: 'application args',
     type: 'array',
     value: [
         '-S',
@@ -247,7 +268,22 @@ option(
     yield: true,
 )
 option(
+    'config-args-black',
+    description: 'pip-compile args',
+    type: 'array',
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
+    yield: true,
+)
+option(
+    'install-args-black',
+    description: 'pipx install args',
+    type: 'array',
+    value: [],
+    yield: true,
+)
+option(
     'args-isort',
+    description: 'application args',
     type: 'array',
     value: [
         '-c',
@@ -259,23 +295,107 @@ option(
     ],
     yield: true,
 )
-option('args-pylint', type: 'array', value: ['@project_name@'], yield: true)
 option(
-   'args-pyright',
-   type: 'array', 
-   value: [
-      '--stats',
-      '--warnings',
-      '--verbose',
-      '@build_root@',
-   ],
-   yield: true
+    'config-args-isort',
+    description: 'pip-compile args',
+    type: 'array',
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
+    yield: true,
 )
-option('args-coverage', type: 'array', value: ['debug', 'config'], yield: true)
+option(
+    'install-args-isort',
+    description: 'pipx install args',
+    type: 'array',
+    value: [],
+    yield: true,
+)
+option(
+    'args-pylint',
+    description: 'application args',
+    type: 'array',
+    value: ['@project_name@'],
+    yield: true,
+)
+option(
+    'config-args-pylint',
+    description: 'pip-compile args',
+    type: 'array',
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
+    yield: true,
+)
+option(
+    'install-args-pylint',
+    description: 'pipx install args',
+    type: 'array',
+    value: [],
+    yield: true,
+)
+option(
+    'args-pyright',
+    description: 'application args',
+    type: 'array',
+    value: [
+        '--stats',
+        '--warnings',
+        '--verbose',
+        '@build_root@',
+    ],
+    yield: true,
+)
+option(
+    'config-args-pyright',
+    description: 'pip-compile args',
+    type: 'array',
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
+    yield: true,
+)
+option(
+    'install-args-pyright',
+    description: 'pipx install args',
+    type: 'array',
+    value: [],
+    yield: true,
+)
+option(
+    'args-coverage',
+    description: 'application args',
+    type: 'array',
+    value: ['debug', 'config'],
+    yield: true,
+)
+option(
+    'config-args-coverage',
+    description: 'pip-compile args',
+    type: 'array',
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
+    yield: true,
+)
+option(
+    'install-args-coverage',
+    description: 'pipx install args',
+    type: 'array',
+    value: [],
+    yield: true,
+)
 option(
     'args-readme-renderer',
+    description: 'module args',
     type: 'array',
     value: ['README.rst'],
+    yield: true,
+)
+option(
+    'config-args-readme-renderer',
+    description: 'pip-compile args',
+    type: 'array',
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
+    yield: true,
+)
+option(
+    'install-args-readme-renderer',
+    description: 'pipx install args',
+    type: 'array',
+    value: [],
     yield: true,
 )
 option(
@@ -292,6 +412,20 @@ option(
     ],
     yield: true,
 )
+option(
+    'config-args-flake8',
+    description: 'pip-compile args',
+    type: 'array',
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
+    yield: true,
+)
+option(
+    'install-args-flake8',
+    description: 'pipx install args',
+    type: 'array',
+    value: [],
+    yield: true,
+)
 option('args-Flake8-pyproject', type: 'array', value: [], yield: true)
 option(
     'args-pytest',
@@ -304,7 +438,21 @@ option(
         'auto',
         '-d',
         '--exitfirst',
-        '--cov-config=pyproject.toml' 
+        '--cov-config=pyproject.toml',
     ],
+    yield: true,
+)
+option(
+    'config-args-pytest',
+    description: 'pip-compile args',
+    type: 'array',
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
+    yield: true,
+)
+option(
+    'install-args-pytest',
+    description: 'pipx install args',
+    type: 'array',
+    value: [],
     yield: true,
 )
