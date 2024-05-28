@@ -5,5 +5,8 @@ requirements = ['requirements.in']
 configure_file(
     input: requirements,
     output: 'requirements.txt',
-    command: ['pip-compile', '-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes', '-o', '@OUTPUT@', '@INPUT@']
+    command: [
+        'pip-compile', get_option('config-args-semantic_release'),
+        '-o', '@OUTPUT@', '@INPUT@',
+    ]
 )

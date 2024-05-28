@@ -8,7 +8,7 @@ source_child_dist_children = [
 ]
 if (get_option('dev').enabled() or get_option('dist').enabled())
     foreach package : source_child_dist_children
-        message('configuring', package)
+        message('configure', package, 'with pip-compile')
         subdir(package)
     endforeach
 endif
