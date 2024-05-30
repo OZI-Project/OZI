@@ -1,4 +1,24 @@
 # CHANGELOG
+## 1.11.0 (2024-05-30)
+
+### :arrow_up:
+
+* :arrow_up: blastpipe~=2024.10.1
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`4332d46`](https://github.com/OZI-Project/OZI/commit/4332d46aaa00f7264e19d3601451d7a1fc3329b2))
+
+### :pushpin:
+
+* :pushpin: blastpipe~=2024.10
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`532f42a`](https://github.com/OZI-Project/OZI/commit/532f42a2abf2a4e62e0a9e12d1a01856232bc55b))
+
+### :sparkles:
+
+* :sparkles::bug: FIX Our Python distribution support keys are incorrect #620
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1400beb`](https://github.com/OZI-Project/OZI/commit/1400beb06219e4cca5961460c3f6605322a5c927))
+
 ## 1.10.2 (2024-05-30)
 
 ### :arrow_up:
