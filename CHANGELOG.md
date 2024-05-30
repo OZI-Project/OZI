@@ -1,4 +1,38 @@
 # CHANGELOG
+## 1.10.2 (2024-05-30)
+
+### :arrow_up:
+
+* :arrow_up: Bump OZI-Project/draft from 0.2.0 to 0.2.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.2.0 to 0.2.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/52700faa171c8b44e53834c4878e6cbca430b1d9...914c0f88bb59d105ed0fc061278442565bb6860c)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`ee6c27a`](https://github.com/OZI-Project/OZI/commit/ee6c27aa58e9362a1bb4993d6a598dd4ec777129))
+
+* :arrow_up: Bump OZI-Project/publish from 0.1.3 to 0.1.4
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.3 to 0.1.4.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/f5d14bfb29fd5daa0fd3002a9c57f863e86ddf93...132db35a4d8eaec96886eecc50034f3c3db8bc45)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`18fb106`](https://github.com/OZI-Project/OZI/commit/18fb10681545764f55d4a73d4139970864649aa3))
+
 ## 1.10.1 (2024-05-27)
 
 ### :pushpin:
