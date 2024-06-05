@@ -106,31 +106,31 @@ class PythonSupport(Default):
         )[:4]
 
     @cached_property
-    def bugfix1_minor(self: Self) -> int:
-        _, _, bugfix1, *_ = self._minor_versions
-        return bugfix1
+    def bugfix_minor(self: Self) -> int:
+        _, _, bugfix, *_ = self._minor_versions
+        return bugfix
 
     @cached_property
-    def bugfix1(self: Self) -> str:
-        return '.'.join(map(str, (self.major, self.bugfix1_minor)))
+    def bugfix(self: Self) -> str:
+        return '.'.join(map(str, (self.major, self.bugfix_minor)))
 
     @cached_property
-    def bugfix2_minor(self: Self) -> int:
-        _, bugfix2, *_ = self._minor_versions
-        return bugfix2
+    def security1_minor(self: Self) -> int:
+        _, security1, *_ = self._minor_versions
+        return security1
 
     @cached_property
-    def bugfix2(self: Self) -> str:
-        return '.'.join(map(str, (self.major, self.bugfix2_minor)))
+    def security1(self: Self) -> str:
+        return '.'.join(map(str, (self.major, self.security1_minor)))
 
     @cached_property
-    def security_minor(self: Self) -> int:
-        security, *_ = self._minor_versions
-        return security
+    def security2_minor(self: Self) -> int:
+        security2, *_ = self._minor_versions
+        return security2
 
     @cached_property
-    def security(self: Self) -> str:
-        return '.'.join(map(str, (self.major, self.security_minor)))
+    def security2(self: Self) -> str:
+        return '.'.join(map(str, (self.major, self.security2_minor)))
 
     @cached_property
     def prerelease_minor(self: Self) -> int | None:
@@ -149,15 +149,15 @@ class PythonSupport(Default):
             ('Classifier', f'Programming Language :: Python :: {self.major} :: Only'),
             (
                 'Classifier',
-                f'Programming Language :: Python :: {self.security}',
+                f'Programming Language :: Python :: {self.security2}',
             ),
             (
                 'Classifier',
-                f'Programming Language :: Python :: {self.bugfix2}',
+                f'Programming Language :: Python :: {self.security1}',
             ),
             (
                 'Classifier',
-                f'Programming Language :: Python :: {self.bugfix1}',
+                f'Programming Language :: Python :: {self.bugfix}',
             ),
         ]
         if self.prerelease_minor:  # pragma: defer to spec
@@ -181,9 +181,9 @@ class Support(Default):
     metadata_version: str = '2.1'
     major: str = '3'
     prerelease: str = _python_support.prerelease
-    bugfix1: str = _python_support.bugfix1
-    bugfix2: str = _python_support.bugfix2
-    security: str = _python_support.security
+    bugfix: str = _python_support.bugfix
+    security1: str = _python_support.security1
+    security2: str = _python_support.security2
     deprecation_schedule: Mapping[int, str] = field(
         default_factory=lambda: _python_support.deprecation_schedule,
     )

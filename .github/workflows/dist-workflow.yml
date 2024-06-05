@@ -162,7 +162,7 @@ jobs:
             api.github.com:443
             github.com:443
 
-      - uses: OZI-Project/draft@52700faa171c8b44e53834c4878e6cbca430b1d9
+      - uses: OZI-Project/draft@b1b9f3b412ed16a45dfe7c6f60ea8d6fbae97630
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -174,9 +174,9 @@ jobs:
     strategy:
       matrix:
         py:
-          - 'security'
-          - 'bugfix2'
-          - 'bugfix1'
+          - 'security2'
+          - 'security1'
+          - 'bugfix'
           - 'prerelease'
       fail-fast: true
       max-parallel: 1
@@ -203,7 +203,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             objects.githubusercontent.com:443
 
-      - uses: OZI-Project/release@e9a930e5aeb72027b339ffd138a261e7174d7b87
+      - uses: OZI-Project/release@4f6d83ec6fd65e43f393bb7797b7a8a9a882de22
         id: release
         with:
           tag: ${{ needs.draft.outputs.tag }}
@@ -244,6 +244,6 @@ jobs:
           upload.pypi.org:443
           uploads.github.com:443
 
-    - uses: OZI-Project/publish@f5d14bfb29fd5daa0fd3002a9c57f863e86ddf93
+    - uses: OZI-Project/publish@132db35a4d8eaec96886eecc50034f3c3db8bc45
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
