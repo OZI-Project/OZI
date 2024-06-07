@@ -17,14 +17,14 @@ class Publish(Default):
     """Publishing patterns for packaged project."""
 
     include: tuple[str, ...] = ('*.tar.gz', '*.whl', 'sig/*')
-    version: str = '0.1.3'
+    version: str = '0.1.5'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
 class Draft(Default):
     """Draft release patterns for packaged project."""
 
-    version: str = '0.3.0'
+    version: str = '0.3.1'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
