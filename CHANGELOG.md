@@ -1,4 +1,101 @@
 # CHANGELOG
+## 1.11.1 (2024-06-07)
+
+### :arrow_up:
+
+* :arrow_up: Bump OZI-Project/draft from 0.3.0 to 0.3.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.3.0 to 0.3.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/b1b9f3b412ed16a45dfe7c6f60ea8d6fbae97630...f136e6eb55507553aee04e92455cc2dc279583fc)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`ab9d266`](https://github.com/OZI-Project/OZI/commit/ab9d266bd9e030a65d48aeea40a6d7cc456c7af4))
+
+* :arrow_up: Bump OZI-Project/publish from 0.1.4 to 0.1.5
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.4 to 0.1.5.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/132db35a4d8eaec96886eecc50034f3c3db8bc45...edb7e48d4196153b8dabddb970405495e1ff2092)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f39ec90`](https://github.com/OZI-Project/OZI/commit/f39ec905bc49c9b5e18aac0fe2df35e617ee7b57))
+
+* :arrow_up: Bump actions/dependency-review-action from 4.3.2 to 4.3.3
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.3.2 to 4.3.3.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/0c155c5e8556a497adf53f2c18edabf945ed8e70...72eb03d02c7872a771aacd928f3123ac62ad6d3a)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`58481c6`](https://github.com/OZI-Project/OZI/commit/58481c6e2d9583beffb8d7cecef2f2458e0a4dab))
+
+* :arrow_up: Bump github/codeql-action from 3.25.7 to 3.25.8
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.7 to 3.25.8.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/f079b8493333aace61c81488f8bd40919487bd9f...2e230e8fe0ad3a14a340ad0815ddb96d599d2aff)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`db3b62d`](https://github.com/OZI-Project/OZI/commit/db3b62da0a2b93ac289a8dfb38e3fb3356f00f78))
+
+* :arrow_up: Bump github/codeql-action from 3.25.6 to 3.25.7
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.6 to 3.25.7.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/9fdb3e49720b44c48891d036bb502feb25684276...f079b8493333aace61c81488f8bd40919487bd9f)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`8ff6ee3`](https://github.com/OZI-Project/OZI/commit/8ff6ee334165b1b55702b922a09ab8ae91172a1d))
+
+### :hammer:
+
+* :hammer: CommentPatterns spec class is now public.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d0d5035`](https://github.com/OZI-Project/OZI/commit/d0d5035a34fe011ce9b2f34a14a866e070ba90a8))
+
+### :pushpin:
+
+* :pushpin: OZI-Project/draft 0.3.1
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7d1b5f3`](https://github.com/OZI-Project/OZI/commit/7d1b5f3e690494368407c1ef5defff5aca8a68fb))
+
+* :pushpin: OZI-Project/publish 0.1.5
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1d15f59`](https://github.com/OZI-Project/OZI/commit/1d15f59fd6add19139b4c74f8b926f2e731cf143))
+
 ## 1.11.0 (2024-05-30)
 
 ### :arrow_up:
