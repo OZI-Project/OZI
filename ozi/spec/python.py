@@ -6,6 +6,8 @@
 from __future__ import annotations
 
 import platform
+from dataclasses import dataclass
+from dataclasses import field
 from datetime import date
 from datetime import datetime
 from datetime import timedelta
@@ -13,28 +15,18 @@ from datetime import timezone
 from functools import cached_property
 from typing import TYPE_CHECKING
 from typing import Sequence
-from typing import TypeAlias
 from warnings import warn
 
 from ozi.spec.base import Default
 
 if TYPE_CHECKING:
     import sys
-    from collections.abc import Callable
     from collections.abc import Mapping
-
-    _VT: TypeAlias = list['_KT'] | Mapping[str, '_KT']
-    _KT: TypeAlias = str | int | float | None | _VT
-    _Lambda: TypeAlias = Callable[[], '_FactoryMethod']
-    _FactoryMethod: TypeAlias = Callable[[], _Lambda]
 
     if sys.version_info >= (3, 11):
         from typing import Self
     elif sys.version_info < (3, 11):
         from typing_extensions import Self
-
-from dataclasses import dataclass
-from dataclasses import field
 
 pymajor, pyminor, pypatch = map(int, platform.python_version_tuple())
 DATE_FORMAT = '%Y-%m-%d'

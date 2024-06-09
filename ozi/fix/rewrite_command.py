@@ -18,6 +18,7 @@ from warnings import warn
 from ozi.render import build_child
 from ozi.render import build_file
 from ozi.render import find_user_template
+from ozi.spec import METADATA
 
 if TYPE_CHECKING:
     import sys

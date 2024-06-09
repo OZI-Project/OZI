@@ -8,6 +8,8 @@ from dataclasses import field
 from importlib.metadata import PackageNotFoundError
 from importlib.metadata import version
 
+from setuptools_scm import get_version  # type: ignore
+
 from ozi.spec.base import Default
 from ozi.spec.ci import RuffLint
 from ozi.spec.project import ClassicProject
