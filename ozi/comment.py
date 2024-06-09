@@ -160,7 +160,7 @@ def diagnostic(  # pragma: no cover
     return count
 
 
-def score_file(count: Counter[str]) -> float:
+def score_file(count: Counter[str]) -> float:  # pragma: no cover
     """Score a single file comment diagnostic.
     .. deprecated:: 1.11.2
 

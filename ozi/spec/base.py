@@ -63,7 +63,7 @@ class Default(_FactoryDataclass):
 
     def __iter__(self: Self) -> Iterator[tuple[str, _Val]]:
         for f in fields(self):
-            if f.repr:
+            if f.repr:  # pragma: no cover
                 yield (
                     f.name,
                     (
