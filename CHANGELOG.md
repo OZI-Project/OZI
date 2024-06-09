@@ -1,4 +1,56 @@
 # CHANGELOG
+## 1.11.2 (2024-06-09)
+
+### :bug:
+
+* :bug: no cover score function
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`906d9f8`](https://github.com/OZI-Project/OZI/commit/906d9f8b4e85a1525d96f9cec6886ce14f827079))
+
+* :bug: Fix typing for ozi.spec.base.Default. ([`43f840f`](https://github.com/OZI-Project/OZI/commit/43f840f19688eb98d70cbd135ab5b17c1b0998eb))
+
+* :bug: rename score_file to score (score_file deprecated)
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`756d2c1`](https://github.com/OZI-Project/OZI/commit/756d2c1b99e3b112ebf1c3f70e1341d741e2baf4))
+
+* :bug: CheckpointSuite no longer kw_only
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`2804a02`](https://github.com/OZI-Project/OZI/commit/2804a020be2e7481207b8490d636de768354da11))
+
+### :pencil2:
+
+* :pencil2: remove Any
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`c8156ec`](https://github.com/OZI-Project/OZI/commit/c8156ec2549a4c3edb9602f0cee00dc53611fdee))
+
+### Other
+
+* :rotating_light: Type ignore ozi.spec.base.Default.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d2804df`](https://github.com/OZI-Project/OZI/commit/d2804dfdb6ee4bbaec49e7123c13033c5af9eb73))
+
+* :rotating_light: Fix empty list guard.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`fdccaae`](https://github.com/OZI-Project/OZI/commit/fdccaae2278a30beed5589263c98e14019667e9f))
+
+* :memo: add some spec metadata to versions
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`13f37ac`](https://github.com/OZI-Project/OZI/commit/13f37ace212ef86fc0e39714bc1475b9652daf8d))
+
+* :rotating_light: clean up import guards
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`cc78500`](https://github.com/OZI-Project/OZI/commit/cc78500977a5be2b77ba3fab7788b2c42dbfb8ab))
+
+* :doc::rotating_light: refactor ozi.spec.base.Default
+
+add iter method
+help in Field metadata
+improved docstring for asdict ([`66408f5`](https://github.com/OZI-Project/OZI/commit/66408f510814e98ed6b4e7c8546c0ab79cc40d91))
+
+* :rotating_light: moved import guards to end of imports
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`791fcf6`](https://github.com/OZI-Project/OZI/commit/791fcf6a82a3e9476f0770ea1626c9bb89dddce4))
+
 ## 1.11.1 (2024-06-07)
 
 ### :arrow_up:
