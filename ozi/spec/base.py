@@ -25,8 +25,8 @@ if TYPE_CHECKING:
     from collections.abc import Mapping
 
     VT = TypeVar('VT', str, int, float, None)
-    _Val: TypeAlias = list['_Key[Any]'] | Mapping['_Key[Any]', VT] | VT
-    _Key: TypeAlias = VT | _Val[Any]
+    _Val: TypeAlias = list['_Key[VT]'] | Mapping['_Key[VT]', VT] | VT
+    _Key: TypeAlias = VT | _Val[VT]
     _Lambda: TypeAlias = Callable[[], '_FactoryMethod']
     _FactoryMethod: TypeAlias = Callable[[], _Lambda]
 
