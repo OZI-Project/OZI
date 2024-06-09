@@ -16,14 +16,16 @@ from typing import ClassVar
 from typing import Iterator
 from typing import Protocol
 from typing import TypeAlias
+from typing import TypeVar
 
 if TYPE_CHECKING:
     import sys
     from collections.abc import Callable
     from collections.abc import Mapping
 
-    _Val: TypeAlias = list['_Key'] | Mapping[str, '_Key']
-    _Key: TypeAlias = str | int | float | None | _Val
+    VT = TypeVar('VT', str, int, float, None)
+    _Val: TypeAlias = list['_Key'] | Mapping['_Key', VT] | VT
+    _Key: TypeAlias = VT | _Val
     _Lambda: TypeAlias = Callable[[], '_FactoryMethod']
     _FactoryMethod: TypeAlias = Callable[[], _Lambda] | Field
 
@@ -71,7 +73,7 @@ class Default(_FactoryDataclass):
                     ),
                 )
 
-    def asdict(self: Self) -> dict[str, _Val | str]:
+    def asdict(self: Self) -> dict[str, _Val]:
         """Return a dictionary of all fields where repr=True.
         Hide a variable from the dict by setting repr to False and using
         a Default subclass as the default_factory.
