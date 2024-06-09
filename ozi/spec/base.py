@@ -12,6 +12,7 @@ from dataclasses import asdict
 from dataclasses import dataclass
 from dataclasses import fields
 from typing import TYPE_CHECKING
+from typing import Any
 from typing import ClassVar
 from typing import Iterator
 from typing import Protocol
@@ -24,10 +25,10 @@ if TYPE_CHECKING:
     from collections.abc import Mapping
 
     VT = TypeVar('VT', str, int, float, None)
-    _Val: TypeAlias = list['_Key'] | Mapping['_Key', VT] | VT
-    _Key: TypeAlias = VT | _Val
+    _Val: TypeAlias = list['_Key[Any]'] | Mapping['_Key[Any]', VT] | VT
+    _Key: TypeAlias = VT | _Val[Any]
     _Lambda: TypeAlias = Callable[[], '_FactoryMethod']
-    _FactoryMethod: TypeAlias = Callable[[], _Lambda] | Field
+    _FactoryMethod: TypeAlias = Callable[[], _Lambda]
 
     if sys.version_info >= (3, 11):
         from typing import Self
@@ -38,21 +39,21 @@ if TYPE_CHECKING:
 class _FactoryDataclass(Protocol):
     """A dataclass that, when called, returns a factory method."""
 
-    __dataclass_fields__: ClassVar[dict[str, _Val]]
+    __dataclass_fields__: ClassVar[dict[str, _Val[Any]]]
 
-    def asdict(self: Self) -> dict[str, _Val]: ...
+    def asdict(self: Self) -> dict[str, _Val[str]]: ...
 
     def __call__(self: Self) -> _FactoryMethod: ...
 
 
 @dataclass(frozen=True, repr=False)
 class Default(_FactoryDataclass):
-    """A dataclass that, when called, returns it's own default factory method."""
+    """A dataclass that, when called, returns it's own default factory field."""
 
     def __call__(self: Self) -> _FactoryMethod:  # pragma: defer to python
         return Field(
             default=MISSING,
-            default_factory=self,
+            default_factory=self,  # type: ignore
             init=True,
             repr=True,
             hash=None,
@@ -61,7 +62,7 @@ class Default(_FactoryDataclass):
             kw_only=MISSING,  # type: ignore
         )
 
-    def __iter__(self: Self) -> Iterator[tuple[str, _Val]]:
+    def __iter__(self: Self) -> Iterator[tuple[str, _Val[Any]]]:
         for f in fields(self):
             if f.repr:  # pragma: no cover
                 yield (
@@ -73,7 +74,7 @@ class Default(_FactoryDataclass):
                     ),
                 )
 
-    def asdict(self: Self) -> dict[str, _Val]:
+    def asdict(self: Self) -> dict[str, _Val[str]]:
         """Return a dictionary of all fields where repr=True.
         Hide a variable from the dict by setting repr to False and using
         a Default subclass as the default_factory.
