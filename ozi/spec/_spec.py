@@ -8,6 +8,8 @@ from dataclasses import field
 from importlib.metadata import PackageNotFoundError
 from importlib.metadata import version
 
+from setuptools_scm import get_version  # type: ignore
+
 from ozi.spec.base import Default
 from ozi.spec.ci import RuffLint
 from ozi.spec.project import ClassicProject
@@ -18,18 +20,20 @@ from ozi.spec.python import PythonSupport
 def current_version() -> str:
     """Returns the currently installed version of OZI."""
     try:
-        return version('OZI')
+        version_ = version('OZI')
     except PackageNotFoundError:  # pragma: no cover
-        from setuptools_scm import get_version  # type: ignore
-
-        return str(get_version(root='..', relative_to=__file__))
+        version_ = str(get_version(root='..', relative_to=__file__))
+    return version_
 
 
 @dataclass(slots=True, frozen=True, eq=True)
 class Spec(Default):
     """OZI Specification metadata."""
 
-    version: str = '0.4'
+    version: str = field(
+        default='0.4',
+        metadata={'help': 'OZI specification standard version.'},
+    )
     python: PythonProject = ClassicProject()
 
 
@@ -44,7 +48,10 @@ class Experimental(Default):
 class OZI(Default):
     """OZI distribution metadata."""
 
-    version: str = field(default_factory=current_version)
+    version: str = field(
+        default_factory=current_version,
+        metadata={'help': 'Currently installed version of the OZI package.'},
+    )
     python_support: PythonSupport = PythonSupport()
     experimental: Experimental = Experimental()
 

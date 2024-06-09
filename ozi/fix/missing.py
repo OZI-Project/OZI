@@ -9,12 +9,6 @@ import re
 import sys
 from email import message_from_string
 from pathlib import Path
-
-if sys.version_info >= (3, 11):  # pragma: no cover
-    import tomllib as toml
-elif sys.version_info < (3, 11):  # pragma: no cover
-    import tomli as toml
-
 from typing import TYPE_CHECKING
 
 from blastpipe.ozi_templates.filter import underscorify  # pyright: ignore
@@ -25,6 +19,11 @@ from ozi.meson import project_metadata
 from ozi.pkg_extra import parse_extra_pkg_info
 from ozi.spec import METADATA
 from ozi.tap import TAP
+
+if sys.version_info >= (3, 11):  # pragma: no cover
+    import tomllib as toml
+elif sys.version_info < (3, 11):  # pragma: no cover
+    import tomli as toml
 
 if TYPE_CHECKING:
     from email.message import Message

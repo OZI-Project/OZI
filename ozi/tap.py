@@ -15,6 +15,9 @@ from contextlib import redirect_stderr
 from contextlib import redirect_stdout
 from pathlib import Path
 from typing import TYPE_CHECKING
+from typing import Generator
+from typing import NoReturn
+from typing import TextIO
 
 if TYPE_CHECKING:
     from typing import Any
@@ -23,10 +26,6 @@ if TYPE_CHECKING:
         from typing import Self
     elif sys.version_info < (3, 11):
         from typing_extensions import Self
-
-from typing import Generator
-from typing import NoReturn
-from typing import TextIO
 
 OK = 'ok'
 NOT_OK = 'not_ok'
