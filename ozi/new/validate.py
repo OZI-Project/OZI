@@ -99,11 +99,11 @@ def valid_contact_info(  # noqa: C901
             'Author and Maintainer are identical',
             'Maintainer should be empty',
         )
-    elif len(maintainer) and not len(author):
+    elif len(maintainer) and not author:
         TAP.not_ok('Maintainer', 'provided without setting Author')
     elif len(maintainer) and len(author):
         TAP.ok('Author and Maintainer provided.')
-    elif author_and_maintainer_email and not len(maintainer):
+    elif author_and_maintainer_email and not maintainer:
         TAP.not_ok(  # pragma: defer to good issue
             'Maintainer-Email',
             'expected Maintainer name missing',
