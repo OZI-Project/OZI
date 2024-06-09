@@ -25,6 +25,7 @@ def current_version() -> str:
         version_ = str(get_version(root='..', relative_to=__file__))
     return version_
 
+
 @dataclass(slots=True, frozen=True, eq=True)
 class Spec(Default):
     """OZI Specification metadata."""

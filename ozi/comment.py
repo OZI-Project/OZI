@@ -168,6 +168,7 @@ def score_file(count: Counter[str]) -> float:
     """
     return score(count)
 
+
 def score(count: Counter[str]) -> float:  # pragma: no cover
     """Score a single comment diagnostic.
 
