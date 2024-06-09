@@ -42,7 +42,7 @@ class Checkpoint(Default):
     version: str = '0.4.0'
 
 
-@dataclass(kw_only=True, frozen=True, eq=True)
+@dataclass(slots=True, frozen=True, eq=True)
 class CheckpointSuite(Default):
     """OZI checkpoint base class."""
 
