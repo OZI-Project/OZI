@@ -33,8 +33,6 @@ if TYPE_CHECKING:
     elif sys.version_info < (3, 11):
         from typing_extensions import Self
 
-from ozi.spec import METADATA
-
 
 @dataclass
 class RewriteCommand:  # pragma: defer to meson

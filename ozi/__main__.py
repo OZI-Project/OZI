@@ -119,7 +119,7 @@ helpers.add_argument(  # pragma: no cover
 
 def main() -> None:  # pragma: no cover
     """``ozi`` script entrypoint."""
-    ozi, args = parser.parse_known_args()
+    ozi, _ = parser.parse_known_args()
     ozi.version()
     ozi.check_version()
     ozi.info()
@@ -133,5 +133,4 @@ def main() -> None:  # pragma: no cover
 
 
 if __name__ == '__main__':
-    """Main ozi entrypoint."""
     main()

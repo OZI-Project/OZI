@@ -11,6 +11,8 @@ from functools import lru_cache
 from typing import TYPE_CHECKING
 from warnings import warn
 
+from trove_classifiers import classifiers
+
 if TYPE_CHECKING:
     import sys
 
@@ -18,8 +20,6 @@ if TYPE_CHECKING:
         from typing import Self
     elif sys.version_info < (3, 11):
         from typing_extensions import Self
-
-from trove_classifiers import classifiers
 
 
 @lru_cache
@@ -42,6 +42,8 @@ valid_trove_prefixes = set(map(get_trove_prefix, classifiers))
 
 @dataclass(frozen=True, slots=True, eq=True)
 class Prefix:
+    """Trove :term:`classifier` prefix literals for :term:`PyPI`"""
+
     audience: str = 'Intended Audience :: '
     environment: str = 'Environment :: '
     framework: str = 'Framework :: '
