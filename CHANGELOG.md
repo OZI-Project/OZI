@@ -1,4 +1,18 @@
 # CHANGELOG
+## 1.11.3 (2024-06-10)
+
+### :bug:
+
+* :bug: ozi.spec.base.Default now public as ozi.spec.Default
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`8556d46`](https://github.com/OZI-Project/OZI/commit/8556d46e5760f68889f4fa6dde0d0f566d14a4ff))
+
+### :pencil2:
+
+* :pencil2: Fix docstrings in spec
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`235b16e`](https://github.com/OZI-Project/OZI/commit/235b16eb4bfccb53ba0006b7f0515f361f220153))
+
 ## 1.11.2 (2024-06-09)
 
 ### :bug:
