@@ -50,6 +50,7 @@ def create_project_files(
             f'README.{project.readme_type}',
         ).symlink_to(Path(project.target, 'README'))
 
+
 def _valid_project(project: Namespace) -> Namespace:
     """Validate a project namespace."""
     valid_project_name(name=project.name)
