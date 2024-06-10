@@ -90,7 +90,7 @@ pyproject_config.set(
 )
 pyproject_config.set('PROJECT_NAME', project_name)
 pyproject_config.set('LICENSE', meson.project_license()[0])
-root_files = ['README.rst', 'CHANGELOG.md', 'LICENSE.txt', 'requirements.in', 'pyproject.toml', '.gitignore']
+root_files = ['README', 'CHANGELOG.md', 'LICENSE.txt', 'requirements.in', 'pyproject.toml', '.gitignore']
 configure_file(
     input: root_files[4],
     output: root_files[4],
