@@ -81,7 +81,8 @@ class Default(_FactoryDataclass):
         Typing is compatible with :term:`JSON` and Jinja2 global namespace.
 
         .. seealso::
-            :std:label:`jinja2:global-namespace`
+
+           :std:label:`jinja2:global-namespace`
         """
         return dict(iter(self)) | {
             'help': str(self.__class__.__doc__).replace('\n   ', ''),

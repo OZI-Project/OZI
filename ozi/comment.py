@@ -162,9 +162,10 @@ def diagnostic(  # pragma: no cover
 
 def score_file(count: Counter[str]) -> float:  # pragma: no cover
     """Score a single file comment diagnostic.
+
     .. deprecated:: 1.11.2
 
-        Use :py:function:`ozi.comment.score` instead.
+        Use :py:func:`ozi.comment.score` instead.
     """
     return score(count)
 
