@@ -47,8 +47,10 @@ def create_project_files(
     if project.ci_provider == 'github':
         Path(
             project.target,
-            f'README.{project.readme_type}',
+            f'README.{project.long_description_content_type}',
         ).symlink_to(Path(project.target, 'README'))
+    else:  # pragma: no cover
+        pass
 
 
 def _valid_project(project: Namespace) -> Namespace:
