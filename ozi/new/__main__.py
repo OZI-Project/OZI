@@ -5,6 +5,7 @@
 """ozi-new entrypoint script."""
 from __future__ import annotations
 
+import os
 import re
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -44,7 +45,11 @@ def create_project_files(
     project.allow_file = set(map(Path, project.allow_file))
     project.ci_user = render_ci_files_set_user(env, project.target, project.ci_provider)
     render_project_files(env, project.target, project.name)
-
+    if project.ci_provider == 'github':
+        Path(
+            project.target,
+            f'README.{project.readme_type}',
+        ).symlink_to(Path(project.target, 'README'))
 
 def _valid_project(project: Namespace) -> Namespace:
     """Validate a project namespace."""
