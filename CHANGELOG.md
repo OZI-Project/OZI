@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.11.5 (2024-06-11)
+
+### :bug:
+
+* :bug: Merge pull request #659 from OZI-Project/main
+
+Merge pull request #658 from OZI-Project/release/1.11 ([`e826ec6`](https://github.com/OZI-Project/OZI/commit/e826ec6038b6b4bec74ea51b45c3896049bfe20e))
+
 ## 1.11.4 (2024-06-11)
 
 ### :arrow_up:
