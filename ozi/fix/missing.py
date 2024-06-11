@@ -104,7 +104,7 @@ def required_pkg_info(
             TAP.not_ok('MISSING', i)
     extra_pkg_info = required_extra_pkg_info(pkg_info)
     name = re.sub(r'[-_.]+', '-', pkg_info.get('Name', '')).lower()
-    for k, v in extra_pkg_info.items():
+    for k, v in extra_pkg_info.items():  # pragma: no cover
         TAP.ok(k, v)
     return name, extra_pkg_info
 
