@@ -381,7 +381,7 @@ option(
     'args-readme-renderer',
     description: 'module args',
     type: 'array',
-    value: ['README.rst'],
+    value: ['README'],
     yield: true,
 )
 option(
