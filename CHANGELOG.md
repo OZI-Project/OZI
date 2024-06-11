@@ -1,4 +1,77 @@
 # CHANGELOG
+## 1.11.4 (2024-06-11)
+
+### :arrow_up:
+
+* :arrow_up: blastpipe 2024.10.5
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`f4e6690`](https://github.com/OZI-Project/OZI/commit/f4e6690ea05cbd4bd14d2f9e7064fb7163997019))
+
+* :arrow_up: Bump step-security/harden-runner from 2.8.0 to 2.8.1
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.8.0 to 2.8.1.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/f086349bfa2bd1361f7909c78558e816508cdc10...17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6)
+
+---
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`95e6805`](https://github.com/OZI-Project/OZI/commit/95e6805a6a52f06d1b086c58ce918bf57c35d3d4))
+
+### :bug:
+
+* :bug: correct use of ``long_description_content_type`` ([`3d614b7`](https://github.com/OZI-Project/OZI/commit/3d614b772f5d0a1b6a7f7b33bd3b5d25718fd89a))
+
+* :bug:(ozi-new): create an appropriate symlink for GitHub README rendering to work
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`44d2033`](https://github.com/OZI-Project/OZI/commit/44d2033ea1b6d23a1690255ee833f63a7aede975))
+
+* :bug: add readme symlink for gh renderer
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`ae4a2f3`](https://github.com/OZI-Project/OZI/commit/ae4a2f33795da7998a10cfa585095b4d8e209eec))
+
+* :bug: set README linguist-language
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`973b7a9`](https://github.com/OZI-Project/OZI/commit/973b7a9537bcef0f1a29925327ca773a297d4420))
+
+### :hammer:
+
+* :hammer:(readme-renderer): fs.copyfile README with extension ([`f3a208c`](https://github.com/OZI-Project/OZI/commit/f3a208c57bbb57c050c3ba458bd69453c11d24f5))
+
+### :wastebasket:
+
+* :wastebasket: delete .gitattributes and modelines
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`38e6785`](https://github.com/OZI-Project/OZI/commit/38e6785d3c27050907dd6e340f1c7779e6100ede))
+
+### :wrench:
+
+* :wrench:(args-readme-renderer) target README
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f09c7b8`](https://github.com/OZI-Project/OZI/commit/f09c7b864abc61a0dd0b18e7119b340cdbad9c38))
+
+* :wrench:(.gitattributes): remove README from linguist-documentation
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b3465e7`](https://github.com/OZI-Project/OZI/commit/b3465e78bede56fc869cecf05b83eb1efd7cf3f9))
+
+### Other
+
+* :rotating_light: ``tox -e fix``
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`b3275d0`](https://github.com/OZI-Project/OZI/commit/b3275d00af09bd7e9ff91b8f8fad638b3c069556))
+
+* remove unused import
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f4c3e2e`](https://github.com/OZI-Project/OZI/commit/f4c3e2ef360c75f3efc55ed05b2c2ef7acb944f5))
+
+* :memo: rename ``README.rst`` to ``README`` per OZI spec
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d6b7e34`](https://github.com/OZI-Project/OZI/commit/d6b7e3420944fbe71718fe73c7409237b68df30c))
+
 ## 1.11.3 (2024-06-10)
 
 ### :bug:
