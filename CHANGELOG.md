@@ -24,6 +24,10 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`95e6805`](https://g
 
 ### :bug:
 
+* :bug:(dist-workflow.yml): FIX artifact download
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`e5e70c6`](https://github.com/OZI-Project/OZI/commit/e5e70c649b945ff9abea28cf03983e97c15b7ccc))
+
 * :bug:(dist-workflow.yml) FIX artifacts in release artifact
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`1526d3c`](https://github.com/OZI-Project/OZI/commit/1526d3cf87476977ff98810414373f76515613d4))
@@ -49,6 +53,12 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`973b7a9`](
 ### :hammer:
 
 * :hammer:(readme-renderer): fs.copyfile README with extension ([`f3a208c`](https://github.com/OZI-Project/OZI/commit/f3a208c57bbb57c050c3ba458bd69453c11d24f5))
+
+### :pushpin:
+
+* :pushpin: OZI-Project/release@0.6.2
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`9aa4e68`](https://github.com/OZI-Project/OZI/commit/9aa4e684116bd1dc970fae58c80b7cc7d67a8a6e))
 
 ### :wastebasket:
 
