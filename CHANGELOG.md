@@ -24,6 +24,14 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`95e6805`](https://g
 
 ### :bug:
 
+* :bug:(checkpoint): ``parallel: false`` to workaround issue with CPython countedFileLock API.
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`5667a6f`](https://github.com/OZI-Project/OZI/commit/5667a6f395e835a0f1a0331ca2502c1889af391b))
+
+* :bug:(dist-workflow.yml) Ignore copied symlinks release@0.6.4
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`d473142`](https://github.com/OZI-Project/OZI/commit/d47314280b1bfc80e00411b6f1d67a79e7d35132))
+
 * :bug:(dist-workflow.yml): FIX remove copy artifact step
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`df10823`](https://github.com/OZI-Project/OZI/commit/df10823a0b9baeb67eaec2c767e9c8886a831d41))
@@ -60,6 +68,10 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`973b7a9`](
 
 ### :pushpin:
 
+* :pushpin: OZI-Project/release@0.6.4
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`fef34b8`](https://github.com/OZI-Project/OZI/commit/fef34b85654da4d66d4caec5988f9347356689ad))
+
 * :pushpin: OZI-Project/release@0.6.3
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`64f61f2`](https://github.com/OZI-Project/OZI/commit/64f61f24078cc087d4067c6d0d8c1d2e95493a29))
@@ -85,6 +97,10 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f09c7b8`](https://githu
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b3465e7`](https://github.com/OZI-Project/OZI/commit/b3465e78bede56fc869cecf05b83eb1efd7cf3f9))
 
 ### Other
+
+* Update dev-workflow.yml checkpoint version
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`2d9308a`](https://github.com/OZI-Project/OZI/commit/2d9308a1fa8c8279d7e878d4c0099d5d85701853))
 
 * :rotating_light: ``tox -e fix``
 
