@@ -1,13 +1,5 @@
 # CHANGELOG
-## 1.11.5 (2024-06-11)
-
-### :bug:
-
-* :bug: Merge pull request #659 from OZI-Project/main
-
-Merge pull request #658 from OZI-Project/release/1.11 ([`e826ec6`](https://github.com/OZI-Project/OZI/commit/e826ec6038b6b4bec74ea51b45c3896049bfe20e))
-
-## 1.11.4 (2024-06-11)
+## 1.11.4 (2024-06-12)
 
 ### :arrow_up:
 
@@ -31,6 +23,14 @@ updated-dependencies:
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`95e6805`](https://github.com/OZI-Project/OZI/commit/95e6805a6a52f06d1b086c58ce918bf57c35d3d4))
 
 ### :bug:
+
+* :bug:(dist-workflow.yml) FIX artifacts in release artifact
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`1526d3c`](https://github.com/OZI-Project/OZI/commit/1526d3cf87476977ff98810414373f76515613d4))
+
+* :bug: Merge pull request #659 from OZI-Project/main
+
+Merge pull request #658 from OZI-Project/release/1.11 ([`e826ec6`](https://github.com/OZI-Project/OZI/commit/e826ec6038b6b4bec74ea51b45c3896049bfe20e))
 
 * :bug: correct use of ``long_description_content_type`` ([`3d614b7`](https://github.com/OZI-Project/OZI/commit/3d614b772f5d0a1b6a7f7b33bd3b5d25718fd89a))
 
