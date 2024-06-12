@@ -1,4 +1,34 @@
 # CHANGELOG
+## 1.11.5 (2024-06-12)
+
+### :arrow_up:
+
+* :arrow_up:(requirements): blastpipe 2024.11.2
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`1d707ec`](https://github.com/OZI-Project/OZI/commit/1d707ec21bd18263b9c11fe2f6e85f8e833e3f2d))
+
+### :bug:
+
+* :bug: add a cleanup workflow to new projects.
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`5a6c442`](https://github.com/OZI-Project/OZI/commit/5a6c442dd00dfdd59bbaca024601f2e9e1b3ab6e))
+
+### :hammer:
+
+* :hammer: harden cleanup workflow.
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`43289d6`](https://github.com/OZI-Project/OZI/commit/43289d637d7fcf44b0dc708f85e012fd94877685))
+
+### Other
+
+* Update requirements.in
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b0aecc0`](https://github.com/OZI-Project/OZI/commit/b0aecc07fa1dc2cbaa3545ce555a8f3db5978dd3))
+
+* Create cleanup.yml
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`93a9a7a`](https://github.com/OZI-Project/OZI/commit/93a9a7ab7da6fad954e744839f8f2c0b0f01214d))
+
 ## 1.11.4 (2024-06-12)
 
 ### :arrow_up:
