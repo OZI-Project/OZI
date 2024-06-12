@@ -1,5 +1,5 @@
 GitPython>=3
-blastpipe~=2024.10.5
+blastpipe~=2024.11.0
 dnspython
 idna>=2
 jinja2>=3

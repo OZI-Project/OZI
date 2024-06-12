@@ -149,13 +149,14 @@ def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -
             except InvalidGitRepositoryError:
                 ci_user = ''
             Path(target, '.github', 'workflows').mkdir(parents=True)
-            template = env.get_template('github_workflows/ozi.yml.j2')
-            with open(
-                Path(target, '.github', 'workflows', 'ozi.yml'),
-                'w',
-                encoding='UTF-8',
-            ) as f:
-                f.write(template.render())
+            for i in ['ozi.yml', 'cleanup.yml']:
+                template = env.get_template(f'github_workflows/{i}.j2')
+                with open(
+                    Path(target, '.github', 'workflows', i),
+                    'w',
+                    encoding='UTF-8',
+                ) as f:
+                    f.write(template.render())
         case _:  # pragma: no cover
             ci_user = ''
     return ci_user
