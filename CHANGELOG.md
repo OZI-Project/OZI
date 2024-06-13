@@ -1,4 +1,30 @@
 # CHANGELOG
+## 1.11.6 (2024-06-13)
+
+### :hammer:
+
+* :hammer:(cleanup.yml): permissions for cache delete
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`de29e57`](https://github.com/OZI-Project/OZI/commit/de29e572c3cff7f0676532d5721529cddc8c7861))
+
+* :hammer:(cleanup.yml): write permissions for cache delete
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`7d90049`](https://github.com/OZI-Project/OZI/commit/7d90049a552490a4cec60998b4251e3a883a6d49))
+
+* :hammer:(cleanup.yml): add toplevel permissions.
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b89487a`](https://github.com/OZI-Project/OZI/commit/b89487ab79e1a34bc17cbe869e20b1424cfab59e))
+
+* :hammer:(cleanup.yml): ``permissions: id-token: write``
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`042514d`](https://github.com/OZI-Project/OZI/commit/042514de337386bc646971da514fb291551e61cb))
+
+### Other
+
+* ⬆️(requirements): blastpipe 2024.11.3
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b3c3181`](https://github.com/OZI-Project/OZI/commit/b3c31816002dbffa663293e412d3fb55cf56cb57))
+
 ## 1.11.5 (2024-06-12)
 
 ### :arrow_up:
