@@ -1,5 +1,85 @@
 # CHANGELOG
-## 1.11.4 (2024-06-11)
+## 1.11.7 (2024-06-13)
+
+### :bug:
+
+* :bug:(pyproject.toml): Fix branch release match pattern escape ``.``
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`3ab600e`](https://github.com/OZI-Project/OZI/commit/3ab600e91cd044cdd595960d64193052992e7db3))
+
+### :hammer:
+
+* :hammer:(cleanup.yml) permissions: read-all
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`a067dde`](https://github.com/OZI-Project/OZI/commit/a067ddea6d8b80ba2d173f9f8f3c2947148190a2))
+
+### Other
+
+* escape dots
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`022354d`](https://github.com/OZI-Project/OZI/commit/022354d002ca8b94e21832c41958c0d517f3e517))
+
+* ⬆️(requirements): blastpipe 2024.11.4
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`961b3a7`](https://github.com/OZI-Project/OZI/commit/961b3a7be9b28045c84a28a5226919d04ccf871a))
+
+## 1.11.6 (2024-06-13)
+
+### :hammer:
+
+* :hammer:(cleanup.yml): permissions for cache delete
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`de29e57`](https://github.com/OZI-Project/OZI/commit/de29e572c3cff7f0676532d5721529cddc8c7861))
+
+* :hammer:(cleanup.yml): write permissions for cache delete
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`7d90049`](https://github.com/OZI-Project/OZI/commit/7d90049a552490a4cec60998b4251e3a883a6d49))
+
+* :hammer:(cleanup.yml): add toplevel permissions.
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b89487a`](https://github.com/OZI-Project/OZI/commit/b89487ab79e1a34bc17cbe869e20b1424cfab59e))
+
+* :hammer:(cleanup.yml): ``permissions: id-token: write``
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`042514d`](https://github.com/OZI-Project/OZI/commit/042514de337386bc646971da514fb291551e61cb))
+
+### Other
+
+* ⬆️(requirements): blastpipe 2024.11.3
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b3c3181`](https://github.com/OZI-Project/OZI/commit/b3c31816002dbffa663293e412d3fb55cf56cb57))
+
+## 1.11.5 (2024-06-12)
+
+### :arrow_up:
+
+* :arrow_up:(requirements): blastpipe 2024.11.2
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`1d707ec`](https://github.com/OZI-Project/OZI/commit/1d707ec21bd18263b9c11fe2f6e85f8e833e3f2d))
+
+### :bug:
+
+* :bug: add a cleanup workflow to new projects.
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`5a6c442`](https://github.com/OZI-Project/OZI/commit/5a6c442dd00dfdd59bbaca024601f2e9e1b3ab6e))
+
+### :hammer:
+
+* :hammer: harden cleanup workflow.
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`43289d6`](https://github.com/OZI-Project/OZI/commit/43289d637d7fcf44b0dc708f85e012fd94877685))
+
+### Other
+
+* Update requirements.in
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b0aecc0`](https://github.com/OZI-Project/OZI/commit/b0aecc07fa1dc2cbaa3545ce555a8f3db5978dd3))
+
+* Create cleanup.yml
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`93a9a7a`](https://github.com/OZI-Project/OZI/commit/93a9a7ab7da6fad954e744839f8f2c0b0f01214d))
+
+## 1.11.4 (2024-06-12)
 
 ### :arrow_up:
 
@@ -24,6 +104,30 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`95e6805`](https://g
 
 ### :bug:
 
+* :bug:(checkpoint): ``parallel: false`` to workaround issue with CPython countedFileLock API.
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`5667a6f`](https://github.com/OZI-Project/OZI/commit/5667a6f395e835a0f1a0331ca2502c1889af391b))
+
+* :bug:(dist-workflow.yml) Ignore copied symlinks release@0.6.4
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`d473142`](https://github.com/OZI-Project/OZI/commit/d47314280b1bfc80e00411b6f1d67a79e7d35132))
+
+* :bug:(dist-workflow.yml): FIX remove copy artifact step
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`df10823`](https://github.com/OZI-Project/OZI/commit/df10823a0b9baeb67eaec2c767e9c8886a831d41))
+
+* :bug:(dist-workflow.yml): FIX artifact download
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`e5e70c6`](https://github.com/OZI-Project/OZI/commit/e5e70c649b945ff9abea28cf03983e97c15b7ccc))
+
+* :bug:(dist-workflow.yml) FIX artifacts in release artifact
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`1526d3c`](https://github.com/OZI-Project/OZI/commit/1526d3cf87476977ff98810414373f76515613d4))
+
+* :bug: Merge pull request #659 from OZI-Project/main
+
+Merge pull request #658 from OZI-Project/release/1.11 ([`e826ec6`](https://github.com/OZI-Project/OZI/commit/e826ec6038b6b4bec74ea51b45c3896049bfe20e))
+
 * :bug: correct use of ``long_description_content_type`` ([`3d614b7`](https://github.com/OZI-Project/OZI/commit/3d614b772f5d0a1b6a7f7b33bd3b5d25718fd89a))
 
 * :bug:(ozi-new): create an appropriate symlink for GitHub README rendering to work
@@ -42,6 +146,20 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`973b7a9`](
 
 * :hammer:(readme-renderer): fs.copyfile README with extension ([`f3a208c`](https://github.com/OZI-Project/OZI/commit/f3a208c57bbb57c050c3ba458bd69453c11d24f5))
 
+### :pushpin:
+
+* :pushpin: OZI-Project/release@0.6.4
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`fef34b8`](https://github.com/OZI-Project/OZI/commit/fef34b85654da4d66d4caec5988f9347356689ad))
+
+* :pushpin: OZI-Project/release@0.6.3
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`64f61f2`](https://github.com/OZI-Project/OZI/commit/64f61f24078cc087d4067c6d0d8c1d2e95493a29))
+
+* :pushpin: OZI-Project/release@0.6.2
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`9aa4e68`](https://github.com/OZI-Project/OZI/commit/9aa4e684116bd1dc970fae58c80b7cc7d67a8a6e))
+
 ### :wastebasket:
 
 * :wastebasket: delete .gitattributes and modelines
@@ -59,6 +177,10 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f09c7b8`](https://githu
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b3465e7`](https://github.com/OZI-Project/OZI/commit/b3465e78bede56fc869cecf05b83eb1efd7cf3f9))
 
 ### Other
+
+* Update dev-workflow.yml checkpoint version
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`2d9308a`](https://github.com/OZI-Project/OZI/commit/2d9308a1fa8c8279d7e878d4c0099d5d85701853))
 
 * :rotating_light: ``tox -e fix``
 
