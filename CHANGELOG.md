@@ -1,4 +1,28 @@
 # CHANGELOG
+## 1.11.7 (2024-06-13)
+
+### :bug:
+
+* :bug:(pyproject.toml): Fix branch release match pattern escape ``.``
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`3ab600e`](https://github.com/OZI-Project/OZI/commit/3ab600e91cd044cdd595960d64193052992e7db3))
+
+### :hammer:
+
+* :hammer:(cleanup.yml) permissions: read-all
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`a067dde`](https://github.com/OZI-Project/OZI/commit/a067ddea6d8b80ba2d173f9f8f3c2947148190a2))
+
+### Other
+
+* escape dots
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`022354d`](https://github.com/OZI-Project/OZI/commit/022354d002ca8b94e21832c41958c0d517f3e517))
+
+* ⬆️(requirements): blastpipe 2024.11.4
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`961b3a7`](https://github.com/OZI-Project/OZI/commit/961b3a7be9b28045c84a28a5226919d04ccf871a))
+
 ## 1.11.6 (2024-06-13)
 
 ### :hammer:
