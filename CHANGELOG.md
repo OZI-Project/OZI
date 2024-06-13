@@ -1,4 +1,260 @@
 # CHANGELOG
+## 1.11.4 (2024-06-11)
+
+### :arrow_up:
+
+* :arrow_up: blastpipe 2024.10.5
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`f4e6690`](https://github.com/OZI-Project/OZI/commit/f4e6690ea05cbd4bd14d2f9e7064fb7163997019))
+
+* :arrow_up: Bump step-security/harden-runner from 2.8.0 to 2.8.1
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.8.0 to 2.8.1.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/f086349bfa2bd1361f7909c78558e816508cdc10...17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6)
+
+---
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`95e6805`](https://github.com/OZI-Project/OZI/commit/95e6805a6a52f06d1b086c58ce918bf57c35d3d4))
+
+### :bug:
+
+* :bug: correct use of ``long_description_content_type`` ([`3d614b7`](https://github.com/OZI-Project/OZI/commit/3d614b772f5d0a1b6a7f7b33bd3b5d25718fd89a))
+
+* :bug:(ozi-new): create an appropriate symlink for GitHub README rendering to work
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`44d2033`](https://github.com/OZI-Project/OZI/commit/44d2033ea1b6d23a1690255ee833f63a7aede975))
+
+* :bug: add readme symlink for gh renderer
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`ae4a2f3`](https://github.com/OZI-Project/OZI/commit/ae4a2f33795da7998a10cfa585095b4d8e209eec))
+
+* :bug: set README linguist-language
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`973b7a9`](https://github.com/OZI-Project/OZI/commit/973b7a9537bcef0f1a29925327ca773a297d4420))
+
+### :hammer:
+
+* :hammer:(readme-renderer): fs.copyfile README with extension ([`f3a208c`](https://github.com/OZI-Project/OZI/commit/f3a208c57bbb57c050c3ba458bd69453c11d24f5))
+
+### :wastebasket:
+
+* :wastebasket: delete .gitattributes and modelines
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`38e6785`](https://github.com/OZI-Project/OZI/commit/38e6785d3c27050907dd6e340f1c7779e6100ede))
+
+### :wrench:
+
+* :wrench:(args-readme-renderer) target README
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f09c7b8`](https://github.com/OZI-Project/OZI/commit/f09c7b864abc61a0dd0b18e7119b340cdbad9c38))
+
+* :wrench:(.gitattributes): remove README from linguist-documentation
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b3465e7`](https://github.com/OZI-Project/OZI/commit/b3465e78bede56fc869cecf05b83eb1efd7cf3f9))
+
+### Other
+
+* :rotating_light: ``tox -e fix``
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`b3275d0`](https://github.com/OZI-Project/OZI/commit/b3275d00af09bd7e9ff91b8f8fad638b3c069556))
+
+* remove unused import
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f4c3e2e`](https://github.com/OZI-Project/OZI/commit/f4c3e2ef360c75f3efc55ed05b2c2ef7acb944f5))
+
+* :memo: rename ``README.rst`` to ``README`` per OZI spec
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d6b7e34`](https://github.com/OZI-Project/OZI/commit/d6b7e3420944fbe71718fe73c7409237b68df30c))
+
+## 1.11.3 (2024-06-10)
+
+### :bug:
+
+* :bug: ozi.spec.base.Default now public as ozi.spec.Default
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`8556d46`](https://github.com/OZI-Project/OZI/commit/8556d46e5760f68889f4fa6dde0d0f566d14a4ff))
+
+### :pencil2:
+
+* :pencil2: Fix docstrings in spec
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`235b16e`](https://github.com/OZI-Project/OZI/commit/235b16eb4bfccb53ba0006b7f0515f361f220153))
+
+## 1.11.2 (2024-06-09)
+
+### :bug:
+
+* :bug: no cover score function
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`906d9f8`](https://github.com/OZI-Project/OZI/commit/906d9f8b4e85a1525d96f9cec6886ce14f827079))
+
+* :bug: Fix typing for ozi.spec.base.Default. ([`43f840f`](https://github.com/OZI-Project/OZI/commit/43f840f19688eb98d70cbd135ab5b17c1b0998eb))
+
+* :bug: rename score_file to score (score_file deprecated)
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`756d2c1`](https://github.com/OZI-Project/OZI/commit/756d2c1b99e3b112ebf1c3f70e1341d741e2baf4))
+
+* :bug: CheckpointSuite no longer kw_only
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`2804a02`](https://github.com/OZI-Project/OZI/commit/2804a020be2e7481207b8490d636de768354da11))
+
+### :pencil2:
+
+* :pencil2: remove Any
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`c8156ec`](https://github.com/OZI-Project/OZI/commit/c8156ec2549a4c3edb9602f0cee00dc53611fdee))
+
+### Other
+
+* :rotating_light: Type ignore ozi.spec.base.Default.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d2804df`](https://github.com/OZI-Project/OZI/commit/d2804dfdb6ee4bbaec49e7123c13033c5af9eb73))
+
+* :rotating_light: Fix empty list guard.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`fdccaae`](https://github.com/OZI-Project/OZI/commit/fdccaae2278a30beed5589263c98e14019667e9f))
+
+* :memo: add some spec metadata to versions
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`13f37ac`](https://github.com/OZI-Project/OZI/commit/13f37ace212ef86fc0e39714bc1475b9652daf8d))
+
+* :rotating_light: clean up import guards
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`cc78500`](https://github.com/OZI-Project/OZI/commit/cc78500977a5be2b77ba3fab7788b2c42dbfb8ab))
+
+* :doc::rotating_light: refactor ozi.spec.base.Default
+
+add iter method
+help in Field metadata
+improved docstring for asdict ([`66408f5`](https://github.com/OZI-Project/OZI/commit/66408f510814e98ed6b4e7c8546c0ab79cc40d91))
+
+* :rotating_light: moved import guards to end of imports
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`791fcf6`](https://github.com/OZI-Project/OZI/commit/791fcf6a82a3e9476f0770ea1626c9bb89dddce4))
+
+## 1.11.1 (2024-06-07)
+
+### :arrow_up:
+
+* :arrow_up: Bump OZI-Project/draft from 0.3.0 to 0.3.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.3.0 to 0.3.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/b1b9f3b412ed16a45dfe7c6f60ea8d6fbae97630...f136e6eb55507553aee04e92455cc2dc279583fc)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`ab9d266`](https://github.com/OZI-Project/OZI/commit/ab9d266bd9e030a65d48aeea40a6d7cc456c7af4))
+
+* :arrow_up: Bump OZI-Project/publish from 0.1.4 to 0.1.5
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.4 to 0.1.5.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/132db35a4d8eaec96886eecc50034f3c3db8bc45...edb7e48d4196153b8dabddb970405495e1ff2092)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f39ec90`](https://github.com/OZI-Project/OZI/commit/f39ec905bc49c9b5e18aac0fe2df35e617ee7b57))
+
+* :arrow_up: Bump actions/dependency-review-action from 4.3.2 to 4.3.3
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.3.2 to 4.3.3.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/0c155c5e8556a497adf53f2c18edabf945ed8e70...72eb03d02c7872a771aacd928f3123ac62ad6d3a)
+
+---
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`58481c6`](https://github.com/OZI-Project/OZI/commit/58481c6e2d9583beffb8d7cecef2f2458e0a4dab))
+
+* :arrow_up: Bump github/codeql-action from 3.25.7 to 3.25.8
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.7 to 3.25.8.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/f079b8493333aace61c81488f8bd40919487bd9f...2e230e8fe0ad3a14a340ad0815ddb96d599d2aff)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`db3b62d`](https://github.com/OZI-Project/OZI/commit/db3b62da0a2b93ac289a8dfb38e3fb3356f00f78))
+
+* :arrow_up: Bump github/codeql-action from 3.25.6 to 3.25.7
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.6 to 3.25.7.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/9fdb3e49720b44c48891d036bb502feb25684276...f079b8493333aace61c81488f8bd40919487bd9f)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`8ff6ee3`](https://github.com/OZI-Project/OZI/commit/8ff6ee334165b1b55702b922a09ab8ae91172a1d))
+
+### :hammer:
+
+* :hammer: CommentPatterns spec class is now public.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d0d5035`](https://github.com/OZI-Project/OZI/commit/d0d5035a34fe011ce9b2f34a14a866e070ba90a8))
+
+### :pushpin:
+
+* :pushpin: OZI-Project/draft 0.3.1
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7d1b5f3`](https://github.com/OZI-Project/OZI/commit/7d1b5f3e690494368407c1ef5defff5aca8a68fb))
+
+* :pushpin: OZI-Project/publish 0.1.5
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1d15f59`](https://github.com/OZI-Project/OZI/commit/1d15f59fd6add19139b4c74f8b926f2e731cf143))
+
+## 1.11.0 (2024-05-30)
+
+### :arrow_up:
+
+* :arrow_up: blastpipe~=2024.10.1
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`4332d46`](https://github.com/OZI-Project/OZI/commit/4332d46aaa00f7264e19d3601451d7a1fc3329b2))
+
+### :pushpin:
+
+* :pushpin: blastpipe~=2024.10
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`532f42a`](https://github.com/OZI-Project/OZI/commit/532f42a2abf2a4e62e0a9e12d1a01856232bc55b))
+
+### :sparkles:
+
+* :sparkles::bug: FIX Our Python distribution support keys are incorrect #620
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1400beb`](https://github.com/OZI-Project/OZI/commit/1400beb06219e4cca5961460c3f6605322a5c927))
+
 ## 1.10.2 (2024-05-30)
 
 ### :arrow_up:

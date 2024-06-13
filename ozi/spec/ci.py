@@ -17,21 +17,21 @@ class Publish(Default):
     """Publishing patterns for packaged project."""
 
     include: tuple[str, ...] = ('*.tar.gz', '*.whl', 'sig/*')
-    version: str = '0.1.3'
+    version: str = '0.1.5'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
 class Draft(Default):
     """Draft release patterns for packaged project."""
 
-    version: str = '0.3.0'
+    version: str = '0.3.1'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
 class Release(Default):
     """Release patterns for packaged project."""
 
-    version: str = '0.6.0'
+    version: str = '0.6.4'
 
 
 @dataclass(slots=True, frozen=True, eq=True)
@@ -42,7 +42,7 @@ class Checkpoint(Default):
     version: str = '0.4.0'
 
 
-@dataclass(kw_only=True, frozen=True, eq=True)
+@dataclass(slots=True, frozen=True, eq=True)
 class CheckpointSuite(Default):
     """OZI checkpoint base class."""
 

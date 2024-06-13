@@ -59,6 +59,7 @@ def process(
         file
         for file in os.listdir(target / rel_path)
         if os.path.isfile(target / rel_path / file)
+        and not os.path.islink(target / rel_path / file)
     ]
     found_files = found_files if found_files else []
     extra_files = list(set(extra_files).symmetric_difference(set(found_files)))

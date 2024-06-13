@@ -23,7 +23,7 @@ jobs:
         id-token: write
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -42,6 +42,7 @@ jobs:
       - uses: OZI-Project/checkpoint@64e790c506ba8df435c545f0d4135fbfde23f6a0
         with:
           python-version: "3.10"
+          parallel: false
 
   checkpoint-cp311-ubuntu-latest:
     name: checkpoint (Python 3.11 on ubuntu-latest)
@@ -52,7 +53,7 @@ jobs:
         id-token: write
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -71,6 +72,7 @@ jobs:
       - uses: OZI-Project/checkpoint@64e790c506ba8df435c545f0d4135fbfde23f6a0
         with:
           python-version: "3.11"
+          parallel: false
 
   checkpoint-cp312-ubuntu-latest:
     name: checkpoint (Python 3.12 on ubuntu-latest)
@@ -81,7 +83,7 @@ jobs:
         id-token: write
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -100,6 +102,7 @@ jobs:
       - uses: OZI-Project/checkpoint@64e790c506ba8df435c545f0d4135fbfde23f6a0
         with:
           python-version: "3.12"
+          parallel: false
 
   checkpoint-cp313-ubuntu-latest:
     name: checkpoint (Python 3.13 on ubuntu-latest)
@@ -135,7 +138,7 @@ jobs:
     needs: [checkpoint-cp310-ubuntu-latest, checkpoint-cp311-ubuntu-latest, checkpoint-cp312-ubuntu-latest]
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -154,7 +157,7 @@ jobs:
       tag: ${{ steps.draft.outputs.tag }}
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -162,7 +165,7 @@ jobs:
             api.github.com:443
             github.com:443
 
-      - uses: OZI-Project/draft@b1b9f3b412ed16a45dfe7c6f60ea8d6fbae97630
+      - uses: OZI-Project/draft@f136e6eb55507553aee04e92455cc2dc279583fc
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -187,7 +190,7 @@ jobs:
       id-token: write
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -203,7 +206,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             objects.githubusercontent.com:443
 
-      - uses: OZI-Project/release@4f6d83ec6fd65e43f393bb7797b7a8a9a882de22
+      - uses: OZI-Project/release@cfe06ef22488ee71ba4f2807b16bbdba1a6fb26f
         id: release
         with:
           tag: ${{ needs.draft.outputs.tag }}
@@ -235,7 +238,7 @@ jobs:
       id-token: write
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+      uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
       with:
         disable-sudo: true
         egress-policy: block
@@ -244,6 +247,6 @@ jobs:
           upload.pypi.org:443
           uploads.github.com:443
 
-    - uses: OZI-Project/publish@132db35a4d8eaec96886eecc50034f3c3db8bc45
+    - uses: OZI-Project/publish@edb7e48d4196153b8dabddb970405495e1ff2092
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}

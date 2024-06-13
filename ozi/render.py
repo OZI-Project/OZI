@@ -16,11 +16,11 @@ from blastpipe.ozi_templates.filter import underscorify  # pyright: ignore
 from git import InvalidGitRepositoryError
 from git import Repo
 
-if TYPE_CHECKING:
-    from jinja2 import Environment
-
 from ozi.spec import METADATA
 from ozi.tap import TAP
+
+if TYPE_CHECKING:
+    from jinja2 import Environment
 
 
 def find_user_template(target: str, file: str, fix: str) -> str | None:
@@ -37,7 +37,7 @@ def find_user_template(target: str, file: str, fix: str) -> str | None:
     """
     fp = Path(target, 'templates', fix, file)
     if fp.exists():
-        with open(fp) as template:
+        with open(fp, encoding='UTF-8') as template:
             user_template = template.read()
     else:
         TAP.diagnostic('User tempate not found', str(fp))
@@ -126,7 +126,7 @@ def build_child(env: Environment, parent: str, child: Path) -> None:
             stacklevel=0,
         )
     else:
-        with open((child / 'meson.build'), 'x') as f:
+        with open((child / 'meson.build'), 'x', encoding='UTF-8') as f:
             f.write(env.get_template('new_child.j2').render(parent=parent))
 
 
@@ -149,9 +149,14 @@ def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -
             except InvalidGitRepositoryError:
                 ci_user = ''
             Path(target, '.github', 'workflows').mkdir(parents=True)
-            template = env.get_template('github_workflows/ozi.yml.j2')
-            with open(Path(target, '.github', 'workflows', 'ozi.yml'), 'w') as f:
-                f.write(template.render())
+            for i in ['ozi.yml', 'cleanup.yml']:
+                template = env.get_template(f'github_workflows/{i}.j2')
+                with open(
+                    Path(target, '.github', 'workflows', i),
+                    'w',
+                    encoding='UTF-8',
+                ) as f:
+                    f.write(template.render())
         case _:  # pragma: no cover
             ci_user = ''
     return ci_user
@@ -178,7 +183,7 @@ def render_project_files(env: Environment, target: Path, name: str) -> None:
         except LookupError:  # pragma: defer to good-first-issue
             content = f'template "{filename}" failed to render.'
             warn(content, RuntimeWarning, stacklevel=0)
-        with open(target / filename, 'w') as f:
+        with open(target / filename, 'w', encoding='UTF-8') as f:
             f.write(content)
 
     for filename in templates.source:
@@ -199,5 +204,5 @@ def render_project_files(env: Environment, target: Path, name: str) -> None:
         )
 
     template = env.get_template('project.ozi.wrap.j2')
-    with open(target / 'subprojects' / 'ozi.wrap', 'w') as f:
+    with open(target / 'subprojects' / 'ozi.wrap', 'w', encoding='UTF-8') as f:
         f.write(template.render())

@@ -62,6 +62,7 @@ bad_namespace = argparse.Namespace(
     audience=['Other Audience'],
     ci_provider='github',
     project_url=['Home, https://oziproject.dev'],
+    long_description_content_type='md',
     fix='',
     add=['ozi.phony'],
     remove=['ozi.phony'],

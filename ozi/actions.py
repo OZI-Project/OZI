@@ -16,16 +16,6 @@ from typing import Collection
 from typing import NoReturn
 from warnings import warn
 
-if TYPE_CHECKING:
-    from argparse import ArgumentParser
-    from argparse import Namespace
-    from collections.abc import Sequence
-
-    if sys.version_info >= (3, 11):
-        from typing import Self
-    elif sys.version_info < (3, 11):
-        from typing_extensions import Self
-
 import requests
 from packaging.version import Version
 from packaging.version import parse
@@ -37,6 +27,16 @@ from ozi.spec import METADATA
 from ozi.tap import TAP
 from ozi.trove import Prefix
 from ozi.trove import from_prefix
+
+if TYPE_CHECKING:
+    from argparse import ArgumentParser
+    from argparse import Namespace
+    from collections.abc import Sequence
+
+    if sys.version_info >= (3, 11):
+        from typing import Self
+    elif sys.version_info < (3, 11):
+        from typing_extensions import Self
 
 _prefix = Prefix()
 
@@ -98,7 +98,7 @@ class CloseMatch(Action):
         if hasattr(self.exact_match, key):
             matches = get_close_matches(
                 value,
-                self.exact_match.__getattribute__(key),
+                getattr(self.exact_match, key),
                 cutoff=0.40,
             )
             no_match = False if len(matches) else True

@@ -160,14 +160,22 @@ def diagnostic(  # pragma: no cover
     return count
 
 
-def score_file(rel_path: Path, count: Counter[str]) -> float:  # pragma: no cover
+def score_file(count: Counter[str]) -> float:  # pragma: no cover
     """Score a single file comment diagnostic.
 
-    :param rel_path: path to the file scored
-    :type rel_path: Path
+    .. deprecated:: 1.11.2
+
+        Use :py:func:`ozi.comment.score` instead.
+    """
+    return score(count)
+
+
+def score(count: Counter[str]) -> float:  # pragma: no cover
+    """Score a single comment diagnostic.
+
     :param count: count of lines and comments
     :type count: Counter[str]
-    :return: file comment score out of 5.0
+    :return: span comment score out of 5.0
     :rtype: float
     """
     t1 = sum(count[i] for i in TIER1_COMMENTS)
@@ -179,7 +187,7 @@ def score_file(rel_path: Path, count: Counter[str]) -> float:  # pragma: no cove
 def comment_diagnostic(target: Path, rel_path: Path, file: str) -> None:  # pragma: no cover
     """Run a scored comment diagnostic on a python file."""
     if str(file).endswith('.py'):
-        with open(target.joinpath(rel_path) / file, 'r') as g:
+        with open(target.joinpath(rel_path) / file, 'r', encoding='UTF-8') as g:
             count = diagnostic(g.readlines(), rel_path / file)
             if count.total() > 0:
                 TAP.diagnostic(
@@ -193,5 +201,5 @@ def comment_diagnostic(target: Path, rel_path: Path, file: str) -> None:  # prag
                 'comment_diagnostic',
                 str(rel_path / file),
                 'quality score',
-                f'{score_file(rel_path / file, count)}/5.0',
+                f'{score(count)}/5.0',
             )

@@ -79,7 +79,7 @@ pyproject_config.set(
 )
 pyproject_config.set('SCM_VERSION', meson.project_version())
 pyproject_config.set('VCS_TAG', '@VCS_TAG@')
-pyproject_config.set('README_TEXT', fs.read('README.rst'))
+pyproject_config.set('README_TEXT', fs.read('README'))
 pyproject_config.set(
     'REQUIREMENTS_IN',
     run_command(
@@ -90,7 +90,7 @@ pyproject_config.set(
 )
 pyproject_config.set('PROJECT_NAME', project_name)
 pyproject_config.set('LICENSE', meson.project_license()[0])
-root_files = ['README.rst', 'CHANGELOG.md', 'LICENSE.txt', 'requirements.in', 'pyproject.toml', '.gitignore']
+root_files = ['README', 'CHANGELOG.md', 'LICENSE.txt', 'requirements.in', 'pyproject.toml', '.gitignore']
 configure_file(
     input: root_files[4],
     output: root_files[4],
@@ -202,8 +202,10 @@ meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
 message('backed up pyproject.toml as pyproject.orig.toml')
 foreach source : root_files
-    if source not in ['.gitignore', 'pyproject.toml']
+    if source not in ['.gitignore', 'pyproject.toml', 'README']
         fs.copyfile(source)
+    elif source == 'README'
+        fs.copyfile(source, 'README.rst')
     endif
 endforeach
 if get_option('ozi-blastpipe').enabled()

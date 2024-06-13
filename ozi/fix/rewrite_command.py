@@ -18,6 +18,7 @@ from warnings import warn
 from ozi.render import build_child
 from ozi.render import build_file
 from ozi.render import find_user_template
+from ozi.spec import METADATA
 
 if TYPE_CHECKING:
     import sys
@@ -31,8 +32,6 @@ if TYPE_CHECKING:
         from typing import Self
     elif sys.version_info < (3, 11):
         from typing_extensions import Self
-
-from ozi.spec import METADATA
 
 
 @dataclass

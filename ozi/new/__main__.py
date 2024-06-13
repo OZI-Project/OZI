@@ -9,15 +9,6 @@ import re
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-if TYPE_CHECKING:
-    from argparse import Namespace
-    from typing import Callable
-    from typing import TypeAlias
-
-    from jinja2 import Environment
-
-    Composable: TypeAlias = Callable[[Namespace], Namespace]
-
 from blastpipe.ozi_templates import load_environment
 
 from ozi.new.parser import parser
@@ -35,6 +26,15 @@ from ozi.render import render_project_files
 from ozi.spec import METADATA
 from ozi.tap import TAP
 
+if TYPE_CHECKING:
+    from argparse import Namespace
+    from typing import Callable
+    from typing import TypeAlias
+
+    from jinja2 import Environment
+
+    Composable: TypeAlias = Callable[[Namespace], Namespace]
+
 
 def create_project_files(
     project: Namespace,
@@ -44,6 +44,13 @@ def create_project_files(
     project.allow_file = set(map(Path, project.allow_file))
     project.ci_user = render_ci_files_set_user(env, project.target, project.ci_provider)
     render_project_files(env, project.target, project.name)
+    if project.ci_provider == 'github':
+        Path(
+            project.target,
+            f'README.{project.long_description_content_type}',
+        ).symlink_to(Path(project.target, 'README'))
+    else:  # pragma: no cover
+        pass
 
 
 def _valid_project(project: Namespace) -> Namespace:
@@ -119,7 +126,7 @@ def wrap(project: Namespace) -> None:  # pragma: no cover
     """Create a new wrap file for publishing. Not a public function."""
     env = load_environment(vars(project), METADATA.asdict())
     template = env.get_template('ozi.wrap.j2')
-    with open('ozi.wrap', 'w') as f:
+    with open('ozi.wrap', 'w', encoding='UTF-8') as f:
         f.write(template.render())
 
 
