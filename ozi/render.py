@@ -60,6 +60,7 @@ def map_to_template(
     :return: template path
     :rtype: str
     """
+    x = ''  # pragma: no cover
     match fix, filename:
         case ['test' | 'root', f] if f.endswith('.py'):
             x = 'tests/new_test.py.j2'
@@ -73,8 +74,6 @@ def map_to_template(
             x = f'project.name/{f}.j2'
         case ['test', f]:
             x = f'tests/{f}.j2'
-        case [_, _]:  # pragma: no cover
-            x = ''
     return x
 
 

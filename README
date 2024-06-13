@@ -15,7 +15,7 @@ OZI
   :height: 62
   :target: https://www.oziproject.dev/
 
-OZI is a set of publishing tools for creating and maintaining pure Python packages.
+OZI is a set of publishing tools for creating and maintaining Python packages.
 See the `documentation <https://docs.oziproject.dev/>`_ for the project roadmap,
 API specification, Meson version support, and other project information.
 
