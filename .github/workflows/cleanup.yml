@@ -4,9 +4,7 @@ on:
     types:
       - closed
 
-permissions:
-  contents: write
-  actions: write
+permissions: read-all
 
 jobs:
   cleanup:
