@@ -1,4 +1,71 @@
 # CHANGELOG
+## 1.11.8 (2024-06-14)
+
+### :arrow_up:
+
+* :arrow_up: Bump OZI-Project/checkpoint from 0.4.0 to 0.4.1
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0.4.0 to 0.4.1.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/0.4.0...6cc6de3235d61a5bae47fa03e773a2af9a985016)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`7f1329c`](https://github.com/OZI-Project/OZI/commit/7f1329c3371455d9b23e2c42541ea787c7c0f12d))
+
+* :arrow_up: Bump github/codeql-action from 3.25.8 to 3.25.9
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.8 to 3.25.9.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/2e230e8fe0ad3a14a340ad0815ddb96d599d2aff...530d4feaa9c62aaab2d250371e2061eb7a172363)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`94abd27`](https://github.com/OZI-Project/OZI/commit/94abd27c32507118ba9608be9dc6db46179470c3))
+
+* :arrow_up: Bump actions/checkout from 4.1.6 to 4.1.7
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.6 to 4.1.7.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/a5ac7e51b41094c92402da3b24376905380afc29...692973e3d937129bcbf40652eb9f2f61becf3332)
+
+---
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`509a199`](https://github.com/OZI-Project/OZI/commit/509a1992c59d5ff8f36222a59ea5201c3015598b))
+
+### :hammer:
+
+* :hammer: revert render change
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`62d0c22`](https://github.com/OZI-Project/OZI/commit/62d0c22f8ecfecb0b5ccef9558df6e6a56d34975))
+
+* :hammer:(render.py): minor refactor for complexity
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`884071c`](https://github.com/OZI-Project/OZI/commit/884071cf3877fbc62f0e6bd42f85ebbe4b11a67d))
+
+### Other
+
+* :memo: Update README
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`fb697e4`](https://github.com/OZI-Project/OZI/commit/fb697e408247a7a64936805633325a5d6aef5435))
+
 ## 1.11.7 (2024-06-13)
 
 ### :bug:
