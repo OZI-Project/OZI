@@ -39,7 +39,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@6cc6de3235d61a5bae47fa03e773a2af9a985016
+      - uses: OZI-Project/checkpoint@f8acf37d2479db59d191e5f6324758e224149bd0
         with:
           python-version: "3.10"
           parallel: false
@@ -69,7 +69,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@6cc6de3235d61a5bae47fa03e773a2af9a985016
+      - uses: OZI-Project/checkpoint@f8acf37d2479db59d191e5f6324758e224149bd0
         with:
           python-version: "3.11"
           parallel: false
@@ -99,7 +99,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@6cc6de3235d61a5bae47fa03e773a2af9a985016
+      - uses: OZI-Project/checkpoint@f8acf37d2479db59d191e5f6324758e224149bd0
         with:
           python-version: "3.12"
           parallel: false
