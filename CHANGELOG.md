@@ -1,4 +1,58 @@
 # CHANGELOG
+## 1.11.9 (2024-06-15)
+
+### :arrow_up:
+
+* :arrow_up:(requirements): blastpipe 2024.11.7
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`322c17e`](https://github.com/OZI-Project/OZI/commit/322c17ec29c220ce26e9d15b08d83c52d6bc1bd1))
+
+* :arrow_up: Bump OZI-Project/draft from 0.3.1 to 0.3.2
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.3.1 to 0.3.2.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/f136e6eb55507553aee04e92455cc2dc279583fc...4cb9feb842df0dcd1e48c0f64f3b61e0ac64f05d)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`a63c4cb`](https://github.com/OZI-Project/OZI/commit/a63c4cbed578a379c1e272ccad886ac98b57b7a3))
+
+* :arrow_up: Bump github/codeql-action from 3.25.9 to 3.25.10
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.9 to 3.25.10.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/530d4feaa9c62aaab2d250371e2061eb7a172363...23acc5c183826b7a8a97bce3cecc52db901f8251)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`62a0043`](https://github.com/OZI-Project/OZI/commit/62a0043eb2eb7b4ae222b88ac7ba76b8c0e6d6e5))
+
+* :arrow_up: Bump OZI-Project/checkpoint from 0.4.1 to 0.4.2
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0.4.1 to 0.4.2.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/6cc6de3235d61a5bae47fa03e773a2af9a985016...f8acf37d2479db59d191e5f6324758e224149bd0)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`77f7b33`](https://github.com/OZI-Project/OZI/commit/77f7b33f6b207faead794527c343d52ba2badf38))
+
 ## 1.11.8 (2024-06-14)
 
 ### :arrow_up:
