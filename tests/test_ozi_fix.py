@@ -12,10 +12,10 @@ from copy import deepcopy
 from datetime import timedelta
 
 import pytest
-from blastpipe.ozi_templates import load_environment  # pyright: ignore
 from hypothesis import given
 from hypothesis import settings
 from hypothesis import strategies as st
+from ozi_templates import load_environment  # pyright: ignore
 
 import ozi.fix.__main__  # pyright: ignore
 import ozi.fix.rewrite_command  # pyright: ignore

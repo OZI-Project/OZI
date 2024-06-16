@@ -12,9 +12,9 @@ from typing import AnyStr
 from typing import Literal
 from warnings import warn
 
-from blastpipe.ozi_templates.filter import underscorify  # pyright: ignore
 from git import InvalidGitRepositoryError
 from git import Repo
+from ozi_templates.filter import underscorify  # pyright: ignore
 
 from ozi.spec import METADATA
 from ozi.tap import TAP
