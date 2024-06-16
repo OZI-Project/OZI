@@ -1,4 +1,20 @@
 # CHANGELOG
+## 1.11.11 (2024-06-16)
+
+### :arrow_up:
+
+* :arrow_up: OZI.build&gt;=0.0.26
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`a271807`](https://github.com/OZI-Project/OZI/commit/a2718078dfda696a437c57dc0afeb073244d72e1))
+
+* :arrow_up: OZI.build 0.0.25 ([`fd5bb40`](https://github.com/OZI-Project/OZI/commit/fd5bb400c81a2bf588d82b3f43cd92accad5264b))
+
+### :pushpin:
+
+* :pushpin: blastpipe~=2024.11.10
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`556210b`](https://github.com/OZI-Project/OZI/commit/556210b18134e568dbb3d6fafbaab1e077500bc5))
+
 ## 1.11.10 (2024-06-16)
 
 ### :arrow_up:
