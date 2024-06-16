@@ -1,4 +1,149 @@
 # CHANGELOG
+## 1.11.11 (2024-06-16)
+
+### :arrow_up:
+
+* :arrow_up: OZI.build&gt;=0.0.26
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`a271807`](https://github.com/OZI-Project/OZI/commit/a2718078dfda696a437c57dc0afeb073244d72e1))
+
+* :arrow_up: OZI.build 0.0.25 ([`fd5bb40`](https://github.com/OZI-Project/OZI/commit/fd5bb400c81a2bf588d82b3f43cd92accad5264b))
+
+### :pushpin:
+
+* :pushpin: blastpipe~=2024.11.10
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`556210b`](https://github.com/OZI-Project/OZI/commit/556210b18134e568dbb3d6fafbaab1e077500bc5))
+
+## 1.11.10 (2024-06-16)
+
+### :arrow_up:
+
+* :arrow_up:(requirements): blastpipe 2024.11.9
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`3f92b5f`](https://github.com/OZI-Project/OZI/commit/3f92b5fc05c534cc8a0453943f508bf0a3c5afed))
+
+## 1.11.9 (2024-06-15)
+
+### :arrow_up:
+
+* :arrow_up:(requirements): blastpipe 2024.11.7
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`322c17e`](https://github.com/OZI-Project/OZI/commit/322c17ec29c220ce26e9d15b08d83c52d6bc1bd1))
+
+* :arrow_up: Bump OZI-Project/draft from 0.3.1 to 0.3.2
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.3.1 to 0.3.2.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/f136e6eb55507553aee04e92455cc2dc279583fc...4cb9feb842df0dcd1e48c0f64f3b61e0ac64f05d)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`a63c4cb`](https://github.com/OZI-Project/OZI/commit/a63c4cbed578a379c1e272ccad886ac98b57b7a3))
+
+* :arrow_up: Bump github/codeql-action from 3.25.9 to 3.25.10
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.9 to 3.25.10.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/530d4feaa9c62aaab2d250371e2061eb7a172363...23acc5c183826b7a8a97bce3cecc52db901f8251)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`62a0043`](https://github.com/OZI-Project/OZI/commit/62a0043eb2eb7b4ae222b88ac7ba76b8c0e6d6e5))
+
+* :arrow_up: Bump OZI-Project/checkpoint from 0.4.1 to 0.4.2
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0.4.1 to 0.4.2.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/6cc6de3235d61a5bae47fa03e773a2af9a985016...f8acf37d2479db59d191e5f6324758e224149bd0)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`77f7b33`](https://github.com/OZI-Project/OZI/commit/77f7b33f6b207faead794527c343d52ba2badf38))
+
+## 1.11.8 (2024-06-14)
+
+### :arrow_up:
+
+* :arrow_up: Bump OZI-Project/checkpoint from 0.4.0 to 0.4.1
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0.4.0 to 0.4.1.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/0.4.0...6cc6de3235d61a5bae47fa03e773a2af9a985016)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`7f1329c`](https://github.com/OZI-Project/OZI/commit/7f1329c3371455d9b23e2c42541ea787c7c0f12d))
+
+* :arrow_up: Bump github/codeql-action from 3.25.8 to 3.25.9
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.8 to 3.25.9.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/2e230e8fe0ad3a14a340ad0815ddb96d599d2aff...530d4feaa9c62aaab2d250371e2061eb7a172363)
+
+---
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`94abd27`](https://github.com/OZI-Project/OZI/commit/94abd27c32507118ba9608be9dc6db46179470c3))
+
+* :arrow_up: Bump actions/checkout from 4.1.6 to 4.1.7
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.6 to 4.1.7.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/a5ac7e51b41094c92402da3b24376905380afc29...692973e3d937129bcbf40652eb9f2f61becf3332)
+
+---
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`509a199`](https://github.com/OZI-Project/OZI/commit/509a1992c59d5ff8f36222a59ea5201c3015598b))
+
+### :hammer:
+
+* :hammer: revert render change
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`62d0c22`](https://github.com/OZI-Project/OZI/commit/62d0c22f8ecfecb0b5ccef9558df6e6a56d34975))
+
+* :hammer:(render.py): minor refactor for complexity
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`884071c`](https://github.com/OZI-Project/OZI/commit/884071cf3877fbc62f0e6bd42f85ebbe4b11a67d))
+
+### Other
+
+* :memo: Update README
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`fb697e4`](https://github.com/OZI-Project/OZI/commit/fb697e408247a7a64936805633325a5d6aef5435))
+
 ## 1.11.7 (2024-06-13)
 
 ### :bug:
