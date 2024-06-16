@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.11.10 (2024-06-16)
+
+### :arrow_up:
+
+* :arrow_up:(requirements): blastpipe 2024.11.9
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`3f92b5f`](https://github.com/OZI-Project/OZI/commit/3f92b5fc05c534cc8a0453943f508bf0a3c5afed))
+
 ## 1.11.9 (2024-06-15)
 
 ### :arrow_up:
