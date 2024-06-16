@@ -250,78 +250,18 @@ commit_parser = "emoji"
 major_on_zero = true
 tag_format = "{version}"
 
-[tool.semantic_release.branches.main]
-match = "(main|master)"
-prerelease_token = "alpha"
-prerelease = false
-
 [tool.semantic_release.branches."0.0"]
-match = "0.0"
+match = "\\A0\\.0\\Z"
 prerelease_token = "alpha"
 prerelease = false
 
-[tool.semantic_release.branches."release/0.1"]
-match = "release/0\\.1"
+[tool.semantic_release.branches."release/0.x"]
+match = "\\Arelease/0\\.\\d+\\Z"
 prerelease_token = "alpha"
 prerelease = false
 
-[tool.semantic_release.branches."release/1.0"]
-match = "release/1\\.0"
-prerelease_token = "alpha"
-prerelease = false
-
-[tool.semantic_release.branches."release/1.1"]
-match = "release/1\\.1"
-prerelease_token = "alpha"
-prerelease = false
-
-[tool.semantic_release.branches."release/1.2"]
-match = "release/1\\.2"
-prerelease_token = "alpha"
-prerelease = false
-
-[tool.semantic_release.branches."release/1.3"]
-match = "release/1\\.3"
-prerelease_token = "alpha"
-prerelease = false
-
-[tool.semantic_release.branches."release/1.4"]
-match = "release/1\\.4"
-prerelease_token = "alpha"
-prerelease = false
-
-[tool.semantic_release.branches."release/1.5"]
-match = "release/1\\.5"
-prerelease_token = "alpha"
-prerelease = false
-
-[tool.semantic_release.branches."release/1.6"]
-match = "release/1\\.6"
-prerelease_token = "alpha"
-prerelease = false
-
-[tool.semantic_release.branches."release/1.7"]
-match = "release/1\\.7"
-prerelease_token = "alpha"
-prerelease = false
-
-[tool.semantic_release.branches."release/1.8"]
-match = "release/1\\.8"
-prerelease_token = "alpha"
-prerelease = false
-
-[tool.semantic_release.branches."release/1.9"]
-match = "release/1\\.9"
-prerelease_token = "alpha"
-prerelease = false
-
-[tool.semantic_release.branches."release/1.10"]
-match = "release/1\\.10"
-prerelease_token = "alpha"
-prerelease = false
-
-[tool.semantic_release.branches."release/1.11"]
-match = "release/1\\.11"
+[tool.semantic_release.branches."release/1.x"]
+match = "\\Arelease/1\\.\\d+\\Z"
 prerelease_token = "alpha"
 prerelease = false
 
