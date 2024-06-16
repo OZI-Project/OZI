@@ -182,7 +182,7 @@ class Build(Default):
     backend: str = 'ozi_build.buildapi'
     requires: Mapping[str, str] = field(
         default_factory=lambda: {
-            'OZI.build': 'OZI.build>=0.0.18',
+            'OZI.build': 'OZI.build>=0.0.26',
             'pip-tools': 'pip-tools>=7',
             'pipx': 'pipx~=1.5',
             'setuptools_scm': 'setuptools_scm[toml]~=8.0',
