@@ -7,6 +7,9 @@
 .. versionremoved:: 1.2
    The module ``filters`` was moved to ``blastpipe.ozi_templates.filters``
 
+.. versionchanged:: 1.12
+
+   The ozi_templates module was moved out of blastpipe.
 """
 from .spec import current_version
 

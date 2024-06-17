@@ -9,11 +9,11 @@ import typing
 from datetime import timedelta
 
 import pytest
-from blastpipe.ozi_templates import load_environment  # pyright: ignore
 from hypothesis import HealthCheck
 from hypothesis import given
 from hypothesis import settings
 from hypothesis import strategies as st
+from ozi_templates import load_environment  # pyright: ignore
 
 import ozi.actions  # pyright: ignore
 import ozi.new.__main__  # pyright: ignore
