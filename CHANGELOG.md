@@ -1,5 +1,32 @@
 # CHANGELOG
+## 1.12.3 (2024-06-17)
+
+### :pushpin:
+
+* :pushpin:(requirements.in): ozi-templates&gt;=2.0.5
+
+(checkpoint.yml.j2): prerelease checkpoint no longer included
+
+Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`bb9ff99`](https://github.com/OZI-Project/OZI/commit/bb9ff9904bde50fc3a08adb5ad447d7940ba0108))
+
 ## 1.12.2 (2024-06-17)
+
+### :arrow_up:
+
+* :arrow_up: Bump OZI-Project/release from 0.6.4 to 0.6.5
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.6.4 to 0.6.5.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/cfe06ef22488ee71ba4f2807b16bbdba1a6fb26f...f99b4e470f3dc50884d227dff38c18c3f0f3f927)
+
+---
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`48dff8c`](https://github.com/OZI-Project/OZI/commit/48dff8c46bb12abda13e7334bff7cae9dd894c91))
 
 ### :bug:
 
