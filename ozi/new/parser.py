@@ -117,7 +117,7 @@ defaults.add_argument(
     '--intended-audience',
     metavar='AUDIENCE_NAMES',
     type=str,
-    help='Classifier: Intended Audience (Multiple Use)(default: ["Other Audience"])',
+    help='Classifier: Intended Audience (Multiple Use), default: ["Other Audience"]',
     default=METADATA.spec.python.pkg.info.classifiers.intended_audience,
     nargs='?',
     action=CloseMatch,
@@ -128,14 +128,14 @@ defaults.add_argument(
     choices=frozenset(('Typed', 'Stubs Only')),
     nargs='?',
     metavar='PY_TYPED_OR_STUBS',
-    help='Classifier: Typing (Multiple Use)(default: [Typed])',
+    help='Classifier: Typing (Multiple Use), default: ["Typed"]',
     default=METADATA.spec.python.pkg.info.classifiers.typing,
 )
 defaults.add_argument(
     '--environment',
     metavar='ENVIRONMENT_NAMES',
     default=METADATA.spec.python.pkg.info.classifiers.environment,
-    help='Classifier: Environment (Multiple Use)(default: ["Other Environment"])',
+    help='Classifier: Environment (Multiple Use), default: ["Other Environment"]',
     action=CloseMatch,
     nargs='?',
     type=str,
@@ -145,7 +145,7 @@ defaults.add_argument(
     default='LICENSE.txt',
     metavar='LICENSE_FILENAME',
     choices=frozenset(('LICENSE.txt',)),
-    help='Classifier: License File (Single Use)(default: LICENSE.txt)',
+    help='Classifier: License File (Single Use), default: "LICENSE.txt"',
     type=str,
 )
 optional.add_argument(
@@ -192,7 +192,7 @@ defaults.add_argument(
     '--natural-language',
     metavar='LANGUAGE_NAMES',
     default=['English'],
-    help='Classifier: Natural Language (Multiple Use)(default: [English])',
+    help='Classifier: Natural Language (Multiple Use), default: ["English"]',
     action=CloseMatch,
     type=str,
     nargs='?',
@@ -211,7 +211,7 @@ defaults.add_argument(
     '--development-status',
     action=CloseMatch,
     default=METADATA.spec.python.pkg.info.classifiers.development_status,
-    help='Classifier: Development Status (Single Use)(default: "1 - Planning")',
+    help='Classifier: Development Status (Single Use), default: "1 - Planning"',
     type=str,
 )
 defaults.add_argument(
@@ -238,23 +238,23 @@ ozi_defaults.add_argument(
     '--verify-email',
     default=False,
     action=argparse.BooleanOptionalAction,
-    help='verify email domain deliverability(default: ``--no-verify-email``)',
+    help='verify email domain deliverability, default: no',
 )
 ozi_defaults.add_argument(
     '--enable-cython',
     default=False,
     action=argparse.BooleanOptionalAction,
-    help='build extension module with Cython(default: ``--no-enable-cython``)',
+    help='build extension module with Cython, default: no',
 )
 ozi_defaults.add_argument(
     '--strict',
     default=False,
     action=argparse.BooleanOptionalAction,
-    help='strict mode raises warnings to errors(default: ``--strict``)',
+    help='strict mode raises warnings to errors, default',
 )
 ozi_defaults.add_argument(
     '--allow-file',
-    help='Add a file to the allow list for new project target folder(default: [templates,.git])',
+    help='Add a file to the allow list for new project target folder, default: [templates,.git]',
     action='append',
     type=str,
     nargs='?',
