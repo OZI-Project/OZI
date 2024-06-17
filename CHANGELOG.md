@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.12.2 (2024-06-17)
+
+### :bug:
+
+* :bug::memo:: Consistent CLI documentation.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`cc37091`](https://github.com/OZI-Project/OZI/commit/cc370919b9f0dd8f353f636851f9fc2a22fe362c))
+
 ## 1.12.1 (2024-06-17)
 
 ### :bug:
