@@ -1,4 +1,36 @@
 # CHANGELOG
+## 1.12.0 (2024-06-17)
+
+### :pushpin:
+
+* :pushpin: ozi-templates&gt;=2.0.4
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`8d5e3ba`](https://github.com/OZI-Project/OZI/commit/8d5e3ba5832de8008040e1426abfbdcd114914de))
+
+### :sparkles:
+
+* :sparkles: ozi-templates becomes a dependency
+
+No longer depends on blastpipe.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`8d17090`](https://github.com/OZI-Project/OZI/commit/8d170905e2edc16989c4fc1858884a70ff84ba7b))
+
+* :sparkles: ozi-templates becomes a dependency
+
+No longer depends on blastpipe.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`dc6882e`](https://github.com/OZI-Project/OZI/commit/dc6882e32ae96f7aa835a41194978a469f245402))
+
+### Other
+
+* bump ozi-templates
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`3bec2f5`](https://github.com/OZI-Project/OZI/commit/3bec2f5e9644ec01737d7a1d3a125a1ec81d209e))
+
+* :rotating_light: fix lint
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`427e3ca`](https://github.com/OZI-Project/OZI/commit/427e3ca8ee25f9443654863c90833e88e77fd23e))
+
 ## 1.11.12 (2024-06-16)
 
 ### :children_crossing:
