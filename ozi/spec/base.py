@@ -78,11 +78,11 @@ class Default(_FactoryDataclass):
         """Return a dictionary of all fields where repr=True.
         Hide a variable from the dict by setting repr to False and using
         a Default subclass as the default_factory.
-        Typing is compatible with :term:`JSON` and Jinja2 global namespace.
+        Typing is compatible with JSON and Jinja2 global namespace.
 
         .. seealso::
 
-           :std:label:`jinja2:global-namespace`
+           :std:ref:`jinja2:global-namespace`
         """
         return dict(iter(self)) | {
             'help': str(self.__class__.__doc__).replace('\n   ', ''),
