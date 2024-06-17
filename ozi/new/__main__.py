@@ -9,7 +9,7 @@ import re
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from ozi_templates import load_environment
+from ozi_templates import load_environment  # type: ignore
 
 from ozi.new.parser import parser
 from ozi.new.validate import valid_contact_info

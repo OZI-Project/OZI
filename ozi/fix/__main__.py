@@ -10,8 +10,8 @@ import os
 from pathlib import Path
 from typing import NoReturn
 
-from ozi_templates import load_environment
-from ozi_templates.filter import underscorify  # pyright: ignore
+from ozi_templates import load_environment  # type: ignore
+from ozi_templates.filter import underscorify  # type: ignore
 
 from ozi.fix.missing import report
 from ozi.fix.parser import parser
