@@ -48,13 +48,13 @@ missing_output.add_argument(
     '--strict',
     default=False,
     action=BooleanOptionalAction,
-    help='strict mode raises warnings to errors default: ``--no-strict``',
+    help='strict mode raises warnings to errors, default: no',
 )
 missing_output.add_argument(
     '--pretty',
     default=False,
     action=BooleanOptionalAction,
-    help='pretty mode outputs indented json, default: ``--no-pretty``',
+    help='pretty mode outputs indented json, default: no',
 )
 missing_parser.add_argument(
     'target',
@@ -117,13 +117,13 @@ source_output.add_argument(
     '--strict',
     default=False,
     action=BooleanOptionalAction,
-    help='strict mode raises warnings to errors.',
+    help='strict mode raises warnings to errors, default: no',
 )
 source_output.add_argument(
-    '-p',
     '--pretty',
-    action='store_true',
-    help='pretty print JSON output',
+    default=False,
+    action=BooleanOptionalAction,
+    help='pretty mode outputs indented json, default: no',
 )
 test_parser.add_argument(
     '-a',
@@ -163,13 +163,13 @@ test_output.add_argument(
     '--strict',
     default=False,
     action=BooleanOptionalAction,
-    help='strict mode raises warnings to errors.',
+    help='strict mode raises warnings to errors, default: no',
 )
 test_output.add_argument(
-    '-p',
     '--pretty',
-    action='store_true',
-    help='pretty print JSON output',
+    default=False,
+    action=BooleanOptionalAction,
+    help='pretty mode outputs indented json, default: no',
 )
 tools = parser.add_mutually_exclusive_group()  # pragma: no cover
 tools.add_argument(  # pragma: no cover

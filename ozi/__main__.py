@@ -31,19 +31,19 @@ METADATA_FIELD choices:
   | status
   | topic
 
-LICENSE_EXPR:
+LICENSE_EXPR: :term:`SPDX license expression`
   | See https://spdx.github.io/spdx-spec/v2-draft/SPDX-license-expressions/
 
 project authoring console application:
-  | ozi-new -h         show help for the ozi-new command.
+  | ``ozi-new -h``         show help for the ozi-new command.
 
 project maintainence console application:
-  | ozi-fix -h         show help for the ozi-fix command.
+  | ``ozi-fix -h``         show help for the ozi-fix command.
 
 continuous integration checkpoints:
-  | tox -e lint        run formatting, linting, and typechecking.
-  | tox -e test        run testing and coverage.
-  | tox -e dist        run distribution and packaging.
+  | ``tox -e lint``        run formatting, linting, and typechecking.
+  | ``tox -e test``        run testing and coverage.
+  | ``tox -e dist``        run distribution and packaging.
 """  # pragma: no cover
 
 parser = argparse.ArgumentParser(
