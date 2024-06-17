@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.11.12 (2024-06-16)
+
+### :children_crossing:
+
+* :children_crossing: Fix release branch patterns.
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`2be2fb6`](https://github.com/OZI-Project/OZI/commit/2be2fb6d901c2042f03c7045a023c39adf3b8fa6))
+
 ## 1.11.11 (2024-06-16)
 
 ### :arrow_up:
