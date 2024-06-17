@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.12.1 (2024-06-17)
+
+### :bug:
+
+* :bug::memo:: fix documentation refs
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`284e8ab`](https://github.com/OZI-Project/OZI/commit/284e8abde89e39a65fc1674ef0a13780be41435d))
+
 ## 1.12.0 (2024-06-17)
 
 ### :pushpin:
