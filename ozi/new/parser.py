@@ -53,14 +53,12 @@ required.add_argument(
     '--name',
     type=str,
     help='Name (Single Use)',
-    required=True,
-)
+    )
 required.add_argument(
     '-a',
     '--author',
     type=str,
     help='Author (Multiple Use, Single output)',
-    required=True,
     action='append',
     default=[],
     metavar='AUTHOR_NAMES',
@@ -71,7 +69,6 @@ required.add_argument(
     '--author-email',
     type=str,
     help='Author-email (Multiple Use, Single output)',
-    required=True,
     default=[],
     metavar='AUTHOR_EMAILS',
     nargs='?',
@@ -82,20 +79,17 @@ required.add_argument(
     '--summary',
     type=str,
     help='Summary (Single Use)',
-    required=True,
 )
 required.add_argument(
     '-p',
     '--home-page',
     type=str,
     help='Home-page (Single Use)',
-    required=True,
 )
 required.add_argument(
     '--license-expression',
     type=str,
     help='Classifier: License Expression (Single Use, SPDX Expression)',
-    required=True,
 )
 required.add_argument(
     '-l',
@@ -103,7 +97,6 @@ required.add_argument(
     type=str,
     help='Classifier: License (Single Use)',
     action=CloseMatch,
-    required=True,
 )
 ozi_required.add_argument(
     'target',
