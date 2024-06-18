@@ -1,7 +1,17 @@
 # CHANGELOG
+## 1.12.5 (2024-06-18)
+
+
+### :pencil2: Corrected Typos
+
+* :pencil2: Better changelog
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`6f3f525`](https://github.com/OZI-Project/OZI/commit/6f3f525ce4d677b0310e140ab6b2fb804c518125))
+
 ## 1.12.4 (2024-06-18)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: fix argv missing in ``ozi-new`` output
 
@@ -9,7 +19,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`92899a7`](https://githu
 
 ## 1.12.3 (2024-06-17)
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin:(requirements.in): ozi-templates&gt;=2.0.5
 
@@ -19,7 +30,8 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`bb9ff99`](
 
 ## 1.12.2 (2024-06-17)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump OZI-Project/release from 0.6.4 to 0.6.5
 
@@ -36,7 +48,8 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`48dff8c`](https://github.com/OZI-Project/OZI/commit/48dff8c46bb12abda13e7334bff7cae9dd894c91))
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::memo:: Consistent CLI documentation.
 
@@ -44,7 +57,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`cc37091`](https://githu
 
 ## 1.12.1 (2024-06-17)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::memo:: fix documentation refs
 
@@ -52,13 +66,15 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`284e8ab`](https://githu
 
 ## 1.12.0 (2024-06-17)
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: ozi-templates&gt;=2.0.4
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`8d5e3ba`](https://github.com/OZI-Project/OZI/commit/8d5e3ba5832de8008040e1426abfbdcd114914de))
 
-### :sparkles:
+
+### :sparkles: Implemented Features
 
 * :sparkles: ozi-templates becomes a dependency
 
@@ -72,7 +88,9 @@ No longer depends on blastpipe.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`dc6882e`](https://github.com/OZI-Project/OZI/commit/dc6882e32ae96f7aa835a41194978a469f245402))
 
+
 ### Other
+
 
 * bump ozi-templates
 
@@ -84,7 +102,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`427e3ca`](https://githu
 
 ## 1.11.12 (2024-06-16)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing: Fix release branch patterns.
 
@@ -92,7 +111,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`2be2fb6`](https://githu
 
 ## 1.11.11 (2024-06-16)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: OZI.build&gt;=0.0.26
 
@@ -100,7 +120,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`a271807`](https://githu
 
 * :arrow_up: OZI.build 0.0.25 ([`fd5bb40`](https://github.com/OZI-Project/OZI/commit/fd5bb400c81a2bf588d82b3f43cd92accad5264b))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: blastpipe~=2024.11.10
 
@@ -108,7 +129,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`556210b`](https://githu
 
 ## 1.11.10 (2024-06-16)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up:(requirements): blastpipe 2024.11.9
 
@@ -116,7 +138,8 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`3f92b5f`](
 
 ## 1.11.9 (2024-06-15)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up:(requirements): blastpipe 2024.11.7
 
@@ -170,7 +193,8 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`77f7b33`](https://g
 
 ## 1.11.8 (2024-06-14)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump OZI-Project/checkpoint from 0.4.0 to 0.4.1
 
@@ -219,7 +243,8 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`509a199`](https://github.com/OZI-Project/OZI/commit/509a1992c59d5ff8f36222a59ea5201c3015598b))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: revert render change
 
@@ -229,7 +254,9 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`62d0c22`](https://githu
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`884071c`](https://github.com/OZI-Project/OZI/commit/884071cf3877fbc62f0e6bd42f85ebbe4b11a67d))
 
+
 ### Other
+
 
 * :memo: Update README
 
@@ -237,19 +264,23 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`fb697e4`](
 
 ## 1.11.7 (2024-06-13)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(pyproject.toml): Fix branch release match pattern escape ``.``
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`3ab600e`](https://github.com/OZI-Project/OZI/commit/3ab600e91cd044cdd595960d64193052992e7db3))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(cleanup.yml) permissions: read-all
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`a067dde`](https://github.com/OZI-Project/OZI/commit/a067ddea6d8b80ba2d173f9f8f3c2947148190a2))
 
+
 ### Other
+
 
 * escape dots
 
@@ -261,7 +292,8 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`961b3a7`](
 
 ## 1.11.6 (2024-06-13)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(cleanup.yml): permissions for cache delete
 
@@ -279,7 +311,9 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b89487a`](
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`042514d`](https://github.com/OZI-Project/OZI/commit/042514de337386bc646971da514fb291551e61cb))
 
+
 ### Other
+
 
 * ⬆️(requirements): blastpipe 2024.11.3
 
@@ -287,25 +321,30 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b3c3181`](
 
 ## 1.11.5 (2024-06-12)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up:(requirements): blastpipe 2024.11.2
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`1d707ec`](https://github.com/OZI-Project/OZI/commit/1d707ec21bd18263b9c11fe2f6e85f8e833e3f2d))
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: add a cleanup workflow to new projects.
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`5a6c442`](https://github.com/OZI-Project/OZI/commit/5a6c442dd00dfdd59bbaca024601f2e9e1b3ab6e))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: harden cleanup workflow.
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`43289d6`](https://github.com/OZI-Project/OZI/commit/43289d637d7fcf44b0dc708f85e012fd94877685))
 
+
 ### Other
+
 
 * Update requirements.in
 
@@ -317,7 +356,8 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`93a9a7a`](
 
 ## 1.11.4 (2024-06-12)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: blastpipe 2024.10.5
 
@@ -338,7 +378,8 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`95e6805`](https://github.com/OZI-Project/OZI/commit/95e6805a6a52f06d1b086c58ce918bf57c35d3d4))
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(checkpoint): ``parallel: false`` to workaround issue with CPython countedFileLock API.
 
@@ -378,11 +419,13 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`ae4a2f3`](https://githu
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`973b7a9`](https://github.com/OZI-Project/OZI/commit/973b7a9537bcef0f1a29925327ca773a297d4420))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(readme-renderer): fs.copyfile README with extension ([`f3a208c`](https://github.com/OZI-Project/OZI/commit/f3a208c57bbb57c050c3ba458bd69453c11d24f5))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: OZI-Project/release@0.6.4
 
@@ -396,13 +439,15 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`64f61f2`](
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`9aa4e68`](https://github.com/OZI-Project/OZI/commit/9aa4e684116bd1dc970fae58c80b7cc7d67a8a6e))
 
-### :wastebasket:
+
+### :wastebasket: Deprecated Code
 
 * :wastebasket: delete .gitattributes and modelines
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`38e6785`](https://github.com/OZI-Project/OZI/commit/38e6785d3c27050907dd6e340f1c7779e6100ede))
 
-### :wrench:
+
+### :hammer: Updated Configuration
 
 * :wrench:(args-readme-renderer) target README
 
@@ -412,7 +457,9 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f09c7b8`](https://githu
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`b3465e7`](https://github.com/OZI-Project/OZI/commit/b3465e78bede56fc869cecf05b83eb1efd7cf3f9))
 
+
 ### Other
+
 
 * Update dev-workflow.yml checkpoint version
 
@@ -432,13 +479,15 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d6b7e34`](https://githu
 
 ## 1.11.3 (2024-06-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: ozi.spec.base.Default now public as ozi.spec.Default
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`8556d46`](https://github.com/OZI-Project/OZI/commit/8556d46e5760f68889f4fa6dde0d0f566d14a4ff))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: Fix docstrings in spec
 
@@ -446,7 +495,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`235b16e`](https://githu
 
 ## 1.11.2 (2024-06-09)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: no cover score function
 
@@ -462,13 +512,16 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`756d2c1`](https://githu
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`2804a02`](https://github.com/OZI-Project/OZI/commit/2804a020be2e7481207b8490d636de768354da11))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: remove Any
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`c8156ec`](https://github.com/OZI-Project/OZI/commit/c8156ec2549a4c3edb9602f0cee00dc53611fdee))
 
+
 ### Other
+
 
 * :rotating_light: Type ignore ozi.spec.base.Default.
 
@@ -498,7 +551,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`791fcf6`](https://githu
 
 ## 1.11.1 (2024-06-07)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump OZI-Project/draft from 0.3.0 to 0.3.1
 
@@ -577,13 +631,15 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`8ff6ee3`](https://github.com/OZI-Project/OZI/commit/8ff6ee334165b1b55702b922a09ab8ae91172a1d))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: CommentPatterns spec class is now public.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d0d5035`](https://github.com/OZI-Project/OZI/commit/d0d5035a34fe011ce9b2f34a14a866e070ba90a8))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: OZI-Project/draft 0.3.1
 
@@ -595,19 +651,22 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1d15f59`](https://githu
 
 ## 1.11.0 (2024-05-30)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: blastpipe~=2024.10.1
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`4332d46`](https://github.com/OZI-Project/OZI/commit/4332d46aaa00f7264e19d3601451d7a1fc3329b2))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: blastpipe~=2024.10
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`532f42a`](https://github.com/OZI-Project/OZI/commit/532f42a2abf2a4e62e0a9e12d1a01856232bc55b))
 
-### :sparkles:
+
+### :sparkles: Implemented Features
 
 * :sparkles::bug: FIX Our Python distribution support keys are incorrect #620
 
@@ -615,7 +674,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1400beb`](https://githu
 
 ## 1.10.2 (2024-05-30)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump OZI-Project/draft from 0.2.0 to 0.2.1
 
@@ -649,7 +709,8 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`18fb106`](https://g
 
 ## 1.10.1 (2024-05-27)
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: OZI-Project/publish@0.1.3 in spec
 
@@ -657,7 +718,8 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`1b00586`](
 
 ## 1.10.0 (2024-05-27)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump OZI-Project/publish from 0.1.2 to 0.1.3
 
@@ -680,7 +742,8 @@ Now accepting args for tox posargs.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`eb1cee9`](https://github.com/OZI-Project/OZI/commit/eb1cee92ca8ac576cca50a28f85fded3bf820dda))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: accept posargs to checkpoint suites
 
@@ -696,13 +759,15 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`976d574`](https://githu
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`bbfb9c5`](https://github.com/OZI-Project/OZI/commit/bbfb9c5bc175fb60b07984231170f97fd61e83b9))
 
-### :sparkles:
+
+### :sparkles: Implemented Features
 
 * :sparkles::pushpin: blastpipe~=2024.9.3
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`2a3c4d1`](https://github.com/OZI-Project/OZI/commit/2a3c4d1565a243f610ba81def6271ba443399dcb))
 
-### :wrench:
+
+### :hammer: Updated Configuration
 
 * :wrench: bump checkpoint in spec and add 1.10 branch pattern
 
@@ -720,25 +785,30 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`223ad2f`](https://githu
 
 ## 1.9.10 (2024-05-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: fix bad default value for ``--check-license-expr`` ([`d5a7609`](https://github.com/OZI-Project/OZI/commit/d5a7609c080a28881de6d33944b158df793a17bd))
 
 ## 1.9.9 (2024-05-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::memo: fix no cover showing up in docs ([`231625c`](https://github.com/OZI-Project/OZI/commit/231625c85234be3a212dbaeee7b55ea0a78ef767))
 
 ## 1.9.8 (2024-05-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: fix ``--check-license-expression`` wasnt accepting args.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f858e41`](https://github.com/OZI-Project/OZI/commit/f858e41e6243aa33ab7a0a450b93672df9562f20))
 
+
 ### Other
+
 
 * no cover
 
@@ -746,7 +816,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`28a9602`](https://githu
 
 ## 1.9.7 (2024-05-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::memo: fix ``ozi-new project`` parser docs
 
@@ -754,19 +825,23 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`fdcd0cd`](https://githu
 
 ## 1.9.6 (2024-05-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::memo: Clean up documentation of CLI.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`a5aa0c2`](https://github.com/OZI-Project/OZI/commit/a5aa0c20fd51509e7ee67003f7096785413aea8a))
 
+
 ### Other
+
 
 * flake8 ignore long format string ([`a3ff071`](https://github.com/OZI-Project/OZI/commit/a3ff071b034646d5c30a66bc24a94b69e344038b))
 
 ## 1.9.5 (2024-05-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: clean up CLI help and options printout.
 
@@ -774,7 +849,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`ede0289`](https://githu
 
 ## 1.9.4 (2024-05-23)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::memo: add LICENSE_EXPR metavar and doc
 
@@ -786,7 +862,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1c48693`](https://githu
 
 ## 1.9.3 (2024-05-22)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: revert change to list-available arg.
 
@@ -794,7 +871,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`49afaaf`](https://githu
 
 ## 1.9.2 (2024-05-22)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::memo: update docstrings and CLI helps.
 
@@ -802,13 +880,16 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`adb9487`](https://githu
 
 ## 1.9.1 (2024-05-22)
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: blastpipe~=2024.9.1
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`327ca80`](https://github.com/OZI-Project/OZI/commit/327ca800aa85921aa5bb8b32a09179846183e224))
 
+
 ### Other
+
 
 * 
 
@@ -823,7 +904,8 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`62af563`](https://g
 
 ## 1.9.0 (2024-05-21)
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Update ci.py - Release 0.5.10 
 
@@ -833,13 +915,15 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`d827e33`](
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`00051ee`](https://github.com/OZI-Project/OZI/commit/00051ee3461002fc0432fe91529069316212dc32))
 
-### :sparkles:
+
+### :sparkles: Implemented Features
 
 * :sparkles: Use oziproject.dev API workflows.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`967c5d2`](https://github.com/OZI-Project/OZI/commit/967c5d2d10bc1f0bfb3b16b1f926d5e51e6a5b7d))
 
-### :wrench:
+
+### :hammer: Updated Configuration
 
 * :wrench: add 1.9 branch pattern
 
@@ -849,7 +933,9 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`ff90526`](https://githu
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`a4cf2cf`](https://github.com/OZI-Project/OZI/commit/a4cf2cfcbfff42e1e57c112d2a51a3578a0080cb))
 
+
 ### Other
+
 
 * Update dist-workflow.yml - release 0.5.10
 
@@ -891,7 +977,8 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`7ec3682`](https://g
 
 ## 1.8.5 (2024-05-21)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump OZI-Project/publish from 0.1.1 to 0.1.2
 
@@ -923,7 +1010,9 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`04a849d`](https://github.com/OZI-Project/OZI/commit/04a849d5ffc200d5f5f609dcee64fcde0f516a9d))
 
+
 ### Other
+
 
 * 
 
@@ -949,7 +1038,8 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`c3fe678`](https://g
 
 ## 1.8.4 (2024-05-20)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Shorten reprs of pkg and project spec.
 
@@ -957,7 +1047,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`0dc3f21`](https://githu
 
 ## 1.8.3 (2024-05-19)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: fix unimplemented repr in ``ozi.spec.base.Default``
 
@@ -965,19 +1056,23 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`e7791d0`](https://githu
 
 ## 1.8.2 (2024-05-19)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing: truncated ``ozi.spec`` repr. ([`a5a3bd6`](https://github.com/OZI-Project/OZI/commit/a5a3bd605c33aad9c0431ff1ac983f8e32357634))
 
 ## 1.8.1 (2024-05-18)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up::pushpin: blastpipe~=2024.8
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`d356293`](https://github.com/OZI-Project/OZI/commit/d3562932378ce2c11ef72e9e01e414dfab0f6db3))
 
+
 ### Other
+
 
 * Update README.rst
 
@@ -985,25 +1080,30 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`a1fd7f8`](
 
 ## 1.8.0 (2024-05-18)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: OZI-Project/checkpoint 0.2.0
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`1cc5620`](https://github.com/OZI-Project/OZI/commit/1cc5620f3bea66a56247a7ad61f9f854926b0286))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Update ozi/spec/ci.py - checkpoint 0.2.0
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`48b4cf6`](https://github.com/OZI-Project/OZI/commit/48b4cf699fd69af3ae5d152beeb80a43184352a2))
 
-### :sparkles:
+
+### :sparkles: Implemented Features
 
 * :sparkles: Update README.rst for 1.8
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`31f26dd`](https://github.com/OZI-Project/OZI/commit/31f26dd17f6ed28adf0250e9f4725a93696742d4))
 
+
 ### Other
+
 
 * Feature/1.8 pipx integration (#540)
 
@@ -1033,7 +1133,8 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`a155b06`](
 
 ## 1.7.4 (2024-05-18)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump OZI-Project/draft from 0.1.1 to 0.1.2
 
@@ -1068,7 +1169,8 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f6daa93`](https://g
 
 ## 1.7.3 (2024-05-16)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Fix entrypoint arg conflict.
 
@@ -1076,7 +1178,8 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f6daa93`](https://g
 
 ## 1.7.2 (2024-05-16)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump github/codeql-action from 3.25.4 to 3.25.5
 
@@ -1094,7 +1197,8 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`601250f`](https://github.com/OZI-Project/OZI/commit/601250f26f2ad97f20e9fb8ad8c718dfca60e1c3))
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: fix imports. ([`bf0ac1f`](https://github.com/OZI-Project/OZI/commit/bf0ac1f6c577eb1976d1de4927c2d89e2dcd3170))
 
@@ -1104,7 +1208,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`a27b2a5`](https://githu
 
 ## 1.7.1 (2024-05-14)
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Spec version set to 0.3
 
@@ -1112,13 +1217,16 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d007b1e`](https://githu
 
 ## 1.7.0 (2024-05-14)
 
-### :sparkles:
+
+### :sparkles: Implemented Features
 
 * :sparkles: markdown and plaintext readmes.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`bf5f5ac`](https://github.com/OZI-Project/OZI/commit/bf5f5ac5c4824b82be8b29b496025b28a6b3ffce))
 
+
 ### Other
+
 
 * Update pyproject.toml
 
@@ -1126,7 +1234,8 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`2e4d278`](
 
 ## 1.6.5 (2024-05-13)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Fix bug introduced in ``ozi-fix`` 1.6.4.
 
@@ -1136,13 +1245,16 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`335558d`](https://githu
 
 ## 1.6.4 (2024-05-13)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Parsers default to target the current working dir.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7628281`](https://github.com/OZI-Project/OZI/commit/7628281ade6849d747f797ad7e29816c0fa7561a))
 
+
 ### Other
+
 
 * run black ([`18f2ad8`](https://github.com/OZI-Project/OZI/commit/18f2ad80aecb5a7209ba9499673ceae6e1bfb978))
 
@@ -1152,7 +1264,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`344ad5d`](https://githu
 
 ## 1.6.3 (2024-05-13)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump OZI-Project/draft from 0.1.0 to 0.1.1
 
@@ -1169,7 +1282,9 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`c7d8ba4`](https://github.com/OZI-Project/OZI/commit/c7d8ba484043458621d0696a4010f2e249410fae))
 
+
 ### Other
+
 
 * Update ci.py
 
@@ -1177,7 +1292,8 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`7e71362`](
 
 ## 1.6.2 (2024-05-13)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: fix version pin ([`ed5e623`](https://github.com/OZI-Project/OZI/commit/ed5e6230852b419e5a33841eda212c99c8839413))
 
@@ -1187,13 +1303,17 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1978a4c`](https://githu
 
 ## 1.6.1 (2024-05-12)
 
+
 ### :speech_balloon:
+
 
 * :speech_balloon: clean up package maintainer names.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`286cfea`](https://github.com/OZI-Project/OZI/commit/286cfea531180021b788072ae55e330a9885d965))
 
+
 ### Other
+
 
 * Update scorecard.yml
 
@@ -1201,7 +1321,8 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`efd87cd`](https
 
 ## 1.6.0 (2024-05-10)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Update blastpipe~=2024.6.3
 
@@ -1223,13 +1344,16 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`a081ae5`](https://github.com/OZI-Project/OZI/commit/a081ae5d80107471828f40c0486c7a6df181ee89))
 
-### :sparkles:
+
+### :sparkles: Implemented Features
 
 * :sparkles: update spec version to 0.2
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`b9decce`](https://github.com/OZI-Project/OZI/commit/b9decce98202932032ddb937263450bb462d52c3))
 
+
 ### Other
+
 
 * :memo: Update pyproject.toml add branch release pattern.
 
@@ -1237,13 +1361,15 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`e27296a`](https
 
 ## 1.5.1 (2024-05-10)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: fix docstring raw html escapes
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`ef63113`](https://github.com/OZI-Project/OZI/commit/ef63113a8f60366fff120b28cf1a2e9f3382183f))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Set blastpipe 2024.5 as the compatible version.
 
@@ -1251,7 +1377,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1b33b6c`](https://githu
 
 ## 1.5.0 (2024-05-09)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump github/codeql-action from 3.25.3 to 3.25.4
 
@@ -1269,7 +1396,8 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`8e83edb`](https://github.com/OZI-Project/OZI/commit/8e83edbd2c514fa57bb9cccf51730f9eebc6a6e8))
 
-### :sparkles:
+
+### :sparkles: Implemented Features
 
 * :sparkles:  Add cython extensions with ``ozi-fix``
 
@@ -1278,7 +1406,8 @@ Also add ``--[no-]enable-cython`` to ``ozi-new``.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`407db9b`](https://github.com/OZI-Project/OZI/commit/407db9b1abc53b30e9aa73ab589a2e5b0056f726))
 
-### :wrench:
+
+### :hammer: Updated Configuration
 
 * :wrench: add 1.5 release branch group
 
@@ -1286,7 +1415,8 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`fa09315`](https
 
 ## 1.4.3 (2024-05-08)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump OZI-Project workflow actions
 
@@ -1312,13 +1442,15 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`971c548`](https://github.com/OZI-Project/OZI/commit/971c5483215457df5c70d99bcf34bb7513622882))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: clean up jinja2 import.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`b6e6f50`](https://github.com/OZI-Project/OZI/commit/b6e6f505c8221bcab9e2f80ea44de65505cdc6ae))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: missing ``from __future__ import annotations``
 
@@ -1330,7 +1462,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`0f23f31`](https://githu
 
 ## 1.4.2 (2024-05-05)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: correct deprecated Python warnings.
 
@@ -1340,7 +1473,8 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`df2de03`](https
 
 ## 1.4.1 (2024-05-05)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Update ozi.spec.python
 
@@ -1349,7 +1483,9 @@ DeprecationWarning instead of RuntimeError if python end-of-life reached.
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`b2ffa99`](https://github.com/OZI-Project/OZI/commit/b2ffa995cd3b907d5a9db8e4606f01db3c09ca56))
 
+
 ### Other
+
 
 * Update ci.py
 
@@ -1361,7 +1497,8 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`4dfc574`](https
 
 ## 1.4.0 (2024-05-04)
 
-### :sparkles:
+
+### :sparkles: Implemented Features
 
 * :sparkles: OZI-Project/release 0.3.0 and OZI.build 0.0.14 (#478)
 
@@ -1386,7 +1523,9 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`83b8027`](https://github.com/OZI-Project/OZI/commit/83b80271f90a51b4b97914c4eb48bbde9b7f87c7))
 
+
 ### Other
+
 
 * Update pyproject.toml - add 1.4 branch
 
@@ -1394,13 +1533,15 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`40954c3`](https
 
 ## 1.3.3 (2024-05-04)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Update requirements.in, bump blastpipe.
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`effa8a7`](https://github.com/OZI-Project/OZI/commit/effa8a7f7018d64200888e4351f85b25bda44b09))
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Update meson.build - dont build requirements during bootstrap.
 
@@ -1414,7 +1555,8 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`117fc93`](https
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d9bae28`](https://github.com/OZI-Project/OZI/commit/d9bae287ee6ad5a852cfb51a5636987ebb368d84))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Update requirements.in - blastpipe 2024.4.3
 
@@ -1422,13 +1564,15 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`0d4a8a3`](https
 
 ## 1.3.2 (2024-05-03)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Update blastpipe pin to 2024.4.0
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`bfea6bf`](https://github.com/OZI-Project/OZI/commit/bfea6bf78717dcc41ed8e96d4333c792d0a061dd))
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Update meson.build fix blastpipe already being built.
 
@@ -1442,7 +1586,9 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`6f9cb08`](https://githu
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`9cd8447`](https://github.com/OZI-Project/OZI/commit/9cd8447a4045c9688f79c18578fce36549613949))
 
+
 ### Other
+
 
 * Update requirements.in - rollback blastpipe to stable version
 
@@ -1450,13 +1596,15 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`49bfb81`](https
 
 ## 1.3.1 (2024-05-03)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :bug::arrow_up: Bump OZI.build 0.0.12
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`4d24665`](https://github.com/OZI-Project/OZI/commit/4d24665dabab58f19119bae5c25581c98fdfe32c))
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: OZI.build 0.0.11 fixes for in-situ metadata generation
 
@@ -1493,7 +1641,8 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`f800863`](https
 
 ## 1.3.0 (2024-05-03)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: OZI.build 0.0.9 for correct wheel names. (#457)
 
@@ -1562,7 +1711,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`817265b`](https://githu
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`958b39a`](https://github.com/OZI-Project/OZI/commit/958b39aad552d2bc91520c2320c9fa94a1df4c09))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: unlink extant PKG-INFO during dist.
 
@@ -1586,7 +1736,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`84a6b13`](https://githu
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7a25a87`](https://github.com/OZI-Project/OZI/commit/7a25a870cefee7ad5bf054c152bd81d59f177055))
 
-### :sparkles:
+
+### :sparkles: Implemented Features
 
 * :sparkles: Add 1.3 release group!
 
@@ -1596,7 +1747,9 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`fd418e4`](https
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`c957112`](https://github.com/OZI-Project/OZI/commit/c9571120ba6765801e8f0447f60af0b5cead88b3))
 
+
 ### Other
+
 
 * OZI-Project/release 0.2.5
 
@@ -1616,7 +1769,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1f09610`](https://githu
 
 ## 1.2.2 (2024-04-30)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump step-security/harden-runner from 2.7.0 to 2.7.1
 
@@ -1648,7 +1802,9 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`1f7e9f1`](https://github.com/OZI-Project/OZI/commit/1f7e9f199315405bc2a17af147c41047ace16aa3))
 
+
 ### Other
+
 
 * :memo: update docstrings for 1.2 (#429)
 
@@ -1656,7 +1812,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d72f67c`](https://githu
 
 ## 1.2.1 (2024-04-28)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump OZI-Project/release 0.1.18 &gt; 0.1.17
 
@@ -1674,13 +1831,15 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`656c609`](https
 
 ## 1.2.0 (2024-04-28)
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: set blastpipe pin to 2024.2.6.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7ed571c`](https://github.com/OZI-Project/OZI/commit/7ed571c12c8e8b91082cbf7044f0ce28a7d63090))
 
-### :sparkles:
+
+### :sparkles: Implemented Features
 
 * :sparkles: Reduce the overall repo size.
 
@@ -1689,7 +1848,9 @@ Make blastpipe a dependency.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`cfd1234`](https://github.com/OZI-Project/OZI/commit/cfd123435aaf83b4be871c1e42ea99c183e87999))
 
+
 ### Other
+
 
 * :rotating_light: add ``# pyright: ignore`` to blastpipe filter imports.
 
@@ -1701,13 +1862,16 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7c78a1e`](https://githu
 
 ## 1.1.6 (2024-04-27)
 
+
 ### :alembic:
+
 
 * :alembic:(``ozi.render.load_environment``): Add globals dict argument.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`eaac863`](https://github.com/OZI-Project/OZI/commit/eaac8633e08b2f345333e4a4bfdf0b350ce7966d))
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump github/codeql-action from 3.25.2 to 3.25.3
 
@@ -1741,13 +1905,16 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`41251c9`](https://github.com/OZI-Project/OZI/commit/41251c94d744593a3931d1d5acd70ac18f2838e5))
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: exclude double quotes from fuzzer input.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`361a75a`](https://github.com/OZI-Project/OZI/commit/361a75a9e1b63dc6ad12b24cf85f9762a213c8a7))
 
+
 ### Other
+
 
 * :rotating_light: run ``black -S tests``
 
@@ -1755,7 +1922,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`fdd8fe2`](https://githu
 
 ## 1.1.5 (2024-04-24)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump release to 0.1.17
 
@@ -1776,7 +1944,8 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5bd1337`](https://github.com/OZI-Project/OZI/commit/5bd1337de8893888ea714f9d361a9d287d2caabc))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Correct pytest ``--cov=`` argument.
 
@@ -1786,7 +1955,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`aaaa7c3`](https://githu
 
 ## 1.1.4 (2024-04-24)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::hammer: Fix pytest-args for coverage.
 
@@ -1794,13 +1964,16 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1193781`](https://githu
 
 ## 1.1.3 (2024-04-24)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: retry release
 
 Merge pull request #411 from OZI-Project/release/1.1 ([`5eef90b`](https://github.com/OZI-Project/OZI/commit/5eef90b471611999873de5fca990e687823c1246))
 
+
 ### Other
+
 
 * :rotating_light: Fix project template lint.
 
@@ -1808,13 +1981,16 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`e946042`](https://githu
 
 ## 1.1.2 (2024-04-24)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Fix failing project build.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`c87cbfd`](https://github.com/OZI-Project/OZI/commit/c87cbfd2219b46704324e22f16ca7bf8ddc93c2f))
 
+
 ### Other
+
 
 * :rotating_light: no cover to_distribution.
 
@@ -1826,7 +2002,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`1c28263`](https://githu
 
 ## 1.1.1 (2024-04-24)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Fix pyproject_config missing in root ``meson.build`` template.
 
@@ -1834,7 +2011,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`99b6528`](https://githu
 
 ## 1.1.0 (2024-04-23)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump slsa-framework/slsa-github-generator
 
@@ -1914,7 +2092,8 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`7ac5bb8`](https://github.com/OZI-Project/OZI/commit/7ac5bb8ab6e962f843538809d11bda1835a635f0))
 
-### :sparkles:
+
+### :sparkles: Implemented Features
 
 * :sparkles: Add 1.1 release branch group. ([`02ee683`](https://github.com/OZI-Project/OZI/commit/02ee683996ad5bbdf5b8289f490f9ce7bef34f13))
 
@@ -1930,7 +2109,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`8235263`](https://githu
 
 ## 1.0.0 (2024-04-22)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Merge pull request #388 from OZI-Project/main ([`4b7d4c4`](https://github.com/OZI-Project/OZI/commit/4b7d4c427fec29794a71229872ff84359f2ce4fa))
 
@@ -2000,13 +2180,16 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`e8565e1`](https://github.com/OZI-Project/OZI/commit/e8565e1823c056d441c8afe89f6c40067d128282))
 
+
 ### :boom:
+
 
 * :boom: Add 1.0 semantic-release branch.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f1159cc`](https://github.com/OZI-Project/OZI/commit/f1159cc2af50ac766b0ba6718266b7bb520fc38d))
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: fix version bump.
 
@@ -2020,7 +2203,9 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`0cea39f`](https://githu
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`d60f5d5`](https://github.com/OZI-Project/OZI/commit/d60f5d5dda02ebde070e5fc9b47efd6737241073))
 
+
 ### Other
+
 
 * :rotating_light: ignore pyright misfire
 
@@ -2028,7 +2213,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`612adc5`](https://githu
 
 ## 0.1.0 (2024-04-17)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :pushpin::arrow_up: bump OZI-Project/release to 0.1.15
 
@@ -2065,13 +2251,16 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f0505f3`](https://github.com/OZI-Project/OZI/commit/f0505f3988eab6f28878503d966d6695af1cc270))
 
-### :sparkles:
+
+### :sparkles: Implemented Features
 
 * :sparkles: Bump release status to Alpha.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`c1adec3`](https://github.com/OZI-Project/OZI/commit/c1adec3056ba53147aa60a27ed5d489ef5f38dba))
 
+
 ### Other
+
 
 * add branch pattern ([`5e09ca7`](https://github.com/OZI-Project/OZI/commit/5e09ca78306187675b278109e5de45f7afd5cd24))
 
@@ -2081,7 +2270,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`2c18522`](https://githu
 
 ## 0.0.325 (2024-04-16)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Fix indent level in workflow template rendering.
 
@@ -2089,13 +2279,15 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f59ece7`](https://githu
 
 ## 0.0.324 (2024-04-15)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::construction_worker: Run checkpoints in parallel by default.
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`7633795`](https://github.com/OZI-Project/OZI/commit/763379518b85d7ffb09b39a4ddc9a24ea620ae59))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: Fix hash reference to checkpoint workflow.
 
@@ -2103,7 +2295,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f1ff80f`](https://githu
 
 ## 0.0.323 (2024-04-15)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Fix missing help in ozi-fix.
 
@@ -2111,7 +2304,8 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`f94b65e`](https://githu
 
 ## 0.0.322 (2024-04-15)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Delete emoji variables from option template.
 
@@ -2123,13 +2317,15 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`4d305a5`](https://githu
 
 ## 0.0.321 (2024-04-12)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :hammer::children_crossing: Simplify OZI output, remove emoji.
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`df8dc06`](https://github.com/OZI-Project/OZI/commit/df8dc06dff6d8101a4ee451484a6e09f3372bdfd))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::construction_worker: Simplify checkpoint runs.
 
@@ -2137,13 +2333,15 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`097aeec`](https://github.c
 
 ## 0.0.320 (2024-04-11)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: Fix workflow name
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`dc8c3bd`](https://github.com/OZI-Project/OZI/commit/dc8c3bdd23229bac2d32065888e5294b066e11d2))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: bump release to 0.1.14
 
@@ -2155,7 +2353,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`ed57c62`](https://github.c
 
 ## 0.0.319 (2024-04-10)
 
-### :wrench:
+
+### :hammer: Updated Configuration
 
 * :wrench: Use monochrome emojis by default.
 
@@ -2167,7 +2366,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`191a405`](https://github.c
 
 ## 0.0.318 (2024-04-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Real fix duplicate found files.
 
@@ -2175,7 +2375,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`5597986`](https://github.c
 
 ## 0.0.317 (2024-04-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Fix duplicate count of non-missing files.
 
@@ -2183,7 +2384,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`9e4237e`](https://github.c
 
 ## 0.0.316 (2024-04-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Fix double missing file counting in root project folder.
 
@@ -2193,13 +2395,16 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`ca0421a`](https://github.c
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`df514de`](https://github.com/OZI-Project/OZI/commit/df514de907b07c7a94a8db71bb9a20cba2cd6546))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :rotating_light::pencil2: Linted with black 2024
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`3551fc9`](https://github.com/OZI-Project/OZI/commit/3551fc9fa1752a03d87dc8063f583c74713b8e1c))
 
+
 ### Other
+
 
 * :rotating_light: run black
 
@@ -2207,7 +2412,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`bfff664`](https://github.c
 
 ## 0.0.315 (2024-04-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Update ``meson.build`` template root_files to include the default root files.
 
@@ -2221,7 +2427,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`e2aa569`](https://github.c
 
 ## 0.0.314 (2024-04-09)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump github/codeql-action from 3.24.9 to 3.24.10
 
@@ -2239,7 +2446,8 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`1f454f1`](https://github.com/OZI-Project/OZI/commit/1f454f175e9103cb05dee6ec8a79da85b7de9554))
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix build definition introspection.
 
@@ -2247,7 +2455,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`fd4c33b`](https://github.c
 
 ## 0.0.313 (2024-04-05)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Fix doubled comment diagnostics.
 
@@ -2255,13 +2464,16 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`bddc1ff`](https://github.c
 
 ## 0.0.312 (2024-04-05)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Fix double-printing of comment diagnostic for found files.
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`a0fb5ff`](https://github.com/OZI-Project/OZI/commit/a0fb5ffbea84cb6f2847f82abdfbcd5e7f67d816))
 
+
 ### :speech_balloon:
+
 
 * :speech_balloon: clarify license validation diagnostics.
 
@@ -2269,7 +2481,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`25726dc`](https://github.c
 
 ## 0.0.311 (2024-04-05)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Fix inspect_files queries subdirectory meson.build.
 
@@ -2283,7 +2496,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`57e3672`](https://github.c
 
 ## 0.0.310 (2024-04-04)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: [e2e] Fix invalid target_type key in rewriter output.
 
@@ -2291,7 +2505,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`7de6edf`](https://github.c
 
 ## 0.0.309 (2024-04-04)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Fix missing ``install-subprojects`` option check in template output.
 
@@ -2299,11 +2514,13 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`9bd910a`](https://github.c
 
 ## 0.0.308 (2024-04-04)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: setuptools found by pip-freeze. ([`1f00096`](https://github.com/OZI-Project/OZI/commit/1f000964c495d3adbdc701db532cb6bd7a346246))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Add ``install-subprojects`` feature option defaulting to disabled.
 
@@ -2333,7 +2550,9 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`ff0359e`](https://github.c
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`4de5304`](https://github.com/OZI-Project/OZI/commit/4de530455b1ebe5e7a2340e497538212e0e58c0b))
 
+
 ### Other
+
 
 * :white_check_mark: Increase deadline to 30s for the new project fuzzer.
 
@@ -2341,19 +2560,23 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`3622015`](https://github.c
 
 ## 0.0.307 (2024-04-02)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Update templates with blastpipe integration discoveries. ([`fc8424f`](https://github.com/OZI-Project/OZI/commit/fc8424f6c35b16aabd9c6955f0ee75435407bb81))
 
 ## 0.0.306 (2024-04-02)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :wrench::bug: ``args-`` options now yield to the superproject anytime OZI is a subproject.
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`4d678a1`](https://github.com/OZI-Project/OZI/commit/4d678a12059d688d4693ef30b6100f686ab12282))
 
+
 ### Other
+
 
 * :rotating_light: Fix for PT001 changes in flake8-pytest-style 2.0.0
 
@@ -2361,7 +2584,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`289255f`](https://github.c
 
 ## 0.0.305 (2024-03-30)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::pushpin: Fix Spec should pin workflow versions #103
 
@@ -2373,7 +2597,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`4fe2b9a`](https://github.c
 
 ## 0.0.304 (2024-03-29)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: retry release
 
@@ -2389,13 +2614,16 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`85e6ad8`](https
 
 * :hammer: Merge pull request #306 from OZI-Project/0.0 retry 0.0.304 release ([`5074b56`](https://github.com/OZI-Project/OZI/commit/5074b5696a5c22ea58a49d4d8d4978573a60cad9))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Update dist-workflow.yml release to 0.1.13
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`e4bebe6`](https://github.com/OZI-Project/OZI/commit/e4bebe62095d089aab02fd55800aa7b3ddcef2c4))
 
+
 ### Other
+
 
 * Update release.yml.j2 to 0.1.13
 
@@ -2403,7 +2631,8 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`46def0a`](https
 
 ## 0.0.303 (2024-03-28)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Remove some regexes in favor of simple hard-coded algorithms.
 
@@ -2413,13 +2642,16 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`3258401`](https://github.c
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`1fa90be`](https://github.com/OZI-Project/OZI/commit/1fa90bee9b8cfc69eb50755b485615b501f3faf5))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Update dist-workflow.yml - release action 0.1.12
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`213c1fd`](https://github.com/OZI-Project/OZI/commit/213c1fd5df5ed54bfac8e31dfb7a274f740f0c0b))
 
+
 ### Other
+
 
 * Update release.yml.j2 - release action 0.1.12
 
@@ -2427,7 +2659,8 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`1dd7aba`](https
 
 ## 0.0.302 (2024-03-27)
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Pin black to &gt;=24.3.
 
@@ -2437,7 +2670,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`403fd1f`](https://github.c
 
 ## 0.0.301 (2024-03-27)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: purge pyc_wheel package references
 
@@ -2445,13 +2679,16 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`1d563a9`](https://github.c
 
 ## 0.0.300 (2024-03-27)
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Bump release workflow to 0.1.11 ([`efefcb5`](https://github.com/OZI-Project/OZI/commit/efefcb5adc796725c6ddfdb62c8a503d6496ec3e))
 
 * :pushpin: Bump release to 0.1.10 ([`2f0476b`](https://github.com/OZI-Project/OZI/commit/2f0476bcee156f169d206f4dde4f40bd1797e701))
 
+
 ### Other
+
 
 * Update release.yml.j2 - bump release action to 0.1.11
 
@@ -2471,13 +2708,16 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`93f02ca`](https
 
 ## 0.0.299 (2024-03-26)
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Update release workflow pin
 
 0.0 changes ([`2684c75`](https://github.com/OZI-Project/OZI/commit/2684c750d340e1f6b06f3c14f4bef753a9a1cde2))
 
+
 ### Other
+
 
 * Update release.yml.j2 - bump release to 0.1.9
 
@@ -2489,7 +2729,8 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`9028f91`](https
 
 ## 0.0.298 (2024-03-26)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump OZI-Project/release from 0.1.5 to 0.1.6
 
@@ -2536,7 +2777,8 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`b7600f5`](https://github.com/OZI-Project/OZI/commit/b7600f5136ccaa06c2340a2c8579ad8be692f021))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Update meson.options
 
@@ -2548,7 +2790,8 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`8dc2e4e`](https
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`b3d16f1`](https://github.com/OZI-Project/OZI/commit/b3d16f1bcb4526f6b9e48f9387b9a935106733f2))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Bump release workflow to 0.1.7
 
@@ -2566,7 +2809,9 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`0444866`](https
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`8427854`](https://github.com/OZI-Project/OZI/commit/84278543018de407d685588e71993936f2c2a9b2))
 
+
 ### Other
+
 
 * Update dist-workflow.yml - bump release to 0.1.8
 
@@ -2578,7 +2823,8 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`c763cad`](https
 
 ## 0.0.297 (2024-03-22)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: [e2e] suppress TAP diagnostic output for ``ozi-fix`` in add and remove mode.
 
@@ -2586,7 +2832,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`e47f3f5`](https://github.c
 
 ## 0.0.296 (2024-03-22)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump github/codeql-action from 3.24.8 to 3.24.9
 
@@ -2604,7 +2851,8 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`c0b97e1`](https://github.com/OZI-Project/OZI/commit/c0b97e1cc1c2c4661ae740eab3fbef1ff9a21dc7))
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: [e2e] Correctly suppress stderr in ozi-fix.
 
@@ -2612,7 +2860,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`2b92f76`](https://github.c
 
 ## 0.0.295 (2024-03-22)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: [e2e] Fix license classifier validation.
 
@@ -2620,7 +2869,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`538ee1c`](https://github.c
 
 ## 0.0.294 (2024-03-22)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: [e2e] fix license close matches unpacking in diagnostic.
 
@@ -2628,7 +2878,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`f04555d`](https://github.c
 
 ## 0.0.293 (2024-03-22)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: [e2e] fix entrypoint closematch for license.
 
@@ -2636,7 +2887,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`178f9e8`](https://github.c
 
 ## 0.0.292 (2024-03-21)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix closematch output.
 
@@ -2648,7 +2900,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`66c2f54`](https://github.c
 
 * :bug: [e2e] Fix our new project entrypoint. ([`1442acb`](https://github.com/OZI-Project/OZI/commit/1442acbab6d17700e7e8b5f1a857ebab92febd7d))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Refactor Rewriter methods.
 
@@ -2656,13 +2909,15 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`5080b4f`](https://github.c
 
 ## 0.0.291 (2024-03-21)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Fix validate branching in ``build_definition``.
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`9cde43f`](https://github.com/OZI-Project/OZI/commit/9cde43fcdbd842283ab60cd1947968da7953c13a))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Bump SLSA provenance generator.
 
@@ -2684,7 +2939,9 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`cdf8d61`](https://github.c
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`fb96c58`](https://github.com/OZI-Project/OZI/commit/fb96c589d4b6ae485ec4ae672b97fd5b422f05d1))
 
+
 ### Other
+
 
 * Bump actions/dependency-review-action from 4.1.3 to 4.2.3
 
@@ -2731,13 +2988,16 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5174685`](https://g
 
 ## 0.0.290 (2024-03-17)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Add a comment scoring rubric to ``ozi-fix``.
 
 Also add a TAP tests module. ([`77f5fba`](https://github.com/OZI-Project/OZI/commit/77f5fbaf1f3b4f06d929f5147e8eaf040872536e))
 
+
 ### Other
+
 
 * use sampled_from. ([`a1f407a`](https://github.com/OZI-Project/OZI/commit/a1f407aeaac7d1508cab5ce1ead442ba1cf25fc1))
 
@@ -2759,7 +3019,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`90ad8e1`](https://github.c
 
 ## 0.0.289 (2024-03-14)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: refactor entrypoint for ``ozi-new``. ([`4f91ede`](https://github.com/OZI-Project/OZI/commit/4f91ede3bf07cb82e61b42881af6573a9e6983d1))
 
@@ -2775,7 +3036,9 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`9121ed4`](https://github.c
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`8ae282e`](https://github.com/OZI-Project/OZI/commit/8ae282ecb9b6126f8a43555e1767720af189b6a3))
 
+
 ### Other
+
 
 * Bump github/codeql-action from 3.24.6 to 3.24.7
 
@@ -2833,7 +3096,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`6514216`](https://github.c
 
 ## 0.0.288 (2024-03-10)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Refactor spec module for easier maint.
 
@@ -2841,7 +3105,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`5701985`](https://github.c
 
 ## 0.0.287 (2024-03-10)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Cache rendering filters and metadata globals.
 
@@ -2861,7 +3126,9 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`0e27ae5`](https://github.c
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`c5b2bc0`](https://github.com/OZI-Project/OZI/commit/c5b2bc010163429749cec086a51a0f83beb9e0bd))
 
+
 ### Other
+
 
 * Dev merge resolve (#238) ([`8761582`](https://github.com/OZI-Project/OZI/commit/876158257331b7279aaa27ef5cea8bb4303bbf58))
 
@@ -2877,7 +3144,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`01443d0`](https://github.c
 
 ## 0.0.286 (2024-03-10)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Rendering environment is now cached. (#234)
 
@@ -2889,7 +3157,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`08c2cdb`](https://github.c
 
 ## 0.0.285 (2024-03-10)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Removed all duplicated license templates.
 
@@ -2901,7 +3170,9 @@ Also extract find_user_template into render module and document.
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`3b26c34`](https://github.com/OZI-Project/OZI/commit/3b26c3445257b4d85424ce78955d29f2a712c4ff))
 
+
 ### Other
+
 
 * fix missing license file.
 
@@ -2937,7 +3208,8 @@ Signed-off-by: Eden Rose, MSc &lt;rjdbcm@outlook.com&gt; ([`86c3414`](https://gi
 
 ## 0.0.284 (2024-03-08)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Move Rewriter and RewriteCommand to ozi.fix.rewrite_command
 
@@ -2951,7 +3223,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`06d43e5`](https://github.c
 
 ## 0.0.283 (2024-03-08)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Force release commit re-parse
 
@@ -2965,7 +3238,9 @@ This module handles linter comment diagnostics.
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`7da2167`](https://github.com/OZI-Project/OZI/commit/7da21677b13a85a696dbcfef91ae445551467f02))
 
+
 ### Other
+
 
 * Dev merge (#221) (#222)
 
@@ -3013,7 +3288,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`5235c33`](https://github.c
 
 ## 0.0.282 (2024-03-07)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * * :hammer: Add render_requirements.py script.
 
@@ -3033,7 +3309,9 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`09e3fb9`](https://github.c
 
 Signed-off-by: rjdcm &lt;rjdbcm@mail.umkc.edu&gt; ([`fb2ab5a`](https://github.com/OZI-Project/OZI/commit/fb2ab5a7238568bd72b1b10378916705b1e30f80))
 
+
 ### Other
+
 
 * Escape quotes in meson.build template.
 
@@ -3041,13 +3319,16 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`4ffb8b5`](https://github.c
 
 ## 0.0.281 (2024-03-06)
 
+
 ### :alembic:
+
 
 * :alembic: Increase deadline for ``ozi-new`` fuzzer to 15s.
 
 Signed-off-by:  rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`1813073`](https://github.com/OZI-Project/OZI/commit/1813073353fa82f2a893031288fd2adfa3258b43))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi.fix.missing): update ``render_requirements()``
 
@@ -3063,7 +3344,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`278e1bf`](https://github.c
 
 ## 0.0.280 (2024-03-03)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-fix): Extract ``process_build_definition`` from ``walk_build_definition``.
 
@@ -3077,7 +3359,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`ab35f02`](https://github.c
 
 ## 0.0.279 (2024-03-03)
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Add a check of node.js version for pyright. (#208)
 
@@ -3093,7 +3376,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@outlook.com&gt; ([`e4da4ba`](https://github.com
 
 ## 0.0.278 (2024-03-02)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump github/codeql-action from 3.24.5 to 3.24.6
 
@@ -3111,13 +3395,15 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`50ffecf`](https://github.com/OZI-Project/OZI/commit/50ffecfcc502300271d7e242931d6eaefad91282))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Add pep-723 metadata.
 
 Signed-off-by: Eden Rose Duff MSc &lt;help@oziproject.dev&gt; ([`962f91b`](https://github.com/OZI-Project/OZI/commit/962f91b7da73d076d6a858b672a7d8fc14003729))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: Shorten PEP-723 metadata.
 
@@ -3133,7 +3419,9 @@ Signed-off-by: Eden Rose Duff MSc &lt;help@oziproject.dev&gt; ([`60e227a`](https
 
 Signed-off-by: Eden Rose Duff MSc &lt;help@oziproject.dev&gt; ([`5e77cfa`](https://github.com/OZI-Project/OZI/commit/5e77cfafd3c0c03be61c0731c5fd43a7f653dac4))
 
+
 ### Other
+
 
 * :rotating_light: Fix trailing whitespace.
 
@@ -3165,7 +3453,8 @@ Signed-off-by: Eden Rose Duff MSc &lt;help@oziproject.dev&gt; ([`a5171bd`](https
 
 ## 0.0.277 (2024-02-29)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Add script guard to scripts in ``ozi/scripts``.
 
@@ -3175,7 +3464,8 @@ Signed-off-by: Eden Rose Duff MSc ([`55ababf`](https://github.com/OZI-Project/OZ
 
 Signed-off-by: Eden Rose Duff MSc ([`550eded`](https://github.com/OZI-Project/OZI/commit/550eded08a6fb98279a96cfb16fb835b6f4d7a57))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2::memo: Fix docstring whitespace; cleanup defs.
 
@@ -3183,7 +3473,8 @@ Signed-off-by: Eden Rose Duff MSc ([`ef2b469`](https://github.com/OZI-Project/OZ
 
 ## 0.0.276 (2024-02-28)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::hammer:(ozi-new): Fix call order.
 
@@ -3191,7 +3482,8 @@ author email checks before maintainer email.
 
 Signed-off-by: Eden Rose Duff MSc ([`f005dd9`](https://github.com/OZI-Project/OZI/commit/f005dd900285073981a53b52df0a61b092871b54))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::rotating_light: Embed ``noqa: E800`` comments in PEP-723 embedded metadata.
 
@@ -3199,7 +3491,9 @@ Signed-off-by: Eden Rose Duff MSc ([`cb8ef11`](https://github.com/OZI-Project/OZ
 
 * :hammer::rotating_light: Embed ``noqa: E800`` comments in PEP-723 embedded metadata. ([`0dc540e`](https://github.com/OZI-Project/OZI/commit/0dc540e500da7b1acc793821fad39b892ef94862))
 
+
 ### Other
+
 
 * :rotating_light: Add no cover comment to query_simple.
 
@@ -3221,7 +3515,8 @@ Signed-off-by: Eden Rose Duff MSc ([`a285f90`](https://github.com/OZI-Project/OZ
 
 ## 0.0.275 (2024-02-25)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * Revert &#34;:pencil2::memo: Fix note admonitions in TAP module.&#34;
 
@@ -3235,7 +3530,8 @@ Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; (
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`ebbe334`](https://github.com/OZI-Project/OZI/commit/ebbe334168bb38c6e85d06324dee865e333c2f6e))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * Revert &#34;:pushpin: Bump github/codeql-action from 3.24.0 to 3.24.3&#34;
 
@@ -3413,7 +3709,9 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`6b31cec`](https://github.com/OZI-Project/OZI/commit/6b31cec6d324f0f31be3c40fb82740353bcb325f))
 
+
 ### Other
+
 
 * Revert &#34;:rotating_light: run black.&#34;
 
@@ -3441,7 +3739,9 @@ Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; (
 
 ## 0.0.274 (2024-02-13)
 
+
 ### :lock:
+
 
 * :lock: Update SECURITY.md (#171)
 
@@ -3453,7 +3753,8 @@ add @lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`f863f32`](https://github.com/OZI-Project/OZI/commit/f863f3246e9edd092d0c76cf25a69b0794e8110e))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :memo::pencil2: Update README.rst logo ref
 
@@ -3463,7 +3764,8 @@ Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; (
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`4d1a4ae`](https://github.com/OZI-Project/OZI/commit/4d1a4ae7b7b4c72381441cbf87f32f58e44b1387))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Set requirements pins
 
@@ -3609,7 +3911,9 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`c8886c3`](https://github.com/OZI-Project/OZI/commit/c8886c3db7e9ba49cad14a23b7c1f70dc43661d2))
 
+
 ### Other
+
 
 * Update dependency-review.yml
 
@@ -3815,7 +4119,9 @@ PR or upgrade to it yourself)
 
 ## 0.0.273 (2024-02-03)
 
+
 ### :lock:
+
 
 * :lock: Clarify reporting process for vulnerabilities. (#169) ([`be193f7`](https://github.com/OZI-Project/OZI/commit/be193f7ccc58e4b7e93e48511b5f9d6663acbb94))
 
@@ -3823,7 +4129,9 @@ PR or upgrade to it yourself)
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`8b9a4de`](https://github.com/OZI-Project/OZI/commit/8b9a4de48c346df310d1eb15a612719a457f43aa))
 
+
 ### Other
+
 
 * Update security policy and readme logo. (#170)
 
@@ -3839,7 +4147,8 @@ Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; (
 
 ## 0.0.272 (2024-02-03)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Update meson_setuptools_scm.py
 
@@ -3853,7 +4162,8 @@ Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; (
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`a8ba231`](https://github.com/OZI-Project/OZI/commit/a8ba23106109ca96993d7206895e2d5afc442e1b))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: Update meson_dist_setuptools_scm.py
 
@@ -3862,7 +4172,9 @@ Fix error message to point to the ``version_file`` variable in pyproject.toml.
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`697ad43`](https://github.com/OZI-Project/OZI/commit/697ad43f2cff68a29207f3368c530bf0dc0c6fa4))
 
+
 ### Other
+
 
 * Release (#166) ([`7ae1a9c`](https://github.com/OZI-Project/OZI/commit/7ae1a9c630e74949ba769bb624444120ab3833e8))
 
@@ -3872,7 +4184,8 @@ Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; (
 
 ## 0.0.271 (2024-02-03)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Update spec.py (#163)
 
@@ -3886,13 +4199,16 @@ Add restructuredtext-lint
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`2638f6b`](https://github.com/OZI-Project/OZI/commit/2638f6b71c5e5d7b9b57c4be9bc1d63a3602aaa8))
 
+
 ### Other
+
 
 * Release (#164) ([`b854829`](https://github.com/OZI-Project/OZI/commit/b854829acf64f4b12f11e79acef4ab17cfcb0bbf))
 
 ## 0.0.270 (2024-02-03)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Update ozi/new/parser.py (#161)
 
@@ -3925,7 +4241,8 @@ Remove ``-new`` help.
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`b1faaab`](https://github.com/OZI-Project/OZI/commit/b1faaab27f5e0c4a6342385f134076933a328622))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: fix missing import of argparse.
 Signed-off-by: Eden Rose Duff MSc
@@ -3935,7 +4252,8 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`1184044`](https://github.c
 * :pencil2: fix missing import of argparse.
 Signed-off-by: Eden Rose Duff MSc ([`692d8bd`](https://github.com/OZI-Project/OZI/commit/692d8bdf2822b86e0428d77ab18de7d2b3c0f110))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin:(tox): pin tox black version to &lt;24.
 
@@ -3943,7 +4261,9 @@ Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`72f1ad1`](https://github.c
 
 * :pushpin:(tox): pin tox black version to &lt;24. ([`d78543f`](https://github.com/OZI-Project/OZI/commit/d78543f04f84d82226819fb4a83757f5716aabb0))
 
+
 ### Other
+
 
 * Release (#162) ([`adf2193`](https://github.com/OZI-Project/OZI/commit/adf219370722d17d1c587588f3a8c3d55af16e4b))
 
@@ -3964,7 +4284,8 @@ Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; (
 
 ## 0.0.269 (2024-02-02)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Update __main__.py (#154)
 
@@ -3972,7 +4293,9 @@ Add ``-new`` and ``-fix`` arguments to ``ozi`` ([`54b3758`](https://github.com/O
 
 * :hammer:: ``ozi-fix`` and ``ozi-new`` can now be accessed from the ``ozi`` entrypoint. ([`673f56c`](https://github.com/OZI-Project/OZI/commit/673f56ccf6ad760f07ea410903aee0677b232d14))
 
+
 ### Other
+
 
 * Release (#159) ([`6768a42`](https://github.com/OZI-Project/OZI/commit/6768a42dcc123dfdd775db4de9738e39ce1dc0be))
 
@@ -3982,7 +4305,8 @@ Add ``-new`` and ``-fix`` arguments to ``ozi`` ([`54b3758`](https://github.com/O
 
 ## 0.0.268 (2024-02-01)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Update __main__.py
 
@@ -3990,7 +4314,8 @@ Add ``-new`` and ``-fix`` arguments to ``ozi``
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`956ab4f`](https://github.com/OZI-Project/OZI/commit/956ab4f118da940ae9f16b04259cc847b0793ce1))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: Update __main__.py
 
@@ -3998,7 +4323,8 @@ add no cover comments to args.
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`86544d3`](https://github.com/OZI-Project/OZI/commit/86544d3c86132b239d76937c4ee53d52f82788db))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Update checkpoint.yml.j2 harden-runner action. (#156) ([`259f334`](https://github.com/OZI-Project/OZI/commit/259f33421e7bf394d94a0d022fd7cd925d92b26a))
 
@@ -4150,7 +4476,9 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`80d9aa6`](https://github.com/OZI-Project/OZI/commit/80d9aa6a5a4f844aaa143deb22f927492c03d5fe))
 
+
 ### Other
+
 
 * Bump harden runner (#158)
 
@@ -4164,7 +4492,8 @@ Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; (
 
 ## 0.0.267 (2024-01-30)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Update meson.build (#151)
 
@@ -4176,7 +4505,8 @@ Optimize requirements build loop.
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`7f7da94`](https://github.com/OZI-Project/OZI/commit/7f7da9429e4b2d58c572fd74e4346b3a2f015357))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: Update README.rst
 
@@ -4190,7 +4520,9 @@ Fix missing variable suite set.
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`1dc802b`](https://github.com/OZI-Project/OZI/commit/1dc802b77187ee6c61bdc42ac1c57a7d9a063f24))
 
+
 ### Other
+
 
 * Release 0.0.267 (#153) ([`2a9cfde`](https://github.com/OZI-Project/OZI/commit/2a9cfde0bff7586f792fdafc61e3bb8d2a4da519))
 
@@ -4260,7 +4592,8 @@ Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; (
 
 ## 0.0.266 (2024-01-30)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Add rst-lint meson.options template output. (#146) ([`55200b8`](https://github.com/OZI-Project/OZI/commit/55200b82aeb1b5dc44f76b7db79e8c7b9cdb04a3))
 
@@ -4270,7 +4603,8 @@ Signed-Off-By: rjdbcm &lt;help@oziproject.dev&gt; ([`fc7da7d`](https://github.co
 
 * :hammer: Add restructuredtext-lint requirements.in to build. ([`8d9ef5a`](https://github.com/OZI-Project/OZI/commit/8d9ef5ab84a9a6d9a4bd0b520f4f60db856483aa))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: Update meson.options
 
@@ -4288,7 +4622,8 @@ Add a target to the SLSA badge.
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`c0abc5d`](https://github.com/OZI-Project/OZI/commit/c0abc5d1bf59c50d6993ac17f71f6461dd6dc288))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Bump OZI-Project/checkpoint from 0.1.1 to 0.1.2 (#140)
 
@@ -4604,7 +4939,8 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`d32a58c`](https://github.com/OZI-Project/OZI/commit/d32a58ca4be12e97c7b47bc48b7ab4a90d01bc76))
 
-### :wrench:
+
+### :hammer: Updated Configuration
 
 * :wrench: Update meson.options
 
@@ -4624,7 +4960,9 @@ Add rst-lint to lint suites.
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`2b72b78`](https://github.com/OZI-Project/OZI/commit/2b72b78cfaf200e2c53097aa3206113ddd6bfdec))
 
+
 ### Other
+
 
 * release 0.0.266 (#147) ([`514f702`](https://github.com/OZI-Project/OZI/commit/514f702418b19339d5f6b27b2608e71e39b087fa))
 
@@ -4691,7 +5029,9 @@ Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; (
 
 ## 0.0.265 (2024-01-28)
 
+
 ### :lipstick:
+
 
 * :lipstick: Update README.rst
 
@@ -4699,7 +5039,8 @@ Add little changes to the readme to target end-users better.
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`0c57038`](https://github.com/OZI-Project/OZI/commit/0c570388f3dcf7e000b5f5062109bd4ee2402e90))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: Update README.rst (#132)
 
@@ -4711,7 +5052,9 @@ Fix long_description format for twine.
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`510beaf`](https://github.com/OZI-Project/OZI/commit/510beafe506fb2b74a8d3bfd41866ca26fc74239))
 
+
 ### Other
+
 
 * Retry 0.0.265 release (#133) ([`7b541b4`](https://github.com/OZI-Project/OZI/commit/7b541b48603d0c4451dddfc4608b89207b3f472e))
 
@@ -4741,7 +5084,8 @@ Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; (
 
 ## 0.0.264 (2024-01-26)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Update dist-workflow.yml
 
@@ -4755,7 +5099,8 @@ Can&#39;t use matrix actions because of artifact upload v4
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`6cf0dfb`](https://github.com/OZI-Project/OZI/commit/6cf0dfb420d8152c8ff840bd0ff89dd5252e5743))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Bump OZI-Project/checkpoint from 0.1.1 to 0.1.2
 
@@ -4772,7 +5117,9 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`cf9b587`](https://github.com/OZI-Project/OZI/commit/cf9b587f1a5dec70dae48210594047e5b41594fe))
 
+
 ### Other
+
 
 * Update requirements.in
 
@@ -4810,7 +5157,8 @@ Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; (
 
 ## 0.0.263 (2024-01-26)
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Update dist-workflow.yml
 
@@ -4832,7 +5180,8 @@ Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; (
 
 ## 0.0.262 (2024-01-25)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: Update dist-workflow.yml to latest release and publish.
 
@@ -4846,7 +5195,8 @@ Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; (
 
 Signed-off-by: Eden Rose, MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`5770594`](https://github.com/OZI-Project/OZI/commit/5770594fc342eec709043696601ff2e5812dcb51))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin: Bump OZI-Project/publish
 
@@ -4862,7 +5212,9 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`e5d477c`](https://github.com/OZI-Project/OZI/commit/e5d477c3ea3faa9c282dcb1377ba004a3b74543a))
 
+
 ### Other
+
 
 * Update publish.yml.j2
 
@@ -4921,13 +5273,16 @@ Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.gi
 
 ## 0.0.261 (2024-01-23)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Merge pull request #100 from OZI-Project/0.0
 
 Merge pull request #99 from OZI-Project/main ([`a1cb31a`](https://github.com/OZI-Project/OZI/commit/a1cb31a8ed3f48ca0b09fabb57c2400414891195))
 
+
 ### Other
+
 
 * 👷 🔨 : Add egress block allowlist for release and publish. ([`aac44be`](https://github.com/OZI-Project/OZI/commit/aac44be171446a04ee39dc42e7709a5922711044))
 
@@ -4937,11 +5292,14 @@ Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.gi
 
 ## 0.0.260 (2024-01-21)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Fix SLSA generation by using the output release tag. ([`879b7a3`](https://github.com/OZI-Project/OZI/commit/879b7a397ad60a2d2a7e854d250bd0a04ed8883b))
 
+
 ### Other
+
 
 * Update dev-workflow.yml to run on any branch.
 
@@ -4963,7 +5321,8 @@ Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.gi
 
 ## 0.0.259 (2024-01-21)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump github/codeql-action from 3.23.0 to 3.23.1
 
@@ -4996,7 +5355,8 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`dcb65a1`](https://github.com/OZI-Project/OZI/commit/dcb65a10888cb6038b577ab99be63a1cfc071458))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Add generate-provenance step template ([`c612e68`](https://github.com/OZI-Project/OZI/commit/c612e680c031ccacbfc4900675d8d50960795220))
 
@@ -5012,7 +5372,9 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`dcb65a1`](https://g
 
 * :hammer:: Implement hardened runner in workflow output. ([`5c47aff`](https://github.com/OZI-Project/OZI/commit/5c47aff6baa775a300c56b1317aef52180d7e0e9))
 
+
 ### Other
+
 
 * :construction_worker:: Pin reusable SLSA generator version. ([`f54c869`](https://github.com/OZI-Project/OZI/commit/f54c869580c36732cf09f003b22941d5359a2d0e))
 
@@ -5115,13 +5477,16 @@ Co-authored-by: github-actions &lt;github-actions@github.com&gt; ([`f8805d4`](ht
 
 ## 0.0.258 (2024-01-12)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up:: Bump OZI-Project/release.
 
 New pin: cde53aa6ef204695f7a5b4d5debc5bf696846cf1 ([`040f029`](https://github.com/OZI-Project/OZI/commit/040f02967a56930bf6b3edc8f25a832969f1a694))
 
+
 ### Other
+
 
 * 0.0 release tags (#47)
 
@@ -5143,13 +5508,15 @@ Co-authored-by: github-actions &lt;github-actions@github.com&gt; ([`135a07b`](ht
 
 ## 0.0.257 (2024-01-12)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up:: bump checkpoint workflow pin ([`ce2626f`](https://github.com/OZI-Project/OZI/commit/ce2626f5f3a47a43912a659e93e59c6576e8d00a))
 
 ## 0.0.256 (2024-01-11)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump github/codeql-action from 3.22.12 to 3.23.0
 
@@ -5183,7 +5550,9 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`8288ad4`](https://github.com/OZI-Project/OZI/commit/8288ad4442fff8f8aa78b844f4917b322f4559dc))
 
+
 ### Other
+
 
 * :memo:: Create FUNDING.yml
 
@@ -5195,7 +5564,8 @@ Signed-off-by: StepSecurity Bot &lt;bot@stepsecurity.io&gt; ([`52f5342`](https:/
 
 ## 0.0.255 (2024-01-07)
 
-### :arrow_up:
+
+### :arrow_up: Upgraded Dependencies
 
 * :arrow_up: Bump actions/upload-artifact from 3.1.0 to 4.0.0
 
@@ -5275,7 +5645,8 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`bad22f6`](https://github.com/OZI-Project/OZI/commit/bad22f696459ec672790bf1f2404075ab19990db))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :lock::hammer::construction_worker:: Add security best practices recommendations.
 
@@ -5285,11 +5656,14 @@ Signed-off-by: StepSecurity Bot &lt;bot@stepsecurity.io&gt; ([`649b499`](https:/
 
 * :hammer:: Add a dev branch matching checkpoint workflow. ([`42c9902`](https://github.com/OZI-Project/OZI/commit/42c990278bdcb316f969688a88e4e97f5f0fca8f))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin:: Pin workflows to commit hash. ([`a5a445d`](https://github.com/OZI-Project/OZI/commit/a5a445da64cc63f6e5a4352c71f934e31b328240))
 
+
 ### Other
+
 
 * :memo:: Update security policy. ([`86d0a7a`](https://github.com/OZI-Project/OZI/commit/86d0a7a5087b4265ec99215eb32e46971414fc0c))
 
@@ -5297,19 +5671,22 @@ Signed-off-by: StepSecurity Bot &lt;bot@stepsecurity.io&gt; ([`649b499`](https:/
 
 ## 0.0.254 (2024-01-06)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: 0.0.254 re-release. ([`8fd45c3`](https://github.com/OZI-Project/OZI/commit/8fd45c3a8c81395875467e9fbb4b4ae567865de2))
 
 ## 0.0.253 (2024-01-05)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: 0.0.253 force re-release ([`b365dd3`](https://github.com/OZI-Project/OZI/commit/b365dd348e528bfd2c5a91475617a54497f4c5e1))
 
 ## 0.0.252 (2024-01-05)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Re-release 0.0.252 ([`76b313f`](https://github.com/OZI-Project/OZI/commit/76b313ff083979966c0c1fffbc6adb22a9afd9d3))
 
@@ -5321,7 +5698,9 @@ Signed-off-by: StepSecurity Bot &lt;bot@stepsecurity.io&gt; ([`649b499`](https:/
 
 * :hammer::construction_worker:: Integrate step-security recommended workflows. (#9) ([`5394bf8`](https://github.com/OZI-Project/OZI/commit/5394bf812d011da0c031eb21d83597a7bacf17c5))
 
+
 ### Other
+
 
 * 0.0.254 ([`1bec575`](https://github.com/OZI-Project/OZI/commit/1bec575d6132bc481c4f3adfdbd1dbefa4023360))
 
@@ -5386,13 +5765,16 @@ Co-authored-by: github-actions &lt;github-actions@github.com&gt; ([`8e13fef`](ht
 
 ## 0.0.251 (2024-01-04)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Fix test file names. ([`809eaa4`](https://github.com/OZI-Project/OZI/commit/809eaa459e74c8e48178817df18d16a214268596))
 
 * :hammer:: Harden workflow. ([`42cea2c`](https://github.com/OZI-Project/OZI/commit/42cea2c8ce432ef99445c0409e9668a22d19d0f1))
 
+
 ### Other
+
 
 * :rotating_light: Fix lint issues. ([`0525cbc`](https://github.com/OZI-Project/OZI/commit/0525cbc648bd6459c58082496d1bd4a2fb677b1f))
 
@@ -5410,21 +5792,27 @@ Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.gi
 
 ## 0.0.250 (2024-01-02)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new): Set semantic-release remote type based on ``ci-provider``. ([`c007e1f`](https://github.com/OZI-Project/OZI/commit/c007e1fa9634609abe1412131a5f26ba362a4a24))
 
+
 ### Other
+
 
 * :rotating_light:: Fix lint. ([`93843cb`](https://github.com/OZI-Project/OZI/commit/93843cb2d8d6f5d0eb767594ca552d0333eef1a6))
 
 ## 0.0.249 (2023-12-31)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::construction_worker:(ozi-new): Output workflow with official github actions. ([`6d3e772`](https://github.com/OZI-Project/OZI/commit/6d3e772bb95da3f010070a1dd81780681aa6f34f))
 
+
 ### Other
+
 
 * :memo:: Update readme with link to contributing. ([`204215a`](https://github.com/OZI-Project/OZI/commit/204215a0f084dec657849eaac1b18d12f1df1941))
 
@@ -5432,19 +5820,23 @@ Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.gi
 
 ## 0.0.248 (2023-12-30)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: force bump. ([`426e20c`](https://github.com/OZI-Project/OZI/commit/426e20cd287eaf74703b5c7fa2a5fcf4771697ae))
 
 * :bug: Force release. ([`7199470`](https://github.com/OZI-Project/OZI/commit/719947047224e652256a90a446a36e201b4a843e))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Fix workflow secrets handling. ([`8f83999`](https://github.com/OZI-Project/OZI/commit/8f839992763b3c4c503b85673de8a557bf68a927))
 
 * :hammer:: Try new streamlined github CI. ([`7949809`](https://github.com/OZI-Project/OZI/commit/79498096c635ec42597b05409ecf7bfdb82a217c))
 
+
 ### Other
+
 
 * :memo:: Clarify CI process in readme. ([`8b4e4d3`](https://github.com/OZI-Project/OZI/commit/8b4e4d3224962414faabc2d2c51f93130058a7a1))
 
@@ -5456,59 +5848,70 @@ Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.gi
 
 ## 0.0.247 (2023-12-28)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :pushpin::bug:: Pin semantic-release to 8.7.0 and enable trusted publishing workflow. ([`d40a58a`](https://github.com/OZI-Project/OZI/commit/d40a58afad9150f926ed6db365536aa05d20043b))
 
 ## 0.0.246 (2023-12-28)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Install utility requirements from ``meson.project_build_root()`` ([`0618f0c`](https://github.com/OZI-Project/OZI/commit/0618f0c3652bafc4981c7f00a01da730b78dc677))
 
 ## 0.0.245 (2023-12-27)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Run pip-compile at config time. ([`ebe8445`](https://github.com/OZI-Project/OZI/commit/ebe8445034159726675799321312740ad3febf25))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix custom_target --&gt; configure_file for pyright requirements.txt. ([`bc02394`](https://github.com/OZI-Project/OZI/commit/bc02394bb9dde7073847fc14a9b818ef6710f09e))
 
 ## 0.0.244 (2023-12-27)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :construction_worker::hammer:: Build requirements.txt at configure time. ([`9765aab`](https://github.com/OZI-Project/OZI/commit/9765aab0ad30b47566d69e7d944156f07f4a7604))
 
 ## 0.0.243 (2023-12-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Run comment diagnostic over source *.py files. ([`0709abc`](https://github.com/OZI-Project/OZI/commit/0709abc82c02e258d5bdb0214fa2a9f9c9dff162))
 
 ## 0.0.242 (2023-12-23)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::construction_worker:(ozi-new): New meson build dir for each wheel ([`d27b72e`](https://github.com/OZI-Project/OZI/commit/d27b72e8d0ad4b456b4465e67b2e482b650ceac8))
 
 ## 0.0.241 (2023-12-23)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Build sdist from bugfix1 whl ([`2c08b9c`](https://github.com/OZI-Project/OZI/commit/2c08b9c6bd21c627be83c54bf7bceffd312195b5))
 
 * :pushpin::construction_worker::hammer:(ozi-new): Pin workflow utilities. ([`70d2304`](https://github.com/OZI-Project/OZI/commit/70d230417fc499369d53169c007bbd408e0c7410))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: fix bullet points README.rst
 
 Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt; ([`0d7ca02`](https://github.com/OZI-Project/OZI/commit/0d7ca027fc2000ac10ee860851fc1aff79633b7f))
 
+
 ### Other
+
 
 * :memo:: Simplify readme layout. ([`814b773`](https://github.com/OZI-Project/OZI/commit/814b773743a799e33951a22097b14cabd2ec113d))
 
@@ -5518,15 +5921,19 @@ Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.gi
 
 ## 0.0.240 (2023-12-21)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix dist workflow for artifact v4. ([`1c8b5b6`](https://github.com/OZI-Project/OZI/commit/1c8b5b6a2b7b7889afe83fd2cff7823bd907f8ba))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin::construction_worker:: Pin workflow action versions in dist. ([`3f0edb9`](https://github.com/OZI-Project/OZI/commit/3f0edb9dd94f49efcec51f9a0a18f8516a2e18c4))
 
+
 ### Other
+
 
 * Update CODE_OF_CONDUCT.md
 
@@ -5534,21 +5941,26 @@ Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.gi
 
 ## 0.0.239 (2023-12-19)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::construction_worker:: No real need to run checkpoints on macos-latest. ([`a37c838`](https://github.com/OZI-Project/OZI/commit/a37c8385bcccca57a225bcbf93b480ae7f34a1b5))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin::construction_worker:: Pin actions/upload-artifact to v3 for checkpoint. ([`c72a99a`](https://github.com/OZI-Project/OZI/commit/c72a99a3ef801d97f2be53e5d9749849d8d09695))
 
+
 ### Other
+
 
 * :page_facing_up:: Update license to include LLVM exception text. ([`8626688`](https://github.com/OZI-Project/OZI/commit/862668885998003d3297a2b02beaf401869ec9ba))
 
 ## 0.0.238 (2023-12-18)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::construction_worker:: set sigstore output directory. ([`97a45a0`](https://github.com/OZI-Project/OZI/commit/97a45a0ae975a1345bfc8d252fe89992a8a39600))
 
@@ -5564,7 +5976,9 @@ Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.gi
 
 * :bug:: Attempt to simplify CI build process. ([`1b1571c`](https://github.com/OZI-Project/OZI/commit/1b1571ccb71d29e119996bbd503bbb1471a1f585))
 
+
 ### Other
+
 
 * :construction_worker:: Use static CIBW configuration. ([`f91e1df`](https://github.com/OZI-Project/OZI/commit/f91e1df7abed2732c8c15e3932e87c3746652aa1))
 
@@ -5572,21 +5986,27 @@ Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.gi
 
 ## 0.0.237 (2023-12-16)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Try to fix release workflow. ([`129d70a`](https://github.com/OZI-Project/OZI/commit/129d70af588aeb6df6ee3984c3012924f58662c1))
 
+
 ### Other
+
 
 * :rotating_light:: Fix pyright false alarm. ([`3169ed2`](https://github.com/OZI-Project/OZI/commit/3169ed25219721e8d4886125fb8f8e4a9152991a))
 
 ## 0.0.236 (2023-12-15)
 
+
 ### :alembic:
+
 
 * :bug::alembic:: Attempt to fix workflow. ([`b6d6634`](https://github.com/OZI-Project/OZI/commit/b6d663455221e90c0be35df227bf5fd2b829c81c))
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Try to fix artifact download issue. ([`045441d`](https://github.com/OZI-Project/OZI/commit/045441d1d8ba9534855b06e0c983b91a9d57a755))
 
@@ -5596,31 +6016,37 @@ Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.gi
 
 * :bug: Fix some bugs discovered during integration testing. ([`bcf5540`](https://github.com/OZI-Project/OZI/commit/bcf5540f14d1b9ea780349bedcf062f373a30228))
 
+
 ### Other
+
 
 * :rotating_light:: Fix coverage. ([`8938456`](https://github.com/OZI-Project/OZI/commit/89384560f1c4491e620514e89b1293f0c70cb33b))
 
 ## 0.0.235 (2023-12-13)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new): Properly template upper bound Python-Support. ([`ebd2f25`](https://github.com/OZI-Project/OZI/commit/ebd2f25af910e4742345302617775929456c7285))
 
 ## 0.0.234 (2023-12-13)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :pencil2::bug:(ozi-fix): Remove debug print. ([`9dbe921`](https://github.com/OZI-Project/OZI/commit/9dbe921f71157e15ddd0b8b8631a559c4b5b4400))
 
 ## 0.0.233 (2023-12-13)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix, ozi-new): Fix PKG-INFO rendering for ``setuptools_scm`` version 8. ([`07be62f`](https://github.com/OZI-Project/OZI/commit/07be62f6680f2639c8fd0da06144936634212b05))
 
 ## 0.0.232 (2023-12-13)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new): Fix PKG-INFO:Requires-Python ceiling. ([`813b17b`](https://github.com/OZI-Project/OZI/commit/813b17b1024d795555769386bbba7c9a85d122fd))
 
@@ -5628,13 +6054,15 @@ Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.gi
 
 ## 0.0.231 (2023-12-12)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix metadata retrieval for missing command. ([`4a8fce4`](https://github.com/OZI-Project/OZI/commit/4a8fce44e95981fe4efc6a2b73c358913eda7bed))
 
 ## 0.0.230 (2023-12-12)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Workaround for dist script python version issue in mesonpep517. ([`0d60fb4`](https://github.com/OZI-Project/OZI/commit/0d60fb444bcd64d3d99904a4111d989fb73428ac))
 
@@ -5656,7 +6084,8 @@ Remove ``sync_pkg_readme.py`` script.
 Store a truncated ``PKG-INFO`` file in the project root called ``PKG-INFO.ozi``, this is a fallback to allow for local installation of OZI with ``pip install .``.
 Meson uses ``vcs_tag`` to write the SCM supplied version tag. ([`1ebc27f`](https://github.com/OZI-Project/OZI/commit/1ebc27f2f3fae0312f69eb9b7f0ce64f7c48ac67))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new,ozi-fix,spec): PKG-INFO now concealed in build system rather than being at the project root.
 
@@ -5664,13 +6093,16 @@ This is fairly standard although explicit PKG-INFO configuration-time template i
 
 The string ``@README_TEXT@`` is replaced with the contents of ``README.rst`` at meson configuration-time. ([`546f74d`](https://github.com/OZI-Project/OZI/commit/546f74da81a807ceb2259199a8209c5420ef7790))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix some no cover comments. ([`d8f79c6`](https://github.com/OZI-Project/OZI/commit/d8f79c66fc168a697f4bf3cd0711790bda603365))
 
 * :pencil2:: Fix PKG-INFO, deployment at build config time only. ([`18b2995`](https://github.com/OZI-Project/OZI/commit/18b299521d08105450e60e2668d11a8b98a8f702))
 
+
 ### Other
+
 
 * :construction_worker: patch in tomli for bug in mesonpep517. ([`5ce8bc8`](https://github.com/OZI-Project/OZI/commit/5ce8bc8c380af128318a11e68bcf12a50c7505f8))
 
@@ -5686,37 +6118,43 @@ The string ``@README_TEXT@`` is replaced with the contents of ``README.rst`` at 
 
 ## 0.0.229 (2023-12-05)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new): Fix github workflow duplicate id. ([`1ccd73c`](https://github.com/OZI-Project/OZI/commit/1ccd73c11bd610e1f6f5649495bebb220f670833))
 
 ## 0.0.228 (2023-12-04)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new): Fix spec field typo and tox invocation for checkpoint retries. ([`692207f`](https://github.com/OZI-Project/OZI/commit/692207f060a57002421a822c6ac9a2168162d654))
 
 ## 0.0.227 (2023-12-03)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi): Correct tox invocation docstring info.
 
 Also clean up README badges. ([`ff66382`](https://github.com/OZI-Project/OZI/commit/ff66382ade92dc88eec6feb63499190cc192f82f))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new): add tox ci backend to optional_dependencies. ([`5f5a4ad`](https://github.com/OZI-Project/OZI/commit/5f5a4ad9c6bf9e7fbd2962380a5c6bbdeeabc833))
 
 ## 0.0.226 (2023-12-02)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new): Update tox checkpoint invocation. ([`bd64128`](https://github.com/OZI-Project/OZI/commit/bd64128f6aecdf85a485b4b79a0cad42bfebe327))
 
 ## 0.0.225 (2023-12-02)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-fix): No longer using ozi to run utility modules.
 
@@ -5726,19 +6164,22 @@ Trying a new tox CI setup. ([`a7d15e1`](https://github.com/OZI-Project/OZI/commi
 
 ## 0.0.224 (2023-12-01)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new): Fix missing ``TAP.end()`` ([`213ee76`](https://github.com/OZI-Project/OZI/commit/213ee76c6941107c768f3323a4ee6a19ff38b43d))
 
 ## 0.0.223 (2023-12-01)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Make devnull writable. ([`11f0b7a`](https://github.com/OZI-Project/OZI/commit/11f0b7aef701c6303ac5e373eb6f07c4bd91836d))
 
 ## 0.0.222 (2023-12-01)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-fix): Fix doctest failures.
 Redirect output to null for ``TAP.suppress``.
@@ -5746,7 +6187,8 @@ Fix unclosed quote in root meson.build template. ([`98c8aa6`](https://github.com
 
 ## 0.0.221 (2023-12-01)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: TAP class is now simply changes the warning format for ``TAP.not_ok``.
 
@@ -5754,7 +6196,9 @@ No longer uses a ContextDecorator. ([`3a003bb`](https://github.com/OZI-Project/O
 
 * :hammer:(ozi-fix): Add a proper mesonbuild AST inspection module ``ozi.meson``. ([`b5e5e3e`](https://github.com/OZI-Project/OZI/commit/b5e5e3edb488220708527535f5f1f4a6132f90d5))
 
+
 ### Other
+
 
 * :page_facing_up:: Add copyright headers to some files. ([`76be62b`](https://github.com/OZI-Project/OZI/commit/76be62bc8810b583a6a5ddf47d1b07db4816ebb8))
 
@@ -5762,39 +6206,48 @@ No longer uses a ContextDecorator. ([`3a003bb`](https://github.com/OZI-Project/O
 
 ## 0.0.220 (2023-11-27)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::rotating_light:(ozi/tap.py): Fix nested quote styles and add version guard for typing.Self. ([`d1bc0b1`](https://github.com/OZI-Project/OZI/commit/d1bc0b1b0f4a6367e6835e6617bdddc6b7f05b3a))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi,ozi-fix,ozi-new): Add ``tap.py`` TAP support module. ([`cf5e144`](https://github.com/OZI-Project/OZI/commit/cf5e14440accc11148adce6cc6257e8fd8b48ae3))
 
 * :hammer:(ozi-fix): Add ruff to utility suite. ([`1ab1c17`](https://github.com/OZI-Project/OZI/commit/1ab1c17111d2f3c180d7f4324c7ca7c5c6095214))
 
+
 ### Other
+
 
 * :rotating_light:(ozi): Fix linter complaints. ([`d764695`](https://github.com/OZI-Project/OZI/commit/d764695f77c34f1e7c704fd7433cd90cde654aa8))
 
 ## 0.0.219 (2023-11-24)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:(ozi): Restore setuptools entrypoint ``main()``. ([`e7e1726`](https://github.com/OZI-Project/OZI/commit/e7e1726195a5854f1d2044a6a636afb89f7b26ae))
 
 ## 0.0.218 (2023-11-24)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi/spec.py): Add more spec metadata for templates. ([`5fa0c67`](https://github.com/OZI-Project/OZI/commit/5fa0c676bc04faf57877b1d569542335e5ba8f1c))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: add changed entrypoint for ozi.fix and ozi.new ([`7c7d62a`](https://github.com/OZI-Project/OZI/commit/7c7d62a7c44f348f2420e65c8a94450e38067bf6))
 
 * :pencil2:(requirements.in): Remove email-validator. ([`a458510`](https://github.com/OZI-Project/OZI/commit/a458510349098a74e5ff61d185ea4100dc6f0f1c))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Bump version. ([`b9e792e`](https://github.com/OZI-Project/OZI/commit/b9e792e6e5fa81d613f975eb2455ace334a66fb7))
 
@@ -5810,7 +6263,8 @@ No longer uses a ContextDecorator. ([`3a003bb`](https://github.com/OZI-Project/O
 
 ## 0.0.217 (2023-11-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix warnings still being emitted for ``--add``
 
@@ -5819,37 +6273,44 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/OZ
 
 ## 0.0.216 (2023-11-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new,ozi-fix): Fix meson.build install path rendering. ([`28f0f9d`](https://github.com/OZI-Project/OZI/commit/28f0f9d2597fcbed411dc45e73e6d6dbc563973d))
 
 ## 0.0.215 (2023-11-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new): Fix pytest ``pyproject.toml`` config rendering. ([`1f1e511`](https://github.com/OZI-Project/OZI/commit/1f1e5111df638231a465e9524fad82ba225d7756))
 
 * :bug:(ozi-new): Fix PKG-INFO rendering &#34;Programming Language :: Python :: {major} :: Only&#34; ([`21f069c`](https://github.com/OZI-Project/OZI/commit/21f069cedec8d51dfc68c44df21de61570442d96))
 
+
 ### Other
+
 
 * Bump PKG-INFO. ([`0aed6b8`](https://github.com/OZI-Project/OZI/commit/0aed6b88fe8ab4b6793a1487445c6993f24979ab))
 
 ## 0.0.214 (2023-11-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(tests): Fix typo in keywords regex strategy. ([`a6d198e`](https://github.com/OZI-Project/OZI/commit/a6d198e57cf651863bb3da5b5056f9992a31dd15))
 
 * :bug:(ozi-fix): Fix missing license-id list option. ([`bfc7609`](https://github.com/OZI-Project/OZI/commit/bfc7609f137898a4c91be6e99417dc71d6c34bec))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new): Rendered PKG-INFO includes &#34;Private :: Do Not Upload&#34; if license is set to &#34;Private&#34; ([`0575a5f`](https://github.com/OZI-Project/OZI/commit/0575a5fc7865ecca6bd68d9a388bbf009ef5672e))
 
 ## 0.0.213 (2023-11-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi): Fix main commandline app list not working for choices with dashes. ([`9c3c4e7`](https://github.com/OZI-Project/OZI/commit/9c3c4e728eda4386186dcdf7c4971c63351f4779))
 
@@ -5857,23 +6318,29 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/OZ
 
 ## 0.0.212 (2023-11-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix reDOS in filename search. ([`2c2fc82`](https://github.com/OZI-Project/OZI/commit/2c2fc824ee5141c792d4b6c02fa26098c346ddfa))
 
+
 ### Other
+
 
 * Bump PKG-INFO. ([`812f49d`](https://github.com/OZI-Project/OZI/commit/812f49d3c7f7f9f3e1b4f5feea89d03e86daea4d))
 
 ## 0.0.211 (2023-11-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Sanitize ozi-fix target against directory traversal. ([`690d200`](https://github.com/OZI-Project/OZI/commit/690d200b796ae46965230410102a214149f99150))
 
 * :bug:: Fix unsanitized path. ([`7a3d624`](https://github.com/OZI-Project/OZI/commit/7a3d624fca54405eda4fe0472403926541e07fe2))
 
+
 ### Other
+
 
 * :rotating_light:: Fix mypy complaints. ([`d06449f`](https://github.com/OZI-Project/OZI/commit/d06449f23ecc4a53e3f9de8de6149f4ab8b4f5f6))
 
@@ -5881,13 +6348,15 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/OZ
 
 ## 0.0.210 (2023-11-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix email email validator install path. ([`9828d09`](https://github.com/OZI-Project/OZI/commit/9828d097103d953433d0ea814b0488bee4043ee2))
 
 ## 0.0.209 (2023-11-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Finish vendoring of email_validator ([`fa371f1`](https://github.com/OZI-Project/OZI/commit/fa371f178aa662bbeb4e0f3fab11fd6bb4154fa3))
 
@@ -5895,19 +6364,22 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/OZ
 
 ## 0.0.208 (2023-11-22)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix circular depend on email_validator ([`30543b7`](https://github.com/OZI-Project/OZI/commit/30543b70a48b25b660030f2f032fa106359e1b26))
 
 ## 0.0.207 (2023-11-22)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix circular import. ([`d0fd1bd`](https://github.com/OZI-Project/OZI/commit/d0fd1bd0edcc83db54279dd182ab8e8288c2720b))
 
 ## 0.0.206 (2023-11-22)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix coverage with no cover of warning format. ([`05322ed`](https://github.com/OZI-Project/OZI/commit/05322ede2634de929f00915f3192c5aea7adca4c))
 
@@ -5917,7 +6389,8 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/OZ
 
 ## 0.0.205 (2023-11-22)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: No cover warning formatter. ([`5b52bfc`](https://github.com/OZI-Project/OZI/commit/5b52bfc4443e220ef23c4d612ed77cb622779722))
 
@@ -5925,13 +6398,16 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/OZ
 
 * :bug:: Fix circular assets import. ([`b8a2774`](https://github.com/OZI-Project/OZI/commit/b8a2774b5106b2e2095f4d405f88afae5a02d931))
 
+
 ### Other
+
 
 * Fix missing ruff template and circular import. ([`323b963`](https://github.com/OZI-Project/OZI/commit/323b96375b1e1c8f083b95fdfb1bc69e3e65e911))
 
 ## 0.0.204 (2023-11-22)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix meson.build template pyproject.toml preprocessing. ([`e9f10da`](https://github.com/OZI-Project/OZI/commit/e9f10da28bf2a3fc9dd78766f684b72def73ee6f))
 
@@ -5939,7 +6415,8 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/OZ
 
 ## 0.0.203 (2023-11-21)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix ``--list-available`` to use ExactMatch API. ([`2938362`](https://github.com/OZI-Project/OZI/commit/2938362128dbcec76762648a4a11bb8839382e89))
 
@@ -5947,13 +6424,15 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/OZ
 
 ## 0.0.202 (2023-11-21)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix typing issue on 3.10 ([`b6722c9`](https://github.com/OZI-Project/OZI/commit/b6722c9debe222eece36d2207927c83e0b344619))
 
 * :bug:: Fix missing Self type annotation on 3.10 builds. ([`67059e3`](https://github.com/OZI-Project/OZI/commit/67059e32d6f168b0b96570c27b282d48928b5c9b))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::wrench:: Major refactor iteration.
 
@@ -5970,7 +6449,9 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/OZ
 * Move utility requirements to top level source dir ``ozi/dist``, ``ozi/docs``, ``ozi/lint``, ``ozi/test``.
 * Proper author rendering as a list. ([`0793eff`](https://github.com/OZI-Project/OZI/commit/0793eff197e991d0d87896ccfbe5dcbc4572cfbd))
 
+
 ### Other
+
 
 * :rotating_light:: no cover type guard ([`2c4a33a`](https://github.com/OZI-Project/OZI/commit/2c4a33a27904cee4bafaa53b0be6c5d7978c1385))
 
@@ -5980,23 +6461,28 @@ Redirecting stdout directly using contextlib. ([`218b768`](https://github.com/OZ
 
 ## 0.0.201 (2023-11-15)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Add missing __init__.pyi required by spec. ([`9e6ba6e`](https://github.com/OZI-Project/OZI/commit/9e6ba6efc45c8f6bbc52fe56f52fc4b7c9dd21e2))
 
+
 ### Other
+
 
 * :rotating_light:(pyproject.toml): Clean up. ([`6c9e92c`](https://github.com/OZI-Project/OZI/commit/6c9e92c2e8d6238b4078d0b02ecad0e979d6e808))
 
 ## 0.0.200 (2023-11-14)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Fix meson.build build file check to use absolute path. ([`30f8c56`](https://github.com/OZI-Project/OZI/commit/30f8c56bc611309b8ce1e59d2ed110861d764b2b))
 
 ## 0.0.199 (2023-11-14)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix missing ``run_utility`` AttributeError
 
@@ -6005,7 +6491,8 @@ AttributeError: &#39;Namespace&#39; object has no attribute &#39;run_utility&#39
 
 ## 0.0.198 (2023-11-14)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new): fix missing append argparse arguments.
 
@@ -6013,7 +6500,8 @@ Revert to using standard email-validator package. ([`1f2959b`](https://github.co
 
 ## 0.0.197 (2023-11-14)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-fix,ozi-new): Clean up
 
@@ -6032,7 +6520,8 @@ Add ``--check-for-update`` bool arg to ``ozi-new`` (not yet implemented) ([`ee63
 
 ## 0.0.196 (2023-11-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix missing ``pip-tools`` dep. ([`1ee16cc`](https://github.com/OZI-Project/OZI/commit/1ee16ccaea5741a513982bc4681b3b8c8c838865))
 
@@ -6042,13 +6531,15 @@ Add ``--check-for-update`` bool arg to ``ozi-new`` (not yet implemented) ([`ee63
 
 Also publishes a sigstore bundle for the tarball release. ([`dcdfb20`](https://github.com/OZI-Project/OZI/commit/dcdfb204cc57fbaea6d7609928aff4ad17209145))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: Fix typo from clipboard. ([`fe1561c`](https://github.com/OZI-Project/OZI/commit/fe1561c213391ca697c481968cd62852b77f32b5))
 
 ## 0.0.195 (2023-11-10)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::construction_worker:(GitHub): Fix publish workflow to publish an sdist.
 
@@ -6056,7 +6547,8 @@ Fixes sdist builds disabled #2 ([`5a059e1`](https://github.com/OZI-Project/OZI/c
 
 ## 0.0.194 (2023-11-09)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new): Fix TypeError.
 
@@ -6064,7 +6556,8 @@ missing default. ([`3f8b5ff`](https://github.com/OZI-Project/OZI/commit/3f8b5ff5
 
 ## 0.0.193 (2023-11-09)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new): Add Download-URL to PKG-INFO Template.
 
@@ -6075,7 +6568,8 @@ Fixes Issue #5 [OZI does not support Download-URL header.](https://github.com/rj
 
 ## 0.0.192 (2023-11-09)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new): Use ``shlex.join()`` to render argv in changelog. ([`33b5219`](https://github.com/OZI-Project/OZI/commit/33b5219bd80cf11e53de3124b779d332735a464c))
 
@@ -6083,19 +6577,23 @@ Fixes Issue #5 [OZI does not support Download-URL header.](https://github.com/rj
 
 ## 0.0.191 (2023-11-08)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new): Add optional Project-URL metadata.
 
 Fixes Issue [Project-URLs are not supported by OZI #4](https://github.com/rjdbcm/OZI/issues/4) ([`b09898b`](https://github.com/OZI-Project/OZI/commit/b09898b02edc26ba07bc223e16edc0485fa3188d))
 
+
 ### Other
+
 
 * :rotating_light:(tests/ozi_new.py): Fix black lint failure. ([`06419d9`](https://github.com/OZI-Project/OZI/commit/06419d98e16e6f56afd5c7e48f8e7c0282b7bc56))
 
 ## 0.0.190 (2023-11-04)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new): Add a cache key based on compiled requirements file.
 
@@ -6103,19 +6601,22 @@ Prior to this patch caches were not checked against requirements file. ([`af7208
 
 ## 0.0.189 (2023-11-04)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new): Fix missing ``subprojects/ozi.wrap``. ([`97ba52a`](https://github.com/OZI-Project/OZI/commit/97ba52a0af7e15008e054956ce8a257f77e28b2e))
 
 ## 0.0.188 (2023-11-04)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new): Fix missing __init__.pyi in project initialization. ([`94eb34f`](https://github.com/OZI-Project/OZI/commit/94eb34f7b754599e2f71f660b55396ec8aa21f55))
 
 ## 0.0.187 (2023-11-04)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new): Project source ``meson.build`` options conditional removed.
 
@@ -6123,13 +6624,15 @@ This check was added in error. ([`87bf8ec`](https://github.com/OZI-Project/OZI/c
 
 ## 0.0.186 (2023-11-03)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::pencil2:(ozi-new): Fix project source directory naming in root meson.build. ([`c8eba2f`](https://github.com/OZI-Project/OZI/commit/c8eba2ff2682e4f091542970769b7732366e7fe9))
 
 ## 0.0.185 (2023-11-03)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new): Update templates.
 
@@ -6137,44 +6640,54 @@ Projects now initialize with a changelog.
 PKG-INFO is now initialized with version ``0.0.0``.
 README.rst initializes with the OZI extra package info. ([`d09381b`](https://github.com/OZI-Project/OZI/commit/d09381ba174da7046765f7ca4bae7a0905de1483))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: Update semantic_release CHANGELOG.md template whitespace ([`527aa60`](https://github.com/OZI-Project/OZI/commit/527aa6073ef053f1f680870c4cc01fc37126d5c5))
 
 ## 0.0.184 (2023-11-03)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new): Add ``--allow-file``.
 
 Added a list of allowed files in a new project directory: ``project.allow_file``.
 Currently by default ``templates/`` and ``.git/`` are allowed. ([`a9640c1`](https://github.com/OZI-Project/OZI/commit/a9640c153c0d160bb82a344528d59dcb91d57e55))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: Update CHANGELOG.md
 
 Fix minor changelog format issues. ([`f53f628`](https://github.com/OZI-Project/OZI/commit/f53f62872fd5c985df753fd8f26e8f5c9603158b))
 
+
 ### Other
+
 
 * Update CHANGELOG.md ([`dd953c8`](https://github.com/OZI-Project/OZI/commit/dd953c847a28e0936a4e94a2115319b3c920a303))
 
 ## 0.0.183 (2023-11-02)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(templates): Fix author_email rendering. ([`ab78ea0`](https://github.com/OZI-Project/OZI/commit/ab78ea014c987cfde5155926a852e2ac85b08820))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new): Allow new project with existing ``templates/`` and ``.git/`` ([`53c5687`](https://github.com/OZI-Project/OZI/commit/53c5687821a9af76a19d3572d39b1ae13636c2c7))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2::construction_worker: Fix workflow logging to use wildcard. ([`5fa5496`](https://github.com/OZI-Project/OZI/commit/5fa549603eb62da4ec00077c902216525dbbd980))
 
+
 ### Other
+
 
 * Add failure logging to checkpoint workflow. ([`3c5cd27`](https://github.com/OZI-Project/OZI/commit/3c5cd2708ef3fbe027f1df31f1758c75f35c2261))
 
@@ -6182,47 +6695,55 @@ Fix minor changelog format issues. ([`f53f628`](https://github.com/OZI-Project/O
 
 ## 0.0.182 (2023-11-01)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(CI): Fix ozi release workflow python version string quoting. ([`b5ec332`](https://github.com/OZI-Project/OZI/commit/b5ec33265a63b91267b82fce7903c55c810a51c6))
 
 ## 0.0.181 (2023-11-01)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(CI): Fix workflow job indent level. ([`b6d4587`](https://github.com/OZI-Project/OZI/commit/b6d4587a939472904af4e86d2feb598887a5d263))
 
 ## 0.0.180 (2023-11-01)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(CI): Fix indentation issue in workflow template. ([`07abfd4`](https://github.com/OZI-Project/OZI/commit/07abfd40060617fdfd8ee4a775c7429ee879cd34))
 
 ## 0.0.179 (2023-11-01)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::construction_worker:(CI): Fix for raw jinja whitespace trimming causing broken workflow. ([`e3e4d66`](https://github.com/OZI-Project/OZI/commit/e3e4d6633e6f62a93084eee9dc1e0f74f0c0fd21))
 
 ## 0.0.178 (2023-11-01)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix incorrect source install subdir argument. ([`77c97b2`](https://github.com/OZI-Project/OZI/commit/77c97b27c492b138dc772609a2de21b1f0bbccbd))
 
 ## 0.0.177 (2023-10-31)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(tests/ozi_fix.py): Remove flaky assertion. ([`fcaf807`](https://github.com/OZI-Project/OZI/commit/fcaf8072cf3c03ebd29734b7bfe09e17ad46b5c4))
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:(ozi-fix): warn for nested subdirectories. ([`8f99980`](https://github.com/OZI-Project/OZI/commit/8f99980cc219c4bf17029fdecbc49e0c0768579b))
 
 ## 0.0.176 (2023-10-31)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: Revert nested dir add ([`b6c0de8`](https://github.com/OZI-Project/OZI/commit/b6c0de88f59818e9a4f4ae9261fd1b817d082bf2))
 
@@ -6230,19 +6751,22 @@ Fix minor changelog format issues. ([`f53f628`](https://github.com/OZI-Project/O
 
 ## 0.0.175 (2023-10-31)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :children_crossing::bug:(CI): Fix retry of OZI utility checkpoint. ([`20b122d`](https://github.com/OZI-Project/OZI/commit/20b122d892dcbea1b70a59937015821e19bcfc81))
 
 ## 0.0.174 (2023-10-31)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing::construction_worker:(CI): Retry checkpoint workflow after failure. ([`3188248`](https://github.com/OZI-Project/OZI/commit/318824881d6ae0fa5a38d47ceef5b87f4767525f))
 
 ## 0.0.173 (2023-10-31)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix incorrect path to source subdirectory __init__.py ([`b7a454c`](https://github.com/OZI-Project/OZI/commit/b7a454cc496d7252726a5be0c42b4b80433b6c02))
 
@@ -6250,13 +6774,15 @@ Fix minor changelog format issues. ([`f53f628`](https://github.com/OZI-Project/O
 
 ## 0.0.172 (2023-10-30)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :children_crossing::bug:(ozi-fix): Adding a source subdirectory now includes the __init__.py ([`1403d36`](https://github.com/OZI-Project/OZI/commit/1403d36b170797d676f8f36675ef83b2fb34c4bb))
 
 ## 0.0.171 (2023-10-30)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:(ozi-fix): Can now add nested subdirectories.
 
@@ -6267,57 +6793,67 @@ ozi-fix source -a foo/bar/baz/
 
 ## 0.0.170 (2023-10-30)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:(ozi-fix): Add support for a ``templates/`` for user templates. ([`ecedb26`](https://github.com/OZI-Project/OZI/commit/ecedb26faa1015c4fba527d29b8b60919ceb5721))
 
 ## 0.0.169 (2023-10-28)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new): Fix Framework classifier output. ([`e7a7bb3`](https://github.com/OZI-Project/OZI/commit/e7a7bb36d27fd05f8ff7767584663afa5107e709))
 
 ## 0.0.168 (2023-10-28)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix miscount in TAP output. ([`3e6b662`](https://github.com/OZI-Project/OZI/commit/3e6b66224bf24ec88f77d16b8e9e5e22f090a065))
 
 ## 0.0.167 (2023-10-27)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix default Multiple use args. ([`38cd3d4`](https://github.com/OZI-Project/OZI/commit/38cd3d4535a94ef8d57bc90fa108f344a3a855ca))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix black complaints. ([`c5b1402`](https://github.com/OZI-Project/OZI/commit/c5b1402b799b2177134d9e91d9fa21ff5b22169b))
 
 ## 0.0.166 (2023-10-27)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new): Fix keywords parsing. ([`db3f61e`](https://github.com/OZI-Project/OZI/commit/db3f61ef9080fca38d0b5e033e6031111b51faf8))
 
 ## 0.0.165 (2023-10-27)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new): Fix several improper PKG-INFO outputs ([`8db531a`](https://github.com/OZI-Project/OZI/commit/8db531a4162764f12967894f53de707386fa49e6))
 
 ## 0.0.164 (2023-10-26)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix missing variable in fix copyright_head. ([`1b06ddb`](https://github.com/OZI-Project/OZI/commit/1b06ddbb44e0ff3fd84b72a63033e804dc9ceed5))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix missing format placeholder. ([`a4c49cf`](https://github.com/OZI-Project/OZI/commit/a4c49cf0b3e09ef8068c1cc64d475ab56e665510))
 
 ## 0.0.163 (2023-10-26)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix missing dist_requires tests. ([`5d3c594`](https://github.com/OZI-Project/OZI/commit/5d3c594903f72d7e00168bf6f36e07697485f29c))
 
@@ -6325,13 +6861,15 @@ ozi-fix source -a foo/bar/baz/
 
 ## 0.0.162 (2023-10-26)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix default project topic. ([`9d6e9d4`](https://github.com/OZI-Project/OZI/commit/9d6e9d4fd1330a0719fae5869da467fc4af3e9db))
 
 ## 0.0.161 (2023-10-26)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi/new.py): Fix EmailSyntaxError handling.
 
@@ -6339,27 +6877,33 @@ Emails with no @ sign will simply warn. ([`4e1fe3e`](https://github.com/OZI-Proj
 
 ## 0.0.160 (2023-10-26)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :pencil2::children_crossing:: Fix flaky test deadline. ([`362c0b0`](https://github.com/OZI-Project/OZI/commit/362c0b04a31e44c4f7787c9d5601af070dda21c7))
 
+
 ### Other
+
 
 * :rotating_light:: Re-black test file. ([`afabb83`](https://github.com/OZI-Project/OZI/commit/afabb835ee9544c83f54408f45a11dc801a349c6))
 
 ## 0.0.159 (2023-10-26)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::construction_worker:: Update templates and turn on CI dependency caching. ([`4897943`](https://github.com/OZI-Project/OZI/commit/4897943249f5375ed7ed9626e2c232b9acd13604))
 
 ## 0.0.158 (2023-10-25)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Add artifact upload for meson logs during checkpoint. ([`df59a74`](https://github.com/OZI-Project/OZI/commit/df59a743430fa7bc4d471c61d0621ab6aa578a8e))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Wildcard artifact upload path. ([`4a8aae1`](https://github.com/OZI-Project/OZI/commit/4a8aae1c50c8122c89fd48ddeed1ec36954db254))
 
@@ -6369,7 +6913,8 @@ Emails with no @ sign will simply warn. ([`4e1fe3e`](https://github.com/OZI-Proj
 
 ## 0.0.157 (2023-10-25)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :hammer::children_crossing:(project): Refactored for running test suite on OZI build itself. ([`1bbd6ae`](https://github.com/OZI-Project/OZI/commit/1bbd6aedcf7539d7c623991aed5bec0aed7975ec))
 
@@ -6379,7 +6924,8 @@ Emails with no @ sign will simply warn. ([`4e1fe3e`](https://github.com/OZI-Proj
 
 * :hammer::children_crossing:(ozi/scripts): pip-compile now runs silently. ([`a1cf607`](https://github.com/OZI-Project/OZI/commit/a1cf60711aba8d8691ebab0326423faa50d42a22))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::rotating_light:(ozi): Fix py312 flake8-quotes style. ([`54f8ed7`](https://github.com/OZI-Project/OZI/commit/54f8ed7167782fc6d4da5d81d4d4ebe6eef49df6))
 
@@ -6387,34 +6933,43 @@ Emails with no @ sign will simply warn. ([`4e1fe3e`](https://github.com/OZI-Proj
 
 * :hammer:(ozi/assets;ozi/templates): Fix missing files from build. ([`aa014bb`](https://github.com/OZI-Project/OZI/commit/aa014bbe59589d042ac5a8dbcd904d72b28d571f))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix missing toml-config arg. ([`c764706`](https://github.com/OZI-Project/OZI/commit/c764706ab36c054407a037e652038af941a11f29))
 
+
 ### Other
+
 
 * :rotating_light:(ozi): Fix linting and typing. ([`7fca0c4`](https://github.com/OZI-Project/OZI/commit/7fca0c49a0d4b3f7b592d3238251f63c65bb4c30))
 
 ## 0.0.156 (2023-10-20)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: Emails generated from phony domains. ([`e415cc9`](https://github.com/OZI-Project/OZI/commit/e415cc97c7af5878b34334879c769450619ea49a))
 
+
 ### Other
+
 
 * :white_check_mark:(tests/ozi_new.py): fullmatch=True for from_regex strategy. ([`c20fb56`](https://github.com/OZI-Project/OZI/commit/c20fb56cbef138ab73660e2addfa30d68b6acbe1))
 
 ## 0.0.155 (2023-10-20)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(meson.options):Complete compliance with specification.
 
 Flake8 is happy.
 Coverage is complete. ([`5a0d991`](https://github.com/OZI-Project/OZI/commit/5a0d9910326be8e5926881f6f6b005afad0c2dae))
 
+
 ### Other
+
 
 * Add more @settings(deadline=timedelta(milliseconds=500)) ([`c6bbe72`](https://github.com/OZI-Project/OZI/commit/c6bbe72c0d39ba2811cd683cabfc614c20487dd9))
 
@@ -6428,17 +6983,20 @@ Add max_size=8 to author_email and maintainer_email. ([`d75eae9`](https://github
 
 ## 0.0.154 (2023-10-13)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix missing license templates. ([`439c426`](https://github.com/OZI-Project/OZI/commit/439c426894c4de153579be08f9b41e34ae72dff7))
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:: Reduce test size to fix failed health check. ([`13bb6f3`](https://github.com/OZI-Project/OZI/commit/13bb6f339051adb1ce233cd0ae04ad86e7ca506b))
 
 * :children_crossing:: Moved test assumptions to start of test. ([`b345516`](https://github.com/OZI-Project/OZI/commit/b3455164da0dcc64a20c773271a29327592e6b51))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new): Refactor of arguments. ([`69a5ace`](https://github.com/OZI-Project/OZI/commit/69a5ace417daa4d2e38d23ec3d3ea5b10ab03ff5))
 
@@ -6458,7 +7016,8 @@ Just LGPL-2.0-x and APSL-X.X ([`6465972`](https://github.com/OZI-Project/OZI/com
 
 ## 0.0.153 (2023-10-10)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: add requirements.in to root_templates. ([`16f1124`](https://github.com/OZI-Project/OZI/commit/16f1124bff821a87101fad7853c5edb630f119a7))
 
@@ -6475,7 +7034,8 @@ This is mainly so we can document it in the specification. ([`c4fb826`](https://
 
 ## 0.0.152 (2023-10-08)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :memo::hammer:(ozi-new): Add coverage and pytest templates ([`3504ee1`](https://github.com/OZI-Project/OZI/commit/3504ee1888b8b1d7a52a25db2a3b595a9561e51d))
 
@@ -6485,17 +7045,20 @@ This is mainly so we can document it in the specification. ([`c4fb826`](https://
 
 ## 0.0.151 (2023-10-07)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::pencil2:: PKG-INFO template python version typo fix. ([`11ec7d9`](https://github.com/OZI-Project/OZI/commit/11ec7d9d4eee89fd74b44f2f4459c37a5972f06a))
 
 ## 0.0.150 (2023-10-06)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix improper import of dataclass from attr. ([`5714c66`](https://github.com/OZI-Project/OZI/commit/5714c66fc8d4a0b17419ff93b8c7aa5e27f7ac50))
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:: Use Home-page header in PKG-INFO template. ([`6d4a96a`](https://github.com/OZI-Project/OZI/commit/6d4a96ac631a6b7a259d439b9c6c6ccbb558ed86))
 
@@ -6503,29 +7066,35 @@ This is mainly so we can document it in the specification. ([`c4fb826`](https://
 
 Also add requirements to PKG-INFO, including git. ([`2fda90e`](https://github.com/OZI-Project/OZI/commit/2fda90e3f1d9a405567a2a312833b481cb2ac5b4))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Patch bump. ([`3ead502`](https://github.com/OZI-Project/OZI/commit/3ead50241c5068ff0a9137c5201b674a4b8d2f5b))
 
 ## 0.0.149 (2023-10-06)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(CI): Fix Python versioning to follow an automated policy for CI templates. ([`7ae853b`](https://github.com/OZI-Project/OZI/commit/7ae853b66203f2ecf0ab4d6dacc860d5884be3ff))
 
 ## 0.0.148 (2023-10-06)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:: Add bug tracker URL. ([`957fc15`](https://github.com/OZI-Project/OZI/commit/957fc1541461d3f362f228349b0168f927edf5a1))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Add automation and checking of Python implementation and version metadata. ([`7315896`](https://github.com/OZI-Project/OZI/commit/7315896021a07f9cac43b003af189d22b31c0df6))
 
 ## 0.0.147 (2023-10-06)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::construction_worker:(tests/ozi_fix.py): Fix flaky CI due to exceeded deadline. ([`ae446ae`](https://github.com/OZI-Project/OZI/commit/ae446aeb5045e54583e27d1bee8f596b713c723e))
 
@@ -6536,26 +7105,30 @@ Also add requirements to PKG-INFO, including git. ([`2fda90e`](https://github.co
 not ok - 8 - &#34;Programming Language :: Python :: 3 :: Only&#34; MISSING
 ``` ([`9e8b6c0`](https://github.com/OZI-Project/OZI/commit/9e8b6c0d8cfe70973ff094ff1455960dccb7334f))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::white_check_mark:(ozi-fix): Add coverage for Python version PKG-INFO. ([`39422a5`](https://github.com/OZI-Project/OZI/commit/39422a5b4052dae92c1f13c85926c32da08c237a))
 
 ## 0.0.146 (2023-10-06)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::construction_worker:(ozi-fix):  Fix flaky CI.
 
 ``tests/ozi_fix.py::test_fuzz_report_missing - hypothesis.errors.Flaky: Hypothesis ``
 Unreliable test timings! On an initial run, this test took 359.85ms, which exceeded the deadline of 200.00ms, but on a subsequent run it took 10.32 ms, which did not. Deadline raised for this test by setting deadline=500ms. ([`7356c9a`](https://github.com/OZI-Project/OZI/commit/7356c9a697fc04279733bdeb81dec058e9f40f21))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-fix): Coverage complete for pep-639 extra classifiers. ([`6c65619`](https://github.com/OZI-Project/OZI/commit/6c65619597f73bf7a296ccf283f6e3e653a19362))
 
 ## 0.0.145 (2023-10-05)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-fix): Improved coverage.
 
@@ -6564,7 +7137,8 @@ It is likely I will move it to it&#39;s own module as well. ([`a796bd3`](https:/
 
 ## 0.0.144 (2023-10-05)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-fix): Add Python version checking. ([`f33d754`](https://github.com/OZI-Project/OZI/commit/f33d7542b7577288d9c4cd6e607f9d986bb5fcc9))
 
@@ -6572,11 +7146,13 @@ It is likely I will move it to it&#39;s own module as well. ([`a796bd3`](https:/
 
 ## 0.0.143 (2023-10-04)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pushpin::pencil2:: Forgot to bump Python for OZI&#39;s distribution. ([`c0e07d4`](https://github.com/OZI-Project/OZI/commit/c0e07d41c8ee1c21d2f7bc395322b493cbb6c7a3))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin:: Deprecate Python version 3.9
 
@@ -6588,18 +7164,22 @@ Add support for Python 3.12 ([`706191e`](https://github.com/OZI-Project/OZI/comm
 
 ## 0.0.142 (2023-10-04)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: 500ms deadline for hypothesis.
 
 Should fix:
 Unreliable test timings! On an initial run, this test took 357.72ms, which exceeded the deadline of 200.00ms, but on a subsequent run it took 24.28 ms, which did not. If you expect this sort of variability in your test timings, consider turning deadlines off for this test by setting deadline=None. ([`2005bb3`](https://github.com/OZI-Project/OZI/commit/2005bb30040bc700af9d6fd857f0e69394b747b0))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Remove unnecessary references to NOTICE. ([`b146b78`](https://github.com/OZI-Project/OZI/commit/b146b78ee302d5d6d56ea5d1dc8248f7416e2226))
 
+
 ### Other
+
 
 * :see_no_evil:: Update gitignore template.
 
@@ -6611,7 +7191,8 @@ Added ignored-by-default patterns for:
 
 ## 0.0.141 (2023-10-03)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Correct warning for missing. ([`f474efd`](https://github.com/OZI-Project/OZI/commit/f474efdef3d918a423684614016bc9608612eb24))
 
@@ -6623,7 +7204,8 @@ Added ignored-by-default patterns for:
 
 * :bug:: Fix flaky test caused by PEP-639 proposed keys. ([`fee17df`](https://github.com/OZI-Project/OZI/commit/fee17dfd4db81b8a3d87d9f5f4e1412b5fe01ff8))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new): Name test strategy changes.
 
@@ -6631,7 +7213,9 @@ Added ignored-by-default patterns for:
 r&#39;^([A-Za-z]|[A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9])$&#39;
 ``` ([`9f5d2b8`](https://github.com/OZI-Project/OZI/commit/9f5d2b840834f4b5390ffc732950470494a7756e))
 
+
 ### Other
+
 
 * :white_check_mark:(ozi-new): Modified test draw strategy for licenses.
 
@@ -6643,19 +7227,22 @@ A handful of defer to good-first-issue like ``project.homepage.netloc`` ([`4f033
 
 ## 0.0.140 (2023-10-01)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix ``--missing`` output. ([`36fa838`](https://github.com/OZI-Project/OZI/commit/36fa838b93d36f8ffe41f787b890ed6665981b38))
 
 ## 0.0.139 (2023-10-01)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-fix): Fix missing pretty print arg. ([`7e5a9bb`](https://github.com/OZI-Project/OZI/commit/7e5a9bb9200eac98e12a762eac3eb815c52dda60))
 
 ## 0.0.138 (2023-10-01)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-new;ozi-fix): ``ozi-new`` just for project creation.
 
@@ -6663,17 +7250,21 @@ Decoupled utility functionality. Also corrected some output. ([`99ffe02`](https:
 
 ## 0.0.137 (2023-10-01)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-new): Fix skipping of new item creation. ([`93b1e70`](https://github.com/OZI-Project/OZI/commit/93b1e701d0d3ef7dda817cd8451f80c35a51b625))
 
 ## 0.0.136 (2023-10-01)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Add check for missing typing arg in PKG-INFO template. ([`bb48d07`](https://github.com/OZI-Project/OZI/commit/bb48d076f073e7029630f2e943d2762eb8a9f7ab))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Bump version. ([`1d3cf17`](https://github.com/OZI-Project/OZI/commit/1d3cf1752b78262d0a5398d9f1e3fcb86709c69b))
 
@@ -6681,7 +7272,8 @@ Decoupled utility functionality. Also corrected some output. ([`99ffe02`](https:
 
 ## 0.0.135 (2023-10-01)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Try setting PYTHONPATH to get pytest-cov working. ([`a260409`](https://github.com/OZI-Project/OZI/commit/a2604094b9646ed694ed3c5db6dc3579796e6798))
 
@@ -6707,7 +7299,9 @@ Decoupled utility functionality. Also corrected some output. ([`99ffe02`](https:
 
 It was unclear until this point where pytest would be invoked. Now it is clearly invoked during the CI checkpoint step for ``--setup=test`` only. ([`018f703`](https://github.com/OZI-Project/OZI/commit/018f70316cb5d06b6609b838ca06897c50bf3966))
 
+
 ### Other
+
 
 * :construction_worker:: Bump PKG-INFO. ([`1dddfd7`](https://github.com/OZI-Project/OZI/commit/1dddfd72a43b343aef91b8c18f337569527a5652))
 
@@ -6717,19 +7311,23 @@ It was unclear until this point where pytest would be invoked. Now it is clearly
 
 ## 0.0.134 (2023-10-01)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::white_check_mark:: Add a test suite.
 
 Most nearly 100% coverage. ([`68e6dbb`](https://github.com/OZI-Project/OZI/commit/68e6dbbf6355afdf092978bc6a1a0ed6ee1fb271))
 
+
 ### Other
+
 
 * Add basetemp for testing. ([`d92fa25`](https://github.com/OZI-Project/OZI/commit/d92fa2503dc205a664afdf25892ab2bc37cb5786))
 
 ## 0.0.133 (2023-09-28)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::test_tube:(ozi-fix,ozi-new): Add the beginning of our test suite.
 
@@ -6743,13 +7341,15 @@ This also fixes some minor UX bugs:
 
 ## 0.0.132 (2023-09-27)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:(ozi-fix): Remove unnecessary print statement. ([`20d509f`](https://github.com/OZI-Project/OZI/commit/20d509ff8ebbf94f03b3d67f4038bb4c1d39c943))
 
 ## 0.0.131 (2023-09-27)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix RewriteCommand.
 
@@ -6757,7 +7357,8 @@ TypeError: Object of type RewriteCommand is not JSON serializable ([`a9344cd`](h
 
 ## 0.0.130 (2023-09-26)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix namespace.
 
@@ -6769,7 +7370,8 @@ TypeError: unhashable type: &#39;list&#39;
 
 ## 0.0.129 (2023-09-26)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix missing args.
 
@@ -6777,19 +7379,23 @@ TypeError: unhashable type: &#39;list&#39;
 
 ## 0.0.128 (2023-09-26)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:(ozi-fix): major refactoring.
 
 Add Rewriter class. ([`8410fcc`](https://github.com/OZI-Project/OZI/commit/8410fcc93cf507f31071abead6c7dc6504d2b4c0))
 
+
 ### Other
+
 
 * :memo:: Add security policy. ([`ba1b1ba`](https://github.com/OZI-Project/OZI/commit/ba1b1bab2f6f4a052282a37bf5cc262e9b17a63d))
 
 ## 0.0.127 (2023-09-24)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:: Drop run of blastpipe for now.
 
@@ -6797,51 +7403,62 @@ I do plan to implement a test suite but blastpipe&#39;s invocation from OZI duri
 
 ## 0.0.126 (2023-09-24)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix):  &#39;Namespace&#39; object has no attribute &#39;strict&#39; ([`f7bbdaf`](https://github.com/OZI-Project/OZI/commit/f7bbdafb132be919311458487fe2834612dedc42))
 
 ## 0.0.125 (2023-09-24)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix &#39;Namespace&#39; object has no attribute &#39;add&#39;. ([`af35c7e`](https://github.com/OZI-Project/OZI/commit/af35c7e5f8e4322a9e26b54e712540b16946db0c))
 
 ## 0.0.124 (2023-09-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Add missing new_child template. ([`4f406ad`](https://github.com/OZI-Project/OZI/commit/4f406adc6c94fae5dddd8da59e52d04695d05772))
 
+
 ### Other
+
 
 * :memo:(PKG-INFO): Bump version. ([`fca526b`](https://github.com/OZI-Project/OZI/commit/fca526b6aa5b59dad27b8a47c89d02e1e9f5d3e6))
 
 ## 0.0.123 (2023-09-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): proper detection of target paths. ([`09806e0`](https://github.com/OZI-Project/OZI/commit/09806e07386d7c12a40e5e6d409e8a58624f9fd4))
 
 ## 0.0.122 (2023-09-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix &#39;Namespace has no attribute missing&#39;. ([`238ba81`](https://github.com/OZI-Project/OZI/commit/238ba81c18f0ad81c6b6f266639984ce8c7c5500))
 
 ## 0.0.121 (2023-09-23)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:(ozi-fix): Changed ``missing`` from a flag to a subparser. ([`526665d`](https://github.com/OZI-Project/OZI/commit/526665de9049dd4b5e897c7e509dfe7cc42f503c))
 
+
 ### Other
+
 
 * :memo:(PKG-INFO): Bump version. ([`18c112a`](https://github.com/OZI-Project/OZI/commit/18c112ac9cb4f80851bf2fcdea5480319239c1b0))
 
 ## 0.0.120 (2023-09-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix dictionary cast of RewriteCommand.
 
@@ -6849,17 +7466,21 @@ Using dataclasses.asdict(). ([`32fad26`](https://github.com/OZI-Project/OZI/comm
 
 ## 0.0.119 (2023-09-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix mutable default in dataclass. ([`198bf28`](https://github.com/OZI-Project/OZI/commit/198bf287cc7f9723ce66d767d78714b54a7e6d0e))
 
+
 ### Other
+
 
 * :memo:(PKG-INFO): Bump version. ([`ed08b45`](https://github.com/OZI-Project/OZI/commit/ed08b45eb9e3aa9b76fdd659233dff5c33fb5cff))
 
 ## 0.0.118 (2023-09-23)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(ozi-fix): Fix RewriteCommand repr to dict. ([`a1dfcbb`](https://github.com/OZI-Project/OZI/commit/a1dfcbb6ef5144c5ee57ad0aa6aaf7b5c766e33c))
 
@@ -6867,19 +7488,22 @@ Using dataclasses.asdict(). ([`32fad26`](https://github.com/OZI-Project/OZI/comm
 
 ## 0.0.117 (2023-09-23)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Improved ``ozi-fix`` implementation. ([`c4b2cf4`](https://github.com/OZI-Project/OZI/commit/c4b2cf48baf0dfd361e7729a44fb033b55f94b2f))
 
 ## 0.0.116 (2023-09-19)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:: ``ozi-fix`` arg order matches ``ozi-new`` ([`c776a0e`](https://github.com/OZI-Project/OZI/commit/c776a0e33a45adcec3fb6e351e62b8e206497c17))
 
 ## 0.0.115 (2023-09-19)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix copyright head between different subparsers. ([`d86bedd`](https://github.com/OZI-Project/OZI/commit/d86beddb487df36cf5ecb4bef2291846938aaac2))
 
@@ -6887,13 +7511,15 @@ Using dataclasses.asdict(). ([`32fad26`](https://github.com/OZI-Project/OZI/comm
 
 ## 0.0.114 (2023-09-18)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:: Update list functionality. ([`c681cd1`](https://github.com/OZI-Project/OZI/commit/c681cd132758cfe530b1e24791531e3d5ef97e12))
 
 ## 0.0.113 (2023-09-18)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Warning format.
 
@@ -6902,13 +7528,15 @@ Also run isort and blacken. ([`16c948d`](https://github.com/OZI-Project/OZI/comm
 
 ## 0.0.112 (2023-09-18)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: Fix TAP output newlines. ([`cb37731`](https://github.com/OZI-Project/OZI/commit/cb377310ebb6fe75493ed83766cb58db5f21a41a))
 
 ## 0.0.111 (2023-09-18)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Update ``ozi-new``.
 
@@ -6916,13 +7544,15 @@ Should use TAP output throughout now. ([`1cf2cee`](https://github.com/OZI-Projec
 
 ## 0.0.110 (2023-09-18)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance::pencil2:: Fix incorrect importlib.metadata import. ([`c0cf9b9`](https://github.com/OZI-Project/OZI/commit/c0cf9b9d0ccb8cf1f258c2f4f2d396969c434789))
 
 ## 0.0.109 (2023-09-17)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: FIX ``ozi-fix``.
 
@@ -6933,7 +7563,8 @@ AttributeError: &#39;str&#39; object has no attribute &#39;is_dir&#39;
 
 ## 0.0.108 (2023-09-17)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: FIX ``ozi-fix``
 
@@ -6942,95 +7573,114 @@ File &#34;&lt;OZI-0.0.107&gt;/ozi/fix.py&#34;, line 244, in main
 AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
 ``` ([`1368035`](https://github.com/OZI-Project/OZI/commit/13680352ef22520d748eab5a4a9966e63b65b2cc))
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :pencil2::children_crossing:: Fix NoReturn annotation. ([`f5299ac`](https://github.com/OZI-Project/OZI/commit/f5299ace198182fc010ad0fd1ab42c0437daabdd))
 
 * :children_crossing:: Add OZI_SPEC version variable. ([`4188f2d`](https://github.com/OZI-Project/OZI/commit/4188f2d529846ed97fa315761fca582040f5a677))
 
+
 ### Other
+
 
 * :memo:: Update template header. ([`f1c0f7d`](https://github.com/OZI-Project/OZI/commit/f1c0f7de109be93205affe7475f0d9f7ea5ce0dd))
 
 ## 0.0.107 (2023-09-17)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix README whitespace finally, hopefully. ([`4b7a27a`](https://github.com/OZI-Project/OZI/commit/4b7a27ad7b665b4be21c0174040293b93f634b3c))
 
 ## 0.0.106 (2023-09-17)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: Fix incorrect OZI PKG-INFO extras. ([`ecdc241`](https://github.com/OZI-Project/OZI/commit/ecdc2419c6fdc14a9de4cd07c2f4774d0119bdfe))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: fix template README.rst whitespace. ([`014b862`](https://github.com/OZI-Project/OZI/commit/014b86228705ad15ffc2747ebee17649a48518dd))
 
 * :pencil2: Fix incorrect TAP test count. ([`23a7efc`](https://github.com/OZI-Project/OZI/commit/23a7efc59cfd9ec2eb0be75fd20f319be05c09fa))
 
+
 ### Other
+
 
 * :memo:: Bump PKG-INFO. ([`a4f6d59`](https://github.com/OZI-Project/OZI/commit/a4f6d59ea6501fcb0ab83bdfd625d59939754e91))
 
 ## 0.0.105 (2023-09-16)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: Fix incorrect remote file checksumming. ([`99a3ea0`](https://github.com/OZI-Project/OZI/commit/99a3ea078e992c4fda660b19dbef5a84ae3ef39d))
 
 ## 0.0.104 (2023-09-16)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Use a streaming request to generate hashes for wrapfile. ([`e27546d`](https://github.com/OZI-Project/OZI/commit/e27546d17183ab85e5e8af9bd6416cac01328594))
 
-### :heavy_plus_sign:
+
+### :heavy_plus_sign: Added Dependencies
 
 * :heavy_plus_sign:: Add ``requests`` to dependencies. ([`5e65e34`](https://github.com/OZI-Project/OZI/commit/5e65e340617f04e4b16985c6218edfa51f2a3056))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix file permissions. ([`a6d033a`](https://github.com/OZI-Project/OZI/commit/a6d033afc8edb60477d9f9d7aa8e6f9e4b6575bc))
 
 ## 0.0.103 (2023-09-16)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: Fix ozi.wrap hash url. ([`68af9f6`](https://github.com/OZI-Project/OZI/commit/68af9f6f856b81e63e51ab57b3a9b0c843873364))
 
 ## 0.0.102 (2023-09-16)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :hammer::children_crossing:: Generate sha256sum for wrapfile. ([`c9f8fd0`](https://github.com/OZI-Project/OZI/commit/c9f8fd0b6b9cc4228747fc6bcce95bc88c41727b))
 
 ## 0.0.101 (2023-09-16)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix variable reference in ``ozi.wrap.j2`` ([`3d7ffa1`](https://github.com/OZI-Project/OZI/commit/3d7ffa1774a8e9f0113cddd1e2df5d4f098c040a))
 
 ## 0.0.100 (2023-09-16)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: Fix missing ozi.wrap template. ([`2aff6fd`](https://github.com/OZI-Project/OZI/commit/2aff6fd7f6955d07de6563b3c88cbbc8e71dcfee))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix wrapfile template filename. ([`46d1bd0`](https://github.com/OZI-Project/OZI/commit/46d1bd0709235417358294a1d103724b93396959))
 
 ## 0.0.99 (2023-09-16)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Update only need copyright_head for source generation. ([`174c1ac`](https://github.com/OZI-Project/OZI/commit/174c1acb3bad3392c0f467970b12f51f871b6ea7))
 
 ## 0.0.98 (2023-09-16)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix more whitespace. ([`dc2eb53`](https://github.com/OZI-Project/OZI/commit/dc2eb53d19012fa52e88725b5ebba2ff3e7a4385))
 
@@ -7040,57 +7690,69 @@ AttributeError: &#39;Namespace&#39; object has no attribute &#39;name&#39;
 
 ## 0.0.97 (2023-09-16)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:: add ozi.wrap creation tool. ([`64700a6`](https://github.com/OZI-Project/OZI/commit/64700a667c82eabf322f40e2986e4a370967293b))
 
+
 ### Other
+
 
 * Updated disclaimers. ([`78f1bd0`](https://github.com/OZI-Project/OZI/commit/78f1bd09dd2152d893b3b5595a4d27b3bfed8ae2))
 
 ## 0.0.96 (2023-09-16)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:: Add ``pip-tools`` to ``pyproject.toml`` template. ([`b6346a2`](https://github.com/OZI-Project/OZI/commit/b6346a2208ef24c1cba5cc9cc07dfc73d1dddb3e))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Add missing ``--license-file`` arg to ``ozi-new p``. ([`ff64224`](https://github.com/OZI-Project/OZI/commit/ff64224372600ef452468c6564789956a09a5dd6))
 
 * :hammer:: Add pip-tools to tox template. ([`5838fb7`](https://github.com/OZI-Project/OZI/commit/5838fb7d7aafd4e63bab241a7f427c08443af606))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Remove uneeded NOTICE header. ([`062e116`](https://github.com/OZI-Project/OZI/commit/062e1162152cc22f347639766a652b60e9ffecd0))
 
 ## 0.0.95 (2023-09-16)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: Fix LICENSE.txt template lookup. ([`58ce5ee`](https://github.com/OZI-Project/OZI/commit/58ce5ee509bbeada0b0ad87f4b9e27530ef81c80))
 
 ## 0.0.94 (2023-09-16)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: Fix missing pip-compile in tox. ([`d8dbfff`](https://github.com/OZI-Project/OZI/commit/d8dbfff7fc22d6ef25455a97c50c936ad2da072f))
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing: Restructure dependencies around pip-tools. ([`9c21588`](https://github.com/OZI-Project/OZI/commit/9c21588db1935d7c70a2f071a9d5d6b2fe8faef6))
 
 ## 0.0.93 (2023-09-15)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance: Fix mismatched PKG-INFO. ([`3c4fd77`](https://github.com/OZI-Project/OZI/commit/3c4fd773c167041fe95cb476fa7b700d8bda20e9))
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :memo::children_crossing:: Update README license info. ([`04811c2`](https://github.com/OZI-Project/OZI/commit/04811c2e03584c387e5a54a4cdc50e97fee24760))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Improved strict mode using warning filters.
 
@@ -7098,7 +7760,9 @@ Also improved license disambiguation for PEP 639 preparedness. ([`7774b02`](http
 
 * :hammer:: Add report_missing TAP fixture and SPDX expression parser. ([`4902150`](https://github.com/OZI-Project/OZI/commit/490215052385f676e216dd67b940c2a9748765c5))
 
+
 ### Other
+
 
 * :memo: Update licensing header format.
 
@@ -7106,7 +7770,8 @@ Loosely follows the style of LLVM. ([`f80f7eb`](https://github.com/OZI-Project/O
 
 ## 0.0.92 (2023-09-14)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:: Add OZI PKG-DATA payload preamble.
 
@@ -7114,7 +7779,9 @@ PEP-639 keys:
 * License-Expression
 * License-File ([`19d194c`](https://github.com/OZI-Project/OZI/commit/19d194c00d861adfc23f495a6ee05a809b5d4a8a))
 
+
 ### Other
+
 
 * :page_facing_up: Relicense codebase to LLVM-exception.
 
@@ -7137,13 +7804,15 @@ Software. ([`0ede284`](https://github.com/OZI-Project/OZI/commit/0ede284551bee0a
 
 ## 0.0.91 (2023-09-12)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix ``ozi-new`` source and test report_missing. ([`0ad2897`](https://github.com/OZI-Project/OZI/commit/0ad2897b65593c5442171c2ed793bd821925e00c))
 
 ## 0.0.90 (2023-09-12)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing::construction_worker:: Add OZI spec version to workflow templates for docs. ([`de50238`](https://github.com/OZI-Project/OZI/commit/de50238a74107c12043479bc4a702a96326185b0))
 
@@ -7151,7 +7820,8 @@ Software. ([`0ede284`](https://github.com/OZI-Project/OZI/commit/0ede284551bee0a
 
 Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/OZI-Project/OZI/commit/faf6ddb0c397a1b1105d2594fb93c5d64398b5bd))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::pencil2:: new_module.py.j2 added to install. ([`39ac634`](https://github.com/OZI-Project/OZI/commit/39ac6342a2f9b9141f3f21451a2179957bd125d7))
 
@@ -7161,31 +7831,36 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/OZI-Pr
 
 ## 0.0.89 (2023-09-11)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Add strict flag to ``ozi-new project`` and ``ozi-fix``. ([`3f8c4db`](https://github.com/OZI-Project/OZI/commit/3f8c4db094cad91c3dfdbcce7594720c63c6b0bd))
 
 ## 0.0.88 (2023-09-11)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix jinja2 include directive. ([`43101e3`](https://github.com/OZI-Project/OZI/commit/43101e3a07d5838b2fd27e5b195669ebf5498732))
 
 ## 0.0.87 (2023-09-11)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing: Add ``ozi.spec`` versioned header for meson templates. ([`fa27b03`](https://github.com/OZI-Project/OZI/commit/fa27b031f34b127e4a0bf3ff8e6b8bcb2bfff21a))
 
 ## 0.0.86 (2023-09-11)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix comment and loop whitespace trimming. ([`5c5040e`](https://github.com/OZI-Project/OZI/commit/5c5040eb1581a02e40620157b8263f871221eeaf))
 
 ## 0.0.85 (2023-09-11)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :lipstick::bug:: Fix meson file header whitespace. ([`d07be48`](https://github.com/OZI-Project/OZI/commit/d07be4845bc4f83519566878367f014cc0a10319))
 
@@ -7193,43 +7868,51 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/OZI-Pr
 
 ## 0.0.84 (2023-09-11)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Default topic should be a List[str]. ([`8ab11e6`](https://github.com/OZI-Project/OZI/commit/8ab11e65837720ea8c42e5cd900908887f556083))
 
 * :bug:: Fix PKG-INFO whitespace. ([`eabd4cc`](https://github.com/OZI-Project/OZI/commit/eabd4cccdc594df90e818b48fb9f2c03b50a8496))
 
+
 ### :lipstick:
+
 
 * :lipstick:: Fix jinja header comment rendering. ([`b5db826`](https://github.com/OZI-Project/OZI/commit/b5db826e3f56a9c17ecd906e8bc32fc2edfc500e))
 
 ## 0.0.83 (2023-09-11)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::pencil2:: Fix another unescaped false positive for Jinja2. ([`076cdbb`](https://github.com/OZI-Project/OZI/commit/076cdbb2ae6e43c92bfdb65f1c16e29c0555d5bb))
 
 ## 0.0.82 (2023-09-11)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::pencil2:: Fix template paths. ([`84363da`](https://github.com/OZI-Project/OZI/commit/84363da70e038896f02d416cd6434e5dd3f2e0b9))
 
 ## 0.0.81 (2023-09-11)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix unescaped jinja directive false positive. ([`2e074be`](https://github.com/OZI-Project/OZI/commit/2e074beba320179d14166e6bc9c92600b0772e62))
 
 ## 0.0.80 (2023-09-11)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix missing github templates. ([`78068f8`](https://github.com/OZI-Project/OZI/commit/78068f8ab5e44eeaa460d30825e5073576562061))
 
 ## 0.0.79 (2023-09-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix missing ci workflow and test builf files. ([`0ff5d3b`](https://github.com/OZI-Project/OZI/commit/0ff5d3b2fcb0331bed338aee65f7e1d0e8bc4fc0))
 
@@ -7237,117 +7920,137 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/OZI-Pr
 
 ## 0.0.78 (2023-09-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix comment newlines. ([`ae54609`](https://github.com/OZI-Project/OZI/commit/ae5460982405889eac5074c6b2148b6efa2b1176))
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:: Allow multiple topic classifiers. ([`4b8ef90`](https://github.com/OZI-Project/OZI/commit/4b8ef9014593c36f6aa44cf10093d59c58abfd1e))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: add ci_provider_templates and test_templates. ([`5518bb8`](https://github.com/OZI-Project/OZI/commit/5518bb8233781682114b662e43f2a8812a75e558))
 
 ## 0.0.77 (2023-09-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix template path for tests. Fix template line trimming. ([`04ea00b`](https://github.com/OZI-Project/OZI/commit/04ea00bba9525986a0ad81c5592d2eb0692a7ae3))
 
 ## 0.0.76 (2023-09-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix untrimmed whitespace in ``ozi-new project`` output. ([`60e0d10`](https://github.com/OZI-Project/OZI/commit/60e0d1074cbc970cecb15ace97d6c974a83d0de1))
 
 ## 0.0.75 (2023-09-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :hammer::bug:: Fix source subdirectory naming. ([`74f7b7e`](https://github.com/OZI-Project/OZI/commit/74f7b7e46d7fba18f5fb65f74cfe756f39c15bd8))
 
 ## 0.0.74 (2023-09-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix wrong subdir install location for OSI Approved licenses. ([`64d547b`](https://github.com/OZI-Project/OZI/commit/64d547bb3d4c18ec4a6b523bb16215e7a50f551a))
 
 ## 0.0.73 (2023-09-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::pencil2:: Fix trim filter should be map(&#39;trim&#39;) ([`a2a2099`](https://github.com/OZI-Project/OZI/commit/a2a2099a6c2a1ead538d905100e78001fef5a35d))
 
 ## 0.0.72 (2023-09-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix: trim whitespace from template includes. ([`09e54dd`](https://github.com/OZI-Project/OZI/commit/09e54dd41fda430ca7edf5d1b8093939d1a2e864))
 
 ## 0.0.71 (2023-09-10)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix include of project.PKG-INFO. ([`332d1c1`](https://github.com/OZI-Project/OZI/commit/332d1c1b3f7ee8f431bd059476bbb426d8489c7c))
 
 ## 0.0.70 (2023-09-10)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix unquoted template include path. ([`3fe0d91`](https://github.com/OZI-Project/OZI/commit/3fe0d91c0a0d748cc67d716d84eaf088b0f843ab))
 
 ## 0.0.69 (2023-09-10)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix missing resource pyright.pyproject.toml. ([`e9f2363`](https://github.com/OZI-Project/OZI/commit/e9f236386f2f431ea8906ad478d50e0a6d3199f1))
 
 ## 0.0.68 (2023-09-09)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: FIX: Add missing pyright pyproject.toml template. ([`dc1b22f`](https://github.com/OZI-Project/OZI/commit/dc1b22fcdd17a657eaa6e1ddc4e16c9c95fad648))
 
 ## 0.0.67 (2023-09-09)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix template typo. ([`291bdf8`](https://github.com/OZI-Project/OZI/commit/291bdf889b333af2a20b8ebe2a9c0acfc073b735))
 
 ## 0.0.66 (2023-09-09)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::hammer:: Fix incorrect use of split function. ([`b6362b4`](https://github.com/OZI-Project/OZI/commit/b6362b454858aeb04dc2930a5c06a42088c6bc3a))
 
 ## 0.0.65 (2023-09-09)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :hammer::bug:: Add split filter to template globals. ([`935c1a2`](https://github.com/OZI-Project/OZI/commit/935c1a25dad5e2502a5f25203f888e2431f82d14))
 
 ## 0.0.64 (2023-09-09)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug::hammer:: Unite default Jinja Namespace with ours. ([`7b0d394`](https://github.com/OZI-Project/OZI/commit/7b0d394161e1f6d2eaa3d7ce30689c03cc9e04ad))
 
 ## 0.0.63 (2023-09-09)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:: Fix for loop over numeric range in Jinja templates. ([`940efbb`](https://github.com/OZI-Project/OZI/commit/940efbbf0464bca6fd8c60e92304e3e39ea06c78))
 
 ## 0.0.62 (2023-09-09)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :hammer::bug:: Fix improper filter invocation in Jinja templates. ([`df1fe8d`](https://github.com/OZI-Project/OZI/commit/df1fe8d56f272599941de823272eeab725d9800f))
 
 ## 0.0.61 (2023-09-09)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: ``ozi-new`` exit(1) for non-empty directory. ([`091d88e`](https://github.com/OZI-Project/OZI/commit/091d88e88ce62a35b5597eee21cc6355010f7518))
 
@@ -7355,65 +8058,76 @@ Also fixes missing [tool.setuptools_scm]. ([`faf6ddb`](https://github.com/OZI-Pr
 
 ## 0.0.60 (2023-09-09)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: Fix Jinja includes to use a quoted string. ([`a675068`](https://github.com/OZI-Project/OZI/commit/a675068ae2dc1d985613fcfb87d2e2f7f999ba22))
 
 ## 0.0.59 (2023-09-09)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: FIX: Ensure that templates are loaded properly. ([`537e2c1`](https://github.com/OZI-Project/OZI/commit/537e2c1f0f3f67267fd0fd2de502c6fa476d05c7))
 
 ## 0.0.58 (2023-09-09)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::pencil2:: Fix uneeded call to geturl(). ([`a0d6f35`](https://github.com/OZI-Project/OZI/commit/a0d6f3597740ecac4d8fd48a87cee3c4097a6f3e))
 
 ## 0.0.57 (2023-09-09)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :pencil2::hammer:: Fix geturl() call. ([`b9a770a`](https://github.com/OZI-Project/OZI/commit/b9a770af4c2c4af2812699ca4ea293fccd649956))
 
 ## 0.0.56 (2023-09-09)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer::pencil2:: Fix minor typo and bump the PKG-INFO. ([`165730b`](https://github.com/OZI-Project/OZI/commit/165730b5aeb4ce27be834a1a7801c23ffc4e31ad))
 
 ## 0.0.55 (2023-09-09)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :hammer::ambulance:: Fix ``ozi-new`` bug that caused early exit. ([`f56f93b`](https://github.com/OZI-Project/OZI/commit/f56f93be9096e837fa2c3fdf9498f6bbb0f16f49))
 
 ## 0.0.54 (2023-09-08)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :hammer::children_crossing:: Update templates - add test and module templates. ([`3ab9892`](https://github.com/OZI-Project/OZI/commit/3ab9892b160a6f163bb9d5741b7cf7944f59e589))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Added LICENSE.txt template and license selection disambiguation. ([`f4e52d0`](https://github.com/OZI-Project/OZI/commit/f4e52d01a8164a5384f655529657eee69f4d461b))
 
 ## 0.0.53 (2023-09-06)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: Fix entrypoint version arg. ([`e098e8c`](https://github.com/OZI-Project/OZI/commit/e098e8c43e8fbf07d5e76b8ac851ac4175903c27))
 
 ## 0.0.52 (2023-09-06)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing::memo:: Update Topics and Clarify Python 3 Only. ([`cfbabcf`](https://github.com/OZI-Project/OZI/commit/cfbabcf008d7ec3d8e32b0e54c073d99c4147475))
 
 * :children_crossing:: Improve help string for main script. ([`716085b`](https://github.com/OZI-Project/OZI/commit/716085b6a7c6ae94f2b10926dbba95d0f38c4613))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Improve main entrypoint help.
 
@@ -7421,39 +8135,49 @@ Also made ``--version`` work. ([`d804b32`](https://github.com/OZI-Project/OZI/co
 
 ## 0.0.51 (2023-09-05)
 
+
 ### :bento:
+
 
 * :memo::bento:: Update readme for clarity. ([`172c1b5`](https://github.com/OZI-Project/OZI/commit/172c1b532613e41006a859a4b44e6aec90cc45c1))
 
+
 ### Other
+
 
 * :memo:: Resychronize README.rst. ([`8a57e39`](https://github.com/OZI-Project/OZI/commit/8a57e3906f5456e8180ff0c7a01eeb0ee5beacf3))
 
 ## 0.0.50 (2023-09-05)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :hammer::ambulance:: Fixed ``ozi/new.py`` PKG-INFO. |
 
 Also added environment, framework, language and typing to PKG-INFO. ([`5e53d4d`](https://github.com/OZI-Project/OZI/commit/5e53d4dfa77dec79185cf2439728fce378f6a421))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Add ``--audience`` to ``ozi/new.py``.
 
 Also fixed PKG-INFO template. ([`d9bf177`](https://github.com/OZI-Project/OZI/commit/d9bf177d22215b20356ba9ac7c7c34958cb3638a))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Remove ``__init__.pyi``from meson.build. ([`5e5e583`](https://github.com/OZI-Project/OZI/commit/5e5e583cdf323c6b1913e7d6a73311e928bcf9fb))
 
 ## 0.0.49 (2023-09-05)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Fix ``ozi-fix`` crash if PKG-INFO is missing. ([`79048c0`](https://github.com/OZI-Project/OZI/commit/79048c0da7af5eed72ceb595177b9078173af18d))
 
+
 ### Other
+
 
 * :art:: Blacken and isort ``ozi/new.py``. ([`e1fabc6`](https://github.com/OZI-Project/OZI/commit/e1fabc6a6658d3536185dbb71911c93d0b5dddd9))
 
@@ -7461,13 +8185,15 @@ Also fixed PKG-INFO template. ([`d9bf177`](https://github.com/OZI-Project/OZI/co
 
 ## 0.0.48 (2023-09-05)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance::construction_worker:: Fix wheel versions. Was building all on 3.11. ([`0ccfa1e`](https://github.com/OZI-Project/OZI/commit/0ccfa1e2f6c2aaa6198b5d0152031f1e61ccb4fd))
 
 ## 0.0.47 (2023-09-05)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: Fix release workflow. ([`476246b`](https://github.com/OZI-Project/OZI/commit/476246be55082d821669a00ffac2c9494ebf9313))
 
@@ -7483,13 +8209,15 @@ We now should only do a full release workflow if semantic-release triggers one. 
 
 ## 0.0.46 (2023-09-04)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2::construction_worker:: Update workflow name to OZI. ([`d59200f`](https://github.com/OZI-Project/OZI/commit/d59200f8cd64bb9727c7fe77fdd9ab7f69e81d3f))
 
 ## 0.0.45 (2023-09-04)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: Move dist-info before release. ([`ca4d90d`](https://github.com/OZI-Project/OZI/commit/ca4d90d1e88944b9b8886671c64379f13206dd4d))
 
@@ -7515,13 +8243,16 @@ We now should only do a full release workflow if semantic-release triggers one. 
 
 * :ambulance:: Attempt a more hermetic release with indv. versioned wheels we need. ([`7d2e4d9`](https://github.com/OZI-Project/OZI/commit/7d2e4d9d1b7af60a7cdda3b0e528b0909b89634d))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Fix version used for checkout and download. ([`2d5fdcd`](https://github.com/OZI-Project/OZI/commit/2d5fdcd9d07c0bfa6e2af4b68f499e6959b55159))
 
 * :pencil2:: Fix PKG-INFO version overreach. ([`3a97d37`](https://github.com/OZI-Project/OZI/commit/3a97d372d1b9653e5f63ee64c954ca95f67278e5))
 
+
 ### Other
+
 
 * :construction_worker:: Rename dist-info to match wheels. ([`81be710`](https://github.com/OZI-Project/OZI/commit/81be710209ed70c7caf0ae360374ba55a79a04a4))
 
@@ -7575,45 +8306,59 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 ## 0.0.44 (2023-09-03)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Update ``ozi-new`` and ``ozi-fix`` scripts. ([`2a2a131`](https://github.com/OZI-Project/OZI/commit/2a2a131b83c19d3e70a9b72147c506aaff6294cc))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`e8897da`](https://github.com/OZI-Project/OZI/commit/e8897da27fbb1e14a4d3e33611d026937232ebfd))
 
 ## 0.0.43 (2023-09-02)
 
+
 ### :bento:
+
 
 * :bento:: fix missing asset listing for ``structure.py``. ([`be3bc6f`](https://github.com/OZI-Project/OZI/commit/be3bc6fb2923e03ea7a06ddc4969552a86bc77c6))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Fix ``ozi`` entrypoint. ([`5628c02`](https://github.com/OZI-Project/OZI/commit/5628c02dc835d30b2ea66adb1cfd9c55396f38f9))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`5c10473`](https://github.com/OZI-Project/OZI/commit/5c1047327f7f673d1868bbf934e5d4f2ca2cf6c5))
 
 ## 0.0.42 (2023-09-02)
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer:: Fix relative import in ``ozi-fix``. ([`a23d78d`](https://github.com/OZI-Project/OZI/commit/a23d78decda22cc9b36c05905e0cbfde2d6f172d))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`baa497e`](https://github.com/OZI-Project/OZI/commit/baa497e47225b5d51596f0f6409283f849a43b16))
 
 ## 0.0.41 (2023-09-02)
 
+
 ### :bento:
+
 
 * :bento::memo:: Cleanup README and PKG-INFO. ([`20a2766`](https://github.com/OZI-Project/OZI/commit/20a2766b07c1d1121f3ae060e1f540292032e59e))
 
-### :hammer:
+
+### :hammer: Updated Scripts
 
 * :hammer: update github workflow templates. ([`e7babd1`](https://github.com/OZI-Project/OZI/commit/e7babd1b78a9501808e387e25707e165fcfc388b))
 
@@ -7623,31 +8368,39 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 * :hammer:: Add --no-verify-email to ``ozi-new`` script. ([`4d0030a`](https://github.com/OZI-Project/OZI/commit/4d0030a586756b71065445bf076a5ef9c31a6eff))
 
-### :pushpin:
+
+### :pushpin: Pinned Dependencies
 
 * :pushpin:: Pin action versions with hash. ([`3fdaa02`](https://github.com/OZI-Project/OZI/commit/3fdaa02d88a6be0dde46d9bb365a8f5233f01a61))
 
-### :wrench:
+
+### :hammer: Updated Configuration
 
 * :wrench:: Add pseudo-targets root_files and source_files. ([`e14ea88`](https://github.com/OZI-Project/OZI/commit/e14ea889aa8a1f16fb05bdb263756feb2a84b51a))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`470d40e`](https://github.com/OZI-Project/OZI/commit/470d40e0cfd6ae82afe1f7c537cf5011e710d775))
 
 ## 0.0.40 (2023-09-01)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2:: Add missed template from move. ([`a366872`](https://github.com/OZI-Project/OZI/commit/a366872e2120a79d19c89aa5047950b1046022de))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`3339932`](https://github.com/OZI-Project/OZI/commit/3339932f9b5753de03f39691d9685c0ce270c302))
 
 ## 0.0.39 (2023-09-01)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: Manually fix git permissions. ([`168338f`](https://github.com/OZI-Project/OZI/commit/168338f9077bc3b96456ebac771395daf2b1adf0))
 
@@ -7655,45 +8408,57 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 * :hammer::ambulance:: Fix relative module import. ([`d159122`](https://github.com/OZI-Project/OZI/commit/d15912294f6d52802e8fe49c0503666c040c33c6))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`4dad555`](https://github.com/OZI-Project/OZI/commit/4dad55587b5ce6ec26f6fed7d1b3f1948d2ce272))
 
 ## 0.0.38 (2023-09-01)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2::wrench:: Fix wheel build. ([`a335272`](https://github.com/OZI-Project/OZI/commit/a3352728a55f875f6cbd569b6340dac06dec8d5d))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`11818bb`](https://github.com/OZI-Project/OZI/commit/11818bbedad7f7e329d34b75debdf7cc5c2c09d7))
 
 ## 0.0.37 (2023-09-01)
 
-### :wrench:
+
+### :hammer: Updated Configuration
 
 * :wrench:: Add subdir to install_sources template. ([`105cd73`](https://github.com/OZI-Project/OZI/commit/105cd73b01eec634997b40106c8a4d9296b30776))
 
 * :wrench:: Fix meson build for mesonpep517 wheel. ([`f6daa66`](https://github.com/OZI-Project/OZI/commit/f6daa66e00b073ff132da25a1153868cf94405b6))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`46279ac`](https://github.com/OZI-Project/OZI/commit/46279acf8a5cc1025c85a0aca0eb1054206fce7b))
 
 ## 0.0.36 (2023-09-01)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance::hammer:: Fix meson entry point finding. ([`30c3eb0`](https://github.com/OZI-Project/OZI/commit/30c3eb09f59b80887f43cb2cede5cc66135a8d91))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`87e5573`](https://github.com/OZI-Project/OZI/commit/87e5573ff78dbdb01b64328715dc70774c40f7b6))
 
 ## 0.0.35 (2023-09-01)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: Fix python install sources for meson. ([`5c47a59`](https://github.com/OZI-Project/OZI/commit/5c47a59f1312eac75c53cb9693081920d77a95fc))
 
@@ -7701,37 +8466,47 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 * :ambulance:: Fix implementation of python.install_sources(). ([`d50200b`](https://github.com/OZI-Project/OZI/commit/d50200be2ace24e5162ed5c12ce930a87617b22d))
 
-### :fire:
+
+### :fire: Deleted Code or Files
 
 * :fire:: remove duplicate workflow scripts folder. ([`239ef1a`](https://github.com/OZI-Project/OZI/commit/239ef1a110fb2766cc5b0c8ec14c203ab5edacca))
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2::wrench:: Fix unquoted string in build. ([`5a9feb4`](https://github.com/OZI-Project/OZI/commit/5a9feb4842bba3b5b1efd653b833b3d9c5922ddf))
 
 * :pencil2::wrench:: Fix missing commas in build. ([`0a5febd`](https://github.com/OZI-Project/OZI/commit/0a5febdc030eb68e7b3fb5c49020f3746f150a7b))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`dc0e174`](https://github.com/OZI-Project/OZI/commit/dc0e174330a07b10028bba864cecf10350923509))
 
 ## 0.0.34 (2023-09-01)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance:: Fix script location. ([`5c82b2b`](https://github.com/OZI-Project/OZI/commit/5c82b2bfa4f6fe1a8d67453ca5a00771fdf4e017))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`f426f8b`](https://github.com/OZI-Project/OZI/commit/f426f8b778ff4234213abaddcd72a4881004f3b2))
 
 ## 0.0.33 (2023-09-01)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:: Add project script ``ozi-new``. ([`5a91afc`](https://github.com/OZI-Project/OZI/commit/5a91afc310ef26eb3401c3f39280f948dfcff77a))
 
+
 ### Other
+
 
 * 🚑️: Fix script entrypoint name. ([`7ab1b06`](https://github.com/OZI-Project/OZI/commit/7ab1b067feb58f8440955ecace0c87bd6bb87334))
 
@@ -7739,15 +8514,20 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 ## 0.0.32 (2023-08-31)
 
+
 ### :bento:
+
 
 * :fire::bento:: Delete ``assets/structure`` ([`c7da0ec`](https://github.com/OZI-Project/OZI/commit/c7da0ec0c710593aa4ab14fb2cdbd5b7070a54dd))
 
-### :wrench:
+
+### :hammer: Updated Configuration
 
 * :wrench::truck:(project): Move core templates and assets from OZI.docs. ([`959f38d`](https://github.com/OZI-Project/OZI/commit/959f38d46214c80671c0af2df252b7196b65e9cd))
 
+
 ### Other
+
 
 * :busts_in_silhouette:: Add CODE_OF_CONDUCT.md ([`1f944ff`](https://github.com/OZI-Project/OZI/commit/1f944ff53c3be973fa6e0fcca04d398607c846ce))
 
@@ -7755,23 +8535,28 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 ## 0.0.31 (2023-08-30)
 
-### :children_crossing:
+
+### :children_crossing: Improved Usability
 
 * :children_crossing:(semantic-release): Fix commit parsing. ([`e6d349d`](https://github.com/OZI-Project/OZI/commit/e6d349d58d8a6d8c36e3778217c8a5cf7c6f1c00))
 
+
 ### Other
+
 
 * :construction_worker:(PKG-INFO): Bump Version. ([`b16af53`](https://github.com/OZI-Project/OZI/commit/b16af531534be46e98bb5f04ddf4ec46f9501cbf))
 
 ## 0.0.30 (2023-08-30)
 
-### :ambulance:
+
+### :ambulance: Hotfixed Issues
 
 * :ambulance: Fix SCM tracked version. ([`9a5a7cb`](https://github.com/OZI-Project/OZI/commit/9a5a7cbbafc8ef561e1785442c66ec1bb7c3cddf))
 
 * :wrench::ambulance:(semantic-release): Fix args for major version bump 7 to 8. ([`501d387`](https://github.com/OZI-Project/OZI/commit/501d3873291958249ed6561688ec7ad34c55ec39))
 
-### :wrench:
+
+### :hammer: Updated Configuration
 
 * :wrench:(meson): drop rst-lint for now. ([`7b35036`](https://github.com/OZI-Project/OZI/commit/7b35036b6d27b613b40fe8ecd30f05c21ac4d59b))
 
@@ -7779,7 +8564,9 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 * :construction_worker::wrench:: Move test workflow into dist-workflow.yml ([`c2f16a1`](https://github.com/OZI-Project/OZI/commit/c2f16a14fb315e9d9225a76b93593a6863a72cbb))
 
+
 ### Other
+
 
 * :pencil: remove trailing newline PKG-INFO template. ([`0304af0`](https://github.com/OZI-Project/OZI/commit/0304af0be29deecc8b8c0d9fa6f4200b5a11e8bd))
 
@@ -7805,7 +8592,8 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 ## 0.0.29 (2023-08-29)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug: try remove .git/COMMIT_EDITMSG during build. ([`8ea37ef`](https://github.com/OZI-Project/OZI/commit/8ea37ef48cb525675c87152a5921ea00d235d88f))
 
@@ -7823,13 +8611,16 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 ## 0.0.28 (2023-08-29)
 
+
 ### Other
+
 
 * 🚑️(pyproject.toml:tool.semantic_release): No hardcoded version. ([`f2cad32`](https://github.com/OZI-Project/OZI/commit/f2cad323e928c8dbe12eb2f9d70dc136a11b340b))
 
 ## 0.0.27 (2023-08-29)
 
-### :bug:
+
+### :bug: Fixed Bugs
 
 * :bug:(CI): forcing a patch. ([`799789c`](https://github.com/OZI-Project/OZI/commit/799789c805d310b4273c9c807dfbedfe1c8f8963))
 
@@ -7837,7 +8628,9 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 * :bug:(project): Patch release trigger. ([`0c0796d`](https://github.com/OZI-Project/OZI/commit/0c0796d329403652a3e1250b5bc71818980800b4))
 
+
 ### Other
+
 
 * :construction_worker:(build): revert manual bump. ([`6f612c9`](https://github.com/OZI-Project/OZI/commit/6f612c9ec2f3f21db6f797fa7bd27ea34f1685d5))
 
@@ -7853,7 +8646,9 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 ## 0.0.26 (2023-08-29)
 
+
 ### Other
+
 
 * 👷: remove dist-info glob. ([`8d89d33`](https://github.com/OZI-Project/OZI/commit/8d89d332e06d9f298ecb49aa824da4551dddcb45))
 
@@ -7965,7 +8760,9 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 ## 0.0.25 (2023-08-05)
 
+
 ### Other
+
 
 * 🍱(ozi/assets): Restructured assets folder. ([`7a09768`](https://github.com/OZI-Project/OZI/commit/7a097680f940c4190b705c590ce08125f13a1c99))
 
@@ -7979,7 +8776,9 @@ this avoid commiting PKG-INFO too early. ([`14d6edc`](https://github.com/OZI-Pro
 
 ## 0.0.24 (2023-07-12)
 
+
 ### Other
+
 
 * 🙈: add blastpipe to gitignore ([`d0130ba`](https://github.com/OZI-Project/OZI/commit/d0130ba81d10161cb6f4e4749402b3281e0f43f5))
 
@@ -8009,13 +8808,16 @@ Added human-centered messaging. ([`8d7d0a6`](https://github.com/OZI-Project/OZI/
 
 ## 0.0.23 (2023-07-05)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: blastpipe provides blastpipe. ([`68f1897`](https://github.com/OZI-Project/OZI/commit/68f1897671398b9a52ca42f3df6a15192950eba1))
 
 ## 0.0.22 (2023-07-05)
 
+
 ### Other
+
 
 * 🔥 Remove wrap redirect. ([`e589cb6`](https://github.com/OZI-Project/OZI/commit/e589cb62d5f69e3abc71671ff349e0f5129e2cb4))
 
@@ -8051,7 +8853,9 @@ This allows support of hashed version pins. ([`baaf291`](https://github.com/OZI-
 
 ## 0.0.21 (2023-07-01)
 
+
 ### Other
+
 
 * 🔨(meson.options): Added python version options.
 Formerly these were hardcoded. ([`98dc031`](https://github.com/OZI-Project/OZI/commit/98dc03107c9ea202d92ba599a9516b58e5c76496))
@@ -8089,7 +8893,9 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 ## 0.0.20 (2023-06-24)
 
+
 ### Other
+
 
 * 🔨 drop PKG-INFO from pre_commit. ([`39a908d`](https://github.com/OZI-Project/OZI/commit/39a908d39cc747a5c33082bddf833e9fe2b9075b))
 
@@ -8099,25 +8905,33 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 ## 0.0.19 (2023-06-24)
 
+
 ### Other
+
 
 * 🔨 stash after push release. ([`4169813`](https://github.com/OZI-Project/OZI/commit/4169813270f1e6783da08a914904b53776b3b49c))
 
 ## 0.0.18 (2023-06-24)
 
+
 ### Other
+
 
 * 🔨 turn back on repo build. ([`4137e1e`](https://github.com/OZI-Project/OZI/commit/4137e1e2822dfce5eb0d47ac23519515422181db))
 
 ## 0.0.17 (2023-06-24)
 
+
 ### Other
+
 
 * 🔊 Add changes for 0.0.16. ([`62e9641`](https://github.com/OZI-Project/OZI/commit/62e9641e4e0505e664449110d0a46b5e3a1f794f))
 
 ## 0.0.16 (2023-06-24)
 
+
 ### Other
+
 
 * 🔊 add 0.0.16 changes. ([`c765e65`](https://github.com/OZI-Project/OZI/commit/c765e6545bbdacde2a76021e9311f3cf334e7065))
 
@@ -8131,7 +8945,9 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 ## 0.0.15 (2023-06-24)
 
+
 ### Other
+
 
 * 🔨 just use pypi repo namespace. ([`926bce6`](https://github.com/OZI-Project/OZI/commit/926bce6f8a1ab70cb5ccb6041fbc3452dba10c17))
 
@@ -8139,13 +8955,17 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 ## 0.0.14 (2023-06-24)
 
+
 ### Other
+
 
 * PKG-INFO Updated ([`8001504`](https://github.com/OZI-Project/OZI/commit/8001504dfe277eff8b16ea07fe5987feb0754968))
 
 ## 0.0.13 (2023-06-24)
 
+
 ### Other
+
 
 * 🔨 fix must be a file: build/meson-dist/*.tar.gz foreals. ([`ce2e8f0`](https://github.com/OZI-Project/OZI/commit/ce2e8f0e6ccb4160e128de2759c921839ca413db))
 
@@ -8153,7 +8973,9 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 ## 0.0.12 (2023-06-24)
 
+
 ### Other
+
 
 * 🔨 fix must be a file: build/meson-dist/*.tar.gz. ([`03de6fc`](https://github.com/OZI-Project/OZI/commit/03de6fcca53c6f0edcce3e6d3a0f44c62ab60c87))
 
@@ -8161,13 +8983,17 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 ## 0.0.11 (2023-06-24)
 
+
 ### Other
+
 
 * PKG-INFO Updated ([`55f6ccb`](https://github.com/OZI-Project/OZI/commit/55f6ccb170a0c652a344a944b119ca06088bd477))
 
 ## 0.0.10 (2023-06-24)
 
+
 ### Other
+
 
 * 🔨no initial stash clear. ([`5c9e106`](https://github.com/OZI-Project/OZI/commit/5c9e106c178d8a8fcc4555a339827fe30862fa3e))
 
@@ -8175,13 +9001,16 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 ## 0.0.9 (2023-06-24)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: git add CHANGELOG.md. ([`6575895`](https://github.com/OZI-Project/OZI/commit/65758958a899629f680b37b930ac34377dfd0b59))
 
 ## 0.0.8 (2023-06-24)
 
+
 ### Other
+
 
 * 👷 add summary to metadata. ([`a97a05b`](https://github.com/OZI-Project/OZI/commit/a97a05b1de54c140bde7ded8029c2a9ffa1be79c))
 
@@ -8193,7 +9022,9 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 ## 0.0.7 (2023-06-23)
 
+
 ### Other
+
 
 * 🍱 fix readme rendering. ([`d27ffc9`](https://github.com/OZI-Project/OZI/commit/d27ffc925a80e910b6cf6d2aa3f18e51d3cdad24))
 
@@ -8201,7 +9032,8 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 ## 0.0.6 (2023-06-23)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: to_lower ([`5c48087`](https://github.com/OZI-Project/OZI/commit/5c48087f08373aeeabd18b1e2899280a242f0a51))
 
@@ -8211,7 +9043,9 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 * :pencil2: fix typo in build script. ([`c0fa9c8`](https://github.com/OZI-Project/OZI/commit/c0fa9c86a37626dcb41eb2c8300339c5d82a773e))
 
+
 ### Other
+
 
 * 📌 Add requirements to build. ([`fd83e88`](https://github.com/OZI-Project/OZI/commit/fd83e88c51a0396b91e776b64f11692ed83d96d5))
 
@@ -8229,17 +9063,22 @@ Now using ozi-bootstrap=enabled. ([`30712f5`](https://github.com/OZI-Project/OZI
 
 ## 0.0.5 (2023-06-23)
 
-### :pencil2:
+
+### :pencil2: Corrected Typos
 
 * :pencil2: fix typo is_enabled. ([`a966905`](https://github.com/OZI-Project/OZI/commit/a966905031826b9cfa78edcb8713831431a9676b))
 
+
 ### Other
+
 
 * 🙈 add .gitignore!!! ([`04e2eb4`](https://github.com/OZI-Project/OZI/commit/04e2eb40a954935a251f8c65574187c013448a74))
 
 ## 0.0.4 (2023-06-23)
 
+
 ### Other
+
 
 * 👷 PKG-INFO updated with version! ([`3a04107`](https://github.com/OZI-Project/OZI/commit/3a04107ce11622e6ba788915c5d57ad958e93c60))
 
