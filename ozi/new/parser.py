@@ -53,7 +53,7 @@ required.add_argument(
     '--name',
     type=str,
     help='Name (Single Use)',
-    )
+)
 required.add_argument(
     '-a',
     '--author',
