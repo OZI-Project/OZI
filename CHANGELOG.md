@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.12.4 (2024-06-18)
+
+### :bug:
+
+* :bug: fix argv missing in ``ozi-new`` output
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`92899a7`](https://github.com/OZI-Project/OZI/commit/92899a7c588d5984393fa6964529bde80be99b29))
+
 ## 1.12.3 (2024-06-17)
 
 ### :pushpin:
