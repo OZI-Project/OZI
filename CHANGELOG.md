@@ -1,4 +1,21 @@
 # CHANGELOG
+## 1.12.7 (2024-06-19)
+
+
+### :children_crossing: Improved Usability
+
+* ``ozi-new`` now accepts stdin
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`05da91e`](https://github.com/OZI-Project/OZI/commit/05da91e7fe932ff292f2562632016dec24f2f821))
+
+
+### Other
+
+
+* :memo:: remove horizontal dividers from CHANGELOG template
+
+Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`ee50072`](https://github.com/OZI-Project/OZI/commit/ee5007224f8778f802de2a324f4b756ab7850357))
+
 ## 1.12.6 (2024-06-19)
 
 
@@ -60,7 +77,7 @@ Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.6.4 t
 - [Release notes](https://github.com/ozi-project/release/releases)
 - [Commits](https://github.com/ozi-project/release/compare/cfe06ef22488ee71ba4f2807b16bbdba1a6fb26f...f99b4e470f3dc50884d227dff38c18c3f0f3f927)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/release
   dependency-type: direct:production
@@ -172,7 +189,7 @@ Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.3.1 to 0.
 - [Release notes](https://github.com/ozi-project/draft/releases)
 - [Commits](https://github.com/ozi-project/draft/compare/f136e6eb55507553aee04e92455cc2dc279583fc...4cb9feb842df0dcd1e48c0f64f3b61e0ac64f05d)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/draft
   dependency-type: direct:production
@@ -188,7 +205,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/530d4feaa9c62aaab2d250371e2061eb7a172363...23acc5c183826b7a8a97bce3cecc52db901f8251)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -203,7 +220,7 @@ Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0
 - [Release notes](https://github.com/ozi-project/checkpoint/releases)
 - [Commits](https://github.com/ozi-project/checkpoint/compare/6cc6de3235d61a5bae47fa03e773a2af9a985016...f8acf37d2479db59d191e5f6324758e224149bd0)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/checkpoint
   dependency-type: direct:production
@@ -223,7 +240,7 @@ Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0
 - [Release notes](https://github.com/ozi-project/checkpoint/releases)
 - [Commits](https://github.com/ozi-project/checkpoint/compare/0.4.0...6cc6de3235d61a5bae47fa03e773a2af9a985016)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/checkpoint
   dependency-type: direct:production
@@ -239,7 +256,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/2e230e8fe0ad3a14a340ad0815ddb96d599d2aff...530d4feaa9c62aaab2d250371e2061eb7a172363)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -255,7 +272,7 @@ Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.6 to 4.1.
 - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/actions/checkout/compare/a5ac7e51b41094c92402da3b24376905380afc29...692973e3d937129bcbf40652eb9f2f61becf3332)
 
----
+
 updated-dependencies:
 - dependency-name: actions/checkout
   dependency-type: direct:production
@@ -390,7 +407,7 @@ Bumps [step-security/harden-runner](https://github.com/step-security/harden-runn
 - [Release notes](https://github.com/step-security/harden-runner/releases)
 - [Commits](https://github.com/step-security/harden-runner/compare/f086349bfa2bd1361f7909c78558e816508cdc10...17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6)
 
----
+
 updated-dependencies:
 - dependency-name: step-security/harden-runner
   dependency-type: direct:production
@@ -581,7 +598,7 @@ Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.3.0 to 0.
 - [Release notes](https://github.com/ozi-project/draft/releases)
 - [Commits](https://github.com/ozi-project/draft/compare/b1b9f3b412ed16a45dfe7c6f60ea8d6fbae97630...f136e6eb55507553aee04e92455cc2dc279583fc)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/draft
   dependency-type: direct:production
@@ -596,7 +613,7 @@ Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.4 t
 - [Release notes](https://github.com/ozi-project/publish/releases)
 - [Commits](https://github.com/ozi-project/publish/compare/132db35a4d8eaec96886eecc50034f3c3db8bc45...edb7e48d4196153b8dabddb970405495e1ff2092)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/publish
   dependency-type: direct:production
@@ -611,7 +628,7 @@ Bumps [actions/dependency-review-action](https://github.com/actions/dependency-r
 - [Release notes](https://github.com/actions/dependency-review-action/releases)
 - [Commits](https://github.com/actions/dependency-review-action/compare/0c155c5e8556a497adf53f2c18edabf945ed8e70...72eb03d02c7872a771aacd928f3123ac62ad6d3a)
 
----
+
 updated-dependencies:
 - dependency-name: actions/dependency-review-action
   dependency-type: direct:production
@@ -627,7 +644,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/f079b8493333aace61c81488f8bd40919487bd9f...2e230e8fe0ad3a14a340ad0815ddb96d599d2aff)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -643,7 +660,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/9fdb3e49720b44c48891d036bb502feb25684276...f079b8493333aace61c81488f8bd40919487bd9f)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -704,7 +721,7 @@ Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.2.0 to 0.
 - [Release notes](https://github.com/ozi-project/draft/releases)
 - [Commits](https://github.com/ozi-project/draft/compare/52700faa171c8b44e53834c4878e6cbca430b1d9...914c0f88bb59d105ed0fc061278442565bb6860c)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/draft
   dependency-type: direct:production
@@ -719,7 +736,7 @@ Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.3 t
 - [Release notes](https://github.com/ozi-project/publish/releases)
 - [Commits](https://github.com/ozi-project/publish/compare/f5d14bfb29fd5daa0fd3002a9c57f863e86ddf93...132db35a4d8eaec96886eecc50034f3c3db8bc45)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/publish
   dependency-type: direct:production
@@ -748,7 +765,7 @@ Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.2 t
 - [Release notes](https://github.com/ozi-project/publish/releases)
 - [Commits](https://github.com/ozi-project/publish/compare/e0a606616e2ff69a1b564f151f1061601683668f...f5d14bfb29fd5daa0fd3002a9c57f863e86ddf93)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/publish
   dependency-type: direct:production
@@ -914,7 +931,7 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`327ca80`](
 
 * 
 
----
+
 updated-dependencies:
 - dependency-name: step-security/harden-runner
   dependency-type: direct:production
@@ -978,7 +995,7 @@ Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`a488a66`](
 
 Signed-off-by: Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`8649788`](https://github.com/OZI-Project/OZI/commit/8649788d9fc20ba203da61fea22ad87a7ec94f50))
 
-* ---
+* 
 updated-dependencies:
 - dependency-name: OZI-Project/draft
   dependency-type: direct:production
@@ -987,7 +1004,7 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`0a8d598`](https://github.com/OZI-Project/OZI/commit/0a8d59830717469c99e479a350aecbe3304cafa5))
 
-* ---
+* 
 updated-dependencies:
 - dependency-name: OZI-Project/release
   dependency-type: direct:production
@@ -1007,7 +1024,7 @@ Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.1 t
 - [Release notes](https://github.com/ozi-project/publish/releases)
 - [Commits](https://github.com/ozi-project/publish/compare/87aae4bed7ea3ab8b864689945200ecd71ecc29f...e0a606616e2ff69a1b564f151f1061601683668f)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/publish
   dependency-type: direct:production
@@ -1022,7 +1039,7 @@ Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.4.0 t
 - [Release notes](https://github.com/ozi-project/release/releases)
 - [Commits](https://github.com/ozi-project/release/compare/8b5e46e9d8899289f676ca2b432a63fe2faa93f9...033e98adfa7086d1b1273bcc80b0576297e733bd)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/release
   dependency-type: direct:production
@@ -1037,7 +1054,7 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`04a849d`](https://g
 
 * 
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/checkpoint
   dependency-type: direct:production
@@ -1048,7 +1065,7 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`b5f2ce9`](https://g
 
 * 
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -1144,7 +1161,7 @@ The following are no longer in ``meson.options:module-only``:
 * pyright
 * mypy
 
----------
+
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt; ([`50d4509`](https://github.com/OZI-Project/OZI/commit/50d450935d3333a58c98c8dbf19d594620adce36))
 
@@ -1163,7 +1180,7 @@ Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.1.1 to 0.
 - [Release notes](https://github.com/ozi-project/draft/releases)
 - [Commits](https://github.com/ozi-project/draft/compare/7fb25933b941dc9531abb0809d0be0c79404b351...574ec018b98bb323c079a826b54247c78cc4abac)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/draft
   dependency-type: direct:production
@@ -1179,7 +1196,7 @@ Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.5 to 4.1.
 - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/actions/checkout/compare/44c2b7a8a4ea60a981eaca3cf939b5f4305c123b...a5ac7e51b41094c92402da3b24376905380afc29)
 
----
+
 updated-dependencies:
 - dependency-name: actions/checkout
   dependency-type: direct:production
@@ -1209,7 +1226,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/ccf74c947955fd1cf117aef6a0e4e66191ef6f61...b7cec7526559c32f1616476ff32d17ba4c59b2d6)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -1294,7 +1311,7 @@ Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.1.0 to 0.
 - [Release notes](https://github.com/ozi-project/draft/releases)
 - [Commits](https://github.com/ozi-project/draft/compare/12b9a4f0d4e25ff5466bf2b0486d11aa4f3bf30d...7fb25933b941dc9531abb0809d0be0c79404b351)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/draft
   dependency-type: direct:production
@@ -1356,7 +1373,7 @@ Bumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.3
 - [Changelog](https://github.com/ossf/scorecard-action/blob/main/RELEASE.md)
 - [Commits](https://github.com/ossf/scorecard-action/compare/0864cf19026789058feabb7e87baa5f140aac736...dc50aa9510b46c811795eb24b2f1ba02a914e534)
 
----
+
 updated-dependencies:
 - dependency-name: ossf/scorecard-action
   dependency-type: direct:production
@@ -1408,7 +1425,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/d39d31e687223d841ef683f52467bd88e9b21c14...ccf74c947955fd1cf117aef6a0e4e66191ef6f61)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -1454,7 +1471,7 @@ Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.4 to 4.1.
 - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/actions/checkout/compare/0ad4b8fadaa221de15dcec353f45205ec38ea70b...44c2b7a8a4ea60a981eaca3cf939b5f4305c123b)
 
----
+
 updated-dependencies:
 - dependency-name: actions/checkout
   dependency-type: direct:production
@@ -1540,7 +1557,7 @@ Bump to 0.3.0 sha256:3067778a8ac4622c1075321b46b7a7333bea64a0
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
 
----------
+
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`83b8027`](https://github.com/OZI-Project/OZI/commit/83b80271f90a51b4b97914c4eb48bbde9b7f87c7))
 
@@ -1655,7 +1672,7 @@ Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
 
----------
+
 
 Signed-off-by: rjdbcm &lt;ozi.project@outlook.com&gt;
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`f800863`](https://github.com/OZI-Project/OZI/commit/f80086322ef1adee703fe006c313bec5690910c2))
@@ -1675,7 +1692,7 @@ Bumps [actions/dependency-review-action](https://github.com/actions/dependency-r
 - [Release notes](https://github.com/actions/dependency-review-action/releases)
 - [Commits](https://github.com/actions/dependency-review-action/compare/e58c696e52cac8e62d61cc21fda89565d71505d7...0c155c5e8556a497adf53f2c18edabf945ed8e70)
 
----
+
 updated-dependencies:
 - dependency-name: actions/dependency-review-action
   dependency-type: direct:production
@@ -1698,7 +1715,7 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
 
----------
+
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`28a1e70`](https://github.com/OZI-Project/OZI/commit/28a1e70a41dfe62a94e124790ec34ba592c9d773))
 
@@ -1712,7 +1729,7 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
 
----------
+
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`eb56e91`](https://github.com/OZI-Project/OZI/commit/eb56e91c27c40b359674b29d744124c25eacf322))
 
@@ -1799,7 +1816,7 @@ Bumps [step-security/harden-runner](https://github.com/step-security/harden-runn
 - [Release notes](https://github.com/step-security/harden-runner/releases)
 - [Commits](https://github.com/step-security/harden-runner/compare/63c24ba6bd7ba022e95695ff85de572c04a18142...a4aa98b93cab29d9b1101a6143fb8bce00e2eac4)
 
----
+
 updated-dependencies:
 - dependency-name: step-security/harden-runner
   dependency-type: direct:production
@@ -1814,7 +1831,7 @@ Bumps [actions/dependency-review-action](https://github.com/actions/dependency-r
 - [Release notes](https://github.com/actions/dependency-review-action/releases)
 - [Commits](https://github.com/actions/dependency-review-action/compare/5bbc3ba658137598168acb2ab73b21c432dd411b...e58c696e52cac8e62d61cc21fda89565d71505d7)
 
----
+
 updated-dependencies:
 - dependency-name: actions/dependency-review-action
   dependency-type: direct:production
@@ -1846,7 +1863,7 @@ Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt;
 
----------
+
 
 Signed-off-by: Eden Rose, MSc &lt;ozi.project@outlook.com&gt; ([`656c609`](https://github.com/OZI-Project/OZI/commit/656c609ec37886c31679b7be6de2a08d9a950c0b))
 
@@ -1901,7 +1918,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/8f596b4ae3cb3c588a5c46780b86dd53fef16c52...d39d31e687223d841ef683f52467bd88e9b21c14)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -1917,7 +1934,7 @@ Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.3 to 4.1.
 - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/actions/checkout/compare/1d96c772d19495a3b5c517cd2bc0cb401ea0529f...0ad4b8fadaa221de15dcec353f45205ec38ea70b)
 
----
+
 updated-dependencies:
 - dependency-name: actions/checkout
   dependency-type: direct:production
@@ -1956,7 +1973,7 @@ Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.1.16 
 - [Release notes](https://github.com/ozi-project/release/releases)
 - [Commits](https://github.com/ozi-project/release/compare/cde80205350cc9bd7c00c042b788136b36bd1828...ceffb3c8beef212a5abaffeac486d67fb247381b)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/release
   dependency-type: direct:production
@@ -2042,7 +2059,7 @@ Bumps [slsa-framework/slsa-github-generator](https://github.com/slsa-framework/s
 - [Changelog](https://github.com/slsa-framework/slsa-github-generator/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/slsa-framework/slsa-github-generator/compare/v1.10.0...v2.0.0)
 
----
+
 updated-dependencies:
 - dependency-name: slsa-framework/slsa-github-generator
   dependency-type: direct:production
@@ -2057,7 +2074,7 @@ Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0
 - [Release notes](https://github.com/ozi-project/checkpoint/releases)
 - [Commits](https://github.com/ozi-project/checkpoint/compare/8b7d897024b918d4bb4d44bbaec23a22f357182e...a6290f1edcd89a03dca8d123327e25f0c3bfc91c)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/checkpoint
   dependency-type: direct:production
@@ -2073,7 +2090,7 @@ Bumps [slsa-framework/slsa-github-generator](https://github.com/slsa-framework/s
 - [Changelog](https://github.com/slsa-framework/slsa-github-generator/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/slsa-framework/slsa-github-generator/compare/v1.10.0...v2.0.0)
 
----
+
 updated-dependencies:
 - dependency-name: slsa-framework/slsa-github-generator
   dependency-type: direct:production
@@ -2089,7 +2106,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/c7f9125735019aa87cfc361530512d50ea439c71...8f596b4ae3cb3c588a5c46780b86dd53fef16c52)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -2104,7 +2121,7 @@ Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from
 - [Release notes](https://github.com/actions/upload-artifact/releases)
 - [Commits](https://github.com/actions/upload-artifact/compare/1746f4ab65b179e0ea60a494b83293b640dd5bba...65462800fd760344b1a7b4382951275a0abb4808)
 
----
+
 updated-dependencies:
 - dependency-name: actions/upload-artifact
   dependency-type: direct:production
@@ -2145,7 +2162,7 @@ Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.1.15 
 - [Release notes](https://github.com/ozi-project/release/releases)
 - [Commits](https://github.com/ozi-project/release/compare/f0e0a8b837c2d247b920fbc1997a8d3247b14455...cde80205350cc9bd7c00c042b788136b36bd1828)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/release
   dependency-type: direct:production
@@ -2161,7 +2178,7 @@ Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.2 to 4.1.
 - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/actions/checkout/compare/9bb56186c3b09b4f86b1c65136769dd318469633...1d96c772d19495a3b5c517cd2bc0cb401ea0529f)
 
----
+
 updated-dependencies:
 - dependency-name: actions/checkout
   dependency-type: direct:production
@@ -2176,7 +2193,7 @@ Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from
 - [Release notes](https://github.com/actions/upload-artifact/releases)
 - [Commits](https://github.com/actions/upload-artifact/compare/5d5d22a31266ced268874388b861e4b58bb5c2f3...1746f4ab65b179e0ea60a494b83293b640dd5bba)
 
----
+
 updated-dependencies:
 - dependency-name: actions/upload-artifact
   dependency-type: direct:production
@@ -2192,7 +2209,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/df5a14dc28094dc936e103b37d749c6628682b60...c7f9125735019aa87cfc361530512d50ea439c71)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -2248,7 +2265,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/4355270be187e1b672a7a1c7c7bae5afdc1ab94a...df5a14dc28094dc936e103b37d749c6628682b60)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -2263,7 +2280,7 @@ Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.1.14 
 - [Release notes](https://github.com/ozi-project/release/releases)
 - [Commits](https://github.com/ozi-project/release/compare/945b312031019d0d85c5674721327f894131d898...f0e0a8b837c2d247b920fbc1997a8d3247b14455)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/release
   dependency-type: direct:production
@@ -2458,7 +2475,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/1b1aada464948af03b950897e5eb522f92603cc2...4355270be187e1b672a7a1c7c7bae5afdc1ab94a)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -2759,7 +2776,7 @@ Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.1.5 t
 - [Release notes](https://github.com/ozi-project/release/releases)
 - [Commits](https://github.com/ozi-project/release/compare/a443e522f64ad355f93ef88ee5e03e819a4dd451...12ac0a7c0e46ad84222a238e40e5a8fb87df3b56)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/release
   dependency-type: direct:production
@@ -2774,7 +2791,7 @@ Bumps [actions/dependency-review-action](https://github.com/actions/dependency-r
 - [Release notes](https://github.com/actions/dependency-review-action/releases)
 - [Commits](https://github.com/actions/dependency-review-action/compare/733dd5d4a5203f238c33806593ec0f5fc5343d8c...5bbc3ba658137598168acb2ab73b21c432dd411b)
 
----
+
 updated-dependencies:
 - dependency-name: actions/dependency-review-action
   dependency-type: direct:production
@@ -2789,7 +2806,7 @@ Bumps [actions/dependency-review-action](https://github.com/actions/dependency-r
 - [Release notes](https://github.com/actions/dependency-review-action/releases)
 - [Commits](https://github.com/actions/dependency-review-action/compare/0fa40c3c10055986a88de3baa0d6ec17c5a894b3...733dd5d4a5203f238c33806593ec0f5fc5343d8c)
 
----
+
 updated-dependencies:
 - dependency-name: actions/dependency-review-action
   dependency-type: direct:production
@@ -2863,7 +2880,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/05963f47d870e2cb19a537396c1f668a348c7d8f...1b1aada464948af03b950897e5eb522f92603cc2)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -2970,7 +2987,7 @@ Bumps [actions/dependency-review-action](https://github.com/actions/dependency-r
 - [Release notes](https://github.com/actions/dependency-review-action/releases)
 - [Commits](https://github.com/actions/dependency-review-action/compare/9129d7d40b8c12c1ed0f60400d00c92d437adcce...0fa40c3c10055986a88de3baa0d6ec17c5a894b3)
 
----
+
 updated-dependencies:
 - dependency-name: actions/dependency-review-action
   dependency-type: direct:production
@@ -2998,7 +3015,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/3ab4101902695724f9365a384f86c1074d94e18c...05963f47d870e2cb19a537396c1f668a348c7d8f)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -3068,7 +3085,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/8a470fddafa5cbb6266ee11b37ef4d8aae19c571...3ab4101902695724f9365a384f86c1074d94e18c)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -3102,7 +3119,7 @@ Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.1 to 4.1.
 - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/actions/checkout/compare/b4ffde65f46336ab88eb53be808477a3936bae11...9bb56186c3b09b4f86b1c65136769dd318469633)
 
----
+
 updated-dependencies:
 - dependency-name: actions/checkout
   dependency-type: direct:production
@@ -3139,7 +3156,7 @@ Signed-off-by: Eden Rose, MSc &lt;rjdbcm@outlook.com&gt; ([`4753bba`](https://gi
 
 * :rotating_light: Render filters assigned by matching type. This makes pyright and mypy happy.
 
----------
+
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`0e27ae5`](https://github.com/OZI-Project/OZI/commit/0e27ae507560e8031d37ea5548003615559d9988))
 
@@ -3281,7 +3298,7 @@ This module handles linter comment diagnostics.
 
 
 
----------
+
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`87a2360`](https://github.com/OZI-Project/OZI/commit/87a23607a6514c83459dfb5c4fd68e20cad520dd))
 
@@ -3303,7 +3320,7 @@ This module handles linter comment diagnostics.
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt;
 
----------
+
 
 Signed-off-by: rjdbcm &lt;rjdbcm@mail.umkc.edu&gt; ([`5235c33`](https://github.com/OZI-Project/OZI/commit/5235c33496380fbc1c70fd681fb1f57c9742e9b8))
 
@@ -3407,7 +3424,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/47b3d888fe66b639e431abf22ebca059152f1eea...8a470fddafa5cbb6266ee11b37ef4d8aae19c571)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -3580,7 +3597,7 @@ Bumps [actions/dependency-review-action](https://github.com/actions/dependency-r
 - [Release notes](https://github.com/actions/dependency-review-action/releases)
 - [Commits](https://github.com/actions/dependency-review-action/compare/fd07d42ce87ab09f10c61a2d1a5e59e6c655620a...9129d7d40b8c12c1ed0f60400d00c92d437adcce)
 
----
+
 updated-dependencies:
 - dependency-name: actions/dependency-review-action
   dependency-type: direct:production
@@ -3596,7 +3613,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/e2e140ad1441662206e8f97754b166877dfa1c73...47b3d888fe66b639e431abf22ebca059152f1eea)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -3612,7 +3629,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/379614612a29c9e28f31f39a59013eb8012a51f0...e2e140ad1441662206e8f97754b166877dfa1c73)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -3627,7 +3644,7 @@ Bumps [actions/dependency-review-action](https://github.com/actions/dependency-r
 - [Release notes](https://github.com/actions/dependency-review-action/releases)
 - [Commits](https://github.com/actions/dependency-review-action/compare/4901385134134e04cec5fbe5ddfe3b2c5bd5d976...fd07d42ce87ab09f10c61a2d1a5e59e6c655620a)
 
----
+
 updated-dependencies:
 - dependency-name: actions/dependency-review-action
   dependency-type: direct:production
@@ -3643,7 +3660,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/e8893c57a1f3a2b659b6b55564fdfdbbd2982911...379614612a29c9e28f31f39a59013eb8012a51f0)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -3658,7 +3675,7 @@ Bumps [actions/dependency-review-action](https://github.com/actions/dependency-r
 - [Release notes](https://github.com/actions/dependency-review-action/releases)
 - [Commits](https://github.com/actions/dependency-review-action/compare/fd07d42ce87ab09f10c61a2d1a5e59e6c655620a...9129d7d40b8c12c1ed0f60400d00c92d437adcce)
 
----
+
 updated-dependencies:
 - dependency-name: actions/dependency-review-action
   dependency-type: direct:production
@@ -3674,7 +3691,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/e2e140ad1441662206e8f97754b166877dfa1c73...47b3d888fe66b639e431abf22ebca059152f1eea)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -3690,7 +3707,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/379614612a29c9e28f31f39a59013eb8012a51f0...e2e140ad1441662206e8f97754b166877dfa1c73)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -3705,7 +3722,7 @@ Bumps [actions/dependency-review-action](https://github.com/actions/dependency-r
 - [Release notes](https://github.com/actions/dependency-review-action/releases)
 - [Commits](https://github.com/actions/dependency-review-action/compare/4901385134134e04cec5fbe5ddfe3b2c5bd5d976...fd07d42ce87ab09f10c61a2d1a5e59e6c655620a)
 
----
+
 updated-dependencies:
 - dependency-name: actions/dependency-review-action
   dependency-type: direct:production
@@ -3721,7 +3738,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/e8893c57a1f3a2b659b6b55564fdfdbbd2982911...379614612a29c9e28f31f39a59013eb8012a51f0)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -3868,7 +3885,7 @@ alter it yourself. You can also trigger a rebase manually by commenting
 [//]: # (dependabot-automerge-start)
 [//]: # (dependabot-automerge-end)
 
----
+
 
 &lt;details&gt;
 &lt;summary&gt;Dependabot commands and options&lt;/summary&gt;
@@ -3907,7 +3924,7 @@ Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from
 - [Release notes](https://github.com/actions/upload-artifact/releases)
 - [Commits](https://github.com/actions/upload-artifact/compare/26f96dfa697d77e81fd5907df203aa23a56210a8...5d5d22a31266ced268874388b861e4b58bb5c2f3)
 
----
+
 updated-dependencies:
 - dependency-name: actions/upload-artifact
   dependency-type: direct:production
@@ -3923,7 +3940,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.23.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/b7bf0a3ed3ecfa44160715d7c442788f65f0f923...e8893c57a1f3a2b659b6b55564fdfdbbd2982911)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -3979,7 +3996,7 @@ versions, indicated by the minor and patch version numbers.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CodeQL Python analysis will no longer install dependencies on GitHub
 Enterprise Server, as is already the case for GitHub.com. See &lt;a
-href=&#34;https://github.com/github/codeql-action/blob/main/#3230---08-jan-2024&#34;&gt;release
+href=&#34;https://github.com/github/codeql-action/blob/main/#323008-jan-2024&#34;&gt;release
 notes for 3.23.0&lt;/a&gt; for more details. &lt;a
 href=&#34;https://redirect.github.com/github/codeql-action/pull/2106&#34;&gt;#2106&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -4013,7 +4030,7 @@ versions of the CodeQL Action. &lt;a
 href=&#34;https://redirect.github.com/github/codeql-action/pull/2031&#34;&gt;#2031&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;The CodeQL Action now requires CodeQL version 2.11.6 or later. For
 more information, see &lt;a
-href=&#34;https://github.com/github/codeql-action/blob/main/#2227---16-nov-2023&#34;&gt;the
+href=&#34;https://github.com/github/codeql-action/blob/main/#222716-nov-2023&#34;&gt;the
 corresponding changelog entry for CodeQL Action version 2.22.7&lt;/a&gt;. &lt;a
 href=&#34;https://redirect.github.com/github/codeql-action/pull/2009&#34;&gt;#2009&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -4105,7 +4122,7 @@ alter it yourself. You can also trigger a rebase manually by commenting
 [//]: # (dependabot-automerge-start)
 [//]: # (dependabot-automerge-end)
 
----
+
 
 &lt;details&gt;
 &lt;summary&gt;Dependabot commands and options&lt;/summary&gt;
@@ -4449,7 +4466,7 @@ alter it yourself. You can also trigger a rebase manually by commenting
 [//]: # (dependabot-automerge-start)
 [//]: # (dependabot-automerge-end)
 
----
+
 
 &lt;details&gt;
 &lt;summary&gt;Dependabot commands and options&lt;/summary&gt;
@@ -4488,7 +4505,7 @@ Bumps [step-security/harden-runner](https://github.com/step-security/harden-runn
 - [Release notes](https://github.com/step-security/harden-runner/releases)
 - [Commits](https://github.com/step-security/harden-runner/compare/eb238b55efaa70779f274895e782ed17c84f2895...63c24ba6bd7ba022e95695ff85de572c04a18142)
 
----
+
 updated-dependencies:
 - dependency-name: step-security/harden-runner
   dependency-type: direct:production
@@ -4699,7 +4716,7 @@ alter it yourself. You can also trigger a rebase manually by commenting
 [//]: # (dependabot-automerge-start)
 [//]: # (dependabot-automerge-end)
 
----
+
 
 &lt;details&gt;
 &lt;summary&gt;Dependabot commands and options&lt;/summary&gt;
@@ -4787,7 +4804,7 @@ versions of the CodeQL Action. &lt;a
 href=&#34;https://redirect.github.com/github/codeql-action/pull/2031&#34;&gt;#2031&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;The CodeQL Action now requires CodeQL version 2.11.6 or later. For
 more information, see &lt;a
-href=&#34;https://github.com/github/codeql-action/blob/main/#2227---16-nov-2023&#34;&gt;the
+href=&#34;https://github.com/github/codeql-action/blob/main/#222716-nov-2023&#34;&gt;the
 corresponding changelog entry for CodeQL Action version 2.22.7&lt;/a&gt;. &lt;a
 href=&#34;https://redirect.github.com/github/codeql-action/pull/2009&#34;&gt;#2009&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -4896,7 +4913,7 @@ alter it yourself. You can also trigger a rebase manually by commenting
 [//]: # (dependabot-automerge-start)
 [//]: # (dependabot-automerge-end)
 
----
+
 
 &lt;details&gt;
 &lt;summary&gt;Dependabot commands and options&lt;/summary&gt;
@@ -4936,7 +4953,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.23.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/0b21cf2492b6b02c465a3e5d7c473717ad7721ba...b7bf0a3ed3ecfa44160715d7c442788f65f0f923)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -4951,7 +4968,7 @@ Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0
 - [Release notes](https://github.com/ozi-project/checkpoint/releases)
 - [Commits](https://github.com/ozi-project/checkpoint/compare/0.1.1...9b94738aab4c7c3ee989c8be1144d041bfd7a184)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/checkpoint
   dependency-type: direct:production
@@ -5129,7 +5146,7 @@ Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0
 - [Release notes](https://github.com/ozi-project/checkpoint/releases)
 - [Commits](https://github.com/ozi-project/checkpoint/compare/9f405918305aa607771282da4ae207589d0f23b8...9b94738aab4c7c3ee989c8be1144d041bfd7a184)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/checkpoint
   dependency-type: direct:production
@@ -5225,7 +5242,7 @@ Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 37f120b
 - [Release notes](https://github.com/ozi-project/publish/releases)
 - [Commits](https://github.com/ozi-project/publish/compare/37f120b2f1f8130d11e0d6c62b01ad2061187f59...d9173e726b4cbb2ecd631fff0259656737e0dc23)
 
----
+
 updated-dependencies:
 - dependency-name: OZI-Project/publish
   dependency-type: direct:production
@@ -5279,7 +5296,7 @@ Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from
 - [Release notes](https://github.com/actions/upload-artifact/releases)
 - [Commits](https://github.com/actions/upload-artifact/compare/694cdabd8bdb0f10b2cea11669e1bf5453eed0a6...26f96dfa697d77e81fd5907df203aa23a56210a8)
 
----
+
 updated-dependencies:
 - dependency-name: actions/upload-artifact
   dependency-type: direct:production
@@ -5352,7 +5369,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.23.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/e5f05b81d5b6ff8cfa111c80c22c5fd02a384118...0b21cf2492b6b02c465a3e5d7c473717ad7721ba)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -5367,7 +5384,7 @@ Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from
 - [Release notes](https://github.com/actions/upload-artifact/releases)
 - [Commits](https://github.com/actions/upload-artifact/compare/c7d193f32edcb7bfad88892161225aeda64e9392...1eb3cb2b3e0f29609092a73eb033bb759a334595)
 
----
+
 updated-dependencies:
 - dependency-name: actions/upload-artifact
   dependency-type: direct:production
@@ -5413,7 +5430,7 @@ Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from
 - [Release notes](https://github.com/actions/upload-artifact/releases)
 - [Commits](https://github.com/actions/upload-artifact/compare/1eb3cb2b3e0f29609092a73eb033bb759a334595...694cdabd8bdb0f10b2cea11669e1bf5453eed0a6)
 
----
+
 updated-dependencies:
 - dependency-name: actions/upload-artifact
   dependency-type: direct:production
@@ -5428,7 +5445,7 @@ Bumps [actions/dependency-review-action](https://github.com/actions/dependency-r
 - [Release notes](https://github.com/actions/dependency-review-action/releases)
 - [Commits](https://github.com/actions/dependency-review-action/compare/c74b580d73376b7750d3d2a50bfb8adc2c937507...4901385134134e04cec5fbe5ddfe3b2c5bd5d976)
 
----
+
 updated-dependencies:
 - dependency-name: actions/dependency-review-action
   dependency-type: direct:production
@@ -5491,7 +5508,7 @@ Automatically generated by python-semantic-release
 
 Automatically generated by python-semantic-release
 
----------
+
 
 Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt;
 Co-authored-by: github-actions &lt;github-actions@github.com&gt; ([`f8805d4`](https://github.com/OZI-Project/OZI/commit/f8805d4e2c14621f79150b85f1987d9af564b99a))
@@ -5523,7 +5540,7 @@ Automatically generated by python-semantic-release
 
 Automatically generated by python-semantic-release
 
----------
+
 
 Co-authored-by: github-actions &lt;github-actions@github.com&gt; ([`135a07b`](https://github.com/OZI-Project/OZI/commit/135a07bc74c93b2530d408518275a154ad1e84c6))
 
@@ -5546,7 +5563,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.22.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/012739e5082ff0c22ca6d6ab32e07c36df03c4a4...e5f05b81d5b6ff8cfa111c80c22c5fd02a384118)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -5562,7 +5579,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.22.
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/012739e5082ff0c22ca6d6ab32e07c36df03c4a4...e5f05b81d5b6ff8cfa111c80c22c5fd02a384118)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -5594,7 +5611,7 @@ Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from
 - [Release notes](https://github.com/actions/upload-artifact/releases)
 - [Commits](https://github.com/actions/upload-artifact/compare/3cea5372237819ed00197afe530f5a7ea3e805c8...c7d193f32edcb7bfad88892161225aeda64e9392)
 
----
+
 updated-dependencies:
 - dependency-name: actions/upload-artifact
   dependency-type: direct:production
@@ -5609,7 +5626,7 @@ Bumps [actions/dependency-review-action](https://github.com/actions/dependency-r
 - [Release notes](https://github.com/actions/dependency-review-action/releases)
 - [Commits](https://github.com/actions/dependency-review-action/compare/0efb1d1d84fc9633afcdaad14c485cbbc90ef46c...c74b580d73376b7750d3d2a50bfb8adc2c937507)
 
----
+
 updated-dependencies:
 - dependency-name: actions/dependency-review-action
   dependency-type: direct:production
@@ -5625,7 +5642,7 @@ Bumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.1
 - [Changelog](https://github.com/ossf/scorecard-action/blob/main/RELEASE.md)
 - [Commits](https://github.com/ossf/scorecard-action/compare/e38b1902ae4f44df626f11ba0734b14fb91f8f86...0864cf19026789058feabb7e87baa5f140aac736)
 
----
+
 updated-dependencies:
 - dependency-name: ossf/scorecard-action
   dependency-type: direct:production
@@ -5641,7 +5658,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 2.2.4
 - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/github/codeql-action/compare/v2.2.4...012739e5082ff0c22ca6d6ab32e07c36df03c4a4)
 
----
+
 updated-dependencies:
 - dependency-name: github/codeql-action
   dependency-type: direct:production
@@ -5657,7 +5674,7 @@ Bumps [actions/checkout](https://github.com/actions/checkout) from 3.1.0 to 4.1.
 - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
 - [Commits](https://github.com/actions/checkout/compare/v3.1.0...b4ffde65f46336ab88eb53be808477a3936bae11)
 
----
+
 updated-dependencies:
 - dependency-name: actions/checkout
   dependency-type: direct:production
@@ -5761,7 +5778,7 @@ Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.gi
 
 Automatically generated by python-semantic-release
 
----------
+
 
 Signed-off-by: Ross J. Duff(Eden Rose), MSc &lt;42073607+rjdbcm@users.noreply.github.com&gt;
 Co-authored-by: github-actions &lt;github-actions@github.com&gt; ([`52819c0`](https://github.com/OZI-Project/OZI/commit/52819c0863bf3695402c0a762e3d8a21fe89dbb6))
@@ -5780,7 +5797,7 @@ Co-authored-by: github-actions &lt;github-actions@github.com&gt; ([`52819c0`](ht
 
 Automatically generated by python-semantic-release
 
----------
+
 
 Co-authored-by: github-actions &lt;github-actions@github.com&gt; ([`8e13fef`](https://github.com/OZI-Project/OZI/commit/8e13fef439525cbcfa146e5dbdc3eacef235c0bc))
 
@@ -7807,7 +7824,7 @@ PEP-639 keys:
 * :page_facing_up: Relicense codebase to LLVM-exception.
 
 This adds the following to ``LICENSE.txt``:
----- LLVM Exceptions to the Apache 2.0 License ----
+- LLVM Exceptions to the Apache 2.0 License -
 
 As an exception, if, as a result of your compiling your source code, portions
 of this Software are embedded into an Object form of such source code, you
