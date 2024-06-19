@@ -8,6 +8,7 @@ from __future__ import annotations
 import re
 import shlex
 import sys
+from itertools import chain
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -134,8 +135,14 @@ def wrap(project: Namespace) -> None:  # pragma: no cover
 
 def main() -> None:  # pragma: no cover
     """Main ozi.new entrypoint."""
-    ozi_new = parser.parse_args()
-    ozi_new.argv = shlex.join(sys.argv[1:])
+    pipe = sys.stdin if not sys.stdin.isatty() else None
+    args = (
+        list(chain.from_iterable([shlex.split(line.strip()) for line in pipe]))
+        if pipe
+        else None
+    )
+    ozi_new = parser.parse_args(args=args)
+    ozi_new.argv = args if args else shlex.join(sys.argv[1:])
     match ozi_new:
         case ozi_new if ozi_new.new in ['p', 'project']:
             project(ozi_new)
