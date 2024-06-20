@@ -3,7 +3,7 @@ dnspython
 idna>=2
 jinja2>=3
 meson[ninja]>=1.1.0
-ozi-templates>=2.0.5
+ozi-templates~=2.1.1
 packaging~=24.0
 pip-tools
 pyparsing~=3.1
