@@ -172,8 +172,9 @@ def render_templates(env: Environment, target: Path) -> None:
     """
     for i in ['.release_notes.md.j2', 'CHANGELOG.md.j2', 'parsed_commit_heading.j2']:
         template = env.get_template(f'templates/{i}')
-        with open(target / 'templates' / i, 'w', encoding='UTF-8') as f:
-            f.write(template.render())
+        f = target / 'templates' / i
+        f.parent.mkdir(exist_ok=True, parents=True)
+        f.write_text(template.render())
 
 
 def render_project_files(env: Environment, target: Path, name: str) -> None:
