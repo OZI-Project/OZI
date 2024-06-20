@@ -162,6 +162,20 @@ def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -
     return ci_user
 
 
+def render_templates(env: Environment, target: Path) -> None:
+    """Render the templates directory.
+
+    :param env: the OZI project file rendering environment
+    :type env: jinja2.Environment
+    :param target: directory path to render the project
+    :type target: Path
+    """
+    for i in ['.release_notes.md.j2', 'CHANGELOG.md.j2', 'parsed_commit_heading.j2']:
+        template = env.get_template(f'templates/{i}')
+        with open(target / 'templates' / i, encoding='UTF-8') as f:
+            f.write(template.render())
+
+
 def render_project_files(env: Environment, target: Path, name: str) -> None:
     """Render the primary new project files(excluding CI).
 
@@ -206,3 +220,4 @@ def render_project_files(env: Environment, target: Path, name: str) -> None:
     template = env.get_template('project.ozi.wrap.j2')
     with open(target / 'subprojects' / 'ozi.wrap', 'w', encoding='UTF-8') as f:
         f.write(template.render())
+    render_templates(env, target)
