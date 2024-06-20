@@ -131,7 +131,7 @@ def build_child(env: Environment, parent: str, child: Path) -> None:
 
 
 def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -> str:
-    """Render CI files based on the ci_provider for target in env.
+    """Render :term:`CI` files based on the ci_provider for target in env.
 
     :param env: the OZI project file rendering environment
     :type env: jinja2.Environment
@@ -163,7 +163,7 @@ def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -
 
 
 def render_templates(env: Environment, target: Path) -> None:
-    """Render the templates directory.
+    """Render a project :file:`templates/` directory.
 
     :param env: the OZI project file rendering environment
     :type env: jinja2.Environment
