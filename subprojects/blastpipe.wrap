@@ -1,0 +1,7 @@
+[wrap-git]
+url = https://github.com/OZI-Project/blastpipe.git
+revision = head
+depth = 1
+
+[provide]
+dependency_names = blastpipe
