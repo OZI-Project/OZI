@@ -328,7 +328,6 @@ def test_Rewriter_bad_project__iadd__file_from_template(  # noqa: N802, DC102, R
         fix=fix,
         env=env,
     )
-    pathlib.Path(bad_project / 'templates').mkdir()  # pyright: ignore
     pathlib.Path(bad_project / 'templates' / 'foo.py').touch()  # pyright: ignore
     pathlib.Path(bad_project / 'templates' / 'source').mkdir()  # pyright: ignore
     pathlib.Path(bad_project / 'templates' / 'source' / 'foo.py').touch()  # pyright: ignore
