@@ -7,9 +7,9 @@
 {% for type_, commits in context.history.unreleased | dictsort %}
 {% for commit in commits %}{% if type_ != "unknown" %}
 {% include 'parsed_commit_heading.j2' %}
-* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', '&emdash;') }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
+* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', '—') }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
 {% else %}
-* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', '&emdash;') }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
+* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', '—') }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
 {% endif %}{% endfor %}{% endfor %}
 {% endif -%}
 
@@ -19,7 +19,7 @@
 {% for type_, commits in release["elements"] | dictsort %}
 {% include 'parsed_commit_heading.j2' %}
 {% for commit in commits %}{% if type_ != "unknown" %}
-* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', '&emdash;') }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
+* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', '—') }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
 {% else %}
-* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', '&emdash;') }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
+* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', '—') }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
 {% endif %}{% endfor %}{% endfor %}{% endfor %}
