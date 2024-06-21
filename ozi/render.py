@@ -131,7 +131,7 @@ def build_child(env: Environment, parent: str, child: Path) -> None:
 
 
 def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -> str:
-    """Render CI files based on the ci_provider for target in env.
+    """Render :term:`CI` files based on the ci_provider for target in env.
 
     :param env: the OZI project file rendering environment
     :type env: jinja2.Environment
@@ -160,6 +160,21 @@ def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -
         case _:  # pragma: no cover
             ci_user = ''
     return ci_user
+
+
+def render_templates(env: Environment, target: Path) -> None:
+    """Render a project :file:`templates/` directory.
+
+    :param env: the OZI project file rendering environment
+    :type env: jinja2.Environment
+    :param target: directory path to render the project
+    :type target: Path
+    """
+    for i in ['.release_notes.md.j2', 'CHANGELOG.md.j2', 'parsed_commit_heading.j2']:
+        template = env.get_template(f'templates/{i}')
+        f = target / 'templates' / i
+        f.parent.mkdir(exist_ok=True, parents=True)
+        f.write_text(template.render())
 
 
 def render_project_files(env: Environment, target: Path, name: str) -> None:
@@ -206,3 +221,4 @@ def render_project_files(env: Environment, target: Path, name: str) -> None:
     template = env.get_template('project.ozi.wrap.j2')
     with open(target / 'subprojects' / 'ozi.wrap', 'w', encoding='UTF-8') as f:
         f.write(template.render())
+    render_templates(env, target)

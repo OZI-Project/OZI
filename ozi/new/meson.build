@@ -5,6 +5,7 @@
 config_files = [
     '__init__.py',
     '__main__.py',
+    'interactive.py',
     'parser.py',
     'validate.py',
 ]

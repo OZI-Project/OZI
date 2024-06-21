@@ -26,7 +26,7 @@ if __name__ == '__main__':
     requirements = (
         r.partition('\u0023')[0]
         for r in filter(
-            lambda r: not (r.startswith('\u0023') or r == '\n'),
+            lambda r: not (r.startswith('\u0023') or r == ''),
             pathlib.Path('./requirements.in').read_text('utf-8').splitlines(),
         )
     )

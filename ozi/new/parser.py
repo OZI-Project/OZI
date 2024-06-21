@@ -19,6 +19,12 @@ parser = argparse.ArgumentParser(
     usage='%(prog)s [options] | [positional args]',  # noqa: B950,E501,RUF100
 )
 subparser = parser.add_subparsers(help='', metavar='', dest='new')
+interactive_parser = subparser.add_parser(
+    'interactive',
+    aliases=['i'],
+    description='ozi-new interactive prompt',
+    prog='ozi-new interactive',
+)
 project_parser = subparser.add_parser(
     'project',
     aliases=['p'],
@@ -26,6 +32,13 @@ project_parser = subparser.add_parser(
     help='create new OZI project',
     prog='ozi-new project',
     usage='%(prog)s [options] [PKG-INFO required] [PKG-INFO optional] [PKG-INFO defaults] [defaults] target',  # noqa: B950,E501,RUF100
+)
+interactive_parser.add_argument(
+    'target',
+    type=str,
+    nargs='?',
+    default='.',
+    help='directory path for new project (default: current working directory)',
 )
 required = project_parser.add_argument_group('PKG-INFO required')
 optional = project_parser.add_argument_group('PKG-INFO optional')
