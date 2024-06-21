@@ -243,7 +243,9 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
             cancel_text='Skip',
         ).run()
     output += [f'--license-expression="{license_expression}"'] if license_expression else []
-    prefix += f'Extra: License-Expression :: {license_expression if license_expression else ""}\n'
+    prefix += (
+        f'Extra: License-Expression :: {license_expression if license_expression else ""}\n'
+    )
 
     if yes_no_dialog(
         title='ozi-new interactive prompt',
