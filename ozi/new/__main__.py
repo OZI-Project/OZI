@@ -14,6 +14,7 @@ from typing import TYPE_CHECKING
 
 from ozi_templates import load_environment  # type: ignore
 
+from ozi.new.interactive import interactive_prompt
 from ozi.new.parser import parser
 from ozi.new.validate import valid_contact_info
 from ozi.new.validate import valid_copyright_head
@@ -144,6 +145,12 @@ def main() -> None:  # pragma: no cover
     ozi_new = parser.parse_args(args=args)
     ozi_new.argv = args if args else shlex.join(sys.argv[1:])
     match ozi_new:
+        case ozi_new if ozi_new.new in ['i', 'interactive']:
+            args = interactive_prompt()
+            ozi_new = parser.parse_args(args=args)
+            ozi_new.argv = args
+            project(ozi_new)
+            TAP.end()
         case ozi_new if ozi_new.new in ['p', 'project']:
             project(ozi_new)
             TAP.end()
