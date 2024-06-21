@@ -85,7 +85,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
         cancel_text='Skip',
     ).run()
     prefix += f'Summary: {summary if summary else ""}\n'
-    output += [f'--summary"{summary if summary else ""}"']
+    output += [f'--summary="{summary if summary else ""}"']
 
     home_page = input_dialog(
         title='ozi-new interactive prompt',
