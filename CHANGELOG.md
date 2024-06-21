@@ -1,4 +1,11 @@
 # CHANGELOG
+## 1.13.2 (2024-06-21)
+
+
+### :bug: Fixed Bugs
+
+* :memo:: add interactive doc help — rjdbcm &lt;ozi.project@outlook.com&gt; ([`0b4c054`](https://github.com/OZI-Project/OZI/commit/0b4c054d402a8eec06fa49d0d6aa6e194af340b3))
+
 ## 1.13.1 (2024-06-21)
 
 
