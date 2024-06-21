@@ -277,4 +277,11 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
             style=style,
         ).run()
         output += [f'--readme-type="{readme_type}"'] if readme_type else []
-    return output
+    if yes_no_dialog(
+        title='ozi-new interactive prompt',
+        text=prefix + 'Confirm project creation?\n(answering "No" will exit the prompt)',
+        style=style,
+    ).run():
+        return output
+    else:
+        return ['project']
