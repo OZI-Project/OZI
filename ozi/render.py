@@ -172,7 +172,7 @@ def render_templates(env: Environment, target: Path) -> None:
     :param target: directory path to render the project
     :type target: Path
     """
-    for i in ['.release_notes.md.j2', 'CHANGELOG.md.j2', 'parsed_commit_heading.j2']:
+    for i in ['.release_notes.md.j2', 'CHANGELOG.md.j2', '.parsed_commit_heading.j2']:
         template = env.get_template(f'templates/{i}')
         f = target / 'templates' / i
         f.parent.mkdir(exist_ok=True, parents=True)
