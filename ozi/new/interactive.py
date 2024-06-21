@@ -36,6 +36,14 @@ class ProjectNameValidator(Validator):
             raise ValidationError(0, 'invalid project name')
 
 
+class SummaryValidator(Validator):
+    def validate(self, document: Document) -> None:  # pragma: no cover  # noqa: ANN101
+        if len(document.text) < 1:
+            raise ValidationError(0, 'summary must not be empty')
+        if len(document.text) > 512:
+            raise ValidationError(512, 'summary is too long')
+
+
 class PackageValidator(Validator):
     def validate(self, document: Document) -> None:  # pragma: no cover  # noqa: ANN101
         if len(document.text) == 0:
@@ -81,6 +89,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
     summary = input_dialog(
         title='ozi-new interactive prompt',
         text=prefix + 'What does the project do?\n(a short summary 1-2 sentences)',
+        validator=SummaryValidator(),
         style=style,
         cancel_text='Skip',
     ).run()
@@ -93,7 +102,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
         style=style,
         cancel_text='Skip',
     ).run()
-    prefix += f'Home-page: {home_page}\n'
+    prefix += f'Home-page: {home_page if home_page else ""}\n'
     output += [f'--home-page="{home_page}"'] if home_page else []
 
     author_names = input_dialog(
@@ -195,7 +204,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
         style=style,
         cancel_text='Skip',
     ).run()
-    prefix += f'{Prefix().license}{license_}\n'
+    prefix += f'{Prefix().license}{license_ if license_ else ""}\n'
     output += [f'--license="{license_}"'] if license_ else []
 
     possible_spdx: Sequence[str] = METADATA.spec.python.pkg.license.ambiguous.get(
@@ -234,7 +243,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
             cancel_text='Skip',
         ).run()
     output += [f'--license-expression="{license_expression}"'] if license_expression else []
-    prefix += f'Extra: License-Expression :: {license_expression}\n'
+    prefix += f'Extra: License-Expression :: {license_expression if license_expression else ""}\n'
 
     if yes_no_dialog(
         title='ozi-new interactive prompt',
@@ -257,7 +266,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
                 style=style,
                 cancel_text='Skip',
             ).run()
-            prefix += f'{getattr(Prefix(), i)}{classifier}\n'
+            prefix += f'{getattr(Prefix(), i)}{classifier if classifier else ""}\n'
             output += [f'--{i}="{classifier}"'] if classifier else []
         for i in ['topic', 'status']:
             classifier = radiolist_dialog(  # type: ignore
@@ -275,7 +284,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
                 cancel_text='Skip',
             ).run()
             if classifier:
-                prefix += f'{getattr(Prefix(), i)}{classifier}\n'
+                prefix += f'{getattr(Prefix(), i)}{classifier if classifier else ""}\n'
                 output += [f'--{i}="{classifier}"'] if classifier else []
     if yes_no_dialog(
         title='ozi-new interactive prompt',
@@ -293,6 +302,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
             style=style,
             cancel_text='Skip',
         ).run()
+        prefix += f'Description-Content-Type: {readme_type if readme_type else ""}'
         output += [f'--readme-type="{readme_type}"'] if readme_type else []
     if yes_no_dialog(
         title='ozi-new interactive prompt',
