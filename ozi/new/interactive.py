@@ -5,26 +5,29 @@ Example of an input box dialog.
 from __future__ import annotations
 
 import re
+from typing import TYPE_CHECKING
 from typing import Self
 from typing import Sequence
 
 import requests
-from prompt_toolkit.document import Document  # type: ignore
-from prompt_toolkit.shortcuts import button_dialog  # type: ignore
+from prompt_toolkit.shortcuts import button_dialog
 from prompt_toolkit.shortcuts import checkboxlist_dialog
 from prompt_toolkit.shortcuts import input_dialog
 from prompt_toolkit.shortcuts import radiolist_dialog
 from prompt_toolkit.shortcuts import yes_no_dialog
-from prompt_toolkit.styles import Style  # type: ignore
-from prompt_toolkit.validation import ValidationError  # type: ignore
+from prompt_toolkit.styles import Style
+from prompt_toolkit.validation import ValidationError
 from prompt_toolkit.validation import Validator
 
 from ozi.spec import METADATA
 from ozi.trove import Prefix
 from ozi.trove import from_prefix
 
+if TYPE_CHECKING:
+    from prompt_toolkit.document import Document
 
-class ProjectNameValidator(Validator):  # type: ignore
+
+class ProjectNameValidator(Validator):
     def validate(self: Self, document: Document) -> None:  # pragma: no cover
         if not re.match(
             r'\A([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])\Z',
@@ -34,7 +37,7 @@ class ProjectNameValidator(Validator):  # type: ignore
             raise ValidationError(0, 'invalid project name')
 
 
-class PackageValidator(Validator):  # type: ignore
+class PackageValidator(Validator):
     def validate(self: Self, document: Document) -> None:  # pragma: no cover
         if len(document.text) == 0:
             raise ValidationError(0, 'cannot be empty')
@@ -46,7 +49,8 @@ class PackageValidator(Validator):  # type: ignore
             pass
         else:
             raise ValidationError(
-                len(document.text), f'{response.status_code} package not found'
+                len(document.text),
+                f'{response.status_code} package not found',
             )
 
 
@@ -59,11 +63,11 @@ style = Style.from_dict(
         'dialog.body': 'bg:#000000 #00ff00',
         'dialog shadow': 'bg:#192334',
         'dialog text-area': '#030711',
-    }
+    },
 )
 
 
-def interactive_prompt() -> list[str]:  # pragma: no cover
+def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
     output = ['project']
     project_name = input_dialog(
         title='ozi-new interactive prompt',
@@ -95,7 +99,7 @@ def interactive_prompt() -> list[str]:  # pragma: no cover
         text=prefix + 'What is the author or authors name?\n(comma-separated list)',
         style=style,
     ).run()
-    author_names = author_names.rstrip(',').split(',') if author_names else None
+    author_names = author_names.rstrip(',').split(',') if author_names else None  # type: ignore
     prefix += f'Author: {",".join(author_names if author_names else "")}\n'
     output += [f'--author="{a}"' for a in author_names] if author_names else []
 
@@ -105,7 +109,7 @@ def interactive_prompt() -> list[str]:  # pragma: no cover
         + 'What are the email addresses of the author or authors?\n(comma-separated list)',
         style=style,
     ).run()
-    author_emails = author_emails.rstrip(',').split(',') if author_emails else None
+    author_emails = author_emails.rstrip(',').split(',') if author_emails else None  # type: ignore
     prefix += f'Author-email: {",".join(author_emails if author_emails else "")}\n'
     output += [f'--author-email="{e}"' for e in author_emails] if author_emails else []
 
@@ -122,7 +126,7 @@ def interactive_prompt() -> list[str]:  # pragma: no cover
             style=style,
         ).run()
         maintainer_names = (
-            maintainer_names.rstrip(',').split(',') if maintainer_names else None
+            maintainer_names.rstrip(',').split(',') if maintainer_names else None  # type: ignore
         )
         prefix += f'Maintainer: {",".join(maintainer_names if maintainer_names else [])}\n'
         output += (
@@ -132,11 +136,11 @@ def interactive_prompt() -> list[str]:  # pragma: no cover
         maintainer_emails = input_dialog(
             title='ozi-new interactive prompt',
             text=prefix
-            + 'What are the email addresses of the maintainer or maintainers?\n(comma-separated list)',
+            + 'What are the email addresses of the maintainer or maintainers?\n(comma-separated list)',  # noqa: B950
             style=style,
         ).run()
         maintainer_emails = (
-            maintainer_emails.rstrip(',').split(',') if maintainer_emails else None
+            maintainer_emails.rstrip(',').split(',') if maintainer_emails else None  # type: ignore
         )
         prefix += (
             f'Maintainer-email: {",".join(maintainer_emails if maintainer_emails else [])}\n'
@@ -152,7 +156,7 @@ def interactive_prompt() -> list[str]:  # pragma: no cover
         text=prefix + 'What are some project keywords?\n(comma-separated list)',
         style=style,
     ).run()
-    keywords = keywords.rstrip(',').split(',') if keywords else None
+    keywords = keywords.rstrip(',').split(',') if keywords else None  # type: ignore
     prefix += f'Keywords: {",".join(keywords if keywords else "")}\n'
     output += [f'--keywords={",".join(keywords if keywords else [])}']
 
@@ -242,7 +246,7 @@ def interactive_prompt() -> list[str]:  # pragma: no cover
             prefix += f'{getattr(Prefix(), i)}{classifier}\n'
             output += [f'--{i}="{classifier}"'] if classifier else []
         for i in ['topic', 'status']:
-            classifier = radiolist_dialog(
+            classifier = radiolist_dialog(  # type: ignore
                 values=sorted(
                     (
                         zip(
