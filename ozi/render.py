@@ -165,12 +165,14 @@ def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -
 def render_templates(env: Environment, target: Path) -> None:
     """Render a project :file:`templates/` directory.
 
+    .. versionadded: 1.13
+
     :param env: the OZI project file rendering environment
     :type env: jinja2.Environment
     :param target: directory path to render the project
     :type target: Path
     """
-    for i in ['.release_notes.md.j2', 'CHANGELOG.md.j2', 'parsed_commit_heading.j2']:
+    for i in ['.release_notes.md.j2', 'CHANGELOG.md.j2', '.parsed_commit_heading.j2']:
         template = env.get_template(f'templates/{i}')
         f = target / 'templates' / i
         f.parent.mkdir(exist_ok=True, parents=True)
