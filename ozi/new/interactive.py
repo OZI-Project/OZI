@@ -23,7 +23,7 @@ from ozi.trove import Prefix
 from ozi.trove import from_prefix
 
 if TYPE_CHECKING:
-    from typing import Self
+    from typing import Self  # type: ignore
 
     from prompt_toolkit.document import Document
 
