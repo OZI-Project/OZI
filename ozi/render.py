@@ -165,6 +165,8 @@ def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -
 def render_templates(env: Environment, target: Path) -> None:
     """Render a project :file:`templates/` directory.
 
+    .. versionadded: 1.13
+
     :param env: the OZI project file rendering environment
     :type env: jinja2.Environment
     :param target: directory path to render the project
