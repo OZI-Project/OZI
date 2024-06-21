@@ -1,4 +1,22 @@
 # CHANGELOG
+## 1.13.1 (2024-06-21)
+
+
+### :arrow_up: Upgraded Dependencies
+
+*  ozi-templates~=2.1.2 — rjdbcm &lt;ozi.project@outlook.com&gt; ([`0c4e9ac`](https://github.com/OZI-Project/OZI/commit/0c4e9acdf2a70a99af697a123abc5eafa21ae15c))
+
+
+### :bug: Fixed Bugs
+
+*  fix errant rendering of parsed_commit_heading stub — rjdbcm &lt;ozi.project@outlook.com&gt; ([`96c0306`](https://github.com/OZI-Project/OZI/commit/96c03066cfa0d56b36c5d29fb5276604d3e148d7))
+
+
+### Other
+
+
+* :memo: add versionadded to docstring — rjdbcm &lt;ozi.project@outlook.com&gt; ([`5428424`](https://github.com/OZI-Project/OZI/commit/54284248e8b3cd3d70bab76e0386008669d42a1a))
+
 ## 1.13.0 (2024-06-21)
 
 
