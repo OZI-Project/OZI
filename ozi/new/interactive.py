@@ -73,6 +73,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
         text='What is the name of the project?',
         validator=ProjectNameValidator(),
         style=style,
+        cancel_text='Skip',
     ).run()
     prefix = f'Name: {project_name if project_name else ""}\n'
     output += [f'--name="{project_name}"'] if project_name else []
@@ -81,6 +82,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
         title='ozi-new interactive prompt',
         text=prefix + 'What does the project do?\n(a short summary 1-2 sentences)',
         style=style,
+        cancel_text='Skip',
     ).run()
     prefix += f'Summary: {summary if summary else ""}\n'
     output += [f'--summary"{summary if summary else ""}"']
@@ -89,6 +91,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
         title='ozi-new interactive prompt',
         text=prefix + "What is the project's home-page URL?",
         style=style,
+        cancel_text='Skip',
     ).run()
     prefix += f'Home-page: {home_page}\n'
     output += [f'--home-page="{home_page}"'] if home_page else []
@@ -97,6 +100,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
         title='ozi-new interactive prompt',
         text=prefix + 'What is the author or authors name?\n(comma-separated list)',
         style=style,
+        cancel_text='Skip',
     ).run()
     author_names = author_names.rstrip(',').split(',') if author_names else None  # type: ignore
     prefix += f'Author: {",".join(author_names if author_names else "")}\n'
@@ -107,6 +111,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
         text=prefix
         + 'What are the email addresses of the author or authors?\n(comma-separated list)',
         style=style,
+        cancel_text='Skip',
     ).run()
     author_emails = author_emails.rstrip(',').split(',') if author_emails else None  # type: ignore
     prefix += f'Author-email: {",".join(author_emails if author_emails else "")}\n'
@@ -123,6 +128,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
             text=prefix
             + 'What is the maintainer or maintainers name?\n(comma-separated list)',
             style=style,
+            cancel_text='Skip',
         ).run()
         maintainer_names = (
             maintainer_names.rstrip(',').split(',') if maintainer_names else None  # type: ignore
@@ -137,6 +143,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
             text=prefix
             + 'What are the email addresses of the maintainer or maintainers?\n(comma-separated list)',  # noqa: B950
             style=style,
+            cancel_text='Skip',
         ).run()
         maintainer_emails = (
             maintainer_emails.rstrip(',').split(',') if maintainer_emails else None  # type: ignore
@@ -154,6 +161,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
         title='ozi-new interactive prompt',
         text=prefix + 'What are some project keywords?\n(comma-separated list)',
         style=style,
+        cancel_text='Skip',
     ).run()
     keywords = keywords.rstrip(',').split(',') if keywords else None  # type: ignore
     prefix += f'Keywords: {",".join(keywords if keywords else "")}\n'
@@ -174,6 +182,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
             text=prefix + 'Search PyPI packages:',
             validator=PackageValidator(),
             style=style,
+            cancel_text='Skip',
         ).run()
         requires_dist += [requirement] if requirement else []
         prefix += f'Requires-Dist: {requirement}\n' if requirement else ''
@@ -184,6 +193,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
         title='ozi-new interactive prompt',
         text=prefix + 'Please select a license classifier:',
         style=style,
+        cancel_text='Skip',
     ).run()
     prefix += f'{Prefix().license}{license_}\n'
     output += [f'--license="{license_}"'] if license_ else []
@@ -198,6 +208,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
             text=prefix + 'Edit SPDX license expression:',
             default='',
             style=style,
+            cancel_text='Skip',
         ).run()
     elif len(possible_spdx) == 1:
         license_expression = input_dialog(
@@ -205,6 +216,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
             text=prefix + 'Edit SPDX license expression:',
             default=possible_spdx[0],
             style=style,
+            cancel_text='Skip',
         ).run()
     else:
         license_id = radiolist_dialog(
@@ -212,12 +224,14 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
             title='ozi-new interactive prompt',
             text=prefix + 'Please select a SPDX license-id:',
             style=style,
+            cancel_text='Skip',
         ).run()
         license_expression = input_dialog(
             title='ozi-new interactive prompt',
             text=prefix + 'Edit SPDX license expression:',
             default=license_id if license_id is not None else '',
             style=style,
+            cancel_text='Skip',
         ).run()
     output += [f'--license-expression="{license_expression}"'] if license_expression else []
     prefix += f'Extra: License-Expression :: {license_expression}\n'
@@ -241,6 +255,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
                 title='ozi-new interactive prompt',
                 text=prefix + f'Please select {i} classifier or classifiers:',
                 style=style,
+                cancel_text='Skip',
             ).run()
             prefix += f'{getattr(Prefix(), i)}{classifier}\n'
             output += [f'--{i}="{classifier}"'] if classifier else []
@@ -257,6 +272,7 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
                 title='ozi-new interactive prompt',
                 text=prefix + f'Please select {i} classifier or classifiers:',
                 style=style,
+                cancel_text='Skip',
             ).run()
             if classifier:
                 prefix += f'{getattr(Prefix(), i)}{classifier}\n'
@@ -275,6 +291,14 @@ def interactive_prompt() -> list[str]:  # noqa: C901  # pragma: no cover
             title='ozi-new interactive prompt',
             text=prefix + 'Please select README type:',
             style=style,
+            cancel_text='Skip',
         ).run()
         output += [f'--readme-type="{readme_type}"'] if readme_type else []
-    return output
+    if yes_no_dialog(
+        title='ozi-new interactive prompt',
+        text=prefix + 'Confirm project creation?\n(answering "No" will exit the prompt)',
+        style=style,
+    ).run():
+        return output
+    else:
+        return ['project']
