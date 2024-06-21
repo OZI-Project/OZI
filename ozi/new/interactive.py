@@ -1,7 +1,6 @@
 """
-Example of an input box dialog.
+``ozi-new`` interactive prompts
 """
-
 from __future__ import annotations
 
 import re
@@ -23,7 +22,7 @@ from ozi.trove import Prefix
 from ozi.trove import from_prefix
 
 if TYPE_CHECKING:
-    from typing import Self  # type: ignore
+    from typing import Self
 
     from prompt_toolkit.document import Document
 
