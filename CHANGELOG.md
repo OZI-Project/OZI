@@ -1,4 +1,17 @@
 # CHANGELOG
+## 1.13.5 (2024-06-21)
+
+
+### :bug: Fixed Bugs
+
+* (interactive prompt): add summary validator — rjdbcm &lt;ozi.project@outlook.com&gt; ([`2d6849b`](https://github.com/OZI-Project/OZI/commit/2d6849b007a0e017adea3bdcaf28eadbd11c096f))
+
+
+### Other
+
+
+* :rotating_light: run black — rjdbcm &lt;ozi.project@outlook.com&gt; ([`5748852`](https://github.com/OZI-Project/OZI/commit/5748852a3e842d81970b4974e2257543707964d3))
+
 ## 1.13.4 (2024-06-21)
 
 
