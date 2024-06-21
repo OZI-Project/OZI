@@ -1,6 +1,7 @@
 """
 ``ozi-new`` interactive prompts
 """
+
 from __future__ import annotations
 
 import re
@@ -22,13 +23,11 @@ from ozi.trove import Prefix
 from ozi.trove import from_prefix
 
 if TYPE_CHECKING:
-    from typing import Self
-
     from prompt_toolkit.document import Document
 
 
 class ProjectNameValidator(Validator):
-    def validate(self: Self, document: Document) -> None:  # pragma: no cover
+    def validate(self, document: Document) -> None:  # pragma: no cover  # noqa: ANN101
         if not re.match(
             r'\A([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])\Z',
             document.text,
@@ -38,7 +37,7 @@ class ProjectNameValidator(Validator):
 
 
 class PackageValidator(Validator):
-    def validate(self: Self, document: Document) -> None:  # pragma: no cover
+    def validate(self, document: Document) -> None:  # pragma: no cover  # noqa: ANN101
         if len(document.text) == 0:
             raise ValidationError(0, 'cannot be empty')
         response = requests.get(
