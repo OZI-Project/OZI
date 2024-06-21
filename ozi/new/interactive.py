@@ -6,7 +6,6 @@ from __future__ import annotations
 
 import re
 from typing import TYPE_CHECKING
-from typing import Self
 from typing import Sequence
 
 import requests
@@ -24,6 +23,8 @@ from ozi.trove import Prefix
 from ozi.trove import from_prefix
 
 if TYPE_CHECKING:
+    from typing import Self
+
     from prompt_toolkit.document import Document
 
 
