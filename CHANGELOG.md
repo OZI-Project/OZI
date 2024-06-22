@@ -1,4 +1,11 @@
 # CHANGELOG
+## 1.13.6 (2024-06-22)
+
+
+### :children_crossing: Improved Usability
+
+*  enhanced prompt with menu — rjdbcm &lt;ozi.project@outlook.com&gt; ([`e8ac4e0`](https://github.com/OZI-Project/OZI/commit/e8ac4e0e1251bac2c186a13382e8ca7f237a6518))
+
 ## 1.13.5 (2024-06-21)
 
 
