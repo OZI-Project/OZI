@@ -134,13 +134,13 @@ def wrap(project: Namespace) -> None:  # pragma: no cover
         f.write(template.render())
 
 
-def main() -> None:  # pragma: no cover
+def main(args: list[str] | None = None) -> None:  # pragma: no cover
     """Main ozi.new entrypoint."""
     pipe = sys.stdin if not sys.stdin.isatty() else None
     args = (
         list(chain.from_iterable([shlex.split(line.strip()) for line in pipe]))
         if pipe
-        else None
+        else args
     )
     ozi_new = parser.parse_args(args=args)
     ozi_new.argv = args if args else shlex.join(sys.argv[1:])
@@ -148,9 +148,7 @@ def main() -> None:  # pragma: no cover
         case ozi_new if ozi_new.new in ['i', 'interactive']:
             args = interactive_prompt()
             ozi_new = parser.parse_args(args=args)
-            ozi_new.argv = args
-            project(ozi_new)
-            TAP.end()
+            main(args)
         case ozi_new if ozi_new.new in ['p', 'project']:
             project(ozi_new)
             TAP.end()
