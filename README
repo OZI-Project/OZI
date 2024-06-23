@@ -30,7 +30,7 @@ Purpose
 ^^^^^^^
 
 OZI is meant for Python developers as a standardized and opinionated
-Python packaging style guide and continuous integration checkpointing API using the Meson build system.
+Python packaging style guide. It consists of command line utilities and a continuous integration checkpointing API using the Meson build system.
 
 The OZI continuous integration strategy consists of:
 
