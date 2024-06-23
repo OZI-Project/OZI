@@ -1,4 +1,49 @@
 # CHANGELOG
+## 1.13.7 (2024-06-23)
+
+
+### :hammer: Updated Scripts
+
+*  add ``--check-package-exists`` bool to interactive args
+
+refactor menu system — rjdbcm &lt;ozi.project@outlook.com&gt; ([`f79d467`](https://github.com/OZI-Project/OZI/commit/f79d467fe208d7421397c20459e25150c389e661))
+
+## 1.13.6 (2024-06-22)
+
+
+### :children_crossing: Improved Usability
+
+*  enhanced prompt with menu — rjdbcm &lt;ozi.project@outlook.com&gt; ([`e8ac4e0`](https://github.com/OZI-Project/OZI/commit/e8ac4e0e1251bac2c186a13382e8ca7f237a6518))
+
+## 1.13.5 (2024-06-21)
+
+
+### :bug: Fixed Bugs
+
+* (interactive prompt): add summary validator — rjdbcm &lt;ozi.project@outlook.com&gt; ([`2d6849b`](https://github.com/OZI-Project/OZI/commit/2d6849b007a0e017adea3bdcaf28eadbd11c096f))
+
+
+### Other
+
+
+* :rotating_light: run black — rjdbcm &lt;ozi.project@outlook.com&gt; ([`5748852`](https://github.com/OZI-Project/OZI/commit/5748852a3e842d81970b4974e2257543707964d3))
+
+## 1.13.4 (2024-06-21)
+
+
+### :bug: Fixed Bugs
+
+*  fix summary arg — rjdbcm &lt;ozi.project@outlook.com&gt; ([`22bffda`](https://github.com/OZI-Project/OZI/commit/22bffda89bd6b460aab81d1ad2b15e957ef00137))
+
+## 1.13.3 (2024-06-21)
+
+
+### :children_crossing: Improved Usability
+
+* clarify interactive prompt ``Cancel`` becomes ``Skip`` ([`486f6b1`](https://github.com/OZI-Project/OZI/commit/486f6b1a0bae3107e0ac44d495dfdb4131a32a43))
+
+* (interactive prompt): add final confirm dialog — rjdbcm &lt;ozi.project@outlook.com&gt; ([`045df8a`](https://github.com/OZI-Project/OZI/commit/045df8a1f428fd9a9668ebfb7d5d87755a90f111))
+
 ## 1.13.2 (2024-06-21)
 
 
