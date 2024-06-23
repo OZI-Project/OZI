@@ -1,4 +1,13 @@
 # CHANGELOG
+## 1.13.7 (2024-06-23)
+
+
+### :hammer: Updated Scripts
+
+*  add ``--check-package-exists`` bool to interactive args
+
+refactor menu system — rjdbcm &lt;ozi.project@outlook.com&gt; ([`f79d467`](https://github.com/OZI-Project/OZI/commit/f79d467fe208d7421397c20459e25150c389e661))
+
 ## 1.13.6 (2024-06-22)
 
 
