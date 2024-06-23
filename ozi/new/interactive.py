@@ -87,11 +87,11 @@ style = Style.from_dict(
         'dialog': 'bg:#030711 fg:#030711',
         'dialog.body checkbox-list': '#e1e7ef',
         'dialog.body checkbox': '#e1e7ef',
-        'dialog.body checkbox-selected': '#e1e7ef',
+        'dialog.body checkbox-selected': 'bg:#192334',
         'dialog.body checkbox-checked': '#e1e7ef',
         'dialog.body radio-list': '#e1e7ef',
         'dialog.body radio': '#e1e7ef',
-        'dialog.body radio-selected': '#e1e7ef',
+        'dialog.body radio-selected': 'bg:#192334',
         'dialog.body radio-checked': '#e1e7ef',
         'button': '#e1e7ef',
         'dialog label': '#e1e7ef',
@@ -102,24 +102,26 @@ style = Style.from_dict(
 )
 
 
-def validate_message(text: str, validator: Validator) -> bool:  # pragma: no cover
+def validate_message(
+    text: str, validator: Validator
+) -> tuple[bool, str]:  # pragma: no cover
     """Validate a string.
 
     :param text: string to validate
     :type text: str
     :param validator: validator instance
     :type validator: Validator
-    :return: False if invalid
-    :rtype: bool
+    :return: validation, error message
+    :rtype: tuple[bool, str]
     """
     try:
         validator.validate(Document(text))
-    except ValidationError:
-        return False
-    return True
+    except ValidationError as e:
+        return False, e.message
+    return True, ''
 
 
-def classifier_radiolist(key: str) -> list[str] | None:  # pragma: no cover
+def classifier_checkboxlist(key: str) -> list[str] | None:  # pragma: no cover
     return checkboxlist_dialog(
         values=sorted(
             (
@@ -135,6 +137,45 @@ def classifier_radiolist(key: str) -> list[str] | None:  # pragma: no cover
         ok_text='✔ Ok',
         cancel_text='← Back',
     ).run()
+
+
+def header_input(
+    label: str,
+    output: list[str],
+    prefix: dict[str, str],
+    *args: str,
+    validator: Validator | None = None,
+    split_on: str | None = None,
+) -> tuple[bool | None | list[str], list[str], dict[str, str]]:  # pragma: no cover
+    header = input_dialog(
+        title='ozi-new interactive prompt',
+        text='\n'.join(('\n'.join(prefix.values()), '\n', *args)),
+        validator=validator,
+        style=style,
+        cancel_text='☰  Menu',
+        ok_text='✔ Ok',
+    ).run()
+    if header is None:
+        result, output, prefix = menu_loop(output, prefix)
+        return result, output, prefix
+    else:
+        if validator is not None:
+            valid, errmsg = validate_message(header, validator)
+            if valid:
+                prefix.update({label: f'{label}: {header}'})
+                if split_on:
+                    header = header.rstrip(split_on).split(split_on)  # type: ignore
+                    output += [f'--author="{i}"' for i in header]
+                else:
+                    output += [f'--{label.lower()}="{header}"']
+                return True, output, prefix
+            message_dialog(
+                title='ozi-new interactive prompt',
+                text=f'Invalid input "{header}"\n{errmsg}\nPress ENTER to continue.',
+                style=style,
+                ok_text='✔ Ok',
+            ).run()
+    return None, output, prefix
 
 
 def menu_loop(
@@ -226,7 +267,7 @@ def menu_loop(
                                 ),
                             )
                         case x if x and isinstance(x, str):
-                            classifier = classifier_radiolist(x)
+                            classifier = classifier_checkboxlist(x)
                             output += [f'--{x}="{classifier}"'] if classifier else []
                             prefix.update(
                                 (
@@ -256,196 +297,86 @@ def interactive_prompt(project: Namespace) -> list[str]:  # noqa: C901  # pragma
     prefix: dict[str, str] = {}
     output = ['project']
     while True:
-        project_name = input_dialog(
-            title='ozi-new interactive prompt',
-            text='\n'.join(
-                (
-                    '\n'.join(prefix.values()),
-                    '\n',
-                    'What is the name of the project?',
-                    '(PyPI package name: no spaces, alphanumeric words, ".-_" as delimiters)',
-                ),
-            ),
+        result, output, prefix = header_input(
+            'Name',
+            output,
+            prefix,
+            'What is the name of the project?',
+            '(PyPI package name: no spaces, alphanumeric words, ".-_" as delimiters)',
             validator=DynamicValidator(check_package_exists),
-            style=style,
-            cancel_text='☰  Menu',
-            ok_text='✔ Ok',
-        ).run()
-        if project_name is None:
-            result, output, prefix = menu_loop(output, prefix)
-            if result is not None:
-                return result
-        else:
-            if validate_message(project_name, DynamicValidator(check_package_exists)):
-                break
-            message_dialog(
-                title='ozi-new interactive prompt',
-                text=f'Invalid input "{project_name}"\nPress ENTER to continue.',
-                style=style,
-                ok_text='✔ Ok',
-            ).run()
-    prefix.update({'Name:': f'Name: {project_name if project_name else ""}'})
-    output += [f'--name="{project_name}"'] if project_name else []
+        )
+        if result is True:
+            break
+        if isinstance(result, list):
+            return result
 
     while True:
-        summary = input_dialog(
-            title='ozi-new interactive prompt',
-            text='\n'.join(
-                (
-                    '\n'.join(prefix.values()),
-                    '\n',
-                    'What does the project do?',
-                    '(a short summary 1-2 sentences)',
-                ),
-            ),
+        result, output, prefix = header_input(
+            'Summary',
+            output,
+            prefix,
+            'What does the project do?',
+            '(a short summary 1-2 sentences)',
             validator=LengthValidator(),
-            style=style,
-            cancel_text='☰  Menu',
-            ok_text='✔ Ok',
-        ).run()
-        if summary is None:
-            result, output, prefix = menu_loop(output, prefix)
-            if result is not None:
-                return result
-        else:
-            if validate_message(summary, LengthValidator()):
-                break
-            message_dialog(
-                style=style,
-                title='ozi-new interactive prompt',
-                text=f'Invalid input "{summary}"\nPress ENTER to continue.',
-                ok_text='✔ Ok',
-            ).run()
-    prefix.update({'Summary:': f'Summary: {summary if summary else ""}'})
-    output += [f'--summary="{summary if summary else ""}"']
+        )
+        if result is True:
+            break
+        if isinstance(result, list):
+            return result
 
     while True:
-        keywords = input_dialog(
-            title='ozi-new interactive prompt',
-            text='\n'.join(
-                (
-                    '\n'.join(prefix.values()),
-                    '\n',
-                    'What are some project keywords?\n(comma-separated list)',
-                ),
-            ),
-            style=style,
-            cancel_text='☰  Menu',
-        ).run()
-        if keywords is None:
-            result, output, prefix = menu_loop(output, prefix)
-            if result is not None:
-                return result
-        else:
-            keywords = keywords.rstrip(',').split(',') if keywords else None  # type: ignore
-            if validate_message(','.join(keywords) if keywords else '', LengthValidator()):
-                break
-            message_dialog(
-                style=style,
-                title='ozi-new interactive prompt',
-                text=f'Invalid input "{keywords}"\nPress ENTER to continue.',
-                ok_text='✔ Ok',
-            ).run()
-    prefix.update({'Keywords:': f'Keywords: {",".join(keywords if keywords else "")}'})
-    output += [f'--keywords={",".join(keywords if keywords else [])}']
+        result, output, prefix = header_input(
+            'Keywords',
+            output,
+            prefix,
+            'What are some project keywords?\n(comma-separated list)',
+            validator=LengthValidator(),
+        )
+        if result is True:
+            break
+        if isinstance(result, list):
+            return result
 
     while True:
-        home_page = input_dialog(
-            title='ozi-new interactive prompt',
-            text='\n'.join(
-                ('\n'.join(prefix.values()), '\n', "What is the project's home-page URL?"),
-            ),
-            style=style,
-            cancel_text='☰  Menu',
-            ok_text='✔ Ok',
-        ).run()
-        if home_page is None:
-            result, output, prefix = menu_loop(output, prefix)
-            if result is not None:
-                return result
-        else:
-            if validate_message(home_page, LengthValidator()):
-                break
-            message_dialog(
-                style=style,
-                title='ozi-new interactive prompt',
-                text=f'Invalid input "{home_page}"\nPress ENTER to continue.',
-                ok_text='✔ Ok',
-            ).run()
-    prefix.update({'Home-page:': f'Home-page: {home_page if home_page else ""}'})
-    output += [f'--home-page="{home_page}"'] if home_page else []
+        result, output, prefix = header_input(
+            'Home-page',
+            output,
+            prefix,
+            "What is the project's home-page URL?",
+            validator=LengthValidator(),
+        )
+        if result is True:
+            break
+        if isinstance(result, list):
+            return result
 
     while True:
-        author_names = input_dialog(
-            title='ozi-new interactive prompt',
-            text='\n'.join(
-                (
-                    '\n'.join(prefix.values()),
-                    '\n',
-                    'What is the author or authors name?\n(comma-separated list)',
-                ),
-            ),
-            style=style,
-            cancel_text='☰  Menu',
-            ok_text='✔ Ok',
-        ).run()
-        if author_names is None:
-            result, output, prefix = menu_loop(output, prefix)
-            if result is not None:
-                return result
-        else:
-            author_names = author_names.rstrip(',').split(',') if author_names else None  # type: ignore
-            if validate_message(
-                (','.join(author_names) if author_names else ''),
-                LengthValidator(),
-            ):
-                break
-            message_dialog(
-                title='ozi-new interactive prompt',
-                text=f'Invalid input "{author_names}"\nPress ENTER to continue.',
-                style=style,
-                ok_text='✔ Ok',
-            ).run()
-    prefix.update({'Author:': f'Author: {",".join(author_names if author_names else "")}'})
-    output += [f'--author="{a}"' for a in author_names] if author_names else []
+        result, output, prefix = header_input(
+            'Author',
+            output,
+            prefix,
+            'What is the author or authors name?\n(comma-separated list)',
+            validator=LengthValidator(),
+            split_on=',',
+        )
+        if result is True:
+            break
+        if isinstance(result, list):
+            return result
 
     while True:
-        author_emails = input_dialog(
-            title='ozi-new interactive prompt',
-            text='\n'.join(
-                (
-                    '\n'.join(prefix.values()),
-                    '\n',
-                    'What are the email addresses of the author or authors?\n(comma-separated list)',
-                ),
-            ),
-            style=style,
-            cancel_text='☰  Menu',
-            ok_text='✔ Ok',
-        ).run()
-        if author_emails is None:
-            result, output, prefix = menu_loop(output, prefix)
-            if result is not None:
-                return result
-        else:
-            author_emails = author_emails.rstrip(',').split(',') if author_emails else None  # type: ignore
-            if validate_message(
-                ','.join(author_emails) if author_emails else '',
-                LengthValidator(),
-            ):
-                break
-            message_dialog(
-                style=style,
-                title='ozi-new interactive prompt',
-                text=f'Invalid input "{author_emails}"\nPress ENTER to continue.',
-                ok_text='✔ Ok',
-            ).run()
-    prefix.update(
-        {
-            'Author-email:': f'Author-email: {",".join(author_emails if author_emails else "")}',
-        },
-    )
-    output += [f'--author-email="{e}"' for e in author_emails] if author_emails else []
+        result, output, prefix = header_input(
+            'Author-email',
+            output,
+            prefix,
+            'What are the email addresses of the author or authors?\n(comma-separated list)',
+            validator=LengthValidator(),
+            split_on=',',
+        )
+        if result is True:
+            break
+        if isinstance(result, list):
+            return result
 
     while True:
         license_ = radiolist_dialog(
@@ -465,7 +396,7 @@ def interactive_prompt(project: Namespace) -> list[str]:  # noqa: C901  # pragma
             if result is not None:
                 return result
         else:
-            if validate_message(license_ if license_ else '', LengthValidator()):
+            if validate_message(license_ if license_ else '', LengthValidator())[0]:
                 break
             message_dialog(
                 style=style,
@@ -530,7 +461,7 @@ def interactive_prompt(project: Namespace) -> list[str]:  # noqa: C901  # pragma
                     cancel_text='Skip',
                     ok_text='✔ Ok',
                 ).run()
-                if validate_message(license_id if license_id else '', LengthValidator()):
+                if validate_message(license_id if license_id else '', LengthValidator())[0]:
                     break
                 else:
                     message_dialog(
@@ -540,7 +471,6 @@ def interactive_prompt(project: Namespace) -> list[str]:  # noqa: C901  # pragma
                         ok_text='✔ Ok',
                     ).run()
         break
-
     output += (
         [f'--license-expression="{license_expression}"']
         if license_expression  # pyright: ignore
@@ -564,90 +494,31 @@ def interactive_prompt(project: Namespace) -> list[str]:  # noqa: C901  # pragma
         style=style,
     ).run():
         while True:
-            maintainer_names = input_dialog(
-                title='ozi-new interactive prompt',
-                text='\n'.join(
-                    (
-                        '\n'.join(prefix.values()),
-                        '\n',
-                        'What is the maintainer or maintainers name?\n(comma-separated list)',
-                    ),
-                ),
-                style=style,
-                cancel_text='☰  Menu',
-                ok_text='✔ Ok',
-            ).run()
-            if maintainer_names is None:
-                result, output, prefix = menu_loop(output, prefix)
-                if result is not None:
-                    return result
-            else:
-                maintainer_names = (
-                    maintainer_names.rstrip(',').split(',') if maintainer_names else None  # type: ignore
-                )
-                if validate_message(
-                    ','.join(maintainer_names) if maintainer_names else '',
-                    LengthValidator(),
-                ):
-                    break
-                message_dialog(
-                    style=style,
-                    title='ozi-new interactive prompt',
-                    text=f'Invalid input "{maintainer_names}"\nPress ENTER to continue.',
-                    ok_text='✔ Ok',
-                ).run()
-        prefix.update(
-            {
-                'Maintainer:': f'Maintainer: {",".join(maintainer_names if maintainer_names else [])}',  # noqa: B950, RUF100, E501
-            },
-        )
-        output += (
-            [f'--maintainer="{a}"' for a in maintainer_names] if maintainer_names else []
-        )
-
+            result, output, prefix = header_input(
+                'Maintainer',
+                output,
+                prefix,
+                'What is the maintainer or maintainers name?\n(comma-separated list)',
+                validator=LengthValidator(),
+                split_on=',',
+            )
+            if result is True:
+                break
+            if isinstance(result, list):
+                return result
         while True:
-            maintainer_emails = input_dialog(
-                title='ozi-new interactive prompt',
-                text='\n'.join(
-                    (
-                        '\n'.join(prefix.values()),
-                        '\n',
-                        'What are the email addresses of the maintainer or maintainers?\n(comma-separated list)',  # noqa: B950, RUF100, E501
-                    ),
-                ),
-                style=style,
-                cancel_text='☰  Menu',
-                ok_text='✔ Ok',
-            ).run()
-            if maintainer_emails is None:
-                result, output, prefix = menu_loop(output, prefix)
-                if result is not None:
-                    return result
-            else:
-                maintainer_emails = (
-                    maintainer_emails.rstrip(',').split(',') if maintainer_emails else None  # type: ignore
-                )
-                if validate_message(
-                    ','.join(maintainer_emails) if maintainer_emails else '',
-                    LengthValidator(),
-                ):
-                    break
-                message_dialog(
-                    style=style,
-                    title='ozi-new interactive prompt',
-                    text=f'Invalid input "{maintainer_emails}"\nPress ENTER to continue.',
-                    ok_text='✔ Ok',
-                ).run()
-        prefix.update(
-            {
-                'Maintainer-email:': f'Maintainer-email: {",".join(maintainer_emails if maintainer_emails else [])}\n',  # noqa: B950, RUF100, E501
-            },
-        )
-        output += (
-            [f'--maintainer-email="{e}"' for e in maintainer_emails]
-            if maintainer_emails
-            else []
-        )
+            result, output, prefix = header_input(
+                'Maintainer-email',
+                output,
+                prefix,
+                'What are the email addresses of the maintainer or maintainers?\n(comma-separated list)',  # noqa: B950, RUF100, E501
+                validator=LengthValidator(),
+                split_on=',',
+            )
+            if result is True:
+                break
+            if isinstance(result, list):
+                return result
 
     requires_dist = []
     while button_dialog(
