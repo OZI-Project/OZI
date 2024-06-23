@@ -146,7 +146,7 @@ def main(args: list[str] | None = None) -> None:  # pragma: no cover
     ozi_new.argv = args if args else shlex.join(sys.argv[1:])
     match ozi_new:
         case ozi_new if ozi_new.new in ['i', 'interactive']:
-            args = interactive_prompt()
+            args = interactive_prompt(ozi_new)
             ozi_new = parser.parse_args(args=args)
             main(args)
         case ozi_new if ozi_new.new in ['p', 'project']:
