@@ -103,7 +103,8 @@ style = Style.from_dict(
 
 
 def validate_message(
-    text: str, validator: Validator
+    text: str,
+    validator: Validator,
 ) -> tuple[bool, str]:  # pragma: no cover
     """Validate a string.
 
