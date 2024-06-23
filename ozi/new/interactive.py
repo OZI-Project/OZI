@@ -84,13 +84,20 @@ class PackageValidator(Validator):
 
 style = Style.from_dict(
     {
-        'button': '#e1e7ef',
         'dialog': 'bg:#030711 fg:#030711',
+        'dialog.body checkbox-list': '#e1e7ef',
+        'dialog.body checkbox': '#e1e7ef',
+        'dialog.body checkbox-selected': '#e1e7ef',
+        'dialog.body checkbox-checked': '#e1e7ef',
+        'dialog.body radio-list': '#e1e7ef',
+        'dialog.body radio': '#e1e7ef',
+        'dialog.body radio-selected': '#e1e7ef',
+        'dialog.body radio-checked': '#e1e7ef',
+        'button': '#e1e7ef',
         'dialog label': '#e1e7ef',
         'frame.border': '#192334',
         'dialog.body': 'bg:#030711',
         'dialog shadow': 'bg:#192334',
-        'dialog text-area': '#030711',
     },
 )
 
@@ -125,6 +132,8 @@ def classifier_radiolist(key: str) -> list[str] | None:  # pragma: no cover
         title='ozi-new interactive prompt',
         text=f'Please select {key} classifier or classifiers:',
         style=style,
+        ok_text='✔ Ok',
+        cancel_text='← Back',
     ).run()
 
 
@@ -139,19 +148,29 @@ def menu_loop(
                 ('\n'.join(prefix.values()), '\n', 'Main menu, select an action:'),
             ),
             buttons=[
-                ('← Back', True),
                 ('⚙ Options', 0),
                 ('↺ Reset', False),
                 ('✘ Exit', None),
+                ('← Back', True),
             ],
             style=style,
         ).run():
             case True:
                 break
             case False:
-                return ['interactive', '.'], output, prefix
+                if yes_no_dialog(
+                    title='ozi-new interactive prompt',
+                    text='Reset prompt and start over?',
+                    style=style,
+                ).run():
+                    return ['interactive', '.'], output, prefix
             case None:
-                return [], output, prefix
+                if yes_no_dialog(
+                    title='ozi-new interactive prompt',
+                    text='Exit the prompt?',
+                    style=style,
+                ).run():
+                    return [], output, prefix
             case 0:
                 while True:
                     match button_dialog(
@@ -164,12 +183,12 @@ def menu_loop(
                             ),
                         ),
                         buttons=[
-                            ('← Back', True),
-                            ('README', 0),
                             ('Audience', 'audience'),
                             ('Environ.', 'environment'),
                             ('Framework', 'framework'),
                             ('Language', 'language'),
+                            ('README', 0),
+                            ('← Back', True),
                         ],
                         style=style,
                     ).run():
@@ -191,22 +210,32 @@ def menu_loop(
                                     ),
                                 ),
                                 style=style,
+                                ok_text='✔ Ok',
+                                cancel_text='← Back',
                             ).run()
                             output += (
                                 [f'--readme-type="{readme_type}"'] if readme_type else []
                             )
                             prefix.update(
-                                {
-                                    'Description-Content-Type:': f'Description-Content-Type: {readme_type if readme_type else ""}',  # noqa: B950, RUF100, E501
-                                },
+                                (
+                                    {
+                                        'Description-Content-Type:': f'Description-Content-Type: {readme_type}',  # noqa: B950, RUF100, E501
+                                    }
+                                    if readme_type
+                                    else {}
+                                ),
                             )
                         case x if x and isinstance(x, str):
                             classifier = classifier_radiolist(x)
                             output += [f'--{x}="{classifier}"'] if classifier else []
                             prefix.update(
-                                {
-                                    f'{getattr(Prefix(), x)}': f'{getattr(Prefix(), x)}{classifier if classifier else ""}',  # noqa: B950, RUF100, E501
-                                },
+                                (
+                                    {
+                                        f'{getattr(Prefix(), x)}': f'{getattr(Prefix(), x)}{classifier}',  # noqa: B950, RUF100, E501
+                                    }
+                                    if classifier
+                                    else {}
+                                ),
                             )
     return None, output, prefix
 
