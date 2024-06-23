@@ -41,6 +41,13 @@ interactive_parser.add_argument(
     default='.',
     help='directory path for new project (default: current working directory)',
 )
+interactive_defaults = interactive_parser.add_argument_group('defaults')
+interactive_defaults.add_argument(
+    '-c',
+    '--check-package-exists',
+    default=True,
+    action=argparse.BooleanOptionalAction,
+)
 required = project_parser.add_argument_group('PKG-INFO required')
 optional = project_parser.add_argument_group('PKG-INFO optional')
 defaults = project_parser.add_argument_group('PKG-INFO defaults')
