@@ -1,4 +1,11 @@
 # CHANGELOG
+## 1.13.8 (2024-06-23)
+
+
+### :bug: Fixed Bugs
+
+* :children_crossing:(ozi-new interactive) fix styling of checkbox and radio — rjdbcm &lt;ozi.project@outlook.com&gt; ([`5a2c657`](https://github.com/OZI-Project/OZI/commit/5a2c65744bb82d2ef0a47f49600d5dd1bb52ba14))
+
 ## 1.13.7 (2024-06-23)
 
 
