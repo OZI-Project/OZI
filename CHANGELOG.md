@@ -1,4 +1,19 @@
 # CHANGELOG
+## 1.13.9 (2024-06-23)
+
+
+### :hammer: Updated Scripts
+
+*  interactive mode refactor
+
+Merge pull request #758 from OZI-Project/release/1.13 ([`8e59d45`](https://github.com/OZI-Project/OZI/commit/8e59d457bdfdc9e7bdc1434f4885b7225fcefc6b))
+
+
+### Other
+
+
+* :memo: Update README — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`3ad41ee`](https://github.com/OZI-Project/OZI/commit/3ad41ee48630e301043b62c9ae683719d0ad3669))
+
 ## 1.13.8 (2024-06-23)
 
 
