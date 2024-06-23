@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.13.10 (2024-06-23)
+
+
+### Other
+
+
+* :rotating_light: run black — rjdbcm &lt;ozi.project@outlook.com&gt; ([`00d017f`](https://github.com/OZI-Project/OZI/commit/00d017fa010a03c1bdead6e2e64bc27dbffd525c))
+
 ## 1.13.9 (2024-06-23)
 
 
@@ -7,6 +15,8 @@
 *  interactive mode refactor
 
 Merge pull request #758 from OZI-Project/release/1.13 ([`8e59d45`](https://github.com/OZI-Project/OZI/commit/8e59d457bdfdc9e7bdc1434f4885b7225fcefc6b))
+
+* (ozi-new interactive): refactor — rjdbcm &lt;ozi.project@outlook.com&gt; ([`d41a8b6`](https://github.com/OZI-Project/OZI/commit/d41a8b6598ca57b0633455cffa909b58186ddf0c))
 
 
 ### Other
