@@ -13,7 +13,58 @@ parser = ArgumentParser(
     prog='ozi-fix',
     description=sys.modules[__name__].__doc__,
     add_help=False,
-    usage='%(prog)s [options] | [positional arguments]',
+    usage="""%(prog)s [options] | [positional arguments]
+
+The information provided on this application does not, and is not intended to,
+constitute legal advice. All information, content, and materials available
+on this application are for general informational purposes only.
+Information on this application may not constitute the most up-to-date legal
+or other information.
+
+THE LICENSE TEMPLATES, LICENSE IDENTIFIERS, LICENSE CLASSIFIERS, AND
+LICENSE EXPRESSION PARSING SERVICES, AND ALL OTHER CONTENTS ARE PROVIDED
+"AS IS", NO REPRESENTATIONS ARE MADE THAT THE CONTENT IS ERROR-FREE
+AND/OR APPLICABLE FOR ANY PURPOSE, INCLUDING MERCHANTABILITY.
+
+Readers of this disclaimer should contact their attorney to obtain advice
+with respect to any particular legal matter. The OZI Project is not a
+law firm and does not provide legal advice. No reader or user of this
+application should act or abstain from acting on the basis of information
+on this application without first seeking legal advice from counsel in the
+relevant jurisdiction. Legal counsel can ensure that the information
+provided in this application is applicable to your particular situation.
+Use of, or reading, this application or any of resources contained within
+does not create an attorney-client relationship.
+""",
+)
+parser.add_argument('target', default='.', type=str, nargs='?', help=argparse.SUPPRESS)
+parser.add_argument(
+    '--add',
+    metavar='FILENAME',
+    nargs='?',
+    action='append',
+    default=['ozi.phony'],
+    help=SUPPRESS,
+)
+parser.add_argument(
+    '--remove',
+    metavar='FILENAME',
+    nargs='?',
+    action='append',
+    default=['ozi.phony'],
+    help=SUPPRESS,
+)
+parser.add_argument(
+    '--strict',
+    default=False,
+    action=BooleanOptionalAction,
+    help=SUPPRESS,
+)
+parser.add_argument(
+    '--pretty',
+    default=False,
+    action=BooleanOptionalAction,
+    help=SUPPRESS,
 )
 subparser = parser.add_subparsers(help='', metavar='', dest='fix')
 

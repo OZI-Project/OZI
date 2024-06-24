@@ -16,7 +16,28 @@ parser = argparse.ArgumentParser(
     prog='ozi-new',
     description=sys.modules[__name__].__doc__,
     add_help=False,
-    usage='%(prog)s [options] | [positional args]',  # noqa: B950,E501,RUF100
+    usage="""%(prog)s [options] | [positional args]
+
+The information provided on this application does not, and is not intended to,
+constitute legal advice. All information, content, and materials available
+on this application are for general informational purposes only.
+Information on this application may not constitute the most up-to-date legal
+or other information.
+
+THE LICENSE TEMPLATES, LICENSE IDENTIFIERS, LICENSE CLASSIFIERS, AND
+LICENSE EXPRESSION PARSING SERVICES, AND ALL OTHER CONTENTS ARE PROVIDED
+"AS IS", NO REPRESENTATIONS ARE MADE THAT THE CONTENT IS ERROR-FREE
+AND/OR APPLICABLE FOR ANY PURPOSE, INCLUDING MERCHANTABILITY.
+
+Readers of this disclaimer should contact their attorney to obtain advice
+with respect to any particular legal matter. The OZI Project is not a
+law firm and does not provide legal advice. No reader or user of this
+application should act or abstain from acting on the basis of information
+on this application without first seeking legal advice from counsel in the
+relevant jurisdiction. Legal counsel can ensure that the information
+provided in this application is applicable to your particular situation.
+Use of, or reading, this application or any of resources contained within
+does not create an attorney-client relationship.""",
 )
 subparser = parser.add_subparsers(help='', metavar='', dest='new')
 interactive_parser = subparser.add_parser(
