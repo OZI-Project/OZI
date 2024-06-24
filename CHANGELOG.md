@@ -1,4 +1,17 @@
 # CHANGELOG
+## 1.13.12 (2024-06-24)
+
+
+### :hammer: Updated Scripts
+
+*  Admonition dialog class for displaying scrolling text — rjdbcm &lt;ozi.project@outlook.com&gt; ([`02dff10`](https://github.com/OZI-Project/OZI/commit/02dff10c3f87b3c279bc242469d82d0958a9be21))
+
+
+### Other
+
+
+* :rotating_light: run lint — rjdbcm &lt;ozi.project@outlook.com&gt; ([`771d1bd`](https://github.com/OZI-Project/OZI/commit/771d1bdeb8b4b682eafa11e3a5d6ff9da6dda2be))
+
 ## 1.13.11 (2024-06-24)
 
 
