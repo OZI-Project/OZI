@@ -1,4 +1,11 @@
 # CHANGELOG
+## 1.13.13 (2024-06-24)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-new interactive): fix disclaimer text styling — rjdbcm &lt;ozi.project@outlook.com&gt; ([`3d8864a`](https://github.com/OZI-Project/OZI/commit/3d8864a182ae049c3a53cc2cc2bc695c128e11c6))
+
 ## 1.13.12 (2024-06-24)
 
 
