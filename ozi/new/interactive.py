@@ -18,13 +18,19 @@ import requests
 from prompt_toolkit import Application
 from prompt_toolkit.application.current import get_app
 from prompt_toolkit.document import Document
+from prompt_toolkit.filters import Condition
 from prompt_toolkit.key_binding import KeyBindings
 from prompt_toolkit.key_binding import merge_key_bindings
 from prompt_toolkit.key_binding.bindings.focus import focus_next
 from prompt_toolkit.key_binding.bindings.focus import focus_previous
 from prompt_toolkit.key_binding.defaults import load_key_bindings
+from prompt_toolkit.key_binding.key_processor import KeyPressEvent
+from prompt_toolkit.layout import ConditionalMargin
 from prompt_toolkit.layout import HSplit
 from prompt_toolkit.layout import Layout
+from prompt_toolkit.layout import ScrollbarMargin
+from prompt_toolkit.layout import Window
+from prompt_toolkit.layout.controls import FormattedTextControl
 from prompt_toolkit.shortcuts import button_dialog
 from prompt_toolkit.shortcuts import checkboxlist_dialog
 from prompt_toolkit.shortcuts import input_dialog
@@ -137,6 +143,56 @@ class Admonition(RadioList[_T]):
         default: _T | None = None,
     ) -> None:
         super().__init__(values, default)  # pragma: no cover
+        # Key bindings.
+        kb = KeyBindings()
+
+        @kb.add('pageup')
+        def _pageup(event: KeyPressEvent) -> None:
+            w = event.app.layout.current_window
+            if w.render_info:
+                self._selected_index = max(
+                    0, self._selected_index - len(w.render_info.displayed_lines),
+                )
+
+        @kb.add('pagedown')
+        def _pagedown(event: KeyPressEvent) -> None:
+            w = event.app.layout.current_window
+            if w.render_info:
+                self._selected_index = min(
+                    len(self.values) - 1,
+                    self._selected_index + len(w.render_info.displayed_lines),
+                )
+
+        @kb.add('up')
+        def _up(event: KeyPressEvent) -> None:
+            _pageup(event)
+
+        @kb.add('down')
+        def _down(event: KeyPressEvent) -> None:
+            _pagedown(event)
+
+        @kb.add('enter')
+        @kb.add(' ')
+        def _click(event: KeyPressEvent) -> None:
+            self._handle_enter()
+
+        self.control = FormattedTextControl(
+            self._get_text_fragments,
+            key_bindings=kb,
+            focusable=True,
+        )
+
+        self.window = Window(
+            content=self.control,
+            style=self.container_style,
+            right_margins=[
+                ConditionalMargin(
+                    margin=ScrollbarMargin(display_arrows=True),
+                    filter=Condition(lambda: self.show_scrollbar),
+                ),
+            ],
+            dont_extend_height=True,
+        )
 
     def _handle_enter(self) -> None:  # noqa: ANN101
         pass  # pragma: no cover
