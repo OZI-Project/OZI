@@ -24,7 +24,6 @@ from prompt_toolkit.key_binding import merge_key_bindings
 from prompt_toolkit.key_binding.bindings.focus import focus_next
 from prompt_toolkit.key_binding.bindings.focus import focus_previous
 from prompt_toolkit.key_binding.defaults import load_key_bindings
-from prompt_toolkit.key_binding.key_processor import KeyPressEvent
 from prompt_toolkit.layout import ConditionalMargin
 from prompt_toolkit.layout import HSplit
 from prompt_toolkit.layout import Layout
@@ -54,6 +53,8 @@ from ozi.trove import from_prefix
 
 if TYPE_CHECKING:
     from argparse import Namespace
+
+    from prompt_toolkit.key_binding.key_processor import KeyPressEvent
 
 
 @lru_cache
@@ -137,12 +138,12 @@ class Admonition(RadioList[_T]):
     checked_style = 'class:admonition-checked'
     multiple_selection = False
 
-    def __init__(
+    def __init__(  # noqa: C901
         self,  # noqa: ANN101
         values: Sequence[tuple[_T, Any]],
         default: _T | None = None,
-    ) -> None:
-        super().__init__(values, default)  # pragma: no cover
+    ) -> None:  # pragma: no cover
+        super().__init__(values, default)
         # Key bindings.
         kb = KeyBindings()
 
@@ -151,7 +152,8 @@ class Admonition(RadioList[_T]):
             w = event.app.layout.current_window
             if w.render_info:
                 self._selected_index = max(
-                    0, self._selected_index - len(w.render_info.displayed_lines),
+                    0,
+                    self._selected_index - len(w.render_info.displayed_lines),
                 )
 
         @kb.add('pagedown')
@@ -201,6 +203,7 @@ class Admonition(RadioList[_T]):
 def admonition_dialog(
     title: str = '',
     text: str = '',
+    heading_label: str = '',
     ok_text: str = '✔ Ok',
     cancel_text: str = '✘ Exit',
     style: BaseStyle | None = None,
@@ -231,11 +234,11 @@ def admonition_dialog(
     lines = text.splitlines()
 
     cb_list = Admonition(values=list(zip(lines, lines)), default=None)
-
+    longest_line = len(max(lines, key=len))
     dialog = Dialog(
         title=title,
         body=HSplit(
-            [Label(text='Disclaimer', dont_extend_height=True), cb_list],
+            [Label(text=heading_label, dont_extend_height=True), cb_list],
             padding=1,
         ),
         buttons=[
@@ -243,7 +246,7 @@ def admonition_dialog(
             Button(text=cancel_text, handler=_return_none),
         ],
         with_background=True,
-        width=len(max(lines, key=len)) + 8,
+        width=longest_line + 8 if longest_line > 40 else 80,
     )
     bindings = KeyBindings()
     bindings.add('tab')(focus_next)
@@ -306,7 +309,7 @@ def header_input(
 ) -> tuple[bool | None | list[str], list[str], dict[str, str]]:  # pragma: no cover
     header = input_dialog(
         title='ozi-new interactive prompt',
-        text='\n'.join(('\n'.join(prefix.values()), '\n', *args)),
+        text='\n'.join(args),
         validator=validator,
         style=_style,
         cancel_text='☰  Menu',
@@ -342,10 +345,9 @@ def menu_loop(
     while True:
         match button_dialog(
             title='ozi-new interactive prompt',
-            text='\n'.join(
-                ('\n'.join(prefix.values()), '\n', 'Main menu, select an action:'),
-            ),
+            text='Main menu, select an action:',
             buttons=[
+                ('∋ Metadata', 1),
                 ('⚙ Options', 0),
                 ('↺ Reset', False),
                 ('✘ Exit', None),
@@ -373,13 +375,7 @@ def menu_loop(
                 while True:
                     match button_dialog(
                         title='ozi-new interactive prompt',
-                        text='\n'.join(
-                            (
-                                '\n'.join(prefix.values()),
-                                '\n',
-                                'Options menu, select an option:',
-                            ),
-                        ),
+                        text='Options menu, select an option:',
                         buttons=[
                             ('Audience', 'audience'),
                             ('Environ.', 'environment'),
@@ -400,13 +396,7 @@ def menu_loop(
                                     ('txt', 'Plaintext'),
                                 ),
                                 title='ozi-new interactive prompt',
-                                text='\n'.join(
-                                    (
-                                        '\n'.join(prefix.values()),
-                                        '\n',
-                                        'Please select README type:',
-                                    ),
-                                ),
+                                text='Please select README type:',
                                 style=_style,
                                 ok_text='✔ Ok',
                                 cancel_text='← Back',
@@ -435,6 +425,17 @@ def menu_loop(
                                     else {}
                                 ),
                             )
+            case 1:
+                if admonition_dialog(
+                    title='ozi-new interactive prompt',
+                    heading_label='PKG-INFO Metadata:',
+                    text='\n'.join(
+                        prefix.values() if len(prefix) > 0 else {'Name:': 'Name:'},
+                    ),
+                    ok_text='⌂ Prompt',
+                    cancel_text='← Back',
+                ).run():
+                    break
     return None, output, prefix
 
 
@@ -454,6 +455,7 @@ def interactive_prompt(project: Namespace) -> list[str]:  # noqa: C901  # pragma
     if (
         admonition_dialog(
             title='ozi-new interactive prompt',
+            heading_label='Disclaimer',
             text="""
 The information provided on this prompt does not, and is not intended
 to, constitute legal advice. All information, content, and materials
@@ -483,6 +485,7 @@ within does not create an attorney-client relationship.
 
     prefix: dict[str, str] = {}
     output = ['project']
+    project_name = ''
     while True:
         result, output, prefix = header_input(
             'Name',
@@ -493,6 +496,7 @@ within does not create an attorney-client relationship.
             validator=DynamicValidator(check_package_exists),
         )
         if result is True:
+            project_name = prefix.get('Name', '').replace('Name', '').strip(': ')
             break
         if isinstance(result, list):
             return result
@@ -502,7 +506,7 @@ within does not create an attorney-client relationship.
             'Summary',
             output,
             prefix,
-            'What does the project do?',
+            f'What does the project, {project_name}, do?',
             '(a short summary 1-2 sentences)',
             validator=LengthValidator(),
         )
@@ -516,7 +520,7 @@ within does not create an attorney-client relationship.
             'Keywords',
             output,
             prefix,
-            'What are some project keywords?\n(comma-separated list)',
+            f'What are some keywords used to describe {project_name}?\n(comma-separated list)',
             validator=LengthValidator(),
         )
         if result is True:
@@ -529,7 +533,7 @@ within does not create an attorney-client relationship.
             'Home-page',
             output,
             prefix,
-            "What is the project's home-page URL?",
+            f'What is the home-page URL for {project_name}?',
             validator=LengthValidator(),
         )
         if result is True:
@@ -542,7 +546,7 @@ within does not create an attorney-client relationship.
             'Author',
             output,
             prefix,
-            'What is the author or authors name?\n(comma-separated list)',
+            f'Who is the author or authors of {project_name}?\n(comma-separated list)',
             validator=LengthValidator(),
             split_on=',',
         )
@@ -556,7 +560,7 @@ within does not create an attorney-client relationship.
             'Author-email',
             output,
             prefix,
-            'What are the email addresses of the author or authors?\n(comma-separated list)',
+            f'What are the email addresses of the author or authors of {project_name}?\n(comma-separated list)',  # noqa: B950, RUF100, E501
             validator=LengthValidator(),
             split_on=',',
         )
@@ -571,9 +575,7 @@ within does not create an attorney-client relationship.
                 (zip(from_prefix(Prefix().license), from_prefix(Prefix().license))),
             ),
             title='ozi-new interactive prompt',
-            text='\n'.join(
-                ('\n'.join(prefix.values()), '\n', 'Please select a license classifier:'),
-            ),
+            text=f'Please select a license classifier for {project_name}:',
             style=_style,
             cancel_text='☰  Menu',
             ok_text='✔ Ok',
@@ -604,9 +606,7 @@ within does not create an attorney-client relationship.
         if len(possible_spdx) < 1:
             license_expression = input_dialog(
                 title='ozi-new interactive prompt',
-                text='\n'.join(
-                    ('\n'.join(prefix.values()), '\n', 'Edit SPDX license expression:'),
-                ),
+                text=f'Edit SPDX license expression for {project_name}:',
                 default='',
                 style=_style,
                 cancel_text='Skip',
@@ -614,9 +614,7 @@ within does not create an attorney-client relationship.
         elif len(possible_spdx) == 1:
             license_expression = input_dialog(
                 title='ozi-new interactive prompt',
-                text='\n'.join(
-                    ('\n'.join(prefix.values()), '\n', 'Edit SPDX license expression:'),
-                ),
+                text=f'Edit SPDX license expression for {project_name}:',
                 default=possible_spdx[0],
                 style=_style,
                 cancel_text='Skip',
@@ -626,9 +624,7 @@ within does not create an attorney-client relationship.
             license_id = radiolist_dialog(
                 values=sorted(zip(possible_spdx, possible_spdx)),
                 title='ozi-new interactive prompt',
-                text='\n'.join(
-                    ('\n'.join(prefix.values()), '\n', 'Please select a SPDX license-id:'),
-                ),
+                text=f'Please select a SPDX license-id for {project_name}:',
                 style=_style,
                 cancel_text='☰  Menu',
                 ok_text='✔ Ok',
@@ -640,9 +636,7 @@ within does not create an attorney-client relationship.
             else:
                 license_expression = input_dialog(
                     title='ozi-new interactive prompt',
-                    text='\n'.join(
-                        ('\n'.join(prefix.values()), '\n', 'Edit SPDX license expression:'),
-                    ),
+                    text=f'Edit SPDX license expression for {project_name}:',
                     default=license_id if license_id is not None else '',
                     style=_style,
                     cancel_text='Skip',
@@ -671,13 +665,7 @@ within does not create an attorney-client relationship.
 
     if yes_no_dialog(
         title='ozi-new interactive prompt',
-        text='\n'.join(
-            (
-                '\n'.join(prefix.values()),
-                '\n',
-                'Are there any maintainers of this project?\n(other than the author or authors)',
-            ),
-        ),
+        text=f'Are there any maintainers of {project_name}?\n(other than the author or authors)',
         style=_style,
     ).run():
         while True:
@@ -685,7 +673,7 @@ within does not create an attorney-client relationship.
                 'Maintainer',
                 output,
                 prefix,
-                'What is the maintainer or maintainers name?\n(comma-separated list)',
+                f'What is the maintainer or maintainers name of {project_name}?\n(comma-separated list)',  # noqa: B950, RUF100, E501
                 validator=LengthValidator(),
                 split_on=',',
             )
@@ -698,7 +686,7 @@ within does not create an attorney-client relationship.
                 'Maintainer-email',
                 output,
                 prefix,
-                'What are the email addresses of the maintainer or maintainers?\n(comma-separated list)',  # noqa: B950, RUF100, E501
+                f'What are the email addresses of the maintainer or maintainers of {project_name}?\n(comma-separated list)',  # noqa: B950, RUF100, E501
                 validator=LengthValidator(),
                 split_on=',',
             )
@@ -707,14 +695,14 @@ within does not create an attorney-client relationship.
             if isinstance(result, list):
                 return result
 
-    requires_dist = []
+    requires_dist: list[str] = []
     while button_dialog(
         title='ozi-new interactive prompt',
         text='\n'.join(
             (
-                '\n'.join(prefix.values()),
+                '\n'.join(requires_dist),
                 '\n',
-                'Do you want to add a dependency requirement?',
+                f'Do you want to add a dependency requirement to {project_name}?',
             ),
         ),
         buttons=[
@@ -725,7 +713,7 @@ within does not create an attorney-client relationship.
     ).run():
         requirement = input_dialog(
             title='ozi-new interactive prompt',
-            text='\n'.join(('\n'.join(prefix.values()), '\n', 'Search PyPI packages:')),
+            text='Search PyPI packages:',
             validator=PackageValidator(),
             style=_style,
             cancel_text='← Back',
