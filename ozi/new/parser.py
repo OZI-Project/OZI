@@ -46,6 +46,7 @@ interactive_parser = subparser.add_parser(
     description='Create a new Python project with OZI.',
     help='',
     prog='ozi-new interactive',
+    usage='%(prog)s [options] | [positional arguments]',
 )
 project_parser = subparser.add_parser(
     'project',
