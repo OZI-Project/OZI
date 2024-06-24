@@ -1,4 +1,17 @@
 # CHANGELOG
+## 1.13.11 (2024-06-24)
+
+
+### :bug: Fixed Bugs
+
+* :page_facing_up:: updated disclaimer for CLI apps — rjdbcm &lt;ozi.project@outlook.com&gt; ([`5760da1`](https://github.com/OZI-Project/OZI/commit/5760da183f66de34a3d7c949bc1f01d98d2e7520))
+
+
+### Other
+
+
+* :page_facing_up: add disclaimer to prompt session start — rjdbcm &lt;ozi.project@outlook.com&gt; ([`74a34b2`](https://github.com/OZI-Project/OZI/commit/74a34b214df1cf09b054492f57c6a65b593e123f))
+
 ## 1.13.10 (2024-06-23)
 
 
