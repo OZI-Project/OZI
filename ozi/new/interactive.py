@@ -162,8 +162,8 @@ def admonition_dialog(
         style_dict.update(
             {
                 'dialog.body admonition-list': '#e1e7ef',
-                'dialog.body admonition': '#030711',
-                'dialog.body admonition-selected': 'bg:#030711 fg:#030711',
+                'dialog.body admonition': '#e1e7ef',
+                'dialog.body admonition-selected': '#030711',
                 'dialog.body admonition-checked': '#030711',
             },
         )
