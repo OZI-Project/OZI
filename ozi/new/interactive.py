@@ -120,7 +120,9 @@ _style = Style.from_dict(_style_dict)
 _T = TypeVar('_T')
 
 
-class Admonition(RadioList):
+class Admonition(RadioList[_T]):
+    """Simple scrolling text dialog."""
+
     open_character = ''
     close_character = ''
     container_style = 'class:admonition-list'
@@ -130,14 +132,14 @@ class Admonition(RadioList):
     multiple_selection = False
 
     def __init__(
-        self,
+        self,  # noqa: ANN101
         values: Sequence[tuple[_T, Any]],
         default: _T | None = None,
     ) -> None:
-        super().__init__(values, default)
+        super().__init__(values, default)  # pragma: no cover
 
-    def _handle_enter(self) -> None:
-        pass
+    def _handle_enter(self) -> None:  # noqa: ANN101
+        pass  # pragma: no cover
 
 
 def admonition_dialog(
@@ -146,11 +148,8 @@ def admonition_dialog(
     ok_text: str = '✔ Ok',
     cancel_text: str = '✘ Exit',
     style: BaseStyle | None = None,
-) -> Application[list[_T]]:
-    """
-    Display a simple list of element the user can choose multiple values amongst.
-
-    Several elements can be selected at a time using Arrow keys and Enter.
+) -> Application[list[Any]]:  # pragma: no cover
+    """Admonition dialog shortcut.
     The focus can be moved between the list and the Ok/Cancel button with tab.
     """
 
