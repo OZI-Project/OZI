@@ -53,7 +53,10 @@ def main() -> NoReturn:  # pragma: no cover
                 rewriter = Rewriter(str(project.target), project.name, project.fix, env)
                 rewriter += project.add
                 rewriter -= project.remove
-            print(json.dumps(rewriter.commands, indent=4 if project.pretty else None))
+            if len(project.add) > 0 or len(project.remove) > 0:
+                print(json.dumps(rewriter.commands, indent=4 if project.pretty else None))
+            else:
+                parser.print_help()
         case [True, True]:
             with TAP.strict():
                 name, *_ = report(project.target)
