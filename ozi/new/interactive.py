@@ -297,19 +297,25 @@ def interactive_prompt(project: Namespace) -> list[str]:  # noqa: C901  # pragma
 
     message_dialog(
         title='ozi-new interactive prompt',
-        text="""The information provided on this prompt does not, and is not intended to, constitute legal advice.
-All information, content, and materials available on this prompt are for general informational purposes only.
-Information on this prompt may not constitute the most up-to-date legal or other information.
+        text="""
+The information provided on this prompt does not, and is not intended to,
+constitute legal advice. All information, content, and materials available
+on this prompt are for general informational purposes only. Information on this
+prompt may not constitute the most up-to-date legal or other information.
 
-THE LICENSE TEMPLATES, LICENSE IDENTIFIERS, LICENSE CLASSIFIERS, AND LICENSE EXPRESSION PARSING SERVICES,
-AND ALL OTHER CONTENTS ARE PROVIDED "AS IS", NO REPRESENTATIONS ARE MADE THAT THE CONTENT IS ERROR-FREE
-AND/OR APPLICABLE FOR ANY PURPOSE, INCLUDING MERCHANTABILITY.
+THE LICENSE TEMPLATES, LICENSE IDENTIFIERS, LICENSE CLASSIFIERS, AND LICENSE
+EXPRESSION PARSING SERVICES, AND ALL OTHER CONTENTS ARE PROVIDED "AS IS",
+NO REPRESENTATIONS ARE MADE THAT THE CONTENT IS ERROR-FREE AND/OR APPLICABLE
+FOR ANY PURPOSE, INCLUDING MERCHANTABILITY.
 
-Readers of this prompt should contact their attorney to obtain advice with respect to any particular legal matter.
-No reader or user of this prompt should act or abstain from acting on the basis of information on this prompt 
-without first seeking legal advice from counsel in the relevant jurisdiction. 
-Legal counsel can ensure that the information provided in this prompt is applicable to your particular situation.
-Use of, or reading, this prompt or any of resources contained within does not create an attorney-client relationship.
+Readers of this prompt should contact their attorney to obtain advice with
+respect to any particular legal matter. The OZI Project is not a law firm
+and does not provide legal advice. No reader or user of this prompt should
+act or abstain from acting on the basis of information on this prompt without
+first seeking legal advice from counsel in the relevant jurisdiction.
+Legal counsel can ensure that the information provided in this prompt is
+applicable to your particular situation. Use of, or reading, this prompt or any
+of resources contained within does not create an attorney-client relationship.
 """,
         style=style,
     ).run()
