@@ -1,4 +1,36 @@
 # CHANGELOG
+## 1.13.15 (2024-06-26)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-new interactive): refactor and fix prompts — rjdbcm &lt;ozi.project@outlook.com&gt; ([`41f931c`](https://github.com/OZI-Project/OZI/commit/41f931cddca281928deaf2b7a7c1d97694391782))
+
+## 1.13.14 (2024-06-24)
+
+
+### :children_crossing: Improved Usability
+
+* :hammer:(ozi-new interactive): added metadata viewer to the menu. — rjdbcm &lt;ozi.project@outlook.com&gt; ([`fd9e7b0`](https://github.com/OZI-Project/OZI/commit/fd9e7b08d31fcf640c33b10cdde64b015f304652))
+
+
+### :hammer: Updated Scripts
+
+* (ozi-new interactive) only scroll page on Admonition dialog — rjdbcm &lt;ozi.project@outlook.com&gt; ([`2bbbd42`](https://github.com/OZI-Project/OZI/commit/2bbbd4242d528d7e885439578d4a9bf26a82cbf7))
+
+
+### Other
+
+
+* :memo:(ozi-new interactive): fix usage for docs — rjdbcm &lt;ozi.project@outlook.com&gt; ([`a6bca88`](https://github.com/OZI-Project/OZI/commit/a6bca88f84574ce745d776906c06cbcd92556129))
+
+## 1.13.13 (2024-06-24)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-new interactive): fix disclaimer text styling — rjdbcm &lt;ozi.project@outlook.com&gt; ([`3d8864a`](https://github.com/OZI-Project/OZI/commit/3d8864a182ae049c3a53cc2cc2bc695c128e11c6))
+
 ## 1.13.12 (2024-06-24)
 
 
