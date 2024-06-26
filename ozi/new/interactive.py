@@ -57,6 +57,398 @@ if TYPE_CHECKING:
     from prompt_toolkit.key_binding.key_processor import KeyPressEvent
 
 
+class Project:  # pragma: no cover
+    @staticmethod
+    def name(
+        output: list[str],
+        prefix: dict[str, str],
+        check_package_exists: bool = True,
+    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+
+        def _check_package_exists() -> Validator:
+            if check_package_exists:
+                return NotReservedValidator(ProjectNameValidator())
+            else:
+                return ProjectNameValidator()
+
+        while True:
+            result, output, prefix = header_input(
+                'Name',
+                output,
+                prefix,
+                'What is the name of the project?',
+                '(PyPI package name: no spaces, alphanumeric words, ".-_" as delimiters)',
+                validator=DynamicValidator(_check_package_exists),
+            )
+            if result is True:
+                return prefix.get('Name', '').replace('Name', '').strip(': '), output, prefix
+            if isinstance(result, list):
+                return result, output, prefix
+
+    @staticmethod
+    def summary(
+        project_name: str,
+        output: list[str],
+        prefix: dict[str, str],
+    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+        while True:
+            result, output, prefix = header_input(
+                'Summary',
+                output,
+                prefix,
+                f'What does the project, {project_name}, do?',
+                '(a short summary 1-2 sentences)',
+                validator=LengthValidator(),
+            )
+            if result is True:
+                return result, output, prefix
+            if isinstance(result, list):
+                return result, output, prefix
+
+    @staticmethod
+    def keywords(
+        project_name: str,
+        output: list[str],
+        prefix: dict[str, str],
+    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+        while True:
+            result, output, prefix = header_input(
+                'Keywords',
+                output,
+                prefix,
+                f'What are some keywords used to describe {project_name}?\n(comma-separated list)',
+                validator=LengthValidator(),
+            )
+            if result is True:
+                return result, output, prefix
+            if isinstance(result, list):
+                return result, output, prefix
+
+    @staticmethod
+    def home_page(
+        project_name: str,
+        output: list[str],
+        prefix: dict[str, str],
+    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+        while True:
+            result, output, prefix = header_input(
+                'Home-page',
+                output,
+                prefix,
+                f'What is the home-page URL for {project_name}?',
+                validator=LengthValidator(),
+            )
+            if result is True:
+                return result, output, prefix
+            if isinstance(result, list):
+                return result, output, prefix
+
+    @staticmethod
+    def author(
+        project_name: str,
+        output: list[str],
+        prefix: dict[str, str],
+    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+        while True:
+            result, output, prefix = header_input(
+                'Author',
+                output,
+                prefix,
+                f'Who is the author or authors of {project_name}?\n(comma-separated list)',
+                validator=LengthValidator(),
+                split_on=',',
+            )
+            if result is True:
+                return result, output, prefix
+            if isinstance(result, list):
+                return result, output, prefix
+
+    @staticmethod
+    def author_email(
+        project_name: str,
+        output: list[str],
+        prefix: dict[str, str],
+    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+        while True:
+            result, output, prefix = header_input(
+                'Author-email',
+                output,
+                prefix,
+                f'What are the email addresses of the author or authors of {project_name}?\n(comma-separated list)',  # noqa: B950, RUF100, E501
+                validator=LengthValidator(),
+                split_on=',',
+            )
+            if result is True:
+                return result, output, prefix
+            if isinstance(result, list):
+                return result, output, prefix
+
+    @staticmethod
+    def license_(
+        project_name: str,
+        output: list[str],
+        prefix: dict[str, str],
+    ) -> tuple[None | list[str] | str, list[str], dict[str, str]]:
+        while True:
+            license_ = radiolist_dialog(
+                values=sorted(
+                    (zip(from_prefix(Prefix().license), from_prefix(Prefix().license))),
+                ),
+                title='ozi-new interactive prompt',
+                text=f'Please select a license classifier for {project_name}:',
+                style=_style,
+                cancel_text='☰  Menu',
+                ok_text='✔ Ok',
+            ).run()
+            if license_ is None:
+                result, output, prefix = menu_loop(output, prefix)
+                if isinstance(result, list):
+                    return result, output, prefix
+            else:
+                if validate_message(license_ if license_ else '', LengthValidator())[0]:
+                    break
+                message_dialog(
+                    style=_style,
+                    title='ozi-new interactive prompt',
+                    text=f'Invalid input "{license_}"\nPress ENTER to continue.',
+                    ok_text='✔ Ok',
+                ).run()
+        prefix.update(
+            {f'{Prefix().license}': f'{Prefix().license}{license_ if license_ else ""}'},
+        )
+        output += [f'--license="{license_}"'] if license_ else []
+        return license_, output, prefix
+
+    @staticmethod
+    def license_expression(  # noqa: C901
+        project_name: str,
+        _license: str,
+        output: list[str],
+        prefix: dict[str, str],
+    ) -> tuple[None | list[str] | str, list[str], dict[str, str]]:
+        _license_expression: str = ''
+        while True:
+            possible_spdx: Sequence[str] = METADATA.spec.python.pkg.license.ambiguous.get(
+                _license,
+                (),
+            )
+            if len(possible_spdx) < 1:
+                _license_expression = input_dialog(
+                    title='ozi-new interactive prompt',
+                    text=f'License: {_license}\nEdit SPDX license expression for {project_name}:',
+                    default='',
+                    style=_style,
+                    cancel_text='Skip',
+                ).run()
+            elif len(possible_spdx) == 1:
+                _license_expression = input_dialog(
+                    title='ozi-new interactive prompt',
+                    text=f'License: {_license}\nEdit SPDX license expression for {project_name}:',
+                    default=possible_spdx[0],
+                    style=_style,
+                    cancel_text='Skip',
+                    ok_text='✔ Ok',
+                ).run()
+            else:
+                license_id = radiolist_dialog(
+                    values=sorted(zip(possible_spdx, possible_spdx)),
+                    title='ozi-new interactive prompt',
+                    text=f'License: {_license}\nPlease select a SPDX license-id for {project_name}:',
+                    style=_style,
+                    cancel_text='☰  Menu',
+                    ok_text='✔ Ok',
+                ).run()
+                if license_id is None:
+                    result, output, prefix = menu_loop(output, prefix)
+                    if isinstance(result, list):
+                        return result, output, prefix
+                else:
+                    _license_expression = input_dialog(
+                        title='ozi-new interactive prompt',
+                        text=f'License: {_license}\nEdit SPDX license expression for {project_name}:',
+                        default=license_id if license_id is not None else '',
+                        style=_style,
+                        cancel_text='Skip',
+                        ok_text='✔ Ok',
+                    ).run()
+                    if validate_message(license_id if license_id else '', LengthValidator())[
+                        0
+                    ]:
+                        break
+                    else:
+                        message_dialog(
+                            style=_style,
+                            title='ozi-new interactive prompt',
+                            text=f'Invalid input "{license_id}"\nPress ENTER to continue.',
+                            ok_text='✔ Ok',
+                        ).run()
+            break
+        output += (
+            [f'--license-expression="{_license_expression}"']
+            if _license_expression  # pyright: ignore
+            else []
+        )
+        prefix.update(
+            {
+                'Extra: License-Expression ::': f'Extra: License-Expression :: {_license_expression if _license_expression else ""}',  # pyright: ignore  # noqa: B950, RUF100, E501
+            },
+        )  # pyright: ignore  # noqa: B950, RUF100
+        return _license_expression, output, prefix
+
+    @staticmethod
+    def maintainer(
+        project_name: str,
+        output: list[str],
+        prefix: dict[str, str],
+    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+        while True:
+            result, output, prefix = header_input(
+                'Maintainer',
+                output,
+                prefix,
+                f'What is the maintainer or maintainers name of {project_name}?\n(comma-separated list)',  # noqa: B950, RUF100, E501
+                validator=LengthValidator(),
+                split_on=',',
+            )
+            if result is True:
+                return result, output, prefix
+            if isinstance(result, list):
+                return result, output, prefix
+
+    @staticmethod
+    def maintainer_email(
+        project_name: str,
+        output: list[str],
+        prefix: dict[str, str],
+    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+        while True:
+            result, output, prefix = header_input(
+                'Maintainer-email',
+                output,
+                prefix,
+                f'What are the email addresses of the maintainer or maintainers of {project_name}?\n(comma-separated list)',  # noqa: B950, RUF100, E501
+                validator=LengthValidator(),
+                split_on=',',
+            )
+            if result is True:
+                return result, output, prefix
+            if isinstance(result, list):
+                return result, output, prefix
+
+    @staticmethod
+    def requires_dist(
+        project_name: str,
+        output: list[str],
+        prefix: dict[str, str],
+    ) -> tuple[list[str] | str | bool | None, list[str], dict[str, str]]:
+        _requires_dist: list[str] = []
+        while True:
+            match button_dialog(
+                title='ozi-new interactive prompt',
+                text='\n'.join(
+                    (
+                        'Requires-Dist:',
+                        '\n'.join(_requires_dist),
+                        '\n',
+                        f'Add or remove dependency requirements to {project_name}:',
+                    ),
+                ),
+                buttons=[
+                    ('Add', True),
+                    ('Remove', False),
+                    ('✔ Ok', 'ok'),
+                    ('☰  Menu', None),
+                ],
+                style=_style,
+            ).run():
+                case True:
+                    requirement = input_dialog(
+                        title='ozi-new interactive prompt',
+                        text='Search PyPI packages:',
+                        validator=PackageValidator(),
+                        style=_style,
+                        cancel_text='← Back',
+                    ).run()
+                    if requirement:
+                        _requires_dist += [requirement] if requirement else []
+                        prefix.update(
+                            {
+                                f'Requires-Dist: {requirement}': (
+                                    f'Requires-Dist: {requirement}\n' if requirement else ''
+                                ),
+                            },
+                        )
+                        output += [f'--requires-dist="{requirement}"'] if requirement else []
+                case False:
+                    if len(_requires_dist) != 0:
+                        del_requirement = checkboxlist_dialog(
+                            title='ozi-new interactive prompt',
+                            text='Select packages to delete:',
+                            values=list(zip(_requires_dist, _requires_dist)),
+                            style=_style,
+                            cancel_text='← Back',
+                        ).run()
+                        if del_requirement:
+                            _requires_dist = list(
+                                set(_requires_dist).symmetric_difference(
+                                    set(del_requirement),
+                                ),
+                            )
+                            output = list(
+                                set(output).symmetric_difference(
+                                    {f'--requires-dist="{del_requirement}"'},
+                                ),
+                            )
+                            for req in del_requirement:
+                                prefix.pop(f'Requires-Dist: {req}')
+                    else:
+                        message_dialog(
+                            title='ozi-new interactive prompt',
+                            text='No requirements to remove.',
+                            style=_style,
+                        ).run()
+                case x if x and x == 'ok':
+                    break
+                case None:
+                    result, output, prefix = menu_loop(output, prefix)
+                    if result is not None:
+                        return result, output, prefix
+        return None, output, prefix
+
+    @staticmethod
+    def readme_type(
+        project_name: str,
+        output: list[str],
+        prefix: dict[str, str],
+    ) -> tuple[str, list[str], dict[str, str]]:
+        readme_type = radiolist_dialog(
+            values=(
+                ('rst', 'ReStructuredText'),
+                ('md', 'Markdown'),
+                ('txt', 'Plaintext'),
+            ),
+            title='ozi-new interactive prompt',
+            text=f'Please select README type for {project_name}:',
+            style=_style,
+            ok_text='✔ Ok',
+            cancel_text='← Back',
+        ).run()
+        output += [f'--readme-type="{readme_type}"'] if readme_type else []
+        prefix.update(
+            (
+                {
+                    'Description-Content-Type:': f'Description-Content-Type: {readme_type}',  # noqa: B950, RUF100, E501
+                }
+                if readme_type
+                else {}
+            ),
+        )
+        return readme_type, output, prefix
+
+
+_P = Project()
+
+
 @lru_cache
 def pypi_package_exists(package: str) -> bool:  # pragma: no cover
     return (
@@ -325,7 +717,7 @@ def header_input(
                 prefix.update({label: f'{label}: {header}'})
                 if split_on:
                     header = header.rstrip(split_on).split(split_on)  # type: ignore
-                    output += [f'--author="{i}"' for i in header]
+                    output += [f'--{label.lower()}="{i}"' for i in header]
                 else:
                     output += [f'--{label.lower()}="{header}"']
                 return True, output, prefix
@@ -341,7 +733,7 @@ def header_input(
 def menu_loop(
     output: list[str],
     prefix: dict[str, str],
-) -> tuple[None | list[str], list[str], dict[str, str]]:  # pragma: no cover
+) -> tuple[None | list[str] | bool, list[str], dict[str, str]]:  # pragma: no cover
     while True:
         match button_dialog(
             title='ozi-new interactive prompt',
@@ -351,6 +743,7 @@ def menu_loop(
                 ('⚙ Options', 0),
                 ('↺ Reset', False),
                 ('✘ Exit', None),
+                ('✎ Edit', -1),
                 ('← Back', True),
             ],
             style=_style,
@@ -371,60 +764,117 @@ def menu_loop(
                     style=_style,
                 ).run():
                     return [], output, prefix
+            case -1:
+                while True:
+                    match radiolist_dialog(
+                        title='ozi-new interactive prompt',
+                        text='Edit menu, select content to edit:',
+                        values=[
+                            ('name', 'Name'),
+                            ('summary', 'Summary'),
+                            ('keywords', 'Keywords'),
+                            ('home_page', 'Home-page'),
+                            ('author', 'Author'),
+                            ('author_email', 'Email'),
+                            ('license_', 'License'),
+                            ('license_expression', 'Extra: License-Expression'),
+                            ('maintainer', 'Maintainer'),
+                            ('maintainer_email', 'Maintainer-email'),
+                            ('requires_dist', 'Requires-Dist (requirements)'),
+                            ('audience', 'Intended Audience'),
+                            ('environment', 'Environment'),
+                            ('framework', 'Framework'),
+                            ('language', 'Natural Language'),
+                            ('status', 'Status'),
+                            ('topic', 'Topic'),
+                            ('readme_type', 'Description-Content-Type'),
+                        ],
+                        cancel_text='← Back',
+                        ok_text='✔ Ok',
+                        style=_style,
+                    ).run():
+                        case None:
+                            break
+                        case x if x and isinstance(x, str):
+                            project_name = (
+                                prefix.get('Name', '').replace('Name', '').strip(': ')
+                            )
+                            match x:
+                                case x if x == 'name':
+                                    result, output, prefix = _P.name(output, prefix)
+                                    if isinstance(result, list):
+                                        return result, output, prefix
+                                case x if x == 'license_expression':
+                                    result, output, prefix = _P.license_expression(
+                                        project_name,
+                                        prefix.get(
+                                            'License',
+                                            '',
+                                        )
+                                        .replace(
+                                            'License',
+                                            '',
+                                        )
+                                        .strip(': '),
+                                        output,
+                                        prefix,
+                                    )
+                                    if isinstance(result, list):
+                                        return result, output, prefix
+                                case x if x == 'license_':
+                                    _license, output, prefix = _P.license_(
+                                        project_name,
+                                        output,
+                                        prefix,
+                                    )
+                                    if isinstance(_license, str):
+                                        result, output, prefix = _P.license_expression(
+                                            project_name,
+                                            _license,
+                                            output,
+                                            prefix,
+                                        )
+                                    if isinstance(result, list):  # pyright: ignore
+                                        return result, output, prefix
+                                case x if x and x in (
+                                    'audience',
+                                    'environment',
+                                    'framework',
+                                    'language',
+                                    'status',
+                                    'topic',
+                                ):
+                                    classifier = classifier_checkboxlist(x)
+                                    output += [f'--{x}="{classifier}"'] if classifier else []
+                                    prefix.update(
+                                        (
+                                            {
+                                                f'{getattr(Prefix(), x)}': f'{getattr(Prefix(), x)}{classifier}',  # noqa: B950, RUF100, E501
+                                            }
+                                            if classifier
+                                            else {}
+                                        ),
+                                    )
+                                case x:
+                                    result, output, prefix = getattr(_P, x)(
+                                        project_name,
+                                        output,
+                                        prefix,
+                                    )
+                                    if isinstance(result, list):
+                                        return result, output, prefix
             case 0:
                 while True:
                     match button_dialog(
                         title='ozi-new interactive prompt',
                         text='Options menu, select an option:',
                         buttons=[
-                            ('Audience', 'audience'),
-                            ('Environ.', 'environment'),
-                            ('Framework', 'framework'),
-                            ('Language', 'language'),
-                            ('README', 0),
                             ('← Back', True),
                         ],
                         style=_style,
                     ).run():
                         case True:
                             break
-                        case 0:
-                            readme_type = radiolist_dialog(
-                                values=(
-                                    ('rst', 'ReStructuredText'),
-                                    ('md', 'Markdown'),
-                                    ('txt', 'Plaintext'),
-                                ),
-                                title='ozi-new interactive prompt',
-                                text='Please select README type:',
-                                style=_style,
-                                ok_text='✔ Ok',
-                                cancel_text='← Back',
-                            ).run()
-                            output += (
-                                [f'--readme-type="{readme_type}"'] if readme_type else []
-                            )
-                            prefix.update(
-                                (
-                                    {
-                                        'Description-Content-Type:': f'Description-Content-Type: {readme_type}',  # noqa: B950, RUF100, E501
-                                    }
-                                    if readme_type
-                                    else {}
-                                ),
-                            )
-                        case x if x and isinstance(x, str):
-                            classifier = classifier_checkboxlist(x)
-                            output += [f'--{x}="{classifier}"'] if classifier else []
-                            prefix.update(
-                                (
-                                    {
-                                        f'{getattr(Prefix(), x)}': f'{getattr(Prefix(), x)}{classifier}',  # noqa: B950, RUF100, E501
-                                    }
-                                    if classifier
-                                    else {}
-                                ),
-                            )
             case 1:
                 if admonition_dialog(
                     title='ozi-new interactive prompt',
@@ -444,13 +894,6 @@ def interactive_prompt(project: Namespace) -> list[str]:  # noqa: C901  # pragma
     e3 = curses.tigetstr('E3') or b''
     clear_screen_seq = curses.tigetstr('clear') or b''
     os.write(sys.stdout.fileno(), e3 + clear_screen_seq)
-
-    def check_package_exists() -> Validator:
-        nonlocal project
-        if project.check_package_exists:
-            return NotReservedValidator(ProjectNameValidator())
-        else:
-            return ProjectNameValidator()
 
     if (
         admonition_dialog(
@@ -485,264 +928,69 @@ within does not create an attorney-client relationship.
 
     prefix: dict[str, str] = {}
     output = ['project']
-    project_name = ''
-    while True:
-        result, output, prefix = header_input(
-            'Name',
-            output,
-            prefix,
-            'What is the name of the project?',
-            '(PyPI package name: no spaces, alphanumeric words, ".-_" as delimiters)',
-            validator=DynamicValidator(check_package_exists),
-        )
-        if result is True:
-            project_name = prefix.get('Name', '').replace('Name', '').strip(': ')
-            break
-        if isinstance(result, list):
-            return result
+    project_name = '""'
 
-    while True:
-        result, output, prefix = header_input(
-            'Summary',
-            output,
-            prefix,
-            f'What does the project, {project_name}, do?',
-            '(a short summary 1-2 sentences)',
-            validator=LengthValidator(),
-        )
-        if result is True:
-            break
-        if isinstance(result, list):
-            return result
+    result, output, prefix = _P.name(output, prefix, project.check_package_exists)
+    if isinstance(result, list):
+        return result
+    if isinstance(result, str):
+        project_name = result
 
-    while True:
-        result, output, prefix = header_input(
-            'Keywords',
-            output,
-            prefix,
-            f'What are some keywords used to describe {project_name}?\n(comma-separated list)',
-            validator=LengthValidator(),
-        )
-        if result is True:
-            break
-        if isinstance(result, list):
-            return result
+    result, output, prefix = _P.summary(project_name, output, prefix)
+    if isinstance(result, list):
+        return result
 
-    while True:
-        result, output, prefix = header_input(
-            'Home-page',
-            output,
-            prefix,
-            f'What is the home-page URL for {project_name}?',
-            validator=LengthValidator(),
-        )
-        if result is True:
-            break
-        if isinstance(result, list):
-            return result
+    result, output, prefix = _P.keywords(project_name, output, prefix)
+    if isinstance(result, list):
+        return result
 
-    while True:
-        result, output, prefix = header_input(
-            'Author',
-            output,
-            prefix,
-            f'Who is the author or authors of {project_name}?\n(comma-separated list)',
-            validator=LengthValidator(),
-            split_on=',',
-        )
-        if result is True:
-            break
-        if isinstance(result, list):
-            return result
+    result, output, prefix = _P.home_page(project_name, output, prefix)
+    if isinstance(result, list):
+        return result
 
-    while True:
-        result, output, prefix = header_input(
-            'Author-email',
-            output,
-            prefix,
-            f'What are the email addresses of the author or authors of {project_name}?\n(comma-separated list)',  # noqa: B950, RUF100, E501
-            validator=LengthValidator(),
-            split_on=',',
-        )
-        if result is True:
-            break
-        if isinstance(result, list):
-            return result
+    result, output, prefix = _P.author(project_name, output, prefix)
+    if isinstance(result, list):
+        return result
 
-    while True:
-        license_ = radiolist_dialog(
-            values=sorted(
-                (zip(from_prefix(Prefix().license), from_prefix(Prefix().license))),
-            ),
-            title='ozi-new interactive prompt',
-            text=f'Please select a license classifier for {project_name}:',
-            style=_style,
-            cancel_text='☰  Menu',
-            ok_text='✔ Ok',
-        ).run()
-        if license_ is None:
-            result, output, prefix = menu_loop(output, prefix)
-            if result is not None:
-                return result
-        else:
-            if validate_message(license_ if license_ else '', LengthValidator())[0]:
-                break
-            message_dialog(
-                style=_style,
-                title='ozi-new interactive prompt',
-                text=f'Invalid input "{license_}"\nPress ENTER to continue.',
-                ok_text='✔ Ok',
-            ).run()
-    prefix.update(
-        {f'{Prefix().license}': f'{Prefix().license}{license_ if license_ else ""}'},
-    )
-    output += [f'--license="{license_}"'] if license_ else []
+    result, output, prefix = _P.author_email(project_name, output, prefix)
+    if isinstance(result, list):
+        return result
 
-    while True:
-        possible_spdx: Sequence[str] = METADATA.spec.python.pkg.license.ambiguous.get(
-            license_,
-            (),
-        )
-        if len(possible_spdx) < 1:
-            license_expression = input_dialog(
-                title='ozi-new interactive prompt',
-                text=f'Edit SPDX license expression for {project_name}:',
-                default='',
-                style=_style,
-                cancel_text='Skip',
-            ).run()
-        elif len(possible_spdx) == 1:
-            license_expression = input_dialog(
-                title='ozi-new interactive prompt',
-                text=f'Edit SPDX license expression for {project_name}:',
-                default=possible_spdx[0],
-                style=_style,
-                cancel_text='Skip',
-                ok_text='✔ Ok',
-            ).run()
-        else:
-            license_id = radiolist_dialog(
-                values=sorted(zip(possible_spdx, possible_spdx)),
-                title='ozi-new interactive prompt',
-                text=f'Please select a SPDX license-id for {project_name}:',
-                style=_style,
-                cancel_text='☰  Menu',
-                ok_text='✔ Ok',
-            ).run()
-            if license_id is None:
-                result, output, prefix = menu_loop(output, prefix)
-                if result is not None:
-                    return result
-            else:
-                license_expression = input_dialog(
-                    title='ozi-new interactive prompt',
-                    text=f'Edit SPDX license expression for {project_name}:',
-                    default=license_id if license_id is not None else '',
-                    style=_style,
-                    cancel_text='Skip',
-                    ok_text='✔ Ok',
-                ).run()
-                if validate_message(license_id if license_id else '', LengthValidator())[0]:
-                    break
-                else:
-                    message_dialog(
-                        style=_style,
-                        title='ozi-new interactive prompt',
-                        text=f'Invalid input "{license_id}"\nPress ENTER to continue.',
-                        ok_text='✔ Ok',
-                    ).run()
-        break
-    output += (
-        [f'--license-expression="{license_expression}"']
-        if license_expression  # pyright: ignore
-        else []
-    )
-    prefix.update(
-        {
-            'Extra: License-Expression ::': f'Extra: License-Expression :: {license_expression if license_expression else ""}',  # pyright: ignore  # noqa: B950, RUF100, E501
-        },
-    )  # pyright: ignore  # noqa: B950, RUF100
+    result, output, prefix = _P.license_(project_name, output, prefix)
+    if isinstance(result, list):
+        return result
+    _license = result if result else ''
+
+    result, output, prefix = _P.license_expression(project_name, _license, output, prefix)
+    if isinstance(result, list):
+        return result
 
     if yes_no_dialog(
         title='ozi-new interactive prompt',
         text=f'Are there any maintainers of {project_name}?\n(other than the author or authors)',
         style=_style,
     ).run():
-        while True:
-            result, output, prefix = header_input(
-                'Maintainer',
-                output,
-                prefix,
-                f'What is the maintainer or maintainers name of {project_name}?\n(comma-separated list)',  # noqa: B950, RUF100, E501
-                validator=LengthValidator(),
-                split_on=',',
-            )
-            if result is True:
-                break
-            if isinstance(result, list):
-                return result
-        while True:
-            result, output, prefix = header_input(
-                'Maintainer-email',
-                output,
-                prefix,
-                f'What are the email addresses of the maintainer or maintainers of {project_name}?\n(comma-separated list)',  # noqa: B950, RUF100, E501
-                validator=LengthValidator(),
-                split_on=',',
-            )
-            if result is True:
-                break
-            if isinstance(result, list):
-                return result
+        result, output, prefix = _P.maintainer(project_name, output, prefix)
+        if isinstance(result, list):
+            return result
 
-    requires_dist: list[str] = []
-    while button_dialog(
-        title='ozi-new interactive prompt',
-        text='\n'.join(
-            (
-                '\n'.join(requires_dist),
-                '\n',
-                f'Do you want to add a dependency requirement to {project_name}?',
-            ),
-        ),
-        buttons=[
-            ('Yes', True),
-            ('No', False),
-        ],
-        style=_style,
-    ).run():
-        requirement = input_dialog(
-            title='ozi-new interactive prompt',
-            text='Search PyPI packages:',
-            validator=PackageValidator(),
-            style=_style,
-            cancel_text='← Back',
-        ).run()
-        requires_dist += [requirement] if requirement else []
-        prefix.update(
-            {
-                f'Requires-Dist: {requirement}': (
-                    f'Requires-Dist: {requirement}\n' if requirement else ''
-                ),
-            },
-        )
-        output += [f'--requires-dist="{requirement}"'] if requirement else []
+        result, output, prefix = _P.maintainer_email(project_name, output, prefix)
+        if isinstance(result, list):
+            return result
 
-    while not yes_no_dialog(
+    result, output, prefix = _P.requires_dist(project_name, output, prefix)
+    if isinstance(result, list):
+        return result
+
+    while not admonition_dialog(
         title='ozi-new interactive prompt',
-        text='\n'.join(
-            (
-                '\n'.join(prefix.values()),
-                '\n',
-                'Confirm project creation?',
-            ),
-        ),
-        yes_text='✔ Ok',
-        no_text='☰  Menu',
-        style=_style,
+        heading_label='Confirm project creation?\nPKG-INFO Metadata:',
+        text='\n'.join(prefix.values()),
+        ok_text='✔ Ok',
+        cancel_text='☰  Menu',
     ).run():
         result, output, prefix = menu_loop(output, prefix)
-        if result is not None:
+        if isinstance(result, list):
             return result
 
     return output
