@@ -1,4 +1,11 @@
 # CHANGELOG
+## 1.13.15 (2024-06-26)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-new interactive): refactor and fix prompts — rjdbcm &lt;ozi.project@outlook.com&gt; ([`41f931c`](https://github.com/OZI-Project/OZI/commit/41f931cddca281928deaf2b7a7c1d97694391782))
+
 ## 1.13.14 (2024-06-24)
 
 
