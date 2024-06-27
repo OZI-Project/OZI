@@ -58,6 +58,22 @@ if TYPE_CHECKING:
 
 
 class Project:  # pragma: no cover
+    def __init__(
+        self,  # noqa: ANN101
+        allow_file: list[str] | None = None,
+        ci_provider: str | None = None,
+        copyright_head: str | None = None,
+        enable_cython: bool = False,
+        strict: bool = True,
+        verify_email: bool = False,
+    ) -> None:
+        self.allow_file = allow_file
+        self.ci_provider = ci_provider
+        self.copyright_head = copyright_head
+        self.enable_cython = enable_cython
+        self.strict = strict
+        self.verify_email = verify_email
+
     @staticmethod
     def name(
         output: list[str],
@@ -184,11 +200,15 @@ class Project:  # pragma: no cover
                 return result, output, prefix
 
     @staticmethod
-    def license_(
+    def license_(  # noqa: C901
         project_name: str,
         output: list[str],
         prefix: dict[str, str],
     ) -> tuple[None | list[str] | str, list[str], dict[str, str]]:
+        _default = None
+        for n, i in enumerate(output):
+            if i.startswith('--license'):
+                _default = output.pop(n).replace('--license=', '').strip('"')
         while True:
             license_ = radiolist_dialog(
                 values=sorted(
@@ -197,12 +217,14 @@ class Project:  # pragma: no cover
                 title='ozi-new interactive prompt',
                 text=f'Please select a license classifier for {project_name}:',
                 style=_style,
+                default=_default,
                 cancel_text='☰  Menu',
                 ok_text='✔ Ok',
             ).run()
             if license_ is None:
                 result, output, prefix = menu_loop(output, prefix)
                 if isinstance(result, list):
+                    output += [f'--license="{_default}"'] if _default else []
                     return result, output, prefix
             else:
                 if validate_message(license_ if license_ else '', LengthValidator())[0]:
@@ -216,6 +238,10 @@ class Project:  # pragma: no cover
         prefix.update(
             {f'{Prefix().license}': f'{Prefix().license}{license_ if license_ else ""}'},
         )
+        if license_:
+            output += [f'--license="{license_}"']
+        else:
+            output += [f'--license="{_default}"'] if _default else []
         output += [f'--license="{license_}"'] if license_ else []
         return license_, output, prefix
 
@@ -230,23 +256,28 @@ class Project:  # pragma: no cover
         while True:
             possible_spdx: Sequence[str] = METADATA.spec.python.pkg.license.ambiguous.get(
                 _license,
-                (),
+                (''),
             )
+            _default = possible_spdx[0]
+            for n, i in enumerate(output):
+                if i.startswith('--license-expression'):
+                    _default = output.pop(n).replace('--license-expression=', '').strip('"')
+
             if len(possible_spdx) < 1:
                 _license_expression = input_dialog(
                     title='ozi-new interactive prompt',
                     text=f'License: {_license}\nEdit SPDX license expression for {project_name}:',
-                    default='',
+                    default=_default,
                     style=_style,
-                    cancel_text='Skip',
+                    cancel_text='⇒ Skip',
                 ).run()
             elif len(possible_spdx) == 1:
                 _license_expression = input_dialog(
                     title='ozi-new interactive prompt',
                     text=f'License: {_license}\nEdit SPDX license expression for {project_name}:',
-                    default=possible_spdx[0],
+                    default=_default,
                     style=_style,
-                    cancel_text='Skip',
+                    cancel_text='⇒ Skip',
                     ok_text='✔ Ok',
                 ).run()
             else:
@@ -259,6 +290,7 @@ class Project:  # pragma: no cover
                     ok_text='✔ Ok',
                 ).run()
                 if license_id is None:
+                    output += [f'--license-expression="{_default}"'] if _default else []
                     result, output, prefix = menu_loop(output, prefix)
                     if isinstance(result, list):
                         return result, output, prefix
@@ -266,9 +298,9 @@ class Project:  # pragma: no cover
                     _license_expression = input_dialog(
                         title='ozi-new interactive prompt',
                         text=f'License: {_license}\nEdit SPDX license expression for {project_name}:',
-                        default=license_id if license_id is not None else '',
+                        default=license_id if license_id is not None else _default,
                         style=_style,
-                        cancel_text='Skip',
+                        cancel_text='⇒ Skip',
                         ok_text='✔ Ok',
                     ).run()
                     if validate_message(license_id if license_id else '', LengthValidator())[
@@ -283,11 +315,10 @@ class Project:  # pragma: no cover
                             ok_text='✔ Ok',
                         ).run()
             break
-        output += (
-            [f'--license-expression="{_license_expression}"']
-            if _license_expression  # pyright: ignore
-            else []
-        )
+        if _license_expression:
+            output += [f'--license-expression="{_license_expression}"']
+        else:
+            output += [f'--license-expression="{_default}"'] if len(_default) > 0 else []
         prefix.update(
             {
                 'Extra: License-Expression ::': f'Extra: License-Expression :: {_license_expression if _license_expression else ""}',  # pyright: ignore  # noqa: B950, RUF100, E501
@@ -406,6 +437,7 @@ class Project:  # pragma: no cover
                             title='ozi-new interactive prompt',
                             text='No requirements to remove.',
                             style=_style,
+                            ok_text='✔ Ok',
                         ).run()
                 case x if x and x == 'ok':
                     break
@@ -421,6 +453,10 @@ class Project:  # pragma: no cover
         output: list[str],
         prefix: dict[str, str],
     ) -> tuple[str, list[str], dict[str, str]]:
+        _default = ''
+        for n, i in enumerate(output):
+            if i.startswith('--readme-type'):
+                _default = output.pop(n).replace('--readme-type=', '').strip('"')
         readme_type = radiolist_dialog(
             values=(
                 ('rst', 'ReStructuredText'),
@@ -430,10 +466,14 @@ class Project:  # pragma: no cover
             title='ozi-new interactive prompt',
             text=f'Please select README type for {project_name}:',
             style=_style,
+            default=_default,
             ok_text='✔ Ok',
             cancel_text='← Back',
         ).run()
-        output += [f'--readme-type="{readme_type}"'] if readme_type else []
+        if readme_type is not None:
+            output += [f'--readme-type="{readme_type}"']
+        else:
+            output += [f'--readme-type="{_default}"'] if _default else []
         prefix.update(
             (
                 {
@@ -444,6 +484,43 @@ class Project:  # pragma: no cover
             ),
         )
         return readme_type, output, prefix
+
+    @staticmethod
+    def typing(
+        project_name: str,
+        output: list[str],
+        prefix: dict[str, str],
+    ) -> tuple[str, list[str], dict[str, str]]:
+        _default = None
+        for n, i in enumerate(output):
+            if i.startswith('--typing'):
+                _default = output.pop(n).replace('--typing=', '').strip('"')
+        result = radiolist_dialog(
+            values=(
+                ('Typed', 'Typed'),
+                ('Stubs Only', 'Stubs Only'),
+            ),
+            title='ozi-new interactive prompt',
+            text=f'Please select typing classifier for {project_name}:',
+            style=_style,
+            ok_text='✔ Ok',
+            default=_default,
+            cancel_text='← Back',
+        ).run()
+        if result is not None:
+            output += [f'--typing="{result}"']
+        else:
+            output += [f'--typing="{_default}"'] if _default else []
+        prefix.update(
+            (
+                {
+                    'Typing ::': f'Typing :: {result}',  # noqa: B950, RUF100, E501
+                }
+                if result
+                else {}
+            ),
+        )
+        return result, output, prefix
 
 
 _P = Project()
@@ -691,7 +768,7 @@ def classifier_checkboxlist(key: str) -> list[str] | None:  # pragma: no cover
     ).run()
 
 
-def header_input(
+def header_input(  # noqa: C901
     label: str,
     output: list[str],
     prefix: dict[str, str],
@@ -699,15 +776,21 @@ def header_input(
     validator: Validator | None = None,
     split_on: str | None = None,
 ) -> tuple[bool | None | list[str], list[str], dict[str, str]]:  # pragma: no cover
+    _default = ''
+    for n, i in enumerate(output):
+        if i.startswith(f'--{label.lower()}'):
+            _default = output.pop(n).replace(f'--{label.lower()}=', '').strip('"')
     header = input_dialog(
         title='ozi-new interactive prompt',
         text='\n'.join(args),
         validator=validator,
+        default=_default,
         style=_style,
         cancel_text='☰  Menu',
         ok_text='✔ Ok',
     ).run()
     if header is None:
+        output += [f'--{label.lower()}="{_default}"'] if len(_default) > 0 else []
         result, output, prefix = menu_loop(output, prefix)
         return result, output, prefix
     else:
@@ -727,6 +810,7 @@ def header_input(
                 style=_style,
                 ok_text='✔ Ok',
             ).run()
+        output += [f'--{label.lower()}="{_default}"'] if len(_default) > 0 else []
     return None, output, prefix
 
 
@@ -735,6 +819,7 @@ def menu_loop(
     prefix: dict[str, str],
 ) -> tuple[None | list[str] | bool, list[str], dict[str, str]]:  # pragma: no cover
     while True:
+        _default: str | list[str] | None = None
         match button_dialog(
             title='ozi-new interactive prompt',
             text='Main menu, select an action:',
@@ -787,6 +872,7 @@ def menu_loop(
                             ('language', 'Natural Language'),
                             ('status', 'Status'),
                             ('topic', 'Topic'),
+                            ('typing', 'Typing'),
                             ('readme_type', 'Description-Content-Type'),
                         ],
                         cancel_text='← Back',
@@ -865,15 +951,120 @@ def menu_loop(
                                         return result, output, prefix
             case 0:
                 while True:
-                    match button_dialog(
+                    match radiolist_dialog(
                         title='ozi-new interactive prompt',
                         text='Options menu, select an option:',
-                        buttons=[
-                            ('← Back', True),
+                        values=[
+                            ('enable_cython', f'Enable Cython: {_P.enable_cython}'),
+                            ('strict', f'Strict Mode: {_P.strict}'),
+                            ('verify_email', f'Verify Email: {_P.verify_email}'),
+                            ('allow_file', 'Allow File Patterns ...'),
+                            ('ci_provider', 'CI Provider ...'),
+                            ('copyright_head', 'Copyright Header ...'),
                         ],
                         style=_style,
+                        cancel_text='← Back',
+                        ok_text='✔ Ok',
                     ).run():
-                        case True:
+                        case x if x and x in ('enable_cython', 'verify_email'):
+                            for i in (
+                                f'--{x.replace("_", "-")}',
+                                f'--no-{x.replace("_", "-")}',
+                            ):
+                                if i in output:
+                                    output.remove(i)
+                            setting = getattr(_P, x)
+                            if setting is None:
+                                setattr(_P, x, True)
+                            else:
+                                flag = '' if not setting else 'no-'
+                                output += [f'--{flag}{x.replace("_", "-")}']
+                                setattr(_P, x, not setting)
+                        case x if x and x == 'strict':
+                            for i in ('--strict', '--no-strict'):
+                                if i in output:
+                                    output.remove(i)
+                            setting = getattr(_P, x)
+                            if setting is None:
+                                setattr(_P, x, False)
+                            else:
+                                flag = '' if setting else 'no-'
+                                output += [f'--{flag}{x.replace("_", "-")}']
+                                setattr(_P, x, not setting)
+                        case x if x and x == 'copyright_head':
+                            _default = None
+                            for n, i in enumerate(output):
+                                if i.startswith('--copyright-head'):
+                                    _default = (
+                                        output.pop(n)
+                                        .replace('--copyright-head=', '')
+                                        .strip('"')
+                                    )
+                            _default = (
+                                _default
+                                if _default
+                                else 'Part of {project_name}.\nSee LICENSE.txt in the project root for details.'  # noqa: B950, RUF100, E501
+                            )  # noqa: B950, RUF100, E501
+                            result = input_dialog(
+                                title='ozi-new interactive prompt',
+                                text='Edit copyright header:',
+                                style=_style,
+                                cancel_text='← Back',
+                                ok_text='✔ Ok',
+                                default=_default,
+                            ).run()
+                            if result != _default:
+                                _P.copyright_head = result
+                                output += [f'--copyright-head="{_P.copyright_head}"']
+                        case x if x and x == 'allow_file':
+                            _default = None
+                            for n, i in enumerate(output):
+                                if i.startswith('--allow-file'):
+                                    _default = (
+                                        output.pop(n)
+                                        .replace('--allow-file=', '')
+                                        .strip('"')
+                                        .split(',')
+                                    )
+                            _default = (
+                                _default
+                                if _default
+                                else list(METADATA.spec.python.src.allow_files)
+                            )  # noqa: B950, RUF100, E501
+                            result = input_dialog(
+                                title='ozi-new interactive prompt',
+                                text='Edit allowed existing files:',
+                                style=_style,
+                                cancel_text='← Back',
+                                ok_text='✔ Ok',
+                                default=','.join(_default),
+                            ).run()
+                            if result != ','.join(_default) and result is not None:
+                                _P.allow_file = [i.strip() for i in result.split(',')]
+                                output += [f'--allow-file="{result}"']
+                        case x if x and x == 'ci_provider':
+                            _default = None
+                            for n, i in enumerate(output):
+                                if i.startswith('--ci-provider'):
+                                    _default = (
+                                        output.pop(n)
+                                        .replace('--ci-provider=', '')
+                                        .strip('"')
+                                    )
+                            _default = _default if _default else 'github'
+                            result = radiolist_dialog(
+                                title='ozi-new interactive prompt',
+                                text='Change continuous integration providers:',
+                                values=[('github', 'GitHub')],
+                                cancel_text='← Back',
+                                ok_text='✔ Ok',
+                                default=_default,
+                                style=_style,
+                            ).run()
+                            if result != _default and result is not None:
+                                _P.ci_provider = result
+                                output += [f'--ci-provider="{_P.ci_provider}"']
+                        case _:
                             break
             case 1:
                 if admonition_dialog(
