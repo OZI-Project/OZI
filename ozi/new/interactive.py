@@ -663,6 +663,8 @@ class Admonition(RadioList[_T]):
                 ),
             ],
             dont_extend_height=True,
+            wrap_lines=True,
+            always_hide_cursor=True,
         )
 
     def _handle_enter(self) -> None:  # noqa: ANN101
