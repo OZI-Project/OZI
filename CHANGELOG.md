@@ -1,4 +1,15 @@
 # CHANGELOG
+## 1.13.17 (2024-06-27)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-new interactive): hide cursor and wrap lines in Admonitions — rjdbcm &lt;ozi.project@outlook.com&gt; ([`d1cf3da`](https://github.com/OZI-Project/OZI/commit/d1cf3da8c80b577f38748be221017f7ddf65b082))
+
+* (ozi-new interactive): correct handling of list args ([`862460d`](https://github.com/OZI-Project/OZI/commit/862460d9aacdde8c9e8169074d048ca338d28754))
+
+* (ozi-new): accept standard Requires-Dist argument form ([`fc0401e`](https://github.com/OZI-Project/OZI/commit/fc0401ef9129663ae62e0da9b8d5b32b6a584340))
+
 ## 1.13.16 (2024-06-27)
 
 
