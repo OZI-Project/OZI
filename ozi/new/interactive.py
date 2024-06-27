@@ -405,7 +405,7 @@ class Project:  # pragma: no cover
                         prefix.update(
                             {
                                 f'Requires-Dist: {requirement}': (
-                                    f'Requires-Dist: {requirement}\n' if requirement else ''
+                                    f'Requires-Dist: {requirement}' if requirement else ''
                                 ),
                             },
                         )
@@ -931,7 +931,11 @@ def menu_loop(
                                     'topic',
                                 ):
                                     classifier = classifier_checkboxlist(x)
-                                    output += [f'--{x}="{classifier}"'] if classifier else []
+                                    output += (
+                                        [f'--{x}="{c}"' for c in classifier]
+                                        if classifier
+                                        else []
+                                    )
                                     prefix.update(
                                         (
                                             {
