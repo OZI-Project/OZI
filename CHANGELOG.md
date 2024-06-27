@@ -1,4 +1,11 @@
 # CHANGELOG
+## 1.13.16 (2024-06-27)
+
+
+### :hammer: Updated Scripts
+
+* (ozi-new interactive): finalize implementation — rjdbcm &lt;ozi.project@outlook.com&gt; ([`95b4aeb`](https://github.com/OZI-Project/OZI/commit/95b4aebdfca4234912691778b3eafb525b6965eb))
+
 ## 1.13.15 (2024-06-26)
 
 
