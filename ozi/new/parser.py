@@ -261,7 +261,8 @@ defaults.add_argument(
 optional.add_argument(
     '-r',
     '--dist-requires',
-    help='Dist-Requires (Multiple Use)',
+    '--requires-dist',
+    help='Requires-Dist (Multiple Use)',
     action='append',
     type=str,
     nargs='?',
