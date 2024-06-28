@@ -1,4 +1,17 @@
 # CHANGELOG
+## 1.13.18 (2024-06-28)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-new interactive): fix arg quoting — rjdbcm &lt;ozi.project@outlook.com&gt; ([`0b8d0fd`](https://github.com/OZI-Project/OZI/commit/0b8d0fd1e2e22366cafc31f4efc5c07b71063685))
+
+
+### Other
+
+
+* :rotating_light:(ozi-new interactive): run lint — rjdbcm &lt;ozi.project@outlook.com&gt; ([`c334f68`](https://github.com/OZI-Project/OZI/commit/c334f6873e3c1c7c787b3ac7e33d01a453d044c6))
+
 ## 1.13.17 (2024-06-27)
 
 
