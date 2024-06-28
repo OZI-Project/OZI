@@ -5,11 +5,11 @@
 from __future__ import annotations
 
 import curses
-from itertools import chain
 import os
 import re
 import sys
 from functools import lru_cache
+from itertools import chain
 from typing import TYPE_CHECKING
 from typing import Any
 from typing import Sequence
@@ -779,7 +779,7 @@ def header_input(  # noqa: C901
     _default = ''
     for n, i in enumerate(output):
         if i.startswith(f'--{label.lower()}'):
-            _default = output.pop(n+1)
+            _default = output.pop(n + 1)
     header = input_dialog(
         title='ozi-new interactive prompt',
         text='\n'.join(args),
@@ -800,7 +800,9 @@ def header_input(  # noqa: C901
                 prefix.update({label: f'{label}: {header}'})
                 if split_on:
                     header = header.rstrip(split_on).split(split_on)  # type: ignore
-                    output += chain.from_iterable([[f'--{label.lower()}', i] for i in header])
+                    output += chain.from_iterable(
+                        [[f'--{label.lower()}', i] for i in header],
+                    )
                 else:
                     output += [f'--{label.lower()}', header]
                 return True, output, prefix
@@ -932,9 +934,11 @@ def menu_loop(
                                 ):
                                     classifier = classifier_checkboxlist(x)
                                     output += chain.from_iterable(
-                                        [[f'--{x}', c] for c in classifier]
-                                        if classifier
-                                        else [],
+                                        (
+                                            [[f'--{x}', c] for c in classifier]
+                                            if classifier
+                                            else []
+                                        ),
                                     )
                                     prefix.update(
                                         (
@@ -999,7 +1003,7 @@ def menu_loop(
                             _default = None
                             for n, i in enumerate(output):
                                 if i == '--copyright-head':
-                                    _default = output.pop(n+1)
+                                    _default = output.pop(n + 1)
                                     output.remove('--copyright-head')
                             _default = (
                                 _default
@@ -1021,7 +1025,7 @@ def menu_loop(
                             _default = None
                             for n, i in enumerate(output):
                                 if i == '--allow-file':
-                                    _default = output.pop(n+1).split(',')
+                                    _default = output.pop(n + 1).split(',')
                                     output.remove('--allow-file')
                             _default = (
                                 _default
@@ -1043,7 +1047,7 @@ def menu_loop(
                             _default = None
                             for n, i in enumerate(output):
                                 if i.startswith('--ci-provider'):
-                                    _default = output.pop(n+1)
+                                    _default = output.pop(n + 1)
                                     output.remove('--ci-provider')
                             _default = _default if _default else 'github'
                             result = radiolist_dialog(
