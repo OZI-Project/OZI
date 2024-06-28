@@ -5,6 +5,7 @@
 from __future__ import annotations
 
 import curses
+from itertools import chain
 import os
 import re
 import sys
@@ -224,7 +225,7 @@ class Project:  # pragma: no cover
             if license_ is None:
                 result, output, prefix = menu_loop(output, prefix)
                 if isinstance(result, list):
-                    output += [f'--license="{_default}"'] if _default else []
+                    output += ['--license', _default] if _default else []
                     return result, output, prefix
             else:
                 if validate_message(license_ if license_ else '', LengthValidator())[0]:
@@ -239,10 +240,10 @@ class Project:  # pragma: no cover
             {f'{Prefix().license}': f'{Prefix().license}{license_ if license_ else ""}'},
         )
         if license_:
-            output += [f'--license="{license_}"']
+            output += ['--license', license_]
         else:
-            output += [f'--license="{_default}"'] if _default else []
-        output += [f'--license="{license_}"'] if license_ else []
+            output += ['--license', _default] if _default else []
+        output += ['--license', license_] if license_ else []
         return license_, output, prefix
 
     @staticmethod
@@ -290,7 +291,7 @@ class Project:  # pragma: no cover
                     ok_text='✔ Ok',
                 ).run()
                 if license_id is None:
-                    output += [f'--license-expression="{_default}"'] if _default else []
+                    output += ['--license-expression', _default] if _default else []
                     result, output, prefix = menu_loop(output, prefix)
                     if isinstance(result, list):
                         return result, output, prefix
@@ -316,9 +317,9 @@ class Project:  # pragma: no cover
                         ).run()
             break
         if _license_expression:
-            output += [f'--license-expression="{_license_expression}"']
+            output += ['--license-expression', _license_expression]
         else:
-            output += [f'--license-expression="{_default}"'] if len(_default) > 0 else []
+            output += ['--license-expression', _default] if len(_default) > 0 else []
         prefix.update(
             {
                 'Extra: License-Expression ::': f'Extra: License-Expression :: {_license_expression if _license_expression else ""}',  # pyright: ignore  # noqa: B950, RUF100, E501
@@ -409,7 +410,7 @@ class Project:  # pragma: no cover
                                 ),
                             },
                         )
-                        output += [f'--requires-dist="{requirement}"'] if requirement else []
+                        output += ['--requires-dist', requirement] if requirement else []
                 case False:
                     if len(_requires_dist) != 0:
                         del_requirement = checkboxlist_dialog(
@@ -425,12 +426,9 @@ class Project:  # pragma: no cover
                                     set(del_requirement),
                                 ),
                             )
-                            output = list(
-                                set(output).symmetric_difference(
-                                    {f'--requires-dist="{del_requirement}"'},
-                                ),
-                            )
                             for req in del_requirement:
+                                output.pop(output.index(req) - 1)
+                                output.remove(req)
                                 prefix.pop(f'Requires-Dist: {req}')
                     else:
                         message_dialog(
@@ -471,9 +469,9 @@ class Project:  # pragma: no cover
             cancel_text='← Back',
         ).run()
         if readme_type is not None:
-            output += [f'--readme-type="{readme_type}"']
+            output += ['--readme-type', readme_type]
         else:
-            output += [f'--readme-type="{_default}"'] if _default else []
+            output += ['--readme-type', _default] if _default else []
         prefix.update(
             (
                 {
@@ -508,9 +506,9 @@ class Project:  # pragma: no cover
             cancel_text='← Back',
         ).run()
         if result is not None:
-            output += [f'--typing="{result}"']
+            output += ['--typing', result]
         else:
-            output += [f'--typing="{_default}"'] if _default else []
+            output += ['--typing', _default] if _default else []
         prefix.update(
             (
                 {
@@ -781,7 +779,7 @@ def header_input(  # noqa: C901
     _default = ''
     for n, i in enumerate(output):
         if i.startswith(f'--{label.lower()}'):
-            _default = output.pop(n).replace(f'--{label.lower()}=', '').strip('"')
+            _default = output.pop(n+1)
     header = input_dialog(
         title='ozi-new interactive prompt',
         text='\n'.join(args),
@@ -792,7 +790,7 @@ def header_input(  # noqa: C901
         ok_text='✔ Ok',
     ).run()
     if header is None:
-        output += [f'--{label.lower()}="{_default}"'] if len(_default) > 0 else []
+        output += [f'--{label.lower()}', _default] if len(_default) > 0 else []
         result, output, prefix = menu_loop(output, prefix)
         return result, output, prefix
     else:
@@ -802,9 +800,9 @@ def header_input(  # noqa: C901
                 prefix.update({label: f'{label}: {header}'})
                 if split_on:
                     header = header.rstrip(split_on).split(split_on)  # type: ignore
-                    output += [f'--{label.lower()}="{i}"' for i in header]
+                    output += chain.from_iterable([[f'--{label.lower()}', i] for i in header])
                 else:
-                    output += [f'--{label.lower()}="{header}"']
+                    output += [f'--{label.lower()}', header]
                 return True, output, prefix
             message_dialog(
                 title='ozi-new interactive prompt',
@@ -812,7 +810,7 @@ def header_input(  # noqa: C901
                 style=_style,
                 ok_text='✔ Ok',
             ).run()
-        output += [f'--{label.lower()}="{_default}"'] if len(_default) > 0 else []
+        output += [f'--{label.lower()}', _default] if len(_default) > 0 else []
     return None, output, prefix
 
 
@@ -933,10 +931,10 @@ def menu_loop(
                                     'topic',
                                 ):
                                     classifier = classifier_checkboxlist(x)
-                                    output += (
-                                        [f'--{x}="{c}"' for c in classifier]
+                                    output += chain.from_iterable(
+                                        [[f'--{x}', c] for c in classifier]
                                         if classifier
-                                        else []
+                                        else [],
                                     )
                                     prefix.update(
                                         (
@@ -1000,12 +998,9 @@ def menu_loop(
                         case x if x and x == 'copyright_head':
                             _default = None
                             for n, i in enumerate(output):
-                                if i.startswith('--copyright-head'):
-                                    _default = (
-                                        output.pop(n)
-                                        .replace('--copyright-head=', '')
-                                        .strip('"')
-                                    )
+                                if i == '--copyright-head':
+                                    _default = output.pop(n+1)
+                                    output.remove('--copyright-head')
                             _default = (
                                 _default
                                 if _default
@@ -1021,17 +1016,13 @@ def menu_loop(
                             ).run()
                             if result != _default:
                                 _P.copyright_head = result
-                                output += [f'--copyright-head="{_P.copyright_head}"']
+                                output += ['--copyright-head', _P.copyright_head]
                         case x if x and x == 'allow_file':
                             _default = None
                             for n, i in enumerate(output):
-                                if i.startswith('--allow-file'):
-                                    _default = (
-                                        output.pop(n)
-                                        .replace('--allow-file=', '')
-                                        .strip('"')
-                                        .split(',')
-                                    )
+                                if i == '--allow-file':
+                                    _default = output.pop(n+1).split(',')
+                                    output.remove('--allow-file')
                             _default = (
                                 _default
                                 if _default
@@ -1047,16 +1038,13 @@ def menu_loop(
                             ).run()
                             if result != ','.join(_default) and result is not None:
                                 _P.allow_file = [i.strip() for i in result.split(',')]
-                                output += [f'--allow-file="{result}"']
+                                output += ['--allow-file', result]
                         case x if x and x == 'ci_provider':
                             _default = None
                             for n, i in enumerate(output):
                                 if i.startswith('--ci-provider'):
-                                    _default = (
-                                        output.pop(n)
-                                        .replace('--ci-provider=', '')
-                                        .strip('"')
-                                    )
+                                    _default = output.pop(n+1)
+                                    output.remove('--ci-provider')
                             _default = _default if _default else 'github'
                             result = radiolist_dialog(
                                 title='ozi-new interactive prompt',
@@ -1069,7 +1057,7 @@ def menu_loop(
                             ).run()
                             if result != _default and result is not None:
                                 _P.ci_provider = result
-                                output += [f'--ci-provider="{_P.ci_provider}"']
+                                output += ['--ci-provider', _P.ci_provider]
                         case _:
                             break
             case 1:
