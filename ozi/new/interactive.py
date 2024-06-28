@@ -261,7 +261,7 @@ class Project:  # pragma: no cover
                     None,
                 )
             )
-            possible_spdx: Sequence[str] = _possible_spdx if _possible_spdx else []
+            possible_spdx: Sequence[str] = _possible_spdx if _possible_spdx else ['']
             _default = possible_spdx[0]
             for n, i in enumerate(output):
                 if i.startswith('--license-expression'):
