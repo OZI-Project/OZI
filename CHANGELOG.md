@@ -1,4 +1,11 @@
 # CHANGELOG
+## 1.13.21 (2024-06-28)
+
+
+### :bug: Fixed Bugs
+
+*  fix list indexing in license_expression — rjdbcm &lt;ozi.project@outlook.com&gt; ([`c47cad8`](https://github.com/OZI-Project/OZI/commit/c47cad82b89c488ca4011753c7b1ea6cc36e57ae))
+
 ## 1.13.20 (2024-06-28)
 
 
