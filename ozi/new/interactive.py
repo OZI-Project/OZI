@@ -933,13 +933,9 @@ def menu_loop(
                                     'topic',
                                 ):
                                     classifier = classifier_checkboxlist(x)
-                                    output += chain.from_iterable(
-                                        (
-                                            [[f'--{x}', c] for c in classifier]
-                                            if classifier
-                                            else []
-                                        ),
-                                    )
+                                    if classifier:
+                                        for c in classifier:
+                                            output += [f'--{x}', c]
                                     prefix.update(
                                         (
                                             {
