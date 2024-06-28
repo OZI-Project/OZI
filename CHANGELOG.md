@@ -1,4 +1,11 @@
 # CHANGELOG
+## 1.13.19 (2024-06-28)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-new interactive): fix list argument rendering — rjdbcm &lt;ozi.project@outlook.com&gt; ([`0becd2e`](https://github.com/OZI-Project/OZI/commit/0becd2e29621c486f66cde130fc85d5b4399a846))
+
 ## 1.13.18 (2024-06-28)
 
 
