@@ -1,4 +1,17 @@
 # CHANGELOG
+## 1.13.20 (2024-06-28)
+
+
+### :bug: Fixed Bugs
+
+*  fix license expression dialog crash — rjdbcm &lt;ozi.project@outlook.com&gt; ([`4babcd3`](https://github.com/OZI-Project/OZI/commit/4babcd3a5a644c6f7b58bb11d07ae1d76997f519))
+
+
+### :label:
+
+
+* (ozi-new interactive): fix license_expression dialog typing — rjdbcm &lt;ozi.project@outlook.com&gt; ([`399d270`](https://github.com/OZI-Project/OZI/commit/399d270521355a035128d944c2ceed4e2733f5ba))
+
 ## 1.13.19 (2024-06-28)
 
 
