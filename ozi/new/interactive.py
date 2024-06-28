@@ -255,13 +255,14 @@ class Project:  # pragma: no cover
     ) -> tuple[None | list[str] | str, list[str], dict[str, str]]:
         _license_expression: str = ''
         while True:
-            possible_spdx: Sequence[str] | None = (
+            _possible_spdx: Sequence[str] | None = (
                 METADATA.spec.python.pkg.license.ambiguous.get(
                     _license,
-                    (),
+                    None,
                 )
             )
-            _default = possible_spdx[0] if possible_spdx else ''
+            possible_spdx: Sequence[str] = _possible_spdx if _possible_spdx else []
+            _default = possible_spdx[0]
             for n, i in enumerate(output):
                 if i.startswith('--license-expression'):
                     _default = output.pop(n).replace('--license-expression=', '').strip('"')
