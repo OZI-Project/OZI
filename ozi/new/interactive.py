@@ -1074,7 +1074,7 @@ def menu_loop(
                                 ok_text='✔ Ok',
                                 default=_default[0],
                             ).run()
-                            if result != _default:
+                            if result in _default:
                                 _P.copyright_head = result
                                 output.update({'--copyright-head': [_P.copyright_head]})
                         case x if x and x == 'allow_file':
@@ -1104,7 +1104,7 @@ def menu_loop(
                                 default=_default[0],
                                 style=_style,
                             ).run()
-                            if result != _default and result is not None:
+                            if result in _default and result is not None:
                                 _P.ci_provider = result
                                 output.update({'--ci-provider': [_P.ci_provider]})
                         case _:
