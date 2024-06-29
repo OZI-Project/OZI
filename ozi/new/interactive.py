@@ -209,7 +209,8 @@ class Project:  # pragma: no cover
         _default = None
         for n, i in enumerate(output):
             if i.startswith('--license'):
-                _default = output.pop(n).replace('--license=', '').strip('"')
+                _default = output.pop(n + 1)
+                output.remove('--license')
         while True:
             license_ = radiolist_dialog(
                 values=sorted(
@@ -265,7 +266,8 @@ class Project:  # pragma: no cover
             _default = possible_spdx[0]
             for n, i in enumerate(output):
                 if i.startswith('--license-expression'):
-                    _default = output.pop(n).replace('--license-expression=', '').strip('"')
+                    _default = output.pop(n + 1)
+                    output.remove('--license-expression')
 
             if len(possible_spdx) < 1:
                 _license_expression = input_dialog(
@@ -430,7 +432,7 @@ class Project:  # pragma: no cover
                                 ),
                             )
                             for req in del_requirement:
-                                output.pop(output.index(req) - 1)
+                                output.pop(output.index(req))
                                 output.remove(req)
                                 prefix.pop(f'Requires-Dist: {req}')
                     else:
@@ -457,7 +459,8 @@ class Project:  # pragma: no cover
         _default = ''
         for n, i in enumerate(output):
             if i.startswith('--readme-type'):
-                _default = output.pop(n).replace('--readme-type=', '').strip('"')
+                _default = output.pop(n + 1)
+                output.remove('--readme-type')
         readme_type = radiolist_dialog(
             values=(
                 ('rst', 'ReStructuredText'),
@@ -495,7 +498,8 @@ class Project:  # pragma: no cover
         _default = None
         for n, i in enumerate(output):
             if i.startswith('--typing'):
-                _default = output.pop(n).replace('--typing=', '').strip('"')
+                _default = output.pop(n + 1)
+                output.remove('--typing')
         result = radiolist_dialog(
             values=(
                 ('Typed', 'Typed'),
@@ -522,6 +526,62 @@ class Project:  # pragma: no cover
             ),
         )
         return result, output, prefix
+
+    @staticmethod
+    def project_urls(  # noqa: C901
+        project_name: str,
+        output: list[str],
+        prefix: dict[str, str],
+    ) -> tuple[str, list[str], dict[str, str]]:
+        _default = None
+        url = None
+        for n, i in enumerate(output):
+            if i.startswith('--project-url'):
+                _default = output.pop(n + 1)
+                output.remove('--project-url')
+        while True:
+            result = checkboxlist_dialog(
+                values=(
+                    ('Changelog', 'Changelog'),
+                    ('Documentation', 'Documentation'),
+                    ('Bug Report', 'Bug Report'),
+                    ('Funding', 'Funding'),
+                    ('Source', 'Source'),
+                ),
+                title='ozi-new interactive prompt',
+                text=f'Please select project URLs you want to add to {project_name}:',
+                style=_style,
+                ok_text='✔ Ok',
+                cancel_text='← Back',
+            ).run()
+            if result is not None:
+                for i in result:
+                    url = input_dialog(
+                        title='ozi-new interactive prompt',
+                        text=f'Please enter the {i} URL for {project_name}:',
+                        ok_text='✔ Ok',
+                        cancel_text='← Back',
+                        default='https://',
+                        style=_style,
+                    ).run()
+                    if url is None:
+                        break
+                    output += ['--project-url', f'{i}, {url}']
+                    prefix.update(
+                        (
+                            {
+                                f'Project-URL: {i}': f'Project-URL: {i}, {url}',  # noqa: B950, RUF100, E501
+                            }
+                            if i
+                            else {}
+                        ),
+                    )
+                continue
+            else:
+                output += ['--project-url', _default] if _default else []
+                break
+
+        return f'{result}, {url}', output, prefix
 
 
 _P = Project()
@@ -783,6 +843,7 @@ def header_input(  # noqa: C901
     for n, i in enumerate(output):
         if i.startswith(f'--{label.lower()}'):
             _default = output.pop(n + 1)
+            output.remove(f'--{label.lower()}')
     header = input_dialog(
         title='ozi-new interactive prompt',
         text='\n'.join(args),
@@ -870,6 +931,7 @@ def menu_loop(
                             ('license_expression', 'Extra: License-Expression'),
                             ('maintainer', 'Maintainer'),
                             ('maintainer_email', 'Maintainer-email'),
+                            ('project_urls', 'Project-URL'),
                             ('requires_dist', 'Requires-Dist (requirements)'),
                             ('audience', 'Intended Audience'),
                             ('environment', 'Environment'),
