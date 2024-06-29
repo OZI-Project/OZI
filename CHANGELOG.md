@@ -1,4 +1,22 @@
 # CHANGELOG
+## 1.13.22 (2024-06-29)
+
+
+### :bug: Fixed Bugs
+
+*  missing licenses and unsupported licenses list added — rjdbcm &lt;ozi.project@outlook.com&gt; ([`ac65c05`](https://github.com/OZI-Project/OZI/commit/ac65c059bdcb378c1d649eaf7590ad2d450e7b1a))
+
+
+### :label:
+
+
+* ``SPDX_LICENSE_MAP: dict[str, Sequence[str]]`` — rjdbcm &lt;ozi.project@outlook.com&gt; ([`22a5ed5`](https://github.com/OZI-Project/OZI/commit/22a5ed54d6669433bce1dab02625aa0021a3b839))
+
+
+### :pushpin: Pinned Dependencies
+
+* ozi-templates~=2.3.0 — rjdbcm &lt;ozi.project@outlook.com&gt; ([`f7bbaa5`](https://github.com/OZI-Project/OZI/commit/f7bbaa59cacf87afca6a265629c00e41f15485df))
+
 ## 1.13.21 (2024-06-28)
 
 
