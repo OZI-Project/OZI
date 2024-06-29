@@ -1060,32 +1060,28 @@ def menu_loop(
                                 )
                                 setattr(_P, x, not setting)
                         case x if x and x == 'copyright_head':
-                            _default = None
-                            output.pop('--copyright-head')
-                            _default = (
-                                _default
-                                if _default
-                                else 'Part of {project_name}.\nSee LICENSE.txt in the project root for details.'  # noqa: B950, RUF100, E501
-                            )  # noqa: B950, RUF100, E501
+                            _default = output.setdefault(
+                                '--copyright-head',
+                                [
+                                    'Part of {project_name}.\nSee LICENSE.txt in the project root for details.',  # noqa: B950, RUF100, E501
+                                ],
+                            )
                             result = input_dialog(
                                 title='ozi-new interactive prompt',
                                 text='Edit copyright header:',
                                 style=_style,
                                 cancel_text='← Back',
                                 ok_text='✔ Ok',
-                                default=_default,
+                                default=_default[0],
                             ).run()
                             if result != _default:
                                 _P.copyright_head = result
                                 output.update({'--copyright-head': [_P.copyright_head]})
                         case x if x and x == 'allow_file':
-                            _default = None
-                            output.pop('--allow-file')
-                            _default = (
-                                _default
-                                if _default
-                                else list(METADATA.spec.python.src.allow_files)
-                            )  # noqa: B950, RUF100, E501
+                            _default = output.setdefault(
+                                '--allow-file',
+                                list(METADATA.spec.python.src.allow_files),
+                            )
                             result = input_dialog(
                                 title='ozi-new interactive prompt',
                                 text='Edit allowed existing files:',
@@ -1098,16 +1094,14 @@ def menu_loop(
                                 _P.allow_file = [i.strip() for i in result.split(',')]
                                 output.update({'--allow-file': [result]})
                         case x if x and x == 'ci_provider':
-                            _default = None
-                            output.pop('--ci-provider')
-                            _default = _default if _default else 'github'
+                            _default = output.setdefault('--ci-provider', ['github'])
                             result = radiolist_dialog(
                                 title='ozi-new interactive prompt',
                                 text='Change continuous integration providers:',
                                 values=[('github', 'GitHub')],
                                 cancel_text='← Back',
                                 ok_text='✔ Ok',
-                                default=_default,
+                                default=_default[0],
                                 style=_style,
                             ).run()
                             if result != _default and result is not None:
