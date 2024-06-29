@@ -913,15 +913,15 @@ def menu_loop(
                                     if isinstance(result, list):
                                         return result, output, prefix
                                 case x if x == 'license_':
-                                    _license, output, prefix = _P.license_(
+                                    result, output, prefix = _P.license_(
                                         project_name,
                                         output,
                                         prefix,
                                     )
-                                    if isinstance(_license, str):
+                                    if isinstance(result, str):
                                         result, output, prefix = _P.license_expression(
                                             project_name,
-                                            _license,
+                                            result,
                                             output,
                                             prefix,
                                         )
