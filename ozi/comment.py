@@ -92,7 +92,7 @@ def calculate_score(lines: int, t1: int, t2: int, t3: int) -> float:  # pragma: 
 def pattern_cache(key: str) -> re.Pattern[str]:  # pragma: no cover
     """Cached OZI specification linter comment pattern lookup.
 
-    :param key: key in :ref:`ozi.spec.CommentPatterns`
+    :param key: key in :py:class:`ozi.spec.CommentPatterns`
     :type key: str
     :return: compiled regular expression pattern
     :rtype: re.Pattern[str]
@@ -109,7 +109,7 @@ def pattern_search(
 
     :param line: line text verbatim
     :type line: str
-    :yield: key, match for key in :ref:`ozi.spec.CommentPatterns` excluding ``help``
+    :yield: key, match for key in :py:class:`ozi.spec.CommentPatterns` excluding ``help``
     :rtype: Generator[tuple[str, str], None, None]
     """
     for key in METADATA.spec.python.src.comments.asdict().keys():

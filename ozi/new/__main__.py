@@ -6,11 +6,15 @@
 from __future__ import annotations
 
 import re
+import shlex
+import sys
+from itertools import chain
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from blastpipe.ozi_templates import load_environment
+from ozi_templates import load_environment  # type: ignore
 
+from ozi.new.interactive import interactive_prompt
 from ozi.new.parser import parser
 from ozi.new.validate import valid_contact_info
 from ozi.new.validate import valid_copyright_head
@@ -104,8 +108,8 @@ def postprocess_arguments(project: Namespace) -> Namespace:
     ):  # defer to good-issue
         TAP.not_ok('target directory not empty', 'no files will be created', skip=True)
     match project.ci_provider:
-        case 'github':
-            ...
+        case 'github':  # pragma: no cover
+            pass
         case _:
             TAP.not_ok(
                 f'--ci-provider "{project.ci_provider}" unrecognized. ci_user will not be set.',
@@ -130,10 +134,21 @@ def wrap(project: Namespace) -> None:  # pragma: no cover
         f.write(template.render())
 
 
-def main() -> None:  # pragma: no cover
+def main(args: list[str] | None = None) -> None:  # pragma: no cover
     """Main ozi.new entrypoint."""
-    ozi_new = parser.parse_args()
+    pipe = sys.stdin if not sys.stdin.isatty() else None
+    args = (
+        list(chain.from_iterable([shlex.split(line.strip()) for line in pipe]))
+        if pipe
+        else args
+    )
+    ozi_new = parser.parse_args(args=args)
+    ozi_new.argv = args if args else shlex.join(sys.argv[1:])
     match ozi_new:
+        case ozi_new if ozi_new.new in ['i', 'interactive']:
+            args = interactive_prompt(ozi_new)
+            ozi_new = parser.parse_args(args=args)
+            main(args)
         case ozi_new if ozi_new.new in ['p', 'project']:
             project(ozi_new)
             TAP.end()

@@ -16,9 +16,38 @@ parser = argparse.ArgumentParser(
     prog='ozi-new',
     description=sys.modules[__name__].__doc__,
     add_help=False,
-    usage='%(prog)s [options] | [positional args]',  # noqa: B950,E501,RUF100
+    usage="""%(prog)s [options] | [positional args]
+
+The information provided on this application does not, and is not intended to,
+constitute legal advice. All information, content, and materials available
+on this application are for general informational purposes only.
+Information on this application may not constitute the most up-to-date legal
+or other information.
+
+THE LICENSE TEMPLATES, LICENSE IDENTIFIERS, LICENSE CLASSIFIERS, AND
+LICENSE EXPRESSION PARSING SERVICES, AND ALL OTHER CONTENTS ARE PROVIDED
+"AS IS", NO REPRESENTATIONS ARE MADE THAT THE CONTENT IS ERROR-FREE
+AND/OR APPLICABLE FOR ANY PURPOSE, INCLUDING MERCHANTABILITY.
+
+Readers of this disclaimer should contact their attorney to obtain advice
+with respect to any particular legal matter. The OZI Project is not a
+law firm and does not provide legal advice. No reader or user of this
+application should act or abstain from acting on the basis of information
+on this application without first seeking legal advice from counsel in the
+relevant jurisdiction. Legal counsel can ensure that the information
+provided in this application is applicable to your particular situation.
+Use of, or reading, this application or any of resources contained within
+does not create an attorney-client relationship.""",
 )
 subparser = parser.add_subparsers(help='', metavar='', dest='new')
+interactive_parser = subparser.add_parser(
+    'interactive',
+    aliases=['i'],
+    description='Create a new Python project with OZI.',
+    help='',
+    prog='ozi-new interactive',
+    usage='%(prog)s [options] | [positional arguments]',
+)
 project_parser = subparser.add_parser(
     'project',
     aliases=['p'],
@@ -26,6 +55,20 @@ project_parser = subparser.add_parser(
     help='create new OZI project',
     prog='ozi-new project',
     usage='%(prog)s [options] [PKG-INFO required] [PKG-INFO optional] [PKG-INFO defaults] [defaults] target',  # noqa: B950,E501,RUF100
+)
+interactive_parser.add_argument(
+    'target',
+    type=str,
+    nargs='?',
+    default='.',
+    help='directory path for new project (default: current working directory)',
+)
+interactive_defaults = interactive_parser.add_argument_group('defaults')
+interactive_defaults.add_argument(
+    '-c',
+    '--check-package-exists',
+    default=True,
+    action=argparse.BooleanOptionalAction,
 )
 required = project_parser.add_argument_group('PKG-INFO required')
 optional = project_parser.add_argument_group('PKG-INFO optional')
@@ -53,14 +96,12 @@ required.add_argument(
     '--name',
     type=str,
     help='Name (Single Use)',
-    required=True,
 )
 required.add_argument(
     '-a',
     '--author',
     type=str,
     help='Author (Multiple Use, Single output)',
-    required=True,
     action='append',
     default=[],
     metavar='AUTHOR_NAMES',
@@ -71,7 +112,6 @@ required.add_argument(
     '--author-email',
     type=str,
     help='Author-email (Multiple Use, Single output)',
-    required=True,
     default=[],
     metavar='AUTHOR_EMAILS',
     nargs='?',
@@ -82,20 +122,17 @@ required.add_argument(
     '--summary',
     type=str,
     help='Summary (Single Use)',
-    required=True,
 )
 required.add_argument(
     '-p',
     '--home-page',
     type=str,
     help='Home-page (Single Use)',
-    required=True,
 )
 required.add_argument(
     '--license-expression',
     type=str,
     help='Classifier: License Expression (Single Use, SPDX Expression)',
-    required=True,
 )
 required.add_argument(
     '-l',
@@ -103,7 +140,6 @@ required.add_argument(
     type=str,
     help='Classifier: License (Single Use)',
     action=CloseMatch,
-    required=True,
 )
 ozi_required.add_argument(
     'target',
@@ -117,7 +153,7 @@ defaults.add_argument(
     '--intended-audience',
     metavar='AUDIENCE_NAMES',
     type=str,
-    help='Classifier: Intended Audience (Multiple Use)(default: ["Other Audience"])',
+    help='Classifier: Intended Audience (Multiple Use), default: ["Other Audience"]',
     default=METADATA.spec.python.pkg.info.classifiers.intended_audience,
     nargs='?',
     action=CloseMatch,
@@ -128,14 +164,14 @@ defaults.add_argument(
     choices=frozenset(('Typed', 'Stubs Only')),
     nargs='?',
     metavar='PY_TYPED_OR_STUBS',
-    help='Classifier: Typing (Multiple Use)(default: [Typed])',
+    help='Classifier: Typing (Multiple Use), default: ["Typed"]',
     default=METADATA.spec.python.pkg.info.classifiers.typing,
 )
 defaults.add_argument(
     '--environment',
     metavar='ENVIRONMENT_NAMES',
     default=METADATA.spec.python.pkg.info.classifiers.environment,
-    help='Classifier: Environment (Multiple Use)(default: ["Other Environment"])',
+    help='Classifier: Environment (Multiple Use), default: ["Other Environment"]',
     action=CloseMatch,
     nargs='?',
     type=str,
@@ -145,7 +181,7 @@ defaults.add_argument(
     default='LICENSE.txt',
     metavar='LICENSE_FILENAME',
     choices=frozenset(('LICENSE.txt',)),
-    help='Classifier: License File (Single Use)(default: LICENSE.txt)',
+    help='Classifier: License File (Single Use), default: "LICENSE.txt"',
     type=str,
 )
 optional.add_argument(
@@ -192,7 +228,7 @@ defaults.add_argument(
     '--natural-language',
     metavar='LANGUAGE_NAMES',
     default=['English'],
-    help='Classifier: Natural Language (Multiple Use)(default: [English])',
+    help='Classifier: Natural Language (Multiple Use), default: ["English"]',
     action=CloseMatch,
     type=str,
     nargs='?',
@@ -211,7 +247,7 @@ defaults.add_argument(
     '--development-status',
     action=CloseMatch,
     default=METADATA.spec.python.pkg.info.classifiers.development_status,
-    help='Classifier: Development Status (Single Use)(default: "1 - Planning")',
+    help='Classifier: Development Status (Single Use), default: "1 - Planning"',
     type=str,
 )
 defaults.add_argument(
@@ -225,7 +261,8 @@ defaults.add_argument(
 optional.add_argument(
     '-r',
     '--dist-requires',
-    help='Dist-Requires (Multiple Use)',
+    '--requires-dist',
+    help='Requires-Dist (Multiple Use)',
     action='append',
     type=str,
     nargs='?',
@@ -238,23 +275,23 @@ ozi_defaults.add_argument(
     '--verify-email',
     default=False,
     action=argparse.BooleanOptionalAction,
-    help='verify email domain deliverability(default: ``--no-verify-email``)',
+    help='verify email domain deliverability, default: no',
 )
 ozi_defaults.add_argument(
     '--enable-cython',
     default=False,
     action=argparse.BooleanOptionalAction,
-    help='build extension module with Cython(default: ``--no-enable-cython``)',
+    help='build extension module with Cython, default: no',
 )
 ozi_defaults.add_argument(
     '--strict',
     default=False,
     action=argparse.BooleanOptionalAction,
-    help='strict mode raises warnings to errors(default: ``--strict``)',
+    help='strict mode raises warnings to errors, default',
 )
 ozi_defaults.add_argument(
     '--allow-file',
-    help='Add a file to the allow list for new project target folder(default: [templates,.git])',
+    help='Add a file to the allow list for new project target folder, default: [templates,.git]',
     action='append',
     type=str,
     nargs='?',

@@ -1,11 +1,12 @@
 GitPython>=3
-blastpipe~=2024.11.4
 dnspython
 idna>=2
 jinja2>=3
 meson[ninja]>=1.1.0
+ozi-templates~=2.3.2
 packaging~=24.0
 pip-tools
+prompt_toolkit
 pyparsing~=3.1
 requests
 setuptools_scm[toml]

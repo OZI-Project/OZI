@@ -1,0 +1,39 @@
+{%- if type_ in [':bug:', 'BUG', 'fix'] %}
+### :bug: Fixed Bugs
+{%- elif type_ in [':memo:', 'DOC', 'docs'] %}
+### :memo: Updated Documentation
+{%- elif type_ in [':sparkles:', 'FEAT', 'feat'] %}
+### :sparkles: Implemented Features
+{%- elif type_ in [':zap:', 'BENCH', 'perf'] %}
+### :sparkles: Improved Performance
+{%- elif type_ in [':construction_worker:', 'BLD', 'ci'] %}
+### :construction_worker: Updated Continuous Integration
+{%- elif type_ in [':ambulance:'] %}
+### :ambulance: Hotfixed Issues
+{%- elif type_ in [':fire:'] %}
+### :fire: Deleted Code or Files
+{%- elif type_ in [':pencil2:'] %}
+### :pencil2: Corrected Typos
+{%- elif type_ in [':pushpin:'] %}
+### :pushpin: Pinned Dependencies
+{%- elif type_ in [':arrow_up:'] %}
+### :arrow_up: Upgraded Dependencies
+{%- elif type_ in [':arrow_down:'] %}
+### :arrow_down: Downgraded Dependencies
+{%- elif type_ in [':heavy_plus_sign:'] %}
+### :heavy_plus_sign: Added Dependencies
+{%- elif type_ in [':heavy_minus_sign:'] %}
+### :heavy_minus_sign: Removed Dependencies
+{%- elif type_ in [':children_crossing:'] %}
+### :children_crossing: Improved Usability
+{%- elif type_ in [':rotating_light:'] %}
+### :rotating_light: Ran Linters
+{%- elif type_ in [':hammer:'] %}
+### :hammer: Updated Scripts
+{%- elif type_ in [':wrench:'] %}
+### :hammer: Updated Configuration
+{%- elif type_ in [':wastebasket:'] %}
+### :wastebasket: Deprecated Code
+{%- else %}
+### {{ type_ | capitalize }}
+{% endif %}

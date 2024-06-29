@@ -12,10 +12,10 @@ from copy import deepcopy
 from datetime import timedelta
 
 import pytest
-from blastpipe.ozi_templates import load_environment  # pyright: ignore
 from hypothesis import given
 from hypothesis import settings
 from hypothesis import strategies as st
+from ozi_templates import load_environment  # pyright: ignore
 
 import ozi.fix.__main__  # pyright: ignore
 import ozi.fix.rewrite_command  # pyright: ignore
@@ -328,7 +328,6 @@ def test_Rewriter_bad_project__iadd__file_from_template(  # noqa: N802, DC102, R
         fix=fix,
         env=env,
     )
-    pathlib.Path(bad_project / 'templates').mkdir()  # pyright: ignore
     pathlib.Path(bad_project / 'templates' / 'foo.py').touch()  # pyright: ignore
     pathlib.Path(bad_project / 'templates' / 'source').mkdir()  # pyright: ignore
     pathlib.Path(bad_project / 'templates' / 'source' / 'foo.py').touch()  # pyright: ignore
