@@ -9,7 +9,6 @@ import os
 import re
 import sys
 from functools import lru_cache
-from itertools import chain
 from typing import TYPE_CHECKING
 from typing import Any
 from typing import Sequence
@@ -77,10 +76,10 @@ class Project:  # pragma: no cover
 
     @staticmethod
     def name(
-        output: list[str],
+        output: dict[str, list[str]],
         prefix: dict[str, str],
         check_package_exists: bool = True,
-    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+    ) -> tuple[None | list[str] | str | bool, dict[str, list[str]], dict[str, str]]:
 
         def _check_package_exists() -> Validator:
             if check_package_exists:
@@ -105,9 +104,9 @@ class Project:  # pragma: no cover
     @staticmethod
     def summary(
         project_name: str,
-        output: list[str],
+        output: dict[str, list[str]],
         prefix: dict[str, str],
-    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+    ) -> tuple[None | list[str] | str | bool, dict[str, list[str]], dict[str, str]]:
         while True:
             result, output, prefix = header_input(
                 'Summary',
@@ -125,9 +124,9 @@ class Project:  # pragma: no cover
     @staticmethod
     def keywords(
         project_name: str,
-        output: list[str],
+        output: dict[str, list[str]],
         prefix: dict[str, str],
-    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+    ) -> tuple[None | list[str] | str | bool, dict[str, list[str]], dict[str, str]]:
         while True:
             result, output, prefix = header_input(
                 'Keywords',
@@ -144,9 +143,9 @@ class Project:  # pragma: no cover
     @staticmethod
     def home_page(
         project_name: str,
-        output: list[str],
+        output: dict[str, list[str]],
         prefix: dict[str, str],
-    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+    ) -> tuple[None | list[str] | str | bool, dict[str, list[str]], dict[str, str]]:
         while True:
             result, output, prefix = header_input(
                 'Home-page',
@@ -163,9 +162,9 @@ class Project:  # pragma: no cover
     @staticmethod
     def author(
         project_name: str,
-        output: list[str],
+        output: dict[str, list[str]],
         prefix: dict[str, str],
-    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+    ) -> tuple[None | list[str] | str | bool, dict[str, list[str]], dict[str, str]]:
         while True:
             result, output, prefix = header_input(
                 'Author',
@@ -183,9 +182,9 @@ class Project:  # pragma: no cover
     @staticmethod
     def author_email(
         project_name: str,
-        output: list[str],
+        output: dict[str, list[str]],
         prefix: dict[str, str],
-    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+    ) -> tuple[None | list[str] | str | bool, dict[str, list[str]], dict[str, str]]:
         while True:
             result, output, prefix = header_input(
                 'Author-email',
@@ -203,14 +202,10 @@ class Project:  # pragma: no cover
     @staticmethod
     def license_(  # noqa: C901
         project_name: str,
-        output: list[str],
+        output: dict[str, list[str]],
         prefix: dict[str, str],
-    ) -> tuple[None | list[str] | str, list[str], dict[str, str]]:
-        _default = None
-        for n, i in enumerate(output):
-            if i.startswith('--license'):
-                _default = output.pop(n + 1)
-                output.remove('--license')
+    ) -> tuple[None | list[str] | str, dict[str, list[str]], dict[str, str]]:
+        _default = output.setdefault('--license', [])
         while True:
             license_ = radiolist_dialog(
                 values=sorted(
@@ -226,10 +221,13 @@ class Project:  # pragma: no cover
             if license_ is None:
                 result, output, prefix = menu_loop(output, prefix)
                 if isinstance(result, list):
-                    output += ['--license', _default] if _default else []
+                    output.update({'--license': _default})
                     return result, output, prefix
             else:
-                if validate_message(license_ if license_ else '', LengthValidator())[0]:
+                if validate_message(
+                    license_ if license_ and isinstance(license_, str) else '',
+                    LengthValidator(),
+                )[0]:
                     break
                 message_dialog(
                     style=_style,
@@ -240,20 +238,19 @@ class Project:  # pragma: no cover
         prefix.update(
             {f'{Prefix().license}': f'{Prefix().license}{license_ if license_ else ""}'},
         )
-        if license_:
-            output += ['--license', license_]
+        if isinstance(license_, str):
+            output.update({'--license': [license_]})
         else:
-            output += ['--license', _default] if _default else []
-        output += ['--license', license_] if license_ else []
-        return license_, output, prefix
+            output.update({'--license': _default})
+        return str(license_), output, prefix
 
     @staticmethod
     def license_expression(  # noqa: C901
         project_name: str,
         _license: str,
-        output: list[str],
+        output: dict[str, list[str]],
         prefix: dict[str, str],
-    ) -> tuple[None | list[str] | str, list[str], dict[str, str]]:
+    ) -> tuple[None | list[str] | str, dict[str, list[str]], dict[str, str]]:
         _license_expression: str = ''
         while True:
             _possible_spdx: Sequence[str] | None = (
@@ -263,17 +260,13 @@ class Project:  # pragma: no cover
                 )
             )
             possible_spdx: Sequence[str] = _possible_spdx if _possible_spdx else ['']
-            _default = possible_spdx[0]
-            for n, i in enumerate(output):
-                if i.startswith('--license-expression'):
-                    _default = output.pop(n + 1)
-                    output.remove('--license-expression')
+            _default = output.setdefault('--license-expression', [possible_spdx[0]])
 
             if len(possible_spdx) < 1:
                 _license_expression = input_dialog(
                     title='ozi-new interactive prompt',
                     text=f'License: {_license}\nEdit SPDX license expression for {project_name}:',
-                    default=_default,
+                    default=_default[0],
                     style=_style,
                     cancel_text='⇒ Skip',
                 ).run()
@@ -281,7 +274,7 @@ class Project:  # pragma: no cover
                 _license_expression = input_dialog(
                     title='ozi-new interactive prompt',
                     text=f'License: {_license}\nEdit SPDX license expression for {project_name}:',
-                    default=_default,
+                    default=_default[0],
                     style=_style,
                     cancel_text='⇒ Skip',
                     ok_text='✔ Ok',
@@ -296,7 +289,7 @@ class Project:  # pragma: no cover
                     ok_text='✔ Ok',
                 ).run()
                 if license_id is None:
-                    output += ['--license-expression', _default] if _default else []
+                    output.update({'--license-expression': _default})
                     result, output, prefix = menu_loop(output, prefix)
                     if isinstance(result, list):
                         return result, output, prefix
@@ -304,7 +297,7 @@ class Project:  # pragma: no cover
                     _license_expression = input_dialog(
                         title='ozi-new interactive prompt',
                         text=f'License: {_license}\nEdit SPDX license expression for {project_name}:',
-                        default=license_id if license_id is not None else _default,
+                        default=license_id,
                         style=_style,
                         cancel_text='⇒ Skip',
                         ok_text='✔ Ok',
@@ -322,9 +315,9 @@ class Project:  # pragma: no cover
                         ).run()
             break
         if _license_expression:
-            output += ['--license-expression', _license_expression]
+            output.update({'--license-expression': [_license_expression]})
         else:
-            output += ['--license-expression', _default] if len(_default) > 0 else []
+            output.update({'--license-expression': _default})
         prefix.update(
             {
                 'Extra: License-Expression ::': f'Extra: License-Expression :: {_license_expression if _license_expression else ""}',  # pyright: ignore  # noqa: B950, RUF100, E501
@@ -335,9 +328,9 @@ class Project:  # pragma: no cover
     @staticmethod
     def maintainer(
         project_name: str,
-        output: list[str],
+        output: dict[str, list[str]],
         prefix: dict[str, str],
-    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+    ) -> tuple[None | list[str] | str | bool, dict[str, list[str]], dict[str, str]]:
         while True:
             result, output, prefix = header_input(
                 'Maintainer',
@@ -355,9 +348,9 @@ class Project:  # pragma: no cover
     @staticmethod
     def maintainer_email(
         project_name: str,
-        output: list[str],
+        output: dict[str, list[str]],
         prefix: dict[str, str],
-    ) -> tuple[None | list[str] | str | bool, list[str], dict[str, str]]:
+    ) -> tuple[None | list[str] | str | bool, dict[str, list[str]], dict[str, str]]:
         while True:
             result, output, prefix = header_input(
                 'Maintainer-email',
@@ -375,10 +368,11 @@ class Project:  # pragma: no cover
     @staticmethod
     def requires_dist(
         project_name: str,
-        output: list[str],
+        output: dict[str, list[str]],
         prefix: dict[str, str],
-    ) -> tuple[list[str] | str | bool | None, list[str], dict[str, str]]:
+    ) -> tuple[list[str] | str | bool | None, dict[str, list[str]], dict[str, str]]:
         _requires_dist: list[str] = []
+        output.setdefault('--requires-dist', [])
         while True:
             match button_dialog(
                 title='ozi-new interactive prompt',
@@ -407,15 +401,15 @@ class Project:  # pragma: no cover
                         cancel_text='← Back',
                     ).run()
                     if requirement:
-                        _requires_dist += [requirement] if requirement else []
+                        _requires_dist += [requirement]
                         prefix.update(
                             {
                                 f'Requires-Dist: {requirement}': (
-                                    f'Requires-Dist: {requirement}' if requirement else ''
+                                    f'Requires-Dist: {requirement}'
                                 ),
                             },
                         )
-                        output += ['--requires-dist', requirement] if requirement else []
+                        output['--requires-dist'].append(requirement)
                 case False:
                     if len(_requires_dist) != 0:
                         del_requirement = checkboxlist_dialog(
@@ -432,8 +426,7 @@ class Project:  # pragma: no cover
                                 ),
                             )
                             for req in del_requirement:
-                                output.pop(output.index(req))
-                                output.remove(req)
+                                output['--requires-dist'].remove(req)
                                 prefix.pop(f'Requires-Dist: {req}')
                     else:
                         message_dialog(
@@ -453,14 +446,10 @@ class Project:  # pragma: no cover
     @staticmethod
     def readme_type(
         project_name: str,
-        output: list[str],
+        output: dict[str, list[str]],
         prefix: dict[str, str],
-    ) -> tuple[str, list[str], dict[str, str]]:
-        _default = ''
-        for n, i in enumerate(output):
-            if i.startswith('--readme-type'):
-                _default = output.pop(n + 1)
-                output.remove('--readme-type')
+    ) -> tuple[str | list[str], dict[str, list[str]], dict[str, str]]:
+        _default = output.setdefault('--readme-type', [])
         readme_type = radiolist_dialog(
             values=(
                 ('rst', 'ReStructuredText'),
@@ -475,9 +464,11 @@ class Project:  # pragma: no cover
             cancel_text='← Back',
         ).run()
         if readme_type is not None:
-            output += ['--readme-type', readme_type]
+            output.update(
+                {'--readme-type': [readme_type] if isinstance(readme_type, str) else []}
+            )
         else:
-            output += ['--readme-type', _default] if _default else []
+            output.update({'--readme-type': _default})
         prefix.update(
             (
                 {
@@ -487,19 +478,15 @@ class Project:  # pragma: no cover
                 else {}
             ),
         )
-        return readme_type, output, prefix
+        return str(readme_type), output, prefix
 
     @staticmethod
     def typing(
         project_name: str,
-        output: list[str],
+        output: dict[str, list[str]],
         prefix: dict[str, str],
-    ) -> tuple[str, list[str], dict[str, str]]:
-        _default = None
-        for n, i in enumerate(output):
-            if i.startswith('--typing'):
-                _default = output.pop(n + 1)
-                output.remove('--typing')
+    ) -> tuple[str | list[str], dict[str, list[str]], dict[str, str]]:
+        _default = output.setdefault('--typing', [])
         result = radiolist_dialog(
             values=(
                 ('Typed', 'Typed'),
@@ -513,9 +500,9 @@ class Project:  # pragma: no cover
             cancel_text='← Back',
         ).run()
         if result is not None:
-            output += ['--typing', result]
+            output.update({'--typing': [result] if isinstance(result, str) else []})
         else:
-            output += ['--typing', _default] if _default else []
+            output.update({'--typing': _default})
         prefix.update(
             (
                 {
@@ -525,20 +512,16 @@ class Project:  # pragma: no cover
                 else {}
             ),
         )
-        return result, output, prefix
+        return str(result), output, prefix
 
     @staticmethod
     def project_urls(  # noqa: C901
         project_name: str,
-        output: list[str],
+        output: dict[str, list[str]],
         prefix: dict[str, str],
-    ) -> tuple[str, list[str], dict[str, str]]:
-        _default = None
+    ) -> tuple[str, dict[str, list[str]], dict[str, str]]:
+        _default = output.setdefault('--project-url', [])
         url = None
-        for n, i in enumerate(output):
-            if i.startswith('--project-url'):
-                _default = output.pop(n + 1)
-                output.remove('--project-url')
         while True:
             result = checkboxlist_dialog(
                 values=(
@@ -566,7 +549,7 @@ class Project:  # pragma: no cover
                     ).run()
                     if url is None:
                         break
-                    output += ['--project-url', f'{i}, {url}']
+                    output['--project-url'].append(f'{i}, {url}')
                     prefix.update(
                         (
                             {
@@ -578,7 +561,7 @@ class Project:  # pragma: no cover
                     )
                 continue
             else:
-                output += ['--project-url', _default] if _default else []
+                output.update({'--project-url': _default})
                 break
 
         return f'{result}, {url}', output, prefix
@@ -833,28 +816,30 @@ def classifier_checkboxlist(key: str) -> list[str] | None:  # pragma: no cover
 
 def header_input(  # noqa: C901
     label: str,
-    output: list[str],
+    output: dict[str, list[str]],
     prefix: dict[str, str],
     *args: str,
     validator: Validator | None = None,
     split_on: str | None = None,
-) -> tuple[bool | None | list[str], list[str], dict[str, str]]:  # pragma: no cover
-    _default = ''
-    for n, i in enumerate(output):
-        if i.startswith(f'--{label.lower()}'):
-            _default = output.pop(n + 1)
-            output.remove(f'--{label.lower()}')
+) -> tuple[
+    bool | None | list[str], dict[str, list[str]], dict[str, str]
+]:  # pragma: no cover
+    _default = output.setdefault(f'--{label.lower()}', [])
     header = input_dialog(
         title='ozi-new interactive prompt',
         text='\n'.join(args),
         validator=validator,
-        default=_default,
+        default=_default[0] if len(_default) > 0 else '',
         style=_style,
         cancel_text='☰  Menu',
         ok_text='✔ Ok',
     ).run()
     if header is None:
-        output += [f'--{label.lower()}', _default] if len(_default) > 0 else []
+        output.update(
+            {
+                f'--{label.lower()}': _default if len(_default) > 0 else [],
+            },
+        )
         result, output, prefix = menu_loop(output, prefix)
         return result, output, prefix
     else:
@@ -863,12 +848,11 @@ def header_input(  # noqa: C901
             if valid:
                 prefix.update({label: f'{label}: {header}'})
                 if split_on:
-                    header = header.rstrip(split_on).split(split_on)  # type: ignore
-                    output += chain.from_iterable(
-                        [[f'--{label.lower()}', i] for i in header],
+                    output.update(
+                        {f'--{label.lower()}': header.rstrip(split_on).split(split_on)}
                     )
                 else:
-                    output += [f'--{label.lower()}', header]
+                    output.update({f'--{label.lower()}': [header]})
                 return True, output, prefix
             message_dialog(
                 title='ozi-new interactive prompt',
@@ -876,14 +860,18 @@ def header_input(  # noqa: C901
                 style=_style,
                 ok_text='✔ Ok',
             ).run()
-        output += [f'--{label.lower()}', _default] if len(_default) > 0 else []
+        output.update(
+            {f'--{label.lower()}': _default if len(_default) > 0 else []},
+        )
     return None, output, prefix
 
 
 def menu_loop(
-    output: list[str],
+    output: dict[str, list[str]],
     prefix: dict[str, str],
-) -> tuple[None | list[str] | bool, list[str], dict[str, str]]:  # pragma: no cover
+) -> tuple[
+    None | list[str] | bool, dict[str, list[str]], dict[str, str]
+]:  # pragma: no cover
     while True:
         _default: str | list[str] | None = None
         match button_dialog(
@@ -999,8 +987,7 @@ def menu_loop(
                                 ):
                                     classifier = classifier_checkboxlist(x)
                                     if classifier:
-                                        for c in classifier:
-                                            output += [f'--{x}', c]
+                                        output.update({f'--{x}': classifier})
                                     prefix.update(
                                         (
                                             {
@@ -1041,31 +1028,40 @@ def menu_loop(
                                 f'--no-{x.replace("_", "-")}',
                             ):
                                 if i in output:
-                                    output.remove(i)
+                                    output.pop(i)
                             setting = getattr(_P, x)
                             if setting is None:
                                 setattr(_P, x, True)
                             else:
                                 flag = '' if not setting else 'no-'
-                                output += [f'--{flag}{x.replace("_", "-")}']
+                                output.update(
+                                    {
+                                        f'--{flag}{x.replace("_", "-")}': [
+                                            f'--{flag}{x.replace("_", "-")}',
+                                        ],
+                                    },
+                                )
                                 setattr(_P, x, not setting)
                         case x if x and x == 'strict':
                             for i in ('--strict', '--no-strict'):
                                 if i in output:
-                                    output.remove(i)
+                                    output.pop(i)
                             setting = getattr(_P, x)
                             if setting is None:
                                 setattr(_P, x, False)
                             else:
                                 flag = '' if setting else 'no-'
-                                output += [f'--{flag}{x.replace("_", "-")}']
+                                output.update(
+                                    {
+                                        f'--{flag}{x.replace("_", "-")}': [
+                                            f'--{flag}{x.replace("_", "-")}',
+                                        ],
+                                    },
+                                )
                                 setattr(_P, x, not setting)
                         case x if x and x == 'copyright_head':
                             _default = None
-                            for n, i in enumerate(output):
-                                if i == '--copyright-head':
-                                    _default = output.pop(n + 1)
-                                    output.remove('--copyright-head')
+                            output.pop('--copyright-head')
                             _default = (
                                 _default
                                 if _default
@@ -1081,13 +1077,10 @@ def menu_loop(
                             ).run()
                             if result != _default:
                                 _P.copyright_head = result
-                                output += ['--copyright-head', _P.copyright_head]
+                                output.update({'--copyright-head': [_P.copyright_head]})
                         case x if x and x == 'allow_file':
                             _default = None
-                            for n, i in enumerate(output):
-                                if i == '--allow-file':
-                                    _default = output.pop(n + 1).split(',')
-                                    output.remove('--allow-file')
+                            output.pop('--allow-file')
                             _default = (
                                 _default
                                 if _default
@@ -1103,13 +1096,10 @@ def menu_loop(
                             ).run()
                             if result != ','.join(_default) and result is not None:
                                 _P.allow_file = [i.strip() for i in result.split(',')]
-                                output += ['--allow-file', result]
+                                output.update({'--allow-file': [result]})
                         case x if x and x == 'ci_provider':
                             _default = None
-                            for n, i in enumerate(output):
-                                if i.startswith('--ci-provider'):
-                                    _default = output.pop(n + 1)
-                                    output.remove('--ci-provider')
+                            output.pop('--ci-provider')
                             _default = _default if _default else 'github'
                             result = radiolist_dialog(
                                 title='ozi-new interactive prompt',
@@ -1122,7 +1112,7 @@ def menu_loop(
                             ).run()
                             if result != _default and result is not None:
                                 _P.ci_provider = result
-                                output += ['--ci-provider', _P.ci_provider]
+                                output.update({'--ci-provider': [_P.ci_provider]})
                         case _:
                             break
             case 1:
@@ -1177,7 +1167,8 @@ within does not create an attorney-client relationship.
         return []
 
     prefix: dict[str, str] = {}
-    output = ['project']
+    output: dict[str, list[str]] = {}
+    output.setdefault('project', ['project'])
     project_name = '""'
 
     result, output, prefix = _P.name(output, prefix, project.check_package_exists)
@@ -1243,4 +1234,11 @@ within does not create an attorney-client relationship.
         if isinstance(result, list):
             return result
 
-    return output
+    ret_args = []
+
+    for k, v in output.items():
+        for i in v:
+            if len(i) > 0:
+                ret_args += [k, i]
+
+    return ret_args
