@@ -3,6 +3,13 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """License specification constants."""
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Sequence
+
 NOT_SUPPORTED = {
     'Aladdin Free Public License (AFPL)',
     'CeCILL-B Free Software License Agreement (CECILL-B)',
@@ -46,7 +53,7 @@ NOT_SUPPORTED = {
     'OSI Approved :: Zope Public License',
 }
 
-SPDX_LICENSE_MAP = {
+SPDX_LICENSE_MAP: dict[str, Sequence[str]] = {
     'Private': ('LicenseRef-Proprietary',),
     'DFSG approved': (
         'AGPL-3.0-only',
