@@ -55,6 +55,7 @@ NOT_SUPPORTED = {
 
 SPDX_LICENSE_MAP: dict[str, Sequence[str]] = {
     'Private': ('LicenseRef-Proprietary',),
+    'Eiffel Forum License (EFL)': ('EFL-2.0',),
     'DFSG approved': (
         'AGPL-3.0-only',
         'AGPL-3.0-or-later',
