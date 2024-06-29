@@ -1,4 +1,15 @@
 # CHANGELOG
+## 1.13.24 (2024-06-29)
+
+
+### :bug: Fixed Bugs
+
+*  correct zlib to Zlib — rjdbcm &lt;ozi.project@outlook.com&gt; ([`76f3818`](https://github.com/OZI-Project/OZI/commit/76f3818af8e56cf91d4223942a63cd5f022cd6e8))
+
+* :pencil2:: correct license short ids — rjdbcm &lt;ozi.project@outlook.com&gt; ([`8148c7b`](https://github.com/OZI-Project/OZI/commit/8148c7b88b1e3c26f992393632dbaca8dc227c1b))
+
+* (ozi-new interactive): args output fixed and project_urls added — rjdbcm &lt;ozi.project@outlook.com&gt; ([`fcfcdba`](https://github.com/OZI-Project/OZI/commit/fcfcdbab57632f9b928f82001ab528f84bfd7438))
+
 ## 1.13.23 (2024-06-29)
 
 
