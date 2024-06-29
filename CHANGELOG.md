@@ -1,4 +1,116 @@
 # CHANGELOG
+## 1.13.25 (2024-06-29)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-new interactive): use mapping for setting args — rjdbcm &lt;ozi.project@outlook.com&gt; ([`38530a8`](https://github.com/OZI-Project/OZI/commit/38530a821565dd17722708cdf9a8188964c11756))
+
+## 1.13.24 (2024-06-29)
+
+
+### :bug: Fixed Bugs
+
+*  correct zlib to Zlib — rjdbcm &lt;ozi.project@outlook.com&gt; ([`76f3818`](https://github.com/OZI-Project/OZI/commit/76f3818af8e56cf91d4223942a63cd5f022cd6e8))
+
+* :pencil2:: correct license short ids — rjdbcm &lt;ozi.project@outlook.com&gt; ([`8148c7b`](https://github.com/OZI-Project/OZI/commit/8148c7b88b1e3c26f992393632dbaca8dc227c1b))
+
+* (ozi-new interactive): args output fixed and project_urls added — rjdbcm &lt;ozi.project@outlook.com&gt; ([`fcfcdba`](https://github.com/OZI-Project/OZI/commit/fcfcdbab57632f9b928f82001ab528f84bfd7438))
+
+## 1.13.23 (2024-06-29)
+
+
+### :bug: Fixed Bugs
+
+* :pencil2: fix EUPL license IDs — rjdbcm &lt;ozi.project@outlook.com&gt; ([`b0a9425`](https://github.com/OZI-Project/OZI/commit/b0a94256692e919a80da97265875ec3e31883b83))
+
+*  fix missing License :: Eiffel Forum License (EFL) — rjdbcm &lt;ozi.project@outlook.com&gt; ([`d263034`](https://github.com/OZI-Project/OZI/commit/d2630342b2257add6fbb2cd8e958d9d13e4db90f))
+
+* (ozi-new interactive): fix missing license suggestions — rjdbcm &lt;ozi.project@outlook.com&gt; ([`21e0a4a`](https://github.com/OZI-Project/OZI/commit/21e0a4af19315fb19492c4e057aba2a8e6381229))
+
+
+### :pushpin: Pinned Dependencies
+
+*  ozi-templates~=2.3.2 — rjdbcm &lt;ozi.project@outlook.com&gt; ([`97f1f90`](https://github.com/OZI-Project/OZI/commit/97f1f9099336394381787e9290a9cfa8c661faa5))
+
+*  ozi-templates~=2.3.1 — rjdbcm &lt;ozi.project@outlook.com&gt; ([`d88b026`](https://github.com/OZI-Project/OZI/commit/d88b026a8c54b0d4f8d6850da5a355b7c6250370))
+
+## 1.13.22 (2024-06-29)
+
+
+### :bug: Fixed Bugs
+
+*  missing licenses and unsupported licenses list added — rjdbcm &lt;ozi.project@outlook.com&gt; ([`ac65c05`](https://github.com/OZI-Project/OZI/commit/ac65c059bdcb378c1d649eaf7590ad2d450e7b1a))
+
+
+### :label:
+
+
+* ``SPDX_LICENSE_MAP: dict[str, Sequence[str]]`` — rjdbcm &lt;ozi.project@outlook.com&gt; ([`22a5ed5`](https://github.com/OZI-Project/OZI/commit/22a5ed54d6669433bce1dab02625aa0021a3b839))
+
+
+### :pushpin: Pinned Dependencies
+
+* ozi-templates~=2.3.0 — rjdbcm &lt;ozi.project@outlook.com&gt; ([`f7bbaa5`](https://github.com/OZI-Project/OZI/commit/f7bbaa59cacf87afca6a265629c00e41f15485df))
+
+## 1.13.21 (2024-06-28)
+
+
+### :bug: Fixed Bugs
+
+*  fix list indexing in license_expression — rjdbcm &lt;ozi.project@outlook.com&gt; ([`c47cad8`](https://github.com/OZI-Project/OZI/commit/c47cad82b89c488ca4011753c7b1ea6cc36e57ae))
+
+## 1.13.20 (2024-06-28)
+
+
+### :bug: Fixed Bugs
+
+*  fix license expression dialog crash — rjdbcm &lt;ozi.project@outlook.com&gt; ([`4babcd3`](https://github.com/OZI-Project/OZI/commit/4babcd3a5a644c6f7b58bb11d07ae1d76997f519))
+
+
+### :label:
+
+
+* (ozi-new interactive): fix license_expression dialog typing — rjdbcm &lt;ozi.project@outlook.com&gt; ([`399d270`](https://github.com/OZI-Project/OZI/commit/399d270521355a035128d944c2ceed4e2733f5ba))
+
+## 1.13.19 (2024-06-28)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-new interactive): fix list argument rendering — rjdbcm &lt;ozi.project@outlook.com&gt; ([`0becd2e`](https://github.com/OZI-Project/OZI/commit/0becd2e29621c486f66cde130fc85d5b4399a846))
+
+## 1.13.18 (2024-06-28)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-new interactive): fix arg quoting — rjdbcm &lt;ozi.project@outlook.com&gt; ([`0b8d0fd`](https://github.com/OZI-Project/OZI/commit/0b8d0fd1e2e22366cafc31f4efc5c07b71063685))
+
+
+### Other
+
+
+* :rotating_light:(ozi-new interactive): run lint — rjdbcm &lt;ozi.project@outlook.com&gt; ([`c334f68`](https://github.com/OZI-Project/OZI/commit/c334f6873e3c1c7c787b3ac7e33d01a453d044c6))
+
+## 1.13.17 (2024-06-27)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-new interactive): hide cursor and wrap lines in Admonitions — rjdbcm &lt;ozi.project@outlook.com&gt; ([`d1cf3da`](https://github.com/OZI-Project/OZI/commit/d1cf3da8c80b577f38748be221017f7ddf65b082))
+
+* (ozi-new interactive): correct handling of list args ([`862460d`](https://github.com/OZI-Project/OZI/commit/862460d9aacdde8c9e8169074d048ca338d28754))
+
+* (ozi-new): accept standard Requires-Dist argument form ([`fc0401e`](https://github.com/OZI-Project/OZI/commit/fc0401ef9129663ae62e0da9b8d5b32b6a584340))
+
+## 1.13.16 (2024-06-27)
+
+
+### :hammer: Updated Scripts
+
+* (ozi-new interactive): finalize implementation — rjdbcm &lt;ozi.project@outlook.com&gt; ([`95b4aeb`](https://github.com/OZI-Project/OZI/commit/95b4aebdfca4234912691778b3eafb525b6965eb))
+
 ## 1.13.15 (2024-06-26)
 
 
