@@ -1,4 +1,11 @@
 # CHANGELOG
+## 1.13.25 (2024-06-29)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-new interactive): use mapping for setting args — rjdbcm &lt;ozi.project@outlook.com&gt; ([`38530a8`](https://github.com/OZI-Project/OZI/commit/38530a821565dd17722708cdf9a8188964c11756))
+
 ## 1.13.24 (2024-06-29)
 
 
