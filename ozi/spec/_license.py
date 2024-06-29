@@ -23,7 +23,6 @@ NOT_SUPPORTED = {
     'GUST Font License 2006-09-30',
     'Netscape Public License (NPL)',
     'Nokia Open Source License (NOKOS)',
-    'Repoze Public License',
     'OSI Approved :: Attribution Assurance License',
     'OSI Approved :: Common Development and Distribution License 1.0 (CDDL-1.0)',
     'OSI Approved :: Common Public License',
@@ -51,6 +50,7 @@ NOT_SUPPORTED = {
     'OSI Approved :: W3C License',
     'OSI Approved :: X.Net License',
     'OSI Approved :: Zope Public License',
+    'Repoze Public License',
 }
 
 SPDX_LICENSE_MAP: dict[str, Sequence[str]] = {
@@ -77,7 +77,7 @@ SPDX_LICENSE_MAP: dict[str, Sequence[str]] = {
         'MIT',
         'OFL-1.1',
         'WTFPL',
-        'Zlib',
+        'zlib',
     ),
     'OSI Approved': (
         'AFL-3.0',
