@@ -1,4 +1,11 @@
 # CHANGELOG
+## 1.13.27 (2024-06-29)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-fix interactive): fix argument outputs — rjdbcm &lt;ozi.project@outlook.com&gt; ([`2bfd894`](https://github.com/OZI-Project/OZI/commit/2bfd894304b874ad7dbb1708e2aedd4e1efce414))
+
 ## 1.13.26 (2024-06-29)
 
 
