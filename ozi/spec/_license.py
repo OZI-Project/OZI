@@ -195,7 +195,7 @@ SPDX_LICENSE_MAP: dict[str, Sequence[str]] = {
     'OSI Approved :: University of Illinois/NCSA Open Source License': ('NCSA',),
     'OSI Approved :: Zero-Clause BSD (0BSD)': ('0BSD',),
     'OSI Approved :: The Unlicense (Unlicense)': ('Unlicense',),
-    'OSI Approved :: zlib/libpng License': ('zlib',),
+    'OSI Approved :: zlib/libpng License': ('Zlib',),
     'Other/Proprietary License': ('LicenseRef-Proprietary',),
     'Public Domain': ('LicenseRef-Public-Domain', 'Unlicense', 'CC0-1.0'),
 }
