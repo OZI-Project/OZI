@@ -1,4 +1,22 @@
 # CHANGELOG
+## 1.13.23 (2024-06-29)
+
+
+### :bug: Fixed Bugs
+
+* :pencil2: fix EUPL license IDs — rjdbcm &lt;ozi.project@outlook.com&gt; ([`b0a9425`](https://github.com/OZI-Project/OZI/commit/b0a94256692e919a80da97265875ec3e31883b83))
+
+*  fix missing License :: Eiffel Forum License (EFL) — rjdbcm &lt;ozi.project@outlook.com&gt; ([`d263034`](https://github.com/OZI-Project/OZI/commit/d2630342b2257add6fbb2cd8e958d9d13e4db90f))
+
+* (ozi-new interactive): fix missing license suggestions — rjdbcm &lt;ozi.project@outlook.com&gt; ([`21e0a4a`](https://github.com/OZI-Project/OZI/commit/21e0a4af19315fb19492c4e057aba2a8e6381229))
+
+
+### :pushpin: Pinned Dependencies
+
+*  ozi-templates~=2.3.2 — rjdbcm &lt;ozi.project@outlook.com&gt; ([`97f1f90`](https://github.com/OZI-Project/OZI/commit/97f1f9099336394381787e9290a9cfa8c661faa5))
+
+*  ozi-templates~=2.3.1 — rjdbcm &lt;ozi.project@outlook.com&gt; ([`d88b026`](https://github.com/OZI-Project/OZI/commit/d88b026a8c54b0d4f8d6850da5a355b7c6250370))
+
 ## 1.13.22 (2024-06-29)
 
 
