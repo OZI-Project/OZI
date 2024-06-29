@@ -987,7 +987,8 @@ def menu_loop(
                                 ):
                                     classifier = classifier_checkboxlist(x)
                                     if classifier:
-                                        output.update({f'--{x}': classifier})
+                                        for i in classifier:
+                                            output[f'--{x}'].append(i)
                                     prefix.update(
                                         (
                                             {
@@ -1162,7 +1163,6 @@ within does not create an attorney-client relationship.
 
     prefix: dict[str, str] = {}
     output: dict[str, list[str]] = {}
-    output.setdefault('project', ['project'])
     project_name = '""'
 
     result, output, prefix = _P.name(output, prefix, project.check_package_exists)
@@ -1228,7 +1228,7 @@ within does not create an attorney-client relationship.
         if isinstance(result, list):
             return result
 
-    ret_args = []
+    ret_args = ['project']
 
     for k, v in output.items():
         for i in v:
