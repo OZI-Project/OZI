@@ -13,6 +13,8 @@ from warnings import warn
 
 from trove_classifiers import classifiers
 
+from ozi.spec._license import NOT_SUPPORTED
+
 if TYPE_CHECKING:
     import sys
 
@@ -61,4 +63,15 @@ class Prefix:
 @lru_cache
 def from_prefix(prefix: str) -> tuple[str, ...]:
     """Return all matching classifiers for a prefix string."""
-    return tuple(i[len(prefix) :].lstrip() for i in classifiers if i.startswith(str(prefix)))
+    match prefix:
+        case 'License :: ':
+            matches = []
+            for c in classifiers:
+                selected = c[len(prefix) :].lstrip()
+                if c.startswith(str(prefix)) and selected not in NOT_SUPPORTED:
+                    matches += [selected]
+            return tuple(matches)
+        case _:
+            return tuple(
+                i[len(prefix) :].lstrip() for i in classifiers if i.startswith(str(prefix))
+            )

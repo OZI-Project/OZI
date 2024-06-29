@@ -5,7 +5,7 @@
 """Package specification metadata."""
 from __future__ import annotations
 
-from collections.abc import Mapping  # noqa: TCH003,TC003,RUF100
+from collections.abc import Sequence  # noqa: TCH003,TC003,RUF100
 from dataclasses import dataclass
 from dataclasses import field
 
@@ -141,7 +141,7 @@ class PkgInfo(Default):
 class License(Default):
     """Licensing specification metadata."""
 
-    ambiguous: Mapping[str, tuple[str, ...]] = field(
+    ambiguous: dict[str, Sequence[str]] = field(
         default_factory=lambda: SPDX_LICENSE_MAP,
     )
     exceptions: tuple[str, ...] = SPDX_LICENSE_EXCEPTIONS
