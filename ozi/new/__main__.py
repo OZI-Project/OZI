@@ -108,8 +108,8 @@ def postprocess_arguments(project: Namespace) -> Namespace:
     ):  # defer to good-issue
         TAP.not_ok('target directory not empty', 'no files will be created', skip=True)
     match project.ci_provider:
-        case 'github':
-            ...
+        case 'github':  # pragma: no cover
+            pass
         case _:
             TAP.not_ok(
                 f'--ci-provider "{project.ci_provider}" unrecognized. ci_user will not be set.',
