@@ -1,4 +1,13 @@
 # CHANGELOG
+## 1.13.26 (2024-06-29)
+
+
+### :bug: Fixed Bugs
+
+* :label:(ozi-new interactive) fix overlapping default conditional — rjdbcm &lt;ozi.project@outlook.com&gt; ([`97272e3`](https://github.com/OZI-Project/OZI/commit/97272e3fa241dd76d92f17fe0340e9b7c88d3761))
+
+* (ozi-new interactive): fix option arg setting — rjdbcm &lt;ozi.project@outlook.com&gt; ([`758c91d`](https://github.com/OZI-Project/OZI/commit/758c91ddb39b81152e907b878229b48748a25d07))
+
 ## 1.13.25 (2024-06-29)
 
 
