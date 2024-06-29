@@ -125,6 +125,7 @@ def valid_license(_license: str, license_expression: str) -> str:
     )
     if (
         _license in iter(METADATA.spec.python.pkg.license.ambiguous)
+        and len(METADATA.spec.python.pkg.license.ambiguous[_license]) > 1
         and license_expression.split(' ')[0] not in possible_spdx
     ):  # pragma: no cover
         TAP.diagnostic('ambiguous license')
