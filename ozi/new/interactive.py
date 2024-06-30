@@ -762,7 +762,7 @@ def admonition_dialog(
             Button(text=cancel_text, handler=_return_none),
         ],
         with_background=True,
-        width=min(longest_line + 8, 80),
+        width=min(max(longest_line + 8, 40), 80),
     )
     bindings = KeyBindings()
     bindings.add('tab')(focus_next)
