@@ -1,4 +1,18 @@
 # CHANGELOG
+## 1.13.29 (2024-06-30)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-new interactive): fix arg passing to ``ozi-new project`` — rjdbcm &lt;ozi.project@outlook.com&gt; ([`561d068`](https://github.com/OZI-Project/OZI/commit/561d068913efa0f8b5a3eb4f53cab956ab55dcd6))
+
+* (ozi-new interactive): fix arg passing using chain — rjdbcm &lt;ozi.project@outlook.com&gt; ([`3afe7ba`](https://github.com/OZI-Project/OZI/commit/3afe7ba1511160086e4efa6b77d080dd00e5b1c8))
+
+
+### :pushpin: Pinned Dependencies
+
+* ozi-templates~=2.3.3 — rjdbcm &lt;ozi.project@outlook.com&gt; ([`daac072`](https://github.com/OZI-Project/OZI/commit/daac0728f33eae31ab72d2abd0d177083a96a329))
+
 ## 1.13.28 (2024-06-30)
 
 
