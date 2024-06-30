@@ -85,18 +85,18 @@ from ozi.tap import TAP  # pyright: ignore
             'license_exception_id': st.one_of(
                 list(map(st.just, ozi.actions.ExactMatch().license_exception_id)),  # type: ignore
             ),
-            'topic': st.lists(st.sampled_from(list(map(st.just, ozi.actions.ExactMatch().topic)))),  # type: ignore
+            'topic': st.lists(st.sampled_from(ozi.actions.ExactMatch().topic)),  # type: ignore
             'audience': st.lists(
-                st.sampled_from(list(map(st.just, ozi.actions.ExactMatch().audience))),  # type: ignore
+                st.sampled_from(ozi.actions.ExactMatch().audience),  # type: ignore
             ),
             'framework': st.lists(
-                st.sampled_from(list(map(st.just, ozi.actions.ExactMatch().framework))),  # type: ignore
+                st.sampled_from(ozi.actions.ExactMatch().framework),  # type: ignore
             ),
             'environment': st.lists(
-                st.sampled_from(list(map(st.just, ozi.actions.ExactMatch().environment))),  # type: ignore
+                st.sampled_from(ozi.actions.ExactMatch().environment),  # type: ignore
             ),
             'status': st.lists(
-                st.sampled_from(list(map(st.just, ozi.actions.ExactMatch().status))),  # type: ignore
+                st.sampled_from(ozi.actions.ExactMatch().status),  # type: ignore
             ),
             'dist_requires': st.lists(
                 st.from_regex(

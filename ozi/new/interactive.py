@@ -797,7 +797,7 @@ def validate_message(
 
 
 def classifier_checkboxlist(key: str) -> list[str] | None:  # pragma: no cover
-    return checkboxlist_dialog(
+    result = checkboxlist_dialog(
         values=sorted(
             (
                 zip(
@@ -812,6 +812,7 @@ def classifier_checkboxlist(key: str) -> list[str] | None:  # pragma: no cover
         ok_text='✔ Ok',
         cancel_text='← Back',
     ).run()
+    return result
 
 
 def header_input(  # noqa: C901
@@ -987,7 +988,7 @@ def menu_loop(
                                 ):
                                     output.setdefault(f'--{x}', [])
                                     classifier = classifier_checkboxlist(x)
-                                    if classifier:
+                                    if classifier is not None:
                                         for i in classifier:
                                             output[f'--{x}'].append(i)
                                     prefix.update(
@@ -1235,5 +1236,5 @@ within does not create an attorney-client relationship.
         for i in v:
             if len(i) > 0:
                 ret_args += [k, i]
-
+    print(ret_args)
     return ret_args
