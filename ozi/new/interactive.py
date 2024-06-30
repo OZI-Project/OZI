@@ -985,6 +985,7 @@ def menu_loop(
                                     'status',
                                     'topic',
                                 ):
+                                    output.setdefault(f'--{x}', [])
                                     classifier = classifier_checkboxlist(x)
                                     if classifier:
                                         for i in classifier:
