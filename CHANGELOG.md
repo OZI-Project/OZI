@@ -1,4 +1,18 @@
 # CHANGELOG
+## 1.13.30 (2024-06-30)
+
+
+### :bug: Fixed Bugs
+
+*  Admonition modal min 40 columns wide instead of 8 — rjdbcm &lt;ozi.project@outlook.com&gt; ([`0edcc3b`](https://github.com/OZI-Project/OZI/commit/0edcc3bf326041416fabf7c522d739197f91d460))
+
+
+### :pushpin: Pinned Dependencies
+
+*  ozi-templates~=2.3.4
+
+fixes missing ``OSI Approved :: ... Unlicense ... `` folder missing. — rjdbcm &lt;ozi.project@outlook.com&gt; ([`dc9186c`](https://github.com/OZI-Project/OZI/commit/dc9186c210ec9b53fad9706adc85ed0368ee0fd9))
+
 ## 1.13.29 (2024-06-30)
 
 
