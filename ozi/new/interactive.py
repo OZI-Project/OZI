@@ -48,6 +48,7 @@ from prompt_toolkit.widgets import Label
 from prompt_toolkit.widgets import RadioList
 
 from ozi.spec import METADATA
+from ozi.tap import TAP
 from ozi.trove import Prefix
 from ozi.trove import from_prefix
 
@@ -761,7 +762,7 @@ def admonition_dialog(
             Button(text=cancel_text, handler=_return_none),
         ],
         with_background=True,
-        width=longest_line + 8 if longest_line > 40 else 80,
+        width=min(longest_line + 8, 80),
     )
     bindings = KeyBindings()
     bindings.add('tab')(focus_next)
@@ -1236,5 +1237,5 @@ within does not create an attorney-client relationship.
         for i in v:
             if len(i) > 0:
                 ret_args += [k, i]
-    print(ret_args)
+    TAP.diagnostic('ozi-new project args', ' '.join(ret_args))
     return ret_args
