@@ -156,7 +156,7 @@ defaults.add_argument(
     help='Classifier: Intended Audience (Multiple Use), default: ["Other Audience"]',
     default=METADATA.spec.python.pkg.info.classifiers.intended_audience,
     nargs='?',
-    action=CloseMatch,
+    action='append',
 )
 defaults.add_argument(
     '--typing',
@@ -172,7 +172,7 @@ defaults.add_argument(
     metavar='ENVIRONMENT_NAMES',
     default=METADATA.spec.python.pkg.info.classifiers.environment,
     help='Classifier: Environment (Multiple Use), default: ["Other Environment"]',
-    action=CloseMatch,
+    action='append',
     nargs='?',
     type=str,
 )
@@ -210,7 +210,7 @@ optional.add_argument(
     '--framework',
     help='Classifier: Framework (Multiple Use)',
     metavar='FRAMEWORK_NAMES',
-    action=CloseMatch,
+    action='append',
     type=str,
     nargs='?',
     default=[],
@@ -229,7 +229,7 @@ defaults.add_argument(
     metavar='LANGUAGE_NAMES',
     default=['English'],
     help='Classifier: Natural Language (Multiple Use), default: ["English"]',
-    action=CloseMatch,
+    action='append',
     type=str,
     nargs='?',
 )
@@ -238,7 +238,7 @@ optional.add_argument(
     help='Classifier: Topic (Multiple Use)',
     nargs='?',
     metavar='TOPIC_NAMES',
-    action=CloseMatch,
+    action='append',
     type=str,
     default=[],
 )

@@ -16,6 +16,7 @@ from ozi_templates import load_environment  # type: ignore
 
 from ozi.new.interactive import interactive_prompt
 from ozi.new.parser import parser
+from ozi.new.validate import valid_classifier
 from ozi.new.validate import valid_contact_info
 from ozi.new.validate import valid_copyright_head
 from ozi.new.validate import valid_emails
@@ -79,6 +80,14 @@ def _valid_project(project: Namespace) -> Namespace:
         author_email=project.author_email,
         maintainer_email=project.maintainer_email,
     )
+    for i in [
+        project.audience,
+        project.environment,
+        project.framework,
+        project.topic,
+    ]:
+        for classifier in i:
+            valid_classifier(classifier)
     return project
 
 
