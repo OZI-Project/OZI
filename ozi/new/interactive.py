@@ -9,6 +9,7 @@ import os
 import re
 import sys
 from functools import lru_cache
+from itertools import chain
 from typing import TYPE_CHECKING
 from typing import Any
 from typing import Sequence
@@ -988,8 +989,7 @@ def menu_loop(
                                     output.setdefault(f'--{x}', [])
                                     classifier = classifier_checkboxlist(x)
                                     if classifier:
-                                        for i in classifier:
-                                            output[f'--{x}'].append(i)
+                                        output[f'--{x}'] += classifier
                                     prefix.update(
                                         (
                                             {
@@ -1236,4 +1236,4 @@ within does not create an attorney-client relationship.
             if len(i) > 0:
                 ret_args += [k, i]
 
-    return ret_args
+    return list(chain.from_iterable(ret_args))
