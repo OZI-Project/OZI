@@ -1,4 +1,11 @@
 # CHANGELOG
+## 1.13.28 (2024-06-30)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-fix interactive): fix KeyError when editing classifiers — rjdbcm &lt;ozi.project@outlook.com&gt; ([`c6fb751`](https://github.com/OZI-Project/OZI/commit/c6fb7517abd9a5cb824007217442eb299c133552))
+
 ## 1.13.27 (2024-06-29)
 
 
