@@ -11,51 +11,52 @@ if TYPE_CHECKING:
     from collections.abc import Sequence
 
 NOT_SUPPORTED = {
-    'Aladdin Free Public License (AFPL)',
-    'CeCILL-B Free Software License Agreement (CECILL-B)',
-    'CeCILL-C Free Software License Agreement (CECILL-C)',
-    'Free For Educational Use',
-    'Free For Home Use',
-    'Free for non-commercial use',
-    'Freely Distributable',
-    'Freeware',
-    'GUST Font License 1.0',
-    'GUST Font License 2006-09-30',
-    'Netscape Public License (NPL)',
-    'Nokia Open Source License (NOKOS)',
-    'OSI Approved :: Attribution Assurance License',
-    'OSI Approved :: Common Development and Distribution License 1.0 (CDDL-1.0)',
-    'OSI Approved :: Common Public License',
-    'OSI Approved :: Historical Permission Notice and Disclaimer (HPND)',
-    'OSI Approved :: IBM Public License',
-    'OSI Approved :: Intel Open Source License',
-    'OSI Approved :: Jabber Open Source License',
-    'OSI Approved :: MITRE Collaborative Virtual Workspace License (CVW)',
-    'OSI Approved :: MirOS License (MirOS)',
-    'OSI Approved :: Motosoto License',
-    'OSI Approved :: European Union Public Licence 1.0 (EUPL 1.0)',
-    'OSI Approved :: Mozilla Public License 1.0 (MPL)',
-    'OSI Approved :: Mozilla Public License 1.1 (MPL 1.1)',
-    'OSI Approved :: Nethack General Public License',
-    'OSI Approved :: Nokia Open Source License',
-    'OSI Approved :: Open Group Test Suite License',
-    'OSI Approved :: Python License (CNRI Python License)',
+    'Aladdin Free Public License (AFPL)',  # nonreusable
+    'Free For Educational Use',  # too broad
+    'Free For Home Use',  # too broad
+    'Free for non-commercial use',  # too broad
+    'Freely Distributable',  # too broad
+    'Freeware',  # too broad
+    'GUST Font License 1.0',  # no licenseref
+    'GUST Font License 2006-09-30',  # no licenseref
+    'Netscape Public License (NPL)',  # nonreusable
+    'Nokia Open Source License (NOKOS)',  # nonreusable
+    'OSI Approved :: Attribution Assurance License',  # boilerplate
+    'OSI Approved :: Common Development and Distribution License 1.0 (CDDL-1.0)',  # legacy
+    'OSI Approved :: Common Public License',  # superseded
+    'OSI Approved :: Historical Permission Notice and Disclaimer (HPND)',  # legacy
+    'OSI Approved :: IBM Public License',  # superseded
+    'OSI Approved :: Intel Open Source License',  # legacy
+    'OSI Approved :: Jabber Open Source License',  # legacy
+    'OSI Approved :: MITRE Collaborative Virtual Workspace License (CVW)',  # legacy
+    'OSI Approved :: Motosoto License',  # nonreusable
+    'OSI Approved :: European Union Public Licence 1.0 (EUPL 1.0)',  # superseded
+    'OSI Approved :: Mozilla Public License 1.0 (MPL)',  # superseded
+    'OSI Approved :: Mozilla Public License 1.1 (MPL 1.1)',  # superseded
+    'OSI Approved :: NASA Open Source Agreement v1.3 (NASA-1.3)',  # other
+    'OSI Approved :: Nethack General Public License',  # nonreusable
+    'OSI Approved :: Nokia Open Source License',  # nonreusable
+    'OSI Approved :: Python License (CNRI Python License)',  # legacy
     'OSI Approved :: Python Software Foundation License',
-    'OSI Approved :: Qt Public License (QPL)',
-    'OSI Approved :: Ricoh Source Code Public License',
-    'OSI Approved :: Sleepycat License',
-    'OSI Approved :: Sun Industry Standards Source License (SISSL)',
-    'OSI Approved :: Sun Public License',
-    'OSI Approved :: Universal Permissive License',
-    'OSI Approved :: Vovida Software License 1.0',
-    'OSI Approved :: W3C License',
-    'OSI Approved :: X.Net License',
-    'OSI Approved :: Zope Public License',
-    'Repoze Public License',
+    'OSI Approved :: Qt Public License (QPL)',  # nonreusable
+    'OSI Approved :: Ricoh Source Code Public License',  # nonreusable
+    'OSI Approved :: Sleepycat License',  # nonreusable
+    'OSI Approved :: Sun Industry Standards Source License (SISSL)',  # legacy
+    'OSI Approved :: Sun Public License',  # nonreusable
+    'OSI Approved :: Vovida Software License 1.0',  # nonreusable
+    'OSI Approved :: W3C License',  # nonreusable
+    'OSI Approved :: X.Net License',  # legacy
+    'OSI Approved :: Zope Public License',  # nonreusable
+    'Repoze Public License',  # no licenseref
 }
 
 SPDX_LICENSE_MAP: dict[str, Sequence[str]] = {
     'Private': ('LicenseRef-Proprietary',),
+    'CeCILL-B Free Software License Agreement (CECILL-B)': ('CECILL-B',),
+    'CeCILL-C Free Software License Agreement (CECILL-C)': ('CECILL-C',),
+    'OSI Approved :: MirOS License (MirOS)': ('MirOS',),
+    'OSI Approved :: Open Group Test Suite License': ('OGTSL',),
+    'OSI Approved :: Universal Permissive License': ('UPL-1.0',),
     'Eiffel Forum License (EFL)': ('EFL-2.0',),
     'DFSG approved': (
         'AGPL-3.0-only',
@@ -81,21 +82,21 @@ SPDX_LICENSE_MAP: dict[str, Sequence[str]] = {
         'Zlib',
     ),
     'OSI Approved': (
+        '0BSD',
         'AFL-3.0',
         'AGPL-3.0-only',
         'AGPL-3.0-or-later',
-        'Apache-2.0',
         'APSL-1.0',
         'APSL-1.1',
         'APSL-1.2',
         'APSL-2.0',
+        'Apache-2.0',
         'Artistic-2.0',
-        'BSL-1.0',
-        '0BSD',
         'BSD-2-Clause',
         'BSD-3-Clause',
         'BSD-3-Clause-Clear',
         'BSD-4-Clause',
+        'BSL-1.0',
         'CECILL-2.1',
         'EFL-2.0',
         'EPL-1.0',
@@ -116,11 +117,14 @@ SPDX_LICENSE_MAP: dict[str, Sequence[str]] = {
         'MIT',
         'MIT-0',
         'MPL-2.0',
+        'MirOS',
         'MulanPSL-2.0',
         'NCSA',
-        'OSL-3.0',
         'OFL-1.1',
+        'OGTSL',
+        'OSL-3.0',
         'PostgreSQL',
+        'UPL-1.0',
         'Unlicense',
         'Zlib',
     ),
