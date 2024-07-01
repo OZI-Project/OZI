@@ -1,4 +1,55 @@
 # CHANGELOG
+## 1.13.30 (2024-06-30)
+
+
+### :bug: Fixed Bugs
+
+*  Admonition modal min 40 columns wide instead of 8 — rjdbcm &lt;ozi.project@outlook.com&gt; ([`0edcc3b`](https://github.com/OZI-Project/OZI/commit/0edcc3bf326041416fabf7c522d739197f91d460))
+
+
+### :pushpin: Pinned Dependencies
+
+*  ozi-templates~=2.3.4
+
+fixes missing ``OSI Approved :: ... Unlicense ... `` folder missing. — rjdbcm &lt;ozi.project@outlook.com&gt; ([`dc9186c`](https://github.com/OZI-Project/OZI/commit/dc9186c210ec9b53fad9706adc85ed0368ee0fd9))
+
+## 1.13.29 (2024-06-30)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-new interactive): fix arg passing to ``ozi-new project`` — rjdbcm &lt;ozi.project@outlook.com&gt; ([`561d068`](https://github.com/OZI-Project/OZI/commit/561d068913efa0f8b5a3eb4f53cab956ab55dcd6))
+
+* (ozi-new interactive): fix arg passing using chain — rjdbcm &lt;ozi.project@outlook.com&gt; ([`3afe7ba`](https://github.com/OZI-Project/OZI/commit/3afe7ba1511160086e4efa6b77d080dd00e5b1c8))
+
+
+### :pushpin: Pinned Dependencies
+
+* ozi-templates~=2.3.3 — rjdbcm &lt;ozi.project@outlook.com&gt; ([`daac072`](https://github.com/OZI-Project/OZI/commit/daac0728f33eae31ab72d2abd0d177083a96a329))
+
+## 1.13.28 (2024-06-30)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-fix interactive): fix KeyError when editing classifiers — rjdbcm &lt;ozi.project@outlook.com&gt; ([`c6fb751`](https://github.com/OZI-Project/OZI/commit/c6fb7517abd9a5cb824007217442eb299c133552))
+
+## 1.13.27 (2024-06-29)
+
+
+### :bug: Fixed Bugs
+
+* (ozi-fix interactive): fix argument outputs — rjdbcm &lt;ozi.project@outlook.com&gt; ([`2bfd894`](https://github.com/OZI-Project/OZI/commit/2bfd894304b874ad7dbb1708e2aedd4e1efce414))
+
+## 1.13.26 (2024-06-29)
+
+
+### :bug: Fixed Bugs
+
+* :label:(ozi-new interactive) fix overlapping default conditional — rjdbcm &lt;ozi.project@outlook.com&gt; ([`97272e3`](https://github.com/OZI-Project/OZI/commit/97272e3fa241dd76d92f17fe0340e9b7c88d3761))
+
+* (ozi-new interactive): fix option arg setting — rjdbcm &lt;ozi.project@outlook.com&gt; ([`758c91d`](https://github.com/OZI-Project/OZI/commit/758c91ddb39b81152e907b878229b48748a25d07))
+
 ## 1.13.25 (2024-06-29)
 
 
