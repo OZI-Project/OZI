@@ -17,13 +17,13 @@ from typing import NoReturn
 from warnings import warn
 
 import requests
+from ozi_spec import METADATA  # pyright: ignore
 from packaging.version import Version
 from packaging.version import parse
 from pyparsing import ParseException
 from spdx_license_list import LICENSES
 
 from ozi.spdx import spdx_license_expression
-from ozi.spec import METADATA
 from ozi.tap import TAP
 from ozi.trove import Prefix
 from ozi.trove import from_prefix

@@ -15,6 +15,7 @@ from typing import Sequence
 from typing import TypeVar
 
 import requests
+from ozi_spec import METADATA  # pyright: ignore
 from prompt_toolkit import Application
 from prompt_toolkit.application.current import get_app
 from prompt_toolkit.document import Document
@@ -47,7 +48,6 @@ from prompt_toolkit.widgets import Dialog
 from prompt_toolkit.widgets import Label
 from prompt_toolkit.widgets import RadioList
 
-from ozi.spec import METADATA
 from ozi.tap import TAP
 from ozi.trove import Prefix
 from ozi.trove import from_prefix
@@ -201,7 +201,7 @@ class Project:  # pragma: no cover
                 return result, output, prefix
 
     @staticmethod
-    def license_(  # noqa: C901
+    def license_(
         project_name: str,
         output: dict[str, list[str]],
         prefix: dict[str, str],
@@ -466,7 +466,7 @@ class Project:  # pragma: no cover
         ).run()
         if readme_type is not None:
             output.update(
-                {'--readme-type': [readme_type] if isinstance(readme_type, str) else []}
+                {'--readme-type': [readme_type] if isinstance(readme_type, str) else []},
             )
         else:
             output.update({'--readme-type': _default})
@@ -516,7 +516,7 @@ class Project:  # pragma: no cover
         return str(result), output, prefix
 
     @staticmethod
-    def project_urls(  # noqa: C901
+    def project_urls(
         project_name: str,
         output: dict[str, list[str]],
         prefix: dict[str, str],
@@ -816,7 +816,7 @@ def classifier_checkboxlist(key: str) -> list[str] | None:  # pragma: no cover
     return result
 
 
-def header_input(  # noqa: C901
+def header_input(
     label: str,
     output: dict[str, list[str]],
     prefix: dict[str, str],
@@ -824,7 +824,9 @@ def header_input(  # noqa: C901
     validator: Validator | None = None,
     split_on: str | None = None,
 ) -> tuple[
-    bool | None | list[str], dict[str, list[str]], dict[str, str]
+    bool | None | list[str],
+    dict[str, list[str]],
+    dict[str, str],
 ]:  # pragma: no cover
     _default = output.setdefault(f'--{label.lower()}', [])
     header = input_dialog(
@@ -851,7 +853,7 @@ def header_input(  # noqa: C901
                 prefix.update({label: f'{label}: {header}'})
                 if split_on:
                     output.update(
-                        {f'--{label.lower()}': header.rstrip(split_on).split(split_on)}
+                        {f'--{label.lower()}': header.rstrip(split_on).split(split_on)},
                     )
                 else:
                     output.update({f'--{label.lower()}': [header]})
@@ -872,7 +874,9 @@ def menu_loop(
     output: dict[str, list[str]],
     prefix: dict[str, str],
 ) -> tuple[
-    None | list[str] | bool, dict[str, list[str]], dict[str, str]
+    None | list[str] | bool,
+    dict[str, list[str]],
+    dict[str, str],
 ]:  # pragma: no cover
     while True:
         _default: str | list[str] | None = None

@@ -12,6 +12,7 @@ from itertools import chain
 from pathlib import Path
 from typing import TYPE_CHECKING
 
+from ozi_spec import METADATA  # pyright: ignore
 from ozi_templates import load_environment  # type: ignore
 
 from ozi.new.interactive import interactive_prompt
@@ -28,7 +29,6 @@ from ozi.new.validate import valid_spdx
 from ozi.new.validate import valid_summary
 from ozi.render import render_ci_files_set_user
 from ozi.render import render_project_files
-from ozi.spec import METADATA
 from ozi.tap import TAP
 
 if TYPE_CHECKING:

@@ -9,8 +9,9 @@ from __future__ import annotations
 import argparse
 import sys
 
+from ozi_spec import METADATA  # pyright: ignore
+
 from ozi.actions import CloseMatch
-from ozi.spec import METADATA
 
 parser = argparse.ArgumentParser(
     prog='ozi-new',
