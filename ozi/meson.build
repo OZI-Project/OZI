@@ -27,7 +27,6 @@ source_children = [
     'lint',
     'new',
     'scripts',
-    'spec',
     'test',
     'vendor',
 ]

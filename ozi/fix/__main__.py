@@ -10,13 +10,13 @@ import os
 from pathlib import Path
 from typing import NoReturn
 
+from ozi_spec import METADATA  # pyright: ignore
 from ozi_templates import load_environment  # type: ignore
 from ozi_templates.filter import underscorify  # type: ignore
 
 from ozi.fix.missing import report
 from ozi.fix.parser import parser
 from ozi.fix.rewrite_command import Rewriter
-from ozi.spec import METADATA
 from ozi.tap import TAP
 
 
