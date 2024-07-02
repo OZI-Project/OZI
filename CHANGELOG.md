@@ -1,4 +1,51 @@
 # CHANGELOG
+## 1.14.1 (2024-07-02)
+
+
+### :bug: Fixed Bugs
+
+* :memo: Update CHANGELOG.md.j2 to fix rendering of code-blocks — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`3a2a186`](https://github.com/OZI-Project/OZI/commit/3a2a1861a0ce224b49f303ef70d2a9b3ce27048a))
+
+## 1.14.0 (2024-07-02)
+
+
+### :arrow_up: Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.25.10 to 3.25.11
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.10 to 3.25.11.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/23acc5c183826b7a8a97bce3cecc52db901f8251...b611370bb5703a7efb587f9d136a52ea24c5c38c)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt; ([`1b166f0`](https://github.com/OZI-Project/OZI/commit/1b166f062bd3f8a8186512d80479460bdc37f1ce))
+
+
+### :label:
+
+
+* (mypy): ``ozi_spec.*: ignore_missing_imports = true`` — rjdbcm &lt;ozi.project@outlook.com&gt; ([`a016b31`](https://github.com/OZI-Project/OZI/commit/a016b3147258dc5a2c6ee8ea4d847f59fb2d9742))
+
+* (mypy): ignore_errors ``ozi_spec.*`` — rjdbcm &lt;ozi.project@outlook.com&gt; ([`13f57a6`](https://github.com/OZI-Project/OZI/commit/13f57a60ed8e70efb19ca0baa85e15f55ccb495c))
+
+*  pyright: ignore ``ozi_spec`` — rjdbcm &lt;ozi.project@outlook.com&gt; ([`0fe813c`](https://github.com/OZI-Project/OZI/commit/0fe813ceb16910cda27f05207c111e07c1d402bc))
+
+
+### :sparkles: Implemented Features
+
+*  move spec to ozi-spec package — rjdbcm &lt;ozi.project@outlook.com&gt; ([`80c6709`](https://github.com/OZI-Project/OZI/commit/80c6709a891e32b24e2af9df1c5a556fb4044ba7))
+
+
+### Other
+
+
+* :rotating_light: run linters — rjdbcm &lt;ozi.project@outlook.com&gt; ([`cddd84e`](https://github.com/OZI-Project/OZI/commit/cddd84ea3e3f4a7fd7bfbb606974c7deec0caa36))
+
 ## 1.13.31 (2024-07-01)
 
 
