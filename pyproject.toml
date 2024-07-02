@@ -214,6 +214,7 @@ ignore_errors = true
 [[tool.mypy.overrides]]
 module = ["ozi_spec.*"]
 ignore_errors = true
+ignore_missing_imports = true
 
 [[tool.mypy.overrides]]
 module = ["spdx_license_list.*"]
