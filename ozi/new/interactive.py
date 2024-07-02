@@ -15,7 +15,7 @@ from typing import Sequence
 from typing import TypeVar
 
 import requests
-from ozi_spec import METADATA
+from ozi_spec import METADATA  # pyright: ignore
 from prompt_toolkit import Application
 from prompt_toolkit.application.current import get_app
 from prompt_toolkit.document import Document

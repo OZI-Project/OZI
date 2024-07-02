@@ -12,7 +12,7 @@ from itertools import chain
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from ozi_spec import METADATA
+from ozi_spec import METADATA  # pyright: ignore
 from ozi_templates import load_environment  # type: ignore
 
 from ozi.new.interactive import interactive_prompt

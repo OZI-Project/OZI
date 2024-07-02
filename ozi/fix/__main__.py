@@ -10,7 +10,7 @@ import os
 from pathlib import Path
 from typing import NoReturn
 
-from ozi_spec import METADATA
+from ozi_spec import METADATA  # pyright: ignore
 from ozi_templates import load_environment  # type: ignore
 from ozi_templates.filter import underscorify  # type: ignore
 

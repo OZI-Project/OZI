@@ -9,7 +9,7 @@ from __future__ import annotations
 import argparse
 import sys
 
-from ozi_spec import METADATA
+from ozi_spec import METADATA  # pyright: ignore
 
 from ozi.actions import CloseMatch
 

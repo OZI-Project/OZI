@@ -9,7 +9,7 @@ import os
 from pathlib import Path
 from typing import Generator
 
-from ozi_spec import METADATA
+from ozi_spec import METADATA  # pyright: ignore
 
 from ozi import comment
 from ozi.meson import get_items_by_suffix

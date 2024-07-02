@@ -10,7 +10,7 @@ from typing import Any
 from typing import Sequence
 from urllib.parse import urlparse
 
-from ozi_spec import METADATA
+from ozi_spec import METADATA  # pyright: ignore
 from pyparsing import Combine
 from pyparsing import ParseException
 from pyparsing import ParseResults

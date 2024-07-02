@@ -15,7 +15,7 @@ from typing import TYPE_CHECKING
 from typing import Generator
 from typing import Sequence
 
-from ozi_spec import METADATA
+from ozi_spec import METADATA  # pyright: ignore
 
 from ozi.tap import TAP
 

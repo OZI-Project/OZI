@@ -15,7 +15,7 @@ from typing import Annotated
 from typing import Union
 from warnings import warn
 
-from ozi_spec import METADATA
+from ozi_spec import METADATA  # pyright: ignore
 
 from ozi.render import build_child
 from ozi.render import build_file

@@ -11,7 +11,7 @@ from email import message_from_string
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from ozi_spec import METADATA
+from ozi_spec import METADATA  # pyright: ignore
 from ozi_templates.filter import underscorify  # type: ignore
 
 from ozi.fix.build_definition import walk
