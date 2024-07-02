@@ -1,4 +1,11 @@
 # CHANGELOG
+## 1.14.1 (2024-07-02)
+
+
+### :bug: Fixed Bugs
+
+* :memo: Update CHANGELOG.md.j2 to fix rendering of code-blocks — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt; ([`3a2a186`](https://github.com/OZI-Project/OZI/commit/3a2a1861a0ce224b49f303ef70d2a9b3ce27048a))
+
 ## 1.14.0 (2024-07-02)
 
 
