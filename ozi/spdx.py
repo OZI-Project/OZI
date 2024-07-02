@@ -10,7 +10,7 @@ from pyparsing import ZeroOrMore
 from pyparsing import oneOf
 from spdx_license_list import LICENSES
 
-from ozi.spec import METADATA
+from ozi_spec import METADATA
 
 spdx_license_expression = Forward()
 spdx_license_expression <<= oneOf(

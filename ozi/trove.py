@@ -13,7 +13,7 @@ from warnings import warn
 
 from trove_classifiers import classifiers
 
-from ozi.spec._license import NOT_SUPPORTED
+from ozi_spec._license import NOT_SUPPORTED
 
 if TYPE_CHECKING:
     import sys

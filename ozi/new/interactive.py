@@ -47,7 +47,7 @@ from prompt_toolkit.widgets import Dialog
 from prompt_toolkit.widgets import Label
 from prompt_toolkit.widgets import RadioList
 
-from ozi.spec import METADATA
+from ozi_spec import METADATA
 from ozi.tap import TAP
 from ozi.trove import Prefix
 from ozi.trove import from_prefix

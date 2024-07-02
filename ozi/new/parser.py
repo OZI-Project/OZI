@@ -10,7 +10,7 @@ import argparse
 import sys
 
 from ozi.actions import CloseMatch
-from ozi.spec import METADATA
+from ozi_spec import METADATA
 
 parser = argparse.ArgumentParser(
     prog='ozi-new',

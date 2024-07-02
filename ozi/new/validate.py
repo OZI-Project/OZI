@@ -17,7 +17,7 @@ from pyparsing import Regex
 from trove_classifiers import classifiers
 
 from ozi.spdx import spdx_license_expression
-from ozi.spec import METADATA
+from ozi_spec import METADATA
 from ozi.tap import TAP
 from ozi.vendor.email_validator import EmailNotValidError
 from ozi.vendor.email_validator import EmailSyntaxError

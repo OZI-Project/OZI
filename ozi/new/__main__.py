@@ -28,7 +28,7 @@ from ozi.new.validate import valid_spdx
 from ozi.new.validate import valid_summary
 from ozi.render import render_ci_files_set_user
 from ozi.render import render_project_files
-from ozi.spec import METADATA
+from ozi_spec import METADATA
 from ozi.tap import TAP
 
 if TYPE_CHECKING:

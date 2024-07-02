@@ -21,7 +21,7 @@ import ozi.fix.__main__  # pyright: ignore
 import ozi.fix.rewrite_command  # pyright: ignore
 import ozi.new.__main__  # pyright: ignore
 import ozi.pkg_extra  # pyright: ignore
-from ozi.spec import METADATA  # pyright: ignore
+from ozi_spec import METADATA  # pyright: ignore
 
 required_pkg_info_patterns = (
     'Author',

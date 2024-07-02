@@ -12,7 +12,7 @@ from typing import Generator
 from ozi import comment
 from ozi.meson import get_items_by_suffix
 from ozi.meson import query_build_value
-from ozi.spec import METADATA
+from ozi_spec import METADATA
 from ozi.tap import TAP
 
 IGNORE_MISSING = {
