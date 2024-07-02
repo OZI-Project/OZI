@@ -16,6 +16,7 @@ from typing import Generator
 from typing import Sequence
 
 from ozi_spec import METADATA
+
 from ozi.tap import TAP
 
 if TYPE_CHECKING:

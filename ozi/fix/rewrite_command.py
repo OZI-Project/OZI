@@ -15,10 +15,11 @@ from typing import Annotated
 from typing import Union
 from warnings import warn
 
+from ozi_spec import METADATA
+
 from ozi.render import build_child
 from ozi.render import build_file
 from ozi.render import find_user_template
-from ozi_spec import METADATA
 
 if TYPE_CHECKING:
     import sys

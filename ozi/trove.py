@@ -11,9 +11,8 @@ from functools import lru_cache
 from typing import TYPE_CHECKING
 from warnings import warn
 
-from trove_classifiers import classifiers
-
 from ozi_spec._license import NOT_SUPPORTED
+from trove_classifiers import classifiers
 
 if TYPE_CHECKING:
     import sys

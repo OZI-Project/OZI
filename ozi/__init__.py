@@ -19,7 +19,7 @@ from setuptools_scm import get_version  # type: ignore
 
 def current_version() -> str:
     """Returns the currently installed version of OZI.
-    
+
     .. versionchanged:: 1.14
 
       Previously was part of the ozi.spec submodule.

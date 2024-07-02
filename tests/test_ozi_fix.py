@@ -15,13 +15,13 @@ import pytest
 from hypothesis import given
 from hypothesis import settings
 from hypothesis import strategies as st
+from ozi_spec import METADATA  # pyright: ignore
 from ozi_templates import load_environment  # pyright: ignore
 
 import ozi.fix.__main__  # pyright: ignore
 import ozi.fix.rewrite_command  # pyright: ignore
 import ozi.new.__main__  # pyright: ignore
 import ozi.pkg_extra  # pyright: ignore
-from ozi_spec import METADATA  # pyright: ignore
 
 required_pkg_info_patterns = (
     'Author',

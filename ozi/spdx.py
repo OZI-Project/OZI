@@ -3,14 +3,13 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """SPDX standard metadata parser expression grammars, with support for :pep:`639` keys."""
+from ozi_spec import METADATA
 from pyparsing import Forward
 from pyparsing import Keyword
 from pyparsing import Literal
 from pyparsing import ZeroOrMore
 from pyparsing import oneOf
 from spdx_license_list import LICENSES
-
-from ozi_spec import METADATA
 
 spdx_license_expression = Forward()
 spdx_license_expression <<= oneOf(

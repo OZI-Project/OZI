@@ -9,8 +9,9 @@ from __future__ import annotations
 import argparse
 import sys
 
-from ozi.actions import CloseMatch
 from ozi_spec import METADATA
+
+from ozi.actions import CloseMatch
 
 parser = argparse.ArgumentParser(
     prog='ozi-new',
