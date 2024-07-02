@@ -1,4 +1,13 @@
 # CHANGELOG
+## 1.13.31 (2024-07-01)
+
+
+### :pushpin: Pinned Dependencies
+
+* ozi-templates~=2.4.0
+
+See https://github.com/OZI-Project/ozi-templates/releases/tag/2.4.0 for more info. — rjdbcm &lt;ozi.project@outlook.com&gt; ([`8682fe5`](https://github.com/OZI-Project/OZI/commit/8682fe5e061eee359f004b0d25d934792c4cdcb0))
+
 ## 1.13.30 (2024-06-30)
 
 
