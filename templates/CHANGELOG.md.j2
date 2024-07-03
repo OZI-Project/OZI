@@ -161,6 +161,7 @@
 {% for version, release in context.history.released.items() %}
 ## {{ version.as_tag() }} ({{ release.tagged_date.strftime("%Y-%m-%d") }})
 {% for type_, commits in release["elements"] | dictsort %}
+{% for commit in commits %}{% if type_ != "unknown" %}
 {%- filter replace(':art:', '🎨') %}
 {%- filter replace(':zap:', '⚡️') %}
 {%- filter replace(':fire:', '🔥') %}
@@ -233,7 +234,6 @@
 {%- filter replace(':thread:', '🧵') %}
 {%- filter replace(':safety_vest:', '🦺') %}
 {% include '.parsed_commit_heading.j2' %}
-{% for commit in commits %}{% if type_ != "unknown" %}
 * {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', ' —') }}
 ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
 {%- endfilter %}
