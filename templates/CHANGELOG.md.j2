@@ -160,7 +160,7 @@
 {#- RELEASED -#}
 {% for version, release in context.history.released.items() %}
 {%- set v = namespace() %}
-{%- set _v = version.as_tag()|split('.') %}
+{%- set _v = version.as_tag().split('.') %}
 {%- set v.major = _v[0] %}
 {%- set v.minor = _v[1] %}
 {%- if v.major|int < 1 %}
