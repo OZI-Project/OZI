@@ -4,7 +4,7 @@ idna>=2
 jinja2>=3
 meson[ninja]>=1.1.0
 ozi-spec~=0.4
-ozi-templates~=2.4.6
+ozi-templates~=2.4.8
 packaging~=24.0
 pip-tools
 prompt_toolkit
