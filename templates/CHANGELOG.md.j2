@@ -163,7 +163,7 @@
 {%- set _v = version.as_tag().split('.') %}
 {%- set v.major = _v[0] %}
 {%- set v.minor = _v[1] %}
-{%- if v.major|int > 1 %}
+{%- if v.major|int > 0 %}
 ## {{ version.as_tag() }} ({{ release.tagged_date.strftime("%Y-%m-%d") }})
 {% for type_, commits in release["elements"] | dictsort %}
 {% include '.parsed_commit_heading.j2' %}
