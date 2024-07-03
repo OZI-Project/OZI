@@ -108,7 +108,7 @@ def postprocess_arguments(project: Namespace) -> Namespace:
         verify=project.verify_email,
     )
     project.keywords = project.keywords.split(',')
-    project.name = re.sub(r'[-_.]+', '-', project.name).lower()
+    project.name = re.sub(r'[-_.]+', '-', project.name)
     project.target = Path(project.target)
     project.topic = list(set(project.topic))
     project.dist_requires = list(set(project.dist_requires))
@@ -152,7 +152,7 @@ def main(args: list[str] | None = None) -> None:  # pragma: no cover
         else args
     )
     ozi_new = parser.parse_args(args=args)
-    ozi_new.argv = args if args else shlex.join(sys.argv[1:])
+    ozi_new.argv = shlex.join(args) if args else shlex.join(sys.argv[1:])
     match ozi_new:
         case ozi_new if ozi_new.new in ['i', 'interactive']:
             args = interactive_prompt(ozi_new)
