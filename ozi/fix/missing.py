@@ -124,7 +124,7 @@ def required_files(
             rel_path = Path('.')
             expected_files = METADATA.spec.python.src.required.root
         case 'source':
-            rel_path = Path(underscorify(name))
+            rel_path = Path(underscorify(name).lower())
             expected_files = METADATA.spec.python.src.required.source
         case _:  # pragma: no cover
             rel_path = Path('.')
@@ -136,7 +136,7 @@ def required_files(
             continue  # pragma: defer to https://github.com/nedbat/coveragepy/issues/198
         TAP.ok(str(f))
         found_files.append(file)
-    walk(target, rel_path, found_files=found_files, project_name=underscorify(name))
+    walk(target, rel_path, found_files=found_files, project_name=underscorify(name).lower())
     return found_files
 
 
