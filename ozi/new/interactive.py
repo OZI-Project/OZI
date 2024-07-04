@@ -47,8 +47,8 @@ from prompt_toolkit.widgets import Button
 from prompt_toolkit.widgets import Dialog
 from prompt_toolkit.widgets import Label
 from prompt_toolkit.widgets import RadioList
+from tap_producer import TAP
 
-from ozi.tap import TAP
 from ozi.trove import Prefix
 from ozi.trove import from_prefix
 

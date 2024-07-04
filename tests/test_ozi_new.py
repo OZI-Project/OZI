@@ -15,12 +15,12 @@ from hypothesis import settings
 from hypothesis import strategies as st
 from ozi_spec import METADATA  # pyright: ignore
 from ozi_templates import load_environment  # pyright: ignore
+from tap_producer import TAP  # pyright: ignore
 
 import ozi.actions  # pyright: ignore
 import ozi.new.__main__  # pyright: ignore
 from ozi.fix.missing import required_files  # pyright: ignore
 from ozi.fix.missing import required_pkg_info  # pyright: ignore
-from ozi.tap import TAP  # pyright: ignore
 
 
 @settings(

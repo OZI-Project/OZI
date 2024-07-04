@@ -10,11 +10,11 @@ from pathlib import Path
 from typing import Generator
 
 from ozi_spec import METADATA  # pyright: ignore
+from tap_producer import TAP
 
 from ozi import comment
 from ozi.meson import get_items_by_suffix
 from ozi.meson import query_build_value
-from ozi.tap import TAP
 
 IGNORE_MISSING = {
     'subprojects',
