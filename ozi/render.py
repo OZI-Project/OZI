@@ -189,7 +189,7 @@ def render_project_files(env: Environment, target: Path, name: str) -> None:
     :param name: the canonical project name (without normalization)
     :type name: str
     """
-    Path(target, underscorify(name)).mkdir()
+    Path(target, underscorify(name).lower()).mkdir()
     Path(target, 'subprojects').mkdir()
     Path(target, 'tests').mkdir()
     templates = METADATA.spec.python.src.template
