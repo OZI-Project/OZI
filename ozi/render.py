@@ -16,8 +16,7 @@ from git import InvalidGitRepositoryError
 from git import Repo
 from ozi_spec import METADATA  # pyright: ignore
 from ozi_templates.filter import underscorify  # type: ignore
-
-from ozi.tap import TAP
+from tap_producer import TAP
 
 if TYPE_CHECKING:
     from jinja2 import Environment

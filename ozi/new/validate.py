@@ -15,10 +15,10 @@ from pyparsing import Combine
 from pyparsing import ParseException
 from pyparsing import ParseResults
 from pyparsing import Regex
+from tap_producer import TAP
 from trove_classifiers import classifiers
 
 from ozi.spdx import spdx_license_expression
-from ozi.tap import TAP
 from ozi.vendor.email_validator import EmailNotValidError
 from ozi.vendor.email_validator import EmailSyntaxError
 from ozi.vendor.email_validator import ValidatedEmail

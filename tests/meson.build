@@ -5,7 +5,6 @@
 test_files = [
     'test_ozi_fix.py',
     'test_ozi_new.py',
-    'test_tap.py',
 ]
 foreach file: test_files
   fs.copyfile(file)

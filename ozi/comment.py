@@ -16,8 +16,7 @@ from typing import Generator
 from typing import Sequence
 
 from ozi_spec import METADATA  # pyright: ignore
-
-from ozi.tap import TAP
+from tap_producer import TAP
 
 if TYPE_CHECKING:
     from pathlib import Path
