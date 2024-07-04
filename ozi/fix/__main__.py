@@ -13,11 +13,11 @@ from typing import NoReturn
 from ozi_spec import METADATA  # pyright: ignore
 from ozi_templates import load_environment  # type: ignore
 from ozi_templates.filter import underscorify  # type: ignore
+from tap_producer import TAP
 
 from ozi.fix.missing import report
 from ozi.fix.parser import parser
 from ozi.fix.rewrite_command import Rewriter
-from ozi.tap import TAP
 
 
 def main() -> NoReturn:  # pragma: no cover

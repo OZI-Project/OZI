@@ -24,8 +24,7 @@ from mesonbuild.mparser import NotNode
 from mesonbuild.mparser import PlusAssignmentNode
 from mesonbuild.mparser import StringNode
 from mesonbuild.mparser import UMinusNode
-
-from ozi.tap import TAP
+from tap_producer import TAP
 
 SelectValue: TypeAlias = type[AssignmentNode | PlusAssignmentNode | NotNode | UMinusNode]
 

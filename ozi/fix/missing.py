@@ -13,12 +13,12 @@ from typing import TYPE_CHECKING
 
 from ozi_spec import METADATA  # pyright: ignore
 from ozi_templates.filter import underscorify  # type: ignore
+from tap_producer import TAP
 
 from ozi.fix.build_definition import walk
 from ozi.meson import load_ast
 from ozi.meson import project_metadata
 from ozi.pkg_extra import parse_extra_pkg_info
-from ozi.tap import TAP
 
 if sys.version_info >= (3, 11):  # pragma: no cover
     import tomllib as toml
