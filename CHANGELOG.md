@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.14.9 (2024-07-04)
+
+
+### 🚸 Improved Usability
+
+*  move ``ozi.tap`` to ``TAP-Producer`` package — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`e5b317e`](https://github.com/OZI-Project/OZI/commit/e5b317e61f2862f8e44d4d8679d5e6a9f9ac3aae))
+
 ## 1.14.8 (2024-07-04)
 
 
