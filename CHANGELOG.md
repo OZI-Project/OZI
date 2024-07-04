@@ -1,4 +1,30 @@
-# CHANGELOG
+# OZI CHANGELOG
+## 1.14.8 (2024-07-04)
+
+
+### 🐛 Fixed Bugs
+
+*  use lowercase name in ``ozi.fix.missing:required_files`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`795cd4d`](https://github.com/OZI-Project/OZI/commit/795cd4de1f7da26cde29d2768a3bb76fff6fbfa8))
+
+*  lowercase name in ``ozi.render.render_project_files`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`a18015a`](https://github.com/OZI-Project/OZI/commit/a18015ad442ea71fc48cb2d9ffd479a63bfeddff))
+
+*  fix name normalization — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`1974a37`](https://github.com/OZI-Project/OZI/commit/1974a3723550171922fceaeb77ef3817aab894c4))
+
+
+### ✏️ Corrected Typos
+
+* 📝 CHANGELOG.md.j2 add project name to heading — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`547bc75`](https://github.com/OZI-Project/OZI/commit/547bc75ac6636842f5592b1310643d113c354872))
+
+
+### 📌 Pinned Dependencies
+
+*  ozi-templates~=2.4.8 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`1709f7b`](https://github.com/OZI-Project/OZI/commit/1709f7b4f676805de63945b2b9e192add815f360))
+
 ## 1.14.7 (2024-07-03)
 
 
