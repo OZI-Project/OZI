@@ -1,5 +1,5 @@
 GitPython>=3
-TAP-Producer>=0.0.2
+TAP-Producer~=0.1.1
 dnspython
 idna>=2
 jinja2>=3
