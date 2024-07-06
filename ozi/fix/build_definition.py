@@ -63,7 +63,7 @@ def process(
             if os.path.isfile(target / rel_path / file)
             and not os.path.islink(target / rel_path / file)
         ]
-    except FileNotFoundError:
+    except FileNotFoundError:  # pragma: no cover
         TAP.not_ok('Missing required project directory.')
         extra_files = []
     found_files = found_files if found_files else []
