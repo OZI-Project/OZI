@@ -56,12 +56,16 @@ def process(
     found_files: list[str] | None = None,
 ) -> list[str]:
     """Process an OZI project build definition's files."""
-    extra_files = [
-        file
-        for file in os.listdir(target / rel_path)
-        if os.path.isfile(target / rel_path / file)
-        and not os.path.islink(target / rel_path / file)
-    ]
+    try:
+        extra_files = [
+            file
+            for file in os.listdir(target / rel_path)
+            if os.path.isfile(target / rel_path / file)
+            and not os.path.islink(target / rel_path / file)
+        ]
+    except FileNotFoundError:  # pragma: no cover
+        TAP.not_ok('Missing required project directory.')
+        extra_files = []
     found_files = found_files if found_files else []
     extra_files = list(set(extra_files).symmetric_difference(set(found_files)))
     return inspect_files(
