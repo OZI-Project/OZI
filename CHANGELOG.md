@@ -1,4 +1,25 @@
 # OZI CHANGELOG
+## 1.14.10 (2024-07-06)
+
+
+### 🐛 Fixed Bugs
+
+* (ozi-fix missing): warn on missing required directories — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`8486918`](https://github.com/OZI-Project/OZI/commit/84869185690798aee9412925c595e7b6ced59643))
+
+
+### 📌 Pinned Dependencies
+
+*  TAP-Producer~=0.1.1 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`3b85987`](https://github.com/OZI-Project/OZI/commit/3b85987eb71c18ab33a441d302c9d0285cfbe523))
+
+
+### Other
+
+
+* 🚨 no cover missing required directory — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`12d8298`](https://github.com/OZI-Project/OZI/commit/12d8298ed9804eb0fe4fdb5a731ac647b0bbfed2))
+
 ## 1.14.9 (2024-07-04)
 
 
