@@ -10,18 +10,29 @@ from typing import Any
 from typing import Sequence
 from urllib.parse import urlparse
 
+from ozi_spec import METADATA  # pyright: ignore
 from pyparsing import Combine
 from pyparsing import ParseException
 from pyparsing import ParseResults
 from pyparsing import Regex
+from tap_producer import TAP
+from trove_classifiers import classifiers
 
 from ozi.spdx import spdx_license_expression
-from ozi.spec import METADATA
-from ozi.tap import TAP
 from ozi.vendor.email_validator import EmailNotValidError
 from ozi.vendor.email_validator import EmailSyntaxError
 from ozi.vendor.email_validator import ValidatedEmail
 from ozi.vendor.email_validator import validate_email
+
+_CLASSIFIERS = {i.partition(' :: ')[2].strip() for i in classifiers}
+
+
+def valid_classifier(classifier: str) -> None:
+    """Validate a classifier string"""
+    if classifier in _CLASSIFIERS or classifier in classifiers:
+        TAP.ok('Classifier', classifier)
+    else:  # pragma: no cover
+        TAP.not_ok('Classifier', 'invalid', classifier)
 
 
 def valid_project_url(project_url: Sequence[str]) -> None:

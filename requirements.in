@@ -1,9 +1,11 @@
 GitPython>=3
+TAP-Producer~=0.1.1
 dnspython
 idna>=2
 jinja2>=3
 meson[ninja]>=1.1.0
-ozi-templates~=2.3.2
+ozi-spec~=0.5
+ozi-templates~=2.5.1
 packaging~=24.0
 pip-tools
 prompt_toolkit
@@ -12,6 +14,6 @@ requests
 setuptools_scm[toml]
 spdx-license-list
 tomli>=2.0.0;python_version<"3.11"
-trove-classifiers
+trove-classifiers~=2024.7
 types-requests
 typing-extensions;python_version=="3.10"

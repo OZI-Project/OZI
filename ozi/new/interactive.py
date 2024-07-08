@@ -15,6 +15,7 @@ from typing import Sequence
 from typing import TypeVar
 
 import requests
+from ozi_spec import METADATA  # pyright: ignore
 from prompt_toolkit import Application
 from prompt_toolkit.application.current import get_app
 from prompt_toolkit.document import Document
@@ -46,8 +47,8 @@ from prompt_toolkit.widgets import Button
 from prompt_toolkit.widgets import Dialog
 from prompt_toolkit.widgets import Label
 from prompt_toolkit.widgets import RadioList
+from tap_producer import TAP
 
-from ozi.spec import METADATA
 from ozi.trove import Prefix
 from ozi.trove import from_prefix
 
@@ -59,7 +60,7 @@ if TYPE_CHECKING:
 
 class Project:  # pragma: no cover
     def __init__(
-        self,  # noqa: ANN101
+        self,  # noqa: ANN101,RUF100
         allow_file: list[str] | None = None,
         ci_provider: str | None = None,
         copyright_head: str | None = None,
@@ -200,7 +201,7 @@ class Project:  # pragma: no cover
                 return result, output, prefix
 
     @staticmethod
-    def license_(  # noqa: C901
+    def license_(
         project_name: str,
         output: dict[str, list[str]],
         prefix: dict[str, str],
@@ -465,7 +466,7 @@ class Project:  # pragma: no cover
         ).run()
         if readme_type is not None:
             output.update(
-                {'--readme-type': [readme_type] if isinstance(readme_type, str) else []}
+                {'--readme-type': [readme_type] if isinstance(readme_type, str) else []},
             )
         else:
             output.update({'--readme-type': _default})
@@ -515,7 +516,7 @@ class Project:  # pragma: no cover
         return str(result), output, prefix
 
     @staticmethod
-    def project_urls(  # noqa: C901
+    def project_urls(
         project_name: str,
         output: dict[str, list[str]],
         prefix: dict[str, str],
@@ -582,7 +583,10 @@ def pypi_package_exists(package: str) -> bool:  # pragma: no cover
 
 
 class ProjectNameValidator(Validator):
-    def validate(self, document: Document) -> None:  # pragma: no cover  # noqa: ANN101
+    def validate(
+        self,  # noqa: ANN101,RUF100
+        document: Document,
+    ) -> None:  # pragma: no cover
         if len(document.text) == 0:
             raise ValidationError(0, 'cannot be empty')
         if not re.match(
@@ -594,14 +598,20 @@ class ProjectNameValidator(Validator):
 
 
 class NotReservedValidator(ThreadedValidator):
-    def validate(self, document: Document) -> None:  # pragma: no cover  # noqa: ANN101
+    def validate(
+        self,  # noqa: ANN101,RUF100
+        document: Document,
+    ) -> None:  # pragma: no cover
         self.validator.validate(document)
         if pypi_package_exists(document.text):
             raise ValidationError(len(document.text), 'project with that name exists')
 
 
 class LengthValidator(Validator):
-    def validate(self, document: Document) -> None:  # pragma: no cover  # noqa: ANN101
+    def validate(
+        self,  # noqa: ANN101,RUF100
+        document: Document,
+    ) -> None:  # pragma: no cover
         if len(document.text) == 0:
             raise ValidationError(0, 'must not be empty')
         if len(document.text) > 512:
@@ -609,7 +619,10 @@ class LengthValidator(Validator):
 
 
 class PackageValidator(Validator):
-    def validate(self, document: Document) -> None:  # pragma: no cover  # noqa: ANN101
+    def validate(
+        self,  # noqa: ANN101,RUF100
+        document: Document,
+    ) -> None:  # pragma: no cover
         if len(document.text) == 0:
             raise ValidationError(0, 'cannot be empty')
         if pypi_package_exists(document.text):
@@ -652,7 +665,7 @@ class Admonition(RadioList[_T]):
     multiple_selection = False
 
     def __init__(  # noqa: C901
-        self,  # noqa: ANN101
+        self,  # noqa: ANN101,RUF100
         values: Sequence[tuple[_T, Any]],
         default: _T | None = None,
     ) -> None:  # pragma: no cover
@@ -711,7 +724,7 @@ class Admonition(RadioList[_T]):
             always_hide_cursor=True,
         )
 
-    def _handle_enter(self) -> None:  # noqa: ANN101
+    def _handle_enter(self) -> None:  # noqa: ANN101,RUF100
         pass  # pragma: no cover
 
 
@@ -761,7 +774,7 @@ def admonition_dialog(
             Button(text=cancel_text, handler=_return_none),
         ],
         with_background=True,
-        width=longest_line + 8 if longest_line > 40 else 80,
+        width=min(max(longest_line + 8, 40), 80),
     )
     bindings = KeyBindings()
     bindings.add('tab')(focus_next)
@@ -797,7 +810,7 @@ def validate_message(
 
 
 def classifier_checkboxlist(key: str) -> list[str] | None:  # pragma: no cover
-    return checkboxlist_dialog(
+    result = checkboxlist_dialog(
         values=sorted(
             (
                 zip(
@@ -812,9 +825,10 @@ def classifier_checkboxlist(key: str) -> list[str] | None:  # pragma: no cover
         ok_text='✔ Ok',
         cancel_text='← Back',
     ).run()
+    return result
 
 
-def header_input(  # noqa: C901
+def header_input(
     label: str,
     output: dict[str, list[str]],
     prefix: dict[str, str],
@@ -822,7 +836,9 @@ def header_input(  # noqa: C901
     validator: Validator | None = None,
     split_on: str | None = None,
 ) -> tuple[
-    bool | None | list[str], dict[str, list[str]], dict[str, str]
+    bool | None | list[str],
+    dict[str, list[str]],
+    dict[str, str],
 ]:  # pragma: no cover
     _default = output.setdefault(f'--{label.lower()}', [])
     header = input_dialog(
@@ -849,7 +865,7 @@ def header_input(  # noqa: C901
                 prefix.update({label: f'{label}: {header}'})
                 if split_on:
                     output.update(
-                        {f'--{label.lower()}': header.rstrip(split_on).split(split_on)}
+                        {f'--{label.lower()}': header.rstrip(split_on).split(split_on)},
                     )
                 else:
                     output.update({f'--{label.lower()}': [header]})
@@ -870,7 +886,9 @@ def menu_loop(
     output: dict[str, list[str]],
     prefix: dict[str, str],
 ) -> tuple[
-    None | list[str] | bool, dict[str, list[str]], dict[str, str]
+    None | list[str] | bool,
+    dict[str, list[str]],
+    dict[str, str],
 ]:  # pragma: no cover
     while True:
         _default: str | list[str] | None = None
@@ -985,9 +1003,11 @@ def menu_loop(
                                     'status',
                                     'topic',
                                 ):
+                                    output.setdefault(f'--{x}', [])
                                     classifier = classifier_checkboxlist(x)
-                                    if classifier:
-                                        output.update({f'--{x}': classifier})
+                                    if classifier is not None:
+                                        for i in classifier:
+                                            output[f'--{x}'].append(i)
                                     prefix.update(
                                         (
                                             {
@@ -1162,7 +1182,6 @@ within does not create an attorney-client relationship.
 
     prefix: dict[str, str] = {}
     output: dict[str, list[str]] = {}
-    output.setdefault('project', ['project'])
     project_name = '""'
 
     result, output, prefix = _P.name(output, prefix, project.check_package_exists)
@@ -1228,11 +1247,11 @@ within does not create an attorney-client relationship.
         if isinstance(result, list):
             return result
 
-    ret_args = []
+    ret_args = ['project']
 
     for k, v in output.items():
         for i in v:
             if len(i) > 0:
                 ret_args += [k, i]
-
+    TAP.diagnostic('ozi-new project args', ' '.join(ret_args))
     return ret_args

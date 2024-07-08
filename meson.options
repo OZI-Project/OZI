@@ -127,6 +127,7 @@ option(
     type: 'array',
     description: 'tests that return non-zero',
     value: [],
+    yield: true,
 )
 
 option(

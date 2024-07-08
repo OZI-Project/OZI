@@ -1,25 +1,318 @@
-# CHANGELOG
+# OZI CHANGELOG
 
 {%- if context.history.unreleased | length > 0 %}
 
 {#- UNRELEASED -#}
 ## Unreleased
 {% for type_, commits in context.history.unreleased | dictsort %}
-{% for commit in commits %}{% if type_ != "unknown" %}
 {% include '.parsed_commit_heading.j2' %}
-* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', ' —') }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
+{% for commit in commits %}{% if type_ != "unknown" %}
+{%- filter replace(':art:', '🎨') %}
+{%- filter replace(':zap:', '⚡️') %}
+{%- filter replace(':fire:', '🔥') %}
+{%- filter replace(':bug:', '🐛') %}
+{%- filter replace(':ambulance:', '🚑️') %}
+{%- filter replace(':sparkles:', '✨') %}
+{%- filter replace(':memo:', '📝') %}
+{%- filter replace(':rocket:', '🚀') %}
+{%- filter replace(':tada:', '🎉') %}
+{%- filter replace(':white_check_mark:', '✅') %}
+{%- filter replace(':lock:', '🔒️') %}
+{%- filter replace(':closed_lock_with_key:', '🔐') %}
+{%- filter replace(':bookmark:', '🔖') %}
+{%- filter replace(':rotating_light:', '🚨') %}
+{%- filter replace(':construction:', '🚧') %}
+{%- filter replace(':green_heart:', '💚') %}
+{%- filter replace(':arrow_down:', '⬇️') %}
+{%- filter replace(':arrow_up:', '⬆️') %}
+{%- filter replace(':pushpin:', '📌') %}
+{%- filter replace(':construction_worker:', '👷') %}
+{%- filter replace(':chart_with_upwards_trend:', '📈') %}
+{%- filter replace(':recycle:', '♻️') %}
+{%- filter replace(':heavy_plus_sign:', '➕') %}
+{%- filter replace(':heavy_minus_sign:', '➖') %}
+{%- filter replace(':wrench:', '🔧') %}
+{%- filter replace(':hammer:', '🔨') %}
+{%- filter replace(':globe_with_meridians:', '🌐') %}
+{%- filter replace(':pencil2:', '✏️') %}
+{%- filter replace(':poop:', '💩') %}
+{%- filter replace(':rewind:', '⏪️') %}
+{%- filter replace(':twisted_rightwards_arrows:', '🔀') %}
+{%- filter replace(':package:', '📦️') %}
+{%- filter replace(':alien:', '👽️') %}
+{%- filter replace(':truck:', '🚚') %}
+{%- filter replace(':page_facing_up:', '📄') %}
+{%- filter replace(':boom:', '💥') %}
+{%- filter replace(':bento:', '🍱') %}
+{%- filter replace(':wheelchair:', '♿️') %}
+{%- filter replace(':bulb:', '💡') %}
+{%- filter replace(':beers:', '🍻') %}
+{%- filter replace(':speech_balloon:', '💬') %}
+{%- filter replace(':card_file_box:', '🗃️') %}
+{%- filter replace(':loud_sound:', '🔊') %}
+{%- filter replace(':mute:', '🔇') %}
+{%- filter replace(':busts_in_silhouette:', '👥') %}
+{%- filter replace(':children_crossing:', '🚸') %}
+{%- filter replace(':building_construction:', '🏗️') %}
+{%- filter replace(':clown_face:', '🤡') %}
+{%- filter replace(':egg:', '🥚') %}
+{%- filter replace(':see_no_evil:', '🙈') %}
+{%- filter replace(':camera_flash:', '📸') %}
+{%- filter replace(':alembic:', '⚗️') %}
+{%- filter replace(':mag:', '🔍️') %}
+{%- filter replace(':label:', '🏷️') %}
+{%- filter replace(':seedling:', '🌱') %}
+{%- filter replace(':triangular_flag_on_post:', '🚩') %}
+{%- filter replace(':goal_net:', '🥅') %}
+{%- filter replace(':dizzy:', '💫') %}
+{%- filter replace(':wastebasket:', '🗑️') %}
+{%- filter replace(':passport_control:', '🛂') %}
+{%- filter replace(':adhesive_bandage:', '🩹') %}
+{%- filter replace(':monocle_face:', '🧐') %}
+{%- filter replace(':coffin:', '⚰️') %}
+{%- filter replace(':test_tube:', '🧪') %}
+{%- filter replace(':necktie:', '👔') %}
+{%- filter replace(':stethoscope:', '🩺') %}
+{%- filter replace(':bricks:', '🧱') %}
+{%- filter replace(':technologist:', '🧑‍💻') %}
+{%- filter replace(':money_with_wings:', '💸') %}
+{%- filter replace(':thread:', '🧵') %}
+{%- filter replace(':safety_vest:', '🦺') %}
+* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', ' —') }}
+([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
 {% else %}
-* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', ' —') }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
+* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', ' —') }}
+([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
 {% endif %}{% endfor %}{% endfor %}
 {% endif -%}
 
 {#- RELEASED -#}
 {% for version, release in context.history.released.items() %}
+{%- set v = namespace() %}
+{%- set _v = version.as_tag().split('.') %}
+{%- set v.major = _v[0] %}
+{%- set v.minor = _v[1] %}
+{%- if v.major|int > 0 %}
 ## {{ version.as_tag() }} ({{ release.tagged_date.strftime("%Y-%m-%d") }})
 {% for type_, commits in release["elements"] | dictsort %}
 {% include '.parsed_commit_heading.j2' %}
 {% for commit in commits %}{% if type_ != "unknown" %}
-* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', ' —') }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
+{%- filter replace(':art:', '🎨') %}
+{%- filter replace(':zap:', '⚡️') %}
+{%- filter replace(':fire:', '🔥') %}
+{%- filter replace(':bug:', '🐛') %}
+{%- filter replace(':ambulance:', '🚑️') %}
+{%- filter replace(':sparkles:', '✨') %}
+{%- filter replace(':memo:', '📝') %}
+{%- filter replace(':rocket:', '🚀') %}
+{%- filter replace(':tada:', '🎉') %}
+{%- filter replace(':white_check_mark:', '✅') %}
+{%- filter replace(':lock:', '🔒️') %}
+{%- filter replace(':closed_lock_with_key:', '🔐') %}
+{%- filter replace(':bookmark:', '🔖') %}
+{%- filter replace(':rotating_light:', '🚨') %}
+{%- filter replace(':construction:', '🚧') %}
+{%- filter replace(':green_heart:', '💚') %}
+{%- filter replace(':arrow_down:', '⬇️') %}
+{%- filter replace(':arrow_up:', '⬆️') %}
+{%- filter replace(':pushpin:', '📌') %}
+{%- filter replace(':construction_worker:', '👷') %}
+{%- filter replace(':chart_with_upwards_trend:', '📈') %}
+{%- filter replace(':recycle:', '♻️') %}
+{%- filter replace(':heavy_plus_sign:', '➕') %}
+{%- filter replace(':heavy_minus_sign:', '➖') %}
+{%- filter replace(':wrench:', '🔧') %}
+{%- filter replace(':hammer:', '🔨') %}
+{%- filter replace(':globe_with_meridians:', '🌐') %}
+{%- filter replace(':pencil2:', '✏️') %}
+{%- filter replace(':poop:', '💩') %}
+{%- filter replace(':rewind:', '⏪️') %}
+{%- filter replace(':twisted_rightwards_arrows:', '🔀') %}
+{%- filter replace(':package:', '📦️') %}
+{%- filter replace(':alien:', '👽️') %}
+{%- filter replace(':truck:', '🚚') %}
+{%- filter replace(':page_facing_up:', '📄') %}
+{%- filter replace(':boom:', '💥') %}
+{%- filter replace(':bento:', '🍱') %}
+{%- filter replace(':wheelchair:', '♿️') %}
+{%- filter replace(':bulb:', '💡') %}
+{%- filter replace(':beers:', '🍻') %}
+{%- filter replace(':speech_balloon:', '💬') %}
+{%- filter replace(':card_file_box:', '🗃️') %}
+{%- filter replace(':loud_sound:', '🔊') %}
+{%- filter replace(':mute:', '🔇') %}
+{%- filter replace(':busts_in_silhouette:', '👥') %}
+{%- filter replace(':children_crossing:', '🚸') %}
+{%- filter replace(':building_construction:', '🏗️') %}
+{%- filter replace(':clown_face:', '🤡') %}
+{%- filter replace(':egg:', '🥚') %}
+{%- filter replace(':see_no_evil:', '🙈') %}
+{%- filter replace(':camera_flash:', '📸') %}
+{%- filter replace(':alembic:', '⚗️') %}
+{%- filter replace(':mag:', '🔍️') %}
+{%- filter replace(':label:', '🏷️') %}
+{%- filter replace(':seedling:', '🌱') %}
+{%- filter replace(':triangular_flag_on_post:', '🚩') %}
+{%- filter replace(':goal_net:', '🥅') %}
+{%- filter replace(':dizzy:', '💫') %}
+{%- filter replace(':wastebasket:', '🗑️') %}
+{%- filter replace(':passport_control:', '🛂') %}
+{%- filter replace(':adhesive_bandage:', '🩹') %}
+{%- filter replace(':monocle_face:', '🧐') %}
+{%- filter replace(':coffin:', '⚰️') %}
+{%- filter replace(':test_tube:', '🧪') %}
+{%- filter replace(':necktie:', '👔') %}
+{%- filter replace(':stethoscope:', '🩺') %}
+{%- filter replace(':bricks:', '🧱') %}
+{%- filter replace(':technologist:', '🧑‍💻') %}
+{%- filter replace(':money_with_wings:', '💸') %}
+{%- filter replace(':thread:', '🧵') %}
+{%- filter replace(':safety_vest:', '🦺') %}
+* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', ' —') }}
+([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
+{%- endfilter %}
 {% else %}
-* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', ' —') }} ([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
-{% endif %}{% endfor %}{% endfor %}{% endfor %}
+* {{ commit.commit.message.rstrip()|replace(type_~': ','')|replace(type_,'')|replace('---', '')|replace('\n\nSigned-off-by:', ' —') }}
+([`{{ commit.commit.hexsha[:7] }}`]({{ commit.commit.hexsha | commit_hash_url }}))
+{% endif %}{% endfor %}{% endfor %}{% endif %}{% endfor %}

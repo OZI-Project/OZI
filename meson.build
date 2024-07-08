@@ -202,7 +202,7 @@ meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
 message('backed up pyproject.toml as pyproject.orig.toml')
 foreach source : root_files
-    if source not in ['.gitignore', 'pyproject.toml', 'README']
+    if source not in ['.gitignore', 'pyproject.toml', 'README', 'CHANGELOG.md']
         fs.copyfile(source)
     elif source == 'README'
         fs.copyfile(source, 'README.rst')

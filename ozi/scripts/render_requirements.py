@@ -31,4 +31,5 @@ if __name__ == '__main__':
         )
     )
     for req in requirements:
-        print(f'Requires-Dist: {req}')
+        if len(req) > 0:
+            print(f'Requires-Dist: {req}')

@@ -12,10 +12,13 @@ from itertools import chain
 from pathlib import Path
 from typing import TYPE_CHECKING
 
+from ozi_spec import METADATA  # pyright: ignore
 from ozi_templates import load_environment  # type: ignore
+from tap_producer import TAP
 
 from ozi.new.interactive import interactive_prompt
 from ozi.new.parser import parser
+from ozi.new.validate import valid_classifier
 from ozi.new.validate import valid_contact_info
 from ozi.new.validate import valid_copyright_head
 from ozi.new.validate import valid_emails
@@ -27,8 +30,6 @@ from ozi.new.validate import valid_spdx
 from ozi.new.validate import valid_summary
 from ozi.render import render_ci_files_set_user
 from ozi.render import render_project_files
-from ozi.spec import METADATA
-from ozi.tap import TAP
 
 if TYPE_CHECKING:
     from argparse import Namespace
@@ -79,6 +80,14 @@ def _valid_project(project: Namespace) -> Namespace:
         author_email=project.author_email,
         maintainer_email=project.maintainer_email,
     )
+    for i in [
+        project.audience,
+        project.environment,
+        project.framework,
+        project.topic,
+    ]:
+        for classifier in i:
+            valid_classifier(classifier)
     return project
 
 
@@ -99,7 +108,7 @@ def postprocess_arguments(project: Namespace) -> Namespace:
         verify=project.verify_email,
     )
     project.keywords = project.keywords.split(',')
-    project.name = re.sub(r'[-_.]+', '-', project.name).lower()
+    project.name = re.sub(r'[-_.]+', '-', project.name)
     project.target = Path(project.target)
     project.topic = list(set(project.topic))
     project.dist_requires = list(set(project.dist_requires))
@@ -143,7 +152,7 @@ def main(args: list[str] | None = None) -> None:  # pragma: no cover
         else args
     )
     ozi_new = parser.parse_args(args=args)
-    ozi_new.argv = args if args else shlex.join(sys.argv[1:])
+    ozi_new.argv = shlex.join(args) if args else shlex.join(sys.argv[1:])
     match ozi_new:
         case ozi_new if ozi_new.new in ['i', 'interactive']:
             args = interactive_prompt(ozi_new)

@@ -165,7 +165,7 @@ jobs:
             api.github.com:443
             github.com:443
 
-      - uses: OZI-Project/draft@1662727a1f63e3344fc5bda22ff785083596c8c3
+      - uses: OZI-Project/draft@58ae20c3cd6b2754a602bb4315bc80eee6c9d495
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -247,6 +247,6 @@ jobs:
           upload.pypi.org:443
           uploads.github.com:443
 
-    - uses: OZI-Project/publish@5f82de29a76b1befa60a5b99752a881a83aeed47
+    - uses: OZI-Project/publish@1d1a105c970d1600a544bf67b93ef09fefe722cf
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
