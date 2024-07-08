@@ -14,6 +14,6 @@ requests
 setuptools_scm[toml]
 spdx-license-list
 tomli>=2.0.0;python_version<"3.11"
-trove-classifiers
+trove-classifiers~=2024.7
 types-requests
 typing-extensions;python_version=="3.10"
