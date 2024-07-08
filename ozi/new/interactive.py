@@ -60,7 +60,7 @@ if TYPE_CHECKING:
 
 class Project:  # pragma: no cover
     def __init__(
-        self,  # noqa: ANN101
+        self,  # noqa: ANN101,RUF100
         allow_file: list[str] | None = None,
         ci_provider: str | None = None,
         copyright_head: str | None = None,
@@ -583,7 +583,10 @@ def pypi_package_exists(package: str) -> bool:  # pragma: no cover
 
 
 class ProjectNameValidator(Validator):
-    def validate(self, document: Document) -> None:  # pragma: no cover  # noqa: ANN101
+    def validate(
+        self,  # noqa: ANN101,RUF100
+        document: Document,
+    ) -> None:  # pragma: no cover
         if len(document.text) == 0:
             raise ValidationError(0, 'cannot be empty')
         if not re.match(
@@ -595,14 +598,20 @@ class ProjectNameValidator(Validator):
 
 
 class NotReservedValidator(ThreadedValidator):
-    def validate(self, document: Document) -> None:  # pragma: no cover  # noqa: ANN101
+    def validate(
+        self,  # noqa: ANN101,RUF100
+        document: Document,
+    ) -> None:  # pragma: no cover
         self.validator.validate(document)
         if pypi_package_exists(document.text):
             raise ValidationError(len(document.text), 'project with that name exists')
 
 
 class LengthValidator(Validator):
-    def validate(self, document: Document) -> None:  # pragma: no cover  # noqa: ANN101
+    def validate(
+        self,  # noqa: ANN101,RUF100
+        document: Document,
+    ) -> None:  # pragma: no cover
         if len(document.text) == 0:
             raise ValidationError(0, 'must not be empty')
         if len(document.text) > 512:
@@ -610,7 +619,10 @@ class LengthValidator(Validator):
 
 
 class PackageValidator(Validator):
-    def validate(self, document: Document) -> None:  # pragma: no cover  # noqa: ANN101
+    def validate(
+        self,  # noqa: ANN101,RUF100
+        document: Document,
+    ) -> None:  # pragma: no cover
         if len(document.text) == 0:
             raise ValidationError(0, 'cannot be empty')
         if pypi_package_exists(document.text):
@@ -653,7 +665,7 @@ class Admonition(RadioList[_T]):
     multiple_selection = False
 
     def __init__(  # noqa: C901
-        self,  # noqa: ANN101
+        self,  # noqa: ANN101,RUF100
         values: Sequence[tuple[_T, Any]],
         default: _T | None = None,
     ) -> None:  # pragma: no cover
@@ -712,7 +724,7 @@ class Admonition(RadioList[_T]):
             always_hide_cursor=True,
         )
 
-    def _handle_enter(self) -> None:  # noqa: ANN101
+    def _handle_enter(self) -> None:  # noqa: ANN101,RUF100
         pass  # pragma: no cover
 
 
