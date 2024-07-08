@@ -1,4 +1,46 @@
 # OZI CHANGELOG
+## 1.15.0 (2024-07-08)
+
+
+### 🐛 Fixed Bugs
+
+*  add ``except configparser.NoSectionError`` to ci user lookup — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`4c819fb`](https://github.com/OZI-Project/OZI/commit/4c819fbb8d25058725c23d8e4414c93c6695a006))
+
+
+### 🚸 Improved Usability
+
+* (ozi.render): git init a repo for new projects — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`17acd16`](https://github.com/OZI-Project/OZI/commit/17acd16c9349b1c1669f5960ece2c3af0f7d1a97))
+
+
+### 📌 Pinned Dependencies
+
+*  trove-classifiers~=2024.7 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`51e4228`](https://github.com/OZI-Project/OZI/commit/51e42281566f60d09977fa5690eb7c51a4837bf7))
+
+
+### ✨ Implemented Features
+
+* 📌 ozi-spec~=0.5; ozi-templates~=2.5.1 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`6a22639`](https://github.com/OZI-Project/OZI/commit/6a22639e76d0b2a21fa65a5791ac2adbda673e4d))
+
+
+### 🔨 Updated Configuration
+
+* (meson.options): add &#39;semantic_release&#39; to ``should_fail`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`797d211`](https://github.com/OZI-Project/OZI/commit/797d211daba1e330758bbf688afa4fb7481d8d46))
+
+
+### Other
+
+
+* Update meson.options - semantic_release removed from should_fail — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`bbbf973`](https://github.com/OZI-Project/OZI/commit/bbbf973889cf08f15164858b333bdd590005b874))
+
+* 🚨 hide some noqa from ruff — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`15f07a1`](https://github.com/OZI-Project/OZI/commit/15f07a1f791a16c707225d121df487c2543e635e))
+
 ## 1.14.10 (2024-07-06)
 
 
