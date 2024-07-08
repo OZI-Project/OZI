@@ -1,4 +1,93 @@
 # OZI CHANGELOG
+## 1.15.1 (2024-07-08)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/draft from 0.3.3 to 0.3.4
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.3.3 to 0.3.4.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/1662727a1f63e3344fc5bda22ff785083596c8c3...58ae20c3cd6b2754a602bb4315bc80eee6c9d495)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`ab93b00`](https://github.com/OZI-Project/OZI/commit/ab93b00d004f4f31f6bde21fd8fc5289ca4c5cdb))
+
+*  Bump actions/upload-artifact from 4.3.3 to 4.3.4
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.3.3 to 4.3.4.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/65462800fd760344b1a7b4382951275a0abb4808...0b2256b8c012f0828dc542b3febcab082c67f72b)
+
+
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`040cbc3`](https://github.com/OZI-Project/OZI/commit/040cbc3e46bd5511209fe5f2ae7cd08473ade94d))
+
+*  Bump OZI-Project/publish from 0.1.6 to 0.1.7
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.6 to 0.1.7.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/5f82de29a76b1befa60a5b99752a881a83aeed47...1d1a105c970d1600a544bf67b93ef09fefe722cf)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`e88bde8`](https://github.com/OZI-Project/OZI/commit/e88bde8872a6f0aae6f139788eb568d09ddf745d))
+
+## 1.15.0 (2024-07-08)
+
+
+### 🐛 Fixed Bugs
+
+*  add ``except configparser.NoSectionError`` to ci user lookup — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`4c819fb`](https://github.com/OZI-Project/OZI/commit/4c819fbb8d25058725c23d8e4414c93c6695a006))
+
+
+### 🚸 Improved Usability
+
+* (ozi.render): git init a repo for new projects — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`17acd16`](https://github.com/OZI-Project/OZI/commit/17acd16c9349b1c1669f5960ece2c3af0f7d1a97))
+
+
+### 📌 Pinned Dependencies
+
+*  trove-classifiers~=2024.7 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`51e4228`](https://github.com/OZI-Project/OZI/commit/51e42281566f60d09977fa5690eb7c51a4837bf7))
+
+
+### ✨ Implemented Features
+
+* 📌 ozi-spec~=0.5; ozi-templates~=2.5.1 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`6a22639`](https://github.com/OZI-Project/OZI/commit/6a22639e76d0b2a21fa65a5791ac2adbda673e4d))
+
+
+### 🔨 Updated Configuration
+
+* (meson.options): add &#39;semantic_release&#39; to ``should_fail`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`797d211`](https://github.com/OZI-Project/OZI/commit/797d211daba1e330758bbf688afa4fb7481d8d46))
+
+
+### Other
+
+
+* Update meson.options - semantic_release removed from should_fail — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`bbbf973`](https://github.com/OZI-Project/OZI/commit/bbbf973889cf08f15164858b333bdd590005b874))
+
+* 🚨 hide some noqa from ruff — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`15f07a1`](https://github.com/OZI-Project/OZI/commit/15f07a1f791a16c707225d121df487c2543e635e))
+
 ## 1.14.10 (2024-07-06)
 
 
