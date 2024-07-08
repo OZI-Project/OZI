@@ -1,4 +1,51 @@
 # OZI CHANGELOG
+## 1.15.1 (2024-07-08)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/draft from 0.3.3 to 0.3.4
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.3.3 to 0.3.4.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/1662727a1f63e3344fc5bda22ff785083596c8c3...58ae20c3cd6b2754a602bb4315bc80eee6c9d495)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`ab93b00`](https://github.com/OZI-Project/OZI/commit/ab93b00d004f4f31f6bde21fd8fc5289ca4c5cdb))
+
+*  Bump actions/upload-artifact from 4.3.3 to 4.3.4
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.3.3 to 4.3.4.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/65462800fd760344b1a7b4382951275a0abb4808...0b2256b8c012f0828dc542b3febcab082c67f72b)
+
+
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`040cbc3`](https://github.com/OZI-Project/OZI/commit/040cbc3e46bd5511209fe5f2ae7cd08473ade94d))
+
+*  Bump OZI-Project/publish from 0.1.6 to 0.1.7
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.6 to 0.1.7.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/5f82de29a76b1befa60a5b99752a881a83aeed47...1d1a105c970d1600a544bf67b93ef09fefe722cf)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`e88bde8`](https://github.com/OZI-Project/OZI/commit/e88bde8872a6f0aae6f139788eb568d09ddf745d))
+
 ## 1.15.0 (2024-07-08)
 
 
