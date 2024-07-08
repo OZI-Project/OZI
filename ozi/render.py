@@ -44,8 +44,19 @@ def find_user_template(target: str, file: str, fix: str) -> str | None:
     return user_template
 
 
-def map_to_template(
-    fix: Literal['source', 'root', 'test'] | AnyStr,
+def map_to_template(  # noqa: C901
+    fix: (
+        Literal[
+            'child',
+            'github_workflows',
+            'root',
+            'source',
+            'subprojects',
+            'templates',
+            'test',
+        ]
+        | AnyStr
+    ),
     filename: str,
 ) -> str:
     """Map an appropriate template for an ozi-fix mode and filename.
@@ -53,7 +64,7 @@ def map_to_template(
     .. versionadded:: 1.5
 
     :param fix: ozi-fix mode setting
-    :type fix: Literal['source', 'root', 'test'] | AnyStr
+    :type fix: AnyStr
     :param filename: name with file extension
     :type filename: str
     :return: template path
@@ -61,9 +72,9 @@ def map_to_template(
     """
     match fix, filename:
         case ['test' | 'root', f] if f.endswith('.py'):
-            x = 'tests/new_test.py.j2'
+            x: str = METADATA.spec.python.src.template.add_test
         case ['source', f] if f.endswith('.py'):
-            x = 'project.name/new_module.py.j2'
+            x = METADATA.spec.python.src.template.add_source
         case ['source', f] if f.endswith('.pyx'):  # pragma: no cover
             x = 'project.name/new_ext.pyx.j2'
         case ['root', f]:
@@ -72,6 +83,14 @@ def map_to_template(
             x = f'project.name/{f}.j2'
         case ['test', f]:
             x = f'tests/{f}.j2'
+        case ['templates', f]:
+            x = f'templates/{f}.j2'
+        case ['subprojects', f]:
+            x = f'subprojects/{f}.j2'
+        case ['child', f]:
+            x = 'new_child.j2'
+        case ['github_workflows', f]:
+            x = f'github_workflows/{f}.j2'
         case [_, _]:  # pragma: no cover
             x = ''
     return x
@@ -79,9 +98,21 @@ def map_to_template(
 
 def build_file(
     env: Environment,
-    fix: Literal['source', 'root', 'test'] | AnyStr,
+    fix: (
+        Literal[
+            'child',
+            'github_workflows',
+            'root',
+            'source',
+            'subprojects',
+            'templates',
+            'test',
+        ]
+        | AnyStr
+    ),
     path: Path,
     user_template: str | None,
+    **kwargs: str,
 ) -> None:
     """Render project file based on OZI templates.
 
@@ -90,7 +121,7 @@ def build_file(
     :param env: rendering environment
     :type env: Environment
     :param fix: ozi-fix setting
-    :type fix: Literal['source', 'root', 'test'] | AnyStr
+    :type fix: AnyStr
     :param path: full path of file to be rendered
     :type path: Path
     :param user_template: path to a user template to extend
@@ -99,7 +130,9 @@ def build_file(
     try:
         template = env.get_template(map_to_template(fix, path.name)).render(
             user_template=user_template,
+            **kwargs,
         )
+        path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(template)
     except LookupError as e:
         warn(str(e), RuntimeWarning)
@@ -125,8 +158,13 @@ def build_child(env: Environment, parent: str, child: Path) -> None:
             stacklevel=0,
         )
     else:
-        with open((child / 'meson.build'), 'x', encoding='UTF-8') as f:
-            f.write(env.get_template('new_child.j2').render(parent=parent))
+        build_file(
+            env,
+            'child',
+            (child / 'meson.build'),
+            find_user_template(str(parent / child), 'meson.build.j2', 'child'),
+            parent=parent,
+        )
 
 
 def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -> str:
@@ -141,41 +179,24 @@ def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -
     :return: the ci_user of the target repository for the continuous integration provider
     :rtype: str
     """
+    repo = Repo.init(target, mkdir=False)
+    try:
+        ci_user = repo.config_reader().get('user', 'name')
+    except InvalidGitRepositoryError:  # pragma: no cover
+        ci_user = ''
+
     match ci_provider:
         case 'github':
-            try:
-                ci_user = Repo(target).config_reader().get('user', 'name')
-            except InvalidGitRepositoryError:
-                ci_user = ''
-            Path(target, '.github', 'workflows').mkdir(parents=True)
-            for i in ['ozi.yml', 'cleanup.yml']:
-                template = env.get_template(f'github_workflows/{i}.j2')
-                with open(
-                    Path(target, '.github', 'workflows', i),
-                    'w',
-                    encoding='UTF-8',
-                ) as f:
-                    f.write(template.render())
+            for filename in METADATA.spec.python.src.template.ci_provider['github']:
+                build_file(
+                    env,
+                    'github_workflows',
+                    target / filename.replace('github_workflows', '.github/workflows'),
+                    find_user_template(str(target), str(filename), 'github_workflows'),
+                )
         case _:  # pragma: no cover
             ci_user = ''
     return ci_user
-
-
-def render_templates(env: Environment, target: Path) -> None:
-    """Render a project :file:`templates/` directory.
-
-    .. versionadded: 1.13
-
-    :param env: the OZI project file rendering environment
-    :type env: jinja2.Environment
-    :param target: directory path to render the project
-    :type target: Path
-    """
-    for i in ['.release_notes.md.j2', 'CHANGELOG.md.j2', '.parsed_commit_heading.j2']:
-        template = env.get_template(f'templates/{i}')
-        f = target / 'templates' / i
-        f.parent.mkdir(exist_ok=True, parents=True)
-        f.write_text(template.render())
 
 
 def render_project_files(env: Environment, target: Path, name: str) -> None:
@@ -188,38 +209,21 @@ def render_project_files(env: Environment, target: Path, name: str) -> None:
     :param name: the canonical project name (without normalization)
     :type name: str
     """
-    Path(target, underscorify(name).lower()).mkdir()
-    Path(target, 'subprojects').mkdir()
-    Path(target, 'tests').mkdir()
     templates = METADATA.spec.python.src.template
-    for filename in templates.root:
-        template = env.get_template(f'{filename}.j2')
-        try:
-            content = template.render(filename=filename)
-        except LookupError:  # pragma: defer to good-first-issue
-            content = f'template "{filename}" failed to render.'
-            warn(content, RuntimeWarning, stacklevel=0)
-        with open(target / filename, 'w', encoding='UTF-8') as f:
-            f.write(content)
-
-    for filename in templates.source:
-        filename = filename.replace('project.name', underscorify(name).lower())
-        build_file(
-            env,
-            'source',
-            target / filename,
-            find_user_template(str(target), filename, 'source'),
-        )
-
-    for filename in templates.test:
-        build_file(
-            env,
-            'test',
-            target / filename,
-            find_user_template(str(target), filename, 'test'),
-        )
-
-    template = env.get_template('project.ozi.wrap.j2')
-    with open(target / 'subprojects' / 'ozi.wrap', 'w', encoding='UTF-8') as f:
-        f.write(template.render())
-    render_templates(env, target)
+    all_templates = [
+        (i, getattr(templates, i))
+        for i in ('root', 'test', 'source', 'templates', 'subprojects')
+    ]
+    for fix, files in all_templates:
+        for filename in files:
+            filename = (
+                filename
+                if fix != 'source'
+                else filename.replace('project.name', underscorify(name).lower())
+            )
+            build_file(
+                env,
+                fix,
+                target / filename,
+                find_user_template(str(target), filename, fix),
+            )
