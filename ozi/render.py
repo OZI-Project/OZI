@@ -6,6 +6,7 @@
 """
 from __future__ import annotations
 
+import configparser
 from pathlib import Path
 from typing import TYPE_CHECKING
 from typing import AnyStr
@@ -182,7 +183,7 @@ def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -
     repo = Repo.init(target, mkdir=False)
     try:
         ci_user = repo.config_reader().get('user', 'name')
-    except InvalidGitRepositoryError:  # pragma: no cover
+    except (InvalidGitRepositoryError, configparser.NoSectionError):  # pragma: no cover
         ci_user = ''
 
     match ci_provider:
