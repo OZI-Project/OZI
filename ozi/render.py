@@ -21,6 +21,7 @@ from tap_producer import TAP
 
 if TYPE_CHECKING:
     import sys
+
     if sys.version_info >= (3, 11):
         from typing import Self
     elif sys.version_info < (3, 11):
