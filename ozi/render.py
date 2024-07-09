@@ -20,7 +20,11 @@ from ozi_templates.filter import underscorify  # type: ignore
 from tap_producer import TAP
 
 if TYPE_CHECKING:
-    from typing import Self
+    import sys
+    if sys.version_info >= (3, 11):
+        from typing import Self
+    elif sys.version_info < (3, 11):
+        from typing_extensions import Self
 
     from jinja2 import Environment
 
