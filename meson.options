@@ -126,7 +126,7 @@ option(
     'should-fail',
     type: 'array',
     description: 'tests that return non-zero',
-    value: ['semantic_release'],
+    value: [],
     yield: true,
 )
 
