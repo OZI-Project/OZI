@@ -20,6 +20,8 @@ from ozi_templates.filter import underscorify  # type: ignore
 from tap_producer import TAP
 
 if TYPE_CHECKING:
+    from typing import Self
+
     from jinja2 import Environment
 
 
@@ -166,6 +168,48 @@ def build_child(env: Environment, parent: str, child: Path) -> None:
             find_user_template(str(parent / child), 'meson.build.j2', 'child'),
             parent=parent,
         )
+
+
+class RenderedContent:
+    def __init__(
+        self: Self,  # pyright: ignore
+        env: Environment,
+        target: Path,
+        name: str,
+        ci_provider: str,
+        readme_type: str,
+    ) -> None:
+        """OZI new project content to render.
+
+        .. versionadded:: 1.15.2
+
+        :param target: project root path
+        :type target: Path
+        :param name: project name
+        :type name: str
+        :param ci_provider: :term:`CI` provider setting
+        :type ci_provider: str
+        :param readme_type: the README file extension
+        :type readme_type: str
+        """
+        self.env = env
+        self.target = target
+        self.name = name
+        self.ci_provider = ci_provider
+        self.readme_type = readme_type
+        self.ci_user = ''
+
+    def render(self: Self) -> None:
+        """Render the project."""
+        self.ci_user = render_ci_files_set_user(self.env, self.target, self.ci_provider)
+        render_project_files(self.env, self.target, self.name)
+        if self.ci_provider == 'github':
+            Path(
+                self.target,
+                f'README.{self.readme_type}',
+            ).symlink_to(Path(self.target, 'README'))
+        else:  # pragma: no cover
+            pass
 
 
 def render_ci_files_set_user(env: Environment, target: Path, ci_provider: str) -> str:

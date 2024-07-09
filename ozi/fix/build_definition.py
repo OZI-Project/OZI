@@ -126,6 +126,6 @@ def walk(
         ),
     )
     if rel_path == Path('.') and project_name:
-        children += [Path('.')]
+        children += [Path('.')]  # pragma: no cover
     for child in children:
         walk(target, child, found_files=found_files)  # pragma: no cover

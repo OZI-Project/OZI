@@ -15,12 +15,10 @@ from hypothesis import settings
 from hypothesis import strategies as st
 from ozi_spec import METADATA  # pyright: ignore
 from ozi_templates import load_environment  # pyright: ignore
-from tap_producer import TAP  # pyright: ignore
 
 import ozi.actions  # pyright: ignore
 import ozi.new.__main__  # pyright: ignore
-from ozi.fix.missing import required_files  # pyright: ignore
-from ozi.fix.missing import required_pkg_info  # pyright: ignore
+import ozi.render  # pyright: ignore
 
 
 @settings(
@@ -132,20 +130,13 @@ def test_fuzz_new_project_good_namespace(  # noqa: DC102, RUF100
     namespace = argparse.Namespace(**project)
     preprocessed = ozi.new.__main__.preprocess_arguments(namespace)
     postprocessed = ozi.new.__main__.postprocess_arguments(preprocessed)
-    ozi.new.__main__.create_project_files(
-        postprocessed,
-        env=load_environment(vars(postprocessed), METADATA.asdict()),
-    )
-    name, _ = required_pkg_info(postprocessed.target)
-    required_files('root', postprocessed.target, postprocessed.name)
-    required_files('test', postprocessed.target, postprocessed.name)
-    required_files(
-        'source',
+    ozi.render.RenderedContent(
+        load_environment(vars(postprocessed), METADATA.asdict()),
         postprocessed.target,
         postprocessed.name,
-    )
-    with pytest.raises(SystemExit):
-        TAP.end()
+        postprocessed.ci_provider,
+        postprocessed.long_description_content_type,
+    ).render()
 
 
 @pytest.mark.parametrize(

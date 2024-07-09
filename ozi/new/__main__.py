@@ -28,34 +28,14 @@ from ozi.new.validate import valid_project_name
 from ozi.new.validate import valid_project_url
 from ozi.new.validate import valid_spdx
 from ozi.new.validate import valid_summary
-from ozi.render import render_ci_files_set_user
-from ozi.render import render_project_files
+from ozi.render import RenderedContent
 
 if TYPE_CHECKING:
     from argparse import Namespace
     from typing import Callable
     from typing import TypeAlias
 
-    from jinja2 import Environment
-
     Composable: TypeAlias = Callable[[Namespace], Namespace]
-
-
-def create_project_files(
-    project: Namespace,
-    env: Environment,
-) -> None:
-    """Create the actual project."""
-    project.allow_file = set(map(Path, project.allow_file))
-    project.ci_user = render_ci_files_set_user(env, project.target, project.ci_provider)
-    render_project_files(env, project.target, project.name)
-    if project.ci_provider == 'github':
-        Path(
-            project.target,
-            f'README.{project.long_description_content_type}',
-        ).symlink_to(Path(project.target, 'README'))
-    else:  # pragma: no cover
-        pass
 
 
 def _valid_project(project: Namespace) -> Namespace:
@@ -123,16 +103,20 @@ def postprocess_arguments(project: Namespace) -> Namespace:
             TAP.not_ok(
                 f'--ci-provider "{project.ci_provider}" unrecognized. ci_user will not be set.',
             )
+    project.allow_file = set(map(Path, project.allow_file))
     return project
 
 
 def project(project: Namespace) -> None:
     """Create a new project in a target directory."""
     project = postprocess_arguments(preprocess_arguments(project))
-    create_project_files(
-        project=project,
-        env=load_environment(vars(project), METADATA.asdict()),
-    )
+    RenderedContent(
+        load_environment(vars(project), METADATA.asdict()),
+        project.target,
+        project.name,
+        project.ci_provider,
+        project.long_description_content_type,
+    ).render()
 
 
 def wrap(project: Namespace) -> None:  # pragma: no cover
