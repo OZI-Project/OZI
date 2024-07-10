@@ -1,4 +1,37 @@
 # OZI CHANGELOG
+## 1.16.0 (2024-07-10)
+
+
+### 🚸 Improved Usability
+
+*  extract core functions to ``ozi-core`` package — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`9b02455`](https://github.com/OZI-Project/OZI/commit/9b02455a0924e84dc44a2b6982dbccc7a9d06a1c))
+
+
+### 🏷️
+
+
+* (pyright): ignore ozi-core for now — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`f900b16`](https://github.com/OZI-Project/OZI/commit/f900b1683953c7d9ae9e5facc95b2339d6b21d6a))
+
+* (mypy): add overrides for ``ozi-core`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`d362cfb`](https://github.com/OZI-Project/OZI/commit/d362cfbcab8268043d6147865bc9081f0595cfa4))
+
+
+### ✨ Implemented Features
+
+*  smaller CI footprint with the ``ozi-core`` package
+
+Release/1.15
+([`535dfe8`](https://github.com/OZI-Project/OZI/commit/535dfe8f1f269cba37acfbd3ce01886adccc5564))
+
+
+### Other
+
+
+* 🚨: run isort — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`39cca58`](https://github.com/OZI-Project/OZI/commit/39cca5823ba9d283fa380c76b0ad29cfaefa14c1))
+
 ## 1.15.3 (2024-07-10)
 
 
