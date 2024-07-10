@@ -3,8 +3,6 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 test_files = [
-    'test_ozi_fix.py',
-    'test_ozi_new.py',
 ]
 foreach file: test_files
   fs.copyfile(file)

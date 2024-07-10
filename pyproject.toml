@@ -217,6 +217,22 @@ ignore_errors = true
 ignore_missing_imports = true
 
 [[tool.mypy.overrides]]
+module = ["ozi_core.fix.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["ozi_core.new.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["ozi_core.render"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["ozi_core.actions"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
 module = ["spdx_license_list.*"]
 ignore_missing_imports = true
 
