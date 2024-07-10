@@ -1,4 +1,31 @@
 # OZI CHANGELOG
+## 1.15.2 (2024-07-10)
+
+
+### 🚸 Improved Usability
+
+* (ozi.render): add RenderedContent class — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`707d9bc`](https://github.com/OZI-Project/OZI/commit/707d9bc89d6dd8391f90027786bb9b29365c3bb8))
+
+* (ozi.spdx): add user-defined license expression to parser — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`cd0fca7`](https://github.com/OZI-Project/OZI/commit/cd0fca7c8c520ad829a6f7dc8124efd4bfe92b6a))
+
+
+### 🔨 Updated Scripts
+
+*  remove ``semantic_release`` from dist suite — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`047ac59`](https://github.com/OZI-Project/OZI/commit/047ac59418f7b441e2124fdf16aa2c05b0f8dbdd))
+
+
+### Other
+
+
+* 🚨(ozi.render): run black — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`964e9c5`](https://github.com/OZI-Project/OZI/commit/964e9c5f205f725aa08136ba8db6ec3ee15774ee))
+
+* 🚨(ozi.render): version guard for Self type — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`863e32b`](https://github.com/OZI-Project/OZI/commit/863e32b9417772f7e8a22c6d78c9d26c0350fc8a))
+
 ## 1.15.1 (2024-07-08)
 
 
