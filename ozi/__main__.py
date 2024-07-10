@@ -16,6 +16,7 @@ from ozi_core.actions import info  # pragma: no cover
 from ozi_core.actions import license_expression  # pragma: no cover
 from ozi_core.actions import list_available  # pragma: no cover
 from ozi_core.actions import print_version  # pragma: no cover
+
 from ozi.fix.__main__ import main as fix_main  # pragma: no cover
 from ozi.new.__main__ import main as new_main  # pragma: no cover
 

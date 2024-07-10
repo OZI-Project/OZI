@@ -10,15 +10,14 @@ import sys
 from itertools import chain
 from typing import TYPE_CHECKING
 
-from ozi_spec import METADATA  # pyright: ignore
-from ozi_templates import load_environment  # type: ignore
-from tap_producer import TAP
-
 from ozi_core.new.interactive import interactive_prompt
 from ozi_core.new.parser import parser
 from ozi_core.new.validate import postprocess_arguments
 from ozi_core.new.validate import preprocess_arguments
 from ozi_core.render import RenderedContent
+from ozi_spec import METADATA  # pyright: ignore
+from ozi_templates import load_environment  # type: ignore
+from tap_producer import TAP
 
 if TYPE_CHECKING:
     from argparse import Namespace

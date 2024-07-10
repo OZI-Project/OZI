@@ -10,14 +10,13 @@ import os
 from pathlib import Path
 from typing import NoReturn
 
+from ozi_core.fix.missing import report
+from ozi_core.fix.parser import parser
+from ozi_core.fix.rewrite_command import Rewriter
 from ozi_spec import METADATA  # pyright: ignore
 from ozi_templates import load_environment  # type: ignore
 from ozi_templates.filter import underscorify  # type: ignore
 from tap_producer import TAP
-
-from ozi_core.fix.missing import report
-from ozi_core.fix.parser import parser
-from ozi_core.fix.rewrite_command import Rewriter
 
 
 def main() -> NoReturn:  # pragma: no cover
