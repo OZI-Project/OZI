@@ -4,20 +4,29 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """SPDX standard metadata parser expression grammars, with support for :pep:`639` keys."""
 from ozi_spec import METADATA  # pyright: ignore
+from pyparsing import Combine
 from pyparsing import Forward
 from pyparsing import Keyword
 from pyparsing import Literal
+from pyparsing import MatchFirst
+from pyparsing import Optional
+from pyparsing import Word
 from pyparsing import ZeroOrMore
+from pyparsing import alphanums
 from pyparsing import oneOf
 from spdx_license_list import LICENSES
 
+user_defined_license = Combine(
+    Optional('DocumentRef-' + Word(alphanums + '-.') + ':')
+    + 'LicenseRef-'
+    + Word(alphanums + '-.'),
+)
 spdx_license_expression = Forward()
-spdx_license_expression <<= oneOf(
+spdx_license_expression <<= MatchFirst(
     [
-        'LicenseRef-Public-Domain',
-        'LicenseRef-Proprietary',
+        user_defined_license,
     ]
-    + [lic.id for lic in LICENSES.values() if not lic.deprecated_id],
+    + [Literal(lic.id) for lic in LICENSES.values() if not lic.deprecated_id],
 ).set_name('License-ID') + ZeroOrMore(
     Keyword('WITH')
     + oneOf(METADATA.spec.python.pkg.license.exceptions).set_name('License-Exception-ID')
