@@ -71,7 +71,7 @@ option(
     'dist-suite',
     type: 'array',
     description: '--setup=dist',
-    value: ['semantic_release', 'sigstore'],
+    value: ['sigstore'],
 )
 option(
     'docs-suite',
