@@ -15,9 +15,9 @@ from ozi_templates import load_environment  # type: ignore
 from ozi_templates.filter import underscorify  # type: ignore
 from tap_producer import TAP
 
-from ozi.fix.missing import report
-from ozi.fix.parser import parser
-from ozi.fix.rewrite_command import Rewriter
+from ozi_core.fix.missing import report
+from ozi_core.fix.parser import parser
+from ozi_core.fix.rewrite_command import Rewriter
 
 
 def main() -> NoReturn:  # pragma: no cover

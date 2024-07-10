@@ -14,11 +14,11 @@ from ozi_spec import METADATA  # pyright: ignore
 from ozi_templates import load_environment  # type: ignore
 from tap_producer import TAP
 
-from ozi.new.interactive import interactive_prompt
-from ozi.new.parser import parser
-from ozi.new.validate import postprocess_arguments
-from ozi.new.validate import preprocess_arguments
-from ozi.render import RenderedContent
+from ozi_core.new.interactive import interactive_prompt
+from ozi_core.new.parser import parser
+from ozi_core.new.validate import postprocess_arguments
+from ozi_core.new.validate import preprocess_arguments
+from ozi_core.render import RenderedContent
 
 if TYPE_CHECKING:
     from argparse import Namespace

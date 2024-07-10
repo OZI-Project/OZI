@@ -5,14 +5,6 @@
 source_files = [
     '__init__.py',
     '__main__.py',
-    'actions.py',
-    'comment.py',
-    'meson.py',
-    'pkg_extra.py',
-    'py.typed',
-    'render.py',
-    'spdx.py',
-    'trove.py',
 ]
 foreach file : files(source_files)
     fs.copyfile(file)
@@ -27,7 +19,6 @@ source_children = [
     'new',
     'scripts',
     'test',
-    'vendor',
 ]
 foreach child: source_children
     subdir(child)

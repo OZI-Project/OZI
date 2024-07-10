@@ -5,9 +5,6 @@
 config_files = [
     '__init__.py',
     '__main__.py',
-    'interactive.py',
-    'parser.py',
-    'validate.py',
 ]
 foreach file: config_files
     if not meson.is_subproject() or get_option('install-subprojects').enabled()
