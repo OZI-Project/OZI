@@ -1,4 +1,19 @@
 # OZI CHANGELOG
+## 1.15.3 (2024-07-10)
+
+
+### 🚸 Improved Usability
+
+* (ozi.new): move ``pre/postprocess_arguments`` to ``ozi.new.validate`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`4bb70e2`](https://github.com/OZI-Project/OZI/commit/4bb70e29ffeb9ecdbf667a0540bd61f274fc7d42))
+
+
+### Other
+
+
+* Update FUNDING.yml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`b976520`](https://github.com/OZI-Project/OZI/commit/b976520f9368e786ed1ad0e7384ea36289c42852))
+
 ## 1.15.2 (2024-07-10)
 
 
