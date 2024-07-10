@@ -71,7 +71,7 @@ option(
     'dist-suite',
     type: 'array',
     description: '--setup=dist',
-    value: ['semantic_release', 'sigstore'],
+    value: ['sigstore'],
 )
 option(
     'docs-suite',
@@ -114,7 +114,7 @@ option(
     value: [
         'coverage',
         'hypothesis',
-        'pytest',
+        # 'pytest',
         'pytest-asyncio',
         'pytest-cov',
         'pytest-xdist',

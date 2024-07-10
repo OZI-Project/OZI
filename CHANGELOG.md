@@ -1,4 +1,46 @@
 # OZI CHANGELOG
+## 1.15.3 (2024-07-10)
+
+
+### 🚸 Improved Usability
+
+* (ozi.new): move ``pre/postprocess_arguments`` to ``ozi.new.validate`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`4bb70e2`](https://github.com/OZI-Project/OZI/commit/4bb70e29ffeb9ecdbf667a0540bd61f274fc7d42))
+
+
+### Other
+
+
+* Update FUNDING.yml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`b976520`](https://github.com/OZI-Project/OZI/commit/b976520f9368e786ed1ad0e7384ea36289c42852))
+
+## 1.15.2 (2024-07-10)
+
+
+### 🚸 Improved Usability
+
+* (ozi.render): add RenderedContent class — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`707d9bc`](https://github.com/OZI-Project/OZI/commit/707d9bc89d6dd8391f90027786bb9b29365c3bb8))
+
+* (ozi.spdx): add user-defined license expression to parser — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`cd0fca7`](https://github.com/OZI-Project/OZI/commit/cd0fca7c8c520ad829a6f7dc8124efd4bfe92b6a))
+
+
+### 🔨 Updated Scripts
+
+*  remove ``semantic_release`` from dist suite — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`047ac59`](https://github.com/OZI-Project/OZI/commit/047ac59418f7b441e2124fdf16aa2c05b0f8dbdd))
+
+
+### Other
+
+
+* 🚨(ozi.render): run black — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`964e9c5`](https://github.com/OZI-Project/OZI/commit/964e9c5f205f725aa08136ba8db6ec3ee15774ee))
+
+* 🚨(ozi.render): version guard for Self type — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`863e32b`](https://github.com/OZI-Project/OZI/commit/863e32b9417772f7e8a22c6d78c9d26c0350fc8a))
+
 ## 1.15.1 (2024-07-08)
 
 

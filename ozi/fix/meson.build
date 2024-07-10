@@ -5,10 +5,6 @@
 config_files = [
     '__init__.py',
     '__main__.py',
-    'build_definition.py',
-    'missing.py',
-    'parser.py',
-    'rewrite_command.py',
 ]
 foreach file: config_files
     if not meson.is_subproject() or get_option('install-subprojects').enabled()
