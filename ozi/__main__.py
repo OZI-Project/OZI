@@ -95,7 +95,7 @@ helpers.add_argument(  # pragma: no cover
     '--check-version',
     action='store_const',
     default=lambda: None,
-    const=lambda v: check_version(v),
+    const=lambda: check_version(__version__),
     help=check_version.__doc__,
 )
 helpers.add_argument(  # pragma: no cover
