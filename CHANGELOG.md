@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.16.2 (2024-07-11)
+
+
+### 🔥 Deleted Code or Files
+
+*  remove alternate ``ozi-fix`` and ``ozi-new`` entrypoints throught ``ozi`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`096406f`](https://github.com/OZI-Project/OZI/commit/096406faedcf9fc66b36db60d74b010c9ea96505))
+
 ## 1.16.1 (2024-07-11)
 
 
