@@ -17,9 +17,6 @@ from ozi_core.actions import license_expression  # pragma: no cover  # pyright: 
 from ozi_core.actions import list_available  # pragma: no cover  # pyright: ignore
 from ozi_core.actions import print_version  # pragma: no cover  # pyright: ignore
 
-from ozi.fix.__main__ import main as fix_main  # pragma: no cover
-from ozi.new.__main__ import main as new_main  # pragma: no cover
-
 EPILOG = """
 METADATA_FIELD choices:
   | audience
@@ -77,20 +74,6 @@ Use of, or reading, this application or any of resources contained within
 does not create an attorney-client relationship.""",
 )  # pragma: no cover
 tools = parser.add_mutually_exclusive_group()  # pragma: no cover
-tools.add_argument(  # pragma: no cover
-    '-fix',
-    action='store_const',
-    default=lambda: None,
-    const=fix_main,
-    help='alternate entrypoint for ozi-fix',
-)
-tools.add_argument(  # pragma: no cover
-    '-new',
-    action='store_const',
-    default=lambda: None,
-    const=new_main,
-    help='alternate entrypoint for ozi-new',
-)
 helpers = parser.add_mutually_exclusive_group()  # pragma: no cover
 helpers.add_argument(
     '-h',
@@ -150,8 +133,6 @@ def main() -> None:  # pragma: no cover
         list_available(ozi.list_available)
     if ozi.check_license_expr:
         license_expression(ozi.check_license_expr)
-    ozi.fix()
-    ozi.new()
     parser.print_help()
 
 
