@@ -1,6 +1,6 @@
 TAP-Producer~=0.1.1
 meson[ninja]>=1.1.0
-ozi-core
+ozi-core>=0.0.1
 ozi-spec~=0.5
 ozi-templates~=2.5.1
 pip-tools
