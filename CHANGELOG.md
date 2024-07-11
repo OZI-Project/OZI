@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.16.5 (2024-07-11)
+
+
+### 🐛 Fixed Bugs
+
+*  fix missing check_version arg
+([`dc5dc41`](https://github.com/OZI-Project/OZI/commit/dc5dc419ccda6b2a4383846154bce311eae3a8a4))
+
 ## 1.16.4 (2024-07-11)
 
 
