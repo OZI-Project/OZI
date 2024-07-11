@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.16.3 (2024-07-11)
+
+
+### ⬆️ Upgraded Dependencies
+
+* 🐛 ozi-core&gt;=0.0.2, fix cli arg order — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`641811a`](https://github.com/OZI-Project/OZI/commit/641811a9c4368599b02a7b9b5c7a996a2d64d0d7))
+
 ## 1.16.2 (2024-07-11)
 
 
