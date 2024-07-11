@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.16.4 (2024-07-11)
+
+
+### 🐛 Fixed Bugs
+
+*  fix metadata output, version, and check version — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`8836652`](https://github.com/OZI-Project/OZI/commit/883665288cce4e48e9c8f2031f35429a1a0e0d5b))
+
 ## 1.16.3 (2024-07-11)
 
 
