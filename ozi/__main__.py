@@ -15,7 +15,8 @@ from ozi_core.actions import check_version  # pragma: no cover  # pyright: ignor
 from ozi_core.actions import info  # pragma: no cover  # pyright: ignore
 from ozi_core.actions import license_expression  # pragma: no cover  # pyright: ignore
 from ozi_core.actions import list_available  # pragma: no cover  # pyright: ignore
-from ozi_core.actions import print_version  # pragma: no cover  # pyright: ignore
+
+from ozi import __version__
 
 EPILOG = """
 METADATA_FIELD choices:
@@ -86,15 +87,15 @@ helpers.add_argument(  # pragma: no cover
     '--version',
     action='store_const',
     default=lambda: None,
-    const=print_version,
-    help=print_version.__doc__,
+    const=lambda: print(__version__) or exit(0),
+    help='Print out the current version and exit.',
 )
 helpers.add_argument(  # pragma: no cover
     '-c',
     '--check-version',
     action='store_const',
     default=lambda: None,
-    const=check_version,
+    const=lambda v: check_version(v),
     help=check_version.__doc__,
 )
 helpers.add_argument(  # pragma: no cover
