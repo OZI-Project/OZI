@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.16.6 (2024-07-12)
+
+
+### 📌 Pinned Dependencies
+
+*  ozi-core~=0.1.1 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`e03473c`](https://github.com/OZI-Project/OZI/commit/e03473ce8c8b371e3876669be1612b13719e06af))
+
 ## 1.16.5 (2024-07-11)
 
 
