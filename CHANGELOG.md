@@ -1,4 +1,63 @@
 # OZI CHANGELOG
+## 1.16.8 (2024-07-12)
+
+
+### 🐛 Fixed Bugs
+
+*  fix missing version arg to ``ozi_spec.actions.info()`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`a1b586c`](https://github.com/OZI-Project/OZI/commit/a1b586c32f0e7b590ff5152fde736f65434617c1))
+
+## 1.16.7 (2024-07-12)
+
+
+### 📌 Pinned Dependencies
+
+*  ozi-core~=0.1.3 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`0dc05f7`](https://github.com/OZI-Project/OZI/commit/0dc05f75763b3761ec501270d5fe62002bd1be3a))
+
+*  ozi-core~=0.1.2
+([`b31b97f`](https://github.com/OZI-Project/OZI/commit/b31b97f95d4281d061b462cde6aae45d952fe897))
+
+## 1.16.6 (2024-07-12)
+
+
+### 📌 Pinned Dependencies
+
+*  ozi-core~=0.1.1 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`e03473c`](https://github.com/OZI-Project/OZI/commit/e03473ce8c8b371e3876669be1612b13719e06af))
+
+## 1.16.5 (2024-07-11)
+
+
+### 🐛 Fixed Bugs
+
+*  fix missing check_version arg
+([`dc5dc41`](https://github.com/OZI-Project/OZI/commit/dc5dc419ccda6b2a4383846154bce311eae3a8a4))
+
+## 1.16.4 (2024-07-11)
+
+
+### 🐛 Fixed Bugs
+
+*  fix metadata output, version, and check version — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`8836652`](https://github.com/OZI-Project/OZI/commit/883665288cce4e48e9c8f2031f35429a1a0e0d5b))
+
+## 1.16.3 (2024-07-11)
+
+
+### ⬆️ Upgraded Dependencies
+
+* 🐛 ozi-core&gt;=0.0.2, fix cli arg order — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`641811a`](https://github.com/OZI-Project/OZI/commit/641811a9c4368599b02a7b9b5c7a996a2d64d0d7))
+
+## 1.16.2 (2024-07-11)
+
+
+### 🔥 Deleted Code or Files
+
+*  remove alternate ``ozi-fix`` and ``ozi-new`` entrypoints throught ``ozi`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`096406f`](https://github.com/OZI-Project/OZI/commit/096406faedcf9fc66b36db60d74b010c9ea96505))
+
 ## 1.16.1 (2024-07-11)
 
 
