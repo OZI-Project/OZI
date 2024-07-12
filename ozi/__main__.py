@@ -110,7 +110,7 @@ helpers.add_argument(  # pragma: no cover
     '--info',
     action='store_const',
     default=lambda: None,
-    const=info,
+    const=lambda: info(__version__),
     help=info.__doc__,
 )
 helpers.add_argument(  # pragma: no cover
