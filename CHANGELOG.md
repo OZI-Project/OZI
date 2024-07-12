@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.16.8 (2024-07-12)
+
+
+### 🐛 Fixed Bugs
+
+*  fix missing version arg to ``ozi_spec.actions.info()`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`a1b586c`](https://github.com/OZI-Project/OZI/commit/a1b586c32f0e7b590ff5152fde736f65434617c1))
+
 ## 1.16.7 (2024-07-12)
 
 
