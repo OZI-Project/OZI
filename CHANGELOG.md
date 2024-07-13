@@ -1,4 +1,44 @@
 # OZI CHANGELOG
+## 1.16.9 (2024-07-12)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.25.11 to 3.25.12
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.11 to 3.25.12.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/b611370bb5703a7efb587f9d136a52ea24c5c38c...4fa2a7953630fd2f3fb380f21be14ede0169dd4f)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`75ee5b9`](https://github.com/OZI-Project/OZI/commit/75ee5b9d8a88d2213de4c280120bdece607efddc))
+
+*  Bump actions/dependency-review-action from 4.3.3 to 4.3.4
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.3.3 to 4.3.4.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/72eb03d02c7872a771aacd928f3123ac62ad6d3a...5a2ce3f5b92ee19cbb1541a4984c76d921601d7c)
+
+
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`b54dce2`](https://github.com/OZI-Project/OZI/commit/b54dce2123a706773b36200c59f70cfa6c3aae65))
+
+
+### 📌 Pinned Dependencies
+
+*  ozi-core~=0.1.4 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`ae758b0`](https://github.com/OZI-Project/OZI/commit/ae758b033b4b70afa0ea72d313b3c390e7e9cc0d))
+
 ## 1.16.8 (2024-07-12)
 
 
