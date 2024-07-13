@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.16.10 (2024-07-13)
+
+
+### 🐛 Fixed Bugs
+
+* (ozi-new): remove pipe guard from args — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`53bf713`](https://github.com/OZI-Project/OZI/commit/53bf713ce010eaeae418606e0bf652778cb7a591))
+
 ## 1.16.9 (2024-07-12)
 
 
