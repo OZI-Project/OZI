@@ -7,7 +7,6 @@ from __future__ import annotations
 
 import shlex
 import sys
-from itertools import chain
 from typing import TYPE_CHECKING
 
 from ozi_core.new.interactive import interactive_prompt  # pyright: ignore
@@ -49,12 +48,6 @@ def wrap(project: Namespace) -> None:  # pragma: no cover
 
 def main(args: list[str] | None = None) -> None:  # pragma: no cover
     """Main ozi.new entrypoint."""
-    pipe = sys.stdin if not sys.stdin.isatty() else None
-    args = (
-        list(chain.from_iterable([shlex.split(line.strip()) for line in pipe]))
-        if pipe
-        else args
-    )
     ozi_new = parser.parse_args(args=args)
     ozi_new.argv = shlex.join(args) if args else shlex.join(sys.argv[1:])
     match ozi_new:
