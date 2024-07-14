@@ -218,6 +218,6 @@ jobs:
           upload.pypi.org:443
           uploads.github.com:443
 
-    - uses: OZI-Project/publish@1d1a105c970d1600a544bf67b93ef09fefe722cf
+    - uses: OZI-Project/publish@798954a5a38220573d0a8c2873b5b08d1059d237
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
