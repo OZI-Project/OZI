@@ -15,10 +15,8 @@ from ozi_core.actions import check_version  # pragma: no cover  # pyright: ignor
 from ozi_core.actions import info  # pragma: no cover  # pyright: ignore
 from ozi_core.actions import license_expression  # pragma: no cover  # pyright: ignore
 from ozi_core.actions import list_available  # pragma: no cover  # pyright: ignore
-from ozi_core.actions import print_version  # pragma: no cover  # pyright: ignore
 
-from ozi.fix.__main__ import main as fix_main  # pragma: no cover
-from ozi.new.__main__ import main as new_main  # pragma: no cover
+from ozi import __version__
 
 EPILOG = """
 METADATA_FIELD choices:
@@ -77,20 +75,6 @@ Use of, or reading, this application or any of resources contained within
 does not create an attorney-client relationship.""",
 )  # pragma: no cover
 tools = parser.add_mutually_exclusive_group()  # pragma: no cover
-tools.add_argument(  # pragma: no cover
-    '-fix',
-    action='store_const',
-    default=lambda: None,
-    const=fix_main,
-    help='alternate entrypoint for ozi-fix',
-)
-tools.add_argument(  # pragma: no cover
-    '-new',
-    action='store_const',
-    default=lambda: None,
-    const=new_main,
-    help='alternate entrypoint for ozi-new',
-)
 helpers = parser.add_mutually_exclusive_group()  # pragma: no cover
 helpers.add_argument(
     '-h',
@@ -103,15 +87,15 @@ helpers.add_argument(  # pragma: no cover
     '--version',
     action='store_const',
     default=lambda: None,
-    const=print_version,
-    help=print_version.__doc__,
+    const=lambda: print(__version__) or exit(0),
+    help='Print out the current version and exit.',
 )
 helpers.add_argument(  # pragma: no cover
     '-c',
     '--check-version',
     action='store_const',
     default=lambda: None,
-    const=check_version,
+    const=lambda: check_version(__version__),
     help=check_version.__doc__,
 )
 helpers.add_argument(  # pragma: no cover
@@ -126,7 +110,7 @@ helpers.add_argument(  # pragma: no cover
     '--info',
     action='store_const',
     default=lambda: None,
-    const=info,
+    const=lambda: info(__version__),
     help=info.__doc__,
 )
 helpers.add_argument(  # pragma: no cover
@@ -150,8 +134,6 @@ def main() -> None:  # pragma: no cover
         list_available(ozi.list_available)
     if ozi.check_license_expr:
         license_expression(ozi.check_license_expr)
-    ozi.fix()
-    ozi.new()
     parser.print_help()
 
 
