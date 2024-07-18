@@ -177,7 +177,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             objects.githubusercontent.com:443
 
-      - uses: OZI-Project/release@de8cb06cabbdc0697678bb16091258e8cc2e8f34
+      - uses: OZI-Project/release@b2388e2a058926646944ddc471737e2e6495940d
         id: release
         with:
           tag: ${{ needs.draft.outputs.tag }}
