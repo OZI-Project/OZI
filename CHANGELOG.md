@@ -1,4 +1,18 @@
 # OZI CHANGELOG
+## 1.16.14 (2024-07-18)
+
+
+### 🐛 Fixed Bugs
+
+* 📌 fix wheel tags with OZI.build&gt;=0.0.27 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`c49ad41`](https://github.com/OZI-Project/OZI/commit/c49ad41d938d2042a4f7052c8b4f4b96af970617))
+
+
+### 📌 Pinned Dependencies
+
+*  TAP-Producer~=0.1.3 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`dd0c6c0`](https://github.com/OZI-Project/OZI/commit/dd0c6c0b6677685357ea5efe2a55e2a84309611a))
+
 ## 1.16.13 (2024-07-18)
 
 ## 1.16.12 (2024-07-14)
