@@ -1,4 +1,71 @@
 # OZI CHANGELOG
+## 1.16.15 (2024-07-19)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump step-security/harden-runner from 2.8.1 to 2.9.0
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.8.1 to 2.9.0.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6...0d381219ddf674d61a7572ddd19d7941e271515c)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] &lt;support@github.com&gt;
+([`9871f40`](https://github.com/OZI-Project/OZI/commit/9871f40be8a2aebc95b5953dabe2dba17d20019d))
+
+*  Bump OZI-Project/draft from 0.3.5 to 0.3.6
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.3.5 to 0.3.6.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/8b8bafcce0442b4f6985d364c27030e44648e998...29d09f8b7b490a3be3b6a448f1f40864fe1c7b25)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`3ed3eb9`](https://github.com/OZI-Project/OZI/commit/3ed3eb9cbd5c9c4277bd31f0e3ebc302307b1394))
+
+*  Bump OZI-Project/checkpoint from 0.4.3 to 0.5.0
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0.4.3 to 0.5.0.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/bfd00dbaebfc8e86f730575dd907eb043052e795...8b8d7d173139c115188e4689204aba4e36e98810)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] &lt;support@github.com&gt;
+([`f92a737`](https://github.com/OZI-Project/OZI/commit/f92a737f91db1d34b2da1b9293cf71aa9d63d69f))
+
+*  Bump OZI-Project/release from 0.6.6 to 0.7.3
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.6.6 to 0.7.3.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/de8cb06cabbdc0697678bb16091258e8cc2e8f34...b2388e2a058926646944ddc471737e2e6495940d)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] &lt;support@github.com&gt;
+([`51addab`](https://github.com/OZI-Project/OZI/commit/51addabc90fd4e64e0135c6f9030d313e66cdb17))
+
+
+### 🚸 Improved Usability
+
+*  use sigstore-v3 workflows in github CI — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`fa2ffd5`](https://github.com/OZI-Project/OZI/commit/fa2ffd520f349e39a15090e2cbf3e28487a45e05))
+
 ## 1.16.14 (2024-07-18)
 
 
