@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.17.0 (2024-07-21)
+
+
+### ✨ Implemented Features
+
+* 🐛 sigstore-v3 forces a minor version bump — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`8f8fa88`](https://github.com/OZI-Project/OZI/commit/8f8fa885491d718d87013e75ed96b704037ac9d8))
+
 ## 1.16.15 (2024-07-19)
 
 
