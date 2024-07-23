@@ -1,4 +1,30 @@
 # OZI CHANGELOG
+## 1.17.1 (2024-07-23)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.25.12 to 3.25.13
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.12 to 3.25.13.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/4fa2a7953630fd2f3fb380f21be14ede0169dd4f...2d790406f505036ef40ecba973cc774a50395aac)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`5b14348`](https://github.com/OZI-Project/OZI/commit/5b143481afe6096253db33bb742a4150573d6c6c))
+
+
+### 🐛 Fixed Bugs
+
+*  fix broken changelog templates — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`00ed9f0`](https://github.com/OZI-Project/OZI/commit/00ed9f003957018ea9487f20aed4c3b6703a1786))
+
 ## 1.17.0 (2024-07-21)
 
 
