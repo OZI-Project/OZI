@@ -1,4 +1,22 @@
 # OZI CHANGELOG
+## 1.17.2 (2024-07-25)
+
+
+### 🏷️
+
+
+*  add type ignore to main entrypoints — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`79e1534`](https://github.com/OZI-Project/OZI/commit/79e15341d48039b3199010a4544ffe2241e75c6b))
+
+
+### 📌 Pinned Dependencies
+
+*  pip-tools~=7.4 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`cfdbe44`](https://github.com/OZI-Project/OZI/commit/cfdbe44f5bfed1fbd358f4aad82cd336ae309762))
+
+*  ozi-core~=0.1.12 removed pins for all other core libs — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`2f768ac`](https://github.com/OZI-Project/OZI/commit/2f768ac8acac9f233268db6a14e21bd021cbeb58))
+
 ## 1.17.1 (2024-07-23)
 
 
