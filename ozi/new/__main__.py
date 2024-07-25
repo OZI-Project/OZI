@@ -3,7 +3,7 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """ozi-new entrypoint script."""
-from ozi_core.new import main  # pyright: ignore
+from ozi_core.new import main  # type: ignore
 
 if __name__ == '__main__':
     main()
