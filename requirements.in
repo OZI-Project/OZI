@@ -1,8 +1,4 @@
-TAP-Producer~=0.2.0
-meson[ninja]>=1.1.0
-ozi-core~=0.1.10
-ozi-spec~=0.5.6
-ozi-templates~=2.5.4
-pip-tools
+ozi-core~=0.1.12
+pip-tools~=7.4
 setuptools_scm[toml]
 tomli>=2.0.0;python_version<"3.11"
