@@ -1,4 +1,70 @@
 # OZI CHANGELOG
+## 1.17.3 (2024-07-29)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ossf/scorecard-action from 2.3.3 to 2.4.0
+
+Bumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.3.3 to 2.4.0.
+- [Release notes](https://github.com/ossf/scorecard-action/releases)
+- [Changelog](https://github.com/ossf/scorecard-action/blob/main/RELEASE.md)
+- [Commits](https://github.com/ossf/scorecard-action/compare/dc50aa9510b46c811795eb24b2f1ba02a914e534...62b2cac7ed8198b15735ed49ab1e5cf35480ba46)
+
+
+updated-dependencies:
+- dependency-name: ossf/scorecard-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] &lt;support@github.com&gt;
+([`e2a9a3c`](https://github.com/OZI-Project/OZI/commit/e2a9a3c155de39a932b606af25e81ddaa6f1b36a))
+
+*  Update ozi-core requirement from ~=0.1.12 to ~=0.1.14
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+... — dependabot[bot] &lt;support@github.com&gt;
+([`790c68f`](https://github.com/OZI-Project/OZI/commit/790c68f8b38eda325c21fbe5a66f30d95cb59c41))
+
+*  Bump github/codeql-action from 3.25.14 to 3.25.15
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.14 to 3.25.15.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/5cf07d8b700b67e235fbb65cbc84f69c0cf10464...afb54ba388a7dca6ecae48f608c4ff05ff4cc77a)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`4d7b7f4`](https://github.com/OZI-Project/OZI/commit/4d7b7f4dc5839b6b121f032f097584a066fa0f38))
+
+*  Bump github/codeql-action from 3.25.13 to 3.25.14
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.13 to 3.25.14.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/2d790406f505036ef40ecba973cc774a50395aac...5cf07d8b700b67e235fbb65cbc84f69c0cf10464)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`311dc09`](https://github.com/OZI-Project/OZI/commit/311dc095881d22a3f46965d76371c83f0b22aa0c))
+
+
+### Other
+
+
+* Update dependabot.yml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`bdf063f`](https://github.com/OZI-Project/OZI/commit/bdf063f075c90dc46af4f6190218aad867f6e35c))
+
 ## 1.17.2 (2024-07-25)
 
 
@@ -21,6 +87,34 @@
 
 
 ### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/publish from 0.1.8 to 0.1.9
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.8 to 0.1.9.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/798954a5a38220573d0a8c2873b5b08d1059d237...e53fb3caac6d0530d1cc3d05d0c3e3a6b6fb1c67)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`8308bb9`](https://github.com/OZI-Project/OZI/commit/8308bb9c82d4a34247c0e4c27bcd44a4527a929f))
+
+*  Bump OZI-Project/draft from 0.3.6 to 0.3.7
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.3.6 to 0.3.7.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/29d09f8b7b490a3be3b6a448f1f40864fe1c7b25...f9e3ee38f76e3aefcbf29743e9ec64f716182001)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`2526a71`](https://github.com/OZI-Project/OZI/commit/2526a71e22333f39598d8d82f47a82fdc26facd2))
 
 *  Bump github/codeql-action from 3.25.12 to 3.25.13
 
