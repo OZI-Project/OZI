@@ -1,4 +1,18 @@
 # OZI CHANGELOG
+## 1.17.4 (2024-07-31)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update ozi-core requirement from ~=0.1.14 to ~=0.1.15
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+... — dependabot[bot] &lt;support@github.com&gt;
+([`7ea2e52`](https://github.com/OZI-Project/OZI/commit/7ea2e52bfd4094183a17d4012acfcdeb7c997c2e))
+
 ## 1.17.3 (2024-07-29)
 
 
