@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.17.8 (2024-08-01)
+
+
+### 🐛 Fixed Bugs
+
+*  normalize ``semantic-release`` to ``semantic_release`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`351327c`](https://github.com/OZI-Project/OZI/commit/351327c23be354aebece120bf3114630bb0e5f85))
+
 ## 1.17.7 (2024-08-01)
 
 
