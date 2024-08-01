@@ -417,7 +417,7 @@ foreach name : namespace
     command_names = get_option(name + '-suite')
     foreach command : command_names
         if command == 'python-semantic-release'
-            command = 'semantic-release'
+            command = 'semantic_release'
         endif
         if command not in plugin_only
             _args = get_option('args-' + command)
