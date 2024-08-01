@@ -25,7 +25,6 @@ option(
     type: 'array',
     description: 'sanity check module dependencies',
     value: ['setuptools_scm', 'piptools', 'setuptools', 'ninja', 'mesonbuild'],
-    yield: true,
 )
 
 option(
