@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.17.9 (2024-08-01)
+
+
+### 🐛 Fixed Bugs
+
+* (meson.options): add ``flake8-docstring-checker`` to ``plugin-only`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`b69ee5c`](https://github.com/OZI-Project/OZI/commit/b69ee5c346d4155101b1686f2d6dbff4f4b841df))
+
 ## 1.17.8 (2024-08-01)
 
 
