@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.17.7 (2024-08-01)
+
+
+### 🐛 Fixed Bugs
+
+*  fix semantic-release command name mismatch — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`9116e83`](https://github.com/OZI-Project/OZI/commit/9116e836f066e3fddc200c9f32f0c59178e8588a))
+
 ## 1.17.6 (2024-08-01)
 
 
