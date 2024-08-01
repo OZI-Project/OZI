@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.17.5 (2024-08-01)
+
+
+### 🐛 Fixed Bugs
+
+* (meson.options): yield dependencies and suite settings to superproject — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`1221540`](https://github.com/OZI-Project/OZI/commit/12215404dc362bd7a4ad94e6fc18b01ba8bd93ed))
+
 ## 1.17.4 (2024-07-31)
 
 
