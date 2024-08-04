@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.17.11 (2024-08-04)
+
+
+### 🐛 Fixed Bugs
+
+*  fix name normalization of ``python-semantic-release`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`bd5d080`](https://github.com/OZI-Project/OZI/commit/bd5d0808aa948c96c3fda6add0ab9bc3cd2f65e3))
+
 ## 1.17.10 (2024-08-04)
 
 ## 1.17.9 (2024-08-01)
