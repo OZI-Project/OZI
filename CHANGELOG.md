@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.17.13 (2024-08-04)
+
+
+### 🐛 Fixed Bugs
+
+*  normalize ``semantic-release`` before checking version — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`9a92d58`](https://github.com/OZI-Project/OZI/commit/9a92d584e7f0533517649e273a03989ca7002ed2))
+
 ## 1.17.12 (2024-08-04)
 
 
