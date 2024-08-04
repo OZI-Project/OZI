@@ -1,13 +1,43 @@
 # OZI CHANGELOG
-## 1.17.5 (2024-08-01)
+## 1.17.9 (2024-08-01)
 
 
 ### 🐛 Fixed Bugs
 
-* (meson.options): yield dependencies and suite settings to superproject — rjdbcm &lt;ozi.project@outlook.com&gt;
-([`1221540`](https://github.com/OZI-Project/OZI/commit/12215404dc362bd7a4ad94e6fc18b01ba8bd93ed))
+* (meson.options): add ``flake8-docstring-checker`` to ``plugin-only`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`b69ee5c`](https://github.com/OZI-Project/OZI/commit/b69ee5c346d4155101b1686f2d6dbff4f4b841df))
+
+## 1.17.8 (2024-08-01)
+
+
+### 🐛 Fixed Bugs
+
+*  normalize ``semantic-release`` to ``semantic_release`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`351327c`](https://github.com/OZI-Project/OZI/commit/351327c23be354aebece120bf3114630bb0e5f85))
+
+## 1.17.7 (2024-08-01)
+
+
+### 🐛 Fixed Bugs
+
+*  fix semantic-release command name mismatch — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`9116e83`](https://github.com/OZI-Project/OZI/commit/9116e836f066e3fddc200c9f32f0c59178e8588a))
+
+## 1.17.6 (2024-08-01)
+
+
+### 🐛 Fixed Bugs
+
+*  Merge pull request #965 from OZI-Project/release/1.17
+
+Merge pull request #964 from OZI-Project/main
+([`ee9db56`](https://github.com/OZI-Project/OZI/commit/ee9db561c2f6d1e326a5ac30063a9427abc316d0))
+
+## 1.17.5 (2024-08-01)
 
 ## 1.17.4 (2024-07-31)
+
+## 1.17.3 (2024-07-29)
 
 
 ### ⬆️ Upgraded Dependencies
@@ -20,11 +50,6 @@ updated-dependencies:
   dependency-type: direct:production
 ... — dependabot[bot] &lt;support@github.com&gt;
 ([`7ea2e52`](https://github.com/OZI-Project/OZI/commit/7ea2e52bfd4094183a17d4012acfcdeb7c997c2e))
-
-## 1.17.3 (2024-07-29)
-
-
-### ⬆️ Upgraded Dependencies
 
 *  Bump ossf/scorecard-action from 2.3.3 to 2.4.0
 
@@ -89,22 +114,6 @@ updated-dependencies:
 
 ## 1.17.2 (2024-07-25)
 
-
-### 🏷️
-
-
-*  add type ignore to main entrypoints — rjdbcm &lt;ozi.project@outlook.com&gt;
-([`79e1534`](https://github.com/OZI-Project/OZI/commit/79e15341d48039b3199010a4544ffe2241e75c6b))
-
-
-### 📌 Pinned Dependencies
-
-*  pip-tools~=7.4 — rjdbcm &lt;ozi.project@outlook.com&gt;
-([`cfdbe44`](https://github.com/OZI-Project/OZI/commit/cfdbe44f5bfed1fbd358f4aad82cd336ae309762))
-
-*  ozi-core~=0.1.12 removed pins for all other core libs — rjdbcm &lt;ozi.project@outlook.com&gt;
-([`2f768ac`](https://github.com/OZI-Project/OZI/commit/2f768ac8acac9f233268db6a14e21bd021cbeb58))
-
 ## 1.17.1 (2024-07-23)
 
 
@@ -156,8 +165,34 @@ updated-dependencies:
 
 ### 🐛 Fixed Bugs
 
+* (meson.options): yield dependencies and suite settings to superproject — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`1221540`](https://github.com/OZI-Project/OZI/commit/12215404dc362bd7a4ad94e6fc18b01ba8bd93ed))
+
 *  fix broken changelog templates — rjdbcm &lt;ozi.project@outlook.com&gt;
 ([`00ed9f0`](https://github.com/OZI-Project/OZI/commit/00ed9f003957018ea9487f20aed4c3b6703a1786))
+
+
+### 🏷️
+
+
+*  add type ignore to main entrypoints — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`79e1534`](https://github.com/OZI-Project/OZI/commit/79e15341d48039b3199010a4544ffe2241e75c6b))
+
+
+### 📌 Pinned Dependencies
+
+*  pip-tools~=7.4 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`cfdbe44`](https://github.com/OZI-Project/OZI/commit/cfdbe44f5bfed1fbd358f4aad82cd336ae309762))
+
+*  ozi-core~=0.1.12 removed pins for all other core libs — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`2f768ac`](https://github.com/OZI-Project/OZI/commit/2f768ac8acac9f233268db6a14e21bd021cbeb58))
+
+
+### Other
+
+
+* :fix:(meson.options): ``python-dependencies`` shouldnt yield to superproject — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`f31d1e1`](https://github.com/OZI-Project/OZI/commit/f31d1e1a62d6f84d28e1a372dcf802b8fec0bba7))
 
 ## 1.17.0 (2024-07-21)
 
