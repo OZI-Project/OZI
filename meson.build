@@ -310,6 +310,8 @@ foreach name : namespace
         foreach app : get_option(suite + '-suite')
             if app in done
                 continue
+            elif app in ['python-semantic-release']
+                app = 'semantic-release'
             endif
             header = ['$', 'meson', 'test', '--suite=@0@'.format(suite)]
             feature = get_variable(suite)
