@@ -241,6 +241,9 @@ foreach name : namespace
         if suite.enabled() and command in module_only
             modules += [command.underscorify()]  # we should collapse repeated `_`
         endif
+        if command == 'python-semantic-release'
+            command = 'semantic_release'
+        endif
         flag = disabler()
         if (
             (get_option('dev').enabled() or suite.enabled())
