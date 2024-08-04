@@ -311,7 +311,7 @@ foreach name : namespace
             if app in done
                 continue
             elif app in ['python-semantic-release']
-                app = 'semantic-release'
+                app = 'semantic_release'
             endif
             header = ['$', 'meson', 'test', '--suite=@0@'.format(suite)]
             feature = get_variable(suite)
