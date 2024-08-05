@@ -1,5 +1,5 @@
 Flake8-pyproject~=1.2
-flake8
+flake8~=7.1
 flake8-quotes
 flake8-pytest-style
 flake8-type-checking
