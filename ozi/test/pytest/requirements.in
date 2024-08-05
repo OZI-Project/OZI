@@ -1,6 +1,6 @@
 pytest~=8.3
 pytest-asyncio>=0.23.8
-pytest-cov
+pytest-cov~=5.0
 pytest-randomly
 pytest-tcpclient
 pytest-xdist
