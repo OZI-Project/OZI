@@ -6,7 +6,7 @@ flake8-type-checking~=2.9
 flake8-annotations~=3.1
 flake8-broken-line~=1.0
 flake8-eradicate~=1.5
-flake8-fixme
+flake8-fixme~=1.1
 flake8-bugbear
 flake8-datetimez
 flake8-no-pep420
