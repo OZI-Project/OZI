@@ -1,32 +1,49 @@
 # OZI CHANGELOG
-## 1.17.9 (2024-08-01)
+## 1.17.13 (2024-08-04)
 
 
 ### 🐛 Fixed Bugs
 
-* (meson.options): add ``flake8-docstring-checker`` to ``plugin-only`` — rjdbcm &lt;ozi.project@outlook.com&gt;
-([`b69ee5c`](https://github.com/OZI-Project/OZI/commit/b69ee5c346d4155101b1686f2d6dbff4f4b841df))
+*  normalize ``semantic-release`` before checking version — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`9a92d58`](https://github.com/OZI-Project/OZI/commit/9a92d584e7f0533517649e273a03989ca7002ed2))
+
+## 1.17.12 (2024-08-04)
+
+
+### 🐛 Fixed Bugs
+
+*  semantic-release name normalized — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`56d7331`](https://github.com/OZI-Project/OZI/commit/56d733154ada561326e9ab4d6442f69bbeb02474))
+
+## 1.17.11 (2024-08-04)
+
+
+### 🐛 Fixed Bugs
+
+*  fix name normalization of ``python-semantic-release`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`bd5d080`](https://github.com/OZI-Project/OZI/commit/bd5d0808aa948c96c3fda6add0ab9bc3cd2f65e3))
+
+## 1.17.10 (2024-08-04)
+
+## 1.17.9 (2024-08-01)
 
 ## 1.17.8 (2024-08-01)
 
-
-### 🐛 Fixed Bugs
-
-*  normalize ``semantic-release`` to ``semantic_release`` — rjdbcm &lt;ozi.project@outlook.com&gt;
-([`351327c`](https://github.com/OZI-Project/OZI/commit/351327c23be354aebece120bf3114630bb0e5f85))
-
 ## 1.17.7 (2024-08-01)
-
-
-### 🐛 Fixed Bugs
-
-*  fix semantic-release command name mismatch — rjdbcm &lt;ozi.project@outlook.com&gt;
-([`9116e83`](https://github.com/OZI-Project/OZI/commit/9116e836f066e3fddc200c9f32f0c59178e8588a))
 
 ## 1.17.6 (2024-08-01)
 
 
 ### 🐛 Fixed Bugs
+
+*  normalize ``python-semantic-release`` to ``semantic_release`` for ``install-args`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`fa0d457`](https://github.com/OZI-Project/OZI/commit/fa0d4570f9d4e975c83c6601627cdda6af674df7))
+
+* (meson.options): add ``flake8-docstring-checker`` to ``plugin-only`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`b69ee5c`](https://github.com/OZI-Project/OZI/commit/b69ee5c346d4155101b1686f2d6dbff4f4b841df))
+
+*  normalize ``semantic-release`` to ``semantic_release`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`351327c`](https://github.com/OZI-Project/OZI/commit/351327c23be354aebece120bf3114630bb0e5f85))
 
 *  Merge pull request #965 from OZI-Project/release/1.17
 
@@ -104,6 +121,12 @@ updated-dependencies:
   update-type: version-update:semver-patch
 ... — dependabot[bot] &lt;support@github.com&gt;
 ([`311dc09`](https://github.com/OZI-Project/OZI/commit/311dc095881d22a3f46965d76371c83f0b22aa0c))
+
+
+### 🐛 Fixed Bugs
+
+*  fix semantic-release command name mismatch — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`9116e83`](https://github.com/OZI-Project/OZI/commit/9116e836f066e3fddc200c9f32f0c59178e8588a))
 
 
 ### Other
