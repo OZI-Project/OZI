@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.17.15 (2024-08-11)
+
+
+### 🔨 Updated Scripts
+
+*  add quay.io to allowed release endpoints — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`50269d7`](https://github.com/OZI-Project/OZI/commit/50269d774ec005342b115e19294b288b772140c4))
+
 ## 1.17.14 (2024-08-11)
 
 
