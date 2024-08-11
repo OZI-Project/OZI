@@ -2,6 +2,12 @@
 ## 1.17.15 (2024-08-11)
 
 
+### ⬆️ Upgraded Dependencies
+
+*  OZI-Project/release@0.8.5 — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`aa7a586`](https://github.com/OZI-Project/OZI/commit/aa7a586f3ffe20a235ebc65583b07f050bc4e29d))
+
+
 ### 🔨 Updated Scripts
 
 *  add quay.io to allowed release endpoints — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
