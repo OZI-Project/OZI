@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.17.16 (2024-08-11)
+
+
+### 📌 Pinned Dependencies
+
+*  ozi-core~=0.1.18 — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`5d9cabd`](https://github.com/OZI-Project/OZI/commit/5d9cabd96387ce9f9762ba4ab4c78170fe119d00))
+
 ## 1.17.15 (2024-08-11)
 
 
