@@ -1,4 +1,14 @@
 # OZI CHANGELOG
+## 1.17.17 (2024-08-12)
+
+
+### 📌 Pinned Dependencies
+
+*  ozi-core~=0.1.19
+
+Cleans up calls to ``TAP.diagnostic``. — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`025cc95`](https://github.com/OZI-Project/OZI/commit/025cc95c600c7fea02a174463eb8aac3e82236bc))
+
 ## 1.17.16 (2024-08-11)
 
 
