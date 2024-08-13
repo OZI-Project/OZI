@@ -1,4 +1,29 @@
 # OZI CHANGELOG
+## 1.17.18 (2024-08-13)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/release from 0.8.5 to 0.8.9
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.8.5 to 0.8.9.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/b4279d73f1dff27e0c651f95ca20bc753b889ca9...f4172eb60419c98b5cf18c89d78cde8b553f5d15)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`33f19c0`](https://github.com/OZI-Project/OZI/commit/33f19c0288318b7cb8959b77f49d63b02d49c17b))
+
+
+### 📌 Pinned Dependencies
+
+*  ozi-core~=0.1.21 — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`f8ae848`](https://github.com/OZI-Project/OZI/commit/f8ae8485f04760b92f7c5b50e10fb19166f9f9ff))
+
 ## 1.17.17 (2024-08-12)
 
 
