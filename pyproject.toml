@@ -416,4 +416,14 @@ deps =
 commands =
      {env_python} -m setuptools_scm {posargs}
 
+[testenv:invoke]
+no_package = true
+deps =
+    -r requirements.in
+    invoke
+commands_pre =
+    pipx install --python=python meson
+    meson setup {env_tmp_dir} -Ddist=enabled -Dtox-env-dir={env_dir}
+commands_post =
+    {env_python} -m invoke --search-root={env_tmp_dir}/ozi {posargs}
 """
