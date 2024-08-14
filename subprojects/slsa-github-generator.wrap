@@ -1,0 +1,7 @@
+[wrap-git]
+url = https://github.com/slsa-framework/slsa-github-generator
+revision = v2.0.0
+depth = 1
+
+[provide]
+dependency_names = slsa
