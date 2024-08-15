@@ -2,10 +2,13 @@ from __future__ import annotations
 
 import sys
 from pathlib import Path
+from typing import TYPE_CHECKING
 
-from invoke.context import Context
 from invoke.tasks import call
 from invoke.tasks import task
+
+if TYPE_CHECKING:
+    from invoke.context import Context
 
 
 @task
@@ -22,7 +25,13 @@ def sign_log(c: Context, suite: str | None = None) -> None:
         print(f'Log not found for {suite}.', file=sys.stderr)
 
 
-@task(pre=[call(sign_log, suite='dist'), call(sign_log, suite='test'), call(sign_log, suite='lint')])  # pyright: ignore
+@task(
+    pre=[
+        call(sign_log, suite='dist'),  # pyright: ignore
+        call(sign_log, suite='test'),  # pyright: ignore
+        call(sign_log, suite='lint'),  # pyright: ignore
+    ],
+)
 def release(c: Context, sdist: bool = False) -> None:
     """Create release wheels for the current interpreter.
 
@@ -46,6 +55,7 @@ def release(c: Context, sdist: bool = False) -> None:
 @task(release)
 def provenance(c: Context) -> None:
     print('SLSA provenance currently unavailable in OZI self-hosted CI/CD', file=sys.stderr)
+
 
 @task(provenance)
 def publish(c: Context) -> None:

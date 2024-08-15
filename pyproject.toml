@@ -420,7 +420,6 @@ commands =
 no_package = true
 deps =
     -r requirements.in
-    invoke
 commands_pre =
     pipx install --python=python meson
     meson setup {env_tmp_dir} -Ddist=enabled -Dtox-env-dir={env_dir}
