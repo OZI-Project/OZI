@@ -55,14 +55,14 @@ option(
 )
 
 option('unhashable', type: 'array', value: ['source-to-build'])
-option('dist-priority', type: 'integer', value: 1)
-option('docs-priority', type: 'integer', value: 3)
-option('lint-priority', type: 'integer', value: 4)
-option('test-priority', type: 'integer', value: 2)
-option('dist-timeout-multiplier', type: 'integer', value: 1)
-option('docs-timeout-multiplier', type: 'integer', value: 1)
-option('lint-timeout-multiplier', type: 'integer', value: 1)
-option('test-timeout-multiplier', type: 'integer', value: 30)
+option('dist-priority', type: 'integer', value: 1, yield: true)
+option('docs-priority', type: 'integer', value: 3, yield: true)
+option('lint-priority', type: 'integer', value: 4, yield: true)
+option('test-priority', type: 'integer', value: 2, yield: true)
+option('dist-timeout-multiplier', type: 'integer', value: 1, yield: true)
+option('docs-timeout-multiplier', type: 'integer', value: 1, yield: true)
+option('lint-timeout-multiplier', type: 'integer', value: 1, yield: true)
+option('test-timeout-multiplier', type: 'integer', value: 30, yield: true)
 option('dist-exclude-suites', type: 'array', value: ['docs', 'lint', 'test'])
 option('docs-exclude-suites', type: 'array', value: ['dist', 'lint', 'test'])
 option('lint-exclude-suites', type: 'array', value: ['docs', 'dist', 'test'])
@@ -72,12 +72,14 @@ option(
     type: 'array',
     description: '--setup=dist',
     value: ['sigstore'],
+    yield: true,
 )
 option(
     'docs-suite',
     type: 'array',
     description: '--setup=docs',
     value: [],
+    yield: true,
 )
 option(
     'lint-suite',
@@ -106,6 +108,7 @@ option(
         'flake8-pyi',
         'readme-renderer',
     ],
+    yield: true,
 )
 option(
     'test-suite',
@@ -121,6 +124,7 @@ option(
         'pytest-tcpclient',
         'pytest-randomly',
     ],
+    yield: true,
 )
 option(
     'should-fail',
@@ -141,20 +145,21 @@ option(
         'pytest-tcpclient',
         'pytest-randomly',
         'Flake8-pyproject',
-        'flake8-quotes',
-        'flake8-pytest-style',
-        'flake8-type-checking',
         'flake8-annotations',
         'flake8-broken-line',
+        'flake8-bugbear',
+        'flake8-comprehensions',
+        'flake8-datetimez',
+        'flake8-docstring-checker',
         'flake8-eradicate',
         'flake8-fixme',
-        'flake8-bugbear',
-        'flake8-datetimez',
-        'flake8-no-pep420',
-        'flake8-comprehensions',
         'flake8-leading-blank-lines',
+        'flake8-no-pep420',
         'flake8-pyi',
+        'flake8-pytest-style',
+        'flake8-quotes',
         'flake8-tidy-imports',
+        'flake8-type-checking',
         'hypothesis',
         'sphinxawesome-codelinter',
         'sphinxawesome-theme',
