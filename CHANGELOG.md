@@ -1,4 +1,74 @@
 # OZI CHANGELOG
+## 1.17.19 (2024-08-15)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.26.0 to 3.26.1
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.26.0 to 3.26.1.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/eb055d739abdc2e8de2e5f4ba1a8b246daa779aa...29d86d22a34ea372b1bbf3b2dced2e25ca6b3384)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`57baab1`](https://github.com/OZI-Project/OZI/commit/57baab185518cd4203e65a9f2ec12e5f75d58352))
+
+
+### 🔨 Updated Scripts
+
+* 🔧 add invoke tasks to tox CI/CD setup for self-hosted publishing. — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`e0550e2`](https://github.com/OZI-Project/OZI/commit/e0550e232dac9c0cc99630de523e408da323d98f))
+
+*  add SLSA dependency wrapfile — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`68c5f71`](https://github.com/OZI-Project/OZI/commit/68c5f7118a7a17dc0a2ef25057811e32d37c1cbe))
+
+
+### ➕ Added Dependencies
+
+*  invoke~=2.0, types-invoke~=2.0 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`6512849`](https://github.com/OZI-Project/OZI/commit/65128497fde9e5200bbda3daf981b40dd793a709))
+
+## 1.17.18 (2024-08-13)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/release from 0.8.5 to 0.8.9
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.8.5 to 0.8.9.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/b4279d73f1dff27e0c651f95ca20bc753b889ca9...f4172eb60419c98b5cf18c89d78cde8b553f5d15)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`33f19c0`](https://github.com/OZI-Project/OZI/commit/33f19c0288318b7cb8959b77f49d63b02d49c17b))
+
+
+### 📌 Pinned Dependencies
+
+*  ozi-core~=0.1.21 — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`f8ae848`](https://github.com/OZI-Project/OZI/commit/f8ae8485f04760b92f7c5b50e10fb19166f9f9ff))
+
+## 1.17.17 (2024-08-12)
+
+
+### 📌 Pinned Dependencies
+
+*  ozi-core~=0.1.19
+
+Cleans up calls to ``TAP.diagnostic``. — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`025cc95`](https://github.com/OZI-Project/OZI/commit/025cc95c600c7fea02a174463eb8aac3e82236bc))
+
 ## 1.17.16 (2024-08-11)
 
 
