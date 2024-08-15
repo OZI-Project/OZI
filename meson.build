@@ -241,6 +241,9 @@ foreach name : namespace
         if suite.enabled() and command in module_only
             modules += [command.underscorify()]  # we should collapse repeated `_`
         endif
+        if command == 'python-semantic-release'
+            command = 'semantic_release'
+        endif
         flag = disabler()
         if (
             (get_option('dev').enabled() or suite.enabled())
@@ -305,6 +308,9 @@ done = []
 foreach name : namespace
     foreach suite : get_option(name + '-exclude-suites')
         foreach app : get_option(suite + '-suite')
+            if app in ['python-semantic-release']
+                app = 'semantic_release'
+            endif
             if app in done
                 continue
             endif
@@ -416,6 +422,9 @@ foreach name : namespace
     set_variable(name + '_kwargs', {'suite': name, 'env': env})
     command_names = get_option(name + '-suite')
     foreach command : command_names
+        if command == 'python-semantic-release'
+            command = 'semantic_release'
+        endif
         if command not in plugin_only
             _args = get_option('args-' + command)
         else
