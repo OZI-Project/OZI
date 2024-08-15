@@ -27,9 +27,9 @@ def sign_log(c: Context, suite: str | None = None) -> None:
 
 @task(
     pre=[
-        call(sign_log, suite='dist'),  # pyright: ignore
-        call(sign_log, suite='test'),  # pyright: ignore
-        call(sign_log, suite='lint'),  # pyright: ignore
+        call(sign_log, suite='dist'),  # type: ignore
+        call(sign_log, suite='test'),  # type: ignore
+        call(sign_log, suite='lint'),  # type: ignore
     ],
 )
 def release(c: Context, sdist: bool = False) -> None:
