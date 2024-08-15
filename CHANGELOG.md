@@ -1,4 +1,39 @@
 # OZI CHANGELOG
+## 1.17.19 (2024-08-15)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.26.0 to 3.26.1
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.26.0 to 3.26.1.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/eb055d739abdc2e8de2e5f4ba1a8b246daa779aa...29d86d22a34ea372b1bbf3b2dced2e25ca6b3384)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`57baab1`](https://github.com/OZI-Project/OZI/commit/57baab185518cd4203e65a9f2ec12e5f75d58352))
+
+
+### 🔨 Updated Scripts
+
+* 🔧 add invoke tasks to tox CI/CD setup for self-hosted publishing. — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`e0550e2`](https://github.com/OZI-Project/OZI/commit/e0550e232dac9c0cc99630de523e408da323d98f))
+
+*  add SLSA dependency wrapfile — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`68c5f71`](https://github.com/OZI-Project/OZI/commit/68c5f7118a7a17dc0a2ef25057811e32d37c1cbe))
+
+
+### ➕ Added Dependencies
+
+*  invoke~=2.0, types-invoke~=2.0 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`6512849`](https://github.com/OZI-Project/OZI/commit/65128497fde9e5200bbda3daf981b40dd793a709))
+
 ## 1.17.18 (2024-08-13)
 
 
