@@ -18,5 +18,5 @@ endif
 configure_file(
     input: requirements,
     output: 'requirements.txt',
-    command: ['pip-compile', get_option('config-args-pyright'), '-o', '@OUTPUT@', '@INPUT@']
+    command: [get_option('compile-requirements-command'), get_option('config-args-pyright'), '-o', '@OUTPUT@', '@INPUT@']
 )

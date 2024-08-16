@@ -5,8 +5,9 @@
 [build-system]
 build-backend = "ozi_build.buildapi"
 requires      = [
-    "OZI.build>=0.0.27",
+    "OZI.build>=1.0.2",
     "pip-tools>=7",
+    'uv',
     "pipx~=1.5",
     "setuptools_scm[toml]~=8.0",
 ]
@@ -38,7 +39,7 @@ Project-URL: Community, https://github.com/orgs/OZI-Project/discussions
 @REQUIREMENTS_IN@
 Requires-External: git
 Requires-Python: >=3.10, <3.13
-Classifier: Development Status :: 3 - Alpha
+Classifier: Development Status :: 4 - Beta
 Classifier: Environment :: Console
 Classifier: Intended Audience :: Developers
 Classifier: License :: OSI Approved :: Apache Software License
@@ -77,7 +78,7 @@ fix  = ["black", "ruff>=0.1.6", "autoflake", "isort"]
 # Default meson test setup
 dev  = ["[dist,lint,test]"]
 ## Packaging Setup
-dist = ["python-semantic-release", "sigstore"]
+dist = ["cibuildwheel", "python-semantic-release", "sigstore", "twine"]
 ## Linting and Formatting Setup
 lint = ["bandit[toml]", "black", "flake8", "flake8-quotes",
         "flake8-pytest-style", "flake8-type-checking", "flake8-annotations",
@@ -98,6 +99,9 @@ verbose = true
 [tool.black]
 extend-exclude = "(\\.pyi|meson-private|venv)"
 line-length = 93
+
+[tool.cibuildwheel]
+build-frontend = "build[uv]"
 
 [tool.coverage.report]
 exclude_lines = [
@@ -374,6 +378,7 @@ package = wheel
 deps =
      -r requirements.in
      virtualenv
+     uv
 commands =
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore

@@ -1,4 +1,19 @@
 # OZI CHANGELOG
+## 1.17.20 (2024-08-15)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  invoke~=2.2 over 2.0 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`1a2a795`](https://github.com/OZI-Project/OZI/commit/1a2a7951032c23a22e35a63098f5c4b7b622c43c))
+
+
+### 🏷️
+
+
+*  ``type: ignore`` on ``invoke.call`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`955a299`](https://github.com/OZI-Project/OZI/commit/955a2996b00622cde87d804ffe01c1a120bd1830))
+
 ## 1.17.19 (2024-08-15)
 
 

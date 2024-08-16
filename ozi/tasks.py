@@ -14,15 +14,21 @@ if TYPE_CHECKING:
 @task
 def sign_log(c: Context, suite: str | None = None) -> None:
     banned = './'
+    host = f'py{sys.version_info.major}{sys.version_info.minor}'
     if not suite:
         return print('No suite target provided', file=sys.stderr)
     if any(i in suite for i in banned):
         return print(f'Invalid sign target suite: {suite}', file=sys.stderr)
-    log = Path(f'.tox/{suite}/tmp/meson-logs/testlog-{suite}.txt')  # noqa: S108
-    if log.exists():
-        c.run(f'sigstore sign --output-dir=sig {log}')
+    testlog = Path(f'.tox/{suite}/tmp/meson-logs/testlog-{suite}.txt')  # noqa: S108
+    if testlog.exists():
+        c.run(f'sigstore sign --output-dir=sig/{host}/{suite} {testlog}')
     else:
-        print(f'Log not found for {suite}.', file=sys.stderr)
+        print(f'Test log not found for suite: {suite}.', file=sys.stderr)
+    meson_log = Path(f'.tox/{suite}/tmp/meson-logs/meson-log.txt')  # noqa: S108
+    if meson_log.exists():
+        c.run(f'sigstore sign --output-dir=sig/{host}/{suite} {meson_log}')
+    else:
+        print(f'Meson log not found for suite: {suite}.', file=sys.stderr)
 
 
 @task(
@@ -46,7 +52,7 @@ def release(c: Context, sdist: bool = False) -> None:
     if sdist:
         c.run('python -m build --sdist')
         c.run('sigstore sign dist/*.tar.gz')
-    ext_wheel = c.run('cibuildwheel --output-dir dist .')
+    ext_wheel = c.run('cibuildwheel --prerelease-pythons --output-dir dist .')
     if ext_wheel and ext_wheel.exited != 0:
         c.run('python -m build --wheel')
     c.run('sigstore sign --output-dir=sig dist/*.whl')
@@ -61,4 +67,5 @@ def provenance(c: Context) -> None:
 def publish(c: Context) -> None:
     """Publishes a release tag"""
     c.run('psr publish')
+    c.run('twine check dist/*')
     c.run('twine upload dist/*')
