@@ -1,5 +1,5 @@
 invoke~=2.2
-ozi-core~=0.1.21
+ozi-core~=0.2.2
 pip-tools~=7.4
 setuptools_scm[toml]
 tomli>=2.0.0;python_version<"3.11"
