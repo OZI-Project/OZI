@@ -378,6 +378,7 @@ package = wheel
 deps =
      -r requirements.in
      virtualenv
+     uv
 commands =
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
