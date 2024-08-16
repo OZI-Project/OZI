@@ -1,11 +1,46 @@
 # OZI CHANGELOG
+## 1.18.0 (2024-08-16)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.26.1 to 3.26.2
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.26.1 to 3.26.2.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/29d86d22a34ea372b1bbf3b2dced2e25ca6b3384...429e1977040da7a23b6822b13c129cd1ba93dbb2)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`5f2df5e`](https://github.com/OZI-Project/OZI/commit/5f2df5eca276088a3656b259923f2fb7d50b7a2c))
+
 ## 1.17.20 (2024-08-15)
 
 
 ### ⬆️ Upgraded Dependencies
 
+*  Update ozi-core requirement from ~=0.1.21 to ~=0.2.2
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+... — dependabot[bot] &lt;support@github.com&gt;
+([`06f02f7`](https://github.com/OZI-Project/OZI/commit/06f02f75da2095dce749f653d86186e1f0d742e4))
+
 *  invoke~=2.2 over 2.0 — rjdbcm &lt;ozi.project@outlook.com&gt;
 ([`1a2a795`](https://github.com/OZI-Project/OZI/commit/1a2a7951032c23a22e35a63098f5c4b7b622c43c))
+
+
+### 🔨 Updated Scripts
+
+* (requirements/sigstore): add ``--prerelease=allow`` if using ``uv`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`531176e`](https://github.com/OZI-Project/OZI/commit/531176e5fb2a0aaf7614c505ca7d7524bef40270))
 
 
 ### 🏷️
@@ -13,6 +48,29 @@
 
 *  ``type: ignore`` on ``invoke.call`` — rjdbcm &lt;ozi.project@outlook.com&gt;
 ([`955a299`](https://github.com/OZI-Project/OZI/commit/955a2996b00622cde87d804ffe01c1a120bd1830))
+
+
+### ✏️ Corrected Typos
+
+*  add missing build assets — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`3c29987`](https://github.com/OZI-Project/OZI/commit/3c29987f9ab2eb592fdc285d086fd1ab48868293))
+
+
+### ✨ Implemented Features
+
+*  OZI spec 0.6
+
+Adds cibuildwheel and twine and dist plugins. — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`66a7f90`](https://github.com/OZI-Project/OZI/commit/66a7f900ef6b2f752c27688b7dfb41ec2d8ea069))
+
+
+### 🔨 Updated Configuration
+
+* (tox) add testenv dep ``uv`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`f73b37b`](https://github.com/OZI-Project/OZI/commit/f73b37b88341d6ee7a79e725c81a93a1d18ced28))
+
+*  Development Status :: 4 - Beta — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`9313ea6`](https://github.com/OZI-Project/OZI/commit/9313ea60f86e7bc43170675e4cec4c8cfdd98c91))
 
 ## 1.17.19 (2024-08-15)
 
