@@ -39,7 +39,7 @@ Project-URL: Community, https://github.com/orgs/OZI-Project/discussions
 @REQUIREMENTS_IN@
 Requires-External: git
 Requires-Python: >=3.10, <3.13
-Classifier: Development Status :: 3 - Alpha
+Classifier: Development Status :: 4 - Beta
 Classifier: Environment :: Console
 Classifier: Intended Audience :: Developers
 Classifier: License :: OSI Approved :: Apache Software License
