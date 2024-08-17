@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.18.3 (2024-08-17)
+
+
+### 🐛 Fixed Bugs
+
+*  fix backward compatibility with non-uv packages — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`e343072`](https://github.com/OZI-Project/OZI/commit/e343072754b61e98acb21f73765e3bd2aa644512))
+
 ## 1.18.2 (2024-08-17)
 
 
