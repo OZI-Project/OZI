@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.18.1 (2024-08-17)
+
+
+### 🐛 Fixed Bugs
+
+*  fix missing pip subcommands — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`8f6ea9b`](https://github.com/OZI-Project/OZI/commit/8f6ea9bf46115d18aee97682014667b394d3cc2f))
+
 ## 1.18.0 (2024-08-16)
 
 
