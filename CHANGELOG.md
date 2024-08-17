@@ -1,4 +1,36 @@
 # OZI CHANGELOG
+## 1.18.4 (2024-08-17)
+
+
+### 🐛 Fixed Bugs
+
+*  fix pip path get — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`f61033e`](https://github.com/OZI-Project/OZI/commit/f61033ed22a8f404c68e729eb109ea6c99ce11d7))
+
+## 1.18.3 (2024-08-17)
+
+
+### 🐛 Fixed Bugs
+
+*  fix backward compatibility with non-uv packages — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`e343072`](https://github.com/OZI-Project/OZI/commit/e343072754b61e98acb21f73765e3bd2aa644512))
+
+## 1.18.2 (2024-08-17)
+
+
+### 🐛 Fixed Bugs
+
+*  fix uv backend fallback to pip-tools — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`c548e87`](https://github.com/OZI-Project/OZI/commit/c548e8732913f8777d05d71333ea76b608381497))
+
+## 1.18.1 (2024-08-17)
+
+
+### 🐛 Fixed Bugs
+
+*  fix missing pip subcommands — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`8f6ea9b`](https://github.com/OZI-Project/OZI/commit/8f6ea9bf46115d18aee97682014667b394d3cc2f))
+
 ## 1.18.0 (2024-08-16)
 
 
