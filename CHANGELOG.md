@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.18.4 (2024-08-17)
+
+
+### 🐛 Fixed Bugs
+
+*  fix pip path get — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`f61033e`](https://github.com/OZI-Project/OZI/commit/f61033ed22a8f404c68e729eb109ea6c99ce11d7))
+
 ## 1.18.3 (2024-08-17)
 
 
