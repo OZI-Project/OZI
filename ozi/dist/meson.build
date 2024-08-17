@@ -10,7 +10,7 @@ source_child_dist_children = [
 ]
 if (get_option('dev').enabled() or get_option('dist').enabled())
     foreach package : source_child_dist_children
-        message('configure', package, 'with', ' '.join(get_option('compile-requirements-command')))
+        message('configure', package, 'with', ' '.join(pip_compile))
         subdir(package)
     endforeach
 endif

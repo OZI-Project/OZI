@@ -164,11 +164,11 @@ replace_ruff_target_version = run_command(
     check: true,
 ).stdout()
 run_command(python, ['-c', replace_ruff_target_version], check: true)
-pip = find_program(get_option('install-requirements-command')[0], 'pip', required: true, disabler: true)
+find_program(get_option('install-requirements-command')[0], 'pip', required: true, disabler: true)
+pip = get_option('install-requirements-command')
 pipx = find_program('pipx', required: true, disabler: true)
-if get_option('compile-requirements-command')[0] != get_option('install-requirements-command')[0]
-    pip_compile = find_program(get_option('compile-requirements-command')[0], 'pip-compile', required: true)
-endif
+find_program(get_option('compile-requirements-command')[0], 'pip-compile', required: true)
+pip_compile = get_option('compile-requirements-command')
 if not meson.is_subproject()
     custom_target(
         'requirements.txt',
@@ -177,7 +177,7 @@ if not meson.is_subproject()
         build_always_stale: true,
         build_by_default: true,
         command: [
-            get_option('compile-requirements-command'),
+            pip_compile,
             '--allow-unsafe',
             '--strip-extras',
             '-q',
@@ -194,12 +194,11 @@ no_check = {'check': false, 'env': env}
 install = ['install']
 build_commands = {'dev': []}
 test_app_args = {}
-pip_repr = pip.full_path()
 configure_file(
     command: [python, '-c', meson_setuptools_scm],
     output: 'PKG-INFO',
 )
-meson.add_dist_script(get_option('install-requirements-command'), 'install', 'tomli>=2.0.0')
+meson.add_dist_script(pip, 'install', 'tomli>=2.0.0')
 meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
 message('backed up pyproject.toml as pyproject.orig.toml')
@@ -267,9 +266,9 @@ foreach name : namespace
                     check: true
                 )
             else
-                message('install', command, 'with', ' '.join(get_option('install-requirements-command')))
+                message('install', command, 'with', ' '.join(pip))
                 run_command(
-                    get_option('install-requirements-command'),
+                    pip,
                     [
                         'install',
                         get_option('install-args-'+command),
@@ -336,7 +335,7 @@ foreach name : namespace
                         kwargs: no_check,
                     ).stdout().strip()
                     fallback_version = run_command(
-                        get_option('install-requirements-command'),
+                        pip,
                         ['show', app],
                         kwargs: no_check,
                     ).stdout().split('\n')
@@ -363,7 +362,7 @@ foreach name : namespace
                     ).stdout().strip()
                     if app in module_only
                         fallback_version = run_command(
-                            get_option('install-requirements-command'),
+                            pip,
                             [
                                 'show',
                                 run_command(
@@ -376,7 +375,7 @@ foreach name : namespace
                         ).stdout().split('\n')
                     else
                         fallback_version = run_command(
-                            get_option('install-requirements-command'),
+                            pip,
                             ['show', app],
                             kwargs: no_check,
                         ).stdout().split('\n')
@@ -516,7 +515,7 @@ summary('path', python.full_path(), section: 'Python')
 summary('version', python.language_version(), section: 'Python')
 
 installed_packages = []
-foreach line : run_command(get_option('install-requirements-command'), 'freeze', check: true).stdout().split('\n')
+foreach line : run_command(pip, 'freeze', check: true).stdout().split('\n')
     if line == ''
         continue
     endif
@@ -549,5 +548,5 @@ foreach legacy_package: ['wheel', 'setuptools', 'distribute']
         endif
     endif
 endforeach
-pip_version = run_command(get_option('install-requirements-command'), '-V', check: true).stdout().split()
+pip_version = run_command(pip, '-V', check: true).stdout().split()
 summary(pip_version[0], pip_version[1], section: 'Python packages')

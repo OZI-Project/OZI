@@ -6,7 +6,7 @@ configure_file(
     input: requirements,
     output: 'requirements.txt',
     command: [
-        get_option('compile-requirements-command'), get_option('config-args-semantic_release'),
+        pip_compile, get_option('config-args-semantic_release'),
         '-o', '@OUTPUT@', '@INPUT@',
     ]
 )

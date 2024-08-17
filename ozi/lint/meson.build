@@ -13,7 +13,7 @@ source_child_lint_children = [
 ]
 if (get_option('dev').enabled() or get_option('lint').enabled())
     foreach package : source_child_lint_children
-        message('configure', package, 'with', ' '.join(get_option('compile-requirements-command')))
+        message('configure', package, 'with', ' '.join(pip_compile))
         subdir(package)
     endforeach
 endif
