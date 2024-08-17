@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.18.2 (2024-08-17)
+
+
+### 🐛 Fixed Bugs
+
+*  fix uv backend fallback to pip-tools — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`c548e87`](https://github.com/OZI-Project/OZI/commit/c548e8732913f8777d05d71333ea76b608381497))
+
 ## 1.18.1 (2024-08-17)
 
 
