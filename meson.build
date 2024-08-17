@@ -164,11 +164,19 @@ replace_ruff_target_version = run_command(
     check: true,
 ).stdout()
 run_command(python, ['-c', replace_ruff_target_version], check: true)
-find_program(get_option('install-requirements-command')[0], 'pip', required: false, disabler: true)
-pip = get_option('install-requirements-command')
+install_cmd = find_program(get_option('install-requirements-command')[0], required: false, disabler: true)
+if install_cmd.found()
+    pip = get_option('install-requirements-command')
+else
+    pip = find_program('pip', required: true)
+endif
 pipx = find_program('pipx', required: true, disabler: true)
-find_program(get_option('compile-requirements-command')[0], 'pip-compile', required: false)
-pip_compile = get_option('compile-requirements-command')
+compile_cmd = find_program(get_option('compile-requirements-command')[0], required: false, disabler: true)
+if compile_cmd.found()
+    pip_compile = get_option('compile-requirements-command')
+else
+    pip_compile = find_program('pip-compile', required: true).full_path()
+endif
 if not meson.is_subproject()
     custom_target(
         'requirements.txt',
