@@ -168,7 +168,7 @@ install_cmd = find_program(get_option('install-requirements-command')[0], requir
 if install_cmd.found()
     pip = get_option('install-requirements-command')
 else
-    pip = find_program('pip', required: true)
+    pip = find_program('pip', required: true).full_path()
 endif
 pipx = find_program('pipx', required: true, disabler: true)
 compile_cmd = find_program(get_option('compile-requirements-command')[0], required: false, disabler: true)
