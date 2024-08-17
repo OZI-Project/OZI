@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 requirements = ['requirements.in']
 extra_args = []
-if get_option('compile-requirements-command')[0] == 'uv'
+if pip_compile[0].endswith('uv')
     extra_args = ['--prerelease=allow']
 endif
 configure_file(
