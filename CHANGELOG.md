@@ -1,8 +1,21 @@
 # OZI CHANGELOG
+## 1.18.5 (2024-08-18)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  update ozi-core requirement from ~=0.2.2 to ~=0.2.3 — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`eb17028`](https://github.com/OZI-Project/OZI/commit/eb17028143ebab42015820fe663e696dcb7a25f0))
+
 ## 1.18.4 (2024-08-17)
 
 
 ### 🐛 Fixed Bugs
+
+*  Merge pull request #1030 from OZI-Project/release/1.18
+
+Release/1.18
+([`b703a70`](https://github.com/OZI-Project/OZI/commit/b703a707df8fffa4d974da0daabe01d78010e0ae))
 
 *  fix pip path get — rjdbcm &lt;ozi.project@outlook.com&gt;
 ([`f61033e`](https://github.com/OZI-Project/OZI/commit/f61033ed22a8f404c68e729eb109ea6c99ce11d7))
