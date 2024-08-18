@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.18.6 (2024-08-18)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  update ozi-core requirement from ~=0.2.3 to ~=0.2.4 — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`808016b`](https://github.com/OZI-Project/OZI/commit/808016b1127e29eac83c49a7c14a925890fd4d2d))
+
 ## 1.18.5 (2024-08-18)
 
 
