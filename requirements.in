@@ -1,4 +1,3 @@
-invoke~=2.2
 ozi-core~=0.2.4
 pip-tools~=7.4
 setuptools_scm[toml]

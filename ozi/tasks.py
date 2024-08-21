@@ -1,5 +1,19 @@
+# /// script
+# requires-python = ">=3.10"
+# dependencies = [  # noqa: E800, RUF100
+#   'build',
+#   'cibuildwheel',
+#   'invoke',
+#   'meson',
+#   'python-semantic-release',
+#   'setuptools_scm',
+#   'sigstore',
+#   'tomli>=2;python_version<="3.11"',  # noqa: E800, RUF100
+#   'twine',
+# ///
 from __future__ import annotations
 
+import inspect
 import sys
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -9,6 +23,20 @@ from invoke.tasks import task
 
 if TYPE_CHECKING:
     from invoke.context import Context
+
+
+@task
+def setup(c: Context, suite: str = 'dist') -> None:
+    target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
+    env_dir = Path(f'.tox/{suite}').absolute()
+    c.run(f'meson setup {target} -D{suite}=enabled -Dtox-env-dir={env_dir} --reconfigure')
+
+
+@task
+def checkpoint(c: Context, suite: str, maxfail: int = 1) -> None:
+    """Run OZI checkpoint suites with meson test."""
+    target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
+    c.run(f'meson test --no-rebuild --maxfail={maxfail} -C {target} --setup={suite}')
 
 
 @task
@@ -46,7 +74,8 @@ def release(c: Context, sdist: bool = False) -> None:
     :param sdist: create source distribution tarball, defaults to False
     :type sdist: bool, optional
     """
-    draft = c.run('psr --noop version')
+    setup(c, suite='dist')
+    draft = c.run('psr --strict version')
     if draft and draft.exited != 0:
         return print('No release drafted.', file=sys.stderr)
     if sdist:
@@ -60,7 +89,8 @@ def release(c: Context, sdist: bool = False) -> None:
 
 @task(release)
 def provenance(c: Context) -> None:
-    print('SLSA provenance currently unavailable in OZI self-hosted CI/CD', file=sys.stderr)
+    """SLSA provenance currently unavailable in OZI self-hosted CI/CD"""
+    print(inspect.getdoc(provenance), file=sys.stderr)
 
 
 @task(provenance)
