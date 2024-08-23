@@ -1,4 +1,86 @@
 # OZI CHANGELOG
+## 1.19.0 (2024-08-23)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.26.2 to 3.26.4
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.26.2 to 3.26.4.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/429e1977040da7a23b6822b13c129cd1ba93dbb2...f0f3afee809481da311ca3a6ff1ff51d81dbeb24)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`1f42519`](https://github.com/OZI-Project/OZI/commit/1f42519ed48456ab34ed1604887e76dd904545c4))
+
+*  Bump OZI-Project/publish from 0.1.9 to 0.1.10
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.9 to 0.1.10.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/e53fb3caac6d0530d1cc3d05d0c3e3a6b6fb1c67...cc463a2e9d2e928559e3edb4bd7f0fbcbefd1f11)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`46bbcfa`](https://github.com/OZI-Project/OZI/commit/46bbcfa17229a34e705dc9cbff92be4f3e153dac))
+
+*  Bump OZI-Project/release from 0.8.9 to 0.8.10
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.8.9 to 0.8.10.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/f4172eb60419c98b5cf18c89d78cde8b553f5d15...7edb07c74e124270a29b2cd5d32ce7c9fdfc0b22)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`766723b`](https://github.com/OZI-Project/OZI/commit/766723bf834209690744443ad615eb7de423ab93))
+
+*  Bump OZI-Project/checkpoint from 0.5.1 to 0.5.2
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0.5.1 to 0.5.2.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/bfd6e529455ff6ec099bfd16be2ab86fa0332a71...cd1117d2d6d352e52d9dfdb603b8ebd7ef964908)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`d9bc0ae`](https://github.com/OZI-Project/OZI/commit/d9bc0ae90e0b4a578a9e67c939e51c4da2f2e206))
+
+
+### 🔨 Updated Scripts
+
+*  clean up requirements for ozi-core 0.3 — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`645cc12`](https://github.com/OZI-Project/OZI/commit/645cc129df27bc254b587cfb7289685fab13a104))
+
+*  finalize tasks.py — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`788d0a4`](https://github.com/OZI-Project/OZI/commit/788d0a4b5b40392393dfd6b96244df7845ba945b))
+
+
+### ✨ Implemented Features
+
+*  add invoke tasks and improve tox entrypoints
+
+Using the invoke backend speeds up our checkpoints by 30%.
+ozi-spec 0.7 adds invoke to build-system dependencies.
+ozi-templates 2.9 improves tox checkpoint testenvs to use invoke and improved support for uv.
+Prior to now pip installed all dependencies for tox checkpoints, even with ``--enable-uv``. — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`f6b0982`](https://github.com/OZI-Project/OZI/commit/f6b098240a5aee34db5d7002383d74d56ad700f9))
+
 ## 1.18.6 (2024-08-18)
 
 
