@@ -32,13 +32,18 @@ if TYPE_CHECKING:
 
 
 @task
-def setup(c: Context, suite: str = 'dist', draft: bool = False) -> None | Result:
+def setup(c: Context, suite: str = 'dist', draft: bool = False, __ozi: bool = False) -> None | Result:
     """Setup a meson build directory for an OZI suite."""
     target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
     env_dir = Path(f'.tox/{suite}').absolute()
-    c.run(
-        f'meson setup {target} -Dozi:{suite}=enabled -Dozi:tox-env-dir={env_dir} --reconfigure',
-    )
+    if __ozi:
+        c.run(
+            f'meson setup {target} -D{suite}=enabled -Dtox-env-dir={env_dir} --reconfigure',
+        )
+    else:
+        c.run(
+            f'meson setup {target} -Dozi:{suite}=enabled -Dozi:tox-env-dir={env_dir} --reconfigure',
+        )
     if draft and suite == 'dist':
         return c.run('psr --strict version')
     return None
@@ -66,9 +71,9 @@ def sign_checkpoint(c: Context, suite: str | None = None) -> None:
 
 
 @task
-def checkpoint(c: Context, suite: str, maxfail: int = 1) -> None:
+def checkpoint(c: Context, suite: str, maxfail: int = 1, __ozi: bool = False) -> None:
     """Run OZI checkpoint suites with meson test."""
-    setup(c, suite=suite, draft=False)
+    setup(c, suite=suite, draft=False, __ozi=__ozi)
     target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
     c.run(
         f'meson test --no-rebuild --maxfail={maxfail} -C {target} --setup={suite}',
