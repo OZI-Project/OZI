@@ -381,7 +381,7 @@ commands =
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
 commands_post =
-     {env_python} -m invoke --search-root={env_tmp_dir}/ozi checkpoint --suite={env_name} {posargs}
+     {env_python} -m invoke --search-root={env_tmp_dir}/ozi checkpoint --suite={env_name} --ozi {posargs}
 
 [testenv:dist]
 description = OZI distribution checkpoint
