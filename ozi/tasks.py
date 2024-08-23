@@ -37,7 +37,7 @@ def setup(c: Context, suite: str = 'dist', draft: bool = False) -> None | Result
     target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
     env_dir = Path(f'.tox/{suite}').absolute()
     c.run(
-        f'meson setup {target} -D{suite}=enabled -Dtox-env-dir={env_dir} --reconfigure',
+        f'meson setup {target} -Dozi:{suite}=enabled -Dozi:tox-env-dir={env_dir} --reconfigure',
     )
     if draft and suite == 'dist':
         return c.run('psr --strict version')
