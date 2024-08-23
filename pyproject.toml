@@ -6,10 +6,11 @@
 build-backend = "ozi_build.buildapi"
 requires      = [
     "OZI.build>=1.0.2",
+    "invoke~=2.2",
     "pip-tools>=7",
-    'uv',
     "pipx~=1.5",
     "setuptools_scm[toml]~=8.0",
+    'uv',
 ]
 
 [tool.ozi-build.entry-points]
@@ -376,58 +377,47 @@ allowlist_externals =
     python
 package = wheel
 deps =
-     -r requirements.in
-     virtualenv
      uv
+commands_pre =
+     python -m uv pip install -r requirements.in OZI.build>=1.0.2 invoke~=2.2 pip-tools>=7 pipx~=1.5 setuptools_scm[toml]~=8.0
+     pipx install --python=python meson
 commands =
+     meson setup {env_tmp_dir} -Ddist=disabled -Dtox-env-dir={env_dir}
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
+commands_post =
+     {env_python} -m invoke --search-root={env_tmp_dir}/ozi checkpoint --suite={env_name} {posargs}
 
 [testenv:dist]
 description = OZI distribution checkpoint
-commands_pre =
-    pipx install --python=python meson
-    meson setup {env_tmp_dir} -Ddist=enabled -Dtox-env-dir={env_dir}
-commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=dist {posargs}
 
 [testenv:lint]
 description = OZI format/lint checkpoint
-commands_pre =
-    pipx install --python=python meson
-    meson setup {env_tmp_dir} -Dlint=enabled -Dtox-env-dir={env_dir}
-commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=lint {posargs}
 
 [testenv:test]
 description = OZI unit tests checkpoint
-commands_pre =
-    pipx install --python=python meson
-    meson setup {env_tmp_dir} -Dtest=enabled -Dozi-blastpipe=enabled -Dtox-env-dir={env_dir} {posargs}
-commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=test
 
 [testenv:fix]
 description = OZI project fix issues utility (black, isort, autoflake, ruff)
 deps = pipx
 skip_install = true
+commands_pre =
 commands =
      pipx run --python {env_python} black -S .
      pipx run --python {env_python} isort .
      pipx run --python {env_python} autoflake -i -r .
      pipx run --python {env_python} ruff check ozi --fix
+commands_post =
 
 [testenv:scm]
 description = OZI supply chain management (setuptools_scm)
-deps =
-     setuptools_scm[toml]>=8
 commands =
      {env_python} -m setuptools_scm {posargs}
+commands_post =
 
 [testenv:invoke]
+description = OZI invoke task entrypoint, for more info use "tox -e invoke -- --list"
 no_package = true
-deps =
-    -r requirements.in
-commands_pre =
-    pipx install --python=python meson
-    meson setup {env_tmp_dir} -Ddist=enabled -Dtox-env-dir={env_dir}
 commands_post =
-    {env_python} -m invoke --search-root={env_tmp_dir}/ozi {posargs}
+     {env_python} -m invoke --search-root={env_tmp_dir}/ozi {posargs:--list}
 """
