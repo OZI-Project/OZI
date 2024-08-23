@@ -382,7 +382,7 @@ commands_pre =
      python -m uv pip install -r requirements.in OZI.build>=1.0.2 invoke~=2.2 pip-tools>=7 pipx~=1.5 setuptools_scm[toml]~=8.0
      pipx install --python=python meson
 commands =
-     meson setup {env_tmp_dir} -D{env_name}=enabled -Dtox-env-dir={env_dir}
+     meson setup {env_tmp_dir} -Ddist=disabled -Dtox-env-dir={env_dir}
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
 commands_post =
@@ -418,10 +418,6 @@ commands_post =
 [testenv:invoke]
 description = OZI invoke task entrypoint, for more info use "tox -e invoke -- --list"
 no_package = true
-commands =
-     meson setup {env_tmp_dir} -Ddist=disabled -Dtox-env-dir={env_dir}
-     meson compile -C {env_tmp_dir}
-     rm -rf {env_tmp_dir}/.gitignore
 commands_post =
      {env_python} -m invoke --search-root={env_tmp_dir}/ozi {posargs:--list}
 """

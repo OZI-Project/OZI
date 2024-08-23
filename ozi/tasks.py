@@ -36,9 +36,12 @@ def setup(c: Context, suite: str = 'dist', draft: bool = False) -> None | Result
     """Setup a meson build directory for an OZI suite."""
     target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
     env_dir = Path(f'.tox/{suite}').absolute()
-    c.run(f'meson setup {target} -D{suite}=enabled -Dtox-env-dir={env_dir} --reconfigure')
+    c.run(
+        f'meson setup {target} -D{suite}=enabled -Dtox-env-dir={env_dir} --reconfigure',
+    )
     if draft and suite == 'dist':
         return c.run('psr --strict version')
+    return None
 
 
 @task
@@ -65,19 +68,26 @@ def sign_checkpoint(c: Context, suite: str | None = None) -> None:
 @task
 def checkpoint(c: Context, suite: str, maxfail: int = 1) -> None:
     """Run OZI checkpoint suites with meson test."""
+    setup(c, suite=suite, draft=False)
     target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
-    c.run(f'meson test --no-rebuild --maxfail={maxfail} -C {target} --setup={suite}')
-    sign_checkpoint(c, suite=suite)
+    c.run(
+        f'meson test --no-rebuild --maxfail={maxfail} -C {target} --setup={suite}',
+    )
 
 
 @task(
     pre=[
-        call(checkpoint, suite='dist'),  # type: ignore
-        call(checkpoint, suite='test'),  # type: ignore
-        call(checkpoint, suite='lint'),  # type: ignore
+        call(sign_checkpoint, suite='dist'),  # type: ignore
+        call(sign_checkpoint, suite='test'),  # type: ignore
+        call(sign_checkpoint, suite='lint'),  # type: ignore
     ],
 )
-def release(c: Context, sdist: bool = False, draft: bool = False, cibuildwheel: bool = True) -> None:
+def release(
+    c: Context,
+    sdist: bool = False,
+    draft: bool = False,
+    cibuildwheel: bool = True,
+) -> None:
     """Create releases for the current interpreter."""
     draft_ = setup(c, suite='dist', draft=draft)
     if draft_ and draft_.exited != 0:
@@ -85,7 +95,11 @@ def release(c: Context, sdist: bool = False, draft: bool = False, cibuildwheel: 
     if sdist:
         c.run('python -m build --sdist')
         c.run('sigstore sign dist/*.tar.gz')
-    ext_wheel = c.run('cibuildwheel --prerelease-pythons --output-dir dist .') if cibuildwheel else None
+    ext_wheel = (
+        c.run('cibuildwheel --prerelease-pythons --output-dir dist .')
+        if cibuildwheel
+        else None
+    )
     if (ext_wheel and ext_wheel.exited != 0) or cibuildwheel:
         c.run('python -m build --wheel')
     c.run('sigstore sign --output-dir=sig dist/*.whl')
