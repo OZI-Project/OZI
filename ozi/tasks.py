@@ -32,7 +32,9 @@ if TYPE_CHECKING:
 
 
 @task
-def setup(c: Context, suite: str = 'dist', draft: bool = False, __ozi: bool = False) -> None | Result:
+def setup(
+    c: Context, suite: str = 'dist', draft: bool = False, __ozi: bool = False
+) -> None | Result:
     """Setup a meson build directory for an OZI suite."""
     target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
     env_dir = Path(f'.tox/{suite}').absolute()
