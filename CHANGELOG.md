@@ -1,4 +1,35 @@
 # OZI CHANGELOG
+## 1.19.1 (2024-08-23)
+
+
+### 🐛 Fixed Bugs
+
+*  fix invoke call — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`7e33e8e`](https://github.com/OZI-Project/OZI/commit/7e33e8e715a832b3eef2d63b37500295d3a0c923))
+
+*  fix invoke setup call ozi bootstrap — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`47e3e15`](https://github.com/OZI-Project/OZI/commit/47e3e1593ac92df036d6c8f83c90617341f9da5b))
+
+*  turn off blastpipe for now — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`880ad78`](https://github.com/OZI-Project/OZI/commit/880ad78f23eb871b7f17687a7e3d697ee48e4b73))
+
+*  fix invoke meson option setting — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`c8bedb4`](https://github.com/OZI-Project/OZI/commit/c8bedb4563afe03d94f297bb5070fa14d74c343b))
+
+
+### 🏷️
+
+
+*  pyright fixes — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`972be3c`](https://github.com/OZI-Project/OZI/commit/972be3c368a42086243ffbf8c9480a1a431763d4))
+
+
+### Other
+
+
+* 🚨 run black — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`f572c2d`](https://github.com/OZI-Project/OZI/commit/f572c2df50a63bac02d0a238c39085c19addb926))
+
 ## 1.19.0 (2024-08-23)
 
 
