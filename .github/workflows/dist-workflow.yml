@@ -180,7 +180,7 @@ jobs:
             cdn03.quay.io:443
             downloads.python.org:443
 
-      - uses: OZI-Project/release@f4172eb60419c98b5cf18c89d78cde8b553f5d15
+      - uses: OZI-Project/release@7edb07c74e124270a29b2cd5d32ce7c9fdfc0b22
         id: release
         with:
           tag: ${{ needs.draft.outputs.tag }}
@@ -221,6 +221,6 @@ jobs:
           upload.pypi.org:443
           uploads.github.com:443
 
-    - uses: OZI-Project/publish@e53fb3caac6d0530d1cc3d05d0c3e3a6b6fb1c67
+    - uses: OZI-Project/publish@cc463a2e9d2e928559e3edb4bd7f0fbcbefd1f11
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}

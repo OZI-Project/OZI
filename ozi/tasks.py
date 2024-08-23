@@ -1,5 +1,24 @@
+# ozi/tasks.py
+# Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
+# See LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+# /// script
+# requires-python = ">=3.10"
+# dependencies = [  # noqa: E800, RUF100
+#   'OZI.build',
+#   'build',
+#   'cibuildwheel',
+#   'invoke',
+#   'meson',
+#   'python-semantic-release',
+#   'setuptools_scm',
+#   'sigstore',
+#   'tomli>=2;python_version<="3.11"',  # noqa: E800, RUF100
+#   'twine',
+# ///
 from __future__ import annotations
 
+import inspect
 import sys
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -9,10 +28,25 @@ from invoke.tasks import task
 
 if TYPE_CHECKING:
     from invoke.context import Context
+    from invoke.runners import Result
 
 
 @task
-def sign_log(c: Context, suite: str | None = None) -> None:
+def setup(c: Context, suite: str = 'dist', draft: bool = False) -> None | Result:
+    """Setup a meson build directory for an OZI suite."""
+    target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
+    env_dir = Path(f'.tox/{suite}').absolute()
+    c.run(
+        f'meson setup {target} -D{suite}=enabled -Dtox-env-dir={env_dir} --reconfigure',
+    )
+    if draft and suite == 'dist':
+        return c.run('psr --strict version')
+    return None
+
+
+@task
+def sign_checkpoint(c: Context, suite: str | None = None) -> None:
+    """Sign checkpoint suites with sigstore."""
     banned = './'
     host = f'py{sys.version_info.major}{sys.version_info.minor}'
     if not suite:
@@ -31,40 +65,54 @@ def sign_log(c: Context, suite: str | None = None) -> None:
         print(f'Meson log not found for suite: {suite}.', file=sys.stderr)
 
 
+@task
+def checkpoint(c: Context, suite: str, maxfail: int = 1) -> None:
+    """Run OZI checkpoint suites with meson test."""
+    setup(c, suite=suite, draft=False)
+    target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
+    c.run(
+        f'meson test --no-rebuild --maxfail={maxfail} -C {target} --setup={suite}',
+    )
+
+
 @task(
     pre=[
-        call(sign_log, suite='dist'),  # type: ignore
-        call(sign_log, suite='test'),  # type: ignore
-        call(sign_log, suite='lint'),  # type: ignore
+        call(sign_checkpoint, suite='dist'),  # type: ignore
+        call(sign_checkpoint, suite='test'),  # type: ignore
+        call(sign_checkpoint, suite='lint'),  # type: ignore
     ],
 )
-def release(c: Context, sdist: bool = False) -> None:
-    """Create release wheels for the current interpreter.
-
-    :param c: invoke context
-    :type c: Context
-    :param sdist: create source distribution tarball, defaults to False
-    :type sdist: bool, optional
-    """
-    draft = c.run('psr --noop version')
-    if draft and draft.exited != 0:
+def release(
+    c: Context,
+    sdist: bool = False,
+    draft: bool = False,
+    cibuildwheel: bool = True,
+) -> None:
+    """Create releases for the current interpreter."""
+    draft_ = setup(c, suite='dist', draft=draft)
+    if draft_ and draft_.exited != 0:
         return print('No release drafted.', file=sys.stderr)
     if sdist:
         c.run('python -m build --sdist')
         c.run('sigstore sign dist/*.tar.gz')
-    ext_wheel = c.run('cibuildwheel --prerelease-pythons --output-dir dist .')
-    if ext_wheel and ext_wheel.exited != 0:
+    ext_wheel = (
+        c.run('cibuildwheel --prerelease-pythons --output-dir dist .')
+        if cibuildwheel
+        else None
+    )
+    if (ext_wheel and ext_wheel.exited != 0) or cibuildwheel:
         c.run('python -m build --wheel')
     c.run('sigstore sign --output-dir=sig dist/*.whl')
 
 
 @task(release)
 def provenance(c: Context) -> None:
-    print('SLSA provenance currently unavailable in OZI self-hosted CI/CD', file=sys.stderr)
+    """SLSA provenance currently unavailable in OZI self-hosted CI/CD"""
+    print(inspect.getdoc(provenance), file=sys.stderr)
 
 
 @task(provenance)
-def publish(c: Context) -> None:
+def publish(c: Context, upload: bool = True) -> None:
     """Publishes a release tag"""
     c.run('psr publish')
     c.run('twine check dist/*')
