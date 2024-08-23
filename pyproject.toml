@@ -392,7 +392,7 @@ description = OZI format/lint checkpoint
 [testenv:test]
 description = OZI unit tests checkpoint
 commands =
-     meson setup {env_tmp_dir} -Dozi-blastpipe=enabled -Ddist=disabled -Dtox-env-dir={env_dir}
+     meson setup {env_tmp_dir} -Dozi-blastpipe=disabled -Ddist=disabled -Dtox-env-dir={env_dir}
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
 
