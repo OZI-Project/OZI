@@ -5,12 +5,7 @@
 [build-system]
 build-backend = "ozi_build.buildapi"
 requires      = [
-    "OZI.build>=1.0.2",
-    "invoke~=2.2",
-    "pip-tools>=7",
-    "pipx~=1.5",
-    "setuptools_scm[toml]~=8.0",
-    'uv',
+    "OZI.build[core,uv]~=1.2",
 ]
 
 [tool.ozi-build.entry-points]
@@ -379,14 +374,14 @@ package = wheel
 deps =
      uv
 commands_pre =
-     python -m uv pip install -r requirements.in OZI.build>=1.0.2 invoke~=2.2 pip-tools>=7 pipx~=1.5 setuptools_scm[toml]~=8.0
+     python -m uv pip install -r requirements.in OZI.build[uv,core]~=1.2
      pipx install --python=python meson
 commands =
      meson setup {env_tmp_dir} -Ddist=disabled -Dtox-env-dir={env_dir}
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
 commands_post =
-     {env_python} -m invoke --search-root={env_tmp_dir}/ozi checkpoint --suite={env_name} {posargs}
+     {env_python} -m invoke --search-root={env_tmp_dir}/ozi checkpoint --suite={env_name} --ozi {posargs}
 
 [testenv:dist]
 description = OZI distribution checkpoint
@@ -396,6 +391,10 @@ description = OZI format/lint checkpoint
 
 [testenv:test]
 description = OZI unit tests checkpoint
+commands =
+     meson setup {env_tmp_dir} -Dozi-blastpipe=disabled -Ddist=disabled -Dtox-env-dir={env_dir}
+     meson compile -C {env_tmp_dir}
+     rm -rf {env_tmp_dir}/.gitignore
 
 [testenv:fix]
 description = OZI project fix issues utility (black, isort, autoflake, ruff)
