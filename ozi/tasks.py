@@ -33,12 +33,15 @@ if TYPE_CHECKING:
 
 @task
 def setup(
-    c: Context, suite: str = 'dist', draft: bool = False, __ozi: bool = False
+    c: Context,
+    suite: str = 'dist',
+    draft: bool = False,
+    ozi: bool = False,
 ) -> None | Result:
     """Setup a meson build directory for an OZI suite."""
     target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
     env_dir = Path(f'.tox/{suite}').absolute()
-    if __ozi:
+    if ozi:
         c.run(
             f'meson setup {target} -D{suite}=enabled -Dtox-env-dir={env_dir} --reconfigure',
         )
@@ -73,9 +76,9 @@ def sign_checkpoint(c: Context, suite: str | None = None) -> None:
 
 
 @task
-def checkpoint(c: Context, suite: str, maxfail: int = 1, __ozi: bool = False) -> None:
+def checkpoint(c: Context, suite: str, maxfail: int = 1, ozi: bool = False) -> None:
     """Run OZI checkpoint suites with meson test."""
-    setup(c, suite=suite, draft=False, __ozi=__ozi)
+    setup(c, suite=suite, draft=False, ozi=ozi)
     target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
     c.run(
         f'meson test --no-rebuild --maxfail={maxfail} -C {target} --setup={suite}',
