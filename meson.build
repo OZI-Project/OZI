@@ -215,7 +215,6 @@ configure_file(
     output: 'PKG-INFO',
 )
 deps = run_command(python, '-c', install_dependencies, check: true).stdout().strip().split('$$')
-set_variable('install_dependencies', install_dependencies)
 meson.add_postconf_script(pip, 'install', deps)
 meson.add_dist_script(pip, 'install', 'tomli>=2.0.0')
 meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
