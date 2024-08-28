@@ -215,7 +215,9 @@ configure_file(
     output: 'PKG-INFO',
 )
 deps = run_command(python, '-c', install_dependencies, check: true).stdout().strip().split('$$')
-meson.add_postconf_script(pip, 'install', deps)
+if deps.length() > 0
+    meson.add_postconf_script(pip, 'install', deps)
+endif
 meson.add_dist_script(pip, 'install', 'tomli>=2.0.0')
 meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
