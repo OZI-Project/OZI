@@ -1,5 +1,5 @@
 # noqa: INP001
-# ozi/scripts/meson_setuptools_scm.py
+# ozi/scripts/meson_dist_setuptools_scm.py
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
@@ -62,8 +62,6 @@ if __name__ == '__main__':
     except TypeError:
         print('no METADATA path provided by setuptools_scm, assuming OZI.build 1.3+', file=sys.stderr)
         exit(0)
-    if path.exists():
-        path.unlink()
     if path.parent != Path(dist).resolve():
         raise RuntimeError('Invalid version_file path in pyproject.toml')
     else:
