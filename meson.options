@@ -54,6 +54,7 @@ option(
     value: [
         'python',
         'plugin-only',
+        'install_dependencies',
         'no-version',
         'module-only',
         'source-to-build',
