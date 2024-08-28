@@ -50,7 +50,11 @@ if __name__ == '__main__':
     with (source / 'pyproject.toml').open('rb') as project_file:
         pyproject_toml = toml.load(project_file)
     setuptools_scm = pyproject_toml.get('tool', {}).get('setuptools_scm', {})
-    path = Path(source / setuptools_scm.get('version_file')).resolve()
+    try:
+        path = Path(source / setuptools_scm.get('version_file')).resolve()
+    except TypeError:
+        print('no METADATA path provided by setuptools_scm, assuming OZI.build 1.3+', file=sys.stderr)
+        exit(0)
     if path.parent != Path(source).resolve():
         raise RuntimeError('Invalid version_file path in pyproject.toml')
     else:
