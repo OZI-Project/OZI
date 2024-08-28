@@ -7,12 +7,12 @@ config_files = [
     'scm_version_snip.py',
     'meson_setuptools_scm.py',
     'meson_dist_setuptools_scm.py',
+    'meson_postconf_install_dependencies.py',
     'version_metadata_template.py',
     'replace_ruff_target_version.py',
     'to_distribution_template.py',
     'render_requirements.py',
 ]
-configure_file(input: 'meson_postconf_install_dependencies.py', copy: true)
 foreach file: config_files
     if not meson.is_subproject() or get_option('install-subprojects').enabled()
         python.install_sources(file, subdir: 'ozi'/'scripts')
