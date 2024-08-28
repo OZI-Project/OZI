@@ -62,6 +62,8 @@ if __name__ == '__main__':
     except TypeError:
         print('no METADATA path provided by setuptools_scm, assuming OZI.build 1.3+', file=sys.stderr)
         exit(0)
+    if path.exists():
+        path.unlink()
     if path.parent != Path(dist).resolve():
         raise RuntimeError('Invalid version_file path in pyproject.toml')
     else:
