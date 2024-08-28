@@ -155,6 +155,14 @@ to_distribution = run_command(
     ],
     check: true,
 ).stdout()
+install_dependencies = run_command(
+    python,
+    [
+        '-c',
+        python_readlines.format(scripts / 'meson_postconf_install_dependencies.py'),
+    ],
+    check: true,
+).stdout()
 replace_ruff_target_version = run_command(
     python,
     [
@@ -206,6 +214,8 @@ configure_file(
     command: [python, '-c', meson_setuptools_scm],
     output: 'PKG-INFO',
 )
+deps = run_command(python, '-c', install_dependencies, check: true).stdout().strip().split('$$')
+meson.add_postconf_script(pip, 'install', deps)
 meson.add_dist_script(pip, 'install', 'tomli>=2.0.0')
 meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
