@@ -1,4 +1,75 @@
 # OZI CHANGELOG
+## 1.20.0 (2024-08-29)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.26.4 to 3.26.5
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.26.4 to 3.26.5.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/f0f3afee809481da311ca3a6ff1ff51d81dbeb24...2c779ab0d087cd7fe7b826087247c2c81f27bfa6)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`d67a23f`](https://github.com/OZI-Project/OZI/commit/d67a23f5c14dc96405677b6ddc7cde7f70394096))
+
+
+### 🐛 Fixed Bugs
+
+*  add length() check to deps install
+([`c223d71`](https://github.com/OZI-Project/OZI/commit/c223d71c118d1dfac26b98d59307b23dc672bf94))
+
+*  add length() check to deps install — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`5f2b441`](https://github.com/OZI-Project/OZI/commit/5f2b4411e03ac6cbb54ffdbdf19c342e6e7f6fe4))
+
+*  revert: fix postconf install script copy on configure — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`29b7b00`](https://github.com/OZI-Project/OZI/commit/29b7b00d0f8d497d8c22144cc54ba8055f9c6739))
+
+*  fix postconf install script copy on configure — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`1674d2b`](https://github.com/OZI-Project/OZI/commit/1674d2b130d62e9bee19f6bedee1f70deb456e95))
+
+*  set variable install_dependencies in meson — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`a591db2`](https://github.com/OZI-Project/OZI/commit/a591db279ac2fd952ffa7b3c9b63cc25de9f1148))
+
+*  set variable install_dependencies in meson — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`f6faa33`](https://github.com/OZI-Project/OZI/commit/f6faa3331d575567921e9997fe7438bffba4e8ff))
+
+*  revert the revert — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`5951997`](https://github.com/OZI-Project/OZI/commit/5951997fd2bc059cd6be94299322d414509120de))
+
+*  revert METADATA unlink — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`1755bd7`](https://github.com/OZI-Project/OZI/commit/1755bd777c57404200d689ce23042bb97c44dab6))
+
+
+### 🚸 Improved Usability
+
+*  backward compatible fix for OZI.build 1.3+ — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`cae39ae`](https://github.com/OZI-Project/OZI/commit/cae39ae8db622373351a59203eb7813dcd18e08e))
+
+
+### ✨ Implemented Features
+
+*  use OZI.build 1.4
+
+moves all metadata into project and tool.ozi-build — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`ff8aa92`](https://github.com/OZI-Project/OZI/commit/ff8aa92a9c63063c6730c28c8b3747ab98d9ebe3))
+
+
+### Other
+
+
+* 🚨 run black — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`a681472`](https://github.com/OZI-Project/OZI/commit/a6814720fd832edc84278561970f13bf9ce0f01d))
+
+* fix: add new style dep install — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`503364e`](https://github.com/OZI-Project/OZI/commit/503364e74dc9a90b5a943e5dcde9296963588cec))
+
 ## 1.19.2 (2024-08-24)
 
 
