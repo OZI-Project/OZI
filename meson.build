@@ -11,10 +11,7 @@ project(
 '''from setuptools_scm import get_version
 from packaging.version import Version
 v = get_version(normalize=False)
-if Version(v) < Version("0.1"):
-    print("0.6")
-else:
-    print(v)
+print(v)
 ''',
         ],
         check: true,
@@ -186,22 +183,10 @@ else
     pip_compile = find_program('pip-compile', required: true).full_path()
 endif
 if not meson.is_subproject()
-    custom_target(
-        'requirements.txt',
-        input: root_files[3],
-        output: 'requirements.txt',
-        build_always_stale: true,
-        build_by_default: true,
-        command: [
-            pip_compile,
-            '--allow-unsafe',
-            '--strip-extras',
-            '-q',
-            '--generate-hashes',
-            '-o', '@OUTPUT@',
-            '@INPUT@',
-        ],
-    )
+    deps = run_command(python, '-c', install_dependencies, check: true).stdout().strip().split('$$')
+    if deps.length() > 1
+        meson.add_postconf_script(pip, 'install', deps)
+    endif
 endif
 source_to_build.enable_auto_if(source_to_build.auto())
 docs_source = 'docs'
@@ -214,10 +199,6 @@ configure_file(
     command: [python, '-c', meson_setuptools_scm],
     output: 'PKG-INFO',
 )
-deps = run_command(python, '-c', install_dependencies, check: true).stdout().strip().split('$$')
-if deps.length() > 1
-    meson.add_postconf_script(pip, 'install', deps)
-endif
 meson.add_dist_script(pip, 'install', 'tomli>=2.0.0')
 meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
