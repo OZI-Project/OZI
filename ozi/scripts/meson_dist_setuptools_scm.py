@@ -60,7 +60,10 @@ if __name__ == '__main__':
     try:
         path = Path(source / setuptools_scm.get('version_file')).resolve()
     except TypeError:
-        print('no METADATA path provided by setuptools_scm, assuming OZI.build 1.3+', file=sys.stderr)
+        print(
+            'no METADATA path provided by setuptools_scm, assuming OZI.build 1.3+',
+            file=sys.stderr,
+        )
         exit(0)
     if path.exists():
         path.unlink()
