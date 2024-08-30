@@ -1,4 +1,15 @@
 # OZI CHANGELOG
+## 1.20.2 (2024-08-30)
+
+
+### 🔨 Updated Scripts
+
+*  remove requirements.in render — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`5504d8e`](https://github.com/OZI-Project/OZI/commit/5504d8ebcbb152c731681661fd1678d03f97fd67))
+
+*  remove requirements.in — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`fb0db90`](https://github.com/OZI-Project/OZI/commit/fb0db90a2e2f09035a969812b29cdfc8cd81ba04))
+
 ## 1.20.1 (2024-08-30)
 
 
