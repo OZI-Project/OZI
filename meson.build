@@ -60,37 +60,15 @@ python = pymod.find_installation(
     required: true,
     disabler: true,
 )
-render_requirements = run_command(
-    python,
-    [
-        '-c',
-        python_readlines.format(
-            scripts / 'render_requirements.py',
-        ),
-    ],
-    check: true,
-).stdout()
 pyproject_config.set(
     'PYTHON_VERSION_DIST',
     'py' + ''.join(python.language_version().split('.')),
 )
-pyproject_config.set('SCM_VERSION', meson.project_version())
 pyproject_config.set('VCS_TAG', '@VCS_TAG@')
-pyproject_config.set('README_TEXT', fs.read('README'))
-pyproject_config.set(
-    'REQUIREMENTS_IN',
-    run_command(
-        python,
-        ['-c', render_requirements],
-        check: true,
-    ).stdout().strip(),
-)
-pyproject_config.set('PROJECT_NAME', project_name)
-pyproject_config.set('LICENSE', meson.project_license()[0])
-root_files = ['README', 'CHANGELOG.md', 'LICENSE.txt', 'requirements.in', 'pyproject.toml', '.gitignore']
+root_files = ['README', 'CHANGELOG.md', 'LICENSE.txt', 'pyproject.toml', '.gitignore']
 configure_file(
-    input: root_files[4],
-    output: root_files[4],
+    input: root_files[3],
+    output: root_files[3],
     configuration: pyproject_config,
 )
 meson_setuptools_scm = run_command(
