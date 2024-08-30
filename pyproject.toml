@@ -115,6 +115,9 @@ omit = [
      '*/vendor/*',
 ]
 
+[tool.deptry.per_rule_ignores]
+DEP001 = ["invoke"]
+
 [tool.ruff]
 line-length = 93
 extend-exclude = ["meson-private", "scripts", "vendor"]
