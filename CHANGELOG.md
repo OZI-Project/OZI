@@ -1,4 +1,14 @@
 # OZI CHANGELOG
+## 1.20.4 (2024-08-31)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core~=1.0.9
+
+Fixes the issue of not detecting readme content type in CI  — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`e01ec0f`](https://github.com/OZI-Project/OZI/commit/e01ec0fd32eb0a39b1fb4195d98b6c9d6a9ec4dc))
+
 ## 1.20.3 (2024-08-31)
 
 
