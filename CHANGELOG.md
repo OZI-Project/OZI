@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.20.3 (2024-08-31)
+
+
+### 🚸 Improved Usability
+
+*  add deptry config — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`e3b69d4`](https://github.com/OZI-Project/OZI/commit/e3b69d474e9e0d65756df33602148e0dd3bf35f5))
+
 ## 1.20.2 (2024-08-30)
 
 
