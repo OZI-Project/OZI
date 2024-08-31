@@ -1,4 +1,44 @@
 # OZI CHANGELOG
+## 1.20.2 (2024-08-30)
+
+
+### 🔨 Updated Scripts
+
+*  remove requirements.in render — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`5504d8e`](https://github.com/OZI-Project/OZI/commit/5504d8ebcbb152c731681661fd1678d03f97fd67))
+
+*  remove requirements.in — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`fb0db90`](https://github.com/OZI-Project/OZI/commit/fb0db90a2e2f09035a969812b29cdfc8cd81ba04))
+
+## 1.20.1 (2024-08-30)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update ozi-core requirement from ~=0.3.1 to ~=1.0.6
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+... — dependabot[bot] &lt;support@github.com&gt;
+([`24adff3`](https://github.com/OZI-Project/OZI/commit/24adff32caaf773709e616af4d452b93a4813def))
+
+*  Bump github/codeql-action from 3.26.5 to 3.26.6
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.26.5 to 3.26.6.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/2c779ab0d087cd7fe7b826087247c2c81f27bfa6...4dd16135b69a43b6c8efb853346f8437d92d3c93)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`3e84044`](https://github.com/OZI-Project/OZI/commit/3e84044ce8a9aef594170c903e1369f96c46304b))
+
 ## 1.20.0 (2024-08-29)
 
 
