@@ -1,4 +1,14 @@
 # OZI CHANGELOG
+## 1.20.5 (2024-08-31)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core~=1.0.10
+
+Fixes the issue of README symlinks being broken — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`019d736`](https://github.com/OZI-Project/OZI/commit/019d73650702841eb98a6a5d5a8d950f1d76cf48))
+
 ## 1.20.4 (2024-08-31)
 
 
