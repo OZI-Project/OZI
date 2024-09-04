@@ -1,4 +1,26 @@
 # OZI CHANGELOG
+## 1.20.6 (2024-09-03)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core~=1.0.11 — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`8f57998`](https://github.com/OZI-Project/OZI/commit/8f57998c0b556d1051c64e5f03a8985faafcdd76))
+
+*  Bump actions/upload-artifact from 4.3.6 to 4.4.0
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.3.6 to 4.4.0.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/834a144ee995460fba8ed112a2fc961b36a5ec5a...50769540e7f4bd5e21e526ee35c689e35e0d6874)
+
+
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] &lt;support@github.com&gt;
+([`4074c60`](https://github.com/OZI-Project/OZI/commit/4074c6007b779003c8e36a67e4c4300e3c5c1266))
+
 ## 1.20.5 (2024-08-31)
 
 
