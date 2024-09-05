@@ -9,7 +9,7 @@ updates:
     directory: /
     schedule:
       interval: daily
-  - package-ecosystem: pip-compile
-    directory: /
+  - package-ecosystem: pip
+    directory: /pyproject.toml
     schedule:
       interval: daily
