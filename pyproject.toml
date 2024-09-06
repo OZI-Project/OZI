@@ -63,7 +63,7 @@ ci   = ["tox>4", "tox-gh>1.2"]
 # tox -e fix
 fix  = ["black", "ruff>=0.1.6", "autoflake", "isort"]
 # Default meson test setup
-dev  = ["[dist,lint,test]"]
+# dev  = ["[dist,lint,test]"]
 ## Packaging Setup
 dist = ["cibuildwheel", "python-semantic-release", "sigstore", "twine"]
 ## Linting and Formatting Setup
