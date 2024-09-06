@@ -55,7 +55,7 @@ tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
 [project]
 dynamic = ["version"]
 license = {file = "LICENSE.txt"}
-dependencies = ['ozi-core~=1.0.11', 'setuptools_scm[toml]', 'tomli>=2.0.0;python_version<"3.11"']
+dependencies = ['ozi-core~=1.0.12', 'setuptools_scm[toml]', 'tomli>=2.0.0;python_version<"3.11"']
 
 [project.optional_dependencies] # also meson test suite names
 # continuous integration
@@ -63,7 +63,7 @@ ci   = ["tox>4", "tox-gh>1.2"]
 # tox -e fix
 fix  = ["black", "ruff>=0.1.6", "autoflake", "isort"]
 # Default meson test setup
-dev  = ["[dist,lint,test]"]
+# dev  = ["[dist,lint,test]"]
 ## Packaging Setup
 dist = ["cibuildwheel", "python-semantic-release", "sigstore", "twine"]
 ## Linting and Formatting Setup

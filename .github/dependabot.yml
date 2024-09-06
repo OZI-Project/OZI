@@ -5,11 +5,17 @@
 
 version: 2
 updates:
+
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: daily
+
   - package-ecosystem: pip
-    directory: /
+    directories:
+      - "/"
+      - "/ozi/dist/**/*"
+      - "/ozi/lint/**/*"
+      - "/ozi/test/**/*"
     schedule:
       interval: daily
