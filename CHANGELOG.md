@@ -1,4 +1,128 @@
 # OZI CHANGELOG
+## 1.20.7 (2024-09-06)
+
+
+### ⬆️ Upgraded Dependencies
+
+* ozi-core~=1.0.12 — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`cbb437d`](https://github.com/OZI-Project/OZI/commit/cbb437df0f227ded9c572162ee7d434ec196ee01))
+
+*  Bump OZI-Project/draft from 0.3.9 to 0.3.11
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 0.3.9 to 0.3.11.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/d9421ff8095e084639f3b03673b110033452c9e0...7e8ad70f472504510e169567e97db01bdafe2533)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`128a11d`](https://github.com/OZI-Project/OZI/commit/128a11d428f2e987a21c9f3b15f0e70750a0016f))
+
+*  Bump OZI-Project/release from 0.8.10 to 0.8.11
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 0.8.10 to 0.8.11.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/7edb07c74e124270a29b2cd5d32ce7c9fdfc0b22...4277e29de16b07dac4a89c8f7970c2da65554d17)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`eaf36ba`](https://github.com/OZI-Project/OZI/commit/eaf36ba536030798b1c94c0bd439b845b4adb710))
+
+*  Update hypothesis[all] requirement in /ozi/test/pytest
+
+Updates the requirements on [hypothesis[all]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.108.0...hypothesis-python-6.112.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[all]
+  dependency-type: direct:production
+... — dependabot[bot] &lt;support@github.com&gt;
+([`db96e80`](https://github.com/OZI-Project/OZI/commit/db96e808fff15fe6fdaf47b9a418d2a17d9a46e6))
+
+*  Update flake8-bugbear requirement in /ozi/lint/flake8
+
+Updates the requirements on [flake8-bugbear](https://github.com/PyCQA/flake8-bugbear) to permit the latest version.
+- [Release notes](https://github.com/PyCQA/flake8-bugbear/releases)
+- [Commits](https://github.com/PyCQA/flake8-bugbear/compare/24.4.21...24.8.19)
+
+
+updated-dependencies:
+- dependency-name: flake8-bugbear
+  dependency-type: direct:production
+... — dependabot[bot] &lt;support@github.com&gt;
+([`1b3be62`](https://github.com/OZI-Project/OZI/commit/1b3be62545555ccb26fea9670e493bbc8071d4a9))
+
+*  Update sigstore requirement in /ozi/dist/sigstore
+
+Updates the requirements on [sigstore](https://github.com/sigstore/sigstore-python) to permit the latest version.
+- [Release notes](https://github.com/sigstore/sigstore-python/releases)
+- [Changelog](https://github.com/sigstore/sigstore-python/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/sigstore/sigstore-python/compare/v3.1.0...v3.2.0)
+
+
+updated-dependencies:
+- dependency-name: sigstore
+  dependency-type: direct:production
+... — dependabot[bot] &lt;support@github.com&gt;
+([`00329a4`](https://github.com/OZI-Project/OZI/commit/00329a4780b417730023e3da6ad2a81cbdf59491))
+
+*  Bump OZI-Project/publish from 0.1.10 to 0.1.11
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 0.1.10 to 0.1.11.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/cc463a2e9d2e928559e3edb4bd7f0fbcbefd1f11...55904e4f59084e7c6ccfad7b158db52a360e1f54)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`4b16333`](https://github.com/OZI-Project/OZI/commit/4b1633327ed9f172460427fca44ec22cb68a91c6))
+
+
+### 🔨 Updated Scripts
+
+* (pyproject.toml): remove dependabot incompatible key — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`b588b0a`](https://github.com/OZI-Project/OZI/commit/b588b0a1d253096b7d9eed0b2854554a4c2bb21c))
+
+
+### Other
+
+
+* Update dependabot.yml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`394cbaf`](https://github.com/OZI-Project/OZI/commit/394cbafcb7f6a5732397abc24aec687fe605b6a6))
+
+* Update dependabot.yml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`4a8a362`](https://github.com/OZI-Project/OZI/commit/4a8a36219cd91bf4a00008c328a5880026b175fd))
+
+* Update dependabot.yml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`f6bf4d8`](https://github.com/OZI-Project/OZI/commit/f6bf4d84a51c418d3761b3aa9ff0df77921cf17e))
+
+* Update dependabot.yml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`df0db94`](https://github.com/OZI-Project/OZI/commit/df0db948e1fba6c2933cdd51af0afa439958e41e))
+
+* Update dependabot.yml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`08fc950`](https://github.com/OZI-Project/OZI/commit/08fc950de2f3ab227dc938e54a820b1918681bb7))
+
+* Update dependabot.yml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`dde6a0c`](https://github.com/OZI-Project/OZI/commit/dde6a0c536b7bd44eed59400300f16ef28392ed2))
+
+* Update dependabot.yml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`927b539`](https://github.com/OZI-Project/OZI/commit/927b5398a3461f212f3faab473318c3ca352c478))
+
+* Update dependabot.yml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`ad22cf2`](https://github.com/OZI-Project/OZI/commit/ad22cf224024f0423e535d53ddb6808e6cc5214e))
+
 ## 1.20.6 (2024-09-03)
 
 
