@@ -12,8 +12,8 @@ updates:
   - package-ecosystem: pip
     directories:
       - "/"
-      - "/ozi/dist/*/"
-      - "/ozi/lint/*/"
-      - "/ozi/test/*/"
+      - "/ozi/dist/**/*"
+      - "/ozi/lint/**/*"
+      - "/ozi/test/**/*"
     schedule:
       interval: daily
