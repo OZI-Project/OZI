@@ -231,6 +231,24 @@ option(
     yield: true,
 )
 option('install-args-semantic_release', description: 'pipx install args', type: 'array', value: [], yield: true)
+option(
+    'config-args-cibuildwheel',
+    description: 'pip-compile args',
+    type: 'array',
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
+    yield: true,
+)
+option('args-cibuildwheel', type: 'array', value: ['--version'], yield: true)
+option('install-args-cibuildwheel', type: 'array', value: [], yield: true)
+option(
+    'config-args-twine',
+    description: 'pip-compile args',
+    type: 'array',
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
+    yield: true,
+)
+option('install-args-twine', type: 'array', value: [], yield: true)
+option('args-twine', type: 'array', value: ['--version'], yield: true)
 option('args-mypy', type: 'array', value: ['@build_root@'], yield: true)
 option(
     'config-args-mypy',
