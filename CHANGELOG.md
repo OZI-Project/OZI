@@ -13,6 +13,9 @@
 
 ### 🔨 Updated Scripts
 
+*  use official workflows for semantic-release steps — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`fa315cc`](https://github.com/OZI-Project/OZI/commit/fa315ccfffa5dbc1b849e424889ca4eac60877ac))
+
 *  special invoke --ozi arg in this repo — rjdbcm &lt;ozi.project@outlook.com&gt;
 ([`bf2566f`](https://github.com/OZI-Project/OZI/commit/bf2566f86ea0c75805a4677224ad41de0551c89c))
 
