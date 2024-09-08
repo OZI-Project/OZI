@@ -53,7 +53,7 @@ def setup(
     return None
 
 
-@task
+@task(setup)
 def sign_checkpoint(c: Context, suite: str | None = None) -> None:
     """Sign checkpoint suites with sigstore."""
     banned = './'
