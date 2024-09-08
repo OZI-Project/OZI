@@ -4,6 +4,9 @@
 
 ### 🐛 Fixed Bugs
 
+*  fix CIBW build selector — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`88adb35`](https://github.com/OZI-Project/OZI/commit/88adb35f5a796ab8e89a3936e9fa18b8100471a3))
+
 *  set env var for CIBW build selection — rjdbcm &lt;ozi.project@outlook.com&gt;
 ([`5e0ffb6`](https://github.com/OZI-Project/OZI/commit/5e0ffb6c70a0a98109dd135f183b8eec45c4d168))
 
