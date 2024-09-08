@@ -412,5 +412,5 @@ commands_post =
 description = OZI invoke task entrypoint, for more info use "tox -e invoke -- --list"
 no_package = true
 commands_post =
-     {env_python} -m invoke --search-root={env_tmp_dir}/ozi {posargs:--list}
+     {env_python} -m invoke --search-root={env_tmp_dir}/ozi {posargs} --ozi
 """
