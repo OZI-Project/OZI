@@ -4,6 +4,9 @@
 
 ### 🐛 Fixed Bugs
 
+* (invoke): use ``--only`` to target interpreter version in cibuildwheel release — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`b467c71`](https://github.com/OZI-Project/OZI/commit/b467c71db4271b731aba977b0b803a6d3309521c))
+
 * (meson.options): remove twine and cibuildwheel from ``plugin-only`` — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
 ([`a536aaa`](https://github.com/OZI-Project/OZI/commit/a536aaaf606572be093c164529e41d9d28976c35))
 
@@ -55,6 +58,9 @@
 
 ### Other
 
+
+* Update dist-workflow.yml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`3c1bc09`](https://github.com/OZI-Project/OZI/commit/3c1bc09c46977479a941020a4479e4c9b6ee4e8c))
 
 * Update pyproject.toml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
 ([`dd86f15`](https://github.com/OZI-Project/OZI/commit/dd86f1538a67ee6b02d736fafd2433fe428d8fac))
