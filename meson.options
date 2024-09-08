@@ -84,7 +84,7 @@ option(
     'dist-suite',
     type: 'array',
     description: '--setup=dist',
-    value: ['sigstore'],
+    value: ['sigstore', 'python-semantic-release', 'twine'],
     yield: true,
 )
 option(
