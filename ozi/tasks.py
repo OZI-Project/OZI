@@ -94,6 +94,7 @@ def release(
     ozi: bool = False,
 ) -> None:
     """Create releases for the current interpreter."""
+    version = f'cp{sys.version_info.major}{sys.version_info.minor}'
     draft_ = setup(c, suite='dist', draft=draft, ozi=ozi)
     if draft_ and draft_.exited != 0:
         return print('No release drafted.', file=sys.stderr)
@@ -102,7 +103,7 @@ def release(
         if sign:
             c.run('sigstore sign --output-dir=sig dist/*.tar.gz')
     ext_wheel = (
-        c.run('cibuildwheel --prerelease-pythons --output-dir dist .')
+        c.run(f'cibuildwheel --prerelease-pythons --only={version} --output-dir dist .')
         if cibuildwheel
         else None
     )
