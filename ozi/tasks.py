@@ -23,7 +23,6 @@ import sys
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from invoke.tasks import call
 from invoke.tasks import task
 
 if TYPE_CHECKING:
