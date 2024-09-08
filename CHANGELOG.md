@@ -13,6 +13,9 @@
 
 ### 🔨 Updated Scripts
 
+* (meson.options): add ``cibuildwheel`` to ``dist-suite`` — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`a3bd757`](https://github.com/OZI-Project/OZI/commit/a3bd757acd9e892c2f483fcce1b28181dad3515f))
+
 *  use official workflows for semantic-release steps — rjdbcm &lt;ozi.project@outlook.com&gt;
 ([`fa315cc`](https://github.com/OZI-Project/OZI/commit/fa315ccfffa5dbc1b849e424889ca4eac60877ac))
 
