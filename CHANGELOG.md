@@ -56,6 +56,9 @@
 ### Other
 
 
+* Update pyproject.toml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`dd86f15`](https://github.com/OZI-Project/OZI/commit/dd86f1538a67ee6b02d736fafd2433fe428d8fac))
+
 * Update meson.options — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
 ([`43b3f5e`](https://github.com/OZI-Project/OZI/commit/43b3f5e6afd83ae4d458f754d33e7e9bc3e0935a))
 
