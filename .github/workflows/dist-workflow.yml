@@ -139,6 +139,7 @@ jobs:
             api.github.com:443
             github.com:443
             pypi.org:443
+            api.deps.dev:443
 
       - uses: OZI-Project/draft@1.0.0
         id: draft
