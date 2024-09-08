@@ -91,9 +91,10 @@ def release(
     draft: bool = False,
     cibuildwheel: bool = True,
     sign: bool = False,
+    ozi: bool = False,
 ) -> None:
     """Create releases for the current interpreter."""
-    draft_ = setup(c, suite='dist', draft=draft)
+    draft_ = setup(c, suite='dist', draft=draft, ozi=ozi)
     if draft_ and draft_.exited != 0:
         return print('No release drafted.', file=sys.stderr)
     if sdist:
@@ -118,8 +119,9 @@ def provenance(c: Context) -> None:
 
 
 @task
-def publish(c: Context) -> None:
+def publish(c: Context, ozi: bool = False) -> None:
     """Publishes a release tag"""
+    setup(c, suite='dist', ozi=ozi)
     c.run('psr publish')
     c.run('twine check dist/*')
     c.run('twine upload dist/*')
