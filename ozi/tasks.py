@@ -96,20 +96,17 @@ def release(
 ) -> None:
     """Create releases for the current interpreter."""
     os.environ['CIBW_BUILD'] = f'cp{sys.version_info.major}{sys.version_info.minor}*'
-    draft_ = setup(c, suite='dist', draft=draft, ozi=ozi)
-    if draft_ and draft_.exited != 0:
-        return print('No release drafted.', file=sys.stderr)
+    setup(c, suite='dist', draft=draft, ozi=ozi)
     if sdist:
         c.run('python -m build --sdist')
         if sign:
             c.run('sigstore sign --output-dir=sig dist/*.tar.gz')
-    ext_wheel = (
-        c.run('cibuildwheel --prerelease-pythons --output-dir dist .')
+    (
+        c.run('cibuildwheel --prerelease-pythons --output-dir dist .', warn=True)
         if cibuildwheel
         else None
     )
-    if (ext_wheel and ext_wheel.exited != 0) or cibuildwheel:
-        c.run('python -m build --wheel')
+    c.run('python -m build --wheel')
     if sign:
         c.run('sigstore sign --output-dir=sig dist/*.whl')
 
