@@ -38,6 +38,7 @@ jobs:
             fulcio.sigstore.dev:443
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
+            oauth2.sigstore.dev:443
 
       - uses: OZI-Project/checkpoint@1.0.0
         with:
@@ -68,6 +69,7 @@ jobs:
             fulcio.sigstore.dev:443
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
+            oauth2.sigstore.dev:443
 
       - uses: OZI-Project/checkpoint@1.0.0
         with:
@@ -98,6 +100,7 @@ jobs:
             fulcio.sigstore.dev:443
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
+            oauth2.sigstore.dev:443
 
       - uses: OZI-Project/checkpoint@1.0.0
         with:
@@ -179,6 +182,7 @@ jobs:
             quay.io:443
             cdn03.quay.io:443
             downloads.python.org:443
+            oauth2.sigstore.dev:443
 
       - uses: OZI-Project/release@1.0.0
         id: release
