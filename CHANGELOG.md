@@ -68,6 +68,9 @@
 ### Other
 
 
+* Update README — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`2c4dd7b`](https://github.com/OZI-Project/OZI/commit/2c4dd7bfc34e313857a5ac4705513809d52c0eb3))
+
 * 🚨 run fix — rjdbcm &lt;ozi.project@outlook.com&gt;
 ([`b10059a`](https://github.com/OZI-Project/OZI/commit/b10059aafb805751c07be2d737a04c2a39c45dc0))
 
