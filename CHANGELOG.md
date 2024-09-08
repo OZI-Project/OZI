@@ -4,6 +4,9 @@
 
 ### 🐛 Fixed Bugs
 
+*  set env var for CIBW build selection — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`5e0ffb6`](https://github.com/OZI-Project/OZI/commit/5e0ffb6c70a0a98109dd135f183b8eec45c4d168))
+
 * (invoke): use ``--only`` to target interpreter version in cibuildwheel release — rjdbcm &lt;ozi.project@outlook.com&gt;
 ([`b467c71`](https://github.com/OZI-Project/OZI/commit/b467c71db4271b731aba977b0b803a6d3309521c))
 
@@ -58,6 +61,9 @@
 
 ### Other
 
+
+* 🚨 run fix — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`b10059a`](https://github.com/OZI-Project/OZI/commit/b10059aafb805751c07be2d737a04c2a39c45dc0))
 
 * Update dist-workflow.yml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
 ([`3c1bc09`](https://github.com/OZI-Project/OZI/commit/3c1bc09c46977479a941020a4479e4c9b6ee4e8c))
