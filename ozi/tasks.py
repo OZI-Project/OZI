@@ -23,7 +23,6 @@ import sys
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from invoke.tasks import call
 from invoke.tasks import task
 
 if TYPE_CHECKING:
@@ -54,7 +53,7 @@ def setup(
     return None
 
 
-@task
+@task(setup)
 def sign_checkpoint(c: Context, suite: str | None = None) -> None:
     """Sign checkpoint suites with sigstore."""
     banned = './'
@@ -85,18 +84,13 @@ def checkpoint(c: Context, suite: str, maxfail: int = 1, ozi: bool = False) -> N
     )
 
 
-@task(
-    pre=[
-        call(sign_checkpoint, suite='dist'),  # type: ignore
-        call(sign_checkpoint, suite='test'),  # type: ignore
-        call(sign_checkpoint, suite='lint'),  # type: ignore
-    ],
-)
+@task
 def release(
     c: Context,
     sdist: bool = False,
     draft: bool = False,
     cibuildwheel: bool = True,
+    sign: bool = False,
 ) -> None:
     """Create releases for the current interpreter."""
     draft_ = setup(c, suite='dist', draft=draft)
@@ -104,7 +98,8 @@ def release(
         return print('No release drafted.', file=sys.stderr)
     if sdist:
         c.run('python -m build --sdist')
-        c.run('sigstore sign dist/*.tar.gz')
+        if sign:
+            c.run('sigstore sign --output-dir=sig dist/*.tar.gz')
     ext_wheel = (
         c.run('cibuildwheel --prerelease-pythons --output-dir dist .')
         if cibuildwheel
@@ -112,17 +107,18 @@ def release(
     )
     if (ext_wheel and ext_wheel.exited != 0) or cibuildwheel:
         c.run('python -m build --wheel')
-    c.run('sigstore sign --output-dir=sig dist/*.whl')
+    if sign:
+        c.run('sigstore sign --output-dir=sig dist/*.whl')
 
 
-@task(release)
+@task
 def provenance(c: Context) -> None:
     """SLSA provenance currently unavailable in OZI self-hosted CI/CD"""
     print(inspect.getdoc(provenance), file=sys.stderr)
 
 
-@task(provenance)
-def publish(c: Context, upload: bool = True) -> None:
+@task
+def publish(c: Context) -> None:
     """Publishes a release tag"""
     c.run('psr publish')
     c.run('twine check dist/*')

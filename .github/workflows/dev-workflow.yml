@@ -36,8 +36,9 @@ jobs:
             fulcio.sigstore.dev:443
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
+            oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@cd1117d2d6d352e52d9dfdb603b8ebd7ef964908
+      - uses: OZI-Project/checkpoint@1.0.0
         with:
           python-version: "3.10"
 
@@ -65,8 +66,9 @@ jobs:
             fulcio.sigstore.dev:443
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
+            oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@cd1117d2d6d352e52d9dfdb603b8ebd7ef964908
+      - uses: OZI-Project/checkpoint@1.0.0
         with:
           python-version: "3.11"
 
@@ -94,7 +96,8 @@ jobs:
             fulcio.sigstore.dev:443
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
+            oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@cd1117d2d6d352e52d9dfdb603b8ebd7ef964908
+      - uses: OZI-Project/checkpoint@1.0.0
         with:
           python-version: "3.12"

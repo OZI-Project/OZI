@@ -38,8 +38,9 @@ jobs:
             fulcio.sigstore.dev:443
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
+            oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@cd1117d2d6d352e52d9dfdb603b8ebd7ef964908
+      - uses: OZI-Project/checkpoint@1.0.0
         with:
           python-version: "3.10"
           parallel: false
@@ -68,8 +69,9 @@ jobs:
             fulcio.sigstore.dev:443
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
+            oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@cd1117d2d6d352e52d9dfdb603b8ebd7ef964908
+      - uses: OZI-Project/checkpoint@1.0.0
         with:
           python-version: "3.11"
           parallel: false
@@ -98,8 +100,9 @@ jobs:
             fulcio.sigstore.dev:443
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
+            oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@cd1117d2d6d352e52d9dfdb603b8ebd7ef964908
+      - uses: OZI-Project/checkpoint@1.0.0
         with:
           python-version: "3.12"
           parallel: false
@@ -136,7 +139,7 @@ jobs:
             api.github.com:443
             github.com:443
 
-      - uses: OZI-Project/draft@7e8ad70f472504510e169567e97db01bdafe2533
+      - uses: OZI-Project/draft@1.0.0
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -179,8 +182,9 @@ jobs:
             quay.io:443
             cdn03.quay.io:443
             downloads.python.org:443
+            oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/release@4277e29de16b07dac4a89c8f7970c2da65554d17
+      - uses: OZI-Project/release@1.0.0
         id: release
         with:
           tag: ${{ needs.draft.outputs.tag }}
@@ -221,6 +225,6 @@ jobs:
           upload.pypi.org:443
           uploads.github.com:443
 
-    - uses: OZI-Project/publish@55904e4f59084e7c6ccfad7b158db52a360e1f54
+    - uses: OZI-Project/publish@1.0.0
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
