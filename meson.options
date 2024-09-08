@@ -153,7 +153,6 @@ option(
     description: 'install only - plugins for other utility applications',
     value: [
         'Flake8-pyproject',
-        'cibuildwheel',
         'flake8-annotations',
         'flake8-broken-line',
         'flake8-bugbear',
@@ -177,7 +176,6 @@ option(
         'pytest-xdist',
         'sphinxawesome-codelinter',
         'sphinxawesome-theme',
-        'twine',
     ],
 )
 
