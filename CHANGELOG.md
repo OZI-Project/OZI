@@ -4,6 +4,9 @@
 
 ### 🐛 Fixed Bugs
 
+* (meson.options): remove twine and cibuildwheel from ``plugin-only`` — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`a536aaa`](https://github.com/OZI-Project/OZI/commit/a536aaaf606572be093c164529e41d9d28976c35))
+
 *  fix missing sign-checkpoint setup — rjdbcm &lt;ozi.project@outlook.com&gt;
 ([`ce0c854`](https://github.com/OZI-Project/OZI/commit/ce0c854cf4ea7b6a153bce31d687d50c70c0dd2f))
 
@@ -44,8 +47,17 @@
 ([`14bc5fe`](https://github.com/OZI-Project/OZI/commit/14bc5fe5bd4bb58001b4f2dd3f5f2df0159ab701))
 
 
+### 🔨 Updated Configuration
+
+* (meson.options): add twine and cibuildwheel args — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`ac3382f`](https://github.com/OZI-Project/OZI/commit/ac3382f33046752bef0000aaa9690eacbd118fef))
+
+
 ### Other
 
+
+* Update meson.options — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`43b3f5e`](https://github.com/OZI-Project/OZI/commit/43b3f5e6afd83ae4d458f754d33e7e9bc3e0935a))
 
 * Update meson.options — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
 ([`7dcb641`](https://github.com/OZI-Project/OZI/commit/7dcb6418be8a30c56fc95ed8b740052a56cf9465))
