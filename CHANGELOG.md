@@ -1,4 +1,52 @@
 # OZI CHANGELOG
+## 1.20.8 (2024-09-08)
+
+
+### 🐛 Fixed Bugs
+
+*  fix missing sign-checkpoint setup — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`ce0c854`](https://github.com/OZI-Project/OZI/commit/ce0c854cf4ea7b6a153bce31d687d50c70c0dd2f))
+
+* fix tasks.py for use in CI — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`10b6732`](https://github.com/OZI-Project/OZI/commit/10b6732eb5c76272f4a99956b2b33a52b8d83c88))
+
+
+### 🔨 Updated Scripts
+
+*  special invoke --ozi arg in this repo — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`bf2566f`](https://github.com/OZI-Project/OZI/commit/bf2566f86ea0c75805a4677224ad41de0551c89c))
+
+*  add --ozi option for building OZI itself — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`2c2a961`](https://github.com/OZI-Project/OZI/commit/2c2a961e9afd4e859ad2fa8ff4de8c0fc9356608))
+
+*  add python download endpoints — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`7fb56fa`](https://github.com/OZI-Project/OZI/commit/7fb56fa4e2729f47a9c6796f61641add1e66131e))
+
+*  add api.deps.dev:443 endpoint — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`c65a5c4`](https://github.com/OZI-Project/OZI/commit/c65a5c422a8350ecfce7c4d201571c8873c35ef1))
+
+*  add pypi.org endpoint — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`5c33b4d`](https://github.com/OZI-Project/OZI/commit/5c33b4d760384a925f9306c62633181aa9918c12))
+
+* (invoke): dont sign release by default — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`3f2c641`](https://github.com/OZI-Project/OZI/commit/3f2c641f140f1b109bc7a1678dc74a193e40beb1))
+
+*  add oauth2.sigstore.dev:443 endpoint to allowed — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`c22767a`](https://github.com/OZI-Project/OZI/commit/c22767ad02dfa81229bb1e358d90ceb034ff15da))
+
+*  use prerelease github actions internally — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`14bc5fe`](https://github.com/OZI-Project/OZI/commit/14bc5fe5bd4bb58001b4f2dd3f5f2df0159ab701))
+
+
+### Other
+
+
+* Update meson.options — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
+([`7dcb641`](https://github.com/OZI-Project/OZI/commit/7dcb6418be8a30c56fc95ed8b740052a56cf9465))
+
+* 🚨 run ``tox -e fix`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`4d6f9c4`](https://github.com/OZI-Project/OZI/commit/4d6f9c465e4a8af6a4cd9bbc9c6d2aa8f7f39440))
+
 ## 1.20.7 (2024-09-06)
 
 
