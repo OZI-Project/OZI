@@ -85,13 +85,7 @@ def checkpoint(c: Context, suite: str, maxfail: int = 1, ozi: bool = False) -> N
     )
 
 
-@task(
-    pre=[
-        call(sign_checkpoint, suite='dist'),  # type: ignore
-        call(sign_checkpoint, suite='test'),  # type: ignore
-        call(sign_checkpoint, suite='lint'),  # type: ignore
-    ],
-)
+@task
 def release(
     c: Context,
     sdist: bool = False,
@@ -104,7 +98,7 @@ def release(
         return print('No release drafted.', file=sys.stderr)
     if sdist:
         c.run('python -m build --sdist')
-        c.run('sigstore sign dist/*.tar.gz')
+        c.run('sigstore sign --output-dir=sig dist/*.tar.gz')
     ext_wheel = (
         c.run('cibuildwheel --prerelease-pythons --output-dir dist .')
         if cibuildwheel
@@ -115,14 +109,14 @@ def release(
     c.run('sigstore sign --output-dir=sig dist/*.whl')
 
 
-@task(release)
+@task
 def provenance(c: Context) -> None:
     """SLSA provenance currently unavailable in OZI self-hosted CI/CD"""
     print(inspect.getdoc(provenance), file=sys.stderr)
 
 
-@task(provenance)
-def publish(c: Context, upload: bool = True) -> None:
+@task
+def publish(c: Context) -> None:
     """Publishes a release tag"""
     c.run('psr publish')
     c.run('twine check dist/*')
