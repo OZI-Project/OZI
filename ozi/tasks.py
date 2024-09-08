@@ -104,7 +104,7 @@ def release(
         if sign:
             c.run('sigstore sign --output-dir=sig dist/*.tar.gz')
     ext_wheel = (
-        c.run(f'cibuildwheel --prerelease-pythons --output-dir dist .')
+        c.run('cibuildwheel --prerelease-pythons --output-dir dist .')
         if cibuildwheel
         else None
     )
