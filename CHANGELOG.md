@@ -4,6 +4,9 @@
 
 ### 🐛 Fixed Bugs
 
+* (invoke): run CIBW with warn=True — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`16da34b`](https://github.com/OZI-Project/OZI/commit/16da34b251fc39f15c75fa9c164a52721e63dd10))
+
 *  fix CIBW build selector — rjdbcm &lt;ozi.project@outlook.com&gt;
 ([`88adb35`](https://github.com/OZI-Project/OZI/commit/88adb35f5a796ab8e89a3936e9fa18b8100471a3))
 
