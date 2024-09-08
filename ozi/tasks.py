@@ -95,7 +95,7 @@ def release(
     ozi: bool = False,
 ) -> None:
     """Create releases for the current interpreter."""
-    os.environ['CIBW_BUILD'] = f'cp{sys.version_info.major}{sys.version_info.minor}'
+    os.environ['CIBW_BUILD'] = f'cp{sys.version_info.major}{sys.version_info.minor}*'
     draft_ = setup(c, suite='dist', draft=draft, ozi=ozi)
     if draft_ and draft_.exited != 0:
         return print('No release drafted.', file=sys.stderr)
