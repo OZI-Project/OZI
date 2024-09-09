@@ -38,7 +38,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@1.0.0
+      - uses: OZI-Project/checkpoint@b53cf4f0aeb004d5980b72675fba6a38dcc66674 # 1.0.0
         with:
           python-version: "3.10"
 
@@ -68,7 +68,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@1.0.0
+      - uses: OZI-Project/checkpoint@b53cf4f0aeb004d5980b72675fba6a38dcc66674 # 1.0.0
         with:
           python-version: "3.11"
 
@@ -98,6 +98,6 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@1.0.0
+      - uses: OZI-Project/checkpoint@b53cf4f0aeb004d5980b72675fba6a38dcc66674 # 1.0.0
         with:
           python-version: "3.12"
