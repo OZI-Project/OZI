@@ -238,7 +238,7 @@ option(
     value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
     yield: true,
 )
-option('args-cibuildwheel', type: 'array', value: ['--version'], yield: true)
+option('args-cibuildwheel', type: 'array', value: ['--help'], yield: true)
 option('install-args-cibuildwheel', type: 'array', value: [], yield: true)
 option(
     'config-args-twine',
