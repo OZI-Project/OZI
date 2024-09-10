@@ -5,6 +5,7 @@
 source_files = [
     '__init__.py',
     '__main__.py',
+    'tasks.py',
 ]
 foreach file : files(source_files)
     fs.copyfile(file)

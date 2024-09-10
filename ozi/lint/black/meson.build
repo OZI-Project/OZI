@@ -5,5 +5,5 @@ requirements = ['requirements.in']
 configure_file(
     input: requirements,
     output: 'requirements.txt',
-    command: ['pip-compile', get_option('config-args-black'), '-o', '@OUTPUT@', '@INPUT@']
+    command: [pip_compile, get_option('config-args-black'), '-o', '@OUTPUT@', '@INPUT@']
 )

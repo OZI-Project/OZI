@@ -2,8 +2,12 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 requirements = ['requirements.in']
+extra_args = []
+if pip_compile[0].endswith('uv')
+    extra_args = ['--prerelease=allow']
+endif
 configure_file(
     input: requirements,
     output: 'requirements.txt',
-    command: ['pip-compile', get_option('config-args-sigstore'), '-o', '@OUTPUT@', '@INPUT@']
+    command: [pip_compile, get_option('config-args-sigstore'), extra_args, '-o', '@OUTPUT@', '@INPUT@']
 )

@@ -1,4 +1,0 @@
-ozi-core~=0.1.15
-pip-tools~=7.4
-setuptools_scm[toml]
-tomli>=2.0.0;python_version<"3.11"

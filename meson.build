@@ -11,10 +11,7 @@ project(
 '''from setuptools_scm import get_version
 from packaging.version import Version
 v = get_version(normalize=False)
-if Version(v) < Version("0.1"):
-    print("0.4")
-else:
-    print(v)
+print(v)
 ''',
         ],
         check: true,
@@ -63,37 +60,15 @@ python = pymod.find_installation(
     required: true,
     disabler: true,
 )
-render_requirements = run_command(
-    python,
-    [
-        '-c',
-        python_readlines.format(
-            scripts / 'render_requirements.py',
-        ),
-    ],
-    check: true,
-).stdout()
 pyproject_config.set(
     'PYTHON_VERSION_DIST',
     'py' + ''.join(python.language_version().split('.')),
 )
-pyproject_config.set('SCM_VERSION', meson.project_version())
 pyproject_config.set('VCS_TAG', '@VCS_TAG@')
-pyproject_config.set('README_TEXT', fs.read('README'))
-pyproject_config.set(
-    'REQUIREMENTS_IN',
-    run_command(
-        python,
-        ['-c', render_requirements],
-        check: true,
-    ).stdout().strip(),
-)
-pyproject_config.set('PROJECT_NAME', project_name)
-pyproject_config.set('LICENSE', meson.project_license()[0])
-root_files = ['README', 'CHANGELOG.md', 'LICENSE.txt', 'requirements.in', 'pyproject.toml', '.gitignore']
+root_files = ['README', 'CHANGELOG.md', 'LICENSE.txt', 'pyproject.toml', '.gitignore']
 configure_file(
-    input: root_files[4],
-    output: root_files[4],
+    input: root_files[3],
+    output: root_files[3],
     configuration: pyproject_config,
 )
 meson_setuptools_scm = run_command(
@@ -155,6 +130,14 @@ to_distribution = run_command(
     ],
     check: true,
 ).stdout()
+install_dependencies = run_command(
+    python,
+    [
+        '-c',
+        python_readlines.format(scripts / 'meson_postconf_install_dependencies.py'),
+    ],
+    check: true,
+).stdout()
 replace_ruff_target_version = run_command(
     python,
     [
@@ -164,26 +147,24 @@ replace_ruff_target_version = run_command(
     check: true,
 ).stdout()
 run_command(python, ['-c', replace_ruff_target_version], check: true)
-pip = find_program('pip', required: true, disabler: true)
+install_cmd = find_program(get_option('install-requirements-command')[0], required: false, disabler: true)
+if install_cmd.found()
+    pip = get_option('install-requirements-command')
+else
+    pip = find_program('pip', required: true).full_path()
+endif
 pipx = find_program('pipx', required: true, disabler: true)
-pip_compile = find_program('pip-compile', required: true)
+compile_cmd = find_program(get_option('compile-requirements-command')[0], required: false, disabler: true)
+if compile_cmd.found()
+    pip_compile = get_option('compile-requirements-command')
+else
+    pip_compile = find_program('pip-compile', required: true).full_path()
+endif
 if not meson.is_subproject()
-    custom_target(
-        'requirements.txt',
-        input: root_files[3],
-        output: 'requirements.txt',
-        build_always_stale: true,
-        build_by_default: true,
-        command: [
-            'pip-compile',
-            '--allow-unsafe',
-            '--strip-extras',
-            '-q',
-            '--generate-hashes',
-            '-o', '@OUTPUT@',
-            '@INPUT@',
-        ],
-    )
+    deps = run_command(python, '-c', install_dependencies, check: true).stdout().strip().split('$$')
+    if deps.length() > 1
+        meson.add_postconf_script(pip, 'install', deps)
+    endif
 endif
 source_to_build.enable_auto_if(source_to_build.auto())
 docs_source = 'docs'
@@ -192,7 +173,6 @@ no_check = {'check': false, 'env': env}
 install = ['install']
 build_commands = {'dev': []}
 test_app_args = {}
-pip_repr = pip.full_path()
 configure_file(
     command: [python, '-c', meson_setuptools_scm],
     output: 'PKG-INFO',
@@ -265,7 +245,7 @@ foreach name : namespace
                     check: true
                 )
             else
-                message('install', command, 'with pip')
+                message('install', command, 'with', ' '.join(pip))
                 run_command(
                     pip,
                     [
@@ -513,39 +493,44 @@ summary('install_env', get_option('python.install_env'), section: 'Python')
 summary('path', python.full_path(), section: 'Python')
 summary('version', python.language_version(), section: 'Python')
 
-installed_packages = []
-foreach line : run_command('pip', 'freeze', check: true).stdout().split('\n')
-    if line == ''
-        continue
-    endif
-    if not line.contains('@')
-        package = line.split('==')
-    else
-        package = line.split('@')
-    endif
-    if (
-        package[0] not in get_option('test-suite')
-        and package[0] not in get_option('lint-suite')
-        and package[0] not in get_option('dist-suite')
-    )
-        installed_packages += package[0]
-        summary(package[0], package[1].strip(), section: 'Python packages')
-    endif
-endforeach
+foreach name: namespace
+    if get_option(name).enabled() or dev.enabled()
+        installed_packages = []
+        foreach line : run_command(pip, 'freeze', check: true).stdout().split('\n')
+            if line == ''
+                continue
+            endif
+            if not line.contains('@')
+                package = line.split('==')
+            else
+                package = line.split('@')
+            endif
+            if (
+                package[0] not in get_option('test-suite')
+                and package[0] not in get_option('lint-suite')
+                and package[0] not in get_option('dist-suite')
+            )
+                installed_packages += package[0]
+                summary(package[0], package[1].strip(), section: 'Python packages')
+            endif
+        endforeach
 
-# Prior to Python 3.12 these would not be included in pip freeze
-# See: https://github.com/pypa/pip/pull/12032
-foreach legacy_package: ['wheel', 'setuptools', 'distribute']
-    if legacy_package not in installed_packages
-        legacy_package_version = run_command(
-            python,
-            ['-c', metadata_version.format(legacy_package)],
-            kwargs: no_check,
-        ).stdout().strip()
-        if legacy_package_version != ''
-            summary(legacy_package, legacy_package_version, section: 'Python packages')
-        endif
+        # Prior to Python 3.12 these would not be included in pip freeze
+        # See: https://github.com/pypa/pip/pull/12032
+        foreach legacy_package: ['wheel', 'setuptools', 'distribute']
+            if legacy_package not in installed_packages
+                legacy_package_version = run_command(
+                    python,
+                    ['-c', metadata_version.format(legacy_package)],
+                    kwargs: no_check,
+                ).stdout().strip()
+                if legacy_package_version != ''
+                    summary(legacy_package, legacy_package_version, section: 'Python packages')
+                endif
+            endif
+        endforeach
+        pip_version = run_command(pip, '-V', check: true).stdout().split()
+        summary(pip_version[0], pip_version[1], section: 'Python packages')
+        break  ### avoids repeating for each namespace making the above run once for *any*
     endif
 endforeach
-pip_version = run_command(pip, '-V', check: true).stdout().split()
-summary(pip_version[0], pip_version[1], section: 'Python packages')

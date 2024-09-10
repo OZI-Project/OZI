@@ -4,12 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 [build-system]
 build-backend = "ozi_build.buildapi"
-requires      = [
-    "OZI.build>=0.0.27",
-    "pip-tools>=7",
-    "pipx~=1.5",
-    "setuptools_scm[toml]~=8.0",
-]
+requires      = ["OZI.build[core,uv]>=1.5.2"]
 
 [tool.ozi-build.entry-points]
 console_scripts = [
@@ -19,55 +14,46 @@ console_scripts = [
 ]
 
 [tool.ozi-build.metadata]
-pkg-info-file = 'PKG-INFO'
+summary = 'Package Python projects with Meson.'
+download-url = 'https://github.com/OZI-Project/OZI/archive/refs/tags/{version}.tar.gz'
+description-file = 'README.rst'
+home-page = 'https://oziproject.dev/'
+author = 'Eden Ross Duff MSc'
+author-email = 'help@oziproject.dev'
+license = 'Apache 2.0 WITH LLVM-exception'
+keywords = 'meson,packaging,wheel'
+project-urls = [
+     'Bug Tracker, https://github.com/OZI-Project/OZI/issues',
+     'Community, https://github.com/orgs/OZI-Project/discussions',
+]
+requires-external=['git']
+classifiers = [
+     'Development Status :: 4 - Beta',
+     'Environment :: Console',
+     'Intended Audience :: Developers',
+     'License :: OSI Approved :: Apache Software License',
+     'Natural Language :: English',
+     'Operating System :: MacOS :: MacOS X',
+     'Operating System :: POSIX :: Linux',
+     'Programming Language :: Python :: 3 :: Only',
+     'Programming Language :: Python :: 3.10',
+     'Programming Language :: Python :: 3.11',
+     'Programming Language :: Python :: 3.12',
+     'Programming Language :: Python :: Implementation :: CPython',
+     'Topic :: Software Development :: Build Tools',
+     'Topic :: Software Development :: Quality Assurance',
+     'Typing :: Typed',
+]
 
 [tool.setuptools_scm]
-version_file_template = """
-Metadata-Version: 2.1
-Name: @PROJECT_NAME@
-Version: @SCM_VERSION@
-Summary: Package Python projects with Meson.
-Download-URL: https://github.com/rjdbcm/OZI/archive/refs/tags/@SCM_VERSION@.tar.gz
-Home-page: https://oziproject.dev/
-Author: Eden Ross Duff MSc
-Author-email: help@oziproject.dev
-License: @LICENSE@
-Keywords: meson,packaging,wheel
-Project-URL: Bug Tracker, https://github.com/rjdbcm/ozi/issues
-Project-URL: Community, https://github.com/orgs/OZI-Project/discussions
-@REQUIREMENTS_IN@
-Requires-External: git
-Requires-Python: >=3.10, <3.13
-Classifier: Development Status :: 3 - Alpha
-Classifier: Environment :: Console
-Classifier: Intended Audience :: Developers
-Classifier: License :: OSI Approved :: Apache Software License
-Classifier: Natural Language :: English
-Classifier: Operating System :: MacOS :: MacOS X
-Classifier: Operating System :: POSIX :: Linux
-Classifier: Programming Language :: Python :: 3 :: Only
-Classifier: Programming Language :: Python :: 3.10
-Classifier: Programming Language :: Python :: 3.11
-Classifier: Programming Language :: Python :: 3.12
-Classifier: Programming Language :: Python :: Implementation :: CPython
-Classifier: Topic :: Software Development :: Build Tools
-Classifier: Topic :: Software Development :: Quality Assurance
-Classifier: Typing :: Typed
-Description-Content-Type: text/x-rst
-
-@README_TEXT@
-"""
-version_file = "PKG-INFO"
 fallback_version = "@VCS_TAG@"
 parentdir_prefix_version = "OZI-"
 tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
 
-[tool.setuptools.dynamic]
-dependencies = { file = ["requirements.in"] }
-
 [project]
-dynamic = ["dependencies", "version"]
+dynamic = ["version"]
 license = {file = "LICENSE.txt"}
+dependencies = ['ozi-core~=1.0.12', 'setuptools_scm[toml]', 'tomli>=2.0.0;python_version<"3.11"']
 
 [project.optional_dependencies] # also meson test suite names
 # continuous integration
@@ -75,9 +61,9 @@ ci   = ["tox>4", "tox-gh>1.2"]
 # tox -e fix
 fix  = ["black", "ruff>=0.1.6", "autoflake", "isort"]
 # Default meson test setup
-dev  = ["[dist,lint,test]"]
+# dev  = ["[dist,lint,test]"]
 ## Packaging Setup
-dist = ["python-semantic-release", "sigstore"]
+dist = ["cibuildwheel", "python-semantic-release", "sigstore", "twine"]
 ## Linting and Formatting Setup
 lint = ["bandit[toml]", "black", "flake8", "flake8-quotes",
         "flake8-pytest-style", "flake8-type-checking", "flake8-annotations",
@@ -98,6 +84,9 @@ verbose = true
 [tool.black]
 extend-exclude = "(\\.pyi|meson-private|venv)"
 line-length = 93
+
+[tool.cibuildwheel]
+build-frontend = "build[uv]"
 
 [tool.coverage.report]
 exclude_lines = [
@@ -123,6 +112,9 @@ relative_files = true
 omit = [
      '*/vendor/*',
 ]
+
+[tool.deptry.per_rule_ignores]
+DEP001 = ["invoke"]
 
 [tool.ruff]
 line-length = 93
@@ -372,48 +364,51 @@ allowlist_externals =
     python
 package = wheel
 deps =
-     -r requirements.in
-     virtualenv
+     uv
+commands_pre =
+     python -m uv pip install OZI.build[uv,core]~=1.5
+     pipx install --python=python meson
 commands =
+     meson setup {env_tmp_dir} -Ddist=disabled -Dtox-env-dir={env_dir}
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
+commands_post =
+     {env_python} -m invoke --search-root={env_tmp_dir}/ozi checkpoint --suite={env_name} --ozi {posargs}
 
 [testenv:dist]
 description = OZI distribution checkpoint
-commands_pre =
-    pipx install --python=python meson
-    meson setup {env_tmp_dir} -Ddist=enabled -Dtox-env-dir={env_dir}
-commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=dist {posargs}
 
 [testenv:lint]
 description = OZI format/lint checkpoint
-commands_pre =
-    pipx install --python=python meson
-    meson setup {env_tmp_dir} -Dlint=enabled -Dtox-env-dir={env_dir}
-commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=lint {posargs}
 
 [testenv:test]
 description = OZI unit tests checkpoint
-commands_pre =
-    pipx install --python=python meson
-    meson setup {env_tmp_dir} -Dtest=enabled -Dozi-blastpipe=enabled -Dtox-env-dir={env_dir} {posargs}
-commands_post = meson test --no-rebuild --maxfail=1 -C {env_tmp_dir} --setup=test
+commands =
+     meson setup {env_tmp_dir} -Dozi-blastpipe=disabled -Ddist=disabled -Dtox-env-dir={env_dir}
+     meson compile -C {env_tmp_dir}
+     rm -rf {env_tmp_dir}/.gitignore
 
 [testenv:fix]
 description = OZI project fix issues utility (black, isort, autoflake, ruff)
 deps = pipx
 skip_install = true
+commands_pre =
 commands =
      pipx run --python {env_python} black -S .
      pipx run --python {env_python} isort .
      pipx run --python {env_python} autoflake -i -r .
      pipx run --python {env_python} ruff check ozi --fix
+commands_post =
 
 [testenv:scm]
 description = OZI supply chain management (setuptools_scm)
-deps =
-     setuptools_scm[toml]>=8
 commands =
      {env_python} -m setuptools_scm {posargs}
+commands_post =
 
+[testenv:invoke]
+description = OZI invoke task entrypoint, for more info use "tox -e invoke -- --list"
+no_package = true
+commands_post =
+     {env_python} -m invoke --search-root={env_tmp_dir}/ozi {posargs} --ozi
 """

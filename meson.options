@@ -8,6 +8,18 @@ option(
     value: 'disabled',
     description: 'blastpipe integration tests package',
 )
+option(
+    'compile-requirements-command',
+    type: 'array',
+    value: ['uv', 'pip', 'compile'],
+    yield: true,
+)
+option(
+    'install-requirements-command',
+    type: 'array',
+    value: ['uv', 'pip'],
+    yield: true,
+)
 option('dev', type: 'feature', value: 'auto')
 option('install-subprojects', type: 'feature', value: 'disabled')
 option('source-to-build', type: 'feature', value: 'auto')
@@ -42,6 +54,7 @@ option(
     value: [
         'python',
         'plugin-only',
+        'install_dependencies',
         'no-version',
         'module-only',
         'source-to-build',
@@ -71,7 +84,7 @@ option(
     'dist-suite',
     type: 'array',
     description: '--setup=dist',
-    value: ['sigstore'],
+    value: ['cibuildwheel', 'sigstore', 'python-semantic-release', 'twine'],
     yield: true,
 )
 option(
@@ -139,11 +152,6 @@ option(
     type: 'array',
     description: 'install only - plugins for other utility applications',
     value: [
-        'pytest-asyncio',
-        'pytest-cov',
-        'pytest-xdist',
-        'pytest-tcpclient',
-        'pytest-randomly',
         'Flake8-pyproject',
         'flake8-annotations',
         'flake8-broken-line',
@@ -161,6 +169,11 @@ option(
         'flake8-tidy-imports',
         'flake8-type-checking',
         'hypothesis',
+        'pytest-asyncio',
+        'pytest-cov',
+        'pytest-randomly',
+        'pytest-tcpclient',
+        'pytest-xdist',
         'sphinxawesome-codelinter',
         'sphinxawesome-theme',
     ],
@@ -218,6 +231,24 @@ option(
     yield: true,
 )
 option('install-args-semantic_release', description: 'pipx install args', type: 'array', value: [], yield: true)
+option(
+    'config-args-cibuildwheel',
+    description: 'pip-compile args',
+    type: 'array',
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
+    yield: true,
+)
+option('args-cibuildwheel', type: 'array', value: ['--help'], yield: true)
+option('install-args-cibuildwheel', type: 'array', value: [], yield: true)
+option(
+    'config-args-twine',
+    description: 'pip-compile args',
+    type: 'array',
+    value: ['-q', '--strip-extras', '--allow-unsafe',  '--generate-hashes',],
+    yield: true,
+)
+option('install-args-twine', type: 'array', value: [], yield: true)
+option('args-twine', type: 'array', value: ['--version'], yield: true)
 option('args-mypy', type: 'array', value: ['@build_root@'], yield: true)
 option(
     'config-args-mypy',

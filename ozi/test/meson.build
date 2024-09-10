@@ -5,7 +5,7 @@
 source_child_test_children = ['coverage', 'pytest']
 if (get_option('dev').enabled() or get_option('test').enabled())
   foreach package : source_child_test_children
-      message('configure', package, 'with pip-compile')
+      message('configure', package, 'with', ' '.join(pip_compile))
       subdir(package)
   endforeach
 endif
