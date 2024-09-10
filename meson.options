@@ -220,7 +220,7 @@ option('install-args-sigstore', type: 'array', value: [], yield: true)
 option(
     'args-semantic_release',
     type: 'array',
-    value: ['version', '--print'],
+    value: ['--help'],
     yield: true,
 )
 option(
