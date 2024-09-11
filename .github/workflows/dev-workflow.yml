@@ -129,6 +129,6 @@ jobs:
             index.crates.io:443
             static.crates.io:443
 
-      - uses: OZI-Project/checkpoint@0c54a8e9bbbe5817b8c75a97b4cd6871a64f65f7
+      - uses: OZI-Project/checkpoint@b53cf4f0aeb004d5980b72675fba6a38dcc66674
         with:
           python-version: "3.13"
