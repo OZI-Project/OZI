@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 [build-system]
 build-backend = "ozi_build.buildapi"
-requires      = ["OZI.build[core,uv]>=1.5.2"]
+requires      = ["OZI.build[core,uv]~=1.5.2"]
 
 [tool.ozi-build.entry-points]
 console_scripts = [
@@ -26,6 +26,7 @@ project-urls = [
      'Bug Tracker, https://github.com/OZI-Project/OZI/issues',
      'Community, https://github.com/orgs/OZI-Project/discussions',
 ]
+requires-python='>=3.10, <3.14'
 requires-external=['git']
 classifiers = [
      'Development Status :: 4 - Beta',
@@ -39,6 +40,7 @@ classifiers = [
      'Programming Language :: Python :: 3.10',
      'Programming Language :: Python :: 3.11',
      'Programming Language :: Python :: 3.12',
+     'Programming Language :: Python :: 3.13',
      'Programming Language :: Python :: Implementation :: CPython',
      'Topic :: Software Development :: Build Tools',
      'Topic :: Software Development :: Quality Assurance',
