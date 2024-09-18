@@ -1,8 +1,61 @@
 # OZI CHANGELOG
+## 1.22.0 (2024-09-18)
+
 ## 1.21.0 (2024-09-11)
 
 
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.26.6 to 3.26.7
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.26.6 to 3.26.7.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/4dd16135b69a43b6c8efb853346f8437d92d3c93...8214744c546c1e5c8f03dde8fab3a7353211988d)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`264f68a`](https://github.com/OZI-Project/OZI/commit/264f68ab5cf96a8dbe7afd0821de3fdedce01395))
+
+*  Update ozi-core requirement from ~=1.1.1 to ~=1.2.0
+
+Updates the requirements on [ozi-core](https://github.com/OZI-Project/ozi-core) to permit the latest version.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.2.0/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.1.1...1.2.0)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+... — dependabot[bot] &lt;support@github.com&gt;
+([`063e04a`](https://github.com/OZI-Project/OZI/commit/063e04a0646ee616b64aad501442cf4f1b3ae129))
+
+*  Update cibuildwheel requirement in /ozi/dist/cibuildwheel
+
+Updates the requirements on [cibuildwheel](https://github.com/pypa/cibuildwheel) to permit the latest version.
+- [Release notes](https://github.com/pypa/cibuildwheel/releases)
+- [Changelog](https://github.com/pypa/cibuildwheel/blob/main/docs/changelog.md)
+- [Commits](https://github.com/pypa/cibuildwheel/compare/v2.20...v2.21)
+
+
+updated-dependencies:
+- dependency-name: cibuildwheel
+  dependency-type: direct:production
+... — dependabot[bot] &lt;support@github.com&gt;
+([`56eaba2`](https://github.com/OZI-Project/OZI/commit/56eaba2e9cdf26a99fe3272c0ef7923aabca96e7))
+
+
 ### ✨ Implemented Features
+
+*  Merge pull request #1115 from OZI-Project/dependabot/pip/ozi/dist/cibuildwheel/cibuildwheel-approx-eq-2.21
+
+⬆️ Update cibuildwheel requirement from ~=2.20 to ~=2.21 in /ozi/dist/cibuildwheel
+([`b0a8380`](https://github.com/OZI-Project/OZI/commit/b0a838063a27c5041eaef9d9d5de46d800efe5be))
 
 *  Merge pull request #607 from OZI-Project/python-3.13
 
@@ -21,6 +74,34 @@
 
 * Update pyproject.toml — Eden Ross Duff, MSc &lt;ozi.project@outlook.com&gt;
 ([`3708ccc`](https://github.com/OZI-Project/OZI/commit/3708cccd61934722d24e03b01b8c2463adadfcc4))
+
+* Bump OZI-Project/checkpoint from 0.3.1 to 1.0.0
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 0.3.1 to 1.0.0.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/0.3.1...b53cf4f0aeb004d5980b72675fba6a38dcc66674)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+... — dependabot[bot] &lt;support@github.com&gt;
+([`d29e853`](https://github.com/OZI-Project/OZI/commit/d29e853f38f0dd4dcc25ce78bcd77f625ecbee08))
+
+* Bump step-security/harden-runner from 2.8.0 to 2.10.1
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.8.0 to 2.10.1.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/v2.8.0...91182cccc01eb5e619899d80e4e971d6181294a7)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] &lt;support@github.com&gt;
+([`42744a6`](https://github.com/OZI-Project/OZI/commit/42744a663318752c5bdbdb99b8eed3d4e9f26de7))
 
 * Update ozi-core requirement from ~=1.0.12 to ~=1.1.1
 
