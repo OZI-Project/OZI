@@ -1,4 +1,52 @@
 # OZI CHANGELOG
+## 1.22.1 (2024-09-25)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update sigstore requirement in /ozi/dist/sigstore
+
+Updates the requirements on [sigstore](https://github.com/sigstore/sigstore-python) to permit the latest version.
+- [Release notes](https://github.com/sigstore/sigstore-python/releases)
+- [Changelog](https://github.com/sigstore/sigstore-python/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/sigstore/sigstore-python/compare/v3.2.0...v3.3.0)
+
+
+updated-dependencies:
+- dependency-name: sigstore
+  dependency-type: direct:production
+... — dependabot[bot] &lt;support@github.com&gt;
+([`e7b384d`](https://github.com/OZI-Project/OZI/commit/e7b384da421ec697f71d7c95ecb6aeadece07381))
+
+*  Bump github/codeql-action from 3.26.7 to 3.26.9
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.26.7 to 3.26.9.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/8214744c546c1e5c8f03dde8fab3a7353211988d...461ef6c76dfe95d5c364de2f431ddbd31a417628)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`24926b9`](https://github.com/OZI-Project/OZI/commit/24926b99dac94f7d1ecf6bb878f994cc4ee1ce3a))
+
+*  Update flake8-pyi requirement in /ozi/lint/flake8
+
+Updates the requirements on [flake8-pyi](https://github.com/PyCQA/flake8-pyi) to permit the latest version.
+- [Release notes](https://github.com/PyCQA/flake8-pyi/releases)
+- [Changelog](https://github.com/PyCQA/flake8-pyi/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/PyCQA/flake8-pyi/compare/24.6.0...24.9.0)
+
+
+updated-dependencies:
+- dependency-name: flake8-pyi
+  dependency-type: direct:production
+... — dependabot[bot] &lt;support@github.com&gt;
+([`5eafb78`](https://github.com/OZI-Project/OZI/commit/5eafb78c01967ea4f8f81497dddf8e338128e309))
+
 ## 1.22.0 (2024-09-18)
 
 ## 1.21.0 (2024-09-11)
