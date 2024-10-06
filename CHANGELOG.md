@@ -1,4 +1,110 @@
 # OZI CHANGELOG
+## 1.22.2 (2024-10-06)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/draft from 1.0.0 to 1.1.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.0.0 to 1.1.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/7e8ad70f472504510e169567e97db01bdafe2533...23eab64fb44d03215598b6fffcfff890bfb7ec4b)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] &lt;support@github.com&gt;
+([`85a0aba`](https://github.com/OZI-Project/OZI/commit/85a0aba449c12d520446e29b8e7568fa450ff9fb))
+
+*  Bump OZI-Project/release from 1.0.0 to 1.0.3
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.0.0 to 1.0.3.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/98248899bb8b235e3198105f080093ea5b9751d8...d764d82aa0900effc1590b0281ff35d67be592fd)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`fe98f9d`](https://github.com/OZI-Project/OZI/commit/fe98f9de3289b580ad185c934be92e848e72e398))
+
+*  Bump actions/checkout from 4.1.7 to 4.2.0
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.7 to 4.2.0.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/692973e3d937129bcbf40652eb9f2f61becf3332...d632683dd7b4114ad314bca15554477dd762a938)
+
+
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] &lt;support@github.com&gt;
+([`81d6751`](https://github.com/OZI-Project/OZI/commit/81d67514d0f00f68b88afcc343957dee0bf21836))
+
+*  ozi-core~=1.2.6
+
+Adds i18n translation API. — Eden Ross Duff, MSc, DDiv &lt;ozi.project@outlook.com&gt;
+([`059c68e`](https://github.com/OZI-Project/OZI/commit/059c68e831f46189bbae9fd5eb6fa47f105bbf2e))
+
+*  Bump OZI-Project/checkpoint from 1.0.0 to 1.0.1
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.0.0 to 1.0.1.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/b53cf4f0aeb004d5980b72675fba6a38dcc66674...38b742bcf99a1eae353d2f750d23f7a0c0e2174d)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`f0d368a`](https://github.com/OZI-Project/OZI/commit/f0d368abcc80fe199070f13cc2c1fa02ccec166e))
+
+*  Bump OZI-Project/publish from 1.0.0 to 1.1.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.0.0 to 1.1.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/55904e4f59084e7c6ccfad7b158db52a360e1f54...6a44652f29d676922cf9e10d3ebc39b723078729)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] &lt;support@github.com&gt;
+([`b86b851`](https://github.com/OZI-Project/OZI/commit/b86b8511df0d86dcba4b707ed8a30fa49756c937))
+
+
+### 🌐
+
+
+*  complete localization of CLI
+
+Includes simplified Chinese translation. — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`4006c35`](https://github.com/OZI-Project/OZI/commit/4006c35d2c52b86031e00149e0c9094cc3d40712))
+
+
+### 🔨 Updated Scripts
+
+*  clean up build files — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`def02f1`](https://github.com/OZI-Project/OZI/commit/def02f136eb1cecc4bdbb80c744b029e60b11603))
+
+
+### Other
+
+
+* 🚨(mypy): ignore missing import ``ozi_core._i18n`` — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`f1ac4d8`](https://github.com/OZI-Project/OZI/commit/f1ac4d8257d5a08ec22bae4f5546b05651290252))
+
+* 🚨 run isort — rjdbcm &lt;ozi.project@outlook.com&gt;
+([`8379b0e`](https://github.com/OZI-Project/OZI/commit/8379b0e946b2f32e83fc4c26e9c22897966c7665))
+
 ## 1.22.1 (2024-09-25)
 
 
