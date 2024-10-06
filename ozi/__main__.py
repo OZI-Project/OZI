@@ -10,12 +10,12 @@ import argparse  # pragma: no cover
 import sys  # pragma: no cover
 from dataclasses import fields  # pragma: no cover
 
+from ozi_core._i18n import TRANSLATION  # pragma: no cover  # pyright: ignore
 from ozi_core.actions import ExactMatch  # pragma: no cover  # pyright: ignore
 from ozi_core.actions import check_version  # pragma: no cover  # pyright: ignore
 from ozi_core.actions import info  # pragma: no cover  # pyright: ignore
 from ozi_core.actions import license_expression  # pragma: no cover  # pyright: ignore
 from ozi_core.actions import list_available  # pragma: no cover  # pyright: ignore
-from ozi_core._i18n import TRANSLATION  # pragma: no cover  # pyright: ignore
 
 from ozi import __version__
 
