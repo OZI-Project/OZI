@@ -5,10 +5,10 @@
 project(
     'OZI',
     version: run_command(
-        'python3', # scm_version_snip
+        'python3',  # scm_version_snip
         [
             '-c',
-'''from setuptools_scm import get_version
+            '''from setuptools_scm import get_version
 from packaging.version import Version
 v = get_version(normalize=False)
 print(v)
@@ -39,13 +39,12 @@ dist_exclude_suites = get_option('dist-exclude-suites')
 docs_exclude_suites = get_option('docs-exclude-suites')
 lint_exclude_suites = get_option('lint-exclude-suites')
 test_exclude_suites = get_option('test-exclude-suites')
-# descript arrays   
+# descript arrays
 namespace = get_option('namespace')
 plugin_only = get_option('plugin-only')
 python_dependencies = get_option('python-dependencies')
-# features   
+# features
 dev = get_option('dev')
-source_to_build = get_option('source-to-build')
 docs_source = get_option('docs-source')
 test_source = get_option('test-source')
 # templates
@@ -65,7 +64,13 @@ pyproject_config.set(
     'py' + ''.join(python.language_version().split('.')),
 )
 pyproject_config.set('VCS_TAG', '@VCS_TAG@')
-root_files = ['README', 'CHANGELOG.md', 'LICENSE.txt', 'pyproject.toml', '.gitignore']
+root_files = [
+    'README',
+    'CHANGELOG.md',
+    'LICENSE.txt',
+    'pyproject.toml',
+    '.gitignore',
+]
 configure_file(
     input: root_files[3],
     output: root_files[3],
@@ -73,110 +78,87 @@ configure_file(
 )
 meson_setuptools_scm = run_command(
     python,
-    [
-        '-c',
-        python_readlines.format(
-            scripts / 'meson_setuptools_scm.py',
-        ),
-    ],
+    ['-c', python_readlines.format(scripts / 'meson_setuptools_scm.py')],
     check: true,
 ).stdout()
 meson_dist_setuptools_scm = run_command(
     python,
-    [
-        '-c',
-        python_readlines.format(
-            scripts / 'meson_dist_setuptools_scm.py',
-        ),
-    ],
+    ['-c', python_readlines.format(scripts / 'meson_dist_setuptools_scm.py')],
     check: true,
 ).stdout()
 core_metadata = run_command(
     python,
-    [
-        '-c',
-        python_readlines.format(
-            scripts / 'core_metadata_template.py',
-        ),
-    ],
+    ['-c', python_readlines.format(scripts / 'core_metadata_template.py')],
     check: true,
 ).stdout()
 metadata_version = run_command(
     python,
-    [
-        '-c',
-        python_readlines.format(
-            scripts / 'version_metadata_template.py',
-        ),
-    ],
+    ['-c', python_readlines.format(scripts / 'version_metadata_template.py')],
     check: true,
 ).stdout()
 # snippets
 scm_version_snip = run_command(
     python,
-    [
-        '-c',
-        python_readlines.format(
-            scripts / 'scm_version_snip.py',
-        ),
-    ],
+    ['-c', python_readlines.format(scripts / 'scm_version_snip.py')],
     check: true,
 ).stdout()
 to_distribution = run_command(
     python,
-    [
-        '-c',
-        python_readlines.format(scripts / 'to_distribution_template.py'),
-    ],
+    ['-c', python_readlines.format(scripts / 'to_distribution_template.py')],
     check: true,
 ).stdout()
 install_dependencies = run_command(
     python,
     [
         '-c',
-        python_readlines.format(scripts / 'meson_postconf_install_dependencies.py'),
+        python_readlines.format(
+            scripts / 'meson_postconf_install_dependencies.py',
+        ),
     ],
     check: true,
 ).stdout()
 replace_ruff_target_version = run_command(
     python,
-    [
-        '-c',
-        python_readlines.format(scripts / 'replace_ruff_target_version.py'),
-    ],
+    ['-c', python_readlines.format(scripts / 'replace_ruff_target_version.py')],
     check: true,
 ).stdout()
 run_command(python, ['-c', replace_ruff_target_version], check: true)
-install_cmd = find_program(get_option('install-requirements-command')[0], required: false, disabler: true)
+install_cmd = find_program(
+    get_option('install-requirements-command')[0],
+    required: false,
+    disabler: true,
+)
 if install_cmd.found()
     pip = get_option('install-requirements-command')
 else
     pip = find_program('pip', required: true).full_path()
 endif
 pipx = find_program('pipx', required: true, disabler: true)
-compile_cmd = find_program(get_option('compile-requirements-command')[0], required: false, disabler: true)
+compile_cmd = find_program(
+    get_option('compile-requirements-command')[0],
+    required: false,
+    disabler: true,
+)
 if compile_cmd.found()
     pip_compile = get_option('compile-requirements-command')
 else
     pip_compile = find_program('pip-compile', required: true).full_path()
 endif
 if not meson.is_subproject()
-    deps = run_command(python, '-c', install_dependencies, check: true).stdout().strip().split('$$')
+    deps = run_command(python, '-c', install_dependencies, check: true).stdout().strip().split(
+        '$$',
+    )
     if deps.length() > 1
         meson.add_postconf_script(pip, 'install', deps)
     endif
 endif
-source_to_build.enable_auto_if(source_to_build.auto())
 docs_source = 'docs'
 test_source = 'tests'
 no_check = {'check': false, 'env': env}
 install = ['install']
 build_commands = {'dev': []}
 test_app_args = {}
-configure_file(
-    command: [python, '-c', meson_setuptools_scm],
-    output: 'PKG-INFO',
-)
+configure_file(command: [python, '-c', meson_setuptools_scm], output: 'PKG-INFO')
 meson.add_dist_script(pip, 'install', 'tomli>=2.0.0')
 meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
 vcs_tag(input: 'pyproject.toml', output: 'pyproject.orig.toml')
@@ -189,9 +171,9 @@ foreach source : root_files
     endif
 endforeach
 if get_option('ozi-blastpipe').enabled()
-    # BEGIN BOOTSTRAP SCRIPT
+# BEGIN BOOTSTRAP SCRIPT
     subproject('blastpipe')
-    # END BOOTSTRAP SCRIPT
+# END BOOTSTRAP SCRIPT
 endif
 root_children = ['ozi', 'tests']
 foreach child : root_children
@@ -225,10 +207,9 @@ foreach name : namespace
             command = 'semantic_release'
         endif
         flag = disabler()
-        if (
-            (get_option('dev').enabled() or suite.enabled())
-            and command not in plugin_only
-        )
+        if ((get_option('dev').enabled() or suite.enabled())
+and command not in plugin_only
+)
             if command not in module_only and get_option('tox-env-dir') != ''
                 message('install', command, 'with pipx')
                 run_command(
@@ -236,13 +217,14 @@ foreach name : namespace
                     [
                         'runpip',
                         'meson',
-                        '--python', python,
+                        '--python',
+                        python,
                         'install',
-                        get_option('install-args-'+command),
+                        get_option('install-args-' + command),
                         '-r',
                         meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
                     ],
-                    check: true
+                    check: true,
                 )
             else
                 message('install', command, 'with', ' '.join(pip))
@@ -250,11 +232,11 @@ foreach name : namespace
                     pip,
                     [
                         'install',
-                        get_option('install-args-'+command),
+                        get_option('install-args-' + command),
                         '-r',
                         meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
                     ],
-                    check: true
+                    check: true,
                 )
             endif
             if not flag.found() and command not in module_only
@@ -262,7 +244,7 @@ foreach name : namespace
                     command,
                     required: false,
                     disabler: true,
-                    dirs: [get_option('tox-env-dir') / 'bin']
+                    dirs: [get_option('tox-env-dir') / 'bin'],
                 )
             elif command in module_only
                 command = command.replace('-', '_')
@@ -300,11 +282,7 @@ foreach name : namespace
                 if app not in plugin_only + module_only
                     if app not in no_version
                         summary(
-                            {
-                                app: get_variable(
-                                    app.replace('-', '_'),
-                                ).version(),
-                            },
+                            {app: get_variable(app.replace('-', '_')).version()},
                             section: ' '.join(header),
                         )
                     endif
@@ -317,11 +295,13 @@ foreach name : namespace
                         pip,
                         ['show', app],
                         kwargs: no_check,
-                    ).stdout().split('\n')
+                    ).stdout().split(
+                        '\n',
+                    )
                     if fallback_version.length() > 2
                         fallback_version = fallback_version[1].split(':')[1].strip()
                     else
-                        fallback_version = 'unknown (see Python packages)' 
+                        fallback_version = 'unknown (see Python packages)'
                     endif
                     if app in no_version
                         if packaged_version == ''
@@ -351,13 +331,17 @@ foreach name : namespace
                                 ).stdout(),
                             ],
                             kwargs: no_check,
-                        ).stdout().split('\n')
+                        ).stdout().split(
+                            '\n',
+                        )
                     else
                         fallback_version = run_command(
                             pip,
                             ['show', app],
                             kwargs: no_check,
-                        ).stdout().split('\n')
+                        ).stdout().split(
+                            '\n',
+                        )
                     endif
                     if fallback_version.length() > 2
                         fallback_version = fallback_version[1].split(':')[1].strip()
@@ -366,16 +350,12 @@ foreach name : namespace
                     endif
                     if app in no_version
                         summary(
-                            {
-                                app: fallback_version,
-                            },
+                            {app: fallback_version},
                             section: ' '.join(header),
                         )
                     else
                         summary(
-                            {
-                                app: packaged_version,
-                            },
+                            {app: packaged_version},
                             section: ' '.join(header),
                         )
                     endif
@@ -413,14 +393,12 @@ foreach name : namespace
         command_args = []
         test_app_args = {}
         foreach arg : _args
-            if (
-                arg.startswith('@')
-                and (
-                    arg.endswith('@')
-                    or arg.endswith('@/')
-                    or arg.endswith('@/test')
-                )
-            )
+            if (arg.startswith('@')
+and (arg.endswith('@')
+or arg.endswith('@/')
+or arg.endswith('@/test')
+)
+)
                 arg = arg.strip('@')
                 if is_variable(arg)
                     arg = get_variable(arg)
@@ -475,13 +453,7 @@ foreach name : namespace
 endforeach
 # END checkpoint-suite-invocation
 
-display_dirs = [
-    'bindir',
-    'datadir',
-    'libdir',
-    'localedir',
-    'prefix',
-]
+display_dirs = ['bindir', 'datadir', 'libdir', 'localedir', 'prefix']
 foreach dir : display_dirs
     summary(
         {dir: get_option(dir)},
@@ -493,10 +465,12 @@ summary('install_env', get_option('python.install_env'), section: 'Python')
 summary('path', python.full_path(), section: 'Python')
 summary('version', python.language_version(), section: 'Python')
 
-foreach name: namespace
+foreach name : namespace
     if get_option(name).enabled() or dev.enabled()
         installed_packages = []
-        foreach line : run_command(pip, 'freeze', check: true).stdout().split('\n')
+        foreach line : run_command(pip, 'freeze', check: true).stdout().split(
+            '\n',
+        )
             if line == ''
                 continue
             endif
@@ -505,19 +479,22 @@ foreach name: namespace
             else
                 package = line.split('@')
             endif
-            if (
-                package[0] not in get_option('test-suite')
-                and package[0] not in get_option('lint-suite')
-                and package[0] not in get_option('dist-suite')
-            )
+            if (package[0] not in get_option('test-suite')
+and package[0] not in get_option('lint-suite')
+and package[0] not in get_option('dist-suite')
+)
                 installed_packages += package[0]
-                summary(package[0], package[1].strip(), section: 'Python packages')
+                summary(
+                    package[0],
+                    package[1].strip(),
+                    section: 'Python packages',
+                )
             endif
         endforeach
 
         # Prior to Python 3.12 these would not be included in pip freeze
         # See: https://github.com/pypa/pip/pull/12032
-        foreach legacy_package: ['wheel', 'setuptools', 'distribute']
+        foreach legacy_package : ['wheel', 'setuptools', 'distribute']
             if legacy_package not in installed_packages
                 legacy_package_version = run_command(
                     python,
@@ -525,7 +502,11 @@ foreach name: namespace
                     kwargs: no_check,
                 ).stdout().strip()
                 if legacy_package_version != ''
-                    summary(legacy_package, legacy_package_version, section: 'Python packages')
+                    summary(
+                        legacy_package,
+                        legacy_package_version,
+                        section: 'Python packages',
+                    )
                 endif
             endif
         endforeach
