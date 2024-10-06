@@ -15,11 +15,12 @@ from ozi_core.actions import check_version  # pragma: no cover  # pyright: ignor
 from ozi_core.actions import info  # pragma: no cover  # pyright: ignore
 from ozi_core.actions import license_expression  # pragma: no cover  # pyright: ignore
 from ozi_core.actions import list_available  # pragma: no cover  # pyright: ignore
+from ozi_core._i18n import TRANSLATION  # pragma: no cover  # pyright: ignore
 
 from ozi import __version__
 
-EPILOG = """
-METADATA_FIELD choices:
+EPILOG = f"""
+METADATA_FIELD {TRANSLATION('term-choices')}:
   | audience
   | environment
   | framework
@@ -30,19 +31,19 @@ METADATA_FIELD choices:
   | status
   | topic
 
-LICENSE_EXPR: :term:`SPDX license expression`
-  | See https://spdx.github.io/spdx-spec/v2-draft/SPDX-license-expressions/
+LICENSE_EXPR: :term:`SPDX license expression` {TRANSLATION('term-spdx-license-expression')}
+  | {TRANSLATION('term-see-ref')} https://spdx.github.io/spdx-spec/v2-draft/SPDX-license-expressions/
 
-project authoring console application:
-  | ``ozi-new -h``         show help for the ozi-new command.
+{TRANSLATION('term-project-authoring-console-app')}:
+  | ``ozi-new -h``         {TRANSLATION('term-help-new')}
 
-project maintainence console application:
-  | ``ozi-fix -h``         show help for the ozi-fix command.
+{TRANSLATION('term-project-maintenance-console-app')}:
+  | ``ozi-fix -h``         {TRANSLATION('term-help-fix')}
 
-continuous integration checkpoints:
-  | ``tox -e lint``        run formatting, linting, and typechecking.
-  | ``tox -e test``        run testing and coverage.
-  | ``tox -e dist``        run distribution and packaging.
+{TRANSLATION('term-continuous-integration-checkpoints')}:
+  | ``tox -e lint``        {TRANSLATION('term-tox-e-lint')}
+  | ``tox -e test``        {TRANSLATION('term-tox-e-test')}
+  | ``tox -e dist``        {TRANSLATION('term-tox-e-dist')}
 """  # pragma: no cover
 
 parser = argparse.ArgumentParser(
@@ -51,28 +52,9 @@ parser = argparse.ArgumentParser(
     add_help=False,
     formatter_class=argparse.RawDescriptionHelpFormatter,
     epilog=EPILOG,
-    usage="""%(prog)s [options]
+    usage=f"""%(prog)s [{TRANSLATION('term-options')}]
 
-The information provided on this application does not, and is not intended to,
-constitute legal advice. All information, content, and materials available
-on this application are for general informational purposes only.
-Information on this application may not constitute the most up-to-date legal
-or other information.
-
-THE LICENSE TEMPLATES, LICENSE IDENTIFIERS, LICENSE CLASSIFIERS, AND
-LICENSE EXPRESSION PARSING SERVICES, AND ALL OTHER CONTENTS ARE PROVIDED
-"AS IS", NO REPRESENTATIONS ARE MADE THAT THE CONTENT IS ERROR-FREE
-AND/OR APPLICABLE FOR ANY PURPOSE, INCLUDING MERCHANTABILITY.
-
-Readers of this disclaimer should contact their attorney to obtain advice
-with respect to any particular legal matter. The OZI Project is not a
-law firm and does not provide legal advice. No reader or user of this
-application should act or abstain from acting on the basis of information
-on this application without first seeking legal advice from counsel in the
-relevant jurisdiction. Legal counsel can ensure that the information
-provided in this application is applicable to your particular situation.
-Use of, or reading, this application or any of resources contained within
-does not create an attorney-client relationship.""",
+{TRANSLATION('adm-disclaimer')}""",
 )  # pragma: no cover
 tools = parser.add_mutually_exclusive_group()  # pragma: no cover
 helpers = parser.add_mutually_exclusive_group()  # pragma: no cover
@@ -80,7 +62,7 @@ helpers.add_argument(
     '-h',
     '--help',
     action='help',
-    help='show this help message and exit',
+    help=TRANSLATION('term-help-help'),
 )  # pragma: no cover
 helpers.add_argument(  # pragma: no cover
     '-v',
@@ -88,7 +70,7 @@ helpers.add_argument(  # pragma: no cover
     action='store_const',
     default=lambda: None,
     const=lambda: print(__version__) or exit(0),
-    help='Print out the current version and exit.',
+    help=TRANSLATION('term-help-version'),
 )
 helpers.add_argument(  # pragma: no cover
     '-c',
@@ -96,14 +78,14 @@ helpers.add_argument(  # pragma: no cover
     action='store_const',
     default=lambda: None,
     const=lambda: check_version(__version__),
-    help=check_version.__doc__,
+    help=TRANSLATION('term-help-check-version'),
 )
 helpers.add_argument(  # pragma: no cover
     '-e',
     '--check-license-expr',
     metavar='LICENSE_EXPR',
     action='store',
-    help=license_expression.__doc__,
+    help=TRANSLATION('term-help-valid-license-expression'),
 )
 helpers.add_argument(  # pragma: no cover
     '-i',
@@ -111,12 +93,12 @@ helpers.add_argument(  # pragma: no cover
     action='store_const',
     default=lambda: None,
     const=lambda: info(__version__),
-    help=info.__doc__,
+    help=TRANSLATION('term-help-info'),
 )
 helpers.add_argument(  # pragma: no cover
     '-l',
     '--list-available',
-    help=list_available.__doc__,
+    help=TRANSLATION('term-help-list-available'),
     default=None,
     metavar='METADATA_FIELD',
     action='store',
