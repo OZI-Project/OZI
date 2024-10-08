@@ -1,4 +1,84 @@
 # OZI CHANGELOG
+## 1.22.4 (2024-10-08)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core~=1.2.11 — Eden Ross Duff, MSc, DDiv &lt;ozi.project@outlook.com&gt;
+([`7ddeecc`](https://github.com/OZI-Project/OZI/commit/7ddeeccd373f17371eeeb8094c65f24fd3b3d3f1))
+
+*  Update black requirement in /ozi/lint/black
+
+Updates the requirements on [black](https://github.com/psf/black) to permit the latest version.
+- [Release notes](https://github.com/psf/black/releases)
+- [Changelog](https://github.com/psf/black/blob/main/CHANGES.md)
+- [Commits](https://github.com/psf/black/compare/24.8.0...24.10.0)
+
+
+updated-dependencies:
+- dependency-name: black
+  dependency-type: direct:production
+... — dependabot[bot] &lt;support@github.com&gt;
+([`8cb36ee`](https://github.com/OZI-Project/OZI/commit/8cb36eeccbda4e842c71fd9b7c48399366246b79))
+
+*  Bump actions/upload-artifact from 4.4.0 to 4.4.2
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.4.0 to 4.4.2.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/50769540e7f4bd5e21e526ee35c689e35e0d6874...84480863f228bb9747b473957fcc9e309aa96097)
+
+
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`ee0ca3c`](https://github.com/OZI-Project/OZI/commit/ee0ca3c47647f21c564c000fe6a8b1d57da8af1d))
+
+*  Bump actions/checkout from 4.2.0 to 4.2.1
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4.2.0 to 4.2.1.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/d632683dd7b4114ad314bca15554477dd762a938...eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871)
+
+
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`0cdc2f3`](https://github.com/OZI-Project/OZI/commit/0cdc2f3c5c2a8f865bf1cb8ce4293e5221a85792))
+
+*  Bump github/codeql-action from 3.26.9 to 3.26.12
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.26.9 to 3.26.12.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/461ef6c76dfe95d5c364de2f431ddbd31a417628...c36620d31ac7c881962c3d9dd939c40ec9434f2b)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] &lt;support@github.com&gt;
+([`764a3c0`](https://github.com/OZI-Project/OZI/commit/764a3c0ecd6b1392a582f14d4cb308e59db68bda))
+
+*  Update python-semantic-release requirement
+
+Updates the requirements on [python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) to permit the latest version.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.0...v9.9)
+
+
+updated-dependencies:
+- dependency-name: python-semantic-release
+  dependency-type: direct:production
+... — dependabot[bot] &lt;support@github.com&gt;
+([`9d4ad19`](https://github.com/OZI-Project/OZI/commit/9d4ad195c4af5868802bc5d93e5a54b50259369b))
+
 ## 1.22.3 (2024-10-06)
 
 
