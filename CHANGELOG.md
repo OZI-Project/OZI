@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.22.5 (2024-10-09)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core~=1.2.12 — Eden Ross Duff, MSc, DDiv &lt;ozi.project@outlook.com&gt;
+([`3a0d320`](https://github.com/OZI-Project/OZI/commit/3a0d32009d73b6b88cd927ad1c509f40f6cbd3f5))
+
 ## 1.22.4 (2024-10-08)
 
 
