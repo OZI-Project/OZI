@@ -1,4 +1,14 @@
 # OZI CHANGELOG
+## 1.22.8 (2024-10-10)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core~=1.2.15
+
+default to en locale — Eden Ross Duff, MSc, DDiv &lt;ozi.project@outlook.com&gt;
+([`bc2c28a`](https://github.com/OZI-Project/OZI/commit/bc2c28a04d63d78699367a8a4674bda0fd359eb1))
+
 ## 1.22.7 (2024-10-10)
 
 
