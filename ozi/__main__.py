@@ -54,7 +54,7 @@ parser = argparse.ArgumentParser(
     epilog=EPILOG,
     usage=f"""%(prog)s [{TRANSLATION('term-options')}]
 
-{TRANSLATION('adm-disclaimer')}""",
+{TRANSLATION('adm-disclaimer-text')}""",
 )  # pragma: no cover
 tools = parser.add_mutually_exclusive_group()  # pragma: no cover
 helpers = parser.add_mutually_exclusive_group()  # pragma: no cover
