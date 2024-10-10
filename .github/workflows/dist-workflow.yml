@@ -172,7 +172,7 @@ jobs:
             files.pythonhosted.org:443
             downloads.python.org:443
 
-      - uses: OZI-Project/draft@23eab64fb44d03215598b6fffcfff890bfb7ec4b
+      - uses: OZI-Project/draft@3d9a12e72510f63bc5afe3a42563156ab54b1e5c
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
