@@ -1,4 +1,37 @@
 # OZI CHANGELOG
+## 1.22.8 (2024-10-10)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core~=1.2.15
+
+default to en locale — Eden Ross Duff, MSc, DDiv &lt;ozi.project@outlook.com&gt;
+([`bc2c28a`](https://github.com/OZI-Project/OZI/commit/bc2c28a04d63d78699367a8a4674bda0fd359eb1))
+
+## 1.22.7 (2024-10-10)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core~=1.2.14 — Eden Ross Duff, MSc, DDiv &lt;ozi.project@outlook.com&gt;
+([`5c10bdc`](https://github.com/OZI-Project/OZI/commit/5c10bdcece1d2b6e2744fb5f67b69c0683223226))
+
+
+### 🌐
+
+
+* fix broken disclaimer — Eden Ross Duff, MSc, DDiv &lt;ozi.project@outlook.com&gt;
+([`e4a9f42`](https://github.com/OZI-Project/OZI/commit/e4a9f422631a403ca974090ff04614094519137d))
+
+## 1.22.6 (2024-10-09)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core~=1.2.13 — Eden Ross Duff, MSc, DDiv &lt;ozi.project@outlook.com&gt;
+([`a4b14d8`](https://github.com/OZI-Project/OZI/commit/a4b14d83c7c0b83f6af0ab71eb8d31df4f3bfc16))
+
 ## 1.22.5 (2024-10-09)
 
 
