@@ -5,11 +5,10 @@
 Which versions of your project are
 currently being supported with security updates.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.22.x  | ☑️                 |
-
-This page will be updated for the Alpha release to maturity.
+| Version | Supported          | ``semantic-release`` Version |
+| ------- | ------------------ | -----------------------------|
+| 1.22.x  | ☑️                 | 9.9-9.10                     |
+| 1.23.x  | ☑️                 | 9.11                         |
 
 ## Disclosure
 
