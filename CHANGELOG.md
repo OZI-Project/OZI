@@ -1,4 +1,61 @@
 # OZI CHANGELOG
+## 1.23.1 (2024-10-18)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update python-semantic-release requirement
+
+Updates the requirements on [python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) to permit the latest version.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.11...v9.12)
+
+
+updated-dependencies:
+- dependency-name: python-semantic-release
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`826cdae`](https://github.com/OZI-Project/OZI/commit/826cdaeb15167c51fa62e753288a0a925f68c153))
+
+*  Bump OZI-Project/draft from 1.3.0 to 1.4.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.3.0 to 1.4.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/abc015e6e3bc08e765025befc25f2bd355ddb79d...d797368c9870f3ca16373680b52db1ed4c333f21)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`f83bc5a`](https://github.com/OZI-Project/OZI/commit/f83bc5ad08d497ed209eb3a84ef8972faebfdd35))
+
+*  Bump OZI-Project/publish from 1.3.0 to 1.4.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.3.0 to 1.4.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/50e1883d3f02c37133eb0b38d726dff6b63554a0...a8bb776353d5b9f9bd678ef5ab2cd38bf5d4ad0f)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`216b6c9`](https://github.com/OZI-Project/OZI/commit/216b6c99cbf626296a7282cab22e9226ce5e45b9))
+
+*  ozi-core~=1.3.4 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`bfdb2f8`](https://github.com/OZI-Project/OZI/commit/bfdb2f88a1d9fe1a544e60387a7638b7d2f66bbb))
+
+
+### Other
+
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`10c9e77`](https://github.com/OZI-Project/OZI/commit/10c9e77fef98988eaeec3bfb9e6743c6e15e9069))
+
 ## 1.23.0 (2024-10-14)
 
 
