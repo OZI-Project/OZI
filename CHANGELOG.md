@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.23.2 (2024-10-19)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core~=1.3.6 - fixes ``ozi-fix`` output — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`8c401cb`](https://github.com/OZI-Project/OZI/commit/8c401cb55770318983fd3874562977bad0fc40a9))
+
 ## 1.23.1 (2024-10-18)
 
 
