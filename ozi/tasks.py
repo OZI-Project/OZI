@@ -1,3 +1,5 @@
+"""Invoke tasks for OZI CI."""
+
 # ozi/tasks.py
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
@@ -91,6 +93,7 @@ def release(
     sdist: bool = False,
     draft: bool = False,
     cibuildwheel: bool = True,
+    wheel: bool = True,
     sign: bool = False,
     ozi: bool = False,
 ) -> None:
@@ -101,12 +104,14 @@ def release(
         c.run('python -m build --sdist')
         if sign:
             c.run('sigstore sign --output-dir=sig dist/*.tar.gz')
-    (
-        c.run('cibuildwheel --prerelease-pythons --output-dir dist .', warn=True)
-        if cibuildwheel
-        else None
-    )
-    c.run('python -m build --wheel')
+
+    if cibuildwheel:
+        res = c.run('cibuildwheel --prerelease-pythons --output-dir dist .', warn=True)
+        if res.exited != 0 and wheel:
+            c.run('python -m build --wheel')
+    elif wheel:
+        c.run('python -m build --wheel')
+
     if sign:
         c.run('sigstore sign --output-dir=sig dist/*.whl')
 
