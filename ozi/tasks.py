@@ -107,7 +107,7 @@ def release(  # noqa: C901
 
     if cibuildwheel:
         res = c.run('cibuildwheel --prerelease-pythons --output-dir dist .', warn=True)
-        if res.exited != 0 and wheel:
+        if res is not None and res.exited != 0 and wheel:
             c.run('python -m build --wheel')
     elif wheel:
         c.run('python -m build --wheel')
