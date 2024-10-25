@@ -1,11 +1,38 @@
 # OZI CHANGELOG
+## 1.24.0 (2024-10-25)
+
 ## 1.23.4 (2024-10-25)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update ozi-core requirement from ~=1.3.7 to ~=1.4.2
+
+Updates the requirements on [ozi-core](https://github.com/OZI-Project/ozi-core) to permit the latest version.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.4.2/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.3.7...1.4.2)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`f3cdfce`](https://github.com/OZI-Project/OZI/commit/f3cdfcea985bd1359fc541538e8a782d66f786d9))
 
 
 ### 🐛 Fixed Bugs
 
 *  check that cibuildwheel result is not None — rjdbcm <ozi.project@outlook.com>
 ([`0199167`](https://github.com/OZI-Project/OZI/commit/019916742fbf4229ac7f5381003fb5fd4e0a56b4))
+
+
+### ✨ Implemented Features
+
+*  ozi-spec 0.11
+
+⬆️ Update ozi-core requirement from ~=1.3.7 to ~=1.4.2
+([`ccaa033`](https://github.com/OZI-Project/OZI/commit/ccaa033919590b3fd5914b736e150624806af79d))
 
 
 ### Other
