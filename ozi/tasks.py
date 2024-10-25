@@ -88,7 +88,7 @@ def checkpoint(c: Context, suite: str, maxfail: int = 1, ozi: bool = False) -> N
 
 
 @task
-def release(
+def release(  # noqa: C901
     c: Context,
     sdist: bool = False,
     draft: bool = False,
