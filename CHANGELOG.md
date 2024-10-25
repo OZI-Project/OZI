@@ -1,4 +1,41 @@
 # OZI CHANGELOG
+## 1.23.3 (2024-10-24)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core~=1.3.7 - fixes ozi-fix output — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`581e95a`](https://github.com/OZI-Project/OZI/commit/581e95aa58e2028123c07d8e767671475d72b272))
+
+*  Bump actions/dependency-review-action from 4.3.4 to 4.3.5
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.3.4 to 4.3.5.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/5a2ce3f5b92ee19cbb1541a4984c76d921601d7c...a6993e2c61fd5dc440b409aa1d6904921c5e1894)
+
+
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`9796567`](https://github.com/OZI-Project/OZI/commit/979656716945a9b69f84d0da0a1aa5c33868368f))
+
+*  Bump github/codeql-action from 3.26.13 to 3.27.0
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.26.13 to 3.27.0.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/f779452ac5af1c261dce0346a8f964149f49322b...662472033e021d55d94146f66f6058822b0b39fd)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`a5e3f05`](https://github.com/OZI-Project/OZI/commit/a5e3f05559d23144c61e56f1912b4ae2d393b0b0))
+
 ## 1.23.2 (2024-10-19)
 
 
