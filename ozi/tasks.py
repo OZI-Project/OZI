@@ -1,5 +1,4 @@
 """Invoke tasks for OZI CI."""
-
 # ozi/tasks.py
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
