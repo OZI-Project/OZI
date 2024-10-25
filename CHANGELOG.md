@@ -1,8 +1,52 @@
 # OZI CHANGELOG
+## 1.23.4 (2024-10-25)
+
+
+### 🐛 Fixed Bugs
+
+*  check that cibuildwheel result is not None — rjdbcm <ozi.project@outlook.com>
+([`0199167`](https://github.com/OZI-Project/OZI/commit/019916742fbf4229ac7f5381003fb5fd4e0a56b4))
+
+
+### Other
+
+
+* 🚨(tasks.py): ignore method complexity ``release()`` — rjdbcm <ozi.project@outlook.com>
+([`8928939`](https://github.com/OZI-Project/OZI/commit/892893946a5ae77691ab3a4ae103621dbfe8116e))
+
 ## 1.23.3 (2024-10-24)
 
 
 ### ⬆️ Upgraded Dependencies
+
+*  Bump actions/checkout from 4.2.1 to 4.2.2
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4.2.1 to 4.2.2.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871...11bd71901bbe5b1630ceea73d27597364c9af683)
+
+
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`ad36548`](https://github.com/OZI-Project/OZI/commit/ad365485088cd46957abed9ffaae1f917a1210c0))
+
+*  Bump OZI-Project/checkpoint from 1.0.2 to 1.1.0
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.0.2 to 1.1.0.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/fff79a1993b9a0822e7b594dcbdb164a7cff4292...9548ffcc24d2016c7d0f6c1a6742f0cd65039884)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`1d9fe07`](https://github.com/OZI-Project/OZI/commit/1d9fe073bcbb8fc9a697a54f133b03bebe8d89c8))
 
 *  ozi-core~=1.3.7 - fixes ozi-fix output — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
 ([`581e95a`](https://github.com/OZI-Project/OZI/commit/581e95aa58e2028123c07d8e767671475d72b272))
@@ -35,6 +79,22 @@ updated-dependencies:
   update-type: version-update:semver-minor
 ... — dependabot[bot] <support@github.com>
 ([`a5e3f05`](https://github.com/OZI-Project/OZI/commit/a5e3f05559d23144c61e56f1912b4ae2d393b0b0))
+
+
+### 🔨 Updated Scripts
+
+* (tasks.py): only build wheel directly if cibuildwheel fails or is disabled — rjdbcm <ozi.project@outlook.com>
+([`4565807`](https://github.com/OZI-Project/OZI/commit/45658071cc8a0c1e1c2f4e375bf473909e62db37))
+
+* (tasks.py): only build wheel directly if cibuildwheel fails or is disabled — rjdbcm <ozi.project@outlook.com>
+([`36931d7`](https://github.com/OZI-Project/OZI/commit/36931d73346feef91a6fada190e24dc0ea8ddf37))
+
+
+### Other
+
+
+* run black — rjdbcm <ozi.project@outlook.com>
+([`4771d47`](https://github.com/OZI-Project/OZI/commit/4771d47df74434547ba3bc54244df56a51c8e824))
 
 ## 1.23.2 (2024-10-19)
 
