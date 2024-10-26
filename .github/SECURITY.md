@@ -8,7 +8,7 @@ currently being supported with security updates.
 | Version | Supported          | ``semantic-release`` Version |
 | ------- | ------------------ | -----------------------------|
 | 1.23.x  | ☑️                 | 9.11                         |
-| 1.24.x  | ☑️                 | 9.11                         |
+| 1.24.x  | ☑️                 | 9.12                         |
 
 ## Disclosure
 
