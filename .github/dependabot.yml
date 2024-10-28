@@ -14,8 +14,18 @@ updates:
   - package-ecosystem: pip
     directories:
       - "/"
-      - "/ozi/dist/**/*"
-      - "/ozi/lint/**/*"
-      - "/ozi/test/**/*"
+      - "/ozi/dist/cibuildwheel"
+      - "/ozi/dist/semantic_release"
+      - "/ozi/dist/sigstore"
+      - "/ozi/dist/twine"
+      - "/ozi/lint/bandit"
+      - "/ozi/lint/black"
+      - "/ozi/lint/flake8"
+      - "/ozi/lint/isort"
+      - "/ozi/lint/mypy"
+      - "/ozi/lint/pyright"
+      - "/ozi/lint/readme-renderer"
+      - "/ozi/test/coverage"
+      - "/ozi/test/pytest"
     schedule:
       interval: daily
