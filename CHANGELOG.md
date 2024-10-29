@@ -1,4 +1,36 @@
 # OZI CHANGELOG
+## 1.24.1 (2024-10-28)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update ozi-core requirement from ~=1.4.2 to ~=1.4.4 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`a96518b`](https://github.com/OZI-Project/OZI/commit/a96518bf52307434fa46647448b0194cbc586708))
+
+*  Bump OZI-Project/checkpoint from 1.1.0 to 1.1.1
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.1.0 to 1.1.1.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/9548ffcc24d2016c7d0f6c1a6742f0cd65039884...ac0c03fc08ac2e7e4b4fbdf02249109384596313)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`48e2ed1`](https://github.com/OZI-Project/OZI/commit/48e2ed13b65c5f6716d2f8f7bad4b5a3805f748e))
+
+
+### Other
+
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`fbc965b`](https://github.com/OZI-Project/OZI/commit/fbc965bf438cc7afb77f54adcc6f92bb3515eccf))
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`68963d3`](https://github.com/OZI-Project/OZI/commit/68963d39f0547644012228054a53033c59fc60c8))
+
 ## 1.24.0 (2024-10-25)
 
 ## 1.23.4 (2024-10-25)
