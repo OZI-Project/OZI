@@ -1,8 +1,82 @@
 # OZI CHANGELOG
+## 1.24.2 (2024-10-29)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update ozi-core requirement from ~=1.4.4 to ~=1.4.5 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`b4b1a80`](https://github.com/OZI-Project/OZI/commit/b4b1a804fc32e57395cf6c223d58b20a5679a516))
+
 ## 1.24.1 (2024-10-28)
 
 
 ### ⬆️ Upgraded Dependencies
+
+*  Update flake8-comprehensions requirement in /ozi/lint/flake8
+
+Updates the requirements on [flake8-comprehensions](https://github.com/adamchainz/flake8-comprehensions) to permit the latest version.
+- [Changelog](https://github.com/adamchainz/flake8-comprehensions/blob/main/CHANGELOG.rst)
+- [Commits](https://github.com/adamchainz/flake8-comprehensions/compare/3.15.0...3.16.0)
+
+
+updated-dependencies:
+- dependency-name: flake8-comprehensions
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`ef1d7ec`](https://github.com/OZI-Project/OZI/commit/ef1d7ec2ee698b2063dae3d0fb24ffb282352bc9))
+
+*  Update flake8-no-pep420 requirement in /ozi/lint/flake8
+
+Updates the requirements on [flake8-no-pep420](https://github.com/adamchainz/flake8-no-pep420) to permit the latest version.
+- [Changelog](https://github.com/adamchainz/flake8-no-pep420/blob/main/CHANGELOG.rst)
+- [Commits](https://github.com/adamchainz/flake8-no-pep420/compare/2.7.0...2.8.0)
+
+
+updated-dependencies:
+- dependency-name: flake8-no-pep420
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`558b5d9`](https://github.com/OZI-Project/OZI/commit/558b5d955fa28de88dea6f4864f9a68bf1bf200f))
+
+*  Update pytest-randomly requirement in /ozi/test/pytest
+
+Updates the requirements on [pytest-randomly](https://github.com/pytest-dev/pytest-randomly) to permit the latest version.
+- [Changelog](https://github.com/pytest-dev/pytest-randomly/blob/main/CHANGELOG.rst)
+- [Commits](https://github.com/pytest-dev/pytest-randomly/compare/3.15.0...3.16.0)
+
+
+updated-dependencies:
+- dependency-name: pytest-randomly
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`44c93ee`](https://github.com/OZI-Project/OZI/commit/44c93ee3db376adc4f5ef9555059bf1e8f44f6de))
+
+*  Update flake8-tidy-imports requirement in /ozi/lint/flake8
+
+Updates the requirements on [flake8-tidy-imports](https://github.com/adamchainz/flake8-tidy-imports) to permit the latest version.
+- [Changelog](https://github.com/adamchainz/flake8-tidy-imports/blob/main/CHANGELOG.rst)
+- [Commits](https://github.com/adamchainz/flake8-tidy-imports/compare/4.10.0...4.11.0)
+
+
+updated-dependencies:
+- dependency-name: flake8-tidy-imports
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`e91c960`](https://github.com/OZI-Project/OZI/commit/e91c9600ce5ff4f0ee2e41ca11927f67d3c0c2ff))
+
+*  Bump actions/dependency-review-action from 4.3.5 to 4.4.0
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.3.5 to 4.4.0.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/a6993e2c61fd5dc440b409aa1d6904921c5e1894...4081bf99e2866ebe428fc0477b69eb4fcda7220a)
+
+
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`a05e35e`](https://github.com/OZI-Project/OZI/commit/a05e35e7c8920b80eb7254bfb0012284f08d1dd3))
 
 *  Update ozi-core requirement from ~=1.4.2 to ~=1.4.4 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
 ([`a96518b`](https://github.com/OZI-Project/OZI/commit/a96518bf52307434fa46647448b0194cbc586708))
@@ -24,6 +98,9 @@ updated-dependencies:
 
 ### Other
 
+
+* 👷 fix duplicate dependabot PRs — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`ed13f0a`](https://github.com/OZI-Project/OZI/commit/ed13f0a582c99fc88a552228b5e85ef98e01f157))
 
 * Update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
 ([`fbc965b`](https://github.com/OZI-Project/OZI/commit/fbc965bf438cc7afb77f54adcc6f92bb3515eccf))
