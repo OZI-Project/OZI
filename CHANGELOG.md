@@ -1,4 +1,22 @@
 # OZI CHANGELOG
+## 1.24.3 (2024-10-30)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update pytest-cov requirement in /ozi/test/pytest
+
+Updates the requirements on [pytest-cov](https://github.com/pytest-dev/pytest-cov) to permit the latest version.
+- [Changelog](https://github.com/pytest-dev/pytest-cov/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/pytest-dev/pytest-cov/compare/v5.0.0...v6.0.0)
+
+
+updated-dependencies:
+- dependency-name: pytest-cov
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`8812526`](https://github.com/OZI-Project/OZI/commit/8812526ee072511a7d00645094cc314853ef4ac9))
+
 ## 1.24.2 (2024-10-29)
 
 
