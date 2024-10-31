@@ -20,6 +20,9 @@ updated-dependencies:
 
 ### 🔨 Updated Scripts
 
+*  add fulcio.sigstore.dev:443 endpoint — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`3e247f3`](https://github.com/OZI-Project/OZI/commit/3e247f3963194e2347447ff24f47b8cd5fc85cb0))
+
 *  add tuf-repo-cdn.sigstore.dev:443 endpoint — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
 ([`ea939d5`](https://github.com/OZI-Project/OZI/commit/ea939d580d7f14c33ce0a46747061e45371af5c4))
 
