@@ -20,6 +20,9 @@ updated-dependencies:
 
 ### 🔨 Updated Scripts
 
+*  add rekor.sigstore.dev:443 endpoint — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`c165656`](https://github.com/OZI-Project/OZI/commit/c1656563a7f3340e23b93763d37d59680687a404))
+
 *  add fulcio.sigstore.dev:443 endpoint — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
 ([`3e247f3`](https://github.com/OZI-Project/OZI/commit/3e247f3963194e2347447ff24f47b8cd5fc85cb0))
 
