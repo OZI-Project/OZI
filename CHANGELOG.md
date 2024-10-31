@@ -1,5 +1,5 @@
 # OZI CHANGELOG
-## 1.24.3 (2024-10-30)
+## 1.24.3 (2024-10-31)
 
 
 ### ⬆️ Upgraded Dependencies
@@ -16,6 +16,12 @@ updated-dependencies:
   dependency-type: direct:production
 ... — dependabot[bot] <support@github.com>
 ([`8812526`](https://github.com/OZI-Project/OZI/commit/8812526ee072511a7d00645094cc314853ef4ac9))
+
+
+### 🔨 Updated Scripts
+
+*  add tuf-repo-cdn.sigstore.dev:443 endpoint — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`ea939d5`](https://github.com/OZI-Project/OZI/commit/ea939d580d7f14c33ce0a46747061e45371af5c4))
 
 ## 1.24.2 (2024-10-29)
 
