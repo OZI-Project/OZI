@@ -1,4 +1,68 @@
 # OZI CHANGELOG
+## 1.24.4 (2024-11-02)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update ozi-core requirement from ~=1.4.5 to ~=1.4.6 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`be0441f`](https://github.com/OZI-Project/OZI/commit/be0441fb680c4c439905ed8018dfdf17990eb0dc))
+
+*  Update hypothesis[cli,codemods,ghostwriter] requirement
+
+Updates the requirements on [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.115.0...hypothesis-python-6.116.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`785d000`](https://github.com/OZI-Project/OZI/commit/785d00092120a82b8fb07d6f6f3a506d3e76688e))
+
+*  Update flake8-bugbear requirement in /ozi/lint/flake8
+
+Updates the requirements on [flake8-bugbear](https://github.com/PyCQA/flake8-bugbear) to permit the latest version.
+- [Release notes](https://github.com/PyCQA/flake8-bugbear/releases)
+- [Commits](https://github.com/PyCQA/flake8-bugbear/compare/24.8.19...24.10.31)
+
+
+updated-dependencies:
+- dependency-name: flake8-bugbear
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`ed183a1`](https://github.com/OZI-Project/OZI/commit/ed183a1bf13738b4e4a63e56a71ae6b027e2b11e))
+
+## 1.24.3 (2024-10-31)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update pytest-cov requirement in /ozi/test/pytest
+
+Updates the requirements on [pytest-cov](https://github.com/pytest-dev/pytest-cov) to permit the latest version.
+- [Changelog](https://github.com/pytest-dev/pytest-cov/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/pytest-dev/pytest-cov/compare/v5.0.0...v6.0.0)
+
+
+updated-dependencies:
+- dependency-name: pytest-cov
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`8812526`](https://github.com/OZI-Project/OZI/commit/8812526ee072511a7d00645094cc314853ef4ac9))
+
+
+### 🔨 Updated Scripts
+
+*  add rekor.sigstore.dev:443 endpoint — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`c165656`](https://github.com/OZI-Project/OZI/commit/c1656563a7f3340e23b93763d37d59680687a404))
+
+*  add fulcio.sigstore.dev:443 endpoint — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`3e247f3`](https://github.com/OZI-Project/OZI/commit/3e247f3963194e2347447ff24f47b8cd5fc85cb0))
+
+*  add tuf-repo-cdn.sigstore.dev:443 endpoint — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`ea939d5`](https://github.com/OZI-Project/OZI/commit/ea939d580d7f14c33ce0a46747061e45371af5c4))
+
 ## 1.24.2 (2024-10-29)
 
 
