@@ -11,6 +11,9 @@
 ### Other
 
 
+* 👷 add github.com:443 endpoint to publish — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`57273a2`](https://github.com/OZI-Project/OZI/commit/57273a2c8a7972443b57485fc1537c9d44329100))
+
 * perf: add a rewrite task to invoke tasklist — rjdbcm <ozi.project@outlook.com>
 ([`d5355e0`](https://github.com/OZI-Project/OZI/commit/d5355e015b12a059aa2b92af137164508ad6b51f))
 
