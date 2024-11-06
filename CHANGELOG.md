@@ -1,4 +1,22 @@
 # OZI CHANGELOG
+## 1.24.5 (2024-11-06)
+
+
+### 🐛 Fixed Bugs
+
+*  force patch — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`c8ce3a4`](https://github.com/OZI-Project/OZI/commit/c8ce3a4e4b86442d5f647b6951c3f22a2f8ee79d))
+
+
+### Other
+
+
+* perf: add a rewrite task to invoke tasklist — rjdbcm <ozi.project@outlook.com>
+([`d5355e0`](https://github.com/OZI-Project/OZI/commit/d5355e015b12a059aa2b92af137164508ad6b51f))
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`a713129`](https://github.com/OZI-Project/OZI/commit/a713129b2c39e92fe514dc479cd283a99b2531e8))
+
 ## 1.24.4 (2024-11-02)
 
 
