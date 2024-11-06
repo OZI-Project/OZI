@@ -254,6 +254,7 @@ jobs:
         disable-sudo: true
         egress-policy: block
         allowed-endpoints: >
+          github.com:443
           api.github.com:443
           upload.pypi.org:443
           uploads.github.com:443
