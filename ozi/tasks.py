@@ -129,3 +129,9 @@ def publish(c: Context, ozi: bool = False) -> None:
     c.run('psr publish')
     c.run('twine check dist/*')
     c.run('twine upload dist/*')
+
+
+@task
+def rewrite(c: Context, command: str) -> None:
+    """Interactive mode entrypoint for meson rewrite."""
+    c.run(f'meson rewrite {command}')
