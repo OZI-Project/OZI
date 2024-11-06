@@ -11,6 +11,20 @@
 ### Other
 
 
+* Bump OZI-Project/publish from 1.4.0 to 1.4.1
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.4.0 to 1.4.1.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/a8bb776353d5b9f9bd678ef5ab2cd38bf5d4ad0f...42b2c7502712c4bfec2bebf507c01282ce769912)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`1692320`](https://github.com/OZI-Project/OZI/commit/1692320d8ce85c1796c8190f8353e80a5c705b2e))
+
 * 👷 add github.com:443 endpoint to publish — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
 ([`57273a2`](https://github.com/OZI-Project/OZI/commit/57273a2c8a7972443b57485fc1537c9d44329100))
 
