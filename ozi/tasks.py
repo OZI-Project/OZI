@@ -134,4 +134,4 @@ def publish(c: Context, ozi: bool = False) -> None:
 @task
 def rewrite(c: Context, command: str) -> None:
     """Interactive mode entrypoint for meson rewrite."""
-    c.run(f'meson rewrite command {command}')
+    c.run(f"meson rewrite command '{command}'")
