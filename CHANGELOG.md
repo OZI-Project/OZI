@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.24.7 (2024-11-07)
+
+
+### ✏️ Corrected Typos
+
+*  fix quotes
+([`4a0af75`](https://github.com/OZI-Project/OZI/commit/4a0af75b8f84d088efd6e753239ca39c18bafb1b))
+
 ## 1.24.6 (2024-11-07)
 
 
