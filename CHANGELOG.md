@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.24.6 (2024-11-07)
+
+
+### ✏️ Corrected Typos
+
+*  fix rewrite task — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`998d74b`](https://github.com/OZI-Project/OZI/commit/998d74b1ee21c704979bd58276c5a1ebd44a7aad))
+
 ## 1.24.5 (2024-11-06)
 
 
