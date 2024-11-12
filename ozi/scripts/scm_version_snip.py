@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 # /// script
 # requires-python = ">=3.10"
-# dependencies = ["setuptools_scm"]  # noqa: E800
+# dependencies = ["setuptools_scm"]
 # ///
 """python snippet: grab version info
 
