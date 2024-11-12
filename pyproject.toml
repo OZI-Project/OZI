@@ -185,6 +185,7 @@ max-line-length = 93
 extend-exclude = ["meson-private", "build-env-*", "vendor", "venv", "build*", "*.pyi"]
 extend-ignore = "E203,E501,TC007,TC008"
 extend-select = "B950"
+per-file-ignores = ['ozi/scripts/*:E800']
 
 [tool.isort]
 line_length = 93

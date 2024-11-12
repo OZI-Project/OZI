@@ -5,9 +5,9 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 # /// script
 # requires-python = ">=3.10"
-# dependencies = ['tomli>=2;python_version<="3.11"']  # noqa: E800
-# [tool.setuptools_scm]  # noqa: E800
-# version_file = "PKG-INFO"  # noqa: E800
+# dependencies = ['tomli>=2;python_version<="3.11"']
+# [tool.setuptools_scm]
+# version_file = "PKG-INFO"
 # ///
 """:pep:`723` script: deploy python PKG-INFO template for meson based on pyproject file.
 
@@ -41,19 +41,23 @@ if sys.version_info >= (3, 11):  # pragma: no cover
 elif sys.version_info < (3, 11):  # pragma: no cover
     import tomli as toml
 
-if __name__ == '__main__':
-    source = '/' / Path(
-        os.path.relpath(
-            os.path.join('/', os.environ.get('MESON_BUILD_ROOT', os.path.relpath('..'))),
-            '/',
-        ),
-    )
-    dist = '/' / Path(
-        os.path.relpath(
-            os.path.join('/', os.environ.get('MESON_DIST_ROOT', os.path.relpath('..'))),
-            '/',
-        ),
-    )
+if __name__ == '__main__':  # noqa: C901
+    if sys.platform == 'win32':
+        source = Path(os.environ.get('MESON_BUILD_ROOT'))
+        dist = Path(os.environ.get('MESON_DIST_ROOT'))
+    else:
+        source = '/' / Path(
+            os.path.relpath(
+                os.path.join('/', os.environ.get('MESON_BUILD_ROOT', os.path.relpath('..'))),
+                '/',
+            ),
+        )
+        dist = '/' / Path(
+            os.path.relpath(
+                os.path.join('/', os.environ.get('MESON_DIST_ROOT', os.path.relpath('..'))),
+                '/',
+            ),
+        )
     with (source / 'pyproject.toml').open('rb') as project_file:
         pyproject_toml = toml.load(project_file)
     setuptools_scm = pyproject_toml.get('tool', {}).get('setuptools_scm', {})
