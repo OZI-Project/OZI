@@ -1,4 +1,107 @@
 # OZI CHANGELOG
+## 1.24.8 (2024-11-12)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/checkpoint from 1.1.1 to 1.1.3
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.1.1 to 1.1.3.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/ac0c03fc08ac2e7e4b4fbdf02249109384596313...b6d5ac262ad76c8bc51d7474d630260e0403117c)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`1d53518`](https://github.com/OZI-Project/OZI/commit/1d5351897b2acd2e7794908db628d568aa5491cc))
+
+*  Bump OZI-Project/draft from 1.4.0 to 1.4.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.4.0 to 1.4.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/d797368c9870f3ca16373680b52db1ed4c333f21...9b883f1803600651f4cf46c98c767c5efe9bad48)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`c9d04cc`](https://github.com/OZI-Project/OZI/commit/c9d04ccd47defd2a67a48b6dd6887138ff6e126f))
+
+*  Bump github/codeql-action from 3.27.0 to 3.27.1
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.27.0 to 3.27.1.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/662472033e021d55d94146f66f6058822b0b39fd...4f3212b61783c3c68e8309a0f18a699764811cda)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`bf24dfd`](https://github.com/OZI-Project/OZI/commit/bf24dfddeabac508c3b6ca2dcea6ec3b5b927e33))
+
+*  Bump OZI-Project/publish
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from c5720ae47546df65ca1dcffd5a097f266928b453 to 5e8ac4ee1e29644949dc641c8c52d31fa2ed01fd.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/c5720ae47546df65ca1dcffd5a097f266928b453...5e8ac4ee1e29644949dc641c8c52d31fa2ed01fd)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`a5e5eda`](https://github.com/OZI-Project/OZI/commit/a5e5edaa689e7b505b8691c47cbf3c7421918286))
+
+*  Update ozi-build[core,uv] requirement from ~=1.5.2 to ~=1.6.1
+
+
+updated-dependencies:
+- dependency-name: ozi-build[core,uv]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`0bdf4fd`](https://github.com/OZI-Project/OZI/commit/0bdf4fd8c90744b6e7e55b3911469c1c8478efa8))
+
+*  Update hypothesis[cli,codemods,ghostwriter] requirement
+
+Updates the requirements on [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.116.0...hypothesis-python-6.118.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`5ab6874`](https://github.com/OZI-Project/OZI/commit/5ab687475ed071857d76e51c124718588b4e98ad))
+
+*  Bump OZI-Project/publish from 1.4.1 to 1.4.2
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.4.1 to 1.4.2.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/42b2c7502712c4bfec2bebf507c01282ce769912...c5720ae47546df65ca1dcffd5a097f266928b453)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`ccd2165`](https://github.com/OZI-Project/OZI/commit/ccd2165cbc95b3944929a317551ef6a8a2add94b))
+
+
+### 🐛 Fixed Bugs
+
+* 🚸: improved cross-platform compatibility of scripts and tasks.py tasks — rjdbcm <ozi.project@outlook.com>
+([`d4eb0f3`](https://github.com/OZI-Project/OZI/commit/d4eb0f3bd2da6dcd006ed57037992b842674a86f))
+
 ## 1.24.7 (2024-11-07)
 
 
