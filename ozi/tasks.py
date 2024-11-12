@@ -59,20 +59,21 @@ def setup(
 @task(setup)
 def sign_checkpoint(c: Context, suite: str | None = None) -> None:
     """Sign checkpoint suites with sigstore."""
-    banned = './'
+    banned = '.' + os.sep
     host = f'py{sys.version_info.major}{sys.version_info.minor}'
     if not suite:
         return print('No suite target provided', file=sys.stderr)
     if any(i in suite for i in banned):
         return print(f'Invalid sign target suite: {suite}', file=sys.stderr)
     testlog = Path(f'.tox/{suite}/tmp/meson-logs/testlog-{suite}.txt')  # noqa: S108
+    meson_log = Path(f'.tox/{suite}/tmp/meson-logs/meson-log.txt')  # noqa: S108
+    sigdir = Path(f'sig/{host}/{suite}')
     if testlog.exists():
-        c.run(f'sigstore sign --output-dir=sig/{host}/{suite} {testlog}')
+        c.run(f'sigstore sign --output-dir={sigdir} {testlog}')
     else:
         print(f'Test log not found for suite: {suite}.', file=sys.stderr)
-    meson_log = Path(f'.tox/{suite}/tmp/meson-logs/meson-log.txt')  # noqa: S108
     if meson_log.exists():
-        c.run(f'sigstore sign --output-dir=sig/{host}/{suite} {meson_log}')
+        c.run(f'sigstore sign --output-dir={sigdir} {meson_log}')
     else:
         print(f'Meson log not found for suite: {suite}.', file=sys.stderr)
 
@@ -103,7 +104,7 @@ def release(  # noqa: C901
     if sdist:
         c.run('python -m build --sdist')
         if sign:
-            c.run('sigstore sign --output-dir=sig dist/*.tar.gz')
+            c.run(f'sigstore sign --output-dir=sig dist{os.sep}*.tar.gz')
 
     if cibuildwheel:
         res = c.run('cibuildwheel --prerelease-pythons --output-dir dist .', warn=True)
@@ -113,7 +114,7 @@ def release(  # noqa: C901
         c.run('python -m build --wheel')
 
     if sign:
-        c.run('sigstore sign --output-dir=sig dist/*.whl')
+        c.run(f'sigstore sign --output-dir=sig dist{os.sep}*.whl')
 
 
 @task
@@ -127,8 +128,8 @@ def publish(c: Context, ozi: bool = False) -> None:
     """Publishes a release tag"""
     setup(c, suite='dist', ozi=ozi)
     c.run('psr publish')
-    c.run('twine check dist/*')
-    c.run('twine upload dist/*')
+    c.run(f'twine check dist{os.sep}*')
+    c.run(f'twine upload dist{os.sep}*')
 
 
 @task
