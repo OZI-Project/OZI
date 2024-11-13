@@ -6,6 +6,7 @@
 build-backend = "ozi_build.buildapi"
 requires      = ["OZI.build[core,uv]~=1.6.1"]
 
+
 [tool.ozi-build.entry-points]
 console_scripts = [
     "ozi = ozi.__main__:main",
