@@ -25,14 +25,18 @@ Environment Variables
 
 """
 import os
+import sys
 from pathlib import Path
 
 if __name__ == '__main__':
-    build = '/' / Path(
-        os.path.relpath(
-            Path('/', os.environ.get('MESON_BUILD_ROOT', Path('..').relative_to('.'))),
-            '/',
-        ),
-    )
+    if sys.platform == 'win32':
+        build = Path(os.environ.get('MESON_BUILD_ROOT'))
+    else:
+        build = '/' / Path(
+            os.path.relpath(
+                Path('/', os.environ.get('MESON_BUILD_ROOT', Path('..').relative_to('.'))),
+                '/',
+            ),
+        )
     file = build / 'pyproject.toml'
     file.write_text(file.read_text().replace('# target-version', 'target-version'))

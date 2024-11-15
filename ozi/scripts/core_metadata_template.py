@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 # /// script
 # requires-python = ">=3.10"
-# dependencies = ['tomli>=2;python_version<="3.11"']  # noqa: E800
+# dependencies = ['tomli>=2;python_version<="3.11"']
 # ///
 """:pep:`723` script template: check OZI core dependency metadata
 
@@ -41,12 +41,17 @@ elif sys.version_info < (3, 11):  # pragma: no cover
 
 if __name__ == '__main__':
     # pylint: disable=consider-using-with
-    source = pathlib.Path(
-        os.path.relpath(
-            os.path.join('/', os.environ.get('MESON_SOURCE_ROOT', os.path.relpath('..'))),
-            '/',
-        ),
-    )
+    if sys.platform == 'win32':
+        source = pathlib.Path(os.environ.get('MESON_SOURCE_ROOT'))
+    else:
+        source = pathlib.Path(
+            os.path.relpath(
+                os.path.join(
+                    '/', os.environ.get('MESON_SOURCE_ROOT', os.path.relpath('..'))
+                ),
+                '/',
+            ),
+        )
     project_file = open(source / 'pyproject.toml', 'rb')
     pyproject_toml = toml.load(project_file)
     project_file.close()
