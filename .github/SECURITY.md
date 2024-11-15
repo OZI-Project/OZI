@@ -8,6 +8,7 @@ currently being supported with security updates.
 | Version | Supported          | ``semantic-release`` Version |
 | ------- | ------------------ | -----------------------------|
 | 1.24.x  | ☑️                 | 9.12                         |
+| 1.25.x  | ☑️                 | 9.14                         |
 
 ## Disclosure
 
