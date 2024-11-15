@@ -1,4 +1,44 @@
 # OZI CHANGELOG
+## 1.25.1 (2024-11-15)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.27.3 to 3.27.4
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.27.3 to 3.27.4.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/396bb3e45325a47dd9ef434068033c6d5bb0d11a...ea9e4e37992a54ee68a9622e985e60c8e8f12d9f)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a8c4da9`](https://github.com/OZI-Project/OZI/commit/a8c4da9800700809b624d09867894199301a452d))
+
+*  Update hypothesis[cli,codemods,ghostwriter] requirement
+
+Updates the requirements on [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.118.0...hypothesis-python-6.119.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`bea54ec`](https://github.com/OZI-Project/OZI/commit/bea54ec140bb089a1842ec134939b5c83a350742))
+
+
+### Other
+
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`cb23644`](https://github.com/OZI-Project/OZI/commit/cb236448e9a2b606e3f50a513e2e727025f7c9f5))
+
 ## 1.25.0 (2024-11-15)
 
 
