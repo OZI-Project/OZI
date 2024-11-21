@@ -1,4 +1,62 @@
 # OZI CHANGELOG
+## 1.25.2 (2024-11-21)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump step-security/harden-runner from 2.10.1 to 2.10.2
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.10.1 to 2.10.2.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/91182cccc01eb5e619899d80e4e971d6181294a7...0080882f6c36860b6ba35c610c98ce87d4e2f26f)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`9b23f16`](https://github.com/OZI-Project/OZI/commit/9b23f16f4dbf0e4a552cbb559b01e1395549e792))
+
+*  Bump github/codeql-action from 3.27.4 to 3.27.5
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.27.4 to 3.27.5.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/ea9e4e37992a54ee68a9622e985e60c8e8f12d9f...f09c1c0a94de965c15400f5634aa42fac8fb8f88)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`3b7a3d2`](https://github.com/OZI-Project/OZI/commit/3b7a3d257dcf78bc8407d33668bc7401c6dd7a19))
+
+*  Bump actions/dependency-review-action from 4.4.0 to 4.5.0
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.4.0 to 4.5.0.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/4081bf99e2866ebe428fc0477b69eb4fcda7220a...3b139cfc5fae8b618d3eae3675e383bb1769c019)
+
+
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`4977ae5`](https://github.com/OZI-Project/OZI/commit/4977ae55954d79fa436721f1952c208502aff2d6))
+
+* ozi-core~=1.5.16, add ``--uninstall-user-files`` option to ``ozi`` — rjdbcm <ozi.project@outlook.com>
+([`8022dae`](https://github.com/OZI-Project/OZI/commit/8022daee1b46a4131912e31cfef84bafda3a1182))
+
+
+### Other
+
+
+* run black — rjdbcm <ozi.project@outlook.com>
+([`2f1c2fe`](https://github.com/OZI-Project/OZI/commit/2f1c2fec4a7b8faa61dbae2d47c3bac6c20ca524))
+
 ## 1.25.1 (2024-11-15)
 
 
