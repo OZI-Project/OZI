@@ -5,9 +5,9 @@
 Which versions of your project are
 currently being supported with security updates.
 
-| Version | Supported          | ``semantic-release`` Version |
-| ------- | ------------------ | -----------------------------|
-| 1.24.x  | ☑️                 | 9.12                         |
+| Version        | Supported          | ``semantic-release`` Version |
+| -------------- | ------------------ | -----------------------------|
+| 1.24.x-1.25.x  | ☑️                 | 9.12                         |
 
 ## Disclosure
 
