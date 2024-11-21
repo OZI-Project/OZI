@@ -110,7 +110,7 @@ helpers.add_argument(
     help=TRANSLATION('term-help-uninstall-user-files'),
     action='store_const',
     default=lambda: None,
-    const=lambda: uninstall_user_files()
+    const=lambda: uninstall_user_files(),
 )
 
 
