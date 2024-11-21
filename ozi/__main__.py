@@ -16,6 +16,7 @@ from ozi_core.actions import check_version  # pragma: no cover  # pyright: ignor
 from ozi_core.actions import info  # pragma: no cover  # pyright: ignore
 from ozi_core.actions import license_expression  # pragma: no cover  # pyright: ignore
 from ozi_core.actions import list_available  # pragma: no cover  # pyright: ignore
+from ozi_core.actions import uninstall_user_files  # pragma: no cover  # pyright: ignore
 
 from ozi import __version__
 
@@ -104,6 +105,13 @@ helpers.add_argument(  # pragma: no cover
     action='store',
     choices={i.name.replace('_', '-') for i in fields(ExactMatch) if i.repr},
 )
+helpers.add_argument(
+    '--uninstall-user-files',
+    help=TRANSLATION('term-help-uninstall-user-files'),
+    action='store_const',
+    default=lambda: None,
+    const=lambda: uninstall_user_files()
+)
 
 
 def main() -> None:  # pragma: no cover
@@ -112,6 +120,7 @@ def main() -> None:  # pragma: no cover
     ozi.version()
     ozi.check_version()
     ozi.info()
+    ozi.uninstall_user_files()
     if ozi.list_available:
         list_available(ozi.list_available)
     if ozi.check_license_expr:
