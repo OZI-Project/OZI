@@ -1,4 +1,19 @@
 # OZI CHANGELOG
+## 1.25.3 (2024-11-25)
+
+
+### ⬆️ Upgraded Dependencies
+
+* ozi-core~=1.5.20 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`96e1767`](https://github.com/OZI-Project/OZI/commit/96e17673ed2f77d1c96b1225978087053e3399a1))
+
+
+### Other
+
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`8ad9b7c`](https://github.com/OZI-Project/OZI/commit/8ad9b7c98a4939a39888b5b1d2e0e3837f142869))
+
 ## 1.25.2 (2024-11-21)
 
 
