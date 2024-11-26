@@ -1,4 +1,23 @@
 # OZI CHANGELOG
+## 1.25.5 (2024-11-26)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update cibuildwheel requirement in /ozi/dist/cibuildwheel
+
+Updates the requirements on [cibuildwheel](https://github.com/pypa/cibuildwheel) to permit the latest version.
+- [Release notes](https://github.com/pypa/cibuildwheel/releases)
+- [Changelog](https://github.com/pypa/cibuildwheel/blob/main/docs/changelog.md)
+- [Commits](https://github.com/pypa/cibuildwheel/compare/v2.21...v2.22)
+
+
+updated-dependencies:
+- dependency-name: cibuildwheel
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`ee6d69b`](https://github.com/OZI-Project/OZI/commit/ee6d69b5333d45be3129103e11103075dc77979b))
+
 ## 1.25.4 (2024-11-25)
 
 
