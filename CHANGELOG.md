@@ -1,4 +1,48 @@
 # OZI CHANGELOG
+## 1.25.6 (2024-11-28)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update bandit[toml] requirement in /ozi/lint/bandit
+
+Updates the requirements on [bandit[toml]](https://github.com/PyCQA/bandit) to permit the latest version.
+- [Release notes](https://github.com/PyCQA/bandit/releases)
+- [Commits](https://github.com/PyCQA/bandit/compare/1.7.0...1.8.0)
+
+
+updated-dependencies:
+- dependency-name: bandit[toml]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`0177aa2`](https://github.com/OZI-Project/OZI/commit/0177aa202a2ad938f7e9e3931bee77a0c3eb5408))
+
+*  Update hypothesis[cli,codemods,ghostwriter] requirement
+
+Updates the requirements on [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.119.0...hypothesis-python-6.120.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`8c5754c`](https://github.com/OZI-Project/OZI/commit/8c5754c3e7561b206339d14381eb81f28f3b2d2e))
+
+
+### Other
+
+
+* build(dist): cryptography~=43.0 — rjdbcm <ozi.project@outlook.com>
+([`9bddaa9`](https://github.com/OZI-Project/OZI/commit/9bddaa9a8d8fcd8e8a83de0b5e4db8f2d263552d))
+
+* build(dist): cryptography~=43.0 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`0cedb3e`](https://github.com/OZI-Project/OZI/commit/0cedb3e34763606eb93d8ed81698418dc8c05247))
+
+* Create .codeclimate.yml — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`4fbf939`](https://github.com/OZI-Project/OZI/commit/4fbf9395685992b35d0f81d26d1e0d3a6dfd1bb2))
+
 ## 1.25.5 (2024-11-26)
 
 
