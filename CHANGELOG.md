@@ -1,4 +1,5 @@
 # OZI CHANGELOG
+
 ## 1.25.4 (2024-11-25)
 
 
@@ -232,6 +233,13 @@ updated-dependencies:
 ⬆️ Update python-semantic-release requirement from ~=9.12 to ~=9.14 in /ozi/dist/semantic_release
 ([`0b2b959`](https://github.com/OZI-Project/OZI/commit/0b2b959630b4f101e887d5e8c801071ed67af2b8))
 
+## 1.24.9 (2024-11-29)
+
+
+### 📌 Pinned Dependencies
+
+* (twine): cryptography~=43.0 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`899334d`](https://github.com/OZI-Project/OZI/commit/899334dbae9d81b485b3635d07d4588b268c2e6e))
 ## 1.24.8 (2024-11-12)
 
 
