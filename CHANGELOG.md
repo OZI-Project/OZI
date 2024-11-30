@@ -1,5 +1,22 @@
 # OZI CHANGELOG
-## 1.24.10 (2024-11-30)
+## 1.26.0 (2024-11-30)
+
+
+### 🐛 Fixed Bugs
+
+*  ignore errant feature bump commit pattern  — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`163a093`](https://github.com/OZI-Project/OZI/commit/163a0935e956fc88be407c9cde1cbb145c56176d))
+
+*  retry release — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`7df65f7`](https://github.com/OZI-Project/OZI/commit/7df65f774b6b90d0b95c41f61d72d22e83dc94eb))
+
+
+### ✨ Implemented Features
+
+*  Merge pull request #1312 from OZI-Project/release/1.25
+
+Release/1.25
+([`a109892`](https://github.com/OZI-Project/OZI/commit/a109892fdb862946138d0c586f53206abebffc98))
 
 ## 1.25.6 (2024-11-28)
 
@@ -353,20 +370,18 @@ updated-dependencies:
 ([`99a6663`](https://github.com/OZI-Project/OZI/commit/99a6663f4b205a8d0a9de1e051a45eb734ce7343))
 
 
+### 📌 Pinned Dependencies
+
+* (twine): cryptography~=43.0 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`899334d`](https://github.com/OZI-Project/OZI/commit/899334dbae9d81b485b3635d07d4588b268c2e6e))
+
+
 ### ✨ Implemented Features
 
 *  python-semantic-release~=9.14
 
 ⬆️ Update python-semantic-release requirement from ~=9.12 to ~=9.14 in /ozi/dist/semantic_release
 ([`0b2b959`](https://github.com/OZI-Project/OZI/commit/0b2b959630b4f101e887d5e8c801071ed67af2b8))
-
-## 1.24.9 (2024-11-29)
-
-
-### 📌 Pinned Dependencies
-
-* (twine): cryptography~=43.0 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
-([`899334d`](https://github.com/OZI-Project/OZI/commit/899334dbae9d81b485b3635d07d4588b268c2e6e))
 
 ## 1.24.8 (2024-11-12)
 
