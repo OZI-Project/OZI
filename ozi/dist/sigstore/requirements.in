@@ -1,2 +1,2 @@
 sigstore~=3.0
-cryptography~=44.0
+cryptography~=43.0
