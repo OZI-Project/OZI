@@ -315,7 +315,10 @@ patch_tags = [
 
 [tool.semantic_release.changelog]
 changelog_file = "CHANGELOG.md"
-exclude_commit_patterns = ["Merge.*"]
+exclude_commit_patterns = [
+    "Merge.*",
+    ":sparkles: Merge pull request #1312.*",
+]
 
 [tool.semantic_release.remote]
 type = "github"
