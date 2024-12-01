@@ -1,5 +1,11 @@
 # OZI CHANGELOG
-## 1.26.0 (2024-11-30)
+## 1.26.0 (2024-12-01)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core~=1.5.22 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`7be5070`](https://github.com/OZI-Project/OZI/commit/7be5070b9ab9d12125bdd116e3aa42a9a78dc01c))
 
 
 ### 🐛 Fixed Bugs
@@ -17,6 +23,19 @@
 
 Release/1.25
 ([`a109892`](https://github.com/OZI-Project/OZI/commit/a109892fdb862946138d0c586f53206abebffc98))
+
+
+### Other
+
+
+* cryptography~=43.0 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`bc2cfb6`](https://github.com/OZI-Project/OZI/commit/bc2cfb693635aa77b855b185d06eb7de6037fa6a))
+
+* cryptography~=43.0 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`a4ee818`](https://github.com/OZI-Project/OZI/commit/a4ee8186dc5399c50f33caeb664894319274715d))
+
+* cryptography~=43.0 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`201df3a`](https://github.com/OZI-Project/OZI/commit/201df3ad1bf885fffc413002fd9df4fb68bb095b))
 
 ## 1.25.6 (2024-11-28)
 
