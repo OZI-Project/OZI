@@ -356,7 +356,7 @@ package = wheel
 deps =
      uv
 commands_pre =
-     python -m uv pip install OZI.build[uv,core]~=1.5
+     python -m uv pip install OZI.build[uv,core]~=1.7.2
      pipx install --python=python meson
 commands =
      meson setup {env_tmp_dir} -Ddist=disabled -Dtox-env-dir={env_dir}
