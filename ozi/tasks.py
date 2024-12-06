@@ -32,14 +32,14 @@ if TYPE_CHECKING:
     from invoke.runners import Result
 
 
-def build_sdist(c: Context, sdist: bool, sign: bool):
+def build_sdist(c: Context, sdist: bool, sign: bool) -> None:
     if sdist:
         c.run('python -m build --sdist')
     if sign:
         c.run(f'sigstore sign --output-dir=sig dist{os.sep}*.tar.gz')
 
 
-def build_wheel(c: Context, wheel: bool, cibuildwheel: bool, sign: bool):
+def build_wheel(c: Context, wheel: bool, cibuildwheel: bool, sign: bool) -> None:
     if cibuildwheel:
         os.environ['CIBW_BUILD'] = f'cp{sys.version_info.major}{sys.version_info.minor}*'
         res = c.run('cibuildwheel --prerelease-pythons --output-dir dist .', warn=True)
