@@ -32,6 +32,26 @@ if TYPE_CHECKING:
     from invoke.runners import Result
 
 
+def build_sdist(c: Context, sdist: bool, sign: bool):
+    if sdist:
+        c.run('python -m build --sdist')
+    if sign:
+        c.run(f'sigstore sign --output-dir=sig dist{os.sep}*.tar.gz')
+
+
+def build_wheel(c: Context, wheel: bool, cibuildwheel: bool, sign: bool):
+    if cibuildwheel:
+        os.environ['CIBW_BUILD'] = f'cp{sys.version_info.major}{sys.version_info.minor}*'
+        res = c.run('cibuildwheel --prerelease-pythons --output-dir dist .', warn=True)
+        if res is not None and res.exited != 0 and wheel:
+            c.run('python -m build --wheel')
+    elif wheel:
+        c.run('python -m build --wheel')
+
+    if sign and (wheel or cibuildwheel):
+        c.run(f'sigstore sign --output-dir=sig dist{os.sep}*.whl')
+
+
 @task
 def setup(
     c: Context,
@@ -98,22 +118,9 @@ def release(  # noqa: C901
     ozi: bool = False,
 ) -> None:
     """Create releases for the current interpreter."""
-    os.environ['CIBW_BUILD'] = f'cp{sys.version_info.major}{sys.version_info.minor}*'
     setup(c, suite='dist', draft=draft, ozi=ozi)
-    if sdist:
-        c.run('python -m build --sdist')
-        if sign:
-            c.run(f'sigstore sign --output-dir=sig dist{os.sep}*.tar.gz')
-
-    if cibuildwheel:
-        res = c.run('cibuildwheel --prerelease-pythons --output-dir dist .', warn=True)
-        if res is not None and res.exited != 0 and wheel:
-            c.run('python -m build --wheel')
-    elif wheel:
-        c.run('python -m build --wheel')
-
-    if sign:
-        c.run(f'sigstore sign --output-dir=sig dist{os.sep}*.whl')
+    build_sdist(c, sdist, sign)
+    build_wheel(c, wheel, cibuildwheel, sign)
 
 
 @task
