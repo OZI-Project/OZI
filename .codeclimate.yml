@@ -3,3 +3,5 @@ checks:
   method-complexity:
     config:
       threshold: 6
+exclude_patterns:
+- ozi/scripts/
