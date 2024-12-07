@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 [build-system]
 build-backend = "ozi_build.buildapi"
-requires      = ["OZI.build[core,uv]~=1.6.1"]
+requires      = ["OZI.build[core,uv]~=1.7.2"]
 
 
 [tool.ozi-build.entry-points]
@@ -57,7 +57,7 @@ tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
 dynamic = ["version"]
 license = {file = "LICENSE.txt"}
 dependencies = [
-    'ozi-core~=1.5.22',
+    'ozi-core~=1.5.23',
     'setuptools_scm[toml]',
     'tomli>=2.0.0;python_version<"3.11"',
 ]
@@ -356,7 +356,7 @@ package = wheel
 deps =
      uv
 commands_pre =
-     python -m uv pip install OZI.build[uv,core]~=1.5
+     python -m uv pip install OZI.build[uv,core]~=1.7.2
      pipx install --python=python meson
 commands =
      meson setup {env_tmp_dir} -Ddist=disabled -Dtox-env-dir={env_dir}
