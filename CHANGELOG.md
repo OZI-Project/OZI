@@ -1,4 +1,62 @@
 # OZI CHANGELOG
+## 1.26.1 (2024-12-07)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.27.5 to 3.27.6
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.27.5 to 3.27.6.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/f09c1c0a94de965c15400f5634aa42fac8fb8f88...aa578102511db1f4524ed59b8cc2bae4f6e88195)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`3a0de5f`](https://github.com/OZI-Project/OZI/commit/3a0de5f72281c2c0b198de7ab7cf95a57eb70aa7))
+
+*  ozi-core~=1.5.23 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`d707fdf`](https://github.com/OZI-Project/OZI/commit/d707fdffe6f70f926bd73d8d9b45b47ead62303f))
+
+
+### 🔨 Updated Scripts
+
+*  extract utility functions from release task — rjdbcm <ozi.project@outlook.com>
+([`78aae0c`](https://github.com/OZI-Project/OZI/commit/78aae0c4c04a20d067b992d903dce473477b8317))
+
+
+### Other
+
+
+* build: update tox OZI.build version to 1.7.2 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`958186c`](https://github.com/OZI-Project/OZI/commit/958186cfe18c814281c9160f66455303af2d820c))
+
+* Update ozi-build[core,uv] requirement from ~=1.6.1 to ~=1.7.2
+
+Updates the requirements on [ozi-build[core,uv]](https://github.com/OZI-Project/OZI.build) to permit the latest version.
+- [Release notes](https://github.com/OZI-Project/OZI.build/releases)
+- [Commits](https://github.com/OZI-Project/OZI.build/commits)
+
+
+updated-dependencies:
+- dependency-name: ozi-build[core,uv]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`1fe70e3`](https://github.com/OZI-Project/OZI/commit/1fe70e36b49e10adcee3dd3db8c0b5d52f8dbab1))
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`766ac6c`](https://github.com/OZI-Project/OZI/commit/766ac6c59cf5d15d8ea66484103f3b86f496a570))
+
+* Update .codeclimate.yml — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`f59455b`](https://github.com/OZI-Project/OZI/commit/f59455bc35f3dfc8962a0440562965ce87ba463d))
+
+* Update tasks.py — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`be4a809`](https://github.com/OZI-Project/OZI/commit/be4a8098bef0998d104ceb07c1a952b3cccde60e))
+
 ## 1.26.0 (2024-12-01)
 
 
