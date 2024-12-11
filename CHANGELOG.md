@@ -1,4 +1,90 @@
 # OZI CHANGELOG
+## 1.27.0 (2024-12-11)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update python-semantic-release requirement
+
+Updates the requirements on [python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) to permit the latest version.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.14...v9.15)
+
+
+updated-dependencies:
+- dependency-name: python-semantic-release
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`f331294`](https://github.com/OZI-Project/OZI/commit/f331294f04e901c6862adc9618a8bc3e57ac9e91))
+
+
+### ✨ Implemented Features
+
+*  semantic-release~=9.15
+
+⬆️ Update python-semantic-release requirement from ~=9.14 to ~=9.15 in /ozi/dist/semantic_release
+([`4a4e28a`](https://github.com/OZI-Project/OZI/commit/4a4e28a10adf85fabdcf5478725c8094a786686b))
+
+
+### Other
+
+
+* Bump OZI-Project/publish from 1.5.0 to 1.6.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.5.0 to 1.6.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/3ff1ebdd9edd89b30c126e0cf78e2d9754c0f9fa...e5fa598dca4f35b10e8071e1050c332c3263e11d)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`fe3467d`](https://github.com/OZI-Project/OZI/commit/fe3467dd59d2b92fae32daac5fe97b30334808c2))
+
+* Bump OZI-Project/draft from 1.5.0 to 1.6.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.5.0 to 1.6.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/e872ff9cded28eb22d937ba3fd9abfe4fc489239...71345732b81be9a093d4dd6409030b5d3e91e1ea)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`e3251bc`](https://github.com/OZI-Project/OZI/commit/e3251bc13041c22eb325424060f707faf7cc9308))
+
+* Update ozi-core requirement from ~=1.5.23 to ~=1.6.0
+
+Updates the requirements on [ozi-core](https://github.com/OZI-Project/ozi-core) to permit the latest version.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.6.0/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.5.23...1.6.0)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`a8c10b9`](https://github.com/OZI-Project/OZI/commit/a8c10b9aeb7e5437dc49aa147827f6e79aadceab))
+
+* Update ozi-build[core,uv] requirement from ~=1.7.2 to ~=1.8.0
+
+Updates the requirements on [ozi-build[core,uv]](https://github.com/OZI-Project/OZI.build) to permit the latest version.
+- [Release notes](https://github.com/OZI-Project/OZI.build/releases)
+- [Commits](https://github.com/OZI-Project/OZI.build/compare/1.7.2...1.8.0)
+
+
+updated-dependencies:
+- dependency-name: ozi-build[core,uv]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`045f178`](https://github.com/OZI-Project/OZI/commit/045f178b77cf0133d821a8687b871b9868ac9124))
+
 ## 1.26.1 (2024-12-07)
 
 
