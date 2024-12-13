@@ -1,2 +1,2 @@
-twine
+twine==6.0.1
 cryptography~=43.0
