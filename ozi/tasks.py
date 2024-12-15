@@ -107,10 +107,10 @@ def checkpoint(c: Context, suite: str, maxfail: int = 1, ozi: bool = False) -> N
     c.run(
         f'meson test --no-rebuild --maxfail={maxfail} -C {target} --setup={suite}',
     )
-    if testlog.exists():
-        print(testlog.read_text())
     if meson_log.exists():
         print(meson_log.read_text())
+    if testlog.exists():
+        print(testlog.read_text())
 
 
 @task
