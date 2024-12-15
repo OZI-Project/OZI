@@ -1,4 +1,47 @@
 # OZI CHANGELOG
+## 1.27.1 (2024-12-15)
+
+
+### 📌 Pinned Dependencies
+
+*  set twine to version 6.0.1 matching gh-action-pypi-publish — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`1b56d17`](https://github.com/OZI-Project/OZI/commit/1b56d175fc6aebe06a577dd9353bc15981dcc43a))
+
+
+### Other
+
+
+* Bump github/codeql-action from 3.27.6 to 3.27.9
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.27.6 to 3.27.9.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/aa578102511db1f4524ed59b8cc2bae4f6e88195...df409f7d9260372bd5f19e5b04e83cb3c43714ae)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a05492d`](https://github.com/OZI-Project/OZI/commit/a05492d09f1289bcdac7a886a82c0105f420007f))
+
+* Update flake8-bugbear requirement in /ozi/lint/flake8
+
+Updates the requirements on [flake8-bugbear](https://github.com/PyCQA/flake8-bugbear) to permit the latest version.
+- [Release notes](https://github.com/PyCQA/flake8-bugbear/releases)
+- [Commits](https://github.com/PyCQA/flake8-bugbear/compare/24.10.31...24.12.12)
+
+
+updated-dependencies:
+- dependency-name: flake8-bugbear
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`eb1f7ce`](https://github.com/OZI-Project/OZI/commit/eb1f7ce9f8ba8ad93253e970b1267439b5fd9da4))
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`ddf56fe`](https://github.com/OZI-Project/OZI/commit/ddf56fef35ed4960f62656b802fe6fd1c6b92c03))
+
 ## 1.27.0 (2024-12-11)
 
 
