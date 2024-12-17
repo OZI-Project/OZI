@@ -262,6 +262,6 @@ jobs:
           fulcio.sigstore.dev:443
           rekor.sigstore.dev:443
 
-    - uses: OZI-Project/publish@e5fa598dca4f35b10e8071e1050c332c3263e11d
+    - uses: OZI-Project/publish@8e64c6d501bee7b5b0db5247cd761085d411d1bf
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
