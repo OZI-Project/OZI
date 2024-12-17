@@ -102,13 +102,19 @@ def checkpoint(c: Context, suite: str, maxfail: int = 1, ozi: bool = False) -> N
     """Run OZI checkpoint suites with meson test."""
     setup(c, suite=suite, draft=False, ozi=ozi)
     target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
+    testlog = Path(f'.tox/{suite}/tmp/meson-logs/testlog-{suite}.txt')
+    meson_log = Path(f'.tox/{suite}/tmp/meson-logs/meson-log.txt')  # noqa: S108
     c.run(
         f'meson test --no-rebuild --maxfail={maxfail} -C {target} --setup={suite}',
     )
+    if meson_log.exists():
+        print(meson_log.read_text())
+    if testlog.exists():
+        print(testlog.read_text())
 
 
 @task
-def release(  # noqa: C901
+def release(  # noqa:
     c: Context,
     sdist: bool = False,
     draft: bool = False,

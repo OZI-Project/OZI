@@ -387,7 +387,6 @@ commands =
      pipx run --python {env_python} black -S .
      pipx run --python {env_python} isort .
      pipx run --python {env_python} autoflake -i -r .
-     pipx run --python {env_python} ruff check ozi --fix
 commands_post =
 
 [testenv:scm]

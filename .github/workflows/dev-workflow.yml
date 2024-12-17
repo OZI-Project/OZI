@@ -43,6 +43,7 @@ jobs:
       - uses: OZI-Project/checkpoint@5eb7b6ec9ba2eec71a0418270d92e9a6d81d285f # 1.4.0
         with:
           python-version: "3.10"
+          parallel: false
 
   checkpoint-cp311-ubuntu-latest:
     name: checkpoint (Python 3.11 on ubuntu-latest)
