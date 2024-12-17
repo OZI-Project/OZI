@@ -7,9 +7,10 @@ currently being supported with security updates.
 
 | Version | Supported          | ``semantic-release`` Version |
 | ------- | ------------------ | -----------------------------|
-| 1.25.x  | ☑️                 | 9.14                         |
-| 1.26.x  | ☑️                 | 9.14                         |
-| 1.27.x  | ☑️                 | 9.15                         |
+| 1.25.x  | ❌                 | 9.14                         |
+| 1.26.x  | ❌                 | 9.14                         |
+| 1.27.x  | ❌                 | 9.15                         |
+| 1.28.x  | ☑️                 | 9.15                         |
 
 ## Disclosure
 
