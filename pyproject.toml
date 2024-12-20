@@ -6,7 +6,6 @@
 build-backend = "ozi_build.buildapi"
 requires      = ["OZI.build[core,uv]~=1.8.0"]
 
-
 [tool.ozi-build.entry-points]
 console_scripts = [
     "ozi = ozi.__main__:main",
@@ -21,7 +20,6 @@ description-file = 'README.rst'
 home-page = 'https://oziproject.dev/'
 author = 'Eden Ross Duff MSc'
 author-email = 'help@oziproject.dev'
-license = 'Apache 2.0 WITH LLVM-exception'
 keywords = 'meson,packaging,wheel'
 project-urls = [
      'Bug Tracker, https://github.com/OZI-Project/OZI/issues',
@@ -55,7 +53,6 @@ tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
 
 [project]
 dynamic = ["version"]
-license = {file = "LICENSE.txt"}
 dependencies = [
     'ozi-core~=1.7.0',
     'setuptools_scm[toml]',
