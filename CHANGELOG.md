@@ -1,4 +1,99 @@
 # OZI CHANGELOG
+## 1.29.0 (2024-12-20)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  bump OZI-Project/draft from 1.6.3 to 1.7.0 (#1358)
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.6.3 to 1.7.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/b462b01f7f92a361d92233a8c2d326276c2d91a3...c0d23e778c413e1f5c7ca9555a1ec190c9e48cbd)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+([`3d495ec`](https://github.com/OZI-Project/OZI/commit/3d495eca5b4e0f341b2496b1deecd55cbddb0d3e))
+
+* bump OZI-Project/publish from 1.7.1 to 1.7.2 (#1359)
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.7.1 to 1.7.2.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/1.7.1...1.7.2)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+([`cca0829`](https://github.com/OZI-Project/OZI/commit/cca082973d4cdf23db92d5300adb2a09fa2e6a21))
+
+* bump actions/upload-artifact from 4.4.3 to 4.5.0 (#1360)
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.4.3 to 4.5.0.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882...6f51ac03b9356f520e9adb1b1b7802705f340c2b)
+
+
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+([`ad0330a`](https://github.com/OZI-Project/OZI/commit/ad0330ae611d84d659ad0ff127dcc6b89a375bf8))
+
+*  update ozi-core requirement from ~=1.7.0 to ~=1.8.0 (#1362)
+
+Updates the requirements on [ozi-core](https://github.com/OZI-Project/ozi-core) to permit the latest version.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.7.0...1.8.0)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+([`6479ecf`](https://github.com/OZI-Project/OZI/commit/6479ecfdcfceda27f260dd66ba8d23102ef99ba6))
+
+
+### ✨ Implemented Features
+
+* spec v0.16 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`db34bf2`](https://github.com/OZI-Project/OZI/commit/db34bf2b7c750a9b5343d4e194f5a781e06cbca7))
+
+
+### 🔨 Updated Configuration
+
+*  remove duplicate metadata for OZI.build 1.8.2 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`8a1be77`](https://github.com/OZI-Project/OZI/commit/8a1be773209f07bf68568048353115b494dce1a0))
+
+
+### Other
+
+
+* Update dist-workflow.yml — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`263c668`](https://github.com/OZI-Project/OZI/commit/263c668a01679446aad23d75acc890a1025e78b8))
+
+* Update dependabot.yml — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`681b8fa`](https://github.com/OZI-Project/OZI/commit/681b8faabe25f6fe8bfb6319468d93ebf85157f0))
+
 ## 1.28.0 (2024-12-17)
 
 
