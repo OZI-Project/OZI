@@ -10,6 +10,8 @@ updates:
     directory: /
     schedule:
       interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
 
   - package-ecosystem: pip
     directories:
@@ -29,3 +31,5 @@ updates:
       - "/ozi/test/pytest"
     schedule:
       interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
