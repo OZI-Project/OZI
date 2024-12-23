@@ -1,4 +1,56 @@
 # OZI CHANGELOG
+## 1.29.1 (2024-12-23)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.27.9 to 3.28.0
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.27.9 to 3.28.0.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/df409f7d9260372bd5f19e5b04e83cb3c43714ae...48ab28a6f5dbc2a99bf1e0131198dd8f1df78169)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`e1c78da`](https://github.com/OZI-Project/OZI/commit/e1c78daca9e58093208a4f49de3b71b8f10b3b2c))
+
+*  Update hypothesis[cli,codemods,ghostwriter] requirement
+
+Updates the requirements on [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.122.0...hypothesis-python-6.123.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`04c8977`](https://github.com/OZI-Project/OZI/commit/04c89771f56ba533a6a7d58250f4e88595d80756))
+
+
+### 🔥 Deleted Code or Files
+
+* delete .github/workflows/purge-artifacts.yml — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`b1fad1c`](https://github.com/OZI-Project/OZI/commit/b1fad1cfa959ce30032b834c430c9b9408a0089e))
+
+
+### 🔨 Updated Configuration
+
+* (StepSecurity): Harden GitHub Actions — StepSecurity Bot <bot@stepsecurity.io>
+([`796cd81`](https://github.com/OZI-Project/OZI/commit/796cd8136290e6538774be4923633cb280405db5))
+
+
+### Other
+
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`4621e2a`](https://github.com/OZI-Project/OZI/commit/4621e2a8712e22055b6ed774e30d419ff3b46afb))
+
 ## 1.29.0 (2024-12-20)
 
 
