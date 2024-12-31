@@ -54,7 +54,7 @@ tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
 [project]
 dynamic = ["version"]
 dependencies = [
-    'ozi-core~=1.8.0',
+    'ozi-core~=1.9.1',
     'setuptools_scm[toml]',
     'tomli>=2.0.0;python_version<"3.11"',
 ]
