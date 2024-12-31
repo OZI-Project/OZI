@@ -1,4 +1,47 @@
 # OZI CHANGELOG
+## 1.30.0 (2024-12-31)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update ozi-build[core,uv] requirement from ~=1.8.2 to ~=1.9.2
+
+
+updated-dependencies:
+- dependency-name: ozi-build[core,uv]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`6bf8e5b`](https://github.com/OZI-Project/OZI/commit/6bf8e5b7f8e32385d2edc8dba44034f62f828c1d))
+
+*  Update ozi-core requirement from ~=1.8.0 to ~=1.9.1
+
+Updates the requirements on [ozi-core](https://github.com/OZI-Project/ozi-core) to permit the latest version.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.9.1/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.8.0...1.9.1)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`f63e9dc`](https://github.com/OZI-Project/OZI/commit/f63e9dc30228f0e99ef6c0b75d7718b0cd73b1ce))
+
+
+### ✨ Implemented Features
+
+*  ozi-spec 0.17
+
+⬆️ Update ozi-core requirement from ~=1.8.0 to ~=1.9.1
+([`3e49ef9`](https://github.com/OZI-Project/OZI/commit/3e49ef9ae687134f368ce7c2398e614f5f0433d1))
+
+
+### Other
+
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`7b6c967`](https://github.com/OZI-Project/OZI/commit/7b6c967343cd39e472e655602e80cd612b1f36f0))
+
 ## 1.29.1 (2024-12-23)
 
 
