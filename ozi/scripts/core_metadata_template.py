@@ -5,7 +5,10 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 # /// script
 # requires-python = ">=3.10"
-# dependencies = ['tomli>=2;python_version<="3.11"']
+# dependencies = [
+# 'tomli>=2;python_version<="3.11"',
+# 'pathvalidate~=3.2',
+# ]
 # ///
 """:pep:`723` script template: check OZI core dependency metadata
 
@@ -34,6 +37,8 @@ import os
 import pathlib
 import sys
 
+from pathvalidate import validate_filepath
+
 if sys.version_info >= (3, 11):  # pragma: no cover
     import tomllib as toml
 elif sys.version_info < (3, 11):  # pragma: no cover
@@ -52,8 +57,8 @@ if __name__ == '__main__':
                 '/',
             ),
         )
-    project_file = open(source / 'pyproject.toml', 'rb')
-    pyproject_toml = toml.load(project_file)
-    project_file.close()
+    validate_filepath(source)
+    with open(source / 'pyproject.toml', 'rb') as fp:
+        pyproject_toml = toml.load(fp)
     core_metadata = pyproject_toml.get('project', {'optional_dependencies': {}})
     print(core_metadata.get('optional_dependencies', {'todo': []}).get('@0@', 'fail'))

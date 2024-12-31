@@ -5,7 +5,10 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 # /// script
 # requires-python = ">=3.10"
-# dependencies = ['tomli>=2;python_version<="3.11"']
+# dependencies = [
+# 'tomli>=2;python_version<="3.11"'
+# 'pathvalidate~=3.2',
+# ]
 # ///
 """:pep:`723` script: deploy python package build dependencies based on pyproject file.
 
@@ -30,6 +33,8 @@ import os
 import sys
 from pathlib import Path
 
+from pathvalidate import validate_filepath
+
 if sys.version_info >= (3, 11):  # pragma: no cover
     import tomllib as toml
 elif sys.version_info < (3, 11):  # pragma: no cover
@@ -53,6 +58,8 @@ if __name__ == '__main__':
                 '/',
             ),
         )
+    validate_filepath(source)
+    validate_filepath(dist)
     with (source / 'pyproject.toml').open('rb') as project_file:
         pyproject_toml = toml.load(project_file)
     dependencies = pyproject_toml.get('project', {}).get('dependencies', [])
