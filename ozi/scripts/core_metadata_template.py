@@ -57,7 +57,7 @@ if __name__ == '__main__':
                 '/',
             ),
         )
-    validate_filepath(source)
+    validate_filepath(source, platform='auto')
     with open(source / 'pyproject.toml', 'rb') as fp:
         pyproject_toml = toml.load(fp)
     core_metadata = pyproject_toml.get('project', {'optional_dependencies': {}})

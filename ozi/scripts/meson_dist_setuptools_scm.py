@@ -64,14 +64,14 @@ if __name__ == '__main__':  # noqa: C901
                 '/',
             ),
         )
-    validate_filepath(source)
-    validate_filepath(dist)
+    validate_filepath(source, platform='auto')
+    validate_filepath(dist, platform='auto')
     with (source / 'pyproject.toml').open('rb') as project_file:
         pyproject_toml = toml.load(project_file)
     setuptools_scm = pyproject_toml.get('tool', {}).get('setuptools_scm', {})
     try:
         version_file = setuptools_scm.get('version_file')
-        validate_filepath(version_file)
+        validate_filepath(version_file, platform='auto')
         path = Path(source / version_file).resolve()
     except TypeError:
         print(
@@ -79,12 +79,12 @@ if __name__ == '__main__':  # noqa: C901
             file=sys.stderr,
         )
         exit(0)
-    validate_filepath(path)
+    validate_filepath(path, platform='auto')
     if path.exists():
         path.unlink()
     if path.parent != Path(dist).resolve():
         raise RuntimeError('Invalid version_file path in pyproject.toml')
     else:
         version_file_template = setuptools_scm.get('version_file_template')
-        validate_filepath(version_file_template)
+        validate_filepath(version_file_template, platform='auto')
         path.write_text(version_file_template)

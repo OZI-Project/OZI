@@ -41,6 +41,6 @@ if __name__ == '__main__':
                 '/',
             ),
         )
-    validate_filepath(build)
+    validate_filepath(build, platform='auto')
     file = build / 'pyproject.toml'
     file.write_text(file.read_text().replace('# target-version', 'target-version'))

@@ -58,8 +58,8 @@ if __name__ == '__main__':
                 '/',
             ),
         )
-    validate_filepath(source)
-    validate_filepath(dist)
+    validate_filepath(source, platform='auto')
+    validate_filepath(dist, platform='auto')
     with (source / 'pyproject.toml').open('rb') as project_file:
         pyproject_toml = toml.load(project_file)
     dependencies = pyproject_toml.get('project', {}).get('dependencies', [])
