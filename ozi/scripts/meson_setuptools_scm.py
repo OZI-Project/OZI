@@ -5,7 +5,10 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 # /// script
 # requires-python = ">=3.10"
-# dependencies = ['tomli>=2;python_version<="3.11"']
+# dependencies = [
+# 'tomli>=2;python_version<="3.11"',
+# 'pathvalidate~=3.2',
+# ]
 # [tool.setuptools_scm]
 # version_file = "PKG-INFO"
 # ///
@@ -35,6 +38,9 @@ import os
 import sys
 from pathlib import Path
 
+from pathvalidate import ValidationError
+from pathvalidate import validate_filepath
+
 if sys.version_info >= (3, 11):  # pragma: no cover
     import tomllib as toml
 elif sys.version_info < (3, 11):  # pragma: no cover
@@ -50,18 +56,24 @@ if __name__ == '__main__':
                 '/',
             ),
         )
+    validate_filepath(source, platform='auto')
     with (source / 'pyproject.toml').open('rb') as project_file:
         pyproject_toml = toml.load(project_file)
     setuptools_scm = pyproject_toml.get('tool', {}).get('setuptools_scm', {})
     try:
-        path = Path(source / setuptools_scm.get('version_file')).resolve()
-    except TypeError:
+        version_file = setuptools_scm.get('version_file')
+        validate_filepath(version_file, platform='auto')
+        path = Path(source / version_file).resolve()
+    except (TypeError, ValidationError):
         print(
             'no METADATA path provided by setuptools_scm, assuming OZI.build 1.3+',
             file=sys.stderr,
         )
         exit(0)
+    validate_filepath(path, platform='auto')
     if path.parent != Path(source).resolve():
         raise RuntimeError('Invalid version_file path in pyproject.toml')
     else:
-        path.write_text(setuptools_scm.get('version_file_template'))
+        version_file_template = setuptools_scm.get('version_file_template')
+        validate_filepath(version_file_template, platform='auto')
+        path.write_text(version_file_template)

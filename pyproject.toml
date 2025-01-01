@@ -54,6 +54,7 @@ tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
 [project]
 dynamic = ["version"]
 dependencies = [
+    'pathvalidate~=3.2.1',
     'ozi-core~=1.10.0',
     'setuptools_scm[toml]',
     'tomli>=2.0.0;python_version<"3.11"',
@@ -353,7 +354,7 @@ package = wheel
 deps =
      uv
 commands_pre =
-     python -m uv pip install OZI.build[uv,core]~=1.8.2
+     python -m uv pip install OZI.build[uv,core]~=1.10.0
      pipx install --python=python meson
 commands =
      meson setup {env_tmp_dir} -Ddist=disabled -Dtox-env-dir={env_dir}
