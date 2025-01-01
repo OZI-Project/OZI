@@ -5,6 +5,9 @@
 ### Other
 
 
+* fix: ignore deprecated branch ValidationError — rjdbcm <ozi.project@outlook.com>
+([`e790fdc`](https://github.com/OZI-Project/OZI/commit/e790fdc7b5eb2a927db6222ca803ffa46c794201))
+
 * Update pyproject.toml — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
 ([`7c41335`](https://github.com/OZI-Project/OZI/commit/7c41335aaa38aa85544c94cbef6bba6c3a573b42))
 
