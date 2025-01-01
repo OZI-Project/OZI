@@ -39,6 +39,7 @@ import os
 import sys
 from pathlib import Path
 
+from pathvalidate import ValidationError
 from pathvalidate import validate_filepath
 
 if sys.version_info >= (3, 11):  # pragma: no cover
@@ -73,7 +74,7 @@ if __name__ == '__main__':  # noqa: C901
         version_file = setuptools_scm.get('version_file')
         validate_filepath(version_file, platform='auto')
         path = Path(source / version_file).resolve()
-    except TypeError:
+    except (TypeError, ValidationError):
         print(
             'no METADATA path provided by setuptools_scm, assuming OZI.build 1.3+',
             file=sys.stderr,
