@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.31.3 (2025-01-12)
+
+
+### 🐛 Fixed Bugs
+
+*  create_subproject_symlink now runs as a postconf script — rjdbcm <ozi.project@outlook.com>
+([`9bd1746`](https://github.com/OZI-Project/OZI/commit/9bd1746155d71e394f5865bfb81beb7b8e454571))
+
 ## 1.31.2 (2025-01-12)
 
 
