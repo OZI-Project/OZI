@@ -9,8 +9,7 @@ project(
         [
             '-c',
             '''from setuptools_scm import get_version
-from packaging.version import Version
-v = get_version(normalize=False)
+v = get_version(normalize=False, fallback_version="wrap-file")
 print(v)
 ''',
         ],
@@ -81,6 +80,11 @@ meson_setuptools_scm = run_command(
     ['-c', python_readlines.format(scripts / 'meson_setuptools_scm.py')],
     check: true,
 ).stdout()
+create_subproject_symlink = run_command(
+    python,
+    ['-c', python_readlines.format(scripts / 'create_subproject_symlink.py')],
+    check: true,
+).stdout()
 meson_dist_setuptools_scm = run_command(
     python,
     ['-c', python_readlines.format(scripts / 'meson_dist_setuptools_scm.py')],
@@ -122,6 +126,7 @@ replace_ruff_target_version = run_command(
     ['-c', python_readlines.format(scripts / 'replace_ruff_target_version.py')],
     check: true,
 ).stdout()
+run_command(python, ['-c', create_subproject_symlink], check: true)
 run_command(python, ['-c', replace_ruff_target_version], check: true)
 install_cmd = find_program(
     get_option('install-requirements-command')[0],
