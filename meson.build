@@ -126,7 +126,7 @@ replace_ruff_target_version = run_command(
     ['-c', python_readlines.format(scripts / 'replace_ruff_target_version.py')],
     check: true,
 ).stdout()
-meson.add_postconf_script(python, '-c', create_subproject_symlink)
+run_command(python, ['-c', create_subproject_symlink], check: true)
 run_command(python, ['-c', replace_ruff_target_version], check: true)
 install_cmd = find_program(
     get_option('install-requirements-command')[0],
