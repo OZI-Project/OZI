@@ -4,7 +4,8 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 # /// script
-# requires-python = ">=3.10"
+# requires-python = ">=3.10"\
+# dependencies = ['pathvalidate~=3.2',]
 # ///
 """:pep:`723` script: replace commented target-version in [tool.ruff].
 
@@ -28,6 +29,8 @@ import os
 import sys
 from pathlib import Path
 
+from pathvalidate import validate_filepath
+
 if __name__ == '__main__':
     if sys.platform == 'win32':
         build = Path(os.environ.get('MESON_BUILD_ROOT'))
@@ -38,5 +41,6 @@ if __name__ == '__main__':
                 '/',
             ),
         )
+    validate_filepath(build, platform='auto')
     file = build / 'pyproject.toml'
     file.write_text(file.read_text().replace('# target-version', 'target-version'))
