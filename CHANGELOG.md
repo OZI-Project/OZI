@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.31.4 (2025-01-12)
+
+
+### 🐛 Fixed Bugs
+
+*  fix symlink in build — rjdbcm <ozi.project@outlook.com>
+([`3d925c3`](https://github.com/OZI-Project/OZI/commit/3d925c38854bf9b2ee1be099e2943959efe9e1e6))
+
 ## 1.31.3 (2025-01-12)
 
 
