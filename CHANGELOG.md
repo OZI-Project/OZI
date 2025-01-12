@@ -1,4 +1,6 @@
 # OZI CHANGELOG
+## 1.31.1 (2025-01-12)
+
 ## 1.31.0 (2025-01-01)
 
 
@@ -73,6 +75,9 @@ updated-dependencies:
 
 * (deps): add ``pathvalidate`` dependency and validate user-provided filepaths — rjdbcm <ozi.project@outlook.com>
 ([`9590353`](https://github.com/OZI-Project/OZI/commit/959035317153bb2cc5e7a8a55b37cd9b72d11451))
+
+*  add create_subproject_symlink.py script — rjdbcm <ozi.project@outlook.com>
+([`7e6923f`](https://github.com/OZI-Project/OZI/commit/7e6923fd26201ab7f46c87c141394d365a3a4194))
 
 
 ### ✨ Implemented Features
