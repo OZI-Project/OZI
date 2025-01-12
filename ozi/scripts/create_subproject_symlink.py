@@ -27,6 +27,7 @@ Environment Variables
 import os
 import pathlib
 import sys
+from contextlib import suppress
 from glob import glob
 
 from pathvalidate import validate_filepath
@@ -43,10 +44,12 @@ if __name__ == '__main__':
         )
     validate_filepath(source)
     try:
-        target = pathlib.Path(glob('subprojects/OZI-*', root_dir=source)[0])
-        (source / 'subprojects' / 'ozi').symlink_to(
-            '..' / target,
+        target = pathlib.Path(glob('subprojects/OZI-*', root_dir='/' / source)[0])
+    except IndexError:
+        print('OZI subproject directory not found', file=sys.stderr)
+        exit(0)
+    with suppress(FileExistsError):
+        ('/' / source / 'subprojects' / 'ozi').symlink_to(
+            '/' / source / target,
             target_is_directory=True,
         )
-    except IndexError:
-        pass
