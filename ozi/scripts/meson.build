@@ -4,6 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 config_files = [
     'core_metadata_template.py',
+    'create_subproject_symlink.py',
     'scm_version_snip.py',
     'meson_setuptools_scm.py',
     'meson_dist_setuptools_scm.py',
