@@ -45,7 +45,7 @@ if __name__ == '__main__':
     try:
         target = pathlib.Path(glob('subprojects/OZI-*', root_dir=source)[0])
         (source / 'subprojects' / 'ozi').symlink_to(
-            '..',
+            '..' / target,
             target_is_directory=True,
         )
     except IndexError:
