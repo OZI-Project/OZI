@@ -1,4 +1,113 @@
 # OZI CHANGELOG
+## 1.32.0 (2025-01-14)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/publish from 1.7.2 to 1.7.3
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.7.2 to 1.7.3.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/67952e32de84496a2ed2729ffbc612a63d4ede47...fd7b8704941103ceec5a24f80d0999d2209ed8f2)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`2b8f4e2`](https://github.com/OZI-Project/OZI/commit/2b8f4e26722a79858004de94f7e40343e4427fa4))
+
+*  Bump OZI-Project/draft from 1.7.0 to 1.8.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.7.0 to 1.8.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/c0d23e778c413e1f5c7ca9555a1ec190c9e48cbd...ae5afb49d75af6437247b504812f049e5607d342)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`4158193`](https://github.com/OZI-Project/OZI/commit/4158193796efd07a9d11e3955f0a7555e5e3e867))
+
+*  Bump OZI-Project/checkpoint from 1.4.0 to 1.5.3
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.4.0 to 1.5.3.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/5eb7b6ec9ba2eec71a0418270d92e9a6d81d285f...e8968b10918a82bf03e196f5feac1669ccdf98e2)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`6183b78`](https://github.com/OZI-Project/OZI/commit/6183b789662e398209d202f7db47c930b5930282))
+
+*  Bump OZI-Project/release from 1.1.2 to 1.3.1
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.1.2 to 1.3.1.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/0e2db492d3d36479eadc1ba15e509e911816bc39...5fead75f13134fe16226c4eba87ae80b52876ab0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`c19cb94`](https://github.com/OZI-Project/OZI/commit/c19cb94a00d5a93f75c6086f12d38d05870e8d3b))
+
+*  Bump step-security/harden-runner from 2.10.2 to 2.10.3
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.10.2 to 2.10.3.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/0080882f6c36860b6ba35c610c98ce87d4e2f26f...c95a14d0e5bab51a9f56296a4eb0e416910cd350)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`bd5113f`](https://github.com/OZI-Project/OZI/commit/bd5113f16f7a72621bc3e26c99528c4e4577056b))
+
+*  Update flake8-pytest-style requirement in /ozi/lint/flake8
+
+Updates the requirements on [flake8-pytest-style](https://github.com/m-burst/flake8-pytest-style) to permit the latest version.
+- [Commits](https://github.com/m-burst/flake8-pytest-style/compare/v2.0.0...v2.1.0)
+
+
+updated-dependencies:
+- dependency-name: flake8-pytest-style
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`ba09738`](https://github.com/OZI-Project/OZI/commit/ba09738bb885c604f94a7ac83174510f35c2c164))
+
+*  Update ozi-core requirement from ~=1.10.0 to ~=1.11.2
+
+Updates the requirements on [ozi-core](https://github.com/OZI-Project/ozi-core) to permit the latest version.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.11.2/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.10.0...1.11.2)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`629e72e`](https://github.com/OZI-Project/OZI/commit/629e72ea3c724d557c8e13296ca31a1389516a66))
+
+
+### ✨ Implemented Features
+
+*  update ozi-spec requirement from ~=0.18.0 to ~=0.19.0
+
+⬆️ Update ozi-core requirement from ~=1.10.0 to ~=1.11.2
+([`4098d63`](https://github.com/OZI-Project/OZI/commit/4098d63450ed1121a612b97df75683198d95c34b))
+
 ## 1.31.4 (2025-01-12)
 
 
