@@ -1,5 +1,29 @@
 # OZI CHANGELOG
+## 1.33.1 (2025-01-18)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update ozi-core requirement from ~=1.12.1 to ~=1.12.2 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`de7e700`](https://github.com/OZI-Project/OZI/commit/de7e7001c41a2fbe0f15556fb471b874ff3e5793))
+
 ## 1.33.0 (2025-01-17)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update flake8-type-checking requirement in /ozi/lint/flake8
+
+Updates the requirements on [flake8-type-checking](https://github.com/snok/flake8-type-checking) to permit the latest version.
+- [Release notes](https://github.com/snok/flake8-type-checking/releases)
+- [Commits](https://github.com/snok/flake8-type-checking/compare/v2.9.0...v3.0.0)
+
+
+updated-dependencies:
+- dependency-name: flake8-type-checking
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`6d27b01`](https://github.com/OZI-Project/OZI/commit/6d27b01e6b9fc0cd353724a583a26e6ffbb0686c))
 
 ## 1.32.0 (2025-01-14)
 
