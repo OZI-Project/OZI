@@ -1,4 +1,109 @@
 # OZI CHANGELOG
+## 1.33.3 (2025-01-27)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.12.3 to 1.12.4
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.12.3 to 1.12.4.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.12.4/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.12.3...1.12.4)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`800912d`](https://github.com/OZI-Project/OZI/commit/800912dee9b801fcf065f96d2eacec43a7bfafff))
+
+## 1.33.2 (2025-01-27)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump step-security/harden-runner from 2.10.3 to 2.10.4
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.10.3 to 2.10.4.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/c95a14d0e5bab51a9f56296a4eb0e416910cd350...cb605e52c26070c328afc4562f0b4ada7618a84e)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a44d2e8`](https://github.com/OZI-Project/OZI/commit/a44d2e8b11501e1f09a90fa90cc169563ad282e9))
+
+*  Bump github/codeql-action from 3.28.4 to 3.28.5
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.4 to 3.28.5.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/ee117c905ab18f32fa0f66c2fe40ecc8013f3e04...f6091c0113d1dcf9b98e269ee48e8a7e51b7bdd4)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`8564565`](https://github.com/OZI-Project/OZI/commit/856456542a4275b55a4bf849ce45d5577fa64961))
+
+*  Bump twine from 6.0.1 to 6.1.0 in /ozi/dist/twine
+
+Bumps [twine](https://github.com/pypa/twine) from 6.0.1 to 6.1.0.
+- [Release notes](https://github.com/pypa/twine/releases)
+- [Changelog](https://github.com/pypa/twine/blob/main/docs/changelog.rst)
+- [Commits](https://github.com/pypa/twine/compare/6.0.1...6.1.0)
+
+
+updated-dependencies:
+- dependency-name: twine
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`a0e7de9`](https://github.com/OZI-Project/OZI/commit/a0e7de905412cfee276f9e496cc084f555672a86))
+
+*  Bump github/codeql-action from 3.28.1 to 3.28.4
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.1 to 3.28.4.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/b6a472f63d85b9c78a3ac5e89422239fc15e9b3c...ee117c905ab18f32fa0f66c2fe40ecc8013f3e04)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`d4c90e1`](https://github.com/OZI-Project/OZI/commit/d4c90e1cb8ba85b1abf3411e1ff0cce9e2e0df72))
+
+*  Bump pypa/gh-action-pypi-publish from 1.12.3 to 1.12.4
+
+Bumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.12.3 to 1.12.4.
+- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)
+- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/67339c736fd9354cd4f8cb0b744f2b82a74b5c70...76f52bc884231f62b9a034ebfe128415bbaabdfc)
+
+
+updated-dependencies:
+- dependency-name: pypa/gh-action-pypi-publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`8844a10`](https://github.com/OZI-Project/OZI/commit/8844a1019eed187dc29be649a173d53cb18cdb7d))
+
+
+### Other
+
+
+* build: pin ozi-core version — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`4c69de2`](https://github.com/OZI-Project/OZI/commit/4c69de247f2db641555743a14d338c9221ca7a72))
+
 ## 1.33.1 (2025-01-18)
 
 
