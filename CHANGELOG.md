@@ -1,8 +1,84 @@
 # OZI CHANGELOG
+## 1.34.0 (2025-01-28)
+
 ## 1.33.3 (2025-01-27)
+
+## 1.33.2 (2025-01-27)
 
 
 ### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/draft from 1.9.0 to 1.10.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.9.0 to 1.10.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/31451b7f6a49b6ef70270b59ff70585d76677012...44efdab7f2755cdda29697adf8951e25b468a696)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`1d66bdb`](https://github.com/OZI-Project/OZI/commit/1d66bdb0df9b7c0b3eeeb10baeb52e9e0f3e49e4))
+
+*  Bump OZI-Project/publish from 1.8.0 to 1.9.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.8.0 to 1.9.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/025b6cb35f983387bb0981661eae0beddb8282fe...2467f6f7d938a0587d8dbc3f1155bab825f35283)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`cf45e14`](https://github.com/OZI-Project/OZI/commit/cf45e14b0503f63ada1e8d276b7b0ff79434c07d))
+
+*  Bump github/codeql-action from 3.28.5 to 3.28.6
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.5 to 3.28.6.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/f6091c0113d1dcf9b98e269ee48e8a7e51b7bdd4...17a820bf2e43b47be2c72b39cc905417bc1ab6d0)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`45829a1`](https://github.com/OZI-Project/OZI/commit/45829a1b918db18daf1a2c4164afd4a573295852))
+
+*  Update python-semantic-release requirement
+
+Updates the requirements on [python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) to permit the latest version.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.16...v9.17)
+
+
+updated-dependencies:
+- dependency-name: python-semantic-release
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`847b994`](https://github.com/OZI-Project/OZI/commit/847b994407f6c42e0b61cf49cd00a6f2ae458680))
+
+*  Bump ozi-core from 1.12.4 to 1.13.0
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.12.4 to 1.13.0.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.13.0/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.12.4...1.13.0)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`98712eb`](https://github.com/OZI-Project/OZI/commit/98712eb68cdc9f5bec04ab948af8b38d7a36bdb8))
 
 *  Bump ozi-core from 1.12.3 to 1.12.4
 
@@ -18,11 +94,6 @@ updated-dependencies:
   update-type: version-update:semver-patch
 ... — dependabot[bot] <support@github.com>
 ([`800912d`](https://github.com/OZI-Project/OZI/commit/800912dee9b801fcf065f96d2eacec43a7bfafff))
-
-## 1.33.2 (2025-01-27)
-
-
-### ⬆️ Upgraded Dependencies
 
 *  Bump step-security/harden-runner from 2.10.3 to 2.10.4
 
@@ -96,6 +167,20 @@ updated-dependencies:
   update-type: version-update:semver-patch
 ... — dependabot[bot] <support@github.com>
 ([`8844a10`](https://github.com/OZI-Project/OZI/commit/8844a1019eed187dc29be649a173d53cb18cdb7d))
+
+
+### 📌 Pinned Dependencies
+
+*  isort~=6.0.0 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`740518b`](https://github.com/OZI-Project/OZI/commit/740518b165caf78b8adf115f03a9ba72e4d73ab1))
+
+
+### ✨ Implemented Features
+
+*  ozi-spec 0.21
+
+⬆️ Update python-semantic-release requirement from ~=9.16 to ~=9.17 in /ozi/dist/semantic_release
+([`25f42dc`](https://github.com/OZI-Project/OZI/commit/25f42dc87b70c58b6e7f53f552dccdf5fcf100c1))
 
 
 ### Other
@@ -5521,6 +5606,15 @@ Merge pull request #758 from OZI-Project/release/1.13
 ([`02dff10`](https://github.com/OZI-Project/OZI/commit/02dff10c3f87b3c279bc242469d82d0958a9be21))
 
 
+### 📝 Updated Documentation
+
+* (ozi-new interactive): fix usage for docs — rjdbcm <ozi.project@outlook.com>
+([`a6bca88`](https://github.com/OZI-Project/OZI/commit/a6bca88f84574ce745d776906c06cbcd92556129))
+
+*  Update README — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`3ad41ee`](https://github.com/OZI-Project/OZI/commit/3ad41ee48630e301043b62c9ae683719d0ad3669))
+
+
 ### Other
 
 
@@ -5529,14 +5623,8 @@ Merge pull request #758 from OZI-Project/release/1.13
 Automatically generated by python-semantic-release
 ([`314123e`](https://github.com/OZI-Project/OZI/commit/314123e352a8b84d1ba442255550b3c5f9e93c45))
 
-* 📝(ozi-new interactive): fix usage for docs — rjdbcm <ozi.project@outlook.com>
-([`a6bca88`](https://github.com/OZI-Project/OZI/commit/a6bca88f84574ce745d776906c06cbcd92556129))
-
 * 🚨 run lint — rjdbcm <ozi.project@outlook.com>
 ([`771d1bd`](https://github.com/OZI-Project/OZI/commit/771d1bdeb8b4b682eafa11e3a5d6ff9da6dda2be))
-
-* 📝 Update README — Eden Ross Duff, MSc <ozi.project@outlook.com>
-([`3ad41ee`](https://github.com/OZI-Project/OZI/commit/3ad41ee48630e301043b62c9ae683719d0ad3669))
 
 ## 1.13.8 (2024-06-23)
 
@@ -5694,6 +5782,12 @@ Automatically generated by python-semantic-release
 ([`045df8a`](https://github.com/OZI-Project/OZI/commit/045df8a1f428fd9a9668ebfb7d5d87755a90f111))
 
 
+### 📝 Updated Documentation
+
+*  add versionadded to docstring — rjdbcm <ozi.project@outlook.com>
+([`5428424`](https://github.com/OZI-Project/OZI/commit/54284248e8b3cd3d70bab76e0386008669d42a1a))
+
+
 ### Other
 
 
@@ -5701,9 +5795,6 @@ Automatically generated by python-semantic-release
 
 Automatically generated by python-semantic-release
 ([`d476a01`](https://github.com/OZI-Project/OZI/commit/d476a013b39c7b10629f90867d9b11952f1abc77))
-
-* 📝 add versionadded to docstring — rjdbcm <ozi.project@outlook.com>
-([`5428424`](https://github.com/OZI-Project/OZI/commit/54284248e8b3cd3d70bab76e0386008669d42a1a))
 
 ## 1.12.8 (2024-06-20)
 
@@ -5763,6 +5854,15 @@ updated-dependencies:
 ([`7e46ff6`](https://github.com/OZI-Project/OZI/commit/7e46ff680fce8fe619d0916a774b6e9ec878dcbe))
 
 
+### 📝 Updated Documentation
+
+*  update docstrings — rjdbcm <ozi.project@outlook.com>
+([`2a33b0b`](https://github.com/OZI-Project/OZI/commit/2a33b0b6421e410947f8b8980820d76658d14b1e))
+
+*  fix changelog template — rjdbcm <ozi.project@outlook.com>
+([`c42f603`](https://github.com/OZI-Project/OZI/commit/c42f60312bc93debea3f2ddf28cea5b4e66cbb7e))
+
+
 ### ✏️ Corrected Typos
 
 *  render templates set write mode — rjdbcm <ozi.project@outlook.com>
@@ -5808,12 +5908,6 @@ Automatically generated by python-semantic-release
 
 * 🚨 clean up lint — rjdbcm <ozi.project@outlook.com>
 ([`6fe1102`](https://github.com/OZI-Project/OZI/commit/6fe110290861a920a25249e1bd0040d8816a27d7))
-
-* 📝 update docstrings — rjdbcm <ozi.project@outlook.com>
-([`2a33b0b`](https://github.com/OZI-Project/OZI/commit/2a33b0b6421e410947f8b8980820d76658d14b1e))
-
-* 📝 fix changelog template — rjdbcm <ozi.project@outlook.com>
-([`c42f603`](https://github.com/OZI-Project/OZI/commit/c42f60312bc93debea3f2ddf28cea5b4e66cbb7e))
 
 ## 1.12.7 (2024-06-19)
 
@@ -5877,6 +5971,15 @@ Automatically generated by python-semantic-release
 ([`0a20811`](https://github.com/OZI-Project/OZI/commit/0a20811c34574c7055b126824d97fadaea2c6093))
 
 
+### 📝 Updated Documentation
+
+* remove horizontal dividers from CHANGELOG template — rjdbcm <ozi.project@outlook.com>
+([`ee50072`](https://github.com/OZI-Project/OZI/commit/ee5007224f8778f802de2a324f4b756ab7850357))
+
+*  clean up release_notes and CHANGELOG templates — rjdbcm <ozi.project@outlook.com>
+([`2b9eaaf`](https://github.com/OZI-Project/OZI/commit/2b9eaaf64fd99323f87079b0e475dc2fc7f0b06e))
+
+
 ### ✏️ Corrected Typos
 
 *  Better changelog — rjdbcm <ozi.project@outlook.com>
@@ -5904,12 +6007,6 @@ Automatically generated by python-semantic-release
 
 Automatically generated by python-semantic-release
 ([`777b2bf`](https://github.com/OZI-Project/OZI/commit/777b2bf84bf6484977e117fc5ef82d268235d3f0))
-
-* 📝: remove horizontal dividers from CHANGELOG template — rjdbcm <ozi.project@outlook.com>
-([`ee50072`](https://github.com/OZI-Project/OZI/commit/ee5007224f8778f802de2a324f4b756ab7850357))
-
-* 📝 clean up release_notes and CHANGELOG templates — rjdbcm <ozi.project@outlook.com>
-([`2b9eaaf`](https://github.com/OZI-Project/OZI/commit/2b9eaaf64fd99323f87079b0e475dc2fc7f0b06e))
 
 * 🚨 run black — rjdbcm <ozi.project@outlook.com>
 ([`64ddc38`](https://github.com/OZI-Project/OZI/commit/64ddc381d4f18fae96e114f33c55d04a283c0ffa))
@@ -6303,6 +6400,15 @@ Merge pull request #658 from OZI-Project/release/1.11
 ([`f3a208c`](https://github.com/OZI-Project/OZI/commit/f3a208c57bbb57c050c3ba458bd69453c11d24f5))
 
 
+### 📝 Updated Documentation
+
+*  Update README — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`fb697e4`](https://github.com/OZI-Project/OZI/commit/fb697e408247a7a64936805633325a5d6aef5435))
+
+*  rename ``README.rst`` to ``README`` per OZI spec — rjdbcm <ozi.project@outlook.com>
+([`d6b7e34`](https://github.com/OZI-Project/OZI/commit/d6b7e3420944fbe71718fe73c7409237b68df30c))
+
+
 ### 📌 Pinned Dependencies
 
 *  OZI-Project/release@0.6.4 — Eden Ross Duff, MSc <ozi.project@outlook.com>
@@ -6358,9 +6464,6 @@ Automatically generated by python-semantic-release
 Automatically generated by python-semantic-release
 ([`461e8bd`](https://github.com/OZI-Project/OZI/commit/461e8bd9b883ae9c64c4dd438c7414a836ec8345))
 
-* 📝 Update README — Eden Ross Duff, MSc <ozi.project@outlook.com>
-([`fb697e4`](https://github.com/OZI-Project/OZI/commit/fb697e408247a7a64936805633325a5d6aef5435))
-
 * escape dots — Eden Ross Duff, MSc <ozi.project@outlook.com>
 ([`022354d`](https://github.com/OZI-Project/OZI/commit/022354d002ca8b94e21832c41958c0d517f3e517))
 
@@ -6389,9 +6492,6 @@ Automatically generated by python-semantic-release
 
 * remove unused import — rjdbcm <ozi.project@outlook.com>
 ([`f4c3e2e`](https://github.com/OZI-Project/OZI/commit/f4c3e2ef360c75f3efc55ed05b2c2ef7acb944f5))
-
-* 📝 rename ``README.rst`` to ``README`` per OZI spec — rjdbcm <ozi.project@outlook.com>
-([`d6b7e34`](https://github.com/OZI-Project/OZI/commit/d6b7e3420944fbe71718fe73c7409237b68df30c))
 
 ## 1.11.3 (2024-06-10)
 
@@ -6434,6 +6534,12 @@ Automatically generated by python-semantic-release
 ([`2804a02`](https://github.com/OZI-Project/OZI/commit/2804a020be2e7481207b8490d636de768354da11))
 
 
+### 📝 Updated Documentation
+
+*  add some spec metadata to versions — rjdbcm <ozi.project@outlook.com>
+([`13f37ac`](https://github.com/OZI-Project/OZI/commit/13f37ace212ef86fc0e39714bc1475b9652daf8d))
+
+
 ### ✏️ Corrected Typos
 
 *  remove Any — rjdbcm <ozi.project@outlook.com>
@@ -6453,9 +6559,6 @@ Automatically generated by python-semantic-release
 
 * 🚨 Fix empty list guard. — rjdbcm <ozi.project@outlook.com>
 ([`fdccaae`](https://github.com/OZI-Project/OZI/commit/fdccaae2278a30beed5589263c98e14019667e9f))
-
-* 📝 add some spec metadata to versions — rjdbcm <ozi.project@outlook.com>
-([`13f37ac`](https://github.com/OZI-Project/OZI/commit/13f37ace212ef86fc0e39714bc1475b9652daf8d))
 
 * 🚨 clean up import guards — rjdbcm <ozi.project@outlook.com>
 ([`cc78500`](https://github.com/OZI-Project/OZI/commit/cc78500977a5be2b77ba3fab7788b2c42dbfb8ab))
@@ -6720,9 +6823,6 @@ Uses ``config-args-`` prefix, does not include plugins, as these share a require
 *  add install options for each checkpoint command. — rjdbcm <ozi.project@outlook.com>
 ([`223ad2f`](https://github.com/OZI-Project/OZI/commit/223ad2fabd420a36d8f57343b1cffb4a4641fe81))
 
-* 👷 add CPython 3.13 checkpoints.
-([`ce876aa`](https://github.com/OZI-Project/OZI/commit/ce876aaf0ea2b9bdcd366941e7cfe620fd454ae0))
-
 
 ### Other
 
@@ -6740,6 +6840,9 @@ Automatically generated by python-semantic-release
 
 * remove failing checkpoint for now. — rjdbcm <ozi.project@outlook.com>
 ([`e9c7867`](https://github.com/OZI-Project/OZI/commit/e9c78673837059def61d1c52287ccf8e9f1853ae))
+
+* 👷🔧 add CPython 3.13 checkpoints.
+([`ce876aa`](https://github.com/OZI-Project/OZI/commit/ce876aaf0ea2b9bdcd366941e7cfe620fd454ae0))
 
 ## 1.9.10 (2024-05-23)
 
@@ -7487,6 +7590,12 @@ updated-dependencies:
 ([`a081ae5`](https://github.com/OZI-Project/OZI/commit/a081ae5d80107471828f40c0486c7a6df181ee89))
 
 
+### 📝 Updated Documentation
+
+*  Update pyproject.toml add branch release pattern. — Eden Rose, MSc <ozi.project@outlook.com>
+([`e27296a`](https://github.com/OZI-Project/OZI/commit/e27296ac8e6cbb2152dd121ebb817392e20f19c7))
+
+
 ### ✨ Implemented Features
 
 *  update spec version to 0.2 — rjdbcm <ozi.project@outlook.com>
@@ -7500,9 +7609,6 @@ updated-dependencies:
 
 Automatically generated by python-semantic-release
 ([`0d1dab6`](https://github.com/OZI-Project/OZI/commit/0d1dab64c32fe3591de7049d6cd23aa40e34888d))
-
-* 📝 Update pyproject.toml add branch release pattern. — Eden Rose, MSc <ozi.project@outlook.com>
-([`e27296a`](https://github.com/OZI-Project/OZI/commit/e27296ac8e6cbb2152dd121ebb817392e20f19c7))
 
 ## 1.5.0 (2024-05-09)
 
@@ -7990,6 +8096,12 @@ updated-dependencies:
 ([`1f7e9f1`](https://github.com/OZI-Project/OZI/commit/1f7e9f199315405bc2a17af147c41047ace16aa3))
 
 
+### 📝 Updated Documentation
+
+*  update docstrings for 1.2 (#429) — rjdbcm <ozi.project@outlook.com>
+([`d72f67c`](https://github.com/OZI-Project/OZI/commit/d72f67c298a0dee02ad6abc3006b875b3067b397))
+
+
 ### Other
 
 
@@ -7997,9 +8109,6 @@ updated-dependencies:
 
 Automatically generated by python-semantic-release
 ([`5a4bf0c`](https://github.com/OZI-Project/OZI/commit/5a4bf0cd1c302aed909768774178dddfd358c069))
-
-* 📝 update docstrings for 1.2 (#429) — rjdbcm <ozi.project@outlook.com>
-([`d72f67c`](https://github.com/OZI-Project/OZI/commit/d72f67c298a0dee02ad6abc3006b875b3067b397))
 
 ## 1.2.1 (2024-04-28)
 
