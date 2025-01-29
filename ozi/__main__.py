@@ -2,8 +2,7 @@
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
-"""``ozi`` console application.
-"""  # pragma: no cover
+"""``ozi`` console application."""  # pragma: no cover
 from __future__ import annotations  # pragma: no cover
 
 import argparse  # pragma: no cover
