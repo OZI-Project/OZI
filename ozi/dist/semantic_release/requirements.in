@@ -1,2 +1,2 @@
-python-semantic-release~=9.17
+python-semantic-release~=9.19
 cryptography~=43.0
