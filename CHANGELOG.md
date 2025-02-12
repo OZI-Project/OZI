@@ -1,8 +1,133 @@
 # OZI CHANGELOG
+## 1.35.0 (2025-02-12)
+
 ## 1.34.1 (2025-01-29)
 
 
 ### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.13.1 to 1.14.1
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.13.1 to 1.14.1.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.13.1...1.14.1)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`3dfe49b`](https://github.com/OZI-Project/OZI/commit/3dfe49b2adc87d5d051ccd0b69b65d7bdfb1d21c))
+
+*  Update ozi-build[core,uv] requirement
+
+
+updated-dependencies:
+- dependency-name: ozi-build[core,uv]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`2841e2d`](https://github.com/OZI-Project/OZI/commit/2841e2d9d153edbf860834c82f079e36506994eb))
+
+*  Bump OZI-Project/draft from 1.10.1 to 1.11.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.10.1 to 1.11.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/d3c4167df5ea92adf74006a4406ae85bbf8926e5...d593fa1d1df726466bd156d239ed36986d1c2ab9)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`930c67a`](https://github.com/OZI-Project/OZI/commit/930c67a219a5e4d0817e9d15ac719d6caefbe88a))
+
+*  Bump OZI-Project/publish from 1.10.0 to 1.10.1
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.10.0 to 1.10.1.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/c409525ed951ad88365aefffdb117c7a762a7f3b...9d10868569d8cf25647f221a223d27cfe545ffb2)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`be1d575`](https://github.com/OZI-Project/OZI/commit/be1d5753978ef5b21f90361f9b713d367bc83fd1))
+
+*  Update python-semantic-release requirement
+
+Updates the requirements on [python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) to permit the latest version.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.17...v9.19)
+
+
+updated-dependencies:
+- dependency-name: python-semantic-release
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`7d75040`](https://github.com/OZI-Project/OZI/commit/7d75040047382f6b8d268066634a889e14f79a71))
+
+*  Bump github/codeql-action from 3.28.8 to 3.28.9
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.8 to 3.28.9.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/dd746615b3b9d728a6a37ca2045b68ca76d4841a...9e8d0789d4a0fa9ceb6b1738f7e269594bdd67f0)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`9276a8e`](https://github.com/OZI-Project/OZI/commit/9276a8ec9a4ec87567bbb741e012eca0922bfe22))
+
+*  Update hypothesis[cli,codemods,ghostwriter] requirement
+
+Updates the requirements on [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.124.0...hypothesis-python-6.125.1)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`0c6c32c`](https://github.com/OZI-Project/OZI/commit/0c6c32c4cff96ce14012ac55c1edced6c33d1cdb))
+
+*  Bump OZI-Project/publish from 1.9.3 to 1.10.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.9.3 to 1.10.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/c35059a13b64575387092e163fa91c2a9f5019da...c409525ed951ad88365aefffdb117c7a762a7f3b)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`e27ca42`](https://github.com/OZI-Project/OZI/commit/e27ca4283742785de287a172eaa3ee293ed1ea56))
+
+*  Bump github/codeql-action from 3.28.6 to 3.28.8
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.6 to 3.28.8.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/17a820bf2e43b47be2c72b39cc905417bc1ab6d0...dd746615b3b9d728a6a37ca2045b68ca76d4841a)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`69dc1ee`](https://github.com/OZI-Project/OZI/commit/69dc1ee184d9dfd28fe1a5a9af23eb70b77b9bda))
 
 *  Bump OZI-Project/draft from 1.10.0 to 1.10.1
 
@@ -105,6 +230,12 @@ updated-dependencies:
   dependency-type: direct:production
 ... — dependabot[bot] <support@github.com>
 ([`d7aa9e8`](https://github.com/OZI-Project/OZI/commit/d7aa9e822305fe0b84a8d0b4543172e26165212f))
+
+
+### ✨ Implemented Features
+
+*  semantic-release 9.19 support — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`ba9cdd9`](https://github.com/OZI-Project/OZI/commit/ba9cdd9de126a3242a863c414d46218f7adfc406))
 
 
 ### Other
