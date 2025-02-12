@@ -1,2 +1,2 @@
 twine==6.1.0
-cryptography~=43.0
+cryptography~=44.0
