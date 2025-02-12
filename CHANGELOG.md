@@ -1,4 +1,121 @@
 # OZI CHANGELOG
+## 1.34.1 (2025-01-29)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/draft from 1.10.0 to 1.10.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.10.0 to 1.10.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/44efdab7f2755cdda29697adf8951e25b468a696...d3c4167df5ea92adf74006a4406ae85bbf8926e5)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a075417`](https://github.com/OZI-Project/OZI/commit/a0754177e93676a8fc1df84d5f14161572a5a466))
+
+*  Bump OZI-Project/publish from 1.9.0 to 1.9.3
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.9.0 to 1.9.3.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/2467f6f7d938a0587d8dbc3f1155bab825f35283...c35059a13b64575387092e163fa91c2a9f5019da)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`197e8c7`](https://github.com/OZI-Project/OZI/commit/197e8c7abf537cbc2b7df716983534c5dab87a7c))
+
+*  Bump OZI-Project/checkpoint from 1.5.4 to 1.5.5
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.5.4 to 1.5.5.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/84a85f725520d5661ed417915ccb0e769973879c...f14cac563125e34d106b3a1e0ddb2773062953e5)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`55442c7`](https://github.com/OZI-Project/OZI/commit/55442c70e1228fc7dd4c2119404d8dffef0db42d))
+
+*  Bump OZI-Project/release from 1.3.1 to 1.3.3
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.3.1 to 1.3.3.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/5fead75f13134fe16226c4eba87ae80b52876ab0...ef531325086db519edaf13b95362051f41bb4802)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`1456370`](https://github.com/OZI-Project/OZI/commit/1456370862511f8fe7bb7ffe6f1554f3379d53c9))
+
+*  Bump ozi-core from 1.13.0 to 1.13.1
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.13.0 to 1.13.1.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.13.1/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.13.0...1.13.1)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`62a77a4`](https://github.com/OZI-Project/OZI/commit/62a77a47ae3913872557dce15b9e6b0d9a020fa3))
+
+*  Update black requirement in /ozi/lint/black
+
+Updates the requirements on [black](https://github.com/psf/black) to permit the latest version.
+- [Release notes](https://github.com/psf/black/releases)
+- [Changelog](https://github.com/psf/black/blob/main/CHANGES.md)
+- [Commits](https://github.com/psf/black/compare/24.10.0...25.1.0)
+
+
+updated-dependencies:
+- dependency-name: black
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`43436dd`](https://github.com/OZI-Project/OZI/commit/43436dd6bc14ba8ecacb96e17c281f27ef33a447))
+
+*  pytest-asyncio~=0.25.3 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`0001961`](https://github.com/OZI-Project/OZI/commit/0001961836469fd02fc00a38e7bb19d896411ba7))
+
+*  Update black requirement in /ozi/lint/black
+
+Updates the requirements on [black](https://github.com/psf/black) to permit the latest version.
+- [Release notes](https://github.com/psf/black/releases)
+- [Changelog](https://github.com/psf/black/blob/main/CHANGES.md)
+- [Commits](https://github.com/psf/black/compare/24.10.0...25.1.0)
+
+
+updated-dependencies:
+- dependency-name: black
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`d7aa9e8`](https://github.com/OZI-Project/OZI/commit/d7aa9e822305fe0b84a8d0b4543172e26165212f))
+
+
+### Other
+
+
+* 🚨 run black — rjdbcm <ozi.project@outlook.com>
+([`bcc5ba7`](https://github.com/OZI-Project/OZI/commit/bcc5ba750f76a6c645f30a0a99973dfeb8aae029))
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`2434766`](https://github.com/OZI-Project/OZI/commit/2434766b08451dbf1fcf60e3a11dde7c46ae7494))
+
 ## 1.34.0 (2025-01-28)
 
 ## 1.33.3 (2025-01-27)
