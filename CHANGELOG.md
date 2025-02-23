@@ -1,4 +1,123 @@
 # OZI CHANGELOG
+## 1.36.0 (2025-02-21)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.15.0 to 1.15.1
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.15.0 to 1.15.1.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.15.1/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.15.0...1.15.1)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`aa20093`](https://github.com/OZI-Project/OZI/commit/aa20093ba90a82cb2a8a7e24bf5f12b0c8bff7ce))
+
+*  Bump OZI-Project/publish from 1.10.1 to 1.12.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.10.1 to 1.12.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/9d10868569d8cf25647f221a223d27cfe545ffb2...63a52d7e0f5abc79d3fd3f7ecfa7f26efd1c8c69)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`35eacc9`](https://github.com/OZI-Project/OZI/commit/35eacc9f206b3ffc70cca7aa6a843ca66d608448))
+
+*  Bump OZI-Project/draft from 1.11.1 to 1.12.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.11.1 to 1.12.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/d593fa1d1df726466bd156d239ed36986d1c2ab9...cbedf57c7d2529c093518f0652cf4f7324cb3755)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`725f002`](https://github.com/OZI-Project/OZI/commit/725f002dae1ae0853c6e951d46fb388ab395a892))
+
+*  Update hypothesis[cli,codemods,ghostwriter] requirement
+
+Updates the requirements on [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.125.0...hypothesis-python-6.126.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`3bb2017`](https://github.com/OZI-Project/OZI/commit/3bb20172d81cc6ce2066d22668fd5336ba8f3efc))
+
+*  Bump ozi-core from 1.14.2 to 1.15.0
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.14.2 to 1.15.0.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.15.0/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.14.2...1.15.0)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`76b232a`](https://github.com/OZI-Project/OZI/commit/76b232ab0a1634c67b908f43c6e1ce1822b5e645))
+
+*  Bump step-security/harden-runner from 2.10.4 to 2.11.0
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.10.4 to 2.11.0.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/cb605e52c26070c328afc4562f0b4ada7618a84e...4d991eb9b905ef189e4c376166672c3f2f230481)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`dff6133`](https://github.com/OZI-Project/OZI/commit/dff6133efb43ab2e6d494ceb6e00b9d564ab4f34))
+
+*  Update ozi-build[core,uv] requirement
+
+
+updated-dependencies:
+- dependency-name: ozi-build[core,uv]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`12a6918`](https://github.com/OZI-Project/OZI/commit/12a691808879ed3c553b39d4a2ba13dcb1e540fc))
+
+*  Update python-semantic-release requirement
+
+Updates the requirements on [python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) to permit the latest version.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.19...v9.20)
+
+
+updated-dependencies:
+- dependency-name: python-semantic-release
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`cf1a888`](https://github.com/OZI-Project/OZI/commit/cf1a88867457626162e937e719a0c8dedadf8ce2))
+
+
+### ✨ Implemented Features
+
+*  semantic-release 9.20 support — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`ca1f4cd`](https://github.com/OZI-Project/OZI/commit/ca1f4cd61ff8d1b33cc5c713a686a4ada8941141))
+
 ## 1.35.1 (2025-02-13)
 
 
