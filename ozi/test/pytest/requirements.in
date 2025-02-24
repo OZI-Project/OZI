@@ -5,4 +5,4 @@ pytest-randomly~=3.16
 pytest-tcpclient~=0.7
 pytest-xdist~=3.6
 urllib3~=1.26
-hypothesis[cli,codemods,ghostwriter]~=6.126
+hypothesis[cli,codemods,ghostwriter]~=6.127
