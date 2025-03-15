@@ -1,2 +1,2 @@
-cibuildwheel~=2.22
+cibuildwheel~=2.23
 cryptography~=43.0
