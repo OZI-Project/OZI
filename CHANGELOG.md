@@ -1,4 +1,37 @@
 # OZI CHANGELOG
+## 1.37.1 (2025-03-26)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.28.12 to 3.28.13
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.12 to 3.28.13.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/5f8171a638ada777af81d42b55959a643bb29017...1b549b9259bda1cb5ddde3b41741a82a2d15a841)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`c6f8e61`](https://github.com/OZI-Project/OZI/commit/c6f8e611158444208df79fa5482337391d3dd22e))
+
+*  Update pytest-asyncio requirement in /ozi/test/pytest
+
+Updates the requirements on [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) to permit the latest version.
+- [Release notes](https://github.com/pytest-dev/pytest-asyncio/releases)
+- [Commits](https://github.com/pytest-dev/pytest-asyncio/compare/v0.25.3...v0.26.0)
+
+
+updated-dependencies:
+- dependency-name: pytest-asyncio
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`662fcdb`](https://github.com/OZI-Project/OZI/commit/662fcdb6edcb6fc8c4e23fe2217d0837863907e6))
+
 ## 1.37.0 (2025-03-22)
 
 
