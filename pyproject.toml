@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 [build-system]
 build-backend = "ozi_build.buildapi"
-requires      = ["OZI.build[core,uv]~=1.12.0"]
+requires      = ["OZI.build[core,uv]~=1.13.0"]
 
 [tool.ozi-build.entry-points]
 console_scripts = [
