@@ -5,13 +5,10 @@
 project(
     'OZI',
     version: run_command(
-        'python3',  # scm_version_snip
+        'python3',
         [
             '-c',
-            '''from setuptools_scm import get_version
-v = get_version(normalize=False, fallback_version="wrap-file")
-print(v)
-''',
+            'from setuptools_scm import get_version;print(get_version(normalize=False, fallback_version="%OZIBUILDVERSION%"))',
         ],
         check: true,
     ).stdout().strip(),
@@ -23,6 +20,7 @@ print(v)
 env = environment()
 fs = import('fs')
 pymod = import('python')
+patch = find_program('patch')
 pyproject_config = configuration_data()
 
 # prescript arrays
