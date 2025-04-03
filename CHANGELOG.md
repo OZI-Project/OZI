@@ -1,4 +1,25 @@
 # OZI CHANGELOG
+## 1.38.1 (2025-04-03)
+
+
+### 🔨 Updated Configuration
+
+*  add node to external deps — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`e3402c4`](https://github.com/OZI-Project/OZI/commit/e3402c400a1b819cc876284aa52ef0ee83f6f687))
+
+
+### Other
+
+
+* chore: remove deprecated metadata
+([`a756130`](https://github.com/OZI-Project/OZI/commit/a7561305b95dc19c5101522c950e22f588131a6c))
+
+* Update pyproject.toml — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`6a2b5a7`](https://github.com/OZI-Project/OZI/commit/6a2b5a712154894a6bf0d2a01f0b7ded90fa51cf))
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`c028554`](https://github.com/OZI-Project/OZI/commit/c0285543030868c9f623eb6e25dec4733e554887))
+
 ## 1.38.0 (2025-04-03)
 
 
