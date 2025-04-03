@@ -25,7 +25,7 @@ project-urls = [
      'Homepage, https://oziproject.dev/',
 ]
 requires-python='>=3.10, <3.14'
-requires-external=['git']
+requires-external=['git', 'node']
 classifiers = [
      'Development Status :: 4 - Beta',
      'Environment :: Console',
