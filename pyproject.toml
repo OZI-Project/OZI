@@ -15,15 +15,14 @@ console_scripts = [
 
 [tool.ozi-build.metadata]
 summary = 'Package Python projects with Meson.'
-download-url = 'https://github.com/OZI-Project/OZI/archive/refs/tags/{version}.tar.gz'
 description-file = 'README.rst'
-home-page = 'https://oziproject.dev/'
 author = 'Eden Ross Duff MSc'
 author-email = 'help@oziproject.dev'
 keywords = 'meson,packaging,wheel'
 project-urls = [
      'Bug Tracker, https://github.com/OZI-Project/OZI/issues',
      'Community, https://github.com/orgs/OZI-Project/discussions',
+     'Homepage, https://oziproject.dev/',
 ]
 requires-python='>=3.10, <3.14'
 requires-external=['git']
@@ -355,7 +354,7 @@ package = wheel
 deps =
      uv
 commands_pre =
-     python -m uv pip install OZI.build[uv,core]~=1.10.0
+     python -m uv pip install OZI.build[uv,core]~=1.13.0
      pipx install --python=python meson
 commands =
      meson setup {env_tmp_dir} -Ddist=disabled -Dtox-env-dir={env_dir}
