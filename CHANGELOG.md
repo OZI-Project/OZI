@@ -1,4 +1,170 @@
 # OZI CHANGELOG
+## 1.38.0 (2025-04-03)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core==1.17.0 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`f3d2d9c`](https://github.com/OZI-Project/OZI/commit/f3d2d9cb6d6b787b7ab1102ff59d3cb4f1c36dea))
+
+*  Update ozi-build[core,uv] requirement
+
+
+updated-dependencies:
+- dependency-name: ozi-build[core,uv]
+  dependency-version: 1.13.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`0220316`](https://github.com/OZI-Project/OZI/commit/02203161d916b0a84f01b98a658537bd6fbe5d93))
+
+*  Bump OZI-Project/publish from 1.13.0 to 1.13.1
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.13.0 to 1.13.1.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/dedb3175dc5d4bb29bcee5a7b659ad7f42c5c68c...26f38aa55610d51537ae92c1e89464a18959ba90)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.13.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`e6a4a33`](https://github.com/OZI-Project/OZI/commit/e6a4a33caf49df015cd17f54455a55470838a194))
+
+*  Bump OZI-Project/release from 1.4.0 to 1.5.0
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.4.0 to 1.5.0.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/bfb9d90fbd2af52d511a9e08306d1b787b8dcfca...924761bcd1ad9c77bbc34363118b2cee4334b8a5)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.5.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`764e3ef`](https://github.com/OZI-Project/OZI/commit/764e3ef00f5830de15f2945f1a52996b84b2d67c))
+
+*  Bump OZI-Project/draft from 1.13.0 to 1.13.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.13.0 to 1.13.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/917b6a5d9a39df52cbdc3a15565c58dfb9b38a10...ed08d630ad83cfd14061b78cf695c20eb51984a5)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-version: 1.13.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`19e0da8`](https://github.com/OZI-Project/OZI/commit/19e0da8f56d5d9ac0f0219c5749944db45919619))
+
+*  Bump step-security/harden-runner from 2.11.0 to 2.11.1
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.11.0 to 2.11.1.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/4d991eb9b905ef189e4c376166672c3f2f230481...c6295a65d1254861815972266d5933fd6e532bdf)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`53295e6`](https://github.com/OZI-Project/OZI/commit/53295e60dd744f9358f40dc993dcd4a6abed813f))
+
+*  Bump actions/dependency-review-action from 4.5.0 to 4.6.0
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.5.0 to 4.6.0.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/3b139cfc5fae8b618d3eae3675e383bb1769c019...ce3cf9537a52e8119d91fd484ab5b8a807627bf8)
+
+
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`f50094f`](https://github.com/OZI-Project/OZI/commit/f50094ffc2a046599bf2bd1e0a072eeaafddd661))
+
+*  Update pytest-cov requirement in /ozi/test/pytest
+
+Updates the requirements on [pytest-cov](https://github.com/pytest-dev/pytest-cov) to permit the latest version.
+- [Changelog](https://github.com/pytest-dev/pytest-cov/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/pytest-dev/pytest-cov/compare/v6.0.0...v6.1.0)
+
+
+updated-dependencies:
+- dependency-name: pytest-cov
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`933dcf1`](https://github.com/OZI-Project/OZI/commit/933dcf155ee5c328ce04c02df7854a7753c38610))
+
+*  Update coverage[toml] requirement in /ozi/test/coverage
+
+Updates the requirements on [coverage[toml]](https://github.com/nedbat/coveragepy) to permit the latest version.
+- [Release notes](https://github.com/nedbat/coveragepy/releases)
+- [Changelog](https://github.com/nedbat/coveragepy/blob/master/CHANGES.rst)
+- [Commits](https://github.com/nedbat/coveragepy/compare/7.7.0...7.8.0)
+
+
+updated-dependencies:
+- dependency-name: coverage[toml]
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`97531fd`](https://github.com/OZI-Project/OZI/commit/97531fd71dbacaf9a63ea834ea9b279e46ea094e))
+
+*  Update flake8 requirement in /ozi/lint/flake8
+
+Updates the requirements on [flake8](https://github.com/pycqa/flake8) to permit the latest version.
+- [Commits](https://github.com/pycqa/flake8/compare/7.1.0...7.2.0)
+
+
+updated-dependencies:
+- dependency-name: flake8
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`73b3cf3`](https://github.com/OZI-Project/OZI/commit/73b3cf3ecf176c4b6ddf1197a929ea0175e71e7b))
+
+*  Bump github/codeql-action from 3.28.12 to 3.28.13
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.12 to 3.28.13.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/5f8171a638ada777af81d42b55959a643bb29017...1b549b9259bda1cb5ddde3b41741a82a2d15a841)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`c6f8e61`](https://github.com/OZI-Project/OZI/commit/c6f8e611158444208df79fa5482337391d3dd22e))
+
+*  Update pytest-asyncio requirement in /ozi/test/pytest
+
+Updates the requirements on [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) to permit the latest version.
+- [Release notes](https://github.com/pytest-dev/pytest-asyncio/releases)
+- [Commits](https://github.com/pytest-dev/pytest-asyncio/compare/v0.25.3...v0.26.0)
+
+
+updated-dependencies:
+- dependency-name: pytest-asyncio
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`662fcdb`](https://github.com/OZI-Project/OZI/commit/662fcdb6edcb6fc8c4e23fe2217d0837863907e6))
+
+
+### ✨ Implemented Features
+
+*  OZI.build 1.13
+
+Fixes deprecated dist filename format in tarballs. — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`63d19db`](https://github.com/OZI-Project/OZI/commit/63d19dbdb8df2917290ad124b502652e1567522c))
+
 ## 1.37.0 (2025-03-22)
 
 
