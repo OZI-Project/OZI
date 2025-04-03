@@ -20,6 +20,7 @@ source_children = [
     'new',
     'scripts',
     'test',
+    'patch'
 ]
 foreach child: source_children
     subdir(child)

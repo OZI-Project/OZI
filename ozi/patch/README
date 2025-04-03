@@ -1,0 +1,5 @@
+# meson.build patches
+
+This folder contains patches of the format ``(target filename)-(descriptive name)-(version).patch`` in a directory structure mirroring ``ozi-templates``.
+
+
