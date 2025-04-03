@@ -17,6 +17,7 @@ currently being supported with security updates.
 | 1.35.x  | ☑️                 | 9.19                         |
 | 1.36.x  | ☑️                 | 9.20                         |
 | 1.37.x  | ☑️                 | 9.21                         |
+| 1.38.x  | ☑️                 | 9.21                         |
 
 ## Disclosure
 
