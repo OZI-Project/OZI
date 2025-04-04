@@ -1,4 +1,27 @@
 # OZI CHANGELOG
+## 1.38.2 (2025-04-04)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core==1.17.1 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`e7052cc`](https://github.com/OZI-Project/OZI/commit/e7052cc65308bb90f34bcb6ab33b4c704cbb1e4c))
+
+*  Bump OZI-Project/checkpoint from 1.6.0 to 1.7.0
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.6.0 to 1.7.0.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/175eae79f299d6dbad474024b5f791368bd5de85...bec3d96cd1cb3bbce358fbeabc70eb25482bd3bf)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.7.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`6204a72`](https://github.com/OZI-Project/OZI/commit/6204a726a725d1ea10ebafe7146c8c42a8100e0b))
+
 ## 1.38.1 (2025-04-03)
 
 
