@@ -54,12 +54,12 @@ tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
 dynamic = ["version"]
 dependencies = [
     'pathvalidate~=3.2.1',
-    'ozi-core==1.17.0',
+    'ozi-core==1.17.1',
     'setuptools_scm[toml]',
     'tomli>=2.0.0;python_version<"3.11"',
 ]
 
-[project.optional_dependencies] # also meson test suite names
+[project.optional-dependencies] # also meson test suite names
 # continuous integration
 ci   = ["tox>4", "tox-gh>1.2"]
 # tox -e fix
