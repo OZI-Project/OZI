@@ -1,4 +1,35 @@
 # OZI CHANGELOG
+## 1.38.3 (2025-04-09)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.28.13 to 3.28.15
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.13 to 3.28.15.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/1b549b9259bda1cb5ddde3b41741a82a2d15a841...45775bd8235c68ba998cffa5171334d58593da47)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.28.15
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`c5e0e54`](https://github.com/OZI-Project/OZI/commit/c5e0e5403a69b984cbae00d5e8483121889ea831))
+
+*  ozi-core==1.17.3 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`f5cc0fe`](https://github.com/OZI-Project/OZI/commit/f5cc0fe2a4da76ab7adc377eb82a116212ceeb89))
+
+
+### Other
+
+
+* Update dependabot.yml — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`be9b486`](https://github.com/OZI-Project/OZI/commit/be9b486306da34ddaf1d80062c5492d5182e9fc9))
+
 ## 1.38.2 (2025-04-04)
 
 
