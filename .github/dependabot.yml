@@ -29,6 +29,10 @@ updates:
       - "/ozi/lint/readme-renderer"
       - "/ozi/test/coverage"
       - "/ozi/test/pytest"
+    groups:
+     python-packages:
+      patterns:
+        - "*"
     schedule:
       interval: daily
     commit-message:
