@@ -1,4 +1,79 @@
 # OZI CHANGELOG
+## 1.38.3 (2025-04-09)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.28.13 to 3.28.15
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.13 to 3.28.15.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/1b549b9259bda1cb5ddde3b41741a82a2d15a841...45775bd8235c68ba998cffa5171334d58593da47)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.28.15
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`c5e0e54`](https://github.com/OZI-Project/OZI/commit/c5e0e5403a69b984cbae00d5e8483121889ea831))
+
+*  ozi-core==1.17.3 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`f5cc0fe`](https://github.com/OZI-Project/OZI/commit/f5cc0fe2a4da76ab7adc377eb82a116212ceeb89))
+
+
+### Other
+
+
+* Update dependabot.yml — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`be9b486`](https://github.com/OZI-Project/OZI/commit/be9b486306da34ddaf1d80062c5492d5182e9fc9))
+
+## 1.38.2 (2025-04-04)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core==1.17.1 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`e7052cc`](https://github.com/OZI-Project/OZI/commit/e7052cc65308bb90f34bcb6ab33b4c704cbb1e4c))
+
+*  Bump OZI-Project/checkpoint from 1.6.0 to 1.7.0
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.6.0 to 1.7.0.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/175eae79f299d6dbad474024b5f791368bd5de85...bec3d96cd1cb3bbce358fbeabc70eb25482bd3bf)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.7.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`6204a72`](https://github.com/OZI-Project/OZI/commit/6204a726a725d1ea10ebafe7146c8c42a8100e0b))
+
+## 1.38.1 (2025-04-03)
+
+
+### 🔨 Updated Configuration
+
+*  add node to external deps — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`e3402c4`](https://github.com/OZI-Project/OZI/commit/e3402c400a1b819cc876284aa52ef0ee83f6f687))
+
+
+### Other
+
+
+* chore: remove deprecated metadata
+([`a756130`](https://github.com/OZI-Project/OZI/commit/a7561305b95dc19c5101522c950e22f588131a6c))
+
+* Update pyproject.toml — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`6a2b5a7`](https://github.com/OZI-Project/OZI/commit/6a2b5a712154894a6bf0d2a01f0b7ded90fa51cf))
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`c028554`](https://github.com/OZI-Project/OZI/commit/c0285543030868c9f623eb6e25dec4733e554887))
+
 ## 1.38.0 (2025-04-03)
 
 
