@@ -22,6 +22,12 @@ updated-dependencies:
 ([`133b44c`](https://github.com/OZI-Project/OZI/commit/133b44cf51fcedd211a54096cb2c1b1bef5cf282))
 
 
+### 🔥 Deleted Code or Files
+
+* delete .python-version — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`4cbcb11`](https://github.com/OZI-Project/OZI/commit/4cbcb11cf0e5f1ad20fa8c5f1c6b089549bde856))
+
+
 ### Other
 
 
