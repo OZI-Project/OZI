@@ -51,10 +51,9 @@ parentdir_prefix_version = "OZI-"
 tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
 
 [project]
-dynamic = ["version"]
 dependencies = [
     'pathvalidate~=3.2.1',
-    'ozi-core==1.17.3',
+    'ozi-core==1.17.6',
     'setuptools_scm[toml]',
     'tomli>=2.0.0;python_version<"3.11"',
 ]
