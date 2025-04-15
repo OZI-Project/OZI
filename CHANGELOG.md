@@ -1,5 +1,38 @@
 # OZI CHANGELOG
+## 1.38.4 (2025-04-15)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update hypothesis[cli,codemods,ghostwriter] requirement
+
+Updates the requirements on [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+
+Updates `hypothesis[cli,codemods,ghostwriter]` to 6.131.0
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.130.0...hypothesis-python-6.131.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.131.0
+  dependency-type: direct:production
+  dependency-group: python-packages
+... — dependabot[bot] <support@github.com>
+([`133b44c`](https://github.com/OZI-Project/OZI/commit/133b44cf51fcedd211a54096cb2c1b1bef5cf282))
+
+
+### Other
+
+
+* chore: upgrade ozi-core==1.17.3 to ozi-core==1.17.6 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`61047de`](https://github.com/OZI-Project/OZI/commit/61047de6c8cc2dcb473b97e3b27a3312f7aece1c))
+
 ## 1.38.3 (2025-04-09)
+
+## 1.38.2 (2025-04-04)
+
+## 1.38.1 (2025-04-03)
 
 
 ### ⬆️ Upgraded Dependencies
@@ -23,18 +56,6 @@ updated-dependencies:
 *  ozi-core==1.17.3 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
 ([`f5cc0fe`](https://github.com/OZI-Project/OZI/commit/f5cc0fe2a4da76ab7adc377eb82a116212ceeb89))
 
-
-### Other
-
-
-* Update dependabot.yml — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
-([`be9b486`](https://github.com/OZI-Project/OZI/commit/be9b486306da34ddaf1d80062c5492d5182e9fc9))
-
-## 1.38.2 (2025-04-04)
-
-
-### ⬆️ Upgraded Dependencies
-
 *  ozi-core==1.17.1 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
 ([`e7052cc`](https://github.com/OZI-Project/OZI/commit/e7052cc65308bb90f34bcb6ab33b4c704cbb1e4c))
 
@@ -53,8 +74,6 @@ updated-dependencies:
 ... — dependabot[bot] <support@github.com>
 ([`6204a72`](https://github.com/OZI-Project/OZI/commit/6204a726a725d1ea10ebafe7146c8c42a8100e0b))
 
-## 1.38.1 (2025-04-03)
-
 
 ### 🔨 Updated Configuration
 
@@ -64,6 +83,12 @@ updated-dependencies:
 
 ### Other
 
+
+* fix: create .python-version to workaround dependabot issue — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`968b11e`](https://github.com/OZI-Project/OZI/commit/968b11e48e1fbd865f493d7bc3511b898e848cc5))
+
+* Update dependabot.yml — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`be9b486`](https://github.com/OZI-Project/OZI/commit/be9b486306da34ddaf1d80062c5492d5182e9fc9))
 
 * chore: remove deprecated metadata
 ([`a756130`](https://github.com/OZI-Project/OZI/commit/a7561305b95dc19c5101522c950e22f588131a6c))
