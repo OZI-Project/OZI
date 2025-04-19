@@ -1,1 +1,6 @@
 python-semantic-release~=9.21
+<<<<<<< HEAD
+=======
+git+https://github.com/Quansight-Labs/cffi@c06e9e1 ; python_version>="3.13"
+cryptography~=43.0
+>>>>>>> 1163415ec4684914fbf4622cc04a34c735252892
