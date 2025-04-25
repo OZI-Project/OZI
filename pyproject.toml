@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 [build-system]
 build-backend = "ozi_build.buildapi"
-requires      = ["OZI.build[core,uv]~=1.13.0"]
+requires      = ["OZI.build[core,uv]~=2.0.6"]
 
 [tool.ozi-build.entry-points]
 console_scripts = [
@@ -53,7 +53,7 @@ tag_regex = "^(?P<prefix>v)?(?P<version>[^\\+]+)(?P<suffix>.*)?$"
 [project]
 dependencies = [
     'pathvalidate~=3.2.1',
-    'ozi-core==1.17.6',
+    'ozi-core==1.18.0',
     'setuptools_scm[toml]',
     'tomli>=2.0.0;python_version<"3.11"',
 ]
