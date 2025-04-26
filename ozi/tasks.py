@@ -34,7 +34,9 @@ if TYPE_CHECKING:
 
 def build_sdist(c: Context, sdist: bool, sign: bool) -> None:
     if sdist:
-        c.run('python -m build --sdist')
+        build = c.run('python -m build --sdist')
+        if build and build.exited != 0:
+            c.run('uv build --sdist')
     if sign:
         c.run(f'sigstore sign --output-dir=sig dist{os.sep}*.tar.gz')
 
@@ -44,10 +46,13 @@ def build_wheel(c: Context, wheel: bool, cibuildwheel: bool, sign: bool) -> None
         os.environ['CIBW_BUILD'] = f'cp{sys.version_info.major}{sys.version_info.minor}*'
         res = c.run('cibuildwheel --prerelease-pythons --output-dir dist .', warn=True)
         if res is not None and res.exited != 0 and wheel:
-            c.run('python -m build --wheel')
+            build = c.run('python -m build --wheel')
+            if build and build.exited != 0:
+                c.run('uv build --wheel')
     elif wheel:
-        c.run('python -m build --wheel')
-
+        build = c.run('python -m build --wheel')
+        if build and build.exited != 0:
+            c.run('uv build --wheel')
     if sign and (wheel or cibuildwheel):
         c.run(f'sigstore sign --output-dir=sig dist{os.sep}*.whl')
 
