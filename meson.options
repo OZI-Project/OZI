@@ -208,6 +208,8 @@ option(
         'sphinxawesome-theme',
         'pytest',
         'readme-renderer',
+        'sigstore',
+        'twine',
     ],
 )
 # utility application arguments
