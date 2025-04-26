@@ -138,6 +138,12 @@ updated-dependencies:
 ([`74beb73`](https://github.com/OZI-Project/OZI/commit/74beb73d787932d019d7fd66433b83b80d9ebb97))
 
 
+### 🔨 Updated Configuration
+
+*  add cdn01.quay.io endpoint to release — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`2105f30`](https://github.com/OZI-Project/OZI/commit/2105f3059b74c6ec9a4a75e7fcf17c9b304fbcd9))
+
+
 ### Other
 
 
