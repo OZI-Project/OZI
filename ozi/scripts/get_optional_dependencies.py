@@ -1,5 +1,5 @@
 # noqa: INP001
-# ozi/scripts/core_metadata_template.py
+# ozi/scripts/get_optional_dependencies.py
 # Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
@@ -27,10 +27,10 @@ Environment Variables
 
 * :envvar:`MESON_SOURCE_ROOT`
 
-``pyproject.toml`` Project Variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+``pyproject.toml`` Keys
+^^^^^^^^^^^^^^^^^^^^^^^
 
-* ``project:optional_dependencies``
+* ``project.optional-dependencies``
 
 """
 import os
@@ -60,5 +60,5 @@ if __name__ == '__main__':
     validate_filepath(source, platform='auto')
     with open(source / 'pyproject.toml', 'rb') as fp:
         pyproject_toml = toml.load(fp)
-    core_metadata = pyproject_toml.get('project', {'optional_dependencies': {}})
-    print(core_metadata.get('optional_dependencies', {'todo': []}).get('@0@', 'fail'))
+    metadata = pyproject_toml.get('project', {'optional-dependencies': {}})
+    print(*metadata.get('optional-dependencies', {'todo': []}).get('@0@', []), sep='$$')
