@@ -1,4 +1,155 @@
 # OZI CHANGELOG
+## 1.39.0 (2025-04-26)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/publish from 1.13.1 to 1.13.3
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.13.1 to 1.13.3.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/26f38aa55610d51537ae92c1e89464a18959ba90...df67e9c0f38d22c078568807d2eefed313340e2d)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.13.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`80893f0`](https://github.com/OZI-Project/OZI/commit/80893f01b42dcfca4afb8d7c9dacf006ffcef76b))
+
+*  Bump OZI-Project/checkpoint from 1.7.0 to 1.7.1
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.7.0 to 1.7.1.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/bec3d96cd1cb3bbce358fbeabc70eb25482bd3bf...dbe6f38e4bb6ed375129d0cf718b6d6968340a13)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.7.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`7d98ffd`](https://github.com/OZI-Project/OZI/commit/7d98ffddcfb2ea8ed2617549c3cddc5862e34c0f))
+
+*  Bump OZI-Project/release from 1.5.0 to 1.6.4
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.5.0 to 1.6.4.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/924761bcd1ad9c77bbc34363118b2cee4334b8a5...0b2ba9981ee9eea47a358c0d70c5b3764a61b88c)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.6.4
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`5681b51`](https://github.com/OZI-Project/OZI/commit/5681b51d6eec9d283c5c92409eaebc584f0d145b))
+
+*  Bump github/codeql-action from 3.28.15 to 3.28.16
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.15 to 3.28.16.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/45775bd8235c68ba998cffa5171334d58593da47...28deaeda66b76a05916b6923827895f2b14ab387)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.28.16
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`e653d7b`](https://github.com/OZI-Project/OZI/commit/e653d7bdc673b0a9d53b51d3b0a9b70c0eb95a0c))
+
+*  Bump step-security/harden-runner from 2.11.1 to 2.12.0
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.11.1 to 2.12.0.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/c6295a65d1254861815972266d5933fd6e532bdf...0634a2670c59f64b4a01f0f96f84700a4088b9f0)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-version: 2.12.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`2a50a32`](https://github.com/OZI-Project/OZI/commit/2a50a32107cfcfc03bb96065cd5d9359fa70fe84))
+
+*  Bump the python-packages group across 1 directory with 2 updates
+
+Updates the requirements on [ozi-core](https://github.com/OZI-Project/ozi-core) and [ozi-build[core,uv]](https://github.com/OZI-Project/OZI.build) to permit the latest version.
+
+Updates `ozi-core` from 1.17.6 to 1.18.0
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.18.0/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.17.6...1.18.0)
+
+Updates `ozi-build[core,uv]` to 2.0.6
+- [Release notes](https://github.com/OZI-Project/OZI.build/releases)
+- [Changelog](https://github.com/OZI-Project/OZI.build/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/OZI.build/compare/1.13.0...2.0.6)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.18.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+  dependency-group: python-packages
+- dependency-name: ozi-build[core,uv]
+  dependency-version: 2.0.6
+  dependency-type: direct:production
+  dependency-group: python-packages
+... — dependabot[bot] <support@github.com>
+([`a21e834`](https://github.com/OZI-Project/OZI/commit/a21e834ada4dd384be61683109c987143a10c46c))
+
+
+### 🐛 Fixed Bugs
+
+*  fallback to uv in tasks for build — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`8875634`](https://github.com/OZI-Project/OZI/commit/8875634efc6a08169d25f5e760306e7956f93872))
+
+
+### 🔨 Updated Scripts
+
+*  run build task with warn=True — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`cf12b51`](https://github.com/OZI-Project/OZI/commit/cf12b51adaba8865f9f749e14f31b07ad2d145e5))
+
+*  simplify build task logic — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`91620b4`](https://github.com/OZI-Project/OZI/commit/91620b4d970abde619d79994324be22740adfc75))
+
+*  clean up scripts and meson.build — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`4ecb74f`](https://github.com/OZI-Project/OZI/commit/4ecb74f93d1796a8fcde590bc5fae9a887d8e951))
+
+
+### ✨ Implemented Features
+
+*  OZI.build 2.0
+
+⬆️ Bump the python-packages group across 1 directory with 2 updates
+([`74beb73`](https://github.com/OZI-Project/OZI/commit/74beb73d787932d019d7fd66433b83b80d9ebb97))
+
+
+### Other
+
+
+* chore: update pyproject — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`692d715`](https://github.com/OZI-Project/OZI/commit/692d7159758e64e8a22f7be45340da21cd567e38))
+
+* feat: OZI.build 2.0 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`75edaef`](https://github.com/OZI-Project/OZI/commit/75edaefa6188fefae68a68bee7c8de3afa200102))
+
+* build: use Quansight-Labs/cffi fork for freethreading support — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`1163415`](https://github.com/OZI-Project/OZI/commit/1163415ec4684914fbf4622cc04a34c735252892))
+
+* build: use Quansight-Labs/cffi fork for freethreading support — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`c9df5b9`](https://github.com/OZI-Project/OZI/commit/c9df5b9ffd13ebdc5c84d166b36434341a5b13e3))
+
 ## 1.38.4 (2025-04-15)
 
 
