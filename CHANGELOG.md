@@ -111,6 +111,9 @@ updated-dependencies:
 
 ### 🐛 Fixed Bugs
 
+*  fix build metadata ``requires-external`` — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`f484dac`](https://github.com/OZI-Project/OZI/commit/f484dac0966b76badf7557ad5382debefc2f7ad6))
+
 *  fallback to uv in tasks for build — Eden Ross Duff MSc <ozi.project@outlook.com>
 ([`8875634`](https://github.com/OZI-Project/OZI/commit/8875634efc6a08169d25f5e760306e7956f93872))
 
