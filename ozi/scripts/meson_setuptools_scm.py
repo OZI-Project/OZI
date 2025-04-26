@@ -26,11 +26,11 @@ Environment Variables
 
 * :envvar:`MESON_BUILD_ROOT`
 
-``pyproject.toml`` Tool Table Variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+``pyproject.toml`` Keys
+^^^^^^^^^^^^^^^^^^^^^^^
 
-* ``tool.setuptools_scm:version_file``
-* ``tool.setuptools_scm:version_file_template``
+* ``tool.setuptools_scm.version_file``
+* ``tool.setuptools_scm.version_file_template``
 
 """
 

@@ -14,8 +14,8 @@ Output
 
 * String representation of the current :emphasis:`non-normalized` project version
 
-``pyproject.toml`` Tool Table Variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+``pyproject.toml`` Keys
+^^^^^^^^^^^^^^^^^^^^^^^
 
 * ``tool.setuptools_scm:...`` (fully configured)
 

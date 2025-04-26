@@ -3,16 +3,15 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 config_files = [
-    'core_metadata_template.py',
+    'get_optional_dependencies.py',
     'create_subproject_symlink.py',
     'scm_version_snip.py',
     'meson_setuptools_scm.py',
     'meson_dist_setuptools_scm.py',
     'meson_postconf_install_dependencies.py',
+    'meson_postconf_install_depends_external.py',
     'version_metadata_template.py',
-    'replace_ruff_target_version.py',
     'to_distribution_template.py',
-    'render_requirements.py',
 ]
 foreach file: config_files
     if not meson.is_subproject() or get_option('install-subprojects').enabled()
