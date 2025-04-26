@@ -32,11 +32,16 @@ if TYPE_CHECKING:
     from invoke.runners import Result
 
 
+def __build(c: Context, sdist: bool) -> None:
+    kind = '--sdist' if sdist else '--wheel'
+    build = c.run('python -m build {}'.format(kind))
+    if build and build.exited != 0:
+        c.run('uv build {}'.format(kind))
+
+
 def build_sdist(c: Context, sdist: bool, sign: bool) -> None:
     if sdist:
-        build = c.run('python -m build --sdist')
-        if build and build.exited != 0:
-            c.run('uv build --sdist')
+        __build(c, sdist=sdist)
     if sign:
         c.run(f'sigstore sign --output-dir=sig dist{os.sep}*.tar.gz')
 
@@ -46,13 +51,10 @@ def build_wheel(c: Context, wheel: bool, cibuildwheel: bool, sign: bool) -> None
         os.environ['CIBW_BUILD'] = f'cp{sys.version_info.major}{sys.version_info.minor}*'
         res = c.run('cibuildwheel --prerelease-pythons --output-dir dist .', warn=True)
         if res is not None and res.exited != 0 and wheel:
-            build = c.run('python -m build --wheel')
-            if build and build.exited != 0:
-                c.run('uv build --wheel')
+            __build(c, sdist=not wheel)
     elif wheel:
-        build = c.run('python -m build --wheel')
-        if build and build.exited != 0:
-            c.run('uv build --wheel')
+        __build(c, sdist=not wheel)
+
     if sign and (wheel or cibuildwheel):
         c.run(f'sigstore sign --output-dir=sig dist{os.sep}*.whl')
 
