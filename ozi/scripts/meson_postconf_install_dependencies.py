@@ -10,7 +10,7 @@
 # 'pathvalidate~=3.2',
 # ]
 # ///
-""":pep:`723` script: deploy python package build dependencies based on pyproject file.
+""":pep:`723` script: get python package dependencies based on pyproject file.
 
 Side-effects
 ^^^^^^^^^^^^
@@ -23,8 +23,8 @@ Environment Variables
 * :envvar:`MESON_BUILD_ROOT`
 * :envvar:`MESON_DIST_ROOT`
 
-``pyproject.toml`` Tool Table Variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+``pyproject.toml`` Keys
+^^^^^^^^^^^^^^^^^^^^^^^
 
 * ``project.dependencies``
 

@@ -22,6 +22,7 @@ fs = import('fs')
 pymod = import('python')
 patch = find_program('patch')
 pyproject_config = configuration_data()
+build_root = meson.global_build_root()
 
 # prescript arrays
 no_version = get_option('no-version')
@@ -36,42 +37,23 @@ dist_exclude_suites = get_option('dist-exclude-suites')
 docs_exclude_suites = get_option('docs-exclude-suites')
 lint_exclude_suites = get_option('lint-exclude-suites')
 test_exclude_suites = get_option('test-exclude-suites')
+
 # descript arrays
 namespace = get_option('namespace')
 plugin_only = get_option('plugin-only')
 python_dependencies = get_option('python-dependencies')
+
 # features
 dev = get_option('dev')
-docs_source = get_option('docs-source')
-test_source = get_option('test-source')
-# templates
-python_readlines = 'f=open("@0@","r");print(*f.readlines(),sep="",end="");f.close();'
 
-build_root = meson.global_build_root()
+# Scripts
+python_readlines = 'f=open("@0@","r");print(*f.readlines(),sep="",end="");f.close();'
 scripts = 'ozi' / 'scripts'
-project_name = meson.project_name()
 python = pymod.find_installation(
     'python3',
     modules: python_dependencies,
     required: true,
     disabler: true,
-)
-pyproject_config.set(
-    'PYTHON_VERSION_DIST',
-    'py' + ''.join(python.language_version().split('.')),
-)
-pyproject_config.set('VCS_TAG', '@VCS_TAG@')
-root_files = [
-    'README',
-    'CHANGELOG.md',
-    'LICENSE.txt',
-    'pyproject.toml',
-    '.gitignore',
-]
-configure_file(
-    input: root_files[3],
-    output: root_files[3],
-    configuration: pyproject_config,
 )
 meson_setuptools_scm = run_command(
     python,
@@ -88,9 +70,9 @@ meson_dist_setuptools_scm = run_command(
     ['-c', python_readlines.format(scripts / 'meson_dist_setuptools_scm.py')],
     check: true,
 ).stdout()
-core_metadata = run_command(
+get_optional_dependencies = run_command(
     python,
-    ['-c', python_readlines.format(scripts / 'core_metadata_template.py')],
+    ['-c', python_readlines.format(scripts / 'get_optional_dependencies.py')],
     check: true,
 ).stdout()
 metadata_version = run_command(
@@ -119,13 +101,37 @@ install_dependencies = run_command(
     ],
     check: true,
 ).stdout()
-replace_ruff_target_version = run_command(
+install_depends_external = run_command(
     python,
-    ['-c', python_readlines.format(scripts / 'replace_ruff_target_version.py')],
+    [
+        '-c',
+        python_readlines.format(
+            scripts / 'meson_postconf_install_depends_external.py',
+        ),
+    ],
     check: true,
 ).stdout()
+
+# Configure
+pyproject_config.set(
+    'PYTHON_VERSION_DIST',
+    'py' + ''.join(python.language_version().split('.')),
+)
+pyproject_config.set('VCS_TAG', '@VCS_TAG@')
+root_files = [
+    'README',
+    'CHANGELOG.md',
+    'LICENSE.txt',
+    'pyproject.toml',
+    '.gitignore',
+]
+configure_file(
+    input: root_files[3],
+    output: root_files[3],
+    configuration: pyproject_config,
+)
 run_command(python, ['-c', create_subproject_symlink], check: true)
-run_command(python, ['-c', replace_ruff_target_version], check: true)
+pip_args = []
 install_cmd = find_program(
     get_option('install-requirements-command')[0],
     required: false,
@@ -133,10 +139,23 @@ install_cmd = find_program(
 )
 if install_cmd.found()
     pip = get_option('install-requirements-command')
+    if pip[0]=='uv'
+        pip_args = ['--no-progress', '--color=never']
+    endif
 else
     pip = find_program('pip', required: true).full_path()
 endif
-pipx = find_program('pipx', required: true, disabler: true)
+install_tools = find_program(get_option('install-tools-command')[0], required: true, disabler: true)
+pipx_args = ['runpip', 'meson', '--python', python, 'install', '-r']
+if install_tools.found()
+    pipx = get_option('install-tools-command')
+    if pipx[0]=='uv'
+        pipx_args = ['--no-progress', '--color=never', '--requirements']
+    endif
+else
+    find_program('pipx', required: true).full_path()
+endif
+pip_compile_args = []
 compile_cmd = find_program(
     get_option('compile-requirements-command')[0],
     required: false,
@@ -144,6 +163,9 @@ compile_cmd = find_program(
 )
 if compile_cmd.found()
     pip_compile = get_option('compile-requirements-command')
+    if pip_compile[0]=='uv'
+        pip_compile_args = ['--no-progress', '--color=never']
+    endif
 else
     pip_compile = find_program('pip-compile', required: true).full_path()
 endif
@@ -152,15 +174,20 @@ if not meson.is_subproject()
         '$$',
     )
     if deps.length() > 1
-        meson.add_postconf_script(pip, 'install', deps)
+        meson.add_postconf_script(pip, 'install', pip_args, deps)
     endif
+    foreach external_dep : run_command(
+        python,
+        '-c',
+        install_depends_external,
+        check: true,
+    ).stdout().strip().split(
+        '$$',
+    )
+        find_program(external_dep, required: false)
+    endforeach
 endif
-docs_source = 'docs'
-test_source = 'tests'
 no_check = {'check': false, 'env': env}
-install = ['install']
-build_commands = {'dev': []}
-test_app_args = {}
 configure_file(command: [python, '-c', meson_setuptools_scm], output: 'PKG-INFO')
 meson.add_dist_script(pip, 'install', 'tomli>=2.0.0')
 meson.add_dist_script(python, '-c', meson_dist_setuptools_scm)
@@ -174,9 +201,9 @@ foreach source : root_files
     endif
 endforeach
 if get_option('ozi-blastpipe').enabled()
-# BEGIN BOOTSTRAP SCRIPT
+    # BEGIN BOOTSTRAP SCRIPT
     subproject('blastpipe')
-# END BOOTSTRAP SCRIPT
+    # END BOOTSTRAP SCRIPT
 endif
 root_children = ['ozi', 'tests']
 foreach child : root_children
@@ -204,7 +231,7 @@ foreach name : namespace
     set_variable(name, suite)
     foreach command : command_names
         if suite.enabled() and command in module_only
-            modules += [command.underscorify()]  # we should collapse repeated `_`
+            modules += [command.underscorify()]            # we should collapse repeated `_`
         endif
         if command == 'python-semantic-release'
             command = 'semantic_release'
@@ -214,18 +241,15 @@ foreach name : namespace
 and command not in plugin_only
 )
             if command not in module_only and get_option('tox-env-dir') != ''
-                message('install', command, 'with pipx')
+                message('install', command, 'with', ' '.join(pipx))
+                maybe_command = pipx[0].startswith('uv')? command : []
                 run_command(
                     pipx,
                     [
-                        'runpip',
-                        'meson',
-                        '--python',
-                        python,
-                        'install',
-                        get_option('install-args-' + command),
-                        '-r',
+                        pipx_args,
                         meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
+                        get_option('install-args-' + command),
+                        maybe_command
                     ],
                     check: true,
                 )
@@ -235,6 +259,7 @@ and command not in plugin_only
                     pip,
                     [
                         'install',
+                        pip_args,
                         get_option('install-args-' + command),
                         '-r',
                         meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
@@ -372,10 +397,7 @@ endforeach
 
 # BEGIN checkpoint-suite-invocation
 add_test_setup('dev', is_default: not meson.is_subproject(), env: env)
-env.append('TESTS_BUILDDIR', build_root)
-no_check = {'check': false, 'env': env}
-opt_cov_eq_project_name = '--cov=' + project_name
-build_commands = {'dev': []}
+env.append('TESTS_BUILDDIR', meson.global_build_root())
 foreach name : namespace
     add_test_setup(
         name,
@@ -394,7 +416,6 @@ foreach name : namespace
             _args = []
         endif
         command_args = []
-        test_app_args = {}
         foreach arg : _args
             if (arg.startswith('@')
 and (arg.endswith('@')
@@ -456,11 +477,10 @@ or arg.endswith('@/test')
 endforeach
 # END checkpoint-suite-invocation
 
-display_dirs = ['bindir', 'datadir', 'libdir', 'localedir', 'prefix']
-foreach dir : display_dirs
+foreach dir : ['bindir', 'datadir', 'libdir', 'localedir', 'prefix']
     summary(
         {dir: get_option(dir)},
-        section: '$ meson install -C @0@'.format(build_root),
+        section: '$ meson install -C @0@'.format(meson.global_build_root()),
     )
 endforeach
 summary('install_dir', python.get_install_dir(), section: 'Python')
@@ -515,6 +535,6 @@ and package[0] not in get_option('dist-suite')
         endforeach
         pip_version = run_command(pip, '-V', check: true).stdout().split()
         summary(pip_version[0], pip_version[1], section: 'Python packages')
-        break  ### avoids repeating for each namespace making the above run once for *any*
+        break        ### avoids repeating for each namespace making the above run once for *any*
     endif
 endforeach

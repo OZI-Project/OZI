@@ -20,6 +20,12 @@ option(
     value: ['uv', 'pip'],
     yield: true,
 )
+option(
+    'install-tools-command',
+    type: 'array',
+    value: ['uv', 'pip', 'install'],
+    yield: true,
+)
 option('dev', type: 'feature', value: 'auto')
 option('install-subprojects', type: 'feature', value: 'disabled')
 option('docs-source', type: 'feature', value: 'disabled')
@@ -33,7 +39,7 @@ option(
     'python-dependencies',
     type: 'array',
     description: 'sanity check module dependencies',
-    value: ['setuptools_scm', 'piptools', 'setuptools', 'ninja', 'mesonbuild'],
+    value: ['setuptools_scm', 'setuptools', 'ninja', 'mesonbuild'],
 )
 
 option(
