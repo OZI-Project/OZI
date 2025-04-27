@@ -35,7 +35,7 @@ if TYPE_CHECKING:
 def __build(c: Context, sdist: bool) -> None:
     kind = '--sdist' if sdist else '--wheel'
     build = c.run('python -m build {}'.format(kind), warn=True)
-    if build and build.exited != 0:
+    if build is not None and build.exited != 0:
         c.run('uv build {}'.format(kind))
 
 
