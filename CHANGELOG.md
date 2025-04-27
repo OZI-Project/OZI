@@ -167,6 +167,9 @@ updated-dependencies:
 ### Other
 
 
+* fix: skipped build task — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`b32dd71`](https://github.com/OZI-Project/OZI/commit/b32dd7181ded3915ae9fcc87ef790a6f2dec04d3))
+
 * chore: update pyproject — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
 ([`692d715`](https://github.com/OZI-Project/OZI/commit/692d7159758e64e8a22f7be45340da21cd567e38))
 
