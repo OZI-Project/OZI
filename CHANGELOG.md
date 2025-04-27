@@ -1,8 +1,28 @@
 # OZI CHANGELOG
-## 1.39.0 (2025-04-26)
+## 1.39.0 (2025-04-27)
 
 
 ### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core in the python-packages group across 1 directory
+
+Bumps the python-packages group with 1 update in the / directory: [ozi-core](https://github.com/OZI-Project/ozi-core).
+
+
+Updates `ozi-core` from 1.18.2 to 1.18.3
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.18.3/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.18.2...1.18.3)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.18.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+  dependency-group: python-packages
+... — dependabot[bot] <support@github.com>
+([`f051b16`](https://github.com/OZI-Project/OZI/commit/f051b16893c60709c90ad8fa8e989b8692308d4a))
 
 *  Bump OZI-Project/publish from 1.13.1 to 1.13.3
 
