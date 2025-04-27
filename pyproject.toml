@@ -36,7 +36,7 @@ classifiers = [
 ]
 dependencies = [
     'pathvalidate~=3.2.1',
-    'ozi-core==1.18.2',
+    'ozi-core==1.18.3',
     'setuptools_scm[toml]',
     'tomli>=2.0.0;python_version<"3.11"',
 ]
