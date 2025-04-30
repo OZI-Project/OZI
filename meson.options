@@ -34,6 +34,7 @@ option('dist', type: 'feature', value: 'auto')
 option('docs', type: 'feature', value: 'auto')
 option('lint', type: 'feature', value: 'auto')
 option('test', type: 'feature', value: 'auto')
+option('invoke', type: 'feature', value: 'auto')
 
 option(
     'python-dependencies',

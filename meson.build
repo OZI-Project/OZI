@@ -533,8 +533,10 @@ and package[0] not in get_option('dist-suite')
                 endif
             endif
         endforeach
-        pip_version = run_command(pip, '-V', check: true).stdout().split()
-        summary(pip_version[0], pip_version[1], section: 'Python packages')
+        if pip[0] != 'uv'
+            pip_version = run_command(pip, '-V', check: true).stdout().split()
+            summary(pip_version[0], pip_version[1], section: 'Python packages')
+        endif
         break        ### avoids repeating for each namespace making the above run once for *any*
     endif
 endforeach

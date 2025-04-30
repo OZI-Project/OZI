@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 [build-system]
 build-backend = "ozi_build.buildapi"
-requires      = ["OZI.build[core,uv]~=2.0.7"]
+requires      = ["OZI.build[core,uv]~=2.0.7", "meson<1.8"]
 
 [project.scripts]
 ozi = "ozi.__main__:main"
@@ -38,7 +38,7 @@ classifiers = [
 ]
 dependencies = [
     'pathvalidate~=3.2.1',
-    'ozi-core==1.18.4',
+    'ozi-core==1.18.3',
     'setuptools_scm[toml]',
     'tomli>=2.0.0;python_version<"3.11"',
 ]
@@ -354,7 +354,7 @@ commands_pre =
      uv pip install --color=never --no-progress OZI.build[uv,core]~=2.0.7
      uv tool install --python={env_python} --force meson
 commands =
-     meson setup {env_tmp_dir} -Ddist=disabled -Dtox-env-dir={env_dir}
+     meson setup {env_tmp_dir} -D{env_name}=enabled -Dtox-env-dir={env_dir}
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
 commands_post =
@@ -369,7 +369,7 @@ description = OZI format/lint checkpoint
 [testenv:test]
 description = OZI unit tests checkpoint
 commands =
-     meson setup {env_tmp_dir} -Dozi-blastpipe=disabled -Ddist=disabled -Dtox-env-dir={env_dir}
+     meson setup {env_tmp_dir} -Dozi-blastpipe=disabled -Dtest=enabled -Dtox-env-dir={env_dir}
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
 

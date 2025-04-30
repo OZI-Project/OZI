@@ -1,0 +1,9 @@
+@@ -298,7 +298,7 @@
+ commands_pre =
+      pipx install --python=python meson
+ commands =
+-     meson setup {env_tmp_dir} -Dozi:dist=disabled -Dozi:tox-env-dir={env_dir}
++     meson setup {env_tmp_dir} -Dozi:{env_name}=enabled -Dozi:tox-env-dir={env_dir}
+      meson compile -C {env_tmp_dir}
+      rm -rf {env_tmp_dir}{/}.gitignore
+ commands_post =

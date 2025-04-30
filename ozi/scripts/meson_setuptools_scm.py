@@ -65,10 +65,6 @@ if __name__ == '__main__':
         validate_filepath(version_file, platform='auto')
         path = Path(source / version_file).resolve()
     except (TypeError, ValidationError):
-        print(
-            'no METADATA path provided by setuptools_scm, assuming OZI.build 1.3+',
-            file=sys.stderr,
-        )
         exit(0)
     validate_filepath(path, platform='auto')
     if path.parent != Path(source).resolve():
