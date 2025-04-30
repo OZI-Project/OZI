@@ -4,6 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 patch_files = [
     'meson.build-fallback_version_for_ozi_build_1.13.0-1.38.0.patch'
+    'pyproject.toml-set_tox_envname_enabled_for_meson_1.8.0-1.39.2.patch'
 ]
 foreach file: patch_files
     if not meson.is_subproject() or get_option('install-subprojects').enabled()
