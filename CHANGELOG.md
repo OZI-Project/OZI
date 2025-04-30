@@ -1,4 +1,39 @@
 # OZI CHANGELOG
+## 1.39.2 (2025-04-30)
+
+
+### 🐛 Fixed Bugs
+
+*  fix tox test env setup commands — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`9ce6c21`](https://github.com/OZI-Project/OZI/commit/9ce6c2143a726b85ad458943190c1a0ed0167a09))
+
+*  skip running patch on OZI repo — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`794af69`](https://github.com/OZI-Project/OZI/commit/794af69722871232f2ee25a4d07b8522811edcdd))
+
+*  build requires meson<1.8 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`256a193`](https://github.com/OZI-Project/OZI/commit/256a1930744aa641474f865e3a90b453df041f3f))
+
+*  fix meson>1.8 test suite options not being enabled — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`a8a7758`](https://github.com/OZI-Project/OZI/commit/a8a775840172c17a29b1b75b246d55a78e5544c2))
+
+
+### 🔨 Updated Scripts
+
+*  add invoke feature option — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`9ff03bb`](https://github.com/OZI-Project/OZI/commit/9ff03bbcd2e6faa60a8b4f3030cce2c48d039aef))
+
+*  fix missing commas — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`0e7310b`](https://github.com/OZI-Project/OZI/commit/0e7310bb2d0b59eba5b73d33de90d9b7f34e4680))
+
+*  update dist-workflow.yml to use dist environment — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`f7a2c74`](https://github.com/OZI-Project/OZI/commit/f7a2c74630e28bd3741e2f97c353971483aa65ad))
+
+
+### ✏️ Corrected Typos
+
+*  fix typo — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`f1eb8b8`](https://github.com/OZI-Project/OZI/commit/f1eb8b8181065de2a70967a5d1314e12cd00ff6c))
+
 ## 1.39.1 (2025-04-28)
 
 
