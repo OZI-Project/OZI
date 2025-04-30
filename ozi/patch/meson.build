@@ -11,7 +11,7 @@ foreach file: patch_files
         python.install_sources(file, subdir: 'ozi'/'patch')
     endif
     fs.copyfile(file)
-    if meson.project_version().version_compare('<'+file.split('-')[2])
+    if meson.project_version().version_compare('<'+file.split('-')[2]) and meson.is_subproject()
         run_command(patch, '-Nmlu', '--no-backup-if-mismatch', meson.global_source_root() / file.split('-')[0], file, check: false)
     endif
 endforeach
