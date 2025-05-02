@@ -1,40 +1,119 @@
 # OZI CHANGELOG
+## 1.39.3 (2025-05-02)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/checkpoint from 1.7.1 to 1.7.2
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.7.1 to 1.7.2.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/dbe6f38e4bb6ed375129d0cf718b6d6968340a13...ac9e45ece7eecacce1a9acb44ae4443985fe310b)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.7.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`63cd675`](https://github.com/OZI-Project/OZI/commit/63cd67554a02c619ff18effaa3c4d26c2e082546))
+
+*  Bump OZI-Project/publish from 1.13.3 to 1.13.4
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.13.3 to 1.13.4.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/df67e9c0f38d22c078568807d2eefed313340e2d...8297bf52054be7cae27ab2770e08d96676fd3162)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.13.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`d318554`](https://github.com/OZI-Project/OZI/commit/d318554229c87cc5878694b1515d42bc36fcac3c))
+
+*  Bump OZI-Project/release from 1.6.4 to 1.6.5
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.6.4 to 1.6.5.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/0b2ba9981ee9eea47a358c0d70c5b3764a61b88c...36fe15c47185192e9cf5df744a8d1eb679676e22)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.6.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`052794c`](https://github.com/OZI-Project/OZI/commit/052794ceb62130a97f70cf091eb59b34b2c4adf1))
+
+*  Bump ozi-core in the python-packages group across 1 directory
+
+Bumps the python-packages group with 1 update in the / directory: [ozi-core](https://github.com/OZI-Project/ozi-core).
+
+
+Updates `ozi-core` from 1.18.3 to 1.19.0
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.18.3...1.19.0)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.19.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+  dependency-group: python-packages
+... — dependabot[bot] <support@github.com>
+([`1097d1e`](https://github.com/OZI-Project/OZI/commit/1097d1e97bac9d4bd8187e9c4bd66cbeb2fa1f67))
+
+*  Bump OZI-Project/draft from 1.13.1 to 1.13.2
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.13.1 to 1.13.2.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/ed08d630ad83cfd14061b78cf695c20eb51984a5...92712f8a95c9cb1fa00731f9a29edeb1cd9799b8)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-version: 1.13.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`7604151`](https://github.com/OZI-Project/OZI/commit/76041511488c3c09bc386f92cae8d3fb0eaae37d))
+
+*  Bump github/codeql-action from 3.28.16 to 3.28.17
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.16 to 3.28.17.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/28deaeda66b76a05916b6923827895f2b14ab387...60168efe1c415ce0f5521ea06d5c2062adbeed1b)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.28.17
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`d062a8f`](https://github.com/OZI-Project/OZI/commit/d062a8fba8981a17e934900c006d4becdb77f084))
+
+
+### Other
+
+
+* feat: support meson~=1.2,<1.9
+
+⬆️ Bump ozi-core from 1.18.3 to 1.19.0 in the python-packages group across 1 directory
+([`99b883a`](https://github.com/OZI-Project/OZI/commit/99b883a3725c652e0d1033f62cc4210a733f8741))
+
 ## 1.39.2 (2025-04-30)
 
-
-### 🐛 Fixed Bugs
-
-*  fix tox test env setup commands — Eden Ross Duff MSc <ozi.project@outlook.com>
-([`9ce6c21`](https://github.com/OZI-Project/OZI/commit/9ce6c2143a726b85ad458943190c1a0ed0167a09))
-
-*  skip running patch on OZI repo — Eden Ross Duff MSc <ozi.project@outlook.com>
-([`794af69`](https://github.com/OZI-Project/OZI/commit/794af69722871232f2ee25a4d07b8522811edcdd))
-
-*  build requires meson<1.8 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
-([`256a193`](https://github.com/OZI-Project/OZI/commit/256a1930744aa641474f865e3a90b453df041f3f))
-
-*  fix meson>1.8 test suite options not being enabled — Eden Ross Duff MSc <ozi.project@outlook.com>
-([`a8a7758`](https://github.com/OZI-Project/OZI/commit/a8a775840172c17a29b1b75b246d55a78e5544c2))
-
-
-### 🔨 Updated Scripts
-
-*  add invoke feature option — Eden Ross Duff MSc <ozi.project@outlook.com>
-([`9ff03bb`](https://github.com/OZI-Project/OZI/commit/9ff03bbcd2e6faa60a8b4f3030cce2c48d039aef))
-
-*  fix missing commas — Eden Ross Duff MSc <ozi.project@outlook.com>
-([`0e7310b`](https://github.com/OZI-Project/OZI/commit/0e7310bb2d0b59eba5b73d33de90d9b7f34e4680))
-
-*  update dist-workflow.yml to use dist environment — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
-([`f7a2c74`](https://github.com/OZI-Project/OZI/commit/f7a2c74630e28bd3741e2f97c353971483aa65ad))
-
-
-### ✏️ Corrected Typos
-
-*  fix typo — Eden Ross Duff MSc <ozi.project@outlook.com>
-([`f1eb8b8`](https://github.com/OZI-Project/OZI/commit/f1eb8b8181065de2a70967a5d1314e12cd00ff6c))
-
 ## 1.39.1 (2025-04-28)
+
+## 1.39.0 (2025-04-27)
 
 
 ### ⬆️ Upgraded Dependencies
@@ -58,17 +137,6 @@ updated-dependencies:
   dependency-group: python-packages
 ... — dependabot[bot] <support@github.com>
 ([`a352571`](https://github.com/OZI-Project/OZI/commit/a35257170871b232ce2cd89d10c50379146a1409))
-
-
-### 📝 Updated Documentation
-
-* update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
-([`3f3fa09`](https://github.com/OZI-Project/OZI/commit/3f3fa09f96b49dae6c0d955b02fdf2c9e6320d91))
-
-## 1.39.0 (2025-04-27)
-
-
-### ⬆️ Upgraded Dependencies
 
 *  Bump ozi-core in the python-packages group across 1 directory
 
@@ -197,6 +265,18 @@ updated-dependencies:
 
 ### 🐛 Fixed Bugs
 
+*  fix tox test env setup commands — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`9ce6c21`](https://github.com/OZI-Project/OZI/commit/9ce6c2143a726b85ad458943190c1a0ed0167a09))
+
+*  skip running patch on OZI repo — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`794af69`](https://github.com/OZI-Project/OZI/commit/794af69722871232f2ee25a4d07b8522811edcdd))
+
+*  build requires meson<1.8 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`256a193`](https://github.com/OZI-Project/OZI/commit/256a1930744aa641474f865e3a90b453df041f3f))
+
+*  fix meson>1.8 test suite options not being enabled — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`a8a7758`](https://github.com/OZI-Project/OZI/commit/a8a775840172c17a29b1b75b246d55a78e5544c2))
+
 *  fix build metadata ``requires-external`` — Eden Ross Duff MSc <ozi.project@outlook.com>
 ([`f484dac`](https://github.com/OZI-Project/OZI/commit/f484dac0966b76badf7557ad5382debefc2f7ad6))
 
@@ -206,6 +286,15 @@ updated-dependencies:
 
 ### 🔨 Updated Scripts
 
+*  add invoke feature option — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`9ff03bb`](https://github.com/OZI-Project/OZI/commit/9ff03bbcd2e6faa60a8b4f3030cce2c48d039aef))
+
+*  fix missing commas — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`0e7310b`](https://github.com/OZI-Project/OZI/commit/0e7310bb2d0b59eba5b73d33de90d9b7f34e4680))
+
+*  update dist-workflow.yml to use dist environment — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`f7a2c74`](https://github.com/OZI-Project/OZI/commit/f7a2c74630e28bd3741e2f97c353971483aa65ad))
+
 *  run build task with warn=True — Eden Ross Duff MSc <ozi.project@outlook.com>
 ([`cf12b51`](https://github.com/OZI-Project/OZI/commit/cf12b51adaba8865f9f749e14f31b07ad2d145e5))
 
@@ -214,6 +303,21 @@ updated-dependencies:
 
 *  clean up scripts and meson.build — Eden Ross Duff MSc <ozi.project@outlook.com>
 ([`4ecb74f`](https://github.com/OZI-Project/OZI/commit/4ecb74f93d1796a8fcde590bc5fae9a887d8e951))
+
+
+### 📝 Updated Documentation
+
+* update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`3f3fa09`](https://github.com/OZI-Project/OZI/commit/3f3fa09f96b49dae6c0d955b02fdf2c9e6320d91))
+
+
+### ✏️ Corrected Typos
+
+*  remove meson<1.8 from build-system requires — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`ea642ab`](https://github.com/OZI-Project/OZI/commit/ea642abc26e93ecd7a081c984767e9270161c40c))
+
+*  fix typo — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`f1eb8b8`](https://github.com/OZI-Project/OZI/commit/f1eb8b8181065de2a70967a5d1314e12cd00ff6c))
 
 
 ### ✨ Implemented Features
