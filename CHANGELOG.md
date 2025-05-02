@@ -1,4 +1,21 @@
 # OZI CHANGELOG
+## 1.41.0 (2025-05-02)
+
+
+### 🔒️
+
+
+* update SECURITY.md — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`cf21dd2`](https://github.com/OZI-Project/OZI/commit/cf21dd20a71578ac83e62ed1f0c1efdb773f4c76))
+
+
+### ✨ Implemented Features
+
+*  force minor bump
+
+Release/1.40
+([`44322d1`](https://github.com/OZI-Project/OZI/commit/44322d12e594e3b9e2c17fed6c117262b2c4b682))
+
 ## 1.40.0 (2025-05-02)
 
 
