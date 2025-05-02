@@ -5,20 +5,9 @@
 Which versions of your project are
 currently being supported with security updates.
 
-| Version | Supported          | ``semantic-release`` Version |
-| ------- | ------------------ | -----------------------------|
-| <1.28.x  | ❌                 | 9.15                         |
-| 1.29.x  | ☑️                 | 9.15                         |
-| 1.30.x  | ☑️                 | 9.15                         |
-| 1.31.x  | ☑️                 | 9.15                         |
-| 1.32.x  | ☑️                 | 9.15                         |
-| 1.33.x  | ☑️                 | 9.16                         |
-| 1.34.x  | ☑️                 | 9.17                         |
-| 1.35.x  | ☑️                 | 9.19                         |
-| 1.36.x  | ☑️                 | 9.20                         |
-| 1.37.x  | ☑️                 | 9.21                         |
-| 1.38.x  | ☑️                 | 9.21                         |
-| 1.39.x  | ☑️                 | 9.21                         |
+| Version | Supported          | ``semantic-release`` Version | ``meson`` Version |
+| ------- | ------------------ | -----------------------------|-------------------|
+| 1.41.x  | ☑️                 | 9.21                         | >1.1,<1.9         |
 
 ## Disclosure
 
