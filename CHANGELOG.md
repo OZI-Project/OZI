@@ -1,4 +1,19 @@
 # OZI CHANGELOG
+## 1.40.0 (2025-05-02)
+
+
+### ✨ Implemented Features
+
+*  force minor version bump — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`e97259d`](https://github.com/OZI-Project/OZI/commit/e97259d806fee7db91ec018d9541303b8e26bbe3))
+
+
+### Other
+
+
+* feat: force minor bump — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`ff67c62`](https://github.com/OZI-Project/OZI/commit/ff67c622b174c1a71a03349a868487091bace5f5))
+
 ## 1.39.3 (2025-05-02)
 
 
