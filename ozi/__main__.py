@@ -11,4 +11,4 @@ from ozi import __version__
 
 if __name__ == '__main__':
     setup_parser(__version__)
-    main()
+    main()  # pyright: ignore
