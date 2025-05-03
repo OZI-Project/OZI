@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.41.4 (2025-05-03)
+
+
+### ✨ Improved Performance
+
+* support broadened to included Python 3.9 — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`25900f7`](https://github.com/OZI-Project/OZI/commit/25900f7e822c6a2871762de1e3f158d912704039))
+
 ## 1.41.3 (2025-05-03)
 
 
