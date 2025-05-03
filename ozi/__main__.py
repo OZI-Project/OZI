@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 """``ozi`` console application."""  # pragma: no cover
 
-from ozi_core.__main__ import main
+from ozi_core.__main__ import main  # pyright: ignore
 
 from ozi import __version__
 
