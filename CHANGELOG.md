@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.41.3 (2025-05-03)
+
+
+### 🐛 Fixed Bugs
+
+*  fix entry_point script — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`9f5eefd`](https://github.com/OZI-Project/OZI/commit/9f5eefdc461e6a1a76e329a221c8a4e105d6812a))
+
 ## 1.41.2 (2025-05-03)
 
 
