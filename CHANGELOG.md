@@ -1,4 +1,73 @@
 # OZI CHANGELOG
+## 1.41.2 (2025-05-03)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  ozi-core==1.19.3 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`852b606`](https://github.com/OZI-Project/OZI/commit/852b606238d1e5e328e8ce5f5fbe335575cc4a59))
+
+*  Bump ozi-core in the python-packages group across 1 directory
+
+Bumps the python-packages group with 1 update in the / directory: [ozi-core](https://github.com/OZI-Project/ozi-core).
+
+
+Updates `ozi-core` from 1.19.1 to 1.19.2
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.19.1...1.19.2)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.19.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+  dependency-group: python-packages
+... — dependabot[bot] <support@github.com>
+([`0acfc3b`](https://github.com/OZI-Project/OZI/commit/0acfc3b7eb152f51108677812a30dd59eeeb967f))
+
+
+### 🐛 Fixed Bugs
+
+*  fix main entry_point — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`84d2248`](https://github.com/OZI-Project/OZI/commit/84d2248f40055f5bb92f61527809cf48f276166f))
+
+## 1.41.1 (2025-05-03)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core in the python-packages group across 1 directory
+
+Bumps the python-packages group with 1 update in the / directory: [ozi-core](https://github.com/OZI-Project/ozi-core).
+
+
+Updates `ozi-core` from 1.19.0 to 1.19.1
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.19.0...1.19.1)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.19.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+  dependency-group: python-packages
+... — dependabot[bot] <support@github.com>
+([`9aae41b`](https://github.com/OZI-Project/OZI/commit/9aae41b25596a1f9dffb4ba8e6bb43164de8675a))
+
+
+### Other
+
+
+* 🚨 fix lint — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`50c455b`](https://github.com/OZI-Project/OZI/commit/50c455b834c910e14ebda17f3bc5038bdeb00549))
+
+* 🚚: move main CLI to ozi-core — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`2baaf8b`](https://github.com/OZI-Project/OZI/commit/2baaf8bc09158b3bbacb6437e6b0e594fad76a8a))
+
 ## 1.41.0 (2025-05-02)
 
 
