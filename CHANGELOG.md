@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.41.5 (2025-05-03)
+
+
+### 🐛 Fixed Bugs
+
+*  fix freethreaded support — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`33ff1a5`](https://github.com/OZI-Project/OZI/commit/33ff1a536b0c24963fc5b125e58f087f68553b3e))
+
 ## 1.41.4 (2025-05-03)
 
 
