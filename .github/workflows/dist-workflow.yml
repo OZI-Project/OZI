@@ -176,7 +176,7 @@ jobs:
             files.pythonhosted.org:443
             downloads.python.org:443
 
-      - uses: OZI-Project/draft@92712f8a95c9cb1fa00731f9a29edeb1cd9799b8
+      - uses: OZI-Project/draft@68b9a0082a1e1fafa581b7cb6488254df5f47a39
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -271,7 +271,7 @@ jobs:
             ghcr.io:443
             pkg-containers.githubusercontent.com:443
 
-    - uses: OZI-Project/publish@8297bf52054be7cae27ab2770e08d96676fd3162 # 1.13.4
+    - uses: OZI-Project/publish@2db0b4c8cd2073e42b9aa5f399020b78cfee31e0 # 1.13.5
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
