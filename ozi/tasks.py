@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import inspect
 import os
+import runpy
 import sys
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -74,6 +75,7 @@ def setup(
     ozi: bool = False,
 ) -> None | Result:
     """Setup a meson build directory for an OZI suite."""
+    runpy.run_path(f'.tox/{suite}/bin/activate_this.py')
     target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
     env_dir = Path(f'.tox/{suite}').absolute()
     if ozi:
