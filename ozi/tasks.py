@@ -32,11 +32,12 @@ if TYPE_CHECKING:
     from invoke.runners import Result
 
 
-def __build(c: Context, sdist: bool) -> None:
+def __build(c: Context, sdist: bool, wheel_sign_token: str | None = None) -> None:
     kind = '--sdist' if sdist else '--wheel'
-    build = c.run('python -m build {}'.format(kind), warn=True)
+    env = {'WHEEL_SIGN_TOKEN': wheel_sign_token} if wheel_sign_token else {}
+    build = c.run('python -m build {}'.format(kind), warn=True, env=env)
     if build is not None and build.exited != 0:
-        c.run('uv build {}'.format(kind))
+        c.run('uv build {}'.format(kind), env=env)
 
 
 def build_sdist(c: Context, sdist: bool, sign: bool) -> None:
@@ -46,14 +47,20 @@ def build_sdist(c: Context, sdist: bool, sign: bool) -> None:
         c.run(f'sigstore sign --output-dir=sig dist{os.sep}*.tar.gz')
 
 
-def build_wheel(c: Context, wheel: bool, cibuildwheel: bool, sign: bool) -> None:
+def build_wheel(
+    c: Context,
+    wheel: bool,
+    cibuildwheel: bool,
+    sign: bool,
+    wheel_sign_token: str | None = None,
+) -> None:
     if cibuildwheel:
         os.environ['CIBW_BUILD'] = f'cp{sys.version_info.major}{sys.version_info.minor}*'
         res = c.run('cibuildwheel --prerelease-pythons --output-dir dist .', warn=True)
         if res is not None and res.exited != 0 and wheel:
-            __build(c, sdist=not wheel)
+            __build(c, sdist=not wheel, wheel_sign_token=wheel_sign_token)
     elif wheel:
-        __build(c, sdist=not wheel)
+        __build(c, sdist=not wheel, wheel_sign_token=wheel_sign_token)
 
     if sign and (wheel or cibuildwheel):
         c.run(f'sigstore sign --output-dir=sig dist{os.sep}*.whl')
@@ -128,12 +135,13 @@ def release(  # noqa:
     cibuildwheel: bool = True,
     wheel: bool = True,
     sign: bool = False,
+    wheel_sign_token: str | None = None,
     ozi: bool = False,
 ) -> None:
     """Create releases for the current interpreter."""
     setup(c, suite='dist', draft=draft, ozi=ozi)
     build_sdist(c, sdist, sign)
-    build_wheel(c, wheel, cibuildwheel, sign)
+    build_wheel(c, wheel, cibuildwheel, sign, wheel_sign_token)
 
 
 @task
