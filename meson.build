@@ -147,7 +147,7 @@ if install_cmd.found()
             '''import os;print(os.environ.get('CI', '') or os.environ.get('GITHUB_ACTIONS', ''))''',
             check: true,
         ).stdout().strip()
-            pip_args += ['--system']
+            pip_args += []
         endif
     endif
 else
