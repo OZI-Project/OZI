@@ -1,4 +1,60 @@
 # OZI CHANGELOG
+## 1.41.6 (2025-05-12)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/draft from 1.13.2 to 1.13.3
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.13.2 to 1.13.3.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/92712f8a95c9cb1fa00731f9a29edeb1cd9799b8...68b9a0082a1e1fafa581b7cb6488254df5f47a39)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-version: 1.13.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`27b1560`](https://github.com/OZI-Project/OZI/commit/27b15609d9e04ed9009b54540ce0ba925f8d16af))
+
+*  Bump actions/dependency-review-action from 4.6.0 to 4.7.0
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.6.0 to 4.7.0.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/ce3cf9537a52e8119d91fd484ab5b8a807627bf8...38ecb5b593bf0eb19e335c03f97670f792489a8b)
+
+
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-version: 4.7.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`0290e06`](https://github.com/OZI-Project/OZI/commit/0290e0688b09fdf4e2b59cda94e3f9170ae55710))
+
+*  Bump OZI-Project/publish from 1.13.4 to 1.13.5
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.13.4 to 1.13.5.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/8297bf52054be7cae27ab2770e08d96676fd3162...2db0b4c8cd2073e42b9aa5f399020b78cfee31e0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.13.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`5054ab5`](https://github.com/OZI-Project/OZI/commit/5054ab5131cf70810111dd8aec2d276b90a6914c))
+
+
+### 🔨 Updated Configuration
+
+* add ``--wheel-sign-token`` arg to release task (#1603) — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`137f603`](https://github.com/OZI-Project/OZI/commit/137f60370b24cc6495206d790a4d3abf58776288))
+
 ## 1.41.5 (2025-05-03)
 
 
