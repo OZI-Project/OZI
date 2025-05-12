@@ -1,4 +1,100 @@
 # OZI CHANGELOG
+## 1.41.7 (2025-05-12)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Update ozi-build[core,uv] requirement
+
+Updates the requirements on [ozi-build[core,uv]](https://github.com/OZI-Project/OZI.build) to permit the latest version.
+
+Updates `ozi-build[core,uv]` to 2.1.0
+- [Release notes](https://github.com/OZI-Project/OZI.build/releases)
+- [Changelog](https://github.com/OZI-Project/OZI.build/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/OZI.build/compare/2.0.7...2.1.0)
+
+
+updated-dependencies:
+- dependency-name: ozi-build[core,uv]
+  dependency-version: 2.1.0
+  dependency-type: direct:production
+  dependency-group: python-packages
+... — dependabot[bot] <support@github.com>
+([`7706b34`](https://github.com/OZI-Project/OZI/commit/7706b34c7c90eeb203dba2fe721c9869120fa7ca))
+
+*  Bump OZI-Project/release from 1.6.5 to 1.6.7
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.6.5 to 1.6.7.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/36fe15c47185192e9cf5df744a8d1eb679676e22...10a57d8906c4969547cfaa3395eb53facb8a5041)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.6.7
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`5f3eb0c`](https://github.com/OZI-Project/OZI/commit/5f3eb0cdba831062f032bd3c18f64cbff18ca0b7))
+
+*  Bump OZI-Project/draft from 1.13.3 to 1.13.4
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.13.3 to 1.13.4.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/68b9a0082a1e1fafa581b7cb6488254df5f47a39...84f054f0398fe815ac68f4243f6aafb9f5b85e4a)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-version: 1.13.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`1d7992a`](https://github.com/OZI-Project/OZI/commit/1d7992a4704fd91e71e3717ef57c40506f69ed9e))
+
+*  Bump OZI-Project/checkpoint from 1.7.2 to 1.7.3
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.7.2 to 1.7.3.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/ac9e45ece7eecacce1a9acb44ae4443985fe310b...1b0b165711dca7c852f4c30fbebea96de3747617)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.7.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`36cdc95`](https://github.com/OZI-Project/OZI/commit/36cdc957a4fec1266207fc4d11fc36f86d6b336a))
+
+*  Bump OZI-Project/publish from 1.13.5 to 1.13.7
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.13.5 to 1.13.7.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/2db0b4c8cd2073e42b9aa5f399020b78cfee31e0...621f1f7d2691300b8a66b0aaa62a4853359daa89)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.13.7
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`1e4dce4`](https://github.com/OZI-Project/OZI/commit/1e4dce49fc6c6a0fe0895f6366f0b518db1a0ada))
+
+
+### 🐛 Fixed Bugs
+
+*  add ``--system`` arg to uv pip if CI env is detected — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`3672eb0`](https://github.com/OZI-Project/OZI/commit/3672eb0d32cfaab690d16e633c4ece6d02ec38ef))
+
+
+### Other
+
+
+* perf(tasks): add ``--wheel-sign-token`` arg to release task — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`ce1fa0c`](https://github.com/OZI-Project/OZI/commit/ce1fa0cc218d61fa0c39bb5c91b3b66864172f95))
+
 ## 1.41.6 (2025-05-12)
 
 
