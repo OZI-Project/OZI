@@ -139,17 +139,29 @@ install_cmd = find_program(
 )
 if install_cmd.found()
     pip = get_option('install-requirements-command')
-    if pip[0]=='uv'
+    if pip[0] == 'uv'
         pip_args = ['--no-progress', '--color=never']
+        if '' != run_command(
+            python,
+            '-c',
+            '''import os;print(os.environ.get('CI', '') or os.environ.get('GITHUB_ACTIONS', ''))''',
+            check: true,
+        ).stdout().strip()
+            pip_args += ['--system']
+        endif
     endif
 else
     pip = find_program('pip', required: true).full_path()
 endif
-install_tools = find_program(get_option('install-tools-command')[0], required: true, disabler: true)
+install_tools = find_program(
+    get_option('install-tools-command')[0],
+    required: true,
+    disabler: true,
+)
 pipx_args = ['runpip', 'meson', '--python', python, 'install', '-r']
 if install_tools.found()
     pipx = get_option('install-tools-command')
-    if pipx[0]=='uv'
+    if pipx[0] == 'uv'
         pipx_args = ['--no-progress', '--color=never', '--requirements']
     endif
 else
@@ -163,7 +175,7 @@ compile_cmd = find_program(
 )
 if compile_cmd.found()
     pip_compile = get_option('compile-requirements-command')
-    if pip_compile[0]=='uv'
+    if pip_compile[0] == 'uv'
         pip_compile_args = ['--no-progress', '--color=never']
     endif
 else
@@ -242,14 +254,14 @@ and command not in plugin_only
 )
             if command not in module_only and get_option('tox-env-dir') != ''
                 message('install', command, 'with', ' '.join(pipx))
-                maybe_command = pipx[0].startswith('uv')? command : []
+                maybe_command = pipx[0].startswith('uv') ? command : []
                 run_command(
                     pipx,
                     [
                         pipx_args,
                         meson.project_build_root() / 'ozi' / name / command / 'requirements.txt',
                         get_option('install-args-' + command),
-                        maybe_command
+                        maybe_command,
                     ],
                     check: true,
                 )
