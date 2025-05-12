@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.41.9 (2025-05-12)
+
+
+### 🐛 Fixed Bugs
+
+*  ``setup`` invoke task now activates a virtual environment — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`e87b8c2`](https://github.com/OZI-Project/OZI/commit/e87b8c2fb2b729911bb3e276a1407dda90e25959))
+
 ## 1.41.8 (2025-05-12)
 
 
