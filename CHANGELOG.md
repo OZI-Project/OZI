@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 1.41.8 (2025-05-12)
+
+
+### 🐛 Fixed Bugs
+
+*  revert add ``--system`` arg to uv pip — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`95f34cd`](https://github.com/OZI-Project/OZI/commit/95f34cd2e8d10e3e6dab54ceed76af6625ec9d43))
+
 ## 1.41.7 (2025-05-12)
 
 
