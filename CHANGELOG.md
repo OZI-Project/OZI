@@ -1,11 +1,20 @@
 # OZI CHANGELOG
-## 1.41.9 (2025-05-12)
+## 1.41.9 (2025-05-13)
 
 
 ### 🐛 Fixed Bugs
 
+*  activate invoke env — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`52b482c`](https://github.com/OZI-Project/OZI/commit/52b482c912e3f17ace2f3cc1b121d0a5eb5cf173))
+
 *  ``setup`` invoke task now activates a virtual environment — Eden Ross Duff MSc <ozi.project@outlook.com>
 ([`e87b8c2`](https://github.com/OZI-Project/OZI/commit/e87b8c2fb2b729911bb3e276a1407dda90e25959))
+
+
+### ✏️ Corrected Typos
+
+*  fix not needed f-string — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`7a5b4ed`](https://github.com/OZI-Project/OZI/commit/7a5b4ed79c47d9682ec9d2ffed4386647a7f2ac1))
 
 ## 1.41.8 (2025-05-12)
 
