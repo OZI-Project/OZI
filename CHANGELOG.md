@@ -1,4 +1,59 @@
 # OZI CHANGELOG
+## 1.41.10 (2025-05-14)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/release from 1.6.7 to 1.7.4
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.6.7 to 1.7.4.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/10a57d8906c4969547cfaa3395eb53facb8a5041...7b3bc0282c162a771c69e91decca3e3ba792e221)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.7.4
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`c711d76`](https://github.com/OZI-Project/OZI/commit/c711d76153feb00b220db9e34d3eabae7f8c1fff))
+
+*  Bump actions/dependency-review-action from 4.7.0 to 4.7.1
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.7.0 to 4.7.1.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/38ecb5b593bf0eb19e335c03f97670f792489a8b...da24556b548a50705dd671f47852072ea4c105d9)
+
+
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-version: 4.7.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`67ff7f4`](https://github.com/OZI-Project/OZI/commit/67ff7f4540f22d1c5b8e29204610cc62cdc5f4a3))
+
+*  Bump ozi-core in the python-packages group across 1 directory
+
+Bumps the python-packages group with 1 update in the / directory: [ozi-core](https://github.com/OZI-Project/ozi-core).
+
+
+Updates `ozi-core` from 1.19.3 to 1.19.4
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.19.4/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.19.3...1.19.4)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.19.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+  dependency-group: python-packages
+... — dependabot[bot] <support@github.com>
+([`1947d71`](https://github.com/OZI-Project/OZI/commit/1947d71469a12e0b52969b419cd912b0dc70a7b2))
+
 ## 1.41.9 (2025-05-13)
 
 
