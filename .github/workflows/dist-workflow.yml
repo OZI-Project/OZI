@@ -226,9 +226,10 @@ jobs:
       - uses: OZI-Project/release@14c90775d0efe9f0f69a914d05cc9319bfc632a0 # 1.7.6
         id: release
         with:
-          tag: ${{ needs.draft.outputs.tag }}
-          python-dist: ${{ matrix.py }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          python-dist: ${{ matrix.py }}
+          ozi-internal: true
+          wheel-sign-token: ${{ secrets.WHEEL_SIGN_TOKEN }}
 
   generate-provenance:
     needs: [draft, release, checkpoint]
