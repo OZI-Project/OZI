@@ -54,6 +54,12 @@ updated-dependencies:
 ... — dependabot[bot] <support@github.com>
 ([`1947d71`](https://github.com/OZI-Project/OZI/commit/1947d71469a12e0b52969b419cd912b0dc70a7b2))
 
+
+### 🐛 Fixed Bugs
+
+*  fix tasks using the --ozi internal default — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`5c1a04d`](https://github.com/OZI-Project/OZI/commit/5c1a04dc2e51a1c7406f93319e923b775e3bb7cf))
+
 ## 1.41.9 (2025-05-13)
 
 
