@@ -344,7 +344,6 @@ python =
 [testenv]
 allowlist_externals = 
     rm
-    pipx
     meson
     python
 package = wheel
@@ -358,7 +357,7 @@ commands =
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}/.gitignore
 commands_post =
-     {env_python} -m invoke --search-root={env_tmp_dir}/ozi checkpoint --suite={env_name} --ozi {posargs}
+     {env_python} -m invoke --search-root={env_tmp_dir}/ozi checkpoint --suite={env_name} {posargs}
 
 [testenv:dist]
 description = OZI distribution checkpoint
@@ -394,5 +393,5 @@ commands_post =
 description = OZI invoke task entrypoint, for more info use "tox -e invoke -- --list"
 no_package = true
 commands_post =
-     {env_python} -m invoke --search-root={env_tmp_dir}/ozi {posargs} --ozi
+     {env_python} -m invoke --search-root={env_tmp_dir}/ozi {posargs}
 """
