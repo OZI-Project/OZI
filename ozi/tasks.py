@@ -33,6 +33,9 @@ if TYPE_CHECKING:
     from invoke.runners import Result
 
 
+_IS_OZI = str(Path(__file__).parent.parent.parent.name) != 'subprojects'
+
+
 def __build(c: Context, sdist: bool, wheel_sign_token: str | None = None) -> None:
     kind = '--sdist' if sdist else '--wheel'
     env = {'WHEEL_SIGN_TOKEN': wheel_sign_token} if wheel_sign_token else {}
@@ -72,7 +75,7 @@ def setup(
     c: Context,
     suite: str = 'dist',
     draft: bool = False,
-    ozi: bool = False,
+    ozi: bool = _IS_OZI,
 ) -> None | Result:
     """Setup a meson build directory for an OZI suite."""
     runpy.run_path('.tox/invoke/bin/activate_this.py')
@@ -114,7 +117,7 @@ def sign_checkpoint(c: Context, suite: str | None = None) -> None:
 
 
 @task
-def checkpoint(c: Context, suite: str, maxfail: int = 1, ozi: bool = False) -> None:
+def checkpoint(c: Context, suite: str, maxfail: int = 1, ozi: bool = _IS_OZI) -> None:
     """Run OZI checkpoint suites with meson test."""
     setup(c, suite=suite, draft=False, ozi=ozi)
     target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
@@ -138,7 +141,7 @@ def release(  # noqa:
     wheel: bool = True,
     sign: bool = False,
     wheel_sign_token: str | None = None,
-    ozi: bool = False,
+    ozi: bool = _IS_OZI,
 ) -> None:
     """Create releases for the current interpreter."""
     setup(c, suite='dist', draft=draft, ozi=ozi)
@@ -153,7 +156,7 @@ def provenance(c: Context) -> None:
 
 
 @task
-def publish(c: Context, ozi: bool = False) -> None:
+def publish(c: Context, ozi: bool = _IS_OZI) -> None:
     """Publishes a release tag"""
     setup(c, suite='dist', ozi=ozi)
     c.run('psr publish')
