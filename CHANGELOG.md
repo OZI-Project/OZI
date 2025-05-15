@@ -9,6 +9,41 @@
 Bumps the python-packages group with 1 update in the / directory: [ozi-core](https://github.com/OZI-Project/ozi-core).
 
 
+Updates `ozi-core` from 1.19.7 to 1.19.8
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.19.8/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.19.7...1.19.8)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.19.8
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+  dependency-group: python-packages
+... — dependabot[bot] <support@github.com>
+([`680c15a`](https://github.com/OZI-Project/OZI/commit/680c15a15a246a7b0a9cacbf8c8a0c3433fb1165))
+
+*  Bump OZI-Project/release from 1.7.7 to 1.7.8
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.7.7 to 1.7.8.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/862f61adc1c28749876fe3d09b386b217ca1cbd6...0bd5001b3e0b5585643aa8f831a4d504126ad411)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.7.8
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`5d0ddb8`](https://github.com/OZI-Project/OZI/commit/5d0ddb88b8021e6d3901e568a6375e14427150ba))
+
+*  Bump ozi-core in the python-packages group across 1 directory
+
+Bumps the python-packages group with 1 update in the / directory: [ozi-core](https://github.com/OZI-Project/ozi-core).
+
+
 Updates `ozi-core` from 1.19.6 to 1.19.7
 - [Release notes](https://github.com/OZI-Project/ozi-core/releases)
 - [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
