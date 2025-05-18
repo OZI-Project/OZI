@@ -3,7 +3,7 @@
 pip3 install .
 
 # Build fuzzers into $OUT. These could be detected in other ways.
-for fuzzer in $(find $SRC -name '*_fuzzer.py'); do
+for fuzzer in $(find $SRC -name 'test_*.py'); do
   fuzzer_basename=$(basename -s .py $fuzzer)
   fuzzer_package=${fuzzer_basename}.pkg
 
