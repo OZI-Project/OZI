@@ -1,5 +1,10 @@
-FROM gcr.io/oss-fuzz-base/base-builder:v1        # Base image with clang toolchain
-RUN apt-get update && apt-get install -y ...     # Install required packages to build your project.
-COPY . $SRC/ozi                                  # Copy your project's source code.
-WORKDIR $SRC/ozi                                 # Working directory for build.sh.
-COPY ./.clusterfuzzlite/build.sh $SRC/           # Copy build.sh into $SRC dir.
+# Base image with clang toolchain
+FROM gcr.io/oss-fuzz-base/base-builder:v1
+# Install required packages to build your project.
+
+# Copy source code.
+COPY . $SRC/ozi
+# Working directory for build.sh.
+WORKDIR $SRC/ozi
+# Copy build.sh into $SRC dir.
+COPY ./.clusterfuzzlite/build.sh $SRC/
