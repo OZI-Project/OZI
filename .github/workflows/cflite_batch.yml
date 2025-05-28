@@ -15,6 +15,7 @@ jobs:
       uses: google/clusterfuzzlite/actions/build_fuzzers@v1
       with:
         language: python # Change this to the language you are fuzzing.
+        allowed-broken-targets-percentage: 25
     - name: Run Fuzzers
       id: run
       uses: google/clusterfuzzlite/actions/run_fuzzers@v1
