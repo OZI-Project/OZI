@@ -4,7 +4,7 @@ tox -e invoke -- release
 pip install dist/*.whl
 
 # Build fuzzers into $OUT. These could be detected in other ways.
-for fuzzer in $(find $SRC/ozi-core/tests -name 'test_*.py'); do
+for fuzzer in $(find $SRC/ozi-core/tests -name '*_fuzzer.py'); do
   fuzzer_basename=$(basename -s .py $fuzzer)
   fuzzer_package=${fuzzer_basename}.pkg
 
