@@ -23,6 +23,7 @@ import inspect
 import os
 import runpy
 import sys
+from contextlib import suppress
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -78,7 +79,8 @@ def setup(
     ozi: bool = _IS_OZI,
 ) -> None | Result:
     """Setup a meson build directory for an OZI suite."""
-    runpy.run_path('.tox/invoke/bin/activate_this.py')
+    with suppress(FileNotFoundError):
+        runpy.run_path('.tox/invoke/bin/activate_this.py')
     target = Path(f'.tox/{suite}/tmp').absolute()  # noqa: S108
     env_dir = Path(f'.tox/{suite}').absolute()
     if ozi:
