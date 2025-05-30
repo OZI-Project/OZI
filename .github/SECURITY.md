@@ -1,9 +1,10 @@
 # Security Policy
 
+We will always test against the three most current python versions, however, continuous fuzzing is only applicable to Python 3.10.
+
 ## Supported Versions
 
-Which versions of your project are
-currently being supported with security updates.
+During the beta development phase OZI supports one minor version at a time.
 
 | Version | Supported          | ``semantic-release`` Version | ``meson`` Version |
 | ------- | ------------------ | -----------------------------|-------------------|
