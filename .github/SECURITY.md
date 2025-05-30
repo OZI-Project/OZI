@@ -8,7 +8,7 @@ During the beta development phase OZI supports one minor version at a time.
 
 | Version | Supported          | ``semantic-release`` Version | ``meson`` Version |
 | ------- | ------------------ | -----------------------------|-------------------|
-| 1.41.x  | ☑️                 | 9.21                         | >1.1,<1.9         |
+| 2.0.x   | ☑️                 | >=10.0                       | >1.1,<1.9         |
 
 ## Disclosure
 
