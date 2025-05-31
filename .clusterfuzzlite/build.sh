@@ -12,7 +12,12 @@ for fuzzer in $(find $SRC/ozi-core/tests -name '*_fuzzer.py'); do
   # over time, we use pyinstaller to create a standalone
   # package. Though not necessarily required for reproducing issues, this is
   # required to keep fuzzers working properly.
-  pyinstaller --distpath $OUT --onefile --name $fuzzer_package $fuzzer
+  pyinstaller \
+    --distpath $OUT \
+    --onefile \
+    --add-binary /usr/local/lib/python3.10/site-packages/webui2/webui-linux-gcc-x64/libwebui-2.so \
+    --name $fuzzer_package \
+    $fuzzer
 
   # Create execution wrapper. Atheris requires that certain libraries are
   # preloaded, so this is also done here to ensure compatibility and simplify
