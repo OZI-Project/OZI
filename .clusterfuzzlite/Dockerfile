@@ -1,5 +1,5 @@
 # Base image with clang toolchain
-FROM gcr.io/oss-fuzz-base/base-builder:v1
+FROM gcr.io/oss-fuzz-base/base-builder:v1@sha256:394befbfca0f5530bb4591548a47579e0b2ac3f99734c90db3ace4719ba24c7b
 # Install required packages to build your project.
 RUN pip3 install hypothesis atheris tox pyinstaller pytest
 # Copy source code.
