@@ -15,7 +15,7 @@ for fuzzer in $(find $SRC/ozi-core/tests -name '*_fuzzer.py'); do
   pyinstaller \
     --distpath $OUT \
     --onefile \
-    --add-binary /usr/local/lib/python3.10/site-packages/webui2/webui-linux-gcc-x64/libwebui-2.so \
+    --add-binary /usr/local/lib/python3.10/site-packages/webui/webui-linux-gcc-x64/libwebui-2.so:webui/webui-linux-gcc-x64/libwebui-2.so \
     --name $fuzzer_package \
     $fuzzer
 
