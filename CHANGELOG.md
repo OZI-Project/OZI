@@ -1,5 +1,5 @@
 # OZI CHANGELOG
-## 1.41.13 (2025-06-01)
+## 2.0.0 (2025-06-01)
 
 
 ### ⬆️ Upgraded Dependencies
@@ -97,6 +97,13 @@ updated-dependencies:
 
 *  pytest-asyncio~=1.0.0 — Eden Ross Duff, MSc <ozi.project@outlook.com>
 ([`e90a7ea`](https://github.com/OZI-Project/OZI/commit/e90a7ea35501a2f97d8757de907568d42b549026))
+
+
+### 💥
+
+
+*  ozi-spec 1.0 - semantic-release 10.0 — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`aaef750`](https://github.com/OZI-Project/OZI/commit/aaef750ee558d7120ac0ba0dfaf3b271d6e67985))
 
 
 ### Other
