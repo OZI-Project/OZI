@@ -1,0 +1,46 @@
+name: ClusterFuzzLite cron tasks
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Once a day at midnight.
+  workflow_dispatch:
+permissions: read-all
+jobs:
+  Pruning:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build Fuzzers
+      id: build
+      uses: google/clusterfuzzlite/actions/build_fuzzers@884713a6c30a92e5e8544c39945cd7cb630abcd1 # v1
+      with:
+        language: python
+    - name: Run Fuzzers
+      id: run
+      uses: google/clusterfuzzlite/actions/run_fuzzers@884713a6c30a92e5e8544c39945cd7cb630abcd1 # v1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        fuzz-seconds: 600
+        mode: 'prune'
+        output-sarif: true
+        storage-repo: https://${{ secrets.CFLITE_STORE_TOKEN }}@github.com/OZI-Project/clusterfuzzlite-storage-ozi-core.git
+        storage-repo-branch: main   # Optional. Defaults to "main"
+        storage-repo-branch-coverage: gh-pages  # Optional. Defaults to "gh-pages".
+  Coverage:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build Fuzzers
+      id: build
+      uses: google/clusterfuzzlite/actions/build_fuzzers@884713a6c30a92e5e8544c39945cd7cb630abcd1 # v1
+      with:
+        language: python
+        sanitizer: coverage
+    - name: Run Fuzzers
+      id: run
+      uses: google/clusterfuzzlite/actions/run_fuzzers@884713a6c30a92e5e8544c39945cd7cb630abcd1 # v1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        fuzz-seconds: 600
+        mode: 'coverage'
+        sanitizer: 'coverage'
+        storage-repo: https://${{ secrets.CFLITE_STORE_TOKEN }}@github.com/OZI-Project/clusterfuzzlite-storage-ozi-core.git
+        storage-repo-branch: main   # Optional. Defaults to "main"
+        storage-repo-branch-coverage: gh-pages  # Optional. Defaults to "gh-pages".

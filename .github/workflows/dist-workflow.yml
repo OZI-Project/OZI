@@ -41,7 +41,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@40890b7e9f18621e556892606346aebc8292cfa6 # 1.7.4
+      - uses: OZI-Project/checkpoint@301753e6853d6a65055c8df69dafe7df74bd7963 # 1.7.5
         with:
           python-version: "3.10"
           parallel: false
@@ -73,7 +73,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@40890b7e9f18621e556892606346aebc8292cfa6 # 1.7.4
+      - uses: OZI-Project/checkpoint@301753e6853d6a65055c8df69dafe7df74bd7963 # 1.7.5
         with:
           python-version: "3.11"
           parallel: false
@@ -105,7 +105,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@40890b7e9f18621e556892606346aebc8292cfa6 # 1.7.4
+      - uses: OZI-Project/checkpoint@301753e6853d6a65055c8df69dafe7df74bd7963 # 1.7.5
         with:
           python-version: "3.12"
           parallel: false
@@ -136,7 +136,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@40890b7e9f18621e556892606346aebc8292cfa6
+      - uses: OZI-Project/checkpoint@301753e6853d6a65055c8df69dafe7df74bd7963
         with:
           python-version: "3.13"
 
@@ -176,7 +176,7 @@ jobs:
             files.pythonhosted.org:443
             downloads.python.org:443
 
-      - uses: OZI-Project/draft@fbf34233ed3d0719d994c2172ac767644c97a2aa
+      - uses: OZI-Project/draft@9fcb96b0c50c0da405737413299ede083f1d94cf
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -272,7 +272,7 @@ jobs:
             ghcr.io:443
             pkg-containers.githubusercontent.com:443
 
-    - uses: OZI-Project/publish@39cc73091234a1dc42b933df3d965318966e65a2 # 1.13.8
+    - uses: OZI-Project/publish@0d8a74931c945399bb0967f77c67055956b9e5c5 # 1.14.0
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 

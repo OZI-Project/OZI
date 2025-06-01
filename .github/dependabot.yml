@@ -17,6 +17,15 @@ updates:
   - package-ecosystem: pip
     open-pull-requests-limit: 10
     directories:
+      - "/.clusterfuzzlite"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:(cflite):"
+
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
       - "/"
       - "/ozi/dist/cibuildwheel"
       - "/ozi/dist/semantic_release"
