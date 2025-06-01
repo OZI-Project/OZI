@@ -1,7 +1,8 @@
-hypothesis
 atheris
-typing-extensions
 exceptiongroup
-tox
+hypothesis
 pyinstaller
 pytest
+tomli
+tox
+typing-extensions
