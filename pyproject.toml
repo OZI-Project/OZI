@@ -13,7 +13,7 @@ ozi-fix = "ozi.fix.__main__:main"
 
 [project]
 name = "OZI"
-version = "1.39.0"
+version = "2.0"
 description = 'Package Python projects with Meson.'
 readme = 'README.rst'
 authors = [{name='Eden Ross Duff MSc', email='help@oziproject.dev'}]
