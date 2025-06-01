@@ -1,4 +1,127 @@
 # OZI CHANGELOG
+## 2.0.0 (2025-06-01)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.20.1 to 1.20.3
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.20.1 to 1.20.3.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.20.3/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.20.1...1.20.3)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.20.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`67e5fe2`](https://github.com/OZI-Project/OZI/commit/67e5fe28ae84d5e708658f91834a3124d23b0bb9))
+
+*  Bump ozi-core from 1.19.9 to 1.20.1
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.19.9 to 1.20.1.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.20.1/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.19.9...1.20.1)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.20.1
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`8ff104c`](https://github.com/OZI-Project/OZI/commit/8ff104c26150bd2c0b22873eeb97d98b1d3ac657))
+
+*  Update hypothesis[cli,codemods,ghostwriter] requirement
+
+Updates the requirements on [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.131.0...hypothesis-python-6.132.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.132.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`4bebb9a`](https://github.com/OZI-Project/OZI/commit/4bebb9a4c8aa5fefb0d387100b968428d936ec0b))
+
+*  Update pytest-xdist requirement in /ozi/test/pytest
+
+Updates the requirements on [pytest-xdist](https://github.com/pytest-dev/pytest-xdist) to permit the latest version.
+- [Release notes](https://github.com/pytest-dev/pytest-xdist/releases)
+- [Changelog](https://github.com/pytest-dev/pytest-xdist/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/pytest-dev/pytest-xdist/compare/v3.6.0...v3.7.0)
+
+
+updated-dependencies:
+- dependency-name: pytest-xdist
+  dependency-version: 3.7.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`05faaf9`](https://github.com/OZI-Project/OZI/commit/05faaf902f44388d0d81a63eb86f4acfba7dca78))
+
+*  Update flake8-pyi requirement in /ozi/lint/flake8
+
+Updates the requirements on [flake8-pyi](https://github.com/PyCQA/flake8-pyi) to permit the latest version.
+- [Release notes](https://github.com/PyCQA/flake8-pyi/releases)
+- [Changelog](https://github.com/PyCQA/flake8-pyi/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/PyCQA/flake8-pyi/compare/24.9.0...25.5.0)
+
+
+updated-dependencies:
+- dependency-name: flake8-pyi
+  dependency-version: 25.5.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`9be8baf`](https://github.com/OZI-Project/OZI/commit/9be8baf3f228fc50196bbe95a7ab93f93c7b3e66))
+
+*  Update python-semantic-release requirement
+
+Updates the requirements on [python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) to permit the latest version.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.21...v10.0.2)
+
+
+updated-dependencies:
+- dependency-name: python-semantic-release
+  dependency-version: 10.0.2
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`43b2f68`](https://github.com/OZI-Project/OZI/commit/43b2f689a30d0d66930787e80618b91117c9f0c1))
+
+*  pytest-asyncio~=1.0.0 — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`e90a7ea`](https://github.com/OZI-Project/OZI/commit/e90a7ea35501a2f97d8757de907568d42b549026))
+
+
+### 💥
+
+
+*  ozi-spec 1.0 - semantic-release 10.0 — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`aaef750`](https://github.com/OZI-Project/OZI/commit/aaef750ee558d7120ac0ba0dfaf3b271d6e67985))
+
+
+### Other
+
+
+* 👷(tool.semantic_release.branches): release/2.x — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`a729de5`](https://github.com/OZI-Project/OZI/commit/a729de554506bb78879fd3cbd588df4c03950e78))
+
+* fix: add setup virtualenv for new projects and patch for current projects
+
+fixes #1133 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`e8ef91b`](https://github.com/OZI-Project/OZI/commit/e8ef91b8cbba5e4b01aa17fe44b4a7035f9f57d6))
+
+* chore: update SECURITY.md
+
+BREAKING CHANGE: ozi-spec 1.0 - semantic-release 10 - remove all changelog and release template files  — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`cc4fe89`](https://github.com/OZI-Project/OZI/commit/cc4fe8958114f89038360110e169c907ecfe8181))
+
 ## 1.41.12 (2025-06-01)
 
 
