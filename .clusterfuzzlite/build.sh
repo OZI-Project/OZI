@@ -16,7 +16,6 @@ for fuzzer in $(find $SRC/ozi-core/tests -name '*_fuzzer.py'); do
     --distpath $OUT \
     --onefile \
     --add-data /usr/local/lib/python3.10/site-packages/ozi_templates:ozi_templates \
-    --add-data /usr/local/lib/python3.10/site-packages/webui/bootstrap.sh:webui \
     --add-binary /usr/local/lib/python3.10/site-packages/webui/webui-linux-gcc-x64/libwebui-2.so:webui/webui-linux-gcc-x64/libwebui-2.so \
     --name $fuzzer_package \
     $fuzzer
