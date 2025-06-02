@@ -4,6 +4,21 @@
 
 ### ⬆️ Upgraded Dependencies
 
+*  Bump OZI-Project/release from 1.8.4 to 1.8.5
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.8.4 to 1.8.5.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/560c20ace6ea984de7dfa32f7007d139916c7d94...84d51474b41de0c8c98d34431f9c0e282fd72c19)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.8.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a5b4e39`](https://github.com/OZI-Project/OZI/commit/a5b4e39dfb3c13449360d7a79ccf6ede39ba57c9))
+
 *  Bump OZI-Project/release from 1.8.3 to 1.8.4
 
 Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.8.3 to 1.8.4.
