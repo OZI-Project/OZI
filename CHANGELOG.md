@@ -1,4 +1,30 @@
 # OZI CHANGELOG
+## 2.0.2 (2025-06-02)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/release from 1.8.3 to 1.8.4
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.8.3 to 1.8.4.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/0a9f46ecacc5bb6a926467a601c8b75bb2deb4ac...560c20ace6ea984de7dfa32f7007d139916c7d94)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.8.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`5f90534`](https://github.com/OZI-Project/OZI/commit/5f90534d63e7cc6e8a32afa8fc2ec58857718d22))
+
+
+### 📌 Pinned Dependencies
+
+*  pytest~=8.3.0 because pytest 8.4 causes issues with coverage+xdist — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`1b4f386`](https://github.com/OZI-Project/OZI/commit/1b4f3868013df2568475d052a112ce048e75aeb8))
+
 ## 2.0.1 (2025-06-02)
 
 
