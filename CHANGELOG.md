@@ -1,4 +1,119 @@
 # OZI CHANGELOG
+## 2.0.2 (2025-06-02)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/release from 1.8.4 to 1.8.5
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.8.4 to 1.8.5.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/560c20ace6ea984de7dfa32f7007d139916c7d94...84d51474b41de0c8c98d34431f9c0e282fd72c19)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.8.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a5b4e39`](https://github.com/OZI-Project/OZI/commit/a5b4e39dfb3c13449360d7a79ccf6ede39ba57c9))
+
+*  Bump OZI-Project/release from 1.8.3 to 1.8.4
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.8.3 to 1.8.4.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/0a9f46ecacc5bb6a926467a601c8b75bb2deb4ac...560c20ace6ea984de7dfa32f7007d139916c7d94)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.8.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`5f90534`](https://github.com/OZI-Project/OZI/commit/5f90534d63e7cc6e8a32afa8fc2ec58857718d22))
+
+
+### 📌 Pinned Dependencies
+
+*  pytest~=8.3.0 because pytest 8.4 causes issues with coverage+xdist — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`1b4f386`](https://github.com/OZI-Project/OZI/commit/1b4f3868013df2568475d052a112ce048e75aeb8))
+
+## 2.0.1 (2025-06-02)
+
+
+### ⬆️ Upgraded Dependencies
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.132.0 to 6.133.0.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.132.0...hypothesis-python-6.133.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.133.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`cbc1be2`](https://github.com/OZI-Project/OZI/commit/cbc1be2b390e21ba652b9461b07df879d4da54f7))
+
+*  Update hypothesis[cli,codemods,ghostwriter] requirement
+
+Updates the requirements on [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.132.0...hypothesis-python-6.133.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.133.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`830f531`](https://github.com/OZI-Project/OZI/commit/830f531f4a8ba5a51dcd893e5e99a9814676d159))
+
+
+### 🐛 Fixed Bugs
+
+*  install glibc-2.35 in fuzzer Dockerfile — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`1d1a4a1`](https://github.com/OZI-Project/OZI/commit/1d1a4a11d072057d429ea7f27b602a87aeb01e2a))
+
+*  pin tomli for fuzzer builds — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`51e0d05`](https://github.com/OZI-Project/OZI/commit/51e0d0522e23d35eb95bb89e11e6cce65a5ea866))
+
+*  pin typing-extensions for fuzzer builds — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`1f5a4ce`](https://github.com/OZI-Project/OZI/commit/1f5a4ce98b0eb4dcea8afdf0a6ff6cf28bc5400f))
+
+*  pin exceptiongroup for fuzzer builds — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`7db5b7c`](https://github.com/OZI-Project/OZI/commit/7db5b7c881ac89bfb30ebbc6da8e8d5c24a2b2f3))
+
+*  add hashes to requirements.txt for fuzzers — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`e4c272c`](https://github.com/OZI-Project/OZI/commit/e4c272c48af9aefd0a8e1c40975ed83b41394431))
+
+
+### Other
+
+
+* Update build.sh remove bootstrap.sh — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`942cc5e`](https://github.com/OZI-Project/OZI/commit/942cc5ec241b27ad77edaaf5dec11e049fbcd9a5))
+
+* Update Dockerfile — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`c69689f`](https://github.com/OZI-Project/OZI/commit/c69689f4c56be79f3b4582b49eb1a3528756998e))
+
+* Update Dockerfile — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`f54519c`](https://github.com/OZI-Project/OZI/commit/f54519c30ee2d4c48e7c7d032dbdd056269905c9))
+
+* Update Dockerfile — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`d7af08a`](https://github.com/OZI-Project/OZI/commit/d7af08ac5cfdecef5fefa5991da0fe5e6f4270ca))
+
+* Update Dockerfile — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`0f1a368`](https://github.com/OZI-Project/OZI/commit/0f1a3680a76180b5f13c32b0d377b365fbdb7de1))
+
+* Update Dockerfile — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`d1937f7`](https://github.com/OZI-Project/OZI/commit/d1937f78f006754fbfebf99e35fa67f5c661f882))
+
 ## 2.0.0 (2025-06-01)
 
 
