@@ -1,4 +1,14 @@
 # OZI CHANGELOG
+## 2.0.3 (2025-06-03)
+
+
+### 🐛 Fixed Bugs
+
+*  update meson.build-postconf_setup_virtual_env-2.0.0.patch
+
+fixes errant double patching — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`0b33d23`](https://github.com/OZI-Project/OZI/commit/0b33d23ec2b17b0331269904e8c23ee96a2783e2))
+
 ## 2.0.2 (2025-06-02)
 
 
