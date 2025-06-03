@@ -1,4 +1,68 @@
 # OZI CHANGELOG
+## 2.0.4 (2025-06-03)
+
+
+### ⬆️ Upgraded Dependencies
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.133.0 to 6.133.2.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.133.0...hypothesis-python-6.133.2)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.133.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`0611e00`](https://github.com/OZI-Project/OZI/commit/0611e00498609efc7d76b8db2fde3ee7f0ece7d6))
+
+*  Bump ozi-core from 1.20.3 to 1.20.4
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.20.3 to 1.20.4.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.20.3...1.20.4)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.20.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`decf0e6`](https://github.com/OZI-Project/OZI/commit/decf0e6fb3b4fedaeccf66af410221bbad31cdd1))
+
+*  Update urllib3 requirement in /ozi/test/pytest
+
+Updates the requirements on [urllib3](https://github.com/urllib3/urllib3) to permit the latest version.
+- [Release notes](https://github.com/urllib3/urllib3/releases)
+- [Changelog](https://github.com/urllib3/urllib3/blob/main/CHANGES.rst)
+- [Commits](https://github.com/urllib3/urllib3/compare/1.26.0...2.4.0)
+
+
+updated-dependencies:
+- dependency-name: urllib3
+  dependency-version: 2.4.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`ab0eb62`](https://github.com/OZI-Project/OZI/commit/ab0eb628f3ff0c91d0c086d09ca175eabc8a02f7))
+
+
+### 🔨 Updated Configuration
+
+*  Update dependabot.yml — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`3d35528`](https://github.com/OZI-Project/OZI/commit/3d35528bbb831b10f45d5aeb10c2e455cb91e8a9))
+
+
+### Other
+
+
+* chore: add create-pull-request: true to dist-workflow — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`162c523`](https://github.com/OZI-Project/OZI/commit/162c523c5321dec4356d92ab0594ac5f6d5e7efa))
+
 ## 2.0.3 (2025-06-03)
 
 
