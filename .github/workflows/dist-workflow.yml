@@ -275,6 +275,7 @@ jobs:
     - uses: OZI-Project/publish@0d8a74931c945399bb0967f77c67055956b9e5c5 # 1.14.0
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        create-pull-request: true
 
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc
