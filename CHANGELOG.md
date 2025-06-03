@@ -51,6 +51,12 @@ updated-dependencies:
 ([`ab0eb62`](https://github.com/OZI-Project/OZI/commit/ab0eb628f3ff0c91d0c086d09ca175eabc8a02f7))
 
 
+### 📝 Updated Documentation
+
+*  Update README — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`0ebdba5`](https://github.com/OZI-Project/OZI/commit/0ebdba5f054d6764f64bc63c8ec09576a1c7413a))
+
+
 ### 🔨 Updated Configuration
 
 *  Update dependabot.yml — Eden Ross Duff, MSc <ozi.project@outlook.com>
@@ -59,6 +65,9 @@ updated-dependencies:
 
 ### Other
 
+
+* chore: add pull-requests: write to publish — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`5db2ebc`](https://github.com/OZI-Project/OZI/commit/5db2ebc479bf0a3e03aab407ed37e8377c054dab))
 
 * chore: add create-pull-request: true to dist-workflow — Eden Ross Duff, MSc <ozi.project@outlook.com>
 ([`162c523`](https://github.com/OZI-Project/OZI/commit/162c523c5321dec4356d92ab0594ac5f6d5e7efa))
