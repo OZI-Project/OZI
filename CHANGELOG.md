@@ -1,4 +1,85 @@
 # OZI CHANGELOG
+## 2.0.5 (2025-06-04)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.28.18 to 3.28.19
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.18 to 3.28.19.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/ff0a06e83cb2de871e5a09832bc6a81e7276941f...fca7ace96b7d713c7035871441bd52efbe39e27e)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.28.19
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`65ccb17`](https://github.com/OZI-Project/OZI/commit/65ccb17cd846e038cac6e6fb39bc3b1dbd88f542))
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.133.2 to 6.135.0.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.133.2...hypothesis-python-6.135.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.135.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`7e15737`](https://github.com/OZI-Project/OZI/commit/7e157372c5bfc95f9f96712ae0f8e95ff6df0381))
+
+* (cflite): Bump pyinstaller in /.clusterfuzzlite
+
+Bumps [pyinstaller](https://github.com/pyinstaller/pyinstaller) from 6.13.0 to 6.14.0.
+- [Release notes](https://github.com/pyinstaller/pyinstaller/releases)
+- [Changelog](https://github.com/pyinstaller/pyinstaller/blob/develop/doc/CHANGES.rst)
+- [Commits](https://github.com/pyinstaller/pyinstaller/compare/v6.13.0...v6.14.0)
+
+
+updated-dependencies:
+- dependency-name: pyinstaller
+  dependency-version: 6.14.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`bae5af2`](https://github.com/OZI-Project/OZI/commit/bae5af2a4033ab5c2a0c770ba471e7e88c48c4f5))
+
+*  Update hypothesis[cli,codemods,ghostwriter] requirement
+
+Updates the requirements on [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.133.0...hypothesis-python-6.135.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.135.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`6512d37`](https://github.com/OZI-Project/OZI/commit/6512d373aa8a53bfc86b9b88fe19ec17b0f3dbe5))
+
+*  Update pytest requirement in /ozi/test/pytest
+
+Updates the requirements on [pytest](https://github.com/pytest-dev/pytest) to permit the latest version.
+- [Release notes](https://github.com/pytest-dev/pytest/releases)
+- [Changelog](https://github.com/pytest-dev/pytest/blob/main/CHANGELOG.rst)
+- [Commits](https://github.com/pytest-dev/pytest/compare/8.3.0...8.3.5)
+
+
+updated-dependencies:
+- dependency-name: pytest
+  dependency-version: 8.3.5
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`71fd37c`](https://github.com/OZI-Project/OZI/commit/71fd37c4a5faae1c889668428e5ca0eebd3e474a))
+
 ## 2.0.4 (2025-06-03)
 
 
