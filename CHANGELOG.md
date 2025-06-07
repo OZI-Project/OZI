@@ -1,4 +1,31 @@
 # OZI CHANGELOG
+## 2.0.8 (2025-06-07)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/checkpoint from 1.7.5 to 1.8.2
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.7.5 to 1.8.2.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/301753e6853d6a65055c8df69dafe7df74bd7963...e60a6b3b5a423885e6c3feab1dfc35ed9472b737)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.8.2
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`1f14da2`](https://github.com/OZI-Project/OZI/commit/1f14da2729c3504d3e9e917c0556cf330bee2d5c))
+
+
+### Other
+
+
+* fix: requirements compiled with support back to Python 3.9 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`23f11b6`](https://github.com/OZI-Project/OZI/commit/23f11b6ea046b2950d654ba17f4ca54771b0faf3))
+
 ## 2.0.7 (2025-06-07)
 
 
