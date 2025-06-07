@@ -6,6 +6,7 @@
    Part of the OZI Project, under the Apache License v2.0 with LLVM Exceptions.
    See LICENSE.txt for license information.
 
+
 ===
 OZI
 ===
@@ -15,7 +16,10 @@ OZI
   :height: 62
   :target: https://www.oziproject.dev/
 
-OZI is a set of tools for creating, publishing, and maintaining Python packages using semantic versioning and conventional commits.
+OZI is a set of tools for creating, publishing, and maintaining Python packages
+using `semantic versioning <https://semver.org/>`_
+with `semantic-release <https://semantic-release.gitbook.io/semantic-release>`_
+and `conventional commits <https://www.conventionalcommits.org/en/v1.0.0/>`_.
 See the `documentation <https://docs.oziproject.dev/>`_ for the project roadmap,
 API specification, Meson version support, and other project information.
 

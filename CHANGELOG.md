@@ -1,4 +1,40 @@
 # OZI CHANGELOG
+## 2.0.11 (2025-06-07)
+
+
+### 🐛 Fixed Bugs
+
+*  force release — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`a461079`](https://github.com/OZI-Project/OZI/commit/a461079481094ecd4ffeade54c3cfbd15d1a49c8))
+
+
+### 📝 Updated Documentation
+
+*  add links to readme — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`44876af`](https://github.com/OZI-Project/OZI/commit/44876afa461e94d82b60fb93c2de3fbc3ea270a5))
+
+
+### Other
+
+
+* fix: pytest requirements missing pyyaml-ft — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`f038c39`](https://github.com/OZI-Project/OZI/commit/f038c39e637fa60df829ec2c38e0b516c989ec7e))
+
+## 2.0.10 (2025-06-07)
+
+
+### 🐛 Fixed Bugs
+
+*  add pyyaml to pytest requirements — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`0f3b0c5`](https://github.com/OZI-Project/OZI/commit/0f3b0c5699c7c9fae83b0331ea66903ad4fdf660))
+
+
+### Other
+
+
+* fix: pytest requirements compiled with support back to Python 3.9 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`3fb29e7`](https://github.com/OZI-Project/OZI/commit/3fb29e75fce60c421ec969a8ed31edd4e44dae5c))
+
 ## 2.0.9 (2025-06-07)
 
 
