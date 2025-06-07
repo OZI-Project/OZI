@@ -3,6 +3,7 @@ COPY ./.clusterfuzzlite/requirements.txt $SRC
 RUN echo 'deb http://security.ubuntu.com/ubuntu jammy-security main' > /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install libc6 -y
+RUN apt-get install gettext -y
 RUN pip3 install --require-hashes -r $SRC/requirements.txt
 RUN git clone https://github.com/OZI-Project/ozi-core $SRC/ozi-core
 WORKDIR $SRC/ozi-core
