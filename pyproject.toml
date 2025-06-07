@@ -13,7 +13,7 @@ ozi-fix = "ozi.fix.__main__:main"
 
 [project]
 name = "OZI"
-version = "1.39.0"
+version = "2.0"
 description = 'Package Python projects with Meson.'
 readme = 'README.rst'
 authors = [{name='Eden Ross Duff MSc', email='help@oziproject.dev'}]
@@ -38,7 +38,7 @@ classifiers = [
 ]
 dependencies = [
     'pathvalidate~=3.2.1',
-    'ozi-core==1.20.1',
+    'ozi-core==1.20.5',
     'setuptools_scm[toml]',
     'tomli>=2.0.0;python_version<"3.11"',
 ]
@@ -258,6 +258,11 @@ prerelease = false
 [tool.semantic_release.branches."release/1.x"]
 match = "\\Arelease/1\\.\\d+\\Z"
 prerelease_token = "alpha"
+prerelease = false
+
+[tool.semantic_release.branches."release/2.x"]
+match = "\\Arelease/2\\.x\\Z"
+prerelease_token = "rc"
 prerelease = false
 
 [tool.semantic_release.commit_parser_options]

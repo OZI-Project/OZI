@@ -1,4 +1,484 @@
 # OZI CHANGELOG
+## 2.0.8 (2025-06-07)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/checkpoint from 1.7.5 to 1.8.2
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.7.5 to 1.8.2.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/301753e6853d6a65055c8df69dafe7df74bd7963...e60a6b3b5a423885e6c3feab1dfc35ed9472b737)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.8.2
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`1f14da2`](https://github.com/OZI-Project/OZI/commit/1f14da2729c3504d3e9e917c0556cf330bee2d5c))
+
+
+### Other
+
+
+* fix: requirements compiled with support back to Python 3.9 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`23f11b6`](https://github.com/OZI-Project/OZI/commit/23f11b6ea046b2950d654ba17f4ca54771b0faf3))
+
+## 2.0.7 (2025-06-07)
+
+
+### 🐛 Fixed Bugs
+
+*  workaround broken pip-tools by adding reqs to VCS — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`de60857`](https://github.com/OZI-Project/OZI/commit/de60857833fdb4cad66eb63640c2272fdc0f3284))
+
+## 2.0.6 (2025-06-07)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.20.4 to 1.20.5
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.20.4 to 1.20.5.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.20.5/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.20.4...1.20.5)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.20.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`4adb421`](https://github.com/OZI-Project/OZI/commit/4adb421e809d3e25018a5060cfafbf5adc821992))
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.135.0 to 6.135.1.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.135.0...hypothesis-python-6.135.1)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.135.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`9e92581`](https://github.com/OZI-Project/OZI/commit/9e9258154111a73643abf5c118924f8947fa2106))
+
+
+### Other
+
+
+* build(cflite): add gettext for localizations in fuzzers — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`75e1d17`](https://github.com/OZI-Project/OZI/commit/75e1d1762dd2bb2d4909763c3d3b3252081a9002))
+
+## 2.0.5 (2025-06-04)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump github/codeql-action from 3.28.18 to 3.28.19
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.18 to 3.28.19.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/ff0a06e83cb2de871e5a09832bc6a81e7276941f...fca7ace96b7d713c7035871441bd52efbe39e27e)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.28.19
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`65ccb17`](https://github.com/OZI-Project/OZI/commit/65ccb17cd846e038cac6e6fb39bc3b1dbd88f542))
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.133.2 to 6.135.0.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.133.2...hypothesis-python-6.135.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.135.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`7e15737`](https://github.com/OZI-Project/OZI/commit/7e157372c5bfc95f9f96712ae0f8e95ff6df0381))
+
+* (cflite): Bump pyinstaller in /.clusterfuzzlite
+
+Bumps [pyinstaller](https://github.com/pyinstaller/pyinstaller) from 6.13.0 to 6.14.0.
+- [Release notes](https://github.com/pyinstaller/pyinstaller/releases)
+- [Changelog](https://github.com/pyinstaller/pyinstaller/blob/develop/doc/CHANGES.rst)
+- [Commits](https://github.com/pyinstaller/pyinstaller/compare/v6.13.0...v6.14.0)
+
+
+updated-dependencies:
+- dependency-name: pyinstaller
+  dependency-version: 6.14.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`bae5af2`](https://github.com/OZI-Project/OZI/commit/bae5af2a4033ab5c2a0c770ba471e7e88c48c4f5))
+
+*  Update hypothesis[cli,codemods,ghostwriter] requirement
+
+Updates the requirements on [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.133.0...hypothesis-python-6.135.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.135.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`6512d37`](https://github.com/OZI-Project/OZI/commit/6512d373aa8a53bfc86b9b88fe19ec17b0f3dbe5))
+
+*  Update pytest requirement in /ozi/test/pytest
+
+Updates the requirements on [pytest](https://github.com/pytest-dev/pytest) to permit the latest version.
+- [Release notes](https://github.com/pytest-dev/pytest/releases)
+- [Changelog](https://github.com/pytest-dev/pytest/blob/main/CHANGELOG.rst)
+- [Commits](https://github.com/pytest-dev/pytest/compare/8.3.0...8.3.5)
+
+
+updated-dependencies:
+- dependency-name: pytest
+  dependency-version: 8.3.5
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`71fd37c`](https://github.com/OZI-Project/OZI/commit/71fd37c4a5faae1c889668428e5ca0eebd3e474a))
+
+## 2.0.4 (2025-06-03)
+
+
+### ⬆️ Upgraded Dependencies
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.133.0 to 6.133.2.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.133.0...hypothesis-python-6.133.2)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.133.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`0611e00`](https://github.com/OZI-Project/OZI/commit/0611e00498609efc7d76b8db2fde3ee7f0ece7d6))
+
+*  Bump ozi-core from 1.20.3 to 1.20.4
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.20.3 to 1.20.4.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.20.3...1.20.4)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.20.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`decf0e6`](https://github.com/OZI-Project/OZI/commit/decf0e6fb3b4fedaeccf66af410221bbad31cdd1))
+
+*  Update urllib3 requirement in /ozi/test/pytest
+
+Updates the requirements on [urllib3](https://github.com/urllib3/urllib3) to permit the latest version.
+- [Release notes](https://github.com/urllib3/urllib3/releases)
+- [Changelog](https://github.com/urllib3/urllib3/blob/main/CHANGES.rst)
+- [Commits](https://github.com/urllib3/urllib3/compare/1.26.0...2.4.0)
+
+
+updated-dependencies:
+- dependency-name: urllib3
+  dependency-version: 2.4.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`ab0eb62`](https://github.com/OZI-Project/OZI/commit/ab0eb628f3ff0c91d0c086d09ca175eabc8a02f7))
+
+
+### 📝 Updated Documentation
+
+*  Update README — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`0ebdba5`](https://github.com/OZI-Project/OZI/commit/0ebdba5f054d6764f64bc63c8ec09576a1c7413a))
+
+
+### 🔨 Updated Configuration
+
+*  Update dependabot.yml — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`3d35528`](https://github.com/OZI-Project/OZI/commit/3d35528bbb831b10f45d5aeb10c2e455cb91e8a9))
+
+
+### Other
+
+
+* chore: add pull-requests: write to publish — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`5db2ebc`](https://github.com/OZI-Project/OZI/commit/5db2ebc479bf0a3e03aab407ed37e8377c054dab))
+
+* chore: add create-pull-request: true to dist-workflow — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`162c523`](https://github.com/OZI-Project/OZI/commit/162c523c5321dec4356d92ab0594ac5f6d5e7efa))
+
+## 2.0.3 (2025-06-03)
+
+
+### 🐛 Fixed Bugs
+
+*  update meson.build-postconf_setup_virtual_env-2.0.0.patch
+
+fixes errant double patching — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`0b33d23`](https://github.com/OZI-Project/OZI/commit/0b33d23ec2b17b0331269904e8c23ee96a2783e2))
+
+## 2.0.2 (2025-06-02)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/release from 1.8.4 to 1.8.5
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.8.4 to 1.8.5.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/560c20ace6ea984de7dfa32f7007d139916c7d94...84d51474b41de0c8c98d34431f9c0e282fd72c19)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.8.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a5b4e39`](https://github.com/OZI-Project/OZI/commit/a5b4e39dfb3c13449360d7a79ccf6ede39ba57c9))
+
+*  Bump OZI-Project/release from 1.8.3 to 1.8.4
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.8.3 to 1.8.4.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/0a9f46ecacc5bb6a926467a601c8b75bb2deb4ac...560c20ace6ea984de7dfa32f7007d139916c7d94)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.8.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`5f90534`](https://github.com/OZI-Project/OZI/commit/5f90534d63e7cc6e8a32afa8fc2ec58857718d22))
+
+
+### 📌 Pinned Dependencies
+
+*  pytest~=8.3.0 because pytest 8.4 causes issues with coverage+xdist — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`1b4f386`](https://github.com/OZI-Project/OZI/commit/1b4f3868013df2568475d052a112ce048e75aeb8))
+
+## 2.0.1 (2025-06-02)
+
+
+### ⬆️ Upgraded Dependencies
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.132.0 to 6.133.0.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.132.0...hypothesis-python-6.133.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.133.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`cbc1be2`](https://github.com/OZI-Project/OZI/commit/cbc1be2b390e21ba652b9461b07df879d4da54f7))
+
+*  Update hypothesis[cli,codemods,ghostwriter] requirement
+
+Updates the requirements on [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.132.0...hypothesis-python-6.133.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.133.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`830f531`](https://github.com/OZI-Project/OZI/commit/830f531f4a8ba5a51dcd893e5e99a9814676d159))
+
+
+### 🐛 Fixed Bugs
+
+*  install glibc-2.35 in fuzzer Dockerfile — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`1d1a4a1`](https://github.com/OZI-Project/OZI/commit/1d1a4a11d072057d429ea7f27b602a87aeb01e2a))
+
+*  pin tomli for fuzzer builds — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`51e0d05`](https://github.com/OZI-Project/OZI/commit/51e0d0522e23d35eb95bb89e11e6cce65a5ea866))
+
+*  pin typing-extensions for fuzzer builds — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`1f5a4ce`](https://github.com/OZI-Project/OZI/commit/1f5a4ce98b0eb4dcea8afdf0a6ff6cf28bc5400f))
+
+*  pin exceptiongroup for fuzzer builds — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`7db5b7c`](https://github.com/OZI-Project/OZI/commit/7db5b7c881ac89bfb30ebbc6da8e8d5c24a2b2f3))
+
+*  add hashes to requirements.txt for fuzzers — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`e4c272c`](https://github.com/OZI-Project/OZI/commit/e4c272c48af9aefd0a8e1c40975ed83b41394431))
+
+
+### Other
+
+
+* Update build.sh remove bootstrap.sh — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`942cc5e`](https://github.com/OZI-Project/OZI/commit/942cc5ec241b27ad77edaaf5dec11e049fbcd9a5))
+
+* Update Dockerfile — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`c69689f`](https://github.com/OZI-Project/OZI/commit/c69689f4c56be79f3b4582b49eb1a3528756998e))
+
+* Update Dockerfile — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`f54519c`](https://github.com/OZI-Project/OZI/commit/f54519c30ee2d4c48e7c7d032dbdd056269905c9))
+
+* Update Dockerfile — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`d7af08a`](https://github.com/OZI-Project/OZI/commit/d7af08ac5cfdecef5fefa5991da0fe5e6f4270ca))
+
+* Update Dockerfile — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`0f1a368`](https://github.com/OZI-Project/OZI/commit/0f1a3680a76180b5f13c32b0d377b365fbdb7de1))
+
+* Update Dockerfile — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`d1937f7`](https://github.com/OZI-Project/OZI/commit/d1937f78f006754fbfebf99e35fa67f5c661f882))
+
+## 2.0.0 (2025-06-01)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.20.1 to 1.20.3
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.20.1 to 1.20.3.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.20.3/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.20.1...1.20.3)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.20.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`67e5fe2`](https://github.com/OZI-Project/OZI/commit/67e5fe28ae84d5e708658f91834a3124d23b0bb9))
+
+*  Bump ozi-core from 1.19.9 to 1.20.1
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.19.9 to 1.20.1.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.20.1/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.19.9...1.20.1)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.20.1
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`8ff104c`](https://github.com/OZI-Project/OZI/commit/8ff104c26150bd2c0b22873eeb97d98b1d3ac657))
+
+*  Update hypothesis[cli,codemods,ghostwriter] requirement
+
+Updates the requirements on [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) to permit the latest version.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.131.0...hypothesis-python-6.132.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.132.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`4bebb9a`](https://github.com/OZI-Project/OZI/commit/4bebb9a4c8aa5fefb0d387100b968428d936ec0b))
+
+*  Update pytest-xdist requirement in /ozi/test/pytest
+
+Updates the requirements on [pytest-xdist](https://github.com/pytest-dev/pytest-xdist) to permit the latest version.
+- [Release notes](https://github.com/pytest-dev/pytest-xdist/releases)
+- [Changelog](https://github.com/pytest-dev/pytest-xdist/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/pytest-dev/pytest-xdist/compare/v3.6.0...v3.7.0)
+
+
+updated-dependencies:
+- dependency-name: pytest-xdist
+  dependency-version: 3.7.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`05faaf9`](https://github.com/OZI-Project/OZI/commit/05faaf902f44388d0d81a63eb86f4acfba7dca78))
+
+*  Update flake8-pyi requirement in /ozi/lint/flake8
+
+Updates the requirements on [flake8-pyi](https://github.com/PyCQA/flake8-pyi) to permit the latest version.
+- [Release notes](https://github.com/PyCQA/flake8-pyi/releases)
+- [Changelog](https://github.com/PyCQA/flake8-pyi/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/PyCQA/flake8-pyi/compare/24.9.0...25.5.0)
+
+
+updated-dependencies:
+- dependency-name: flake8-pyi
+  dependency-version: 25.5.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`9be8baf`](https://github.com/OZI-Project/OZI/commit/9be8baf3f228fc50196bbe95a7ab93f93c7b3e66))
+
+*  Update python-semantic-release requirement
+
+Updates the requirements on [python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) to permit the latest version.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.21...v10.0.2)
+
+
+updated-dependencies:
+- dependency-name: python-semantic-release
+  dependency-version: 10.0.2
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`43b2f68`](https://github.com/OZI-Project/OZI/commit/43b2f689a30d0d66930787e80618b91117c9f0c1))
+
+*  pytest-asyncio~=1.0.0 — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`e90a7ea`](https://github.com/OZI-Project/OZI/commit/e90a7ea35501a2f97d8757de907568d42b549026))
+
+
+### 💥
+
+
+*  ozi-spec 1.0 - semantic-release 10.0 — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`aaef750`](https://github.com/OZI-Project/OZI/commit/aaef750ee558d7120ac0ba0dfaf3b271d6e67985))
+
+
+### Other
+
+
+* 👷(tool.semantic_release.branches): release/2.x — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`a729de5`](https://github.com/OZI-Project/OZI/commit/a729de554506bb78879fd3cbd588df4c03950e78))
+
+* fix: add setup virtualenv for new projects and patch for current projects
+
+fixes #1133 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`e8ef91b`](https://github.com/OZI-Project/OZI/commit/e8ef91b8cbba5e4b01aa17fe44b4a7035f9f57d6))
+
+* chore: update SECURITY.md
+
+BREAKING CHANGE: ozi-spec 1.0 - semantic-release 10 - remove all changelog and release template files  — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`cc4fe89`](https://github.com/OZI-Project/OZI/commit/cc4fe8958114f89038360110e169c907ecfe8181))
+
 ## 1.41.12 (2025-06-01)
 
 

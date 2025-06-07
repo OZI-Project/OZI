@@ -1,5 +1,12 @@
-@@ -72,6 +72,12 @@
+@@ -61,13 +61,17 @@
+ if not meson.is_subproject()
+     dev = subproject('ozi')
+     foreach var : get_option('variables')
+         name = var.replace('-', '_')
+         set_variable(name, dev.get_variable(name))
      endforeach
+-    meson.add_dist_script(dev.get_variable('pip'), 'install', 'tomli>=2.0.0')
+-    meson.add_dist_script(python, '-c', dev.get_variable('meson_dist_setuptools_scm'))
      deps = run_command(python, '-c', dev.get_variable('install_dependencies'), check: true).stdout().strip().split('$$')
      if deps[0] != ''
 +        if find_program('uv', disabler: true).found()

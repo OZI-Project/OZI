@@ -1,10 +1,10 @@
-pytest~=8.3
+pytest~=8.3.5
 pytest-asyncio~=1.0.0
 pytest-cov~=6.1
 pytest-randomly~=3.16
 pytest-tcpclient~=0.7
 pytest-xdist~=3.7
-urllib3~=1.26
-hypothesis[cli,codemods,ghostwriter]~=6.132
+urllib3~=2.4
+hypothesis[cli,codemods,ghostwriter]~=6.135
 pyyaml-ft==7.0.1 ; python_version >= "3.13"
 pyyaml

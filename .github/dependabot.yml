@@ -27,18 +27,122 @@ updates:
     open-pull-requests-limit: 10
     directories:
       - "/"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
+
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
       - "/ozi/dist/cibuildwheel"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
+
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
       - "/ozi/dist/semantic_release"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
+
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
       - "/ozi/dist/sigstore"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
+
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
       - "/ozi/dist/twine"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
+
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
       - "/ozi/lint/bandit"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
+
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
       - "/ozi/lint/black"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
+
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
       - "/ozi/lint/flake8"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
+
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
       - "/ozi/lint/isort"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
+
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
       - "/ozi/lint/mypy"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
+
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
       - "/ozi/lint/pyright"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
+
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
       - "/ozi/lint/readme-renderer"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
+
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
       - "/ozi/test/coverage"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:"
+
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
       - "/ozi/test/pytest"
     schedule:
       interval: daily
