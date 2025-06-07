@@ -223,7 +223,7 @@ jobs:
             downloads.python.org:443
             oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/release@84d51474b41de0c8c98d34431f9c0e282fd72c19 # 1.8.5
+      - uses: OZI-Project/release@b6001d42707c159df6e9a606d19d3f66f9bdc728 # 1.8.9
         id: release
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
