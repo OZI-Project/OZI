@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 2.0.7 (2025-06-07)
+
+
+### 🐛 Fixed Bugs
+
+*  workaround broken pip-tools by adding reqs to VCS — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`de60857`](https://github.com/OZI-Project/OZI/commit/de60857833fdb4cad66eb63640c2272fdc0f3284))
+
 ## 2.0.6 (2025-06-07)
 
 
