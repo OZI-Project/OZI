@@ -1,4 +1,19 @@
 # OZI CHANGELOG
+## 2.0.10 (2025-06-07)
+
+
+### 🐛 Fixed Bugs
+
+*  add pyyaml to pytest requirements — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`0f3b0c5`](https://github.com/OZI-Project/OZI/commit/0f3b0c5699c7c9fae83b0331ea66903ad4fdf660))
+
+
+### Other
+
+
+* fix: pytest requirements compiled with support back to Python 3.9 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`3fb29e7`](https://github.com/OZI-Project/OZI/commit/3fb29e75fce60c421ec969a8ed31edd4e44dae5c))
+
 ## 2.0.9 (2025-06-07)
 
 
