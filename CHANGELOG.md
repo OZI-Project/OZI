@@ -1,4 +1,47 @@
 # OZI CHANGELOG
+## 2.0.6 (2025-06-07)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.20.4 to 1.20.5
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.20.4 to 1.20.5.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.20.5/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.20.4...1.20.5)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.20.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`4adb421`](https://github.com/OZI-Project/OZI/commit/4adb421e809d3e25018a5060cfafbf5adc821992))
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.135.0 to 6.135.1.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.135.0...hypothesis-python-6.135.1)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.135.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`9e92581`](https://github.com/OZI-Project/OZI/commit/9e9258154111a73643abf5c118924f8947fa2106))
+
+
+### Other
+
+
+* build(cflite): add gettext for localizations in fuzzers — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`75e1d17`](https://github.com/OZI-Project/OZI/commit/75e1d1762dd2bb2d4909763c3d3b3252081a9002))
+
 ## 2.0.5 (2025-06-04)
 
 
