@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 2.0.9 (2025-06-07)
+
+
+### 🐛 Fixed Bugs
+
+*  pytest requirements missing PyYAML-ft — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`d30a0b6`](https://github.com/OZI-Project/OZI/commit/d30a0b6b66289e5468b208b31e9f68cf72c5264f))
+
 ## 2.0.8 (2025-06-07)
 
 
