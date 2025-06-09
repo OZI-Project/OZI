@@ -1,4 +1,37 @@
 # OZI CHANGELOG
+## 2.0.17 (2025-06-09)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.21.4 to 1.21.5
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.4 to 1.21.5.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.4...1.21.5)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`fbf7ccd`](https://github.com/OZI-Project/OZI/commit/fbf7ccd514617beb39a3fd2b61213de552f85e3e))
+
+
+### 🐛 Fixed Bugs
+
+*  pytest requirements pinned to 8.3.5 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`64809d5`](https://github.com/OZI-Project/OZI/commit/64809d54912c9a9da95fc6e800db9d0b5946d3e4))
+
+
+### 🔨 Updated Scripts
+
+*  create_subproject_symlink.py script backported to Python 3.9 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`7c9cece`](https://github.com/OZI-Project/OZI/commit/7c9ceceac9472d9ddd9dd05569ae65816fe77a89))
+
 ## 2.0.16 (2025-06-08)
 
 
