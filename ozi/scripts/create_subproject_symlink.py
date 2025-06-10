@@ -4,7 +4,7 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 # /// script
-# requires-python = ">=3.10"
+# requires-python = ">=3.9"
 # dependencies = [
 # 'pathvalidate~=3.2',
 # ]
@@ -43,11 +43,15 @@ if __name__ == '__main__':
             ),
         )
     validate_filepath(source)
+    current_dir = os.getcwd()
+    os.chdir('/' / source)
     try:
-        target = pathlib.Path(glob('subprojects/OZI-*', root_dir='/' / source)[0])
+        target = pathlib.Path(glob('subprojects/OZI-*')[0])
     except IndexError:
         print('OZI subproject directory not found', file=sys.stderr)
         exit(0)
+    finally:
+        os.chdir(current_dir)
     with suppress(FileExistsError):
         ('/' / source / 'subprojects' / 'ozi').symlink_to(
             '/' / source / target,

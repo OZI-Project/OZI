@@ -1,4 +1,317 @@
 # OZI CHANGELOG
+## 2.0.18 (2025-06-10)
+
+
+### ⬆️ Upgraded Dependencies
+
+* (cflite): Bump pyinstaller in /.clusterfuzzlite
+
+Bumps [pyinstaller](https://github.com/pyinstaller/pyinstaller) from 6.14.0 to 6.14.1.
+- [Release notes](https://github.com/pyinstaller/pyinstaller/releases)
+- [Changelog](https://github.com/pyinstaller/pyinstaller/blob/develop/doc/CHANGES.rst)
+- [Commits](https://github.com/pyinstaller/pyinstaller/compare/v6.14.0...v6.14.1)
+
+
+updated-dependencies:
+- dependency-name: pyinstaller
+  dependency-version: 6.14.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`5660244`](https://github.com/OZI-Project/OZI/commit/56602449a09de8ef46f5fed31fd28504f1992a56))
+
+
+### 🔨 Updated Scripts
+
+* (cflite): fix locale path typo — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`0c94057`](https://github.com/OZI-Project/OZI/commit/0c940578966fb5a86b154b2bd6eb0cdb7b39d80c))
+
+* (cflite): add gettext deb package source — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`81f212f`](https://github.com/OZI-Project/OZI/commit/81f212f8eeefb5aceda04a1ea3f446516fa50573))
+
+* (cflite): add locales data to bundle — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`a4c7646`](https://github.com/OZI-Project/OZI/commit/a4c7646f01fe9c98a5b8d8788548e2fb33728572))
+
+* (cflite): remove gettext install — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`09b5fef`](https://github.com/OZI-Project/OZI/commit/09b5fefcea7c9a45a64b40c1707957bc85bfda08))
+
+## 2.0.17 (2025-06-09)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.21.4 to 1.21.5
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.4 to 1.21.5.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.4...1.21.5)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`fbf7ccd`](https://github.com/OZI-Project/OZI/commit/fbf7ccd514617beb39a3fd2b61213de552f85e3e))
+
+
+### 🐛 Fixed Bugs
+
+*  pytest requirements pinned to 8.3.5 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`64809d5`](https://github.com/OZI-Project/OZI/commit/64809d54912c9a9da95fc6e800db9d0b5946d3e4))
+
+
+### 🔨 Updated Scripts
+
+*  create_subproject_symlink.py script backported to Python 3.9 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`7c9cece`](https://github.com/OZI-Project/OZI/commit/7c9ceceac9472d9ddd9dd05569ae65816fe77a89))
+
+## 2.0.16 (2025-06-08)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.21.3 to 1.21.4
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.3 to 1.21.4.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.21.4/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.3...1.21.4)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`50b012f`](https://github.com/OZI-Project/OZI/commit/50b012fd0ad456113f8d2ecd6f29117c749ae54f))
+
+## 2.0.15 (2025-06-08)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.21.2 to 1.21.3
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.2 to 1.21.3.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.21.3/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.2...1.21.3)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a0445f9`](https://github.com/OZI-Project/OZI/commit/a0445f977bcee568b56510850599deb88cfaa649))
+
+## 2.0.14 (2025-06-08)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.21.1 to 1.21.2
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.1 to 1.21.2.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.21.2/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.1...1.21.2)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`28b9628`](https://github.com/OZI-Project/OZI/commit/28b962808b028616a2bf5cfeb63b1458bd9b4679))
+
+
+### Other
+
+
+* chore: clean up lint — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`2554aa5`](https://github.com/OZI-Project/OZI/commit/2554aa56088171333371aaaba3653bdc9be9a33f))
+
+* chore: clean up lint — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`6687546`](https://github.com/OZI-Project/OZI/commit/6687546b93098e2c478d7765d52557ead0a5163e))
+
+## 2.0.13 (2025-06-08)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.21.0 to 1.21.1
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.0 to 1.21.1.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.21.1/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.0...1.21.1)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`d70cfa2`](https://github.com/OZI-Project/OZI/commit/d70cfa2118f0951f3d97fe0ee21da716bce07b18))
+
+
+### Other
+
+
+* fix: set parser on ozi.__main__ — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`03a9b03`](https://github.com/OZI-Project/OZI/commit/03a9b03289e25cf0c7f454ef5eec99f531af7ffd))
+
+## 2.0.12 (2025-06-07)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.20.5 to 1.21.0
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.20.5 to 1.21.0.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.21.0/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.20.5...1.21.0)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`b3a92c0`](https://github.com/OZI-Project/OZI/commit/b3a92c051bc1affa5adef845c7abba3be81da036))
+
+## 2.0.11 (2025-06-07)
+
+
+### 🐛 Fixed Bugs
+
+*  force release — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`a461079`](https://github.com/OZI-Project/OZI/commit/a461079481094ecd4ffeade54c3cfbd15d1a49c8))
+
+
+### 📝 Updated Documentation
+
+*  add links to readme — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`44876af`](https://github.com/OZI-Project/OZI/commit/44876afa461e94d82b60fb93c2de3fbc3ea270a5))
+
+
+### Other
+
+
+* fix: pytest requirements missing pyyaml-ft — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`f038c39`](https://github.com/OZI-Project/OZI/commit/f038c39e637fa60df829ec2c38e0b516c989ec7e))
+
+## 2.0.10 (2025-06-07)
+
+
+### 🐛 Fixed Bugs
+
+*  add pyyaml to pytest requirements — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`0f3b0c5`](https://github.com/OZI-Project/OZI/commit/0f3b0c5699c7c9fae83b0331ea66903ad4fdf660))
+
+
+### Other
+
+
+* fix: pytest requirements compiled with support back to Python 3.9 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`3fb29e7`](https://github.com/OZI-Project/OZI/commit/3fb29e75fce60c421ec969a8ed31edd4e44dae5c))
+
+## 2.0.9 (2025-06-07)
+
+
+### 🐛 Fixed Bugs
+
+*  pytest requirements missing PyYAML-ft — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`d30a0b6`](https://github.com/OZI-Project/OZI/commit/d30a0b6b66289e5468b208b31e9f68cf72c5264f))
+
+## 2.0.8 (2025-06-07)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump OZI-Project/checkpoint from 1.7.5 to 1.8.2
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.7.5 to 1.8.2.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/301753e6853d6a65055c8df69dafe7df74bd7963...e60a6b3b5a423885e6c3feab1dfc35ed9472b737)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.8.2
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`1f14da2`](https://github.com/OZI-Project/OZI/commit/1f14da2729c3504d3e9e917c0556cf330bee2d5c))
+
+
+### Other
+
+
+* fix: requirements compiled with support back to Python 3.9 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`23f11b6`](https://github.com/OZI-Project/OZI/commit/23f11b6ea046b2950d654ba17f4ca54771b0faf3))
+
+## 2.0.7 (2025-06-07)
+
+
+### 🐛 Fixed Bugs
+
+*  workaround broken pip-tools by adding reqs to VCS — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`de60857`](https://github.com/OZI-Project/OZI/commit/de60857833fdb4cad66eb63640c2272fdc0f3284))
+
+## 2.0.6 (2025-06-07)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.20.4 to 1.20.5
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.20.4 to 1.20.5.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.20.5/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.20.4...1.20.5)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.20.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`4adb421`](https://github.com/OZI-Project/OZI/commit/4adb421e809d3e25018a5060cfafbf5adc821992))
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.135.0 to 6.135.1.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.135.0...hypothesis-python-6.135.1)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.135.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`9e92581`](https://github.com/OZI-Project/OZI/commit/9e9258154111a73643abf5c118924f8947fa2106))
+
+
+### Other
+
+
+* build(cflite): add gettext for localizations in fuzzers — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`75e1d17`](https://github.com/OZI-Project/OZI/commit/75e1d1762dd2bb2d4909763c3d3b3252081a9002))
+
 ## 2.0.5 (2025-06-04)
 
 

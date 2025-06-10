@@ -9,6 +9,8 @@ from ozi_core.__main__ import setup_parser  # pyright: ignore
 
 from ozi import __version__
 
+parser = setup_parser(__version__)  # type: ignore
+
 
 def main() -> None:
     setup_parser(__version__)

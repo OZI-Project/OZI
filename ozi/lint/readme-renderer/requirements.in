@@ -1,2 +1,2 @@
 readme-renderer[md]
-git+https://github.com/Quansight-Labs/cffi@c06e9e1 ; python_version>="3.13"
+# git+https://github.com/Quansight-Labs/cffi@c06e9e1 ; python_version>="3.13"
