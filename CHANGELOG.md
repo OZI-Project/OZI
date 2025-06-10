@@ -1,4 +1,40 @@
 # OZI CHANGELOG
+## 2.0.18 (2025-06-10)
+
+
+### ⬆️ Upgraded Dependencies
+
+* (cflite): Bump pyinstaller in /.clusterfuzzlite
+
+Bumps [pyinstaller](https://github.com/pyinstaller/pyinstaller) from 6.14.0 to 6.14.1.
+- [Release notes](https://github.com/pyinstaller/pyinstaller/releases)
+- [Changelog](https://github.com/pyinstaller/pyinstaller/blob/develop/doc/CHANGES.rst)
+- [Commits](https://github.com/pyinstaller/pyinstaller/compare/v6.14.0...v6.14.1)
+
+
+updated-dependencies:
+- dependency-name: pyinstaller
+  dependency-version: 6.14.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`5660244`](https://github.com/OZI-Project/OZI/commit/56602449a09de8ef46f5fed31fd28504f1992a56))
+
+
+### 🔨 Updated Scripts
+
+* (cflite): fix locale path typo — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`0c94057`](https://github.com/OZI-Project/OZI/commit/0c940578966fb5a86b154b2bd6eb0cdb7b39d80c))
+
+* (cflite): add gettext deb package source — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`81f212f`](https://github.com/OZI-Project/OZI/commit/81f212f8eeefb5aceda04a1ea3f446516fa50573))
+
+* (cflite): add locales data to bundle — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`a4c7646`](https://github.com/OZI-Project/OZI/commit/a4c7646f01fe9c98a5b8d8788548e2fb33728572))
+
+* (cflite): remove gettext install — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`09b5fef`](https://github.com/OZI-Project/OZI/commit/09b5fefcea7c9a45a64b40c1707957bc85bfda08))
+
 ## 2.0.17 (2025-06-09)
 
 
