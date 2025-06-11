@@ -69,7 +69,7 @@ Community="https://github.com/orgs/OZI-Project/discussions"
 Homepage="https://oziproject.dev/"
 
 [tool.ozi-build.metadata]
-requires-external=['git']
+requires-external=['git', 'OpenSSL']
 
 [tool.setuptools_scm]
 fallback_version = "@VCS_TAG@"
