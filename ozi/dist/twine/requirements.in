@@ -1,3 +1,3 @@
 twine==6.1.0
 # git+https://github.com/Quansight-Labs/cffi@c06e9e1 ; python_version>="3.13"
-cryptography~=43.0
+cryptography @ https://files.pythonhosted.org/packages/0d/05/07b55d1fa21ac18c3a8c79f764e2514e6f6a9698f1be44994f5adf0d29db/cryptography-43.0.3.tar.gz
