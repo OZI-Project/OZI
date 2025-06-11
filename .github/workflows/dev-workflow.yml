@@ -23,7 +23,7 @@ jobs:
       - name: Harden Runner
         uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
         with:
-          disable-sudo: true
+          disable-sudo: false
           egress-policy: block
           allowed-endpoints: >
             files.pythonhosted.org:443
@@ -39,6 +39,8 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
+      
+      - run: sudo apt-get install openssl -y
 
       - uses: OZI-Project/checkpoint@e60a6b3b5a423885e6c3feab1dfc35ed9472b737 # 1.8.2
         with:
@@ -73,6 +75,8 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
 
+      - run: sudo apt-get install openssl -y
+
       - uses: OZI-Project/checkpoint@e60a6b3b5a423885e6c3feab1dfc35ed9472b737 # 1.8.2
         with:
           python-version: "3.11"
@@ -104,6 +108,8 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
+
+      - run: sudo apt-get install openssl -y
 
       - uses: OZI-Project/checkpoint@e60a6b3b5a423885e6c3feab1dfc35ed9472b737 # 1.8.2
         with:
@@ -137,6 +143,8 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             index.crates.io:443
             static.crates.io:443
+
+      - run: sudo apt-get install openssl -y
 
       - uses: OZI-Project/checkpoint@e60a6b3b5a423885e6c3feab1dfc35ed9472b737
         with:
