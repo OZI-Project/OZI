@@ -430,9 +430,9 @@ python-gitlab==5.6.0 \
     --hash=sha256:68980cd70929fc7f8f06d8a7b09bd046a6b79e1995c19d61249f046005099100 \
     --hash=sha256:bc531e8ba3e5641b60409445d4919ace68a2c18cb0ec6d48fbced6616b954166
     # via python-semantic-release
-python-semantic-release==10.0.2 \
-    --hash=sha256:b943a821cb371e066ec06ffe67bc551aaacfd8efb3fe130efa32b13b9d68a3e4 \
-    --hash=sha256:bf9244b4b83941d699929546d4dd3a72d421cc37865a6257ec779aee56862d35
+python-semantic-release==10.1.0 \
+    --hash=sha256:199208470e6c51859665948013e76ece458a5b41271e7f7cc05e40e93d4050d2 \
+    --hash=sha256:b31e1fe45fb3ad842a2ccbded55a3f4a9a23f0e1e8780b005952ba926dcee6f0
     # via -r requirements.in
 requests==2.32.3 \
     --hash=sha256:55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760 \
