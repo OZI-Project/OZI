@@ -41,7 +41,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@e60a6b3b5a423885e6c3feab1dfc35ed9472b737 # 1.8.2
+      - uses: OZI-Project/checkpoint@b7afe55ac890df008deb75191e53f83823117f92 # 1.9.1
         with:
           python-version: "3.10"
           parallel: false
@@ -73,7 +73,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@e60a6b3b5a423885e6c3feab1dfc35ed9472b737 # 1.8.2
+      - uses: OZI-Project/checkpoint@b7afe55ac890df008deb75191e53f83823117f92 # 1.9.1
         with:
           python-version: "3.11"
           parallel: false
@@ -105,7 +105,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@e60a6b3b5a423885e6c3feab1dfc35ed9472b737 # 1.8.2
+      - uses: OZI-Project/checkpoint@b7afe55ac890df008deb75191e53f83823117f92 # 1.9.1
         with:
           python-version: "3.12"
           parallel: false
@@ -136,7 +136,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@e60a6b3b5a423885e6c3feab1dfc35ed9472b737
+      - uses: OZI-Project/checkpoint@b7afe55ac890df008deb75191e53f83823117f92
         with:
           python-version: "3.13"
 
@@ -176,7 +176,7 @@ jobs:
             files.pythonhosted.org:443
             downloads.python.org:443
 
-      - uses: OZI-Project/draft@9fcb96b0c50c0da405737413299ede083f1d94cf
+      - uses: OZI-Project/draft@4f9117750cd22709a929ed3f36578f172a94bd41
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -273,7 +273,7 @@ jobs:
             ghcr.io:443
             pkg-containers.githubusercontent.com:443
 
-    - uses: OZI-Project/publish@0d8a74931c945399bb0967f77c67055956b9e5c5 # 1.14.0
+    - uses: OZI-Project/publish@c448915d89a76028ab54f2b539ad159e3a612003 # 1.15.0
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         create-pull-request: true
