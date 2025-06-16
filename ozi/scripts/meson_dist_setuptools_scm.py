@@ -83,5 +83,4 @@ if __name__ == '__main__':  # noqa: C901
         raise RuntimeError('Invalid version_file path in pyproject.toml')
     else:
         version_file_template = setuptools_scm.get('version_file_template')
-        validate_filepath(version_file_template, platform='auto')
         path.write_text(version_file_template)
