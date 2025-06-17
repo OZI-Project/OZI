@@ -1,4 +1,75 @@
 # OZI CHANGELOG
+## 2.0.20 (2025-06-17)
+
+
+### ⬆️ Upgraded Dependencies
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.135.9 to 6.135.10.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.135.9...hypothesis-python-6.135.10)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.135.10
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`61df38e`](https://github.com/OZI-Project/OZI/commit/61df38ebddf457a44680ec3372d62f2e92303a50))
+
+*  Bump mypy from 1.16.0 to 1.16.1 in /ozi/lint/mypy
+
+Bumps [mypy](https://github.com/python/mypy) from 1.16.0 to 1.16.1.
+- [Changelog](https://github.com/python/mypy/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python/mypy/compare/v1.16.0...v1.16.1)
+
+
+updated-dependencies:
+- dependency-name: mypy
+  dependency-version: 1.16.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`1d37639`](https://github.com/OZI-Project/OZI/commit/1d376395a52619db46b4c181f719145ae2ab175f))
+
+*  Update pathvalidate requirement
+
+Updates the requirements on [pathvalidate](https://github.com/thombashi/pathvalidate) to permit the latest version.
+- [Release notes](https://github.com/thombashi/pathvalidate/releases)
+- [Changelog](https://github.com/thombashi/pathvalidate/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/thombashi/pathvalidate/compare/v3.2.1...v3.3.1)
+
+
+updated-dependencies:
+- dependency-name: pathvalidate
+  dependency-version: 3.3.1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`8e05e61`](https://github.com/OZI-Project/OZI/commit/8e05e618ad04a73803eda1cf2afee6b88251ec62))
+
+*  Bump hypothesis[cli,codemods,ghostwriter] in /ozi/test/pytest
+
+Bumps [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) from 6.135.9 to 6.135.10.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.135.9...hypothesis-python-6.135.10)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.135.10
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`57f98eb`](https://github.com/OZI-Project/OZI/commit/57f98eb2dbee4bb8d6c737a9d4ada5b1f05b49e3))
+
+
+### 🐛 Fixed Bugs
+
+* (scripts): pathvalidate was run on file contents in setuptools_scm — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`b21af18`](https://github.com/OZI-Project/OZI/commit/b21af180246f8e2fd21b75d7e652cf5286f4023b))
+
 ## 2.0.19 (2025-06-13)
 
 
