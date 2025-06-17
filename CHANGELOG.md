@@ -1,4 +1,40 @@
 # OZI CHANGELOG
+## 2.0.21 (2025-06-17)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.21.7 to 1.21.8
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.7 to 1.21.8.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.21.8/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.7...1.21.8)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.8
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`db1e559`](https://github.com/OZI-Project/OZI/commit/db1e55953bddbf1a5c74751d6be24c29072b80de))
+
+*  Bump bandit[toml] from 1.8.3 to 1.8.5 in /ozi/lint/bandit
+
+Bumps [bandit[toml]](https://github.com/PyCQA/bandit) from 1.8.3 to 1.8.5.
+- [Release notes](https://github.com/PyCQA/bandit/releases)
+- [Commits](https://github.com/PyCQA/bandit/compare/1.8.3...1.8.5)
+
+
+updated-dependencies:
+- dependency-name: bandit[toml]
+  dependency-version: 1.8.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`1542e04`](https://github.com/OZI-Project/OZI/commit/1542e045983303d259cbff4c83312c8301c9a55a))
+
 ## 2.0.20 (2025-06-17)
 
 
