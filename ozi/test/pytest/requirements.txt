@@ -117,9 +117,9 @@ execnet==2.1.1 \
     --hash=sha256:26dee51f1b80cebd6d0ca8e74dd8745419761d3bef34163928cbebbdc4749fdc \
     --hash=sha256:5189b52c6121c24feae288166ab41b32549c7e2348652736540b9e6e7d4e72e3
     # via pytest-xdist
-hypothesis[cli,codemods,ghostwriter]==6.135.10 \
-    --hash=sha256:275012ee9a7a1a64fd38745c2b7a07e838fc9f738d49c97a881d235b53fe28c1 \
-    --hash=sha256:ce224e310012e40b8e3aa6edba226c032c57bbcbdccad41212ab6d2d74b602cf
+hypothesis[cli,codemods,ghostwriter]==6.135.13 \
+    --hash=sha256:02f757c0ca75ea7999521e02c11b318ead902d287e37c906817861f218d9422a \
+    --hash=sha256:6009c0a11753554efd5413c2145a5badfdb391cdf19f60619613ce5430762ad3
     # via -r requirements.in
 importlib-metadata==8.7.0 \
     --hash=sha256:d13b81ad223b890aa16c5471f2ac3056cf76c5f10f82d6f9292f0b415f389000 \
@@ -375,9 +375,9 @@ typing-extensions==4.14.0 \
     #   exceptiongroup
     #   pytest-asyncio
     #   rich
-urllib3==2.4.0 \
-    --hash=sha256:414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466 \
-    --hash=sha256:4e16665048960a0900c702d4a66415956a584919c03361cac9f1df5c5dd7e813
+urllib3==2.5.0 \
+    --hash=sha256:3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760 \
+    --hash=sha256:e6b01673c0fa6a13e374b50871808eb3bf7046c4b125b216f6bf1cc604cff0dc
     # via -r requirements.in
 zipp==3.22.0 \
     --hash=sha256:dd2f28c3ce4bc67507bfd3781d21b7bb2be31103b51a4553ad7d90b84e57ace5 \
