@@ -1,4 +1,70 @@
 # OZI CHANGELOG
+## 2.0.22 (2025-06-20)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump hypothesis[cli,codemods,ghostwriter] in /ozi/test/pytest
+
+Bumps [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) from 6.135.10 to 6.135.13.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.135.10...hypothesis-python-6.135.13)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.135.13
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`1980069`](https://github.com/OZI-Project/OZI/commit/19800692dc19d09f077a3b475eff44f1f1f569ef))
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.135.10 to 6.135.13.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.135.10...hypothesis-python-6.135.13)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.135.13
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`eea1e9a`](https://github.com/OZI-Project/OZI/commit/eea1e9aa36e28aaeaeb9ef3980fdaf5cb54e6bd6))
+
+* (cflite): Bump tox from 4.26.0 to 4.27.0 in /.clusterfuzzlite
+
+Bumps [tox](https://github.com/tox-dev/tox) from 4.26.0 to 4.27.0.
+- [Release notes](https://github.com/tox-dev/tox/releases)
+- [Changelog](https://github.com/tox-dev/tox/blob/main/docs/changelog.rst)
+- [Commits](https://github.com/tox-dev/tox/compare/4.26.0...4.27.0)
+
+
+updated-dependencies:
+- dependency-name: tox
+  dependency-version: 4.27.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`476f0b2`](https://github.com/OZI-Project/OZI/commit/476f0b2f698f743cac9cad0bd77f836204032eb5))
+
+*  Bump urllib3 from 2.4.0 to 2.5.0 in /ozi/test/pytest
+
+Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.4.0 to 2.5.0.
+- [Release notes](https://github.com/urllib3/urllib3/releases)
+- [Changelog](https://github.com/urllib3/urllib3/blob/main/CHANGES.rst)
+- [Commits](https://github.com/urllib3/urllib3/compare/2.4.0...2.5.0)
+
+
+updated-dependencies:
+- dependency-name: urllib3
+  dependency-version: 2.5.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`ea78645`](https://github.com/OZI-Project/OZI/commit/ea78645dbefbd7b4c0988a2f632a9e8b78355e46))
+
 ## 2.0.21 (2025-06-17)
 
 
