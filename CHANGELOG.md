@@ -1,4 +1,26 @@
 # OZI CHANGELOG
+## 2.1.0 (2025-06-23)
+
+
+### ✨ Implemented Features
+
+*  expected user template paths now mirror the project directory
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.8 to 1.21.9.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.8...1.21.9)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.9
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+([`473e9cd`](https://github.com/OZI-Project/OZI/commit/473e9cdf3d695d9dffd2bffbd1e3054dbdd9d2fb))
+
 ## 2.0.22 (2025-06-20)
 
 
