@@ -3,3 +3,4 @@ sigstore~=3.0
 cryptography~=43.0
 rfc3161-client>1.0.2
 urllib3>=2.5.0
+requests>=2.32.4
