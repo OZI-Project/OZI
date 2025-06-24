@@ -1,4 +1,72 @@
 # OZI CHANGELOG
+## 2.1.1 (2025-06-24)
+
+
+### ⬆️ Upgraded Dependencies
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.135.13 to 6.135.14.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.135.13...hypothesis-python-6.135.14)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.135.14
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`7661536`](https://github.com/OZI-Project/OZI/commit/7661536eddd876a5f46509caa06f4334c56bedca))
+
+*  Bump flake8 from 7.2.0 to 7.3.0 in /ozi/lint/flake8
+
+Bumps [flake8](https://github.com/pycqa/flake8) from 7.2.0 to 7.3.0.
+- [Commits](https://github.com/pycqa/flake8/compare/7.2.0...7.3.0)
+
+
+updated-dependencies:
+- dependency-name: flake8
+  dependency-version: 7.3.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`bbf9ceb`](https://github.com/OZI-Project/OZI/commit/bbf9ceb22d2494280d9a998c60fa69d26b4890b7))
+
+*  Bump hypothesis[cli,codemods,ghostwriter] in /ozi/test/pytest
+
+Bumps [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) from 6.135.13 to 6.135.14.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.135.13...hypothesis-python-6.135.14)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.135.14
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`6838d4c`](https://github.com/OZI-Project/OZI/commit/6838d4c3437aceeb016c6794ecdd7eac4fb0d87a))
+
+
+### 🔨 Updated Scripts
+
+*  pin osv-scanner to 2.0.3 — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`931c8d2`](https://github.com/OZI-Project/OZI/commit/931c8d2d22a469e4b1598897f5d0aab0b2a38e6c))
+
+
+### 📝 Updated Documentation
+
+*  update SECURITY.md — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`b8da426`](https://github.com/OZI-Project/OZI/commit/b8da426b6ac378ea595a88245267f090a64240b1))
+
+
+### Other
+
+
+* Create osv-scanner-pr.yml — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`e5bee17`](https://github.com/OZI-Project/OZI/commit/e5bee1708181879d9308da08edaa201534b5a170))
+
 ## 2.1.0 (2025-06-23)
 
 
@@ -190,6 +258,15 @@ updated-dependencies:
 
 
 ### 🐛 Fixed Bugs
+
+*  mitigate GHSA-9hjg-9r4m-mvj7 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`e511fe7`](https://github.com/OZI-Project/OZI/commit/e511fe73ec6c1604da0cca87731a708f93a93fd7))
+
+*  mitigate GHSA-pq67-6m6q-mj2v — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`bb91928`](https://github.com/OZI-Project/OZI/commit/bb919286534558101b56c9e5c290acf1ac2e1038))
+
+*  mitigate GHSA-6qhv-4h7r-2g9m — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`7ebe9b3`](https://github.com/OZI-Project/OZI/commit/7ebe9b33d04aa1ee7edc8a8cdaeede8e51c467ce))
 
 * (scripts): pathvalidate was run on file contents in setuptools_scm — Eden Ross Duff MSc <ozi.project@outlook.com>
 ([`b21af18`](https://github.com/OZI-Project/OZI/commit/b21af180246f8e2fd21b75d7e652cf5286f4023b))
