@@ -8,3 +8,4 @@ urllib3~=2.5
 hypothesis[cli,codemods,ghostwriter]~=6.135
 pyyaml-ft==7.0.1 ; python_version >= "3.13"
 pyyaml
+urllib3>=2.5.0

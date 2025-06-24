@@ -1,3 +1,5 @@
 python-semantic-release~=10.1
 # git+https://github.com/Quansight-Labs/cffi@c06e9e1 ; python_version>="3.13"
 cryptography~=43.0
+urllib3>=2.5.0
+requests>=2.32.4
