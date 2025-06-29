@@ -13,7 +13,13 @@ jobs:
     - name: Harden the runner (Audit all outbound calls)
       uses: step-security/harden-runner@002fdce3c6a235733a90a27c80493a3241e56863 # v2.12.1
       with:
-        egress-policy: audit
+        egress-policy: block
+        allowed-endpoints: >
+          files.pythonhosted.org:443
+          gcr.io:443
+          github.com:443
+          pypi.org:443
+          us.archive.ubuntu.com:80
 
     - name: Build Fuzzers
       id: build
