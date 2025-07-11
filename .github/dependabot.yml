@@ -148,3 +148,8 @@ updates:
       interval: daily
     commit-message:
       prefix: ":arrow_up:"
+
+  - package-ecosystem: docker
+    directory: /.clusterfuzzlite
+    schedule:
+      interval: daily

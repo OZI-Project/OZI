@@ -10,6 +10,17 @@ jobs:
     strategy:
       fail-fast: false
     steps:
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+      with:
+        egress-policy: block
+        allowed-endpoints: >
+          files.pythonhosted.org:443
+          gcr.io:443
+          github.com:443
+          pypi.org:443
+          us.archive.ubuntu.com:80
+
     - name: Build Fuzzers
       id: build
       uses: google/clusterfuzzlite/actions/build_fuzzers@884713a6c30a92e5e8544c39945cd7cb630abcd1 # v1
