@@ -41,7 +41,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@b7afe55ac890df008deb75191e53f83823117f92 # 1.9.1
+      - uses: OZI-Project/checkpoint@4c60c58ba33a128bbde246fbee9e16569062f7cf # 1.9.3
         with:
           python-version: "3.10"
           parallel: false
@@ -73,7 +73,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@b7afe55ac890df008deb75191e53f83823117f92 # 1.9.1
+      - uses: OZI-Project/checkpoint@4c60c58ba33a128bbde246fbee9e16569062f7cf # 1.9.3
         with:
           python-version: "3.11"
           parallel: false
@@ -105,7 +105,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@b7afe55ac890df008deb75191e53f83823117f92 # 1.9.1
+      - uses: OZI-Project/checkpoint@4c60c58ba33a128bbde246fbee9e16569062f7cf # 1.9.3
         with:
           python-version: "3.12"
           parallel: false
@@ -136,7 +136,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@b7afe55ac890df008deb75191e53f83823117f92
+      - uses: OZI-Project/checkpoint@4c60c58ba33a128bbde246fbee9e16569062f7cf
         with:
           python-version: "3.13"
 
@@ -176,7 +176,7 @@ jobs:
             files.pythonhosted.org:443
             downloads.python.org:443
 
-      - uses: OZI-Project/draft@4f9117750cd22709a929ed3f36578f172a94bd41
+      - uses: OZI-Project/draft@7ce5c1150603d27957375d1c85570faa29ab5fd5
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -223,7 +223,7 @@ jobs:
             downloads.python.org:443
             oauth2.sigstore.dev:443
 
-      - uses: OZI-Project/release@fd220285eff3de13b0eeab9f0882f245fa55b2e6 # 1.8.10
+      - uses: OZI-Project/release@3b2d9beadc38335e9fdace1dc21d7d5807d7be76 # 1.8.11
         id: release
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -273,7 +273,7 @@ jobs:
             ghcr.io:443
             pkg-containers.githubusercontent.com:443
 
-    - uses: OZI-Project/publish@c448915d89a76028ab54f2b539ad159e3a612003 # 1.15.0
+    - uses: OZI-Project/publish@9df2afca0ca23d527508e76a8deef37330bd90bb # 1.16.0
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         create-pull-request: true
