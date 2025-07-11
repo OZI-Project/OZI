@@ -261,9 +261,9 @@ pytest-tcpclient==0.7.17 \
     --hash=sha256:576675d923c56a5584af5477bd43b908b95489b0c325cc6f261f217a0da0b150 \
     --hash=sha256:8f50d534939ef115e95b251839a444a0f3ba2641d5ce7ed5213b90b757ebcd00
     # via -r requirements.in
-pytest-xdist==3.7.0 \
-    --hash=sha256:7d3fbd255998265052435eb9daa4e99b62e6fb9cfb6efd1f858d4d8c0c7f0ca0 \
-    --hash=sha256:f9248c99a7c15b7d2f90715df93610353a485827bc06eefb6566d23f6400f126
+pytest-xdist==3.8.0 \
+    --hash=sha256:202ca578cfeb7370784a8c33d6d05bc6e13b4f25b5053c30a152269fd10f0b88 \
+    --hash=sha256:7e578125ec9bc6050861aa93f2d59f1d8d085595d6551c2c90b6f4fad8d3a9f1
     # via -r requirements.in
 pyyaml==6.0.2 \
     --hash=sha256:01179a4a8559ab5de078078f37e5c1a30d76bb88519906844fd7bdea1b7729ff \
