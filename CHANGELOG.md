@@ -1,4 +1,331 @@
 # OZI CHANGELOG
+## 2.1.2 (2025-07-11)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump python-semantic-release in /ozi/dist/semantic_release
+
+Bumps [python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 10.1.0 to 10.2.0.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v10.1...v10.2)
+
+
+updated-dependencies:
+- dependency-name: python-semantic-release
+  dependency-version: 10.2.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`2af1cea`](https://github.com/OZI-Project/OZI/commit/2af1cea859f44f5a68a029c0783f6eda325c4b43))
+
+*  Bump OZI-Project/draft from 1.15.0 to 1.16.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.15.0 to 1.16.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/4f9117750cd22709a929ed3f36578f172a94bd41...7ce5c1150603d27957375d1c85570faa29ab5fd5)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-version: 1.16.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`d0d15e8`](https://github.com/OZI-Project/OZI/commit/d0d15e8ebd16525f1515e339077f5badadb4ab81))
+
+*  Bump pytest-xdist from 3.7.0 to 3.8.0 in /ozi/test/pytest
+
+Bumps [pytest-xdist](https://github.com/pytest-dev/pytest-xdist) from 3.7.0 to 3.8.0.
+- [Release notes](https://github.com/pytest-dev/pytest-xdist/releases)
+- [Changelog](https://github.com/pytest-dev/pytest-xdist/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/pytest-dev/pytest-xdist/compare/v3.7.0...v3.8.0)
+
+
+updated-dependencies:
+- dependency-name: pytest-xdist
+  dependency-version: 3.8.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`853af6b`](https://github.com/OZI-Project/OZI/commit/853af6b16af63cac25010590edd4f2ca9c63f55d))
+
+*  Bump coverage[toml] from 7.9.1 to 7.9.2 in /ozi/test/coverage
+
+Bumps [coverage[toml]](https://github.com/nedbat/coveragepy) from 7.9.1 to 7.9.2.
+- [Release notes](https://github.com/nedbat/coveragepy/releases)
+- [Changelog](https://github.com/nedbat/coveragepy/blob/master/CHANGES.rst)
+- [Commits](https://github.com/nedbat/coveragepy/compare/7.9.1...7.9.2)
+
+
+updated-dependencies:
+- dependency-name: coverage[toml]
+  dependency-version: 7.9.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`9c081f8`](https://github.com/OZI-Project/OZI/commit/9c081f8e5afb2275b6bb00a1d373465a4bca7eb9))
+
+*  Bump OZI-Project/publish from 1.15.0 to 1.16.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.15.0 to 1.16.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/c448915d89a76028ab54f2b539ad159e3a612003...9df2afca0ca23d527508e76a8deef37330bd90bb)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.16.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`bef26fd`](https://github.com/OZI-Project/OZI/commit/bef26fd24d999d1942dcf061baa26ae639c64d68))
+
+*  Bump OZI-Project/release from 1.8.10 to 1.8.11
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.8.10 to 1.8.11.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/fd220285eff3de13b0eeab9f0882f245fa55b2e6...3b2d9beadc38335e9fdace1dc21d7d5807d7be76)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.8.11
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`6a02eee`](https://github.com/OZI-Project/OZI/commit/6a02eeec1ee6bbf21d48a6f8d89f6705d267091e))
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.135.14 to 6.135.26.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.135.14...hypothesis-python-6.135.26)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.135.26
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`49e0e77`](https://github.com/OZI-Project/OZI/commit/49e0e770a06b7fa8f0f8444a2ee149421263f8fc))
+
+*  Bump bandit[toml] from 1.8.5 to 1.8.6 in /ozi/lint/bandit
+
+
+updated-dependencies:
+- dependency-name: bandit[toml]
+  dependency-version: 1.8.6
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`7dfb3bd`](https://github.com/OZI-Project/OZI/commit/7dfb3bdaab10f02819b2b1939fb619dfe6db7c08))
+
+* (cflite): Bump pyinstaller in /.clusterfuzzlite
+
+Bumps [pyinstaller](https://github.com/pyinstaller/pyinstaller) from 6.14.1 to 6.14.2.
+- [Release notes](https://github.com/pyinstaller/pyinstaller/releases)
+- [Changelog](https://github.com/pyinstaller/pyinstaller/blob/develop/doc/CHANGES.rst)
+- [Commits](https://github.com/pyinstaller/pyinstaller/compare/v6.14.1...v6.14.2)
+
+
+updated-dependencies:
+- dependency-name: pyinstaller
+  dependency-version: 6.14.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`acb8e94`](https://github.com/OZI-Project/OZI/commit/acb8e9433f50328f74299d1f069ac513a6f81fe8))
+
+* (cflite): Bump typing-extensions in /.clusterfuzzlite
+
+Bumps [typing-extensions](https://github.com/python/typing_extensions) from 4.14.0 to 4.14.1.
+- [Release notes](https://github.com/python/typing_extensions/releases)
+- [Changelog](https://github.com/python/typing_extensions/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/python/typing_extensions/compare/4.14.0...4.14.1)
+
+
+updated-dependencies:
+- dependency-name: typing-extensions
+  dependency-version: 4.14.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`9501db9`](https://github.com/OZI-Project/OZI/commit/9501db9652f8170f828122805f52af2fc74f65a9))
+
+*  Bump ozi-core from 1.21.9 to 1.21.10
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.9 to 1.21.10.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.21.10/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.9...1.21.10)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.10
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`dcefae9`](https://github.com/OZI-Project/OZI/commit/dcefae9b2502533e188c72e92b6d151dd7bb4f03))
+
+*  Bump pyright from 1.1.402 to 1.1.403 in /ozi/lint/pyright
+
+Bumps [pyright](https://github.com/RobertCraigie/pyright-python) from 1.1.402 to 1.1.403.
+- [Release notes](https://github.com/RobertCraigie/pyright-python/releases)
+- [Commits](https://github.com/RobertCraigie/pyright-python/compare/v1.1.402...v1.1.403)
+
+
+updated-dependencies:
+- dependency-name: pyright
+  dependency-version: 1.1.403
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`1da9c31`](https://github.com/OZI-Project/OZI/commit/1da9c3186161ae5b29f30403852038239ee164ab))
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `97f2d0f` to `7a31e6f`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`4eccd40`](https://github.com/OZI-Project/OZI/commit/4eccd4045fd21cf2fce50678c2be0a3284eccc00))
+
+*  Bump hypothesis[cli,codemods,ghostwriter] in /ozi/test/pytest
+
+Bumps [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) from 6.135.14 to 6.135.26.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.135.14...hypothesis-python-6.135.26)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.135.26
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`8c1e8a2`](https://github.com/OZI-Project/OZI/commit/8c1e8a240b194f48e6590e02df3cecc1bdb176a1))
+
+*  Bump OZI-Project/checkpoint from 1.9.1 to 1.9.3
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.9.1 to 1.9.3.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/b7afe55ac890df008deb75191e53f83823117f92...4c60c58ba33a128bbde246fbee9e16569062f7cf)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.9.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`7297fce`](https://github.com/OZI-Project/OZI/commit/7297fcec3542b3e839fe87b61f0329bfdf1fdc3b))
+
+*  Bump github/codeql-action from 3.29.0 to 3.29.2
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.29.0 to 3.29.2.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/ce28f5bb42b7a9f2c824e633a3f6ee835bab6858...181d5eefc20863364f96762470ba6f862bdef56b)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.29.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`5f60a7c`](https://github.com/OZI-Project/OZI/commit/5f60a7ce7d7919f816aa9d44b6fc08492edc1eb7))
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `fb5be02` to `97f2d0f`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`68f21a5`](https://github.com/OZI-Project/OZI/commit/68f21a5d8dfedf16a537900929cd3f9b408390dc))
+
+*  Bump step-security/harden-runner from 2.12.1 to 2.12.2
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.12.1 to 2.12.2.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/002fdce3c6a235733a90a27c80493a3241e56863...6c439dc8bdf85cadbbce9ed30d1c7b959517bc49)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-version: 2.12.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`49adbb1`](https://github.com/OZI-Project/OZI/commit/49adbb166760a005ffc2570c3c549d5c16087086))
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `180acc2` to `fb5be02`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`1c87c0e`](https://github.com/OZI-Project/OZI/commit/1c87c0e0963361b4db018d91dd58c90e5be85616))
+
+* (cflite): update build.sh Python version to 3.11 — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`f1cf0a7`](https://github.com/OZI-Project/OZI/commit/f1cf0a7df1693b7c80e246fe52d504141c6eb8c9))
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `394befb` to `180acc2`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`f7b5632`](https://github.com/OZI-Project/OZI/commit/f7b5632c2fe7fac66b77511db3f153a3ae631449))
+
+
+### 🔥 Deleted Code or Files
+
+*  Delete .github/workflows/cleanup.yml — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`23b5392`](https://github.com/OZI-Project/OZI/commit/23b53923dc332e5fe8218f9f2b21359b8fa9b46a))
+
+
+### 🔨 Updated Scripts
+
+* (cflite): update cflite_batch.yml with allowed-endpoints — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`7167d46`](https://github.com/OZI-Project/OZI/commit/7167d46d1ccf6d2a2dc61486406c211f65d55313))
+
+
+### 🔒️
+
+
+* (StepSecurity): Apply security best practices — StepSecurity Bot <bot@stepsecurity.io>
+([`0dcc06a`](https://github.com/OZI-Project/OZI/commit/0dcc06a944cc42faab304d6f7c10648950892da1))
+
+*  fix osv-scanner permissions — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`d552b5b`](https://github.com/OZI-Project/OZI/commit/d552b5b5bca1275a89bde8750caf2db394108e5a))
+
+
+### ✏️ Corrected Typos
+
+*  fix duplicate entries in dependabot.yml — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`deb4e90`](https://github.com/OZI-Project/OZI/commit/deb4e908afb66cc2a5632574ae6e1587d9a2af95))
+
 ## 2.1.1 (2025-06-24)
 
 
