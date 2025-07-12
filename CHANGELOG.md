@@ -1,4 +1,37 @@
 # OZI CHANGELOG
+## 2.1.3 (2025-07-12)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `7a31e6f` to `425c184`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`d17a080`](https://github.com/OZI-Project/OZI/commit/d17a0803b7cf10aaf5b47b63d422e898850256ae))
+
+*  Bump ozi-core from 1.21.10 to 1.21.11
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.10 to 1.21.11.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.21.11/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.10...1.21.11)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.11
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`d72f610`](https://github.com/OZI-Project/OZI/commit/d72f61065971cce38fafe91d3c460740f336cec6))
+
 ## 2.1.2 (2025-07-11)
 
 
