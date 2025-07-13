@@ -1,4 +1,25 @@
 # OZI CHANGELOG
+## 2.1.4 (2025-07-13)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.21.11 to 1.21.12
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.11 to 1.21.12.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.21.12/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.11...1.21.12)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.12
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`95a907e`](https://github.com/OZI-Project/OZI/commit/95a907e7b0ab9414573946f08d109e14390a44fe))
+
 ## 2.1.3 (2025-07-12)
 
 
