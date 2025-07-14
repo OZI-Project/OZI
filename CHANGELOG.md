@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 2.1.6 (2025-07-14)
+
+
+### 🐛 Fixed Bugs
+
+*  fix missing pyyaml-ft from pytests requirements — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`de23b2b`](https://github.com/OZI-Project/OZI/commit/de23b2b3f8f73dfb75cb49dcadb4ce6090b7475c))
+
 ## 2.1.5 (2025-07-14)
 
 
