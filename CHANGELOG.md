@@ -1,4 +1,19 @@
 # OZI CHANGELOG
+## 2.1.8 (2025-07-15)
+
+
+### 🐛 Fixed Bugs
+
+*  force release — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`f83fd04`](https://github.com/OZI-Project/OZI/commit/f83fd0493bc317b3cdfeece01fc2d9be95872b2e))
+
+
+### Other
+
+
+* fix: missing pyyaml-ft again — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`b733ed0`](https://github.com/OZI-Project/OZI/commit/b733ed053f6a271786e3a5019200f1fb4946a32b))
+
 ## 2.1.7 (2025-07-14)
 
 
