@@ -25,6 +25,8 @@ updates:
 
   - package-ecosystem: pip
     open-pull-requests-limit: 10
+    ignore:
+      - dependency-name: pyyaml-ft
     directories:
       - "/"
     schedule:
