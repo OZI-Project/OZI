@@ -1,4 +1,82 @@
 # OZI CHANGELOG
+## 2.1.7 (2025-07-14)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `425c184` to `8b8a7d6`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`8264685`](https://github.com/OZI-Project/OZI/commit/8264685c5adffaef5677815a71760cfaa7339251))
+
+*  Bump google/osv-scanner-action from 2.0.3 to 2.1.0
+
+Bumps [google/osv-scanner-action](https://github.com/google/osv-scanner-action) from 2.0.3 to 2.1.0.
+- [Release notes](https://github.com/google/osv-scanner-action/releases)
+- [Commits](https://github.com/google/osv-scanner-action/compare/40a8940a65eab1544a6af759e43d936201a131a2...b00f71e051ddddc6e46a193c31c8c0bf283bf9e6)
+
+
+updated-dependencies:
+- dependency-name: google/osv-scanner-action
+  dependency-version: 2.1.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`e3b25f8`](https://github.com/OZI-Project/OZI/commit/e3b25f898ffe6fae19e8231f594e13fc26fd1a8d))
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.135.26 to 6.135.29.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.135.26...hypothesis-python-6.135.29)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.135.29
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`36f0a9c`](https://github.com/OZI-Project/OZI/commit/36f0a9ca7a9c0ed2b86afb3877d0e1d71855d8d1))
+
+*  Bump hypothesis[cli,codemods,ghostwriter] in /ozi/test/pytest
+
+Bumps [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) from 6.135.26 to 6.135.29.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.135.26...hypothesis-python-6.135.29)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.135.29
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`b76ce46`](https://github.com/OZI-Project/OZI/commit/b76ce46ccd7c67894983e69385638029b6897475))
+
+*  Bump ozi-core from 1.21.13 to 1.21.14
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.13 to 1.21.14.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.13...1.21.14)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.14
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`3993274`](https://github.com/OZI-Project/OZI/commit/3993274e4ae1899430569a7b8dcd3f89f3749831))
+
 ## 2.1.6 (2025-07-14)
 
 
