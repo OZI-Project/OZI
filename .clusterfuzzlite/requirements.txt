@@ -47,9 +47,9 @@ filelock==3.18.0 \
     # via
     #   tox
     #   virtualenv
-hypothesis==6.135.29 \
-    --hash=sha256:871acb38ff61346a420267f81f4ba05ad9a85d08965211edf9b29bc0c1ad9d7b \
-    --hash=sha256:db4e08bcc19235d2cf37801d6ccdaca757f86dc34a64e09c85fced15bb7e836a
+hypothesis==6.135.31 \
+    --hash=sha256:12f1cf4aa961884b71021ef8770d81045f66c0b3f4295abc956e4f84d862f321 \
+    --hash=sha256:a759a6010a43424b66b634383a04717a30ed05f553cc51e3b3fe3931faace53a
     # via -r requirements.in
 iniconfig==2.1.0 \
     --hash=sha256:3abbd2e30b36733fee78f9c7f7308f2d0050e88f0087fd25c2645f63c773e1c7 \
