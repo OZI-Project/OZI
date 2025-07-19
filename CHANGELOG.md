@@ -126,6 +126,12 @@ updated-dependencies:
 ([`630796c`](https://github.com/OZI-Project/OZI/commit/630796c6483e8f5947aeb4ef5e20cd4d639cf57c))
 
 
+### 🔨 Updated Scripts
+
+*  add release-assets.githubusercontent.com:443 endpoint — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`53cbda9`](https://github.com/OZI-Project/OZI/commit/53cbda9bf805f6e9f131e6ba636bf7baefc69703))
+
+
 ### Other
 
 
