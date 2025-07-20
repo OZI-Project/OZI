@@ -1,4 +1,12 @@
 # OZI CHANGELOG
+## 2.1.10 (2025-07-20)
+
+
+### 🐛 Fixed Bugs
+
+*  only use backports-asyncio-runner python < 3.11 — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`debfe2a`](https://github.com/OZI-Project/OZI/commit/debfe2aaa7978b0ba688e55335c4d7ef46ff464d))
+
 ## 2.1.9 (2025-07-19)
 
 
