@@ -1,4 +1,73 @@
 # OZI CHANGELOG
+## 2.1.11 (2025-07-23)
+
+
+### ⬆️ Upgraded Dependencies
+
+* (cflite): Bump tox from 4.27.0 to 4.28.0 in /.clusterfuzzlite
+
+Bumps [tox](https://github.com/tox-dev/tox) from 4.27.0 to 4.28.0.
+- [Release notes](https://github.com/tox-dev/tox/releases)
+- [Changelog](https://github.com/tox-dev/tox/blob/main/docs/changelog.rst)
+- [Commits](https://github.com/tox-dev/tox/compare/4.27.0...4.28.0)
+
+
+updated-dependencies:
+- dependency-name: tox
+  dependency-version: 4.28.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`7d23f46`](https://github.com/OZI-Project/OZI/commit/7d23f46eec029aa7ce41324280c233bf13ca376d))
+
+*  Bump github/codeql-action from 3.29.2 to 3.29.3
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.29.2 to 3.29.3.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/181d5eefc20863364f96762470ba6f862bdef56b...d6bbdef45e766d081b84a2def353b0055f728d3e)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.29.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`5fe6ecc`](https://github.com/OZI-Project/OZI/commit/5fe6ecc378458e5854b855562718912f64ba28d7))
+
+*  Bump ozi-core from 1.21.16 to 1.21.17
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.16 to 1.21.17.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.21.17/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.16...1.21.17)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.17
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`e906415`](https://github.com/OZI-Project/OZI/commit/e9064152651618adef6b16870c81222d0c71555d))
+
+
+### Other
+
+
+* Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `8104a2b` to `4c1abde`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`4bc1d47`](https://github.com/OZI-Project/OZI/commit/4bc1d47e9f62654e31a10a40596576a3e46617f9))
+
 ## 2.1.10 (2025-07-20)
 
 
