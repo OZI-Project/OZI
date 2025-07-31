@@ -1,4 +1,125 @@
 # OZI CHANGELOG
+## 2.1.13 (2025-07-31)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump coverage[toml] in /ozi/test/coverage
+
+Bumps [coverage[toml]](https://github.com/nedbat/coveragepy) from 7.10.0 to 7.10.1.
+- [Release notes](https://github.com/nedbat/coveragepy/releases)
+- [Changelog](https://github.com/nedbat/coveragepy/blob/master/CHANGES.rst)
+- [Commits](https://github.com/nedbat/coveragepy/compare/7.10.0...7.10.1)
+
+
+updated-dependencies:
+- dependency-name: coverage[toml]
+  dependency-version: 7.10.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`e3a1325`](https://github.com/OZI-Project/OZI/commit/e3a1325b6ce67e5b17947f2738ed7d4edab73115))
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.136.4 to 6.136.6.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.136.4...hypothesis-python-6.136.6)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.136.6
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a967586`](https://github.com/OZI-Project/OZI/commit/a96758686d0936d9dcfae0a937c8b3ac05311b90))
+
+*  Bump hypothesis[cli,codemods,ghostwriter] in /ozi/test/pytest
+
+Bumps [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) from 6.136.4 to 6.136.6.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.136.4...hypothesis-python-6.136.6)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.136.6
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`83fb0a4`](https://github.com/OZI-Project/OZI/commit/83fb0a40e1436405f71e9e4547b979915f5f4b71))
+
+* (cflite): Bump tox from 4.28.1 to 4.28.3 in /.clusterfuzzlite
+
+Bumps [tox](https://github.com/tox-dev/tox) from 4.28.1 to 4.28.3.
+- [Release notes](https://github.com/tox-dev/tox/releases)
+- [Changelog](https://github.com/tox-dev/tox/blob/main/docs/changelog.rst)
+- [Commits](https://github.com/tox-dev/tox/compare/4.28.1...4.28.3)
+
+
+updated-dependencies:
+- dependency-name: tox
+  dependency-version: 4.28.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`8f02d84`](https://github.com/OZI-Project/OZI/commit/8f02d840e83b336441069145877b14c2324f5515))
+
+*  Bump github/codeql-action from 3.29.4 to 3.29.5
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.29.4 to 3.29.5.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/4e828ff8d448a8a6e532957b1811f387a63867e8...51f77329afa6477de8c49fc9c7046c15b9a4e79d)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.29.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`e499677`](https://github.com/OZI-Project/OZI/commit/e499677ffa6eafea619bf29905182202c2b0240d))
+
+*  Bump ozi-core from 1.21.17 to 1.21.18
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.17 to 1.21.18.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.17...1.21.18)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.18
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`b81ac57`](https://github.com/OZI-Project/OZI/commit/b81ac57b668ad8304844f019a2fcb1c8becee2e8))
+
+
+### ✏️ Corrected Typos
+
+*  fix dependabot deletions — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`b60de5e`](https://github.com/OZI-Project/OZI/commit/b60de5e0367a650ba5211e496cf6567b9b01e22a))
+
+
+### Other
+
+
+* Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `6febc8d` to `1a6cf89`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`0a31557`](https://github.com/OZI-Project/OZI/commit/0a31557e2c0f9c36ce588d5800b701286ffd63d9))
+
 ## 2.1.12 (2025-07-28)
 
 
