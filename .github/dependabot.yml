@@ -146,6 +146,7 @@ updates:
       pytest:
         exclude-patterns:
           - 'pyyaml-ft'
+          - 'backports-asyncio-runner'
     directories:
       - "/ozi/test/pytest"
     schedule:
