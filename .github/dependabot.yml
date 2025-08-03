@@ -142,8 +142,10 @@ updates:
 
   - package-ecosystem: pip
     open-pull-requests-limit: 10
-    ignore:
-      - dependency-name: pyyaml-ft
+    groups:
+      pytest:
+        exclude-patterns:
+          - 'pyyaml-ft'
     directories:
       - "/ozi/test/pytest"
     schedule:
