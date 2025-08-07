@@ -11,6 +11,13 @@ updates:
     directory: /
     schedule:
       interval: daily
+    groups:
+      OZI:
+        patterns:
+          - draft
+          - checkpoint
+          - publish
+          - release
     commit-message:
       prefix: ":arrow_up:"
 
