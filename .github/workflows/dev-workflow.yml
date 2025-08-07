@@ -137,6 +137,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             index.crates.io:443
             static.crates.io:443
+            release-assets.githubusercontent.com:443
 
       - uses: OZI-Project/checkpoint@e6919d1fe476e76ce08cb6e85f847d0bf6dd8b6e
         with:
