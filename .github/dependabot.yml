@@ -11,6 +11,13 @@ updates:
     directory: /
     schedule:
       interval: daily
+    groups:
+      OZI:
+        patterns:
+          - draft
+          - checkpoint
+          - publish
+          - release
     commit-message:
       prefix: ":arrow_up:"
 
@@ -142,8 +149,11 @@ updates:
 
   - package-ecosystem: pip
     open-pull-requests-limit: 10
-    ignore:
-      - dependency-name: pyyaml-ft
+    groups:
+      pytest:
+        exclude-patterns:
+          - 'pyyaml-ft'
+          - 'backports-asyncio-runner'
     directories:
       - "/ozi/test/pytest"
     schedule:

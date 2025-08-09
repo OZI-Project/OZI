@@ -2,7 +2,8 @@
 # See LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 configure_file(
-    input: 'requirements.txt',
+    input: ['requirements.txt', 'extra/backports/requirements.txt'],
     output: 'requirements.txt',
-    copy: true,
+    command: [find_program('cat'), '@INPUT@'],
+    capture: true,
 )
