@@ -135,6 +135,7 @@ jobs:
             fulcio.sigstore.dev:443
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
+            release-assets.githubusercontent.com:443
 
       - uses: OZI-Project/checkpoint@f475dbf6078211f784f6e7b3bb7c1b00ce0d05b9
         with:
