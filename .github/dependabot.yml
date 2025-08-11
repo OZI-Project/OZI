@@ -149,11 +149,6 @@ updates:
 
   - package-ecosystem: pip
     open-pull-requests-limit: 10
-    groups:
-      pytest:
-        exclude-patterns:
-          - 'pyyaml-ft'
-          - 'backports-asyncio-runner'
     directories:
       - "/ozi/test/pytest"
     schedule:
