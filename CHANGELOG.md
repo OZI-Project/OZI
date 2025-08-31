@@ -1,4 +1,277 @@
 # OZI CHANGELOG
+## 2.1.16 (2025-08-31)
+
+
+### ⬆️ Upgraded Dependencies
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.138.1 to 6.138.7.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.138.1...hypothesis-python-6.138.7)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.138.7
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`633612d`](https://github.com/OZI-Project/OZI/commit/633612d8e99cedd23f0ed8dc1c4f47afa77be930))
+
+*  Bump hypothesis[cli,codemods,ghostwriter] in /ozi/test/pytest
+
+Bumps [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) from 6.138.1 to 6.138.7.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.138.1...hypothesis-python-6.138.7)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.138.7
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a1fa9c0`](https://github.com/OZI-Project/OZI/commit/a1fa9c09ce09b09eb600c2b03d7d14b7fe47b8a5))
+
+*  Bump requests from 2.32.4 to 2.32.5 in /ozi/dist/sigstore
+
+Bumps [requests](https://github.com/psf/requests) from 2.32.4 to 2.32.5.
+- [Release notes](https://github.com/psf/requests/releases)
+- [Changelog](https://github.com/psf/requests/blob/main/HISTORY.md)
+- [Commits](https://github.com/psf/requests/compare/v2.32.4...v2.32.5)
+
+
+updated-dependencies:
+- dependency-name: requests
+  dependency-version: 2.32.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`2a31e20`](https://github.com/OZI-Project/OZI/commit/2a31e20f12c727f9e6fc0a640dce37a40cd26b7b))
+
+*  Bump OZI-Project/draft from 1.17.0 to 1.17.2
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.17.0 to 1.17.2.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/cabcb89f38f90863aa0217f0b4b2dba02262b004...4f3dcb71f8251f1e8238eb011aa12dd6a9020d23)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-version: 1.17.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`73e2eb8`](https://github.com/OZI-Project/OZI/commit/73e2eb8db50ed9da4d1ae52b8c8ab795d63260ef))
+
+*  Bump OZI-Project/release from 1.9.0 to 1.9.1
+
+Bumps [OZI-Project/release](https://github.com/ozi-project/release) from 1.9.0 to 1.9.1.
+- [Release notes](https://github.com/ozi-project/release/releases)
+- [Commits](https://github.com/ozi-project/release/compare/d3920f3f0471dec9369a2245cc6e6b42756d27f8...eb10d9730ae9ad7c7c63e016d714013b4e017d5d)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/release
+  dependency-version: 1.9.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`8dfa0dc`](https://github.com/OZI-Project/OZI/commit/8dfa0dc53213038a13d3a5d9d8e306e0e847e3a1))
+
+* (cflite): Bump typing-extensions in /.clusterfuzzlite
+
+Bumps [typing-extensions](https://github.com/python/typing_extensions) from 4.14.1 to 4.15.0.
+- [Release notes](https://github.com/python/typing_extensions/releases)
+- [Changelog](https://github.com/python/typing_extensions/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/python/typing_extensions/compare/4.14.1...4.15.0)
+
+
+updated-dependencies:
+- dependency-name: typing-extensions
+  dependency-version: 4.15.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`cffb989`](https://github.com/OZI-Project/OZI/commit/cffb989696efd35d0f269ebe987dcc2a556dcc3d))
+
+*  Bump github/codeql-action from 3.29.9 to 3.29.11
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.29.9 to 3.29.11.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/df559355d593797519d70b90fc8edd5db049e7a2...3c3833e0f8c1c83d449a7478aa59c036a9165498)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.29.11
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a4b7616`](https://github.com/OZI-Project/OZI/commit/a4b7616d04cd8519eae4fe80cb23288b075f88a6))
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `700d373` to `425b59d`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`3a4cd27`](https://github.com/OZI-Project/OZI/commit/3a4cd277b1d859e42312d45bbc99faab04c8f279))
+
+*  Bump OZI-Project/publish from 1.17.0 to 1.17.2
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.17.0 to 1.17.2.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/ed9bff22f51f8b70c47a326e1e73a48174a8c6d2...4f60b808859fd63bd4be3bb9cc3e34d7a14c3bf7)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.17.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`ef11fa9`](https://github.com/OZI-Project/OZI/commit/ef11fa9314e7f610bc901d2705568b97177aac2f))
+
+*  Bump actions/dependency-review-action from 4.7.1 to 4.7.3
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.7.1 to 4.7.3.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/da24556b548a50705dd671f47852072ea4c105d9...595b5aeba73380359d98a5e087f648dbb0edce1b)
+
+
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-version: 4.7.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`6b2d661`](https://github.com/OZI-Project/OZI/commit/6b2d66149961108360752cbf27110084cc7cfbde))
+
+*  Bump ozi-core from 1.21.19 to 1.21.21
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.19 to 1.21.21.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.19...1.21.21)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.21
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`c4ceff1`](https://github.com/OZI-Project/OZI/commit/c4ceff1d96dd291821df8ff7401ed70dac246f89))
+
+*  Bump OZI-Project/checkpoint from 1.9.5 to 1.9.9
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.9.5 to 1.9.9.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/f475dbf6078211f784f6e7b3bb7c1b00ce0d05b9...bc80bd040b1b6705a270fc6b111b08dfe6cde16b)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.9.9
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`0cfe193`](https://github.com/OZI-Project/OZI/commit/0cfe193520705221445e6c8558913ed3bd3669ab))
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `fb21160` to `700d373`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`790ef6d`](https://github.com/OZI-Project/OZI/commit/790ef6d58a4d1be4a2eaa2705f1203ee07bb38fa))
+
+*  Bump requests in /ozi/dist/semantic_release
+
+Bumps [requests](https://github.com/psf/requests) from 2.32.4 to 2.32.5.
+- [Release notes](https://github.com/psf/requests/releases)
+- [Changelog](https://github.com/psf/requests/blob/main/HISTORY.md)
+- [Commits](https://github.com/psf/requests/compare/v2.32.4...v2.32.5)
+
+
+updated-dependencies:
+- dependency-name: requests
+  dependency-version: 2.32.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`adf4d2f`](https://github.com/OZI-Project/OZI/commit/adf4d2fe43f0dba1746cbdfc2c2760b5beb75b3e))
+
+*  Bump requests from 2.32.4 to 2.32.5 in /ozi/dist/twine
+
+Bumps [requests](https://github.com/psf/requests) from 2.32.4 to 2.32.5.
+- [Release notes](https://github.com/psf/requests/releases)
+- [Changelog](https://github.com/psf/requests/blob/main/HISTORY.md)
+- [Commits](https://github.com/psf/requests/compare/v2.32.4...v2.32.5)
+
+
+updated-dependencies:
+- dependency-name: requests
+  dependency-version: 2.32.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`b989102`](https://github.com/OZI-Project/OZI/commit/b9891024314070af86c1f19a5ee5882907d01840))
+
+*  Bump pyright from 1.1.403 to 1.1.404 in /ozi/lint/pyright
+
+Bumps [pyright](https://github.com/RobertCraigie/pyright-python) from 1.1.403 to 1.1.404.
+- [Release notes](https://github.com/RobertCraigie/pyright-python/releases)
+- [Commits](https://github.com/RobertCraigie/pyright-python/compare/v1.1.403...v1.1.404)
+
+
+updated-dependencies:
+- dependency-name: pyright
+  dependency-version: 1.1.404
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`3dd35c8`](https://github.com/OZI-Project/OZI/commit/3dd35c8093ae71dd70c95d16974f4a01339ca1fc))
+
+*  Bump coverage[toml] in /ozi/test/coverage
+
+Bumps [coverage[toml]](https://github.com/nedbat/coveragepy) from 7.10.3 to 7.10.5.
+- [Release notes](https://github.com/nedbat/coveragepy/releases)
+- [Changelog](https://github.com/nedbat/coveragepy/blob/master/CHANGES.rst)
+- [Commits](https://github.com/nedbat/coveragepy/compare/7.10.3...7.10.5)
+
+
+updated-dependencies:
+- dependency-name: coverage[toml]
+  dependency-version: 7.10.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`efa874a`](https://github.com/OZI-Project/OZI/commit/efa874a8c0b9ff5a50fc63583bcf3ac1d6970fc9))
+
+
+### 🐛 Fixed Bugs
+
+*  remove dependabot mistakenly added deps  — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`2ff88c6`](https://github.com/OZI-Project/OZI/commit/2ff88c65ee8ebc5c124ef9c1bed92d89149c1e1c))
+
+*  synchronize OZI.build pins — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`2a30737`](https://github.com/OZI-Project/OZI/commit/2a307370dd37b050506dfcb257a38e6b816198cc))
+
+*  fix meson pin in tox testenv commands_pre — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`a79acdd`](https://github.com/OZI-Project/OZI/commit/a79acddf24c8756d1ef6564166d374ca8fa7c8e2))
+
 ## 2.1.15 (2025-08-17)
 
 
