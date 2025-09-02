@@ -18,6 +18,10 @@ updates:
           - checkpoint
           - publish
           - release
+      CI:
+        patterns:
+          - 'github/*'
+          - 'google/*'
     commit-message:
       prefix: ":arrow_up:"
 
