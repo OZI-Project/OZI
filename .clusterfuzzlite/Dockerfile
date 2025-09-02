@@ -1,4 +1,4 @@
-FROM gcr.io/oss-fuzz-base/base-builder:v1@sha256:425b59d4bb082b20f5241c56ed6855c45f4cff9041cef3fc3db1b458f92f7af8
+FROM gcr.io/oss-fuzz-base/base-builder:v1@sha256:197f3124dd6768e9e8df0b38d3f44c5374280b3db5293612ca03b2ee65fafca4
 COPY ./.clusterfuzzlite/requirements.txt $SRC
 RUN echo 'deb http://security.ubuntu.com/ubuntu jammy-security main' > /etc/apt/sources.list
 RUN echo 'deb http://us.archive.ubuntu.com/ubuntu jammy main restricted' > /etc/apt/sources.list
