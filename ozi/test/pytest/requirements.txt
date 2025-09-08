@@ -8,6 +8,10 @@ attrs==25.3.0 \
     --hash=sha256:427318ce031701fea540783410126f03899a97ffc6f61596ad581ac2e40e3bc3 \
     --hash=sha256:75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b
     # via hypothesis
+backports-asyncio-runner==1.2.0 \
+    --hash=sha256:0da0a936a8aeb554eccb426dc55af3ba63bcdc69fa1a600b5bb305413a4477b5 \
+    --hash=sha256:a5aa7b2b7d8f8bfcaa2b57313f70792df84e32a2a746f585213373f900b42162
+    # via pytest-asyncio
 black==25.1.0 \
     --hash=sha256:030b9759066a4ee5e5aca28c3c77f9c64789cdd4de8ac1df642c40b708be6171 \
     --hash=sha256:055e59b198df7ac0b7efca5ad7ff2516bca343276c466be72eb04a3bcc1f82d7 \
@@ -117,9 +121,9 @@ execnet==2.1.1 \
     --hash=sha256:26dee51f1b80cebd6d0ca8e74dd8745419761d3bef34163928cbebbdc4749fdc \
     --hash=sha256:5189b52c6121c24feae288166ab41b32549c7e2348652736540b9e6e7d4e72e3
     # via pytest-xdist
-hypothesis[cli,codemods,ghostwriter]==6.138.8 \
-    --hash=sha256:3248dc1fd9ed58b39406d6911df6d2f3e20febd6c264ff57458b159c93cf915f \
-    --hash=sha256:995443369bf5cd5882aec5e885c75d88ccde3683daf621748406a30423f1cdee
+hypothesis[cli,codemods,ghostwriter]==6.138.15 \
+    --hash=sha256:6b0e1aa182eacde87110995a3543530d69ef411f642162a656efcd46c2823ad1 \
+    --hash=sha256:b7cf743d461c319eb251a13c8e1dcf00f4ef7085e4ab5bf5abf102b2a5ffd694
     # via -r requirements.in
 importlib-metadata==8.7.0 \
     --hash=sha256:d13b81ad223b890aa16c5471f2ac3056cf76c5f10f82d6f9292f0b415f389000 \
@@ -239,6 +243,12 @@ pytest==8.3.5 \
     #   pytest-randomly
     #   pytest-tcpclient
     #   pytest-xdist
+pytest-asyncio==1.1.0 \
+    --hash=sha256:5fe2d69607b0bd75c656d1211f969cadba035030156745ee09e7d71740e58ecf \
+    --hash=sha256:796aa822981e01b68c12e4827b8697108f7205020f24b5793b3c41555dab68ea
+    # via
+    #   -r requirements.in
+    #   pytest-tcpclient
 pytest-cov==6.2.1 \
     --hash=sha256:25cc6cc0a5358204b8108ecedc51a9b57b34cc6b8c967cc2c01a4e00d8a67da2 \
     --hash=sha256:f5bc4c23f42f1cdd23c70b1dab1bbaef4fc505ba950d53e0081d0730dd7e86d5
@@ -250,6 +260,10 @@ pytest-mock==3.14.1 \
 pytest-randomly==3.16.0 \
     --hash=sha256:11bf4d23a26484de7860d82f726c0629837cf4064b79157bd18ec9d41d7feb26 \
     --hash=sha256:8633d332635a1a0983d3bba19342196807f6afb17c3eef78e02c2f85dade45d6
+    # via -r requirements.in
+pytest-tcpclient==0.7.17 \
+    --hash=sha256:576675d923c56a5584af5477bd43b908b95489b0c325cc6f261f217a0da0b150 \
+    --hash=sha256:8f50d534939ef115e95b251839a444a0f3ba2641d5ce7ed5213b90b757ebcd00
     # via -r requirements.in
 pytest-xdist==3.8.0 \
     --hash=sha256:202ca578cfeb7370784a8c33d6d05bc6e13b4f25b5053c30a152269fd10f0b88 \
