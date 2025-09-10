@@ -49,9 +49,9 @@ flake8-bugbear==24.12.12 \
     --hash=sha256:1b6967436f65ca22a42e5373aaa6f2d87966ade9aa38d4baf2a1be550767545e \
     --hash=sha256:46273cef0a6b6ff48ca2d69e472f41420a42a46e24b2a8972e4f0d6733d12a64
     # via -r requirements.in
-flake8-comprehensions==3.16.0 \
-    --hash=sha256:7c1eadc9d22e765f39857798febe7766b4d9c519793c6c149e3e13bf99693f70 \
-    --hash=sha256:9cbf789905a8f03f9d350fb82b17b264d9a16c7ce3542b2a7b871ef568cafabe
+flake8-comprehensions==3.17.0 \
+    --hash=sha256:3943a9c6f2593c3bc5cc64106c2f89d63c6ecd49c8343597f8257b8fcfc8b0a2 \
+    --hash=sha256:bf4fa102b2bf4d6c9e999e29e4b2724cbadffb70b937600fc782161be4dc0f4a
     # via -r requirements.in
 flake8-datetimez==20.10.0 \
     --hash=sha256:57aa2f55eb88797e2d8c06bd536ff8049b9f1ba877d81dc06ff8d9bdc195c1fc \
