@@ -69,9 +69,9 @@ flake8-leading-blank-lines==1.0.4 \
     --hash=sha256:6ad84c1e8ea677ccca3065efe389adfc298d2495dcc354909aa06e42a7599e3b \
     --hash=sha256:8986cdc1472310c1d9a5c18bcf3580655319266cf885013ac70c9240447a85b9
     # via -r requirements.in
-flake8-no-pep420==2.8.0 \
-    --hash=sha256:0c00f88cab94724ccce916c2617b49b8a6c8fbc1171de8423b0a856a8ecbebf1 \
-    --hash=sha256:37e2cc47400033de66aa826bd08994aa6f9a2fdf9dfb9705723ff7946812019e
+flake8-no-pep420==2.9.0 \
+    --hash=sha256:5dcd9e23bdd545cb957dd23987d9d227e733d1610717b0e13591262df1a33413 \
+    --hash=sha256:981d5d720dd545662f85625373badd4ca33a4e6484cc5ad976ca17d00dc994de
     # via -r requirements.in
 flake8-plugin-utils==1.3.3 \
     --hash=sha256:39f6f338d038b301c6fd344b06f2e81e382b68fa03c0560dff0d9b1791a11a2c \
