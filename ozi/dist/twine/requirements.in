@@ -1,4 +1,4 @@
-twine==6.1.0
+twine==6.2.0
 # git+https://github.com/Quansight-Labs/cffi@c06e9e1 ; python_version>="3.13"
 cryptography~=43.0
 urllib3>=2.5.0

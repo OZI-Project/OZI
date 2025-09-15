@@ -140,9 +140,9 @@ tomli==2.2.1 \
     --hash=sha256:ece47d672db52ac607a3d9599a9d48dcb2f2f735c6c2d1f34130085bb12b112a \
     --hash=sha256:f4039b9cbc3048b2416cc57ab3bda989a6fcf9b36cf8937f01a6e731b64f80d7
     # via -r requirements.in
-tox==4.28.4 \
-    --hash=sha256:8d4ad9ee916ebbb59272bb045e154a10fa12e3bbdcf94cc5185cbdaf9b241f99 \
-    --hash=sha256:b5b14c6307bd8994ff1eba5074275826620325ee1a4f61316959d562bfd70b9d
+tox==4.30.2 \
+    --hash=sha256:772925ad6c57fe35c7ed5ac3e958ac5ced21dff597e76fc40c1f5bf3cd1b6a2e \
+    --hash=sha256:efd261a42e8c82a59f9026320a80a067f27f44cad2e72a6712010c311d31176b
     # via -r requirements.in
 typing-extensions==4.15.0 \
     --hash=sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466 \
