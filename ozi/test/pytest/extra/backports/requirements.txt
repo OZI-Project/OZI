@@ -7,6 +7,10 @@ pytest-tcpclient==0.7.17 \
     --hash=sha256:576675d923c56a5584af5477bd43b908b95489b0c325cc6f261f217a0da0b150 \
     --hash=sha256:8f50d534939ef115e95b251839a444a0f3ba2641d5ce7ed5213b90b757ebcd00
     # via -r requirements.in
+pytest-mock==3.14.1 \
+    --hash=sha256:159e9edac4c451ce77a5cdb9fc5d1100708d2dd4ba3c3df572f14097351af80e \
+    --hash=sha256:178aefcd11307d874b4cd3100344e7e2d888d9791a6a1d9bfe90fbc1b74fd1d0
+    # via pytest-tcpclient
 backports-asyncio-runner==1.2.0 ; python_version < "3.11" \
     --hash=sha256:0da0a936a8aeb554eccb426dc55af3ba63bcdc69fa1a600b5bb305413a4477b5 \
     --hash=sha256:a5aa7b2b7d8f8bfcaa2b57313f70792df84e32a2a746f585213373f900b42162
