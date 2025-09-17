@@ -5,4 +5,3 @@ pytest-xdist~=3.8
 urllib3~=2.5
 hypothesis[cli,codemods,ghostwriter]~=6.138
 pyyaml
-urllib3>=2.5.0
