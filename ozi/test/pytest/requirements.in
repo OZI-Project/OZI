@@ -1,5 +1,5 @@
 pytest~=8.3.5,<8.4
-pytest-cov~=6.2
+pytest-cov~=7.0
 pytest-randomly~=3.16
 pytest-xdist~=3.8
 urllib3~=2.5
