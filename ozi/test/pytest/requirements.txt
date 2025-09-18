@@ -138,9 +138,9 @@ execnet==2.1.1 \
     --hash=sha256:26dee51f1b80cebd6d0ca8e74dd8745419761d3bef34163928cbebbdc4749fdc \
     --hash=sha256:5189b52c6121c24feae288166ab41b32549c7e2348652736540b9e6e7d4e72e3
     # via pytest-xdist
-hypothesis[cli,codemods,ghostwriter]==6.139.1 \
-    --hash=sha256:ab5418737efbd5e3aa57a2896ae6c6eec8dc47ab39a56757988468ab12223728 \
-    --hash=sha256:b0b39b194688e33208bd253ce6c167dc3c3beae3ccc4f74be130382af416b5ab
+hypothesis[cli,codemods,ghostwriter]==6.139.2 \
+    --hash=sha256:2dc2ff36ea977a9cb7fb68f24a5dbf5d673b88a2e502212676eafe09b699f511 \
+    --hash=sha256:6f466780b7d1db074fb473af14e3111a5dd4fe36c47fcd776cd7c480ae0a02f2
     # via -r requirements.in
 importlib-metadata==8.7.0 \
     --hash=sha256:d13b81ad223b890aa16c5471f2ac3056cf76c5f10f82d6f9292f0b415f389000 \
