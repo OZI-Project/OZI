@@ -1,4 +1,57 @@
 # OZI CHANGELOG
+## 2.1.19 (2025-09-19)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump hypothesis[cli,codemods,ghostwriter] in /ozi/test/pytest
+
+Bumps [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) from 6.139.1 to 6.139.2.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.139.1...hypothesis-python-6.139.2)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.139.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`0c98117`](https://github.com/OZI-Project/OZI/commit/0c981174a56b03bc27b0230aa5175674ae0ad656))
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.139.1 to 6.139.2.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.139.1...hypothesis-python-6.139.2)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.139.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`3d33d82`](https://github.com/OZI-Project/OZI/commit/3d33d828b0e860bdff18b756b1a9f9f7511738b9))
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `1973ee8` to `dd86ebf`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`e0cc1a4`](https://github.com/OZI-Project/OZI/commit/e0cc1a47be828919cb7842e06dd74cf47d77fd59))
+
+
+### 🐛 Fixed Bugs
+
+*  mitigation for GHSA-847f-9342-265h — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`2eaf09b`](https://github.com/OZI-Project/OZI/commit/2eaf09b9c4fa6f602dafd6eb6784dd5c57e23a53))
+
 ## 2.1.18 (2025-09-17)
 
 
