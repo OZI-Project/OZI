@@ -1,4 +1,52 @@
 # OZI CHANGELOG
+## 2.1.20 (2025-09-21)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `dd86ebf` to `011762b`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`1f7d7a4`](https://github.com/OZI-Project/OZI/commit/1f7d7a4a37db28fde63d69e96883442deae5a481))
+
+*  Bump black from 25.1.0 to 25.9.0 in /ozi/lint/black
+
+Bumps [black](https://github.com/psf/black) from 25.1.0 to 25.9.0.
+- [Release notes](https://github.com/psf/black/releases)
+- [Changelog](https://github.com/psf/black/blob/main/CHANGES.md)
+- [Commits](https://github.com/psf/black/compare/25.1.0...25.9.0)
+
+
+updated-dependencies:
+- dependency-name: black
+  dependency-version: 25.9.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`29f3690`](https://github.com/OZI-Project/OZI/commit/29f3690d669d2e9ed7f79ee024f4c29f55d42ed3))
+
+*  Bump mypy from 1.18.1 to 1.18.2 in /ozi/lint/mypy
+
+Bumps [mypy](https://github.com/python/mypy) from 1.18.1 to 1.18.2.
+- [Changelog](https://github.com/python/mypy/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python/mypy/compare/v1.18.1...v1.18.2)
+
+
+updated-dependencies:
+- dependency-name: mypy
+  dependency-version: 1.18.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`8b9ae90`](https://github.com/OZI-Project/OZI/commit/8b9ae908ee277712b537584f8fba06723295dd43))
+
 ## 2.1.19 (2025-09-19)
 
 
