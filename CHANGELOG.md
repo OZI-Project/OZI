@@ -1,4 +1,83 @@
 # OZI CHANGELOG
+## 2.1.21 (2025-09-24)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump coverage[toml] in /ozi/test/coverage
+
+Bumps [coverage[toml]](https://github.com/nedbat/coveragepy) from 7.10.6 to 7.10.7.
+- [Release notes](https://github.com/nedbat/coveragepy/releases)
+- [Changelog](https://github.com/nedbat/coveragepy/blob/master/CHANGES.rst)
+- [Commits](https://github.com/nedbat/coveragepy/compare/7.10.6...7.10.7)
+
+
+updated-dependencies:
+- dependency-name: coverage[toml]
+  dependency-version: 7.10.7
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`af0dd4f`](https://github.com/OZI-Project/OZI/commit/af0dd4fbc08c52383450600e51c41c7840a61703))
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.139.2 to 6.140.2.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.139.2...hypothesis-python-6.140.2)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.140.2
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`bc243b3`](https://github.com/OZI-Project/OZI/commit/bc243b34472f1750104ba5b87b8e182818290540))
+
+*  Bump hypothesis[cli,codemods,ghostwriter] in /ozi/test/pytest
+
+Bumps [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) from 6.139.2 to 6.140.2.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.139.2...hypothesis-python-6.140.2)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.140.2
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`b57d485`](https://github.com/OZI-Project/OZI/commit/b57d48537d818600bfbbfadf6ce71aa856bb9482))
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `011762b` to `5aa8f9e`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`a33de06`](https://github.com/OZI-Project/OZI/commit/a33de06ac677cfb8b03efcb9f33d929d99e9f919))
+
+*  Bump rfc3161-client from 1.0.4 to 1.0.5 in /ozi/dist/sigstore
+
+Bumps [rfc3161-client](https://github.com/trailofbits/rfc3161-client) from 1.0.4 to 1.0.5.
+- [Release notes](https://github.com/trailofbits/rfc3161-client/releases)
+- [Changelog](https://github.com/trailofbits/rfc3161-client/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/trailofbits/rfc3161-client/compare/v1.0.4...v1.0.5)
+
+
+updated-dependencies:
+- dependency-name: rfc3161-client
+  dependency-version: 1.0.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`82137fe`](https://github.com/OZI-Project/OZI/commit/82137fe9d92ff964924ccde457ff6c21ffa2824d))
+
 ## 2.1.20 (2025-09-21)
 
 
