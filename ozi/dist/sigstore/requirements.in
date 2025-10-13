@@ -1,4 +1,4 @@
-sigstore~=3.0
+sigstore~=4.1
 # git+https://github.com/Quansight-Labs/cffi@c06e9e1 ; python_version>="3.13"
 cryptography~=43.0
 rfc3161-client>1.0.2
