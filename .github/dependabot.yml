@@ -160,6 +160,15 @@ updates:
     commit-message:
       prefix: ":arrow_up:"
 
+  - package-ecosystem: pip
+    open-pull-requests-limit: 10
+    directories:
+      - "/ozi/test/pytest/extra"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: ":arrow_up:(pytest-extras):"
+
   - package-ecosystem: docker
     directory: /.clusterfuzzlite
     schedule:
