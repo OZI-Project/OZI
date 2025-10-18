@@ -1,4 +1,78 @@
 # OZI CHANGELOG
+## 2.1.23 (2025-10-18)
+
+
+### ⬆️ Upgraded Dependencies
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.142.0 to 6.142.1.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.142.0...hypothesis-python-6.142.1)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.142.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`eb6b096`](https://github.com/OZI-Project/OZI/commit/eb6b09689065ee00a54a3e7bb450bd08b7d6db1b))
+
+*  Bump hypothesis[cli,codemods,ghostwriter] in /ozi/test/pytest
+
+Bumps [hypothesis[cli,codemods,ghostwriter]](https://github.com/HypothesisWorks/hypothesis) from 6.140.3 to 6.141.1.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.140.3...hypothesis-python-6.141.1)
+
+
+updated-dependencies:
+- dependency-name: hypothesis[cli,codemods,ghostwriter]
+  dependency-version: 6.141.1
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`d197007`](https://github.com/OZI-Project/OZI/commit/d197007b127fbbac6dd92e2f0aa29b9dc7544617))
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `6ca788d` to `b35dde0`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`b4c2583`](https://github.com/OZI-Project/OZI/commit/b4c258319c2d80b9a285730e6ea3062631085ded))
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.140.3 to 6.142.0.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.140.3...hypothesis-python-6.142.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.142.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`f96593d`](https://github.com/OZI-Project/OZI/commit/f96593d768547de3564b2084bd3b8eb1ca9f2f31))
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `8b73c49` to `6ca788d`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`b7f6762`](https://github.com/OZI-Project/OZI/commit/b7f67621951e2addbf24ff677b14461bba9debda))
+
 ## 2.1.22 (2025-10-14)
 
 
@@ -530,12 +604,6 @@ updated-dependencies:
 ... — dependabot[bot] <support@github.com>
 ([`e0cc1a4`](https://github.com/OZI-Project/OZI/commit/e0cc1a47be828919cb7842e06dd74cf47d77fd59))
 
-
-### 🐛 Fixed Bugs
-
-*  mitigation for GHSA-847f-9342-265h — Eden Ross Duff MSc <ozi.project@outlook.com>
-([`2eaf09b`](https://github.com/OZI-Project/OZI/commit/2eaf09b9c4fa6f602dafd6eb6784dd5c57e23a53))
-
 ## 2.1.18 (2025-09-17)
 
 
@@ -644,8 +712,14 @@ updated-dependencies:
 ... — dependabot[bot] <support@github.com>
 ([`d51791d`](https://github.com/OZI-Project/OZI/commit/d51791d53856261d0d353f86083fdb63a63144e2))
 
+* (pytest/extras): pytest-asyncio==1.2.0 — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`c551c0a`](https://github.com/OZI-Project/OZI/commit/c551c0a81eeec242958a176da2844d9f6fcaf28f))
+
 
 ### 🐛 Fixed Bugs
+
+*  mitigation for GHSA-847f-9342-265h — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`2eaf09b`](https://github.com/OZI-Project/OZI/commit/2eaf09b9c4fa6f602dafd6eb6784dd5c57e23a53))
 
 *  clean up pytest requirements — Eden Ross Duff MSc <ozi.project@outlook.com>
 ([`571f4f1`](https://github.com/OZI-Project/OZI/commit/571f4f154e50d56bc03d14eca21f513242a1a086))
