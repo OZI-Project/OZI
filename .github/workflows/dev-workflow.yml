@@ -41,7 +41,7 @@ jobs:
             oauth2.sigstore.dev:443
             release-assets.githubusercontent.com:443
 
-      - uses: OZI-Project/checkpoint@b8935c41223bccd7886bd6a2f668b12a23859ed7 # 1.10.1
+      - uses: OZI-Project/checkpoint@5c04e23edea0edcd1eb731ad465d3fb7fe5ad0d7 # 1.11.0
         with:
           python-version: "3.10"
           parallel: false
@@ -75,7 +75,7 @@ jobs:
             oauth2.sigstore.dev:443
             release-assets.githubusercontent.com:443
 
-      - uses: OZI-Project/checkpoint@b8935c41223bccd7886bd6a2f668b12a23859ed7 # 1.10.1
+      - uses: OZI-Project/checkpoint@5c04e23edea0edcd1eb731ad465d3fb7fe5ad0d7 # 1.11.0
         with:
           python-version: "3.11"
 
@@ -108,7 +108,7 @@ jobs:
             oauth2.sigstore.dev:443
             release-assets.githubusercontent.com:443
 
-      - uses: OZI-Project/checkpoint@b8935c41223bccd7886bd6a2f668b12a23859ed7 # 1.10.1
+      - uses: OZI-Project/checkpoint@5c04e23edea0edcd1eb731ad465d3fb7fe5ad0d7 # 1.11.0
         with:
           python-version: "3.12"
 
@@ -142,6 +142,6 @@ jobs:
             static.crates.io:443
             release-assets.githubusercontent.com:443
 
-      - uses: OZI-Project/checkpoint@b8935c41223bccd7886bd6a2f668b12a23859ed7
+      - uses: OZI-Project/checkpoint@5c04e23edea0edcd1eb731ad465d3fb7fe5ad0d7
         with:
           python-version: "3.13"
