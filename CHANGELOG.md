@@ -1,4 +1,52 @@
 # OZI CHANGELOG
+## 2.1.25 (2025-10-26)
+
+
+### ⬆️ Upgraded Dependencies
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.142.2 to 6.142.3.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.142.2...hypothesis-python-6.142.3)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.142.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`e333aa7`](https://github.com/OZI-Project/OZI/commit/e333aa70f1c886f78011ee765658d92c4c96ebb6))
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `e125c52` to `06c1551`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`3ed40ce`](https://github.com/OZI-Project/OZI/commit/3ed40ceb0f130702b7062635b46e6f3e8443a5cc))
+
+*  Bump ozi-core from 1.21.24 to 1.21.25
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.24 to 1.21.25.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.24...1.21.25)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.25
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`3038dcd`](https://github.com/OZI-Project/OZI/commit/3038dcd86697a5180c7a2bda98b0d65a920c581c))
+
 ## 2.1.24 (2025-10-23)
 
 
