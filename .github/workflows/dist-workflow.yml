@@ -192,10 +192,10 @@ jobs:
     strategy:
       matrix:
         py:
-          - 'security2'
-          - 'security1'
-          - 'bugfix'
-          - 'prerelease'
+          - '3.10'
+          - '3.11'
+          - '3.12'
+          - '3.13'
       fail-fast: true
       max-parallel: 1
     outputs:
