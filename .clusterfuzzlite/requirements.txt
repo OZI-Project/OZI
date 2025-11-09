@@ -47,9 +47,9 @@ filelock==3.20.0 \
     # via
     #   tox
     #   virtualenv
-hypothesis==6.142.3 \
-    --hash=sha256:2fc19a2824c9bdc3f8e39d87861fbdf1d766982b20d54646a642bce82bcac179 \
-    --hash=sha256:f1aaf83f6cc0c50f1b61e167974a8a67377dce13e0ea628b67a83f574ef30b85
+hypothesis==6.142.5 \
+    --hash=sha256:1871e907c178512d888afe128681b419f642e7c3ddb0f0cb123324d79e1efa2f \
+    --hash=sha256:7bb5ed8ec3b6ea0c5d2fe92316cc123d7cf9a5f472099a25dc25476e0d3a356c
     # via -r requirements.in
 iniconfig==2.1.0 \
     --hash=sha256:3abbd2e30b36733fee78f9c7f7308f2d0050e88f0087fd25c2645f63c773e1c7 \
@@ -150,9 +150,9 @@ tomli==2.3.0 \
     --hash=sha256:feb0dacc61170ed7ab602d3d972a58f14ee3ee60494292d384649a3dc38ef463 \
     --hash=sha256:ff72b71b5d10d22ecb084d345fc26f42b5143c5533db5e2eaba7d2d335358876
     # via -r requirements.in
-tox==4.31.0 \
-    --hash=sha256:266381ffef35615ec0d40ae4969a9e43b506017597c0413d6545a603cc8c7561 \
-    --hash=sha256:328f392e6567e46cb0f9b625679456744dde940287dd1b39117627dc4b21d5da
+tox==4.32.0 \
+    --hash=sha256:1ad476b5f4d3679455b89a992849ffc3367560bbc7e9495ee8a3963542e7c8ff \
+    --hash=sha256:451e81dc02ba8d1ed20efd52ee409641ae4b5d5830e008af10fe8823ef1bd551
     # via -r requirements.in
 typing-extensions==4.15.0 \
     --hash=sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466 \
