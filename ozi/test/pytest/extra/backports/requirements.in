@@ -1,4 +1,4 @@
-pytest-asyncio~=1.2.0
+pytest-asyncio~=1.3.0
 pytest-tcpclient~=0.7
 pyyaml-ft==7.0.1 ; python_version >= "3.13"
 backports-asyncio-runner==1.2.0 ; python_version < "3.11"

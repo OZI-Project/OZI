@@ -1,21 +1,40 @@
-pytest-asyncio==1.2.0 \
-    --hash=sha256:8e17ae5e46d8e7efe51ab6494dd2010f4ca8dae51652aa3c8d55acf50bfb2e99 \
-    --hash=sha256:c609a64a2a8768462d0c99811ddb8bd2583c33fd33cf7f21af1c142e824ffb57
+iniconfig==2.3.0 \
+    --hash=sha256:c76315c77db068650d49c5b56314774a7804df16fee4402c1f19d6d15d8c4730 \
+    --hash=sha256:f631c04d2c48c52b84d0d0549c99ff3859c98df65b3101406327ecc7d53fbf12
+    # via pytest
+packaging==25.0 \
+    --hash=sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484 \
+    --hash=sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f
+    # via pytest
+pluggy==1.6.0 \
+    --hash=sha256:7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3 \
+    --hash=sha256:e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746
+    # via pytest
+pygments==2.19.2 \
+    --hash=sha256:636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887 \
+    --hash=sha256:86540386c03d588bb81d44bc3928634ff26449851e99741617ecb9037ee5ec0b
+    # via pytest
+pytest==9.0.0 \
+    --hash=sha256:8f44522eafe4137b0f35c9ce3072931a788a21ee40a2ed279e817d3cc16ed21e \
+    --hash=sha256:e5ccdf10b0bac554970ee88fc1a4ad0ee5d221f8ef22321f9b7e4584e19d7f96
+    # via
+    #   pytest-asyncio
+    #   pytest-mock
+    #   pytest-tcpclient
+pytest-asyncio==1.3.0 \
+    --hash=sha256:611e26147c7f77640e6d0a92a38ed17c3e9848063698d5c93d5aa7aa11cebff5 \
+    --hash=sha256:d7f52f36d231b80ee124cd216ffb19369aa168fc10095013c6b014a34d3ee9e5
     # via
     #   -r backports/requirements.in
     #   pytest-tcpclient
-pytest-tcpclient==0.7.17 \
-    --hash=sha256:576675d923c56a5584af5477bd43b908b95489b0c325cc6f261f217a0da0b150 \
-    --hash=sha256:8f50d534939ef115e95b251839a444a0f3ba2641d5ce7ed5213b90b757ebcd00
-    # via -r requirements.in
 pytest-mock==3.14.1 \
     --hash=sha256:159e9edac4c451ce77a5cdb9fc5d1100708d2dd4ba3c3df572f14097351af80e \
     --hash=sha256:178aefcd11307d874b4cd3100344e7e2d888d9791a6a1d9bfe90fbc1b74fd1d0
     # via pytest-tcpclient
-backports-asyncio-runner==1.2.0 ; python_version < "3.11" \
-    --hash=sha256:0da0a936a8aeb554eccb426dc55af3ba63bcdc69fa1a600b5bb305413a4477b5 \
-    --hash=sha256:a5aa7b2b7d8f8bfcaa2b57313f70792df84e32a2a746f585213373f900b42162
-    # via pytest-asyncio
+pytest-tcpclient==0.7.17 \
+    --hash=sha256:576675d923c56a5584af5477bd43b908b95489b0c325cc6f261f217a0da0b150 \
+    --hash=sha256:8f50d534939ef115e95b251839a444a0f3ba2641d5ce7ed5213b90b757ebcd00
+    # via -r backports/requirements.in
 pyyaml-ft==7.0.1 ; python_version >= "3.13" \
     --hash=sha256:0f7884aa20dfaa7b8da2239a1e798009ad115ad77aa51ec66f10e56becf4ef09 \
     --hash=sha256:1246c7d3999b606ce920348fc1c13f3928f94a958be9e14834cdc07525382b97 \
@@ -34,6 +53,4 @@ pyyaml-ft==7.0.1 ; python_version >= "3.13" \
     --hash=sha256:ceb3de99bf5dd82504715752e4b1933bf5c0545b0dfc4d9edf846335ad14c96b \
     --hash=sha256:cfa5770752ed40ae98ab8cda33223cad20a6f94907fdf14412f74f0c2e723ece \
     --hash=sha256:e8384600ce21dde15ab1f9784f44c2eaedc4f08f4233043cf71ff9a3054f46b5
-    # via
-    #   -r requirements.in
-    #   libcst
+    # via -r backports/requirements.in
