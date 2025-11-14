@@ -1,4 +1,172 @@
 # OZI CHANGELOG
+## 2.1.27 (2025-11-14)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump pytest from 8.3.5 to 8.4.2 in /ozi/test/pytest
+
+Bumps [pytest](https://github.com/pytest-dev/pytest) from 8.3.5 to 8.4.2.
+- [Release notes](https://github.com/pytest-dev/pytest/releases)
+- [Changelog](https://github.com/pytest-dev/pytest/blob/main/CHANGELOG.rst)
+- [Commits](https://github.com/pytest-dev/pytest/compare/8.3.5...8.4.2)
+
+
+updated-dependencies:
+- dependency-name: pytest
+  dependency-version: 8.4.2
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`a46522a`](https://github.com/OZI-Project/OZI/commit/a46522a02bf8ca2f444feccb8092a1db72daf3c7))
+
+* (cflite): Bump hypothesis in /.clusterfuzzlite
+
+Bumps [hypothesis](https://github.com/HypothesisWorks/hypothesis) from 6.142.5 to 6.147.0.
+- [Release notes](https://github.com/HypothesisWorks/hypothesis/releases)
+- [Commits](https://github.com/HypothesisWorks/hypothesis/compare/hypothesis-python-6.142.5...hypothesis-python-6.147.0)
+
+
+updated-dependencies:
+- dependency-name: hypothesis
+  dependency-version: 6.147.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`b44a922`](https://github.com/OZI-Project/OZI/commit/b44a922b6d9d7fdb3c0b2bc562f1f01ecd89001b))
+
+*  Bump python-semantic-release in /ozi/dist/semantic_release
+
+Bumps [python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 10.4.1 to 10.5.2.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v10.4.1...v10.5.2)
+
+
+updated-dependencies:
+- dependency-name: python-semantic-release
+  dependency-version: 10.5.2
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`562514a`](https://github.com/OZI-Project/OZI/commit/562514a1c6b1cc026c8b1c757ffd4a376203c2a9))
+
+*  Bump actions/dependency-review-action from 4.8.1 to 4.8.2
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.8.1 to 4.8.2.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/40c09b7dc99638e5ddb0bfd91c1673effc064d8a...3c4e3dcb1aa7874d2c16be7d79418e9b7efd6261)
+
+
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-version: 4.8.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`3699c4a`](https://github.com/OZI-Project/OZI/commit/3699c4a32d315dbe52ca6aa6630cf8b730071d3d))
+
+*  Bump github/codeql-action in the ci group
+
+Bumps the ci group with 1 update: [github/codeql-action](https://github.com/github/codeql-action).
+
+
+Updates `github/codeql-action` from 4.31.1 to 4.31.2
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/5fe9434cd24fe243e33e7f3305f8a5b519b70280...0499de31b99561a6d14a36a5f662c2a54f91beee)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 4.31.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+  dependency-group: ci
+... — dependabot[bot] <support@github.com>
+([`f17e63d`](https://github.com/OZI-Project/OZI/commit/f17e63d48506d07c4cb0d30b55fce8d4810bdb9e))
+
+*  Bump black from 25.9.0 to 25.11.0 in /ozi/lint/black
+
+Bumps [black](https://github.com/psf/black) from 25.9.0 to 25.11.0.
+- [Release notes](https://github.com/psf/black/releases)
+- [Changelog](https://github.com/psf/black/blob/main/CHANGES.md)
+- [Commits](https://github.com/psf/black/compare/25.9.0...25.11.0)
+
+
+updated-dependencies:
+- dependency-name: black
+  dependency-version: 25.11.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`9f10d73`](https://github.com/OZI-Project/OZI/commit/9f10d736cd2b555bcdbfe3614337dcaf668b670d))
+
+*  Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `ce2742d` to `83fb5c3`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`674c4ce`](https://github.com/OZI-Project/OZI/commit/674c4ce6a00e964b2b5f7c8ac12a299101ff12a4))
+
+*  Bump step-security/harden-runner from 2.13.1 to 2.13.2
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.13.1 to 2.13.2.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a...95d9a5deda9de15063e7595e9719c11c38c90ae2)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-version: 2.13.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`e2c0779`](https://github.com/OZI-Project/OZI/commit/e2c07797507c1921bc759c8037daef649870fe73))
+
+*  Bump ozi-core from 1.21.26 to 1.21.27
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.26 to 1.21.27.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.26...1.21.27)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.27
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`52cb84b`](https://github.com/OZI-Project/OZI/commit/52cb84b0510a6f9d235ca9cbcdf78ba4d3575acb))
+
+
+### 🐛 Fixed Bugs
+
+*  remove find_program check for nodejs in pyright requirements — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`e3d069c`](https://github.com/OZI-Project/OZI/commit/e3d069cda030f5448babdd3dcd18cd8b9abf48d5))
+
+
+### Other
+
+
+* Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `83fb5c3` to `43d815b`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`4ae9bc0`](https://github.com/OZI-Project/OZI/commit/4ae9bc0dc98e24bffae9d88c7ba23f40bdd6816b))
+
 ## 2.1.26 (2025-11-09)
 
 
