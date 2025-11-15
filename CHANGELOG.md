@@ -1,4 +1,61 @@
 # OZI CHANGELOG
+## 2.1.28 (2025-11-15)
+
+
+### ⬆️ Upgraded Dependencies
+
+*  Bump ozi-core from 1.21.27 to 1.21.28
+
+Bumps [ozi-core](https://github.com/OZI-Project/ozi-core) from 1.21.27 to 1.21.28.
+- [Release notes](https://github.com/OZI-Project/ozi-core/releases)
+- [Changelog](https://github.com/OZI-Project/ozi-core/blob/1.21.28/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/ozi-core/compare/1.21.27...1.21.28)
+
+
+updated-dependencies:
+- dependency-name: ozi-core
+  dependency-version: 1.21.28
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`31c0823`](https://github.com/OZI-Project/OZI/commit/31c0823ee747292c6c8a1de8902f6b1c66b33e6b))
+
+*  Bump github/codeql-action in the ci group
+
+Bumps the ci group with 1 update: [github/codeql-action](https://github.com/github/codeql-action).
+
+
+Updates `github/codeql-action` from 4.31.2 to 4.31.3
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/0499de31b99561a6d14a36a5f662c2a54f91beee...014f16e7ab1402f30e7c3329d33797e7948572db)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 4.31.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+  dependency-group: ci
+... — dependabot[bot] <support@github.com>
+([`90dcc32`](https://github.com/OZI-Project/OZI/commit/90dcc32edeb01a5dd133e3913fd32588168bee9f))
+
+
+### Other
+
+
+* Bump oss-fuzz-base/base-builder in /.clusterfuzzlite
+
+Bumps oss-fuzz-base/base-builder from `43d815b` to `ef00f80`.
+
+
+updated-dependencies:
+- dependency-name: oss-fuzz-base/base-builder
+  dependency-version: v1
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`e74f370`](https://github.com/OZI-Project/OZI/commit/e74f370cd182e39ed95c0ccec4c55d978b1b80d7))
+
 ## 2.1.27 (2025-11-14)
 
 
