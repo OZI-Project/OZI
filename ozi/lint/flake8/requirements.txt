@@ -95,9 +95,9 @@ flake8-tidy-imports==4.12.0 \
     --hash=sha256:9254788c3b6862c2fcec0250d2dc9af089afebff9c5b8a8ac8b9525b059b06db \
     --hash=sha256:ab1e31a5ce07518a31c0a34cd92551f4c27639ae2c35a21364680a0318da312e
     # via -r requirements.in
-flake8-type-checking==3.0.0 \
-    --hash=sha256:acd5c08cc618e9b3a6257246e5cdf5c0d5b2ba2c5120e20df880823fe84de738 \
-    --hash=sha256:e9dfb370d246414e0a25033b1826be5b1499787370b8e2c3f9696c44530e3f65
+flake8-type-checking==3.1.1 \
+    --hash=sha256:29460eceb89e08553fc390eaddec103dccbaf28d180d85dc924c7c7d240e50f8 \
+    --hash=sha256:f908b40c838e682eca3c6a7cd199fd7afbcc2ced8a517124cec7fb28dd6c0d58
     # via -r requirements.in
 mccabe==0.7.0 \
     --hash=sha256:348e0240c33b60bbdf4e523192ef919f28cb2c3d7d5c7794f74009290f236325 \
