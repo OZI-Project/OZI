@@ -1,4 +1,40 @@
 # OZI CHANGELOG
+## 2.1.29 (2026-03-26)
+
+
+### ⬆️ Upgraded Dependencies
+
+* (cflite): Bump tomli from 2.3.0 to 2.4.0 in /.clusterfuzzlite
+
+Bumps [tomli](https://github.com/hukkin/tomli) from 2.3.0 to 2.4.0.
+- [Changelog](https://github.com/hukkin/tomli/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/hukkin/tomli/compare/2.3.0...2.4.0)
+
+
+updated-dependencies:
+- dependency-name: tomli
+  dependency-version: 2.4.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`be5b63e`](https://github.com/OZI-Project/OZI/commit/be5b63e191f15ece5c665283d7b1e9ce1be04b5b))
+
+* (cflite): Bump pyinstaller in /.clusterfuzzlite
+
+Bumps [pyinstaller](https://github.com/pyinstaller/pyinstaller) from 6.16.0 to 6.18.0.
+- [Release notes](https://github.com/pyinstaller/pyinstaller/releases)
+- [Changelog](https://github.com/pyinstaller/pyinstaller/blob/develop/doc/CHANGES.rst)
+- [Commits](https://github.com/pyinstaller/pyinstaller/compare/v6.16.0...v6.18.0)
+
+
+updated-dependencies:
+- dependency-name: pyinstaller
+  dependency-version: 6.18.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`7a25276`](https://github.com/OZI-Project/OZI/commit/7a252760703ddf4f61da1818f9c8d0d43b2d853c))
+
 ## 2.1.28 (2025-11-15)
 
 
@@ -201,12 +237,6 @@ updated-dependencies:
   update-type: version-update:semver-patch
 ... — dependabot[bot] <support@github.com>
 ([`52cb84b`](https://github.com/OZI-Project/OZI/commit/52cb84b0510a6f9d235ca9cbcdf78ba4d3575acb))
-
-
-### 🐛 Fixed Bugs
-
-*  remove find_program check for nodejs in pyright requirements — Eden Ross Duff MSc <ozi.project@outlook.com>
-([`e3d069c`](https://github.com/OZI-Project/OZI/commit/e3d069cda030f5448babdd3dcd18cd8b9abf48d5))
 
 
 ### Other
@@ -605,6 +635,15 @@ updated-dependencies:
   dependency-type: direct:production
 ... — dependabot[bot] <support@github.com>
 ([`b7f6762`](https://github.com/OZI-Project/OZI/commit/b7f67621951e2addbf24ff677b14461bba9debda))
+
+
+### 🐛 Fixed Bugs
+
+*  deprecate patch runner
+([`6c096df`](https://github.com/OZI-Project/OZI/commit/6c096dfbc4e39ef77cefeaae06d907dd5d955bc5))
+
+*  remove find_program check for nodejs in pyright requirements — Eden Ross Duff MSc <ozi.project@outlook.com>
+([`e3d069c`](https://github.com/OZI-Project/OZI/commit/e3d069cda030f5448babdd3dcd18cd8b9abf48d5))
 
 ## 2.1.22 (2025-10-14)
 
