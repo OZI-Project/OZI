@@ -81,8 +81,8 @@ flake8-pyi==25.5.0 \
     --hash=sha256:7aa76f0ee686e67d0ea1f1f9e5c428d3cfa182055813f78406f6802981df7201 \
     --hash=sha256:dde18e5b20e6e17433767db97960164a4b4bbe0814a174a9e5ac552d8c73982a
     # via -r requirements.in
-flake8-pyproject==1.2.3 \
-    --hash=sha256:6249fe53545205af5e76837644dc80b4c10037e73a0e5db87ff562d75fb5bd4a
+flake8-pyproject==1.2.4 \
+    --hash=sha256:ea34c057f9a9329c76d98723bb2bb498cc6ba8ff9872c4d19932d48c91249a77
     # via -r requirements.in
 flake8-pytest-style==2.1.0 \
     --hash=sha256:a0d6dddcd533bfc13f19b8445907be0330c5e6ccf7090bcd9d5fa5a0b1b65e71 \
