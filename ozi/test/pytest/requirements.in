@@ -1,7 +1,7 @@
 pytest~=8.4.2
-pytest-cov~=7.0
+pytest-cov~=7.1
 pytest-randomly~=4.0
 pytest-xdist~=3.8
-urllib3~=2.5
+urllib3~=2.6
 hypothesis[cli,codemods,ghostwriter]~=6.141
 pyyaml

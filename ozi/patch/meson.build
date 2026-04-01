@@ -13,7 +13,7 @@ foreach file: patch_files
     endif
     fs.copyfile(file)
     if meson.project_version().version_compare('<'+file.split('-')[2]) and meson.is_subproject()
-        run_command(patch, '-Nmlu', '--no-backup-if-mismatch', meson.global_source_root() / file.split('-')[0], file, check: false)
+        # run_command(patch, '-Nmlu', '--no-backup-if-mismatch', meson.global_source_root() / file.split('-')[0], file, check: false)
     endif
 endforeach
 if false

@@ -349,7 +349,6 @@ python =
 [testenv]
 allowlist_externals = 
     rm
-    meson
     python
 package = wheel
 deps =
