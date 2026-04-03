@@ -60,7 +60,7 @@ lint = ["bandit[toml]", "black", "flake8", "flake8-quotes",
         "flake8-leading-blank-lines", "flake8-tidy-imports", "flake8-pyi",
         "Flake8-pyproject", "isort", "mypy", "pyright"]
 ## Testing Setup
-test = ["coverage[toml]", "hypothesis[all]", "pytest", "pytest-asyncio", "pytest-cov", 
+test = ["coverage[toml]", "hypothesis", "pytest", "pytest-asyncio", "pytest-cov", 
         "pytest-tcpclient", "pytest-randomly", "pytest-xdist"]
 
 [project.urls]
