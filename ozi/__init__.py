@@ -11,6 +11,7 @@
 
    The ozi_templates module was moved out of blastpipe.
 """
+
 from importlib.metadata import PackageNotFoundError
 from importlib.metadata import version
 

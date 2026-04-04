@@ -29,6 +29,7 @@ Environment Variables
 * ``tool.ozi-build.metadata.requires-external``
 
 """
+
 import os
 import sys
 from pathlib import Path

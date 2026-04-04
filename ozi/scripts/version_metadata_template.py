@@ -19,6 +19,7 @@ Output
 * String representation of the current version for a package.
 
 """
+
 from importlib.metadata import version
 
 if __name__ == '__main__':

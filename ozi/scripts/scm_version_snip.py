@@ -20,6 +20,7 @@ Output
 * ``tool.setuptools_scm:...`` (fully configured)
 
 """
+
 from setuptools_scm import get_version  # type: ignore
 
 if __name__ == '__main__':
