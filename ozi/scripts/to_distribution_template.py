@@ -19,6 +19,7 @@ Output
 * String representation of the first matched distribution for a key.
 
 """
+
 from importlib.metadata import packages_distributions
 
 if __name__ == '__main__':
