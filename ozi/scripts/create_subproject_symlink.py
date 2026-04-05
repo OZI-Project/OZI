@@ -24,6 +24,7 @@ Environment Variables
 
 
 """
+
 import os
 import pathlib
 import sys
@@ -33,27 +34,24 @@ from glob import glob
 from pathvalidate import validate_filepath
 
 if __name__ == '__main__':
-    if sys.platform == 'win32':
-        source = pathlib.Path(os.environ.get('MESON_BUILD_ROOT'))
-    else:
-        source = pathlib.Path(
-            os.path.relpath(
-                os.path.join('/', os.environ.get('MESON_BUILD_ROOT', os.path.relpath('..'))),
-                '/',
-            ),
-        )
-    validate_filepath(source)
+    build_root = os.environ.get('MESON_BUILD_ROOT', '..')
+    source = pathlib.Path(build_root).resolve()
+    validate_filepath(source, platform='auto')
     current_dir = os.getcwd()
-    os.chdir('/' / source)
+    # chdir to the resolved absolute path
+    os.chdir(source)
     try:
-        target = pathlib.Path(glob('subprojects/OZI-*')[0])
+        matches = glob('subprojects/OZI-*')
+        if not matches:
+            raise IndexError
+        target = pathlib.Path(matches[0])
+        link_path = pathlib.Path('subprojects/ozi')
+        with suppress(FileExistsError):
+            link_path.symlink_to(
+                target,
+                target_is_directory=True,
+            )
     except IndexError:
-        print('OZI subproject directory not found', file=sys.stderr)
-        exit(0)
+        sys.exit(print('OZI subproject directory not found', file=sys.stderr))
     finally:
         os.chdir(current_dir)
-    with suppress(FileExistsError):
-        ('/' / source / 'subprojects' / 'ozi').symlink_to(
-            '/' / source / target,
-            target_is_directory=True,
-        )

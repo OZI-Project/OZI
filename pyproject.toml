@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 [build-system]
 build-backend = "ozi_build.buildapi"
-requires      = ["OZI.build[core,uv]~=2.3.12"]
+requires      = ["OZI.build[core,uv]>=2.3.12,<2.5.0"]
 
 [project.scripts]
 ozi = "ozi.__main__:main"
@@ -18,7 +18,7 @@ description = 'Package Python projects with Meson.'
 readme = 'README.rst'
 authors = [{name='Eden Ross Duff MSc', email='help@oziproject.dev'}]
 keywords = 'meson,packaging,wheel'
-requires-python='>=3.9, <3.14'
+requires-python='>=3.10, <3.14'
 classifiers = [
      'Development Status :: 4 - Beta',
      'Environment :: Console',
@@ -60,7 +60,7 @@ lint = ["bandit[toml]", "black", "flake8", "flake8-quotes",
         "flake8-leading-blank-lines", "flake8-tidy-imports", "flake8-pyi",
         "Flake8-pyproject", "isort", "mypy", "pyright"]
 ## Testing Setup
-test = ["coverage[toml]", "hypothesis[all]", "pytest", "pytest-asyncio", "pytest-cov", 
+test = ["coverage[toml]", "hypothesis", "pytest", "pytest-asyncio", "pytest-cov", 
         "pytest-tcpclient", "pytest-randomly", "pytest-xdist"]
 
 [project.urls]
@@ -349,7 +349,6 @@ python =
 [testenv]
 allowlist_externals = 
     rm
-    meson
     python
 package = wheel
 deps =
