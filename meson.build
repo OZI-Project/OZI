@@ -8,7 +8,7 @@ project(
         'python3',
         [
             '-c',
-            'from setuptools_scm import get_version;print(get_version(normalize=False, fallback_version="%OZIBUILDVERSION%"))',
+            'from setuptools_scm import get_version;print(get_version(normalize=False, fallback_version="2.1.30"))',
         ],
         check: true,
     ).stdout().strip(),
