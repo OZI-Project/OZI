@@ -1,4 +1,18 @@
 # OZI CHANGELOG
+## 2.1.31 (2026-04-06)
+
+
+### 🐛 Fixed Bugs
+
+*  fix subproject symlink target path — Eden Ross Duff, MSc <rjdbcm@outlook.com>
+([`422c1a7`](https://github.com/OZI-Project/OZI/commit/422c1a7ddd5e887bc1629571486e52a0491102a7))
+
+
+### 🔨 Updated Scripts
+
+*  update fallback version in meson.build to 2.1.31 — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`85d6645`](https://github.com/OZI-Project/OZI/commit/85d66457d9800e389f67c5a4ad9acb7f7a6cf06b))
+
 ## 2.1.30 (2026-04-05)
 
 
