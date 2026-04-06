@@ -44,7 +44,7 @@ if __name__ == '__main__':
         matches = glob('subprojects/OZI-*')
         if not matches:
             raise IndexError
-        target = pathlib.Path(matches[0])
+        target = pathlib.Path('..', matches[0])
         link_path = pathlib.Path('subprojects/ozi')
         with suppress(FileExistsError):
             link_path.symlink_to(
