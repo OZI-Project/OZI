@@ -41,9 +41,9 @@ filelock==3.25.2 \
     #   python-discovery
     #   tox
     #   virtualenv
-hypothesis==6.151.10 \
-    --hash=sha256:6c9565af8b4aa3a080b508f66ce9c2a77dd613c7e9073e27fc7e4ef9f45f8a27 \
-    --hash=sha256:b0d7728f0c8c2be009f89fcdd6066f70c5439aa0f94adbb06e98261d05f49b05
+hypothesis==6.153.0 \
+    --hash=sha256:11616e5158fc485d62bae19d9cc69333237faa8050ad44a45218254a1ef272bb \
+    --hash=sha256:2aeda9bbb44ae0ee0bfa67ef744a25be05c1f804dca4eb6479c63518dc9f2900
     # via -r requirements.in
 iniconfig==2.1.0 \
     --hash=sha256:3abbd2e30b36733fee78f9c7f7308f2d0050e88f0087fd25c2645f63c773e1c7 \
